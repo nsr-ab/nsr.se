@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: NSR\n"
+"POT-Creation-Date: 2016-11-11 15:05+0100\n"
+"PO-Revision-Date: 2016-11-11 15:05+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: views/partials/header/default.blade.php:27
+#: views/partials/header/default.blade.php:60
+msgid "What customer are you today?"
+msgstr "Vilken kund är du idag?"
+
+#: views/partials/page-footer.blade.php:11
+msgid "Share the page"
+msgstr "Dela sidan"
+
+#: views/partials/timestamps.blade.php:9 views/partials/timestamps.blade.php:31
+msgid "Published"
+msgstr "Publiserad"
+
+#: views/partials/timestamps.blade.php:18
+msgid "Last updated"
+msgstr "Uppdaterad"
+
+#: views/partials/timestamps.blade.php:44
+msgid "page manager"
+msgstr "Sidansvarig"
+
+#. Theme Name of the plugin/theme
+msgid "NSR"
+msgstr "NSR"
+
+#. Description of the plugin/theme
+msgid "NSR Child theme developed by HIQ"
+msgstr "NSR Child tema utvecklad av HIQ"
+
+#. Author of the plugin/theme
+msgid "HIQ"
+msgstr "HIQ"
+
+#~ msgid "What customer are you today"
+#~ msgstr "Vilken kund är du idag?"
+
+#~ msgid "What are you looking for"
+#~ msgstr "Vilken kund är du idag?"
+
+#~ msgid "Published by"
+#~ msgstr "Publicerad av"

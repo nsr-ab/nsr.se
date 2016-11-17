@@ -1,0 +1,118 @@
+
+#main-content {
+    .page-title  {
+        position:relative;
+        margin-bottom:30px;
+
+        :after {
+            content:"";
+            background: alpha-color($palette-primary-grey, 25%, $type:'dark');
+            position: absolute;
+            bottom: 10px;
+            left: 1%;
+            right:1%;
+            height: 1px;
+            width: 98%;
+        }
+
+        .nav-help {
+            margin-bottom:30px;
+        }
+        .nav-help a {
+            font-size:1.3rem;
+            vertical-align: middle;
+            display: table-cell;
+            text-decoration: underline;
+        }
+        .nav-help i {
+            font-size:2.0rem;
+            vertical-align: middle;
+            margin:5px;
+        }
+
+    }
+    @media only screen and (max-width: 600px) {
+
+    }
+
+    .page-content {
+        padding-top:0;
+        margin-top:-20px;
+    }
+
+    .page-footer {
+        background-color: $palette-primary-white;
+        .box-border {
+            box-shadow: none !important;
+        }
+        .box {
+            color: alpha-color($palette-primary-grey, 50%, $type: 'dark');
+        }
+        .grid {
+            padding-left:0px !important;
+        }
+        .pricon-lg {
+            vertical-align: 8%;
+        }
+    }
+
+    .page-author {
+        border-top: 1px solid alpha-color($palette-primary-grey, 25%, $type:'dark');
+        border-bottom: 1px solid alpha-color($palette-primary-grey, 25%, $type:'dark');
+        margin-bottom:50px;
+        padding:5px;
+        color: alpha-color($palette-primary-grey, 50%, $type:'dark');
+    }
+    .post-author a {
+        font-weight:400;
+    }
+    @media only screen and (max-width: 600px) {
+        .page-author li {
+            text-align: left;
+            clear:both;
+            width:100%;
+            max-width:100%;
+
+        }
+    }
+
+    article blockquote {
+        max-width:700px;
+        box-shadow: 0 1px 8px rgba(0,0,0,0.09),0 2px 3px rgba(0,0,0,.12) !important;
+        padding:35px 18px 40px 90px;
+        border-top:5px solid alpha-color($palette-primary-red, 16%, $type:'light');
+        border-left:none;
+        display:inline-block;
+        vertical-align:top;
+        position:relative;
+        font-size:110% !important;
+    }
+
+
+    article blockquote:before {
+        font-family: "Material Icons";
+        content: '\E85A';
+        font-size:42px;
+        color:$palette-primary-black !important;
+        vertical-align: bottom;
+        position:absolute;
+        top:40px;
+        left:25px;
+        display: inline-block;
+        width: 50px;
+
+    }
+
+    .btn.btn-primary {
+        background-color:$palette-primary-green !important;
+        border-color:$palette-primary-green !important;
+
+    }
+
+
+    // ***********************************************************************************
+    // *** Wake up gfx card to rerender fonts
+    // *** OBS! It breaks position: fixed so use it on children only under fixed element
+    // ***********************************************************************************
+    @include textRendering();
+}

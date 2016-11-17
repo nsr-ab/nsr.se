@@ -1,0 +1,20 @@
+.main-footer {
+    background-color:$palette-primary-grey !important;
+}
+.home .main-footer, footer {
+    background-color:$palette-primary-white !important;
+}
+
+.main-footer {
+    border-top: 4px solid alpha-color($palette-secondary-green, 0%, $type:'light');
+    margin-top: 0;
+    color:$palette-secondary-green;
+}
+
+.main-footer nav {
+    background:none !important;
+}
+
+.main-footer, .main-footer *, .page-footer {
+    box-shadow: none !important;
+}

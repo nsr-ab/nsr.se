@@ -1,0 +1,53 @@
+// ***************************************************************
+// *** Colors
+// ***************************************************************
+
+
+/* White  */
+$palette-primary-white: #fff;
+$palette-primary-white-opacity: rgba(255,255,255,0.9);
+
+/* Greys */
+$palette-primary-grey: #f6f6f6;
+
+/* Black */
+$palette-primary-black: #000;
+
+/* Green */
+$palette-primary-green: #007586;
+$palette-secondary-green: #b3d6da;
+
+/* Green Motherbird theme settings */
+$palette-green-1: $palette-primary-green !important;
+$palette-green-2: $palette-secondary-green !important;
+$palette-green-3: $palette-primary-green !important;
+$palette-green-4: $palette-primary-green !important;
+$palette-green-5: $palette-primary-green !important;
+
+
+/* Red */
+$palette-primary-red: #fe0e35;
+//ff5770
+/* Blue */
+$palette-primary-blue: #00aaff;
+
+/* Mint */
+$palette-primary-mint: #00f2d3;
+
+/* Hulk */
+$palette-primary-hulk-green: #a8ff00;
+
+/* Yellow */
+$palette-primary-yellow: #d8c75b;
+
+/* Orange */
+$palette-primary-orange: #f2bc00;
+
+$colors-primary: (
+    $palette-primary-red, $palette-primary-blue,
+    $palette-primary-mint, $palette-primary-hulk-green,
+    $palette-primary-yellow, $palette-primary-orange
+);
+
+
+

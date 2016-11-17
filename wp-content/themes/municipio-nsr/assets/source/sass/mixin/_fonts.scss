@@ -1,0 +1,61 @@
+    $used-fonts: ();
+
+
+    /**
+     * Import fonts from google
+     */
+    @mixin importGoogleFonts() {
+
+        $fonts: '';
+
+        @each $family, $variations in $used-fonts {
+
+            $family-string: str-replace($family, ' ', '+');
+            $variations-string: '';
+            @each $variation in $variations {
+                $variations-string: "#{$variations-string},#{$variation}";
+            }
+
+            $variations-string: str-slice($variations-string, 2);
+            $fonts: "#{$fonts}|#{$family-string}:#{$variations-string}";
+        }
+
+        $fonts: str-slice($fonts, 2);
+        @if $fonts != '' {
+            @import url('http://fonts.googleapis.com/css?family=#{$fonts}');
+        }
+    }
+
+
+
+
+    /**
+     * Adding font to family
+     */
+    @mixin track-fonts($family, $weight, $style) {
+
+        @if map-has-key($used-fonts, $family) == false {
+            $used-fonts: map-merge($used-fonts, ($family: ())) !global;
+        }
+
+        $weight-style: if($style == normal, $weight, #{$weight}#{$style});
+        $font-map: map-get($used-fonts, $family);
+
+        @if index($font-map, $weight-style) == null {
+            $variations: append($font-map, $weight-style);
+            $used-fonts: map-merge($used-fonts, ($family: $variations)) !global;
+        }
+    }
+
+
+    /**
+     * Preparing Font for CSS
+     */
+    @mixin font($family, $weight: 400, $style: normal) {
+
+        @include track-fonts($family, $weight, $style);
+        font-family: $family;
+        font-weight: $weight;
+        font-style: $style;
+    }
+

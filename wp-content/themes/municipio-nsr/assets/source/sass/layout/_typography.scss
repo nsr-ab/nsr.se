@@ -1,0 +1,96 @@
+// ***************************************************************
+// *** Primary links & Typography
+// ***************************************************************
+
+* {
+    @include font('Lato', 400);
+}
+
+i {
+    @include font('Material Icons', 400);
+}
+
+
+a {
+    @include font('Lato', 600);
+    color: $palette-primary-green;
+    &:hover {
+        text-decoration: underline;
+        color: alpha-color($palette-primary-green, 10%, $type:'dark')  !important;
+    }
+}
+
+b, strong {
+    @include font('Lato', 700);
+}
+
+h1, h2, h3, h4, h5 {
+    @include font('Lato', 900);
+    color:$palette-primary-green !important;
+}
+
+h1 {
+    font-size: 4.9rem;
+    letter-spacing:1.6px;
+    color: alpha-color($palette-primary-grey, 74%, $type:'dark') !important;
+    min-height:80px;
+    max-width:990px !important;
+    line-height:93%;
+    padding:0px;
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 3.2rem;
+        min-height:80px;
+    }
+}
+
+h6 {
+    font-weight:700;
+    text-transform: uppercase;
+}
+
+h5.page-excertpt {
+    font-size: 1.81rem;
+    font-weight:normal;
+    color: alpha-color($palette-primary-grey, 70%, $type:'dark') !important;
+    line-height: 129%;
+    margin-bottom:27px;
+    margin-top:8px;
+}
+
+p {
+    font-size: 102%;
+    line-height:145%;
+}
+
+article h4 {
+    font-weight:400;
+    color: $palette-primary-black !important;
+    font-size: 1.8rem;
+    margin-bottom:-8px;
+    padding-bottom: .0em;
+    margin-top:0px;
+}
+
+
+
+.theme-green a, .theme-green .breadcrumbs a {
+    color: $palette-primary-green;
+}
+
+.theme-green .breadcrumbs {
+
+    font-size:1.2rem;
+
+    a {
+        font-weight:400 !important;
+    }
+
+    li:nth-last-child(2) a:before {
+        color: alpha-color($palette-primary-grey, 10%, $type:'dark');
+    }
+}
+
+
