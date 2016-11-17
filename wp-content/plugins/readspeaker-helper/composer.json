@@ -1,0 +1,13 @@
+{
+    "name": "helsingborg-stad/readspeaker-helper",
+    "description": "This is a WordPress plugin that will help you use the ReadSpeaker from readspeaker.com",
+    "type": "wordpress-plugin",
+    "license": "Apache License 2.0",
+    "authors": [
+        {
+            "name": "Kristoffer Svanmark",
+            "email": "kristoffer.svanmark@lexiconitkonsult.se"
+        }
+    ],
+    "require": {}
+}

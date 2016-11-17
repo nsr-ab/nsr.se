@@ -1,0 +1,1271 @@
+[
+    {
+        "name": "composer/installers",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/composer/installers.git",
+            "reference": "d78064c68299743e0161004f2de3a0204e33b804"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/composer/installers/zipball/d78064c68299743e0161004f2de3a0204e33b804",
+            "reference": "d78064c68299743e0161004f2de3a0204e33b804",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.0"
+        },
+        "replace": {
+            "roundcube/plugin-installer": "*",
+            "shama/baton": "*"
+        },
+        "require-dev": {
+            "composer/composer": "1.0.*@dev",
+            "phpunit/phpunit": "4.1.*"
+        },
+        "time": "2016-08-13 20:53:52",
+        "type": "composer-plugin",
+        "extra": {
+            "class": "Composer\\Installers\\Plugin",
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Composer\\Installers\\": "src/Composer/Installers"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kyle Robinson Young",
+                "email": "kyle@dontkry.com",
+                "homepage": "https://github.com/shama"
+            }
+        ],
+        "description": "A multi-framework Composer library installer",
+        "homepage": "https://composer.github.io/installers/",
+        "keywords": [
+            "Craft",
+            "Dolibarr",
+            "Hurad",
+            "ImageCMS",
+            "MODX Evo",
+            "Mautic",
+            "OXID",
+            "Plentymarkets",
+            "RadPHP",
+            "SMF",
+            "Thelia",
+            "WolfCMS",
+            "agl",
+            "aimeos",
+            "annotatecms",
+            "attogram",
+            "bitrix",
+            "cakephp",
+            "chef",
+            "cockpit",
+            "codeigniter",
+            "concrete5",
+            "croogo",
+            "dokuwiki",
+            "drupal",
+            "elgg",
+            "expressionengine",
+            "fuelphp",
+            "grav",
+            "installer",
+            "joomla",
+            "kohana",
+            "laravel",
+            "lithium",
+            "magento",
+            "mako",
+            "mediawiki",
+            "modulework",
+            "moodle",
+            "phpbb",
+            "piwik",
+            "ppi",
+            "puppet",
+            "reindex",
+            "roundcube",
+            "shopware",
+            "silverstripe",
+            "symfony",
+            "typo3",
+            "wordpress",
+            "yawik",
+            "zend",
+            "zikula"
+        ]
+    },
+    {
+        "name": "johnpbloch/wordpress-core-installer",
+        "version": "0.2.1",
+        "version_normalized": "0.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/johnpbloch/wordpress-core-installer.git",
+            "reference": "a04c2c383ef13aae077f36799ed2eafdebd618d2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/johnpbloch/wordpress-core-installer/zipball/a04c2c383ef13aae077f36799ed2eafdebd618d2",
+            "reference": "a04c2c383ef13aae077f36799ed2eafdebd618d2",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.0"
+        },
+        "conflict": {
+            "composer/installers": "<1.0.6"
+        },
+        "require-dev": {
+            "composer/composer": "1.0.*@dev"
+        },
+        "time": "2015-06-11 15:15:30",
+        "type": "composer-plugin",
+        "extra": {
+            "class": "johnpbloch\\Composer\\WordPressCorePlugin"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "johnpbloch\\Composer\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "John P. Bloch",
+                "email": "me@johnpbloch.com"
+            }
+        ],
+        "description": "A custom installer to handle deploying WordPress with composer",
+        "keywords": [
+            "wordpress"
+        ]
+    },
+    {
+        "name": "wpackagist-plugin/wp-editor-widget",
+        "version": "0.5.5",
+        "version_normalized": "0.5.5.0",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/wp-editor-widget/",
+            "reference": "tags/0.5.5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/wp-editor-widget.0.5.5.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/wp-editor-widget/"
+    },
+    {
+        "name": "johnpbloch/wordpress",
+        "version": "4.6.1",
+        "version_normalized": "4.6.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/johnpbloch/wordpress.git",
+            "reference": "aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3",
+            "reference": "aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3",
+            "shasum": ""
+        },
+        "require": {
+            "johnpbloch/wordpress-core-installer": "~0.2",
+            "php": ">=5.3.2"
+        },
+        "time": "2016-09-07 15:01:47",
+        "type": "wordpress-core",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "WordPress Community",
+                "homepage": "http://wordpress.org/about/"
+            }
+        ],
+        "description": "WordPress is web software you can use to create a beautiful website or blog.",
+        "homepage": "http://wordpress.org/",
+        "keywords": [
+            "blog",
+            "cms"
+        ]
+    },
+    {
+        "name": "helsingborg-stad/modularity",
+        "version": "1.5.4",
+        "version_normalized": "1.5.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/helsingborg-stad/Modularity.git",
+            "reference": "7e852ef47bd3f34d9c6e8e8aecf9276cd7580f29"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/helsingborg-stad/Modularity/zipball/7e852ef47bd3f34d9c6e8e8aecf9276cd7580f29",
+            "reference": "7e852ef47bd3f34d9c6e8e8aecf9276cd7580f29",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "time": "2016-10-21 07:52:27",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kristoffer Svanmark",
+                "email": "kristoffer.svanmark@lexiconitkonsult.se"
+            },
+            {
+                "name": "Sebastian Thulin",
+                "email": "sebastian.thulin@helsingborg.se"
+            }
+        ],
+        "description": "Modular component system for WordPress",
+        "support": {
+            "source": "https://github.com/helsingborg-stad/Modularity/tree/1.5.4",
+            "issues": "https://github.com/helsingborg-stad/Modularity/issues"
+        }
+    },
+    {
+        "name": "wpackagist-plugin/advanced-custom-fields",
+        "version": "4.4.11",
+        "version_normalized": "4.4.11.0",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/advanced-custom-fields/",
+            "reference": "tags/4.4.11"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.4.4.11.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
+    },
+    {
+        "name": "psr/log",
+        "version": "1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-10-10 12:19:37",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Log\\": "Psr/Log/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "homepage": "https://github.com/php-fig/log",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "symfony/debug",
+        "version": "v3.1.5",
+        "version_normalized": "3.1.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/debug.git",
+            "reference": "e2b3f74a67fc928adc3c1b9027f73e1bc01190a8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/debug/zipball/e2b3f74a67fc928adc3c1b9027f73e1bc01190a8",
+            "reference": "e2b3f74a67fc928adc3c1b9027f73e1bc01190a8",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9",
+            "psr/log": "~1.0"
+        },
+        "conflict": {
+            "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
+        },
+        "require-dev": {
+            "symfony/class-loader": "~2.8|~3.0",
+            "symfony/http-kernel": "~2.8|~3.0"
+        },
+        "time": "2016-09-06 11:02:40",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Debug\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Debug Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "paragonie/random_compat",
+        "version": "v2.0.3",
+        "version_normalized": "2.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paragonie/random_compat.git",
+            "reference": "c0125896dbb151380ab47e96c621741e79623beb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c0125896dbb151380ab47e96c621741e79623beb",
+            "reference": "c0125896dbb151380ab47e96c621741e79623beb",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*|5.*"
+        },
+        "suggest": {
+            "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+        },
+        "time": "2016-10-17 15:23:22",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/random.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Paragon Initiative Enterprises",
+                "email": "security@paragonie.com",
+                "homepage": "https://paragonie.com"
+            }
+        ],
+        "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+        "keywords": [
+            "csprng",
+            "pseudorandom",
+            "random"
+        ]
+    },
+    {
+        "name": "illuminate/contracts",
+        "version": "v5.3.16",
+        "version_normalized": "5.3.16.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/contracts.git",
+            "reference": "ce5d73c6015b2054d32f3f8530767847b358ae4e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/contracts/zipball/ce5d73c6015b2054d32f3f8530767847b358ae4e",
+            "reference": "ce5d73c6015b2054d32f3f8530767847b358ae4e",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6.4"
+        },
+        "time": "2016-09-26 20:36:27",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\Contracts\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "The Illuminate Contracts package.",
+        "homepage": "https://laravel.com"
+    },
+    {
+        "name": "doctrine/inflector",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/inflector.git",
+            "reference": "90b2128806bfde671b6952ab8bea493942c1fdae"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
+            "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*"
+        },
+        "time": "2015-11-06 14:35:42",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\Common\\Inflector\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com"
+            },
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com"
+            },
+            {
+                "name": "Johannes Schmitt",
+                "email": "schmittjoh@gmail.com"
+            }
+        ],
+        "description": "Common String Manipulations with regard to casing and singular/plural rules.",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "inflection",
+            "pluralize",
+            "singularize",
+            "string"
+        ]
+    },
+    {
+        "name": "illuminate/support",
+        "version": "v5.3.16",
+        "version_normalized": "5.3.16.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/support.git",
+            "reference": "aa685c61c88a69b2e0e86310e65ef5ad2ebf2448"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/support/zipball/aa685c61c88a69b2e0e86310e65ef5ad2ebf2448",
+            "reference": "aa685c61c88a69b2e0e86310e65ef5ad2ebf2448",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/inflector": "~1.0",
+            "ext-mbstring": "*",
+            "illuminate/contracts": "5.3.*",
+            "paragonie/random_compat": "~1.4|~2.0",
+            "php": ">=5.6.4"
+        },
+        "replace": {
+            "tightenco/collect": "self.version"
+        },
+        "suggest": {
+            "illuminate/filesystem": "Required to use the composer class (5.2.*).",
+            "symfony/process": "Required to use the composer class (3.1.*).",
+            "symfony/var-dumper": "Required to use the dd function (3.1.*)."
+        },
+        "time": "2016-10-02 01:14:47",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\Support\\": ""
+            },
+            "files": [
+                "helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "The Illuminate Support package.",
+        "homepage": "https://laravel.com"
+    },
+    {
+        "name": "illuminate/container",
+        "version": "v5.3.16",
+        "version_normalized": "5.3.16.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/container.git",
+            "reference": "8047b47e1f731c975d9aa0fe0b269064d3f1346d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/container/zipball/8047b47e1f731c975d9aa0fe0b269064d3f1346d",
+            "reference": "8047b47e1f731c975d9aa0fe0b269064d3f1346d",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/contracts": "5.3.*",
+            "php": ">=5.6.4"
+        },
+        "time": "2016-10-02 01:14:30",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\Container\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "The Illuminate Container package.",
+        "homepage": "https://laravel.com"
+    },
+    {
+        "name": "illuminate/events",
+        "version": "v5.3.16",
+        "version_normalized": "5.3.16.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/events.git",
+            "reference": "cb29124d4eaba8a60bad40e95e3d8b199d040d77"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/events/zipball/cb29124d4eaba8a60bad40e95e3d8b199d040d77",
+            "reference": "cb29124d4eaba8a60bad40e95e3d8b199d040d77",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/container": "5.3.*",
+            "illuminate/contracts": "5.3.*",
+            "illuminate/support": "5.3.*",
+            "php": ">=5.6.4"
+        },
+        "time": "2016-08-12 14:24:30",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\Events\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "The Illuminate Events package.",
+        "homepage": "https://laravel.com"
+    },
+    {
+        "name": "symfony/finder",
+        "version": "v3.1.5",
+        "version_normalized": "3.1.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/finder.git",
+            "reference": "205b5ffbb518a98ba2ae60a52656c4a31ab00c6f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/finder/zipball/205b5ffbb518a98ba2ae60a52656c4a31ab00c6f",
+            "reference": "205b5ffbb518a98ba2ae60a52656c4a31ab00c6f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "time": "2016-09-28 00:11:12",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Finder\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Finder Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "illuminate/filesystem",
+        "version": "v5.3.16",
+        "version_normalized": "5.3.16.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/filesystem.git",
+            "reference": "4e51db2fd32c9dc66d759180889d820df38f7ee0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/filesystem/zipball/4e51db2fd32c9dc66d759180889d820df38f7ee0",
+            "reference": "4e51db2fd32c9dc66d759180889d820df38f7ee0",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/contracts": "5.3.*",
+            "illuminate/support": "5.3.*",
+            "php": ">=5.6.4",
+            "symfony/finder": "3.1.*"
+        },
+        "suggest": {
+            "league/flysystem": "Required to use the Flysystem local and FTP drivers (~1.0).",
+            "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
+            "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0)."
+        },
+        "time": "2016-09-07 02:03:25",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\Filesystem\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "The Illuminate Filesystem package.",
+        "homepage": "https://laravel.com"
+    },
+    {
+        "name": "illuminate/view",
+        "version": "v5.3.16",
+        "version_normalized": "5.3.16.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/view.git",
+            "reference": "c50858c381a13113645de26f3fdce3c4587ba08a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/view/zipball/c50858c381a13113645de26f3fdce3c4587ba08a",
+            "reference": "c50858c381a13113645de26f3fdce3c4587ba08a",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/container": "5.3.*",
+            "illuminate/contracts": "5.3.*",
+            "illuminate/events": "5.3.*",
+            "illuminate/filesystem": "5.3.*",
+            "illuminate/support": "5.3.*",
+            "php": ">=5.6.4",
+            "symfony/debug": "3.1.*"
+        },
+        "time": "2016-09-18 15:39:12",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\View\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "The Illuminate View package.",
+        "homepage": "https://laravel.com"
+    },
+    {
+        "name": "philo/laravel-blade",
+        "version": "v3.1",
+        "version_normalized": "3.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PhiloNL/Laravel-Blade.git",
+            "reference": "3f0ce2ee198604c53c25188110e6d7b5e887527a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PhiloNL/Laravel-Blade/zipball/3f0ce2ee198604c53c25188110e6d7b5e887527a",
+            "reference": "3f0ce2ee198604c53c25188110e6d7b5e887527a",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/events": "~5",
+            "illuminate/view": "~5"
+        },
+        "time": "2015-12-04 09:42:42",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Philo\\Blade\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Philo Hermans",
+                "email": "me@philohermans.com"
+            }
+        ],
+        "description": "Use the simple and yet powerful Laravel Blade templating engine as a standalone component.",
+        "keywords": [
+            "blade",
+            "laravel"
+        ]
+    },
+    {
+        "name": "helsingborg-stad/municipio",
+        "version": "1.1.40",
+        "version_normalized": "1.1.40.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/helsingborg-stad/Municipio.git",
+            "reference": "11720c74af3010d687e9443f97013b6095a1a9cf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/helsingborg-stad/Municipio/zipball/11720c74af3010d687e9443f97013b6095a1a9cf",
+            "reference": "11720c74af3010d687e9443f97013b6095a1a9cf",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "^1.0",
+            "philo/laravel-blade": "^3.1",
+            "symfony/debug": "^3.0",
+            "wpackagist-plugin/advanced-custom-fields": "^4.4.7"
+        },
+        "time": "2016-10-21 09:30:56",
+        "type": "wordpress-theme",
+        "extra": {
+            "installer-paths": {
+                "vendor/{$name}/": [
+                    "type:wordpress-plugin"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "license": [
+            "GNU"
+        ],
+        "authors": [
+            {
+                "name": "Kristoffer Svanmark",
+                "email": "kristoffer.svanmark@lexiconitkonsult.se"
+            },
+            {
+                "name": "Sebastian Thulin",
+                "email": "sebastian.thulin@helsingborg.se"
+            }
+        ],
+        "description": "A bootstrap theme for creating municipality sites.",
+        "support": {
+            "source": "https://github.com/helsingborg-stad/Municipio/tree/1.1.40",
+            "issues": "https://github.com/helsingborg-stad/Municipio/issues"
+        }
+    },
+    {
+        "name": "helsingborg-stad/lix-calculator",
+        "version": "v2.0.1",
+        "version_normalized": "2.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/helsingborg-stad/lix-calculator.git",
+            "reference": "f9013457b41c26692aa3377b9175f20394d52b8a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/helsingborg-stad/lix-calculator/zipball/f9013457b41c26692aa3377b9175f20394d52b8a",
+            "reference": "f9013457b41c26692aa3377b9175f20394d52b8a",
+            "shasum": ""
+        },
+        "time": "2016-10-03 12:14:35",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kristoffer Svanmark",
+                "email": "kristoffer.svanmark@lexiconitkonsult.se"
+            }
+        ],
+        "description": "WordPress plugin that calculates the lix value of your post's content.",
+        "support": {
+            "source": "https://github.com/helsingborg-stad/lix-calculator/tree/v2.0.1",
+            "issues": "https://github.com/helsingborg-stad/lix-calculator/issues"
+        }
+    },
+    {
+        "name": "helsingborg-stad/custom-short-links",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/helsingborg-stad/custom-short-links.git",
+            "reference": "300f76d2a0e539e0c297306327ba037e35b80c14"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/helsingborg-stad/custom-short-links/zipball/300f76d2a0e539e0c297306327ba037e35b80c14",
+            "reference": "300f76d2a0e539e0c297306327ba037e35b80c14",
+            "shasum": ""
+        },
+        "time": "2016-04-11 07:28:27",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kristoffer Svanmark",
+                "email": "kristoffer.svanmark@lexiconitkonsult.se"
+            }
+        ],
+        "description": "Create shortlinks for any type of content",
+        "support": {
+            "source": "https://github.com/helsingborg-stad/custom-short-links/tree/v1.0.1",
+            "issues": "https://github.com/helsingborg-stad/custom-short-links/issues"
+        }
+    },
+    {
+        "name": "helsingborg-stad/readspeaker-helper",
+        "version": "1.0.8",
+        "version_normalized": "1.0.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/helsingborg-stad/readspeaker-helper.git",
+            "reference": "b3a79e11a0f7f754b7a641c386c31ac5a039ede4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/helsingborg-stad/readspeaker-helper/zipball/b3a79e11a0f7f754b7a641c386c31ac5a039ede4",
+            "reference": "b3a79e11a0f7f754b7a641c386c31ac5a039ede4",
+            "shasum": ""
+        },
+        "time": "2016-10-19 14:26:19",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "license": [
+            "Apache License 2.0"
+        ],
+        "authors": [
+            {
+                "name": "Kristoffer Svanmark",
+                "email": "kristoffer.svanmark@lexiconitkonsult.se"
+            }
+        ],
+        "description": "This is a WordPress plugin that will help you use the ReadSpeaker from readspeaker.com",
+        "support": {
+            "source": "https://github.com/helsingborg-stad/readspeaker-helper/tree/1.0.8",
+            "issues": "https://github.com/helsingborg-stad/readspeaker-helper/issues"
+        }
+    },
+    {
+        "name": "helsingborg-stad/content-scheduler",
+        "version": "1.0.3",
+        "version_normalized": "1.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/helsingborg-stad/content-scheduler.git",
+            "reference": "857431cd74ecba1562a6c275cbbe767dd870d37a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/helsingborg-stad/content-scheduler/zipball/857431cd74ecba1562a6c275cbbe767dd870d37a",
+            "reference": "857431cd74ecba1562a6c275cbbe767dd870d37a",
+            "shasum": ""
+        },
+        "time": "2016-10-24 08:12:16",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kristoffer Svanmark",
+                "email": "kristoffer.svanmark@lexiconitkonsult.se"
+            }
+        ],
+        "description": "Nicer major publising actions interface and feature for post unpublising scheduleing",
+        "support": {
+            "source": "https://github.com/helsingborg-stad/content-scheduler/tree/1.0.3",
+            "issues": "https://github.com/helsingborg-stad/content-scheduler/issues"
+        }
+    },
+    {
+        "name": "helsingborg-stad/broken-link-detector",
+        "version": "1.0.8",
+        "version_normalized": "1.0.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/helsingborg-stad/broken-link-detector.git",
+            "reference": "a24e809363b8e7f779ba6fc37fe63207e81845ea"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/helsingborg-stad/broken-link-detector/zipball/a24e809363b8e7f779ba6fc37fe63207e81845ea",
+            "reference": "a24e809363b8e7f779ba6fc37fe63207e81845ea",
+            "shasum": ""
+        },
+        "time": "2016-10-14 08:35:07",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kristoffer Svanmark",
+                "email": "kristoffer.svanmark@lexiconitkonsult.se"
+            }
+        ],
+        "description": "Detects and fixes (if possible) broken links in post_content",
+        "support": {
+            "source": "https://github.com/helsingborg-stad/broken-link-detector/tree/1.0.8",
+            "issues": "https://github.com/helsingborg-stad/broken-link-detector/issues"
+        }
+    },
+    {
+        "name": "helsingborg-stad/better-post-ui",
+        "version": "1.0.5",
+        "version_normalized": "1.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/helsingborg-stad/better-post-UI.git",
+            "reference": "7987ae16cbf118bbf49058e3bb7ff385a32115bf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/helsingborg-stad/better-post-UI/zipball/7987ae16cbf118bbf49058e3bb7ff385a32115bf",
+            "reference": "7987ae16cbf118bbf49058e3bb7ff385a32115bf",
+            "shasum": ""
+        },
+        "time": "2016-10-14 10:01:59",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kristoffer Svanmark",
+                "email": "kristoffer.svanmark@lexiconitkonsult.se"
+            }
+        ],
+        "description": "Improves the UI and UX of the WordPress admin post form.",
+        "support": {
+            "source": "https://github.com/helsingborg-stad/better-post-UI/tree/1.0.5",
+            "issues": "https://github.com/helsingborg-stad/better-post-UI/issues"
+        }
+    },
+    {
+        "name": "helsingborg-stad/acf-ux-collapse",
+        "version": "1.0.4",
+        "version_normalized": "1.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/helsingborg-stad/ACF-UX-collapse.git",
+            "reference": "17d2deb7cf09e7576faba3f1af65ee5e1b5828fa"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/helsingborg-stad/ACF-UX-collapse/zipball/17d2deb7cf09e7576faba3f1af65ee5e1b5828fa",
+            "reference": "17d2deb7cf09e7576faba3f1af65ee5e1b5828fa",
+            "shasum": ""
+        },
+        "time": "2016-10-11 12:00:20",
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kristoffer Svanmark",
+                "email": "kristoffer.svanmark@lexiconitkonsult.se"
+            }
+        ],
+        "description": "Imrpoves the ACF repeater-field UX by adding collapsing top-level functionality",
+        "support": {
+            "source": "https://github.com/helsingborg-stad/ACF-UX-collapse/tree/1.0.4",
+            "issues": "https://github.com/helsingborg-stad/ACF-UX-collapse/issues"
+        }
+    },
+    {
+        "name": "wpackagist-plugin/all-in-one-seo-pack",
+        "version": "2.3.10.2",
+        "version_normalized": "2.3.10.2",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/all-in-one-seo-pack/",
+            "reference": "tags/2.3.10.2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/all-in-one-seo-pack.2.3.10.2.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/all-in-one-seo-pack/"
+    },
+    {
+        "name": "wpackagist-plugin/varnish-http-purge",
+        "version": "3.9.2",
+        "version_normalized": "3.9.2.0",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/varnish-http-purge/",
+            "reference": "tags/3.9.2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/varnish-http-purge.3.9.2.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/varnish-http-purge/"
+    },
+    {
+        "name": "wpackagist-plugin/stream",
+        "version": "3.0.7",
+        "version_normalized": "3.0.7.0",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/stream/",
+            "reference": "tags/3.0.7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/stream.3.0.7.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/stream/"
+    },
+    {
+        "name": "wpackagist-plugin/wp-nested-pages",
+        "version": "1.6.3",
+        "version_normalized": "1.6.3.0",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/wp-nested-pages/",
+            "reference": "tags/1.6.3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/wp-nested-pages.1.6.3.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/wp-nested-pages/"
+    }
+]

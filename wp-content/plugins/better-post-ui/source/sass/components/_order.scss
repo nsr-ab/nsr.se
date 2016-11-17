@@ -1,0 +1,59 @@
+.better-post-ui-menu-order-list {
+    margin: 0;
+    padding: 0;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    li {
+        position: relative;
+        background-color: #fafafa;
+        border: 1px solid #ddd;
+        color: #23282d;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+        white-space: nowrap;
+        overflow: hidden;
+        overflow-wrap: ellipsis;
+        font-size: 0;
+
+        &.current {
+            span {
+                font-weight: bold;
+            }
+        }
+
+        * {
+            font-size: 13px;
+        }
+
+        span {
+            display: inline-block;
+            padding: 5px 10px 5px 5px;
+            vertical-align: middle;
+            margin-left: 35px;
+        }
+
+        button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            height: 100%;
+            background-color: rgba(#000, .05);
+            border: none;
+            border-right: 1px solid #ddd;
+            width: 15px;
+            padding: 0;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #e8e8e8;
+            }
+        }
+
+        button:last-of-type {
+            left: 15px;
+        }
+    }
+}

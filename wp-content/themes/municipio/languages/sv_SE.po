@@ -1,0 +1,1722 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Municipio\n"
+"POT-Creation-Date: 2016-10-14 13:30+0200\n"
+"PO-Revision-Date: 2016-10-14 13:30+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: acf-exports/translate-reference.php:2
+#: acf-exports/translate-reference.php:319
+msgid "Display settings"
+msgstr "Visningsinställningar"
+
+#: acf-exports/translate-reference.php:3
+#: acf-exports/translate-reference.php:334
+msgid "Share"
+msgstr "Dela"
+
+#: acf-exports/translate-reference.php:4
+msgid "Show social media share buttons"
+msgstr "Visa delningsknappar"
+
+#: acf-exports/translate-reference.php:5 acf-exports/translate-reference.php:39
+msgid "Author"
+msgstr "Författare"
+
+#: acf-exports/translate-reference.php:6 acf-exports/translate-reference.php:40
+msgid "Show author"
+msgstr "Visa författare"
+
+#: acf-exports/translate-reference.php:7
+msgid "Author image"
+msgstr "Bild på författare"
+
+#: acf-exports/translate-reference.php:8
+msgid "Show author's image"
+msgstr "Visa författarens bild"
+
+#: acf-exports/translate-reference.php:9
+msgid "Navigation settings"
+msgstr "Navigationsinställningar"
+
+#: acf-exports/translate-reference.php:10
+msgid "Hide from sidebar menu"
+msgstr "Dölj från sidebar-menyn"
+
+#: acf-exports/translate-reference.php:11
+msgid "Hide"
+msgstr "Dölj"
+
+#: acf-exports/translate-reference.php:12
+msgid "Menu title"
+msgstr "Menytitel"
+
+#: acf-exports/translate-reference.php:13
+msgid ""
+"If you want to use another title for this page in the sidebar navigation "
+"fill it in here. If you want to use the page title just leave this field "
+"empty."
+msgstr ""
+"Om du vill använda en annan titel för denna sidan i menyn, fyll i den här. "
+"Om du vill använda den vanliga sidtiteln så lämnar du detta fältet tomt."
+
+#: acf-exports/translate-reference.php:14
+msgid "Default post types"
+msgstr "Standardinläggstyper"
+
+#: acf-exports/translate-reference.php:15
+msgid "Disable blog"
+msgstr "Inaktivera blogg"
+
+#: acf-exports/translate-reference.php:16
+msgid "Yes, disable posts."
+msgstr "Ja, inaktivera blogg"
+
+#: acf-exports/translate-reference.php:17
+msgid "Disable pages"
+msgstr "Inaktivera sidor"
+
+#: acf-exports/translate-reference.php:18
+msgid "Yes, disable pages."
+msgstr "Ja, inaktivera sidor"
+
+#: acf-exports/translate-reference.php:19
+#: acf-exports/translate-reference.php:242
+msgid "Logotype"
+msgstr "Logotyp"
+
+#: acf-exports/translate-reference.php:20
+#: acf-exports/translate-reference.php:193
+msgid "standard"
+msgstr "standard"
+
+#: acf-exports/translate-reference.php:21
+#: acf-exports/translate-reference.php:194
+#: acf-exports/translate-reference.php:225
+msgid "Standard"
+msgstr "Standard"
+
+#: acf-exports/translate-reference.php:22
+#: acf-exports/translate-reference.php:195
+#: acf-exports/translate-reference.php:226
+msgid "Negative"
+msgstr "Negativ"
+
+#: acf-exports/translate-reference.php:23
+msgid "Error message"
+msgstr "Felmeddelande"
+
+#: acf-exports/translate-reference.php:24
+msgid "The message that will be displayed underneeth the 404-error code"
+msgstr "Meddelandet kommer att visas under 404-felkoden"
+
+#: acf-exports/translate-reference.php:25
+msgid "The page could not be found"
+msgstr "Sidan kunde inte hittas"
+
+#: acf-exports/translate-reference.php:26
+msgid "Error info"
+msgstr "Felinformation"
+
+#: acf-exports/translate-reference.php:27
+msgid "Additional information about the error or other information"
+msgstr "Utökada information om felet"
+
+#: acf-exports/translate-reference.php:28
+msgid "Display"
+msgstr "Visa"
+
+#: acf-exports/translate-reference.php:29
+msgid "Link to home"
+msgstr "Länk till startsidan"
+
+#: acf-exports/translate-reference.php:30
+msgid "Link to search"
+msgstr "Länk till sök"
+
+#: acf-exports/translate-reference.php:31
+msgid "Back button (previous page in browser history)"
+msgstr "Tillbaka-knapp (bakåt i webbläsarens historik)"
+
+#: acf-exports/translate-reference.php:32
+msgid "Home link text"
+msgstr "Text på hemknapp"
+
+#: acf-exports/translate-reference.php:33
+msgid "Back to home"
+msgstr "Tillbaka till startsidan"
+
+#: acf-exports/translate-reference.php:34
+msgid "Back button text"
+msgstr "Text på tillbaka-knapp"
+
+#: acf-exports/translate-reference.php:35
+msgid "Go back"
+msgstr "Gå bakåt"
+
+#: acf-exports/translate-reference.php:36
+msgid "Search link text"
+msgstr "Text på sök-knapp"
+
+#: acf-exports/translate-reference.php:37
+#, php-format
+msgid "Use %s to output suggested search query"
+msgstr "Använd %s för att skriva ut föreslagen sökfras"
+
+#: acf-exports/translate-reference.php:38
+#, php-format
+msgid "Search for \\\"%s\\\""
+msgstr "Sök efter \\\"%s\\\""
+
+#: acf-exports/translate-reference.php:41
+#: acf-exports/translate-reference.php:43
+#: acf-exports/translate-reference.php:222
+#: acf-exports/translate-reference.php:295
+#: acf-exports/translate-reference.php:330
+#: acf-exports/translate-reference.php:337
+#: acf-exports/translate-reference.php:339
+msgid "Enable"
+msgstr "Aktivera"
+
+#: acf-exports/translate-reference.php:42
+msgid "Show author image"
+msgstr "Visa bild på författare"
+
+#: acf-exports/translate-reference.php:44
+#: acf-exports/translate-reference.php:45
+msgid "Color scheme"
+msgstr "Färgschema"
+
+#: acf-exports/translate-reference.php:46
+msgid "gray"
+msgstr "grå"
+
+#: acf-exports/translate-reference.php:47
+msgid "Gray"
+msgstr "Grå"
+
+#: acf-exports/translate-reference.php:48
+msgid "Red"
+msgstr "Röd"
+
+#: acf-exports/translate-reference.php:49
+msgid "Blue"
+msgstr "Blå"
+
+#: acf-exports/translate-reference.php:50
+msgid "Green"
+msgstr "Grön"
+
+#: acf-exports/translate-reference.php:51
+msgid "Purple"
+msgstr "Lila"
+
+#: acf-exports/translate-reference.php:52
+msgid "Cookie consent"
+msgstr "Cookie-medgivande"
+
+#: acf-exports/translate-reference.php:53
+msgid "Active"
+msgstr "Aktivera"
+
+#: acf-exports/translate-reference.php:54
+msgid "Show cookie consent to users if not already accepted"
+msgstr "Visa cookie-medgivande för nya användare"
+
+#: acf-exports/translate-reference.php:55
+msgid "Message"
+msgstr "Meddelande"
+
+#: acf-exports/translate-reference.php:56
+msgid ""
+"This website uses cookies to ensure you get the best experience on our "
+"website."
+msgstr ""
+"Denna hemsida använder cookies för att erbjuda en så bra upplevelse som "
+"möjligt för ditt besök."
+
+#: acf-exports/translate-reference.php:57
+msgid "Button"
+msgstr "Knapp"
+
+#: acf-exports/translate-reference.php:58
+msgid "Got it!"
+msgstr "Jag förstår"
+
+#: acf-exports/translate-reference.php:59
+msgid "Placement"
+msgstr "Placering"
+
+#: acf-exports/translate-reference.php:60
+msgid "At the top of the page"
+msgstr "Toppen av sidan"
+
+#: acf-exports/translate-reference.php:61
+msgid "Fixed to bottom of window"
+msgstr "Fixerad till botten av fönstret"
+
+#: acf-exports/translate-reference.php:62
+msgid "Custom CSS"
+msgstr "Egen CSS"
+
+#: acf-exports/translate-reference.php:63
+msgid "Css input"
+msgstr "Css"
+
+#: acf-exports/translate-reference.php:64
+msgid ""
+"Enter your CSS-code here. It will be wrapped with \\\"style\\\" tags, and "
+"included on all pages."
+msgstr ""
+"Skriv in din css-kod här. Den kommer att wrappas med \\”style\\” taggar och "
+"inkluderas på samtliga sidor."
+
+#: acf-exports/translate-reference.php:65
+#: acf-exports/translate-reference.php:120
+#: acf-exports/translate-reference.php:247
+msgid "Manage post types"
+msgstr "Inläggstyper"
+
+#: acf-exports/translate-reference.php:66
+#: acf-exports/translate-reference.php:121
+#: acf-exports/translate-reference.php:248
+msgid "Post type name"
+msgstr "Inläggstypens namn"
+
+#: acf-exports/translate-reference.php:67
+#: acf-exports/translate-reference.php:122
+#: acf-exports/translate-reference.php:249
+msgid ""
+"<span style=\\\"color: #ff0000;\\\">Will generate the post type name, select "
+"a name with care! Cannot be changed! </span>"
+msgstr ""
+"<span style=\\\"color: #ff0000;\\\">Välj namn med omsorg. Namnet går inte "
+"att ändra.</span>"
+
+#: acf-exports/translate-reference.php:68
+#: acf-exports/translate-reference.php:106
+#: acf-exports/translate-reference.php:123
+#: acf-exports/translate-reference.php:250
+msgid "Permalänk"
+msgstr "Permalänk"
+
+#: acf-exports/translate-reference.php:69
+#: acf-exports/translate-reference.php:124
+#: acf-exports/translate-reference.php:251
+msgid "Public /url/ to show archive on."
+msgstr "Offentlig /url/ att visa arkivet på"
+
+#: acf-exports/translate-reference.php:70
+#: acf-exports/translate-reference.php:125
+#: acf-exports/translate-reference.php:252
+msgid "Menu icon"
+msgstr "Menyikon"
+
+#: acf-exports/translate-reference.php:71
+#: acf-exports/translate-reference.php:126
+#: acf-exports/translate-reference.php:253
+msgid "Menu position"
+msgstr "Menyposition"
+
+#: acf-exports/translate-reference.php:72
+#: acf-exports/translate-reference.php:127
+#: acf-exports/translate-reference.php:254
+msgid "Select where to place this custom post type admin section."
+msgstr "Välj var inläggstypen ska ligga i amdinistrationsmenyn"
+
+#: acf-exports/translate-reference.php:73
+#: acf-exports/translate-reference.php:128
+#: acf-exports/translate-reference.php:255
+msgid "Below Posts"
+msgstr "Under inlägg"
+
+#: acf-exports/translate-reference.php:74
+#: acf-exports/translate-reference.php:129
+#: acf-exports/translate-reference.php:256
+msgid "Below Media"
+msgstr "Under media"
+
+#: acf-exports/translate-reference.php:75
+#: acf-exports/translate-reference.php:130
+#: acf-exports/translate-reference.php:257
+msgid "Below Links"
+msgstr "Under länkar"
+
+#: acf-exports/translate-reference.php:76
+#: acf-exports/translate-reference.php:131
+#: acf-exports/translate-reference.php:258
+msgid "Below Pages"
+msgstr "Under sidor"
+
+#: acf-exports/translate-reference.php:77
+#: acf-exports/translate-reference.php:132
+#: acf-exports/translate-reference.php:259
+msgid "Below comments"
+msgstr "Under kommentarer"
+
+#: acf-exports/translate-reference.php:78
+#: acf-exports/translate-reference.php:133
+#: acf-exports/translate-reference.php:260
+msgid "Below first separator"
+msgstr "Under första avgränsningen"
+
+#: acf-exports/translate-reference.php:79
+#: acf-exports/translate-reference.php:134
+#: acf-exports/translate-reference.php:261
+msgid "Below Plugins"
+msgstr "Under plugin"
+
+#: acf-exports/translate-reference.php:80
+#: acf-exports/translate-reference.php:135
+#: acf-exports/translate-reference.php:262
+msgid "Below Users"
+msgstr "Under användare"
+
+#: acf-exports/translate-reference.php:81
+#: acf-exports/translate-reference.php:136
+#: acf-exports/translate-reference.php:263
+msgid "Below Tools"
+msgstr "Under verktyg"
+
+#: acf-exports/translate-reference.php:82
+#: acf-exports/translate-reference.php:137
+#: acf-exports/translate-reference.php:264
+msgid "Below Settings"
+msgstr "Under inställningar"
+
+#: acf-exports/translate-reference.php:83
+#: acf-exports/translate-reference.php:138
+#: acf-exports/translate-reference.php:265
+msgid "Below second separator"
+msgstr "Under andra avgränsningen"
+
+#: acf-exports/translate-reference.php:84
+#: acf-exports/translate-reference.php:139
+#: acf-exports/translate-reference.php:266
+msgid "Public?"
+msgstr "Publik?"
+
+#: acf-exports/translate-reference.php:85
+#: acf-exports/translate-reference.php:140
+#: acf-exports/translate-reference.php:267
+msgid "Controls how the type is visible to authors"
+msgstr "Kontrollerar inläggstypens tillgänglighet"
+
+#: acf-exports/translate-reference.php:86
+#: acf-exports/translate-reference.php:141
+#: acf-exports/translate-reference.php:268
+msgid "Exclude from search?"
+msgstr "Exkludera från sökresultat"
+
+#: acf-exports/translate-reference.php:87
+#: acf-exports/translate-reference.php:142
+#: acf-exports/translate-reference.php:269
+msgid ""
+"Whether to exclude posts with this post type from front end search results."
+msgstr "Om inläggstypen ska exkluderas från sökresultat"
+
+#: acf-exports/translate-reference.php:88
+#: acf-exports/translate-reference.php:143
+#: acf-exports/translate-reference.php:270
+msgid "Avabile in nav menus?"
+msgstr "Tillgänglig i menyer"
+
+#: acf-exports/translate-reference.php:89
+#: acf-exports/translate-reference.php:144
+#: acf-exports/translate-reference.php:271
+msgid "Make post type available for selection in navigation menus."
+msgstr "Tillåt inläggstypen att kunna visas i menyer."
+
+#: acf-exports/translate-reference.php:90
+#: acf-exports/translate-reference.php:145
+#: acf-exports/translate-reference.php:272
+msgid "Hierarchical"
+msgstr "Hierarkisk"
+
+#: acf-exports/translate-reference.php:91
+#: acf-exports/translate-reference.php:146
+#: acf-exports/translate-reference.php:273
+msgid ""
+"Whether the post type is hierarchical (e.g. page). Allows Parent to be "
+"specified."
+msgstr ""
+"Om inläggstypen är hierarkisk. Tillåter parent/child förhållande mellan "
+"inlägg."
+
+#: acf-exports/translate-reference.php:92
+#: acf-exports/translate-reference.php:147
+#: acf-exports/translate-reference.php:274
+msgid "Post type functions"
+msgstr "Funktioner för inläggstypen"
+
+#: acf-exports/translate-reference.php:93
+#: acf-exports/translate-reference.php:148
+#: acf-exports/translate-reference.php:275 library/Admin/Options/Theme.php:100
+#: library/Admin/Options/Theme.php:101
+msgid "Content editor"
+msgstr "Innehållsförfattare"
+
+#: acf-exports/translate-reference.php:94
+#: acf-exports/translate-reference.php:149
+#: acf-exports/translate-reference.php:276
+msgid "Author Select"
+msgstr "Val av författare"
+
+#: acf-exports/translate-reference.php:95
+#: acf-exports/translate-reference.php:150
+#: acf-exports/translate-reference.php:277
+msgid "Featured Image"
+msgstr "Utvald bild"
+
+#: acf-exports/translate-reference.php:96
+#: acf-exports/translate-reference.php:151
+#: acf-exports/translate-reference.php:278
+msgid "Excerpt"
+msgstr "Ingress"
+
+#: acf-exports/translate-reference.php:97
+#: acf-exports/translate-reference.php:152
+#: acf-exports/translate-reference.php:279
+msgid "Trackbacks"
+msgstr "Trackbacks"
+
+#: acf-exports/translate-reference.php:98
+#: acf-exports/translate-reference.php:153
+#: acf-exports/translate-reference.php:280
+#: views/partials/blog/post-info.blade.php:36
+msgid "Comments"
+msgstr "Kommentarer"
+
+#: acf-exports/translate-reference.php:99
+#: acf-exports/translate-reference.php:154
+#: acf-exports/translate-reference.php:281
+msgid "Page Attributes"
+msgstr "Sidattribut"
+
+#: acf-exports/translate-reference.php:100
+#: acf-exports/translate-reference.php:155
+#: acf-exports/translate-reference.php:282
+msgid "Post Formats"
+msgstr "Inläggsformat"
+
+#: acf-exports/translate-reference.php:101
+#: acf-exports/translate-reference.php:156
+#: acf-exports/translate-reference.php:283
+msgid "Available post types"
+msgstr "Tillgängliga inläggstyper"
+
+#: acf-exports/translate-reference.php:102
+#: acf-exports/translate-reference.php:157
+#: acf-exports/translate-reference.php:284
+msgid "Add post type"
+msgstr "Lägg till inläggstyp"
+
+#: acf-exports/translate-reference.php:103
+msgid "Manage taxonomies"
+msgstr "Taxonomies"
+
+#: acf-exports/translate-reference.php:104
+msgid "Label"
+msgstr "Namn"
+
+#: acf-exports/translate-reference.php:105
+msgid ""
+"<span style=\\\"color: #ff0000;\\\">Once you have published a post type the "
+"name cannot be changed!</span>"
+msgstr ""
+"<span style=\\\"color: #ff0000;\\\">När du har sparat inläggstypen kan inte "
+"detta fält redigeras!</span>"
+
+#: acf-exports/translate-reference.php:107
+msgid "Only applies if you enable the option to publish your taxonomy."
+msgstr "Används bara om du publicerar din taxonomy"
+
+#: acf-exports/translate-reference.php:108
+msgid "Type of taxonomy"
+msgstr "Typ av taxonomy"
+
+#: acf-exports/translate-reference.php:109
+#: views/partials/blog/post-tags.blade.php:2
+msgid "Tags"
+msgstr "Taggar"
+
+#: acf-exports/translate-reference.php:110
+#: views/partials/blog/post-categories.blade.php:2
+msgid "Categories"
+msgstr "Kategorier"
+
+#: acf-exports/translate-reference.php:111
+msgid "Connect to post type(s)"
+msgstr "Koppla till inläggstyp(er)"
+
+#: acf-exports/translate-reference.php:112
+msgid "post"
+msgstr "inlägg"
+
+#: acf-exports/translate-reference.php:113
+msgid "page"
+msgstr "sida"
+
+#: acf-exports/translate-reference.php:114
+msgid "Offentlig"
+msgstr "Offentlig"
+
+#: acf-exports/translate-reference.php:115
+msgid "Enable visitors to browse this taxonomy"
+msgstr "Tillåt besökare att visa denna taxonomy"
+
+#: acf-exports/translate-reference.php:116
+msgid "Admin user interface"
+msgstr "Administrationsgränssnitt"
+
+#: acf-exports/translate-reference.php:117
+msgid "Enable administration UI"
+msgstr "Aktivera administrationsgränssnitt"
+
+#: acf-exports/translate-reference.php:118
+msgid "Available dynamic taxonomies"
+msgstr "Tillgängliga dynamiska taxanomier"
+
+#: acf-exports/translate-reference.php:119
+msgid "Add taxonomy"
+msgstr "Lägg till taxonomy"
+
+#: acf-exports/translate-reference.php:158
+msgid "Favicon"
+msgstr "Favoritikoner"
+
+#: acf-exports/translate-reference.php:159
+msgid "Type"
+msgstr "Typ"
+
+#: acf-exports/translate-reference.php:160
+msgid "favicon.ico (16x16px, 32x32px, 48x48px)"
+msgstr "favicon.ico (16x16px, 32x32px, 48x48px)"
+
+#: acf-exports/translate-reference.php:161
+msgid "iOS, Android (152x152px)"
+msgstr "iOS, Android (152x152px)"
+
+#: acf-exports/translate-reference.php:162
+msgid "IE10, Windows Metro (144x144px)"
+msgstr "IE10, Windows Metro (144x144px)"
+
+#: acf-exports/translate-reference.php:163
+msgid "Icon 152x152"
+msgstr "Ikon 152x152"
+
+#: acf-exports/translate-reference.php:164
+msgid "Must be 152x152 pixels .png"
+msgstr "Måste vara 152x152 pixlar och format .png"
+
+#: acf-exports/translate-reference.php:165
+msgid "Icon 144x144"
+msgstr "Ikon 144x144"
+
+#: acf-exports/translate-reference.php:166
+msgid "Must be 144x144 pixels .png"
+msgstr "Måste vara 144x144 pixlar och format .png"
+
+#: acf-exports/translate-reference.php:167
+msgid "Favicon.ico"
+msgstr "Favicon.ico"
+
+#: acf-exports/translate-reference.php:168
+msgid "Must be a .ico containing 16x16px, 32x32px and 48x48px"
+msgstr "Måste vara en .ico innehållandes 16x16px, 32x32px and 48x48px"
+
+#: acf-exports/translate-reference.php:169
+#: acf-exports/translate-reference.php:176
+#: acf-exports/translate-reference.php:218
+msgid "Icon"
+msgstr "Ikon"
+
+#: acf-exports/translate-reference.php:170
+msgid "Metro tile color"
+msgstr "Bakgrundsfärg på Metro-bricka"
+
+#: acf-exports/translate-reference.php:171
+msgid "#FFFFFF"
+msgstr "#FFFFFF"
+
+#: acf-exports/translate-reference.php:172
+msgid "Favicons"
+msgstr "Favoritikoner"
+
+#: acf-exports/translate-reference.php:173
+msgid ""
+"Add favicons in various sizes. If a size has multiple icons specified only "
+"the latest specified icon will be used."
+msgstr ""
+"Lägg till favoritikoner i olika storlekar. Om en storlek har multipla värden "
+"kommer bara den senast specificerade att användas."
+
+#: acf-exports/translate-reference.php:174
+#: acf-exports/translate-reference.php:367
+msgid "Lägg till rad"
+msgstr "Lägg till rad"
+
+#: acf-exports/translate-reference.php:175
+msgid "Footer Icons"
+msgstr "Sidfotsikoner"
+
+#: acf-exports/translate-reference.php:177
+msgid "null"
+msgstr "null"
+
+#: acf-exports/translate-reference.php:178
+msgid "- Select -"
+msgstr "- Välj -"
+
+#: acf-exports/translate-reference.php:179
+msgid "Title"
+msgstr "Titel"
+
+#: acf-exports/translate-reference.php:180
+msgid "Url"
+msgstr "Url"
+
+#: acf-exports/translate-reference.php:181
+msgid "Footer icons repeater"
+msgstr "Ikoner i sidfoten"
+
+#: acf-exports/translate-reference.php:182
+msgid ""
+"Add icons to the footer of your site. Link to external resources link "
+"facebook, twitter and linkedin! <style>.acf-field-font-awesome .fa-live-"
+"preview {display:none;}</style>"
+msgstr ""
+"Lägg till ikoner i sidfoten. Länka till externa resurser som till exempel "
+"Facebook, Twitter och LinkedIn.<style>.acf-field-font-awesome .fa-live-"
+"preview {display:none;}</style>"
+
+#: acf-exports/translate-reference.php:183
+msgid "Add icon"
+msgstr "Lägg till ikon"
+
+#: acf-exports/translate-reference.php:184
+#: acf-exports/translate-reference.php:185
+msgid "Footer layout"
+msgstr "Sidfotslayout"
+
+#: acf-exports/translate-reference.php:186
+msgid "Default style"
+msgstr "Standard"
+
+#: acf-exports/translate-reference.php:187
+msgid "Compressed"
+msgstr "Komprimerad"
+
+#: acf-exports/translate-reference.php:188
+msgid "Footer signature"
+msgstr "Avsändare i sidfoten"
+
+#: acf-exports/translate-reference.php:189
+msgid ""
+"If enabled a predefined footer signature logo will be appended to the footer."
+msgstr ""
+"Om du aktiverar alternativet så kommer en fördefinierad avsändare-logotyp "
+"att visas i sidfoten."
+
+#: acf-exports/translate-reference.php:190
+msgid "Enable footer signature"
+msgstr "Aktivera avsändare i sidfoten"
+
+#: acf-exports/translate-reference.php:191
+msgid "Footer logotype"
+msgstr "Logotyp i sidfot"
+
+#: acf-exports/translate-reference.php:192
+msgid "Logotype to use in footer"
+msgstr "Logotyp att använda i sidfot"
+
+#: acf-exports/translate-reference.php:196
+msgid "Hide logotype in footer"
+msgstr "Dölj logotyp i sidfoten"
+
+#: acf-exports/translate-reference.php:197
+msgid "Vertical position"
+msgstr "Vertikal positionering"
+
+#: acf-exports/translate-reference.php:198
+msgid "top"
+msgstr "Toppen"
+
+#: acf-exports/translate-reference.php:199
+msgid "Above footer content"
+msgstr "Ovanför footerinnehåll"
+
+#: acf-exports/translate-reference.php:200
+msgid "Below footer content"
+msgstr "Under footerinnehåll"
+
+#: acf-exports/translate-reference.php:201
+msgid "Google Analytics"
+msgstr "Google Analytics"
+
+#: acf-exports/translate-reference.php:202
+msgid "Google Analytics UA"
+msgstr "Google Analytics UA"
+
+#: acf-exports/translate-reference.php:203
+msgid ""
+"To activate Google Analytics please insert your Google Analytics UA.<br> "
+"Usally a string like this: UA-XXXXX-Y"
+msgstr ""
+"För att aktivera Google Analytics anger du ditt Google Analytics UA här."
+"<br>Brukar vara formatterat såhär: UA-XXXXX-Y"
+
+#: acf-exports/translate-reference.php:204
+msgid "Google Translate"
+msgstr "Google Translate"
+
+#: acf-exports/translate-reference.php:205
+msgid "Where to show Google Translate"
+msgstr "Var Google Translate ska visas"
+
+#: acf-exports/translate-reference.php:206
+msgid "Do not show"
+msgstr "Visa inte"
+
+#: acf-exports/translate-reference.php:207
+msgid "Above header"
+msgstr "Ovanför sidhuvudet"
+
+#: acf-exports/translate-reference.php:208
+msgid "Below footer"
+msgstr "Under sidfoten"
+
+#: acf-exports/translate-reference.php:209
+msgid "Fixed to right edge"
+msgstr "Fixerad till högerkanten"
+
+#: acf-exports/translate-reference.php:210
+msgid "Menu to show translate link in"
+msgstr "Meny att visa översättningslänk i"
+
+#: acf-exports/translate-reference.php:211 library/Theme/Navigation.php:75
+msgid "Help menu"
+msgstr "Hjälpmeny"
+
+#: acf-exports/translate-reference.php:212 library/Theme/Navigation.php:76
+msgid "Header tabs menu"
+msgstr "Header-tabbar"
+
+#: acf-exports/translate-reference.php:213 library/Theme/Navigation.php:80
+msgid "Main menu"
+msgstr "Huvudmeny"
+
+#: acf-exports/translate-reference.php:214 library/Theme/Navigation.php:84
+msgid "Sidebar menu"
+msgstr "Sidebar-meny"
+
+#: acf-exports/translate-reference.php:215
+msgid "Show as"
+msgstr "Visa som"
+
+#: acf-exports/translate-reference.php:216
+msgid "text"
+msgstr "text"
+
+#: acf-exports/translate-reference.php:217
+msgid "Text"
+msgstr "Text"
+
+#: acf-exports/translate-reference.php:219
+msgid "Icon and text"
+msgstr "Ikon och text"
+
+#: acf-exports/translate-reference.php:220
+msgid "Track usage with Google Analytics"
+msgstr "Analysera användandet av webbplatsen med Google Analytics"
+
+#: acf-exports/translate-reference.php:221
+msgid ""
+"If set to enabled, Google Translate usage will be tracked in Google "
+"Analytics (to the account specified under the Google Analytics settings)"
+msgstr ""
+"Om funktionen är aktiverad kommer Google Translate användandet att spåras i "
+"Google Analytucs (till det Google Analytics kontot som är speicificerat "
+"under Google Analytics tabben)"
+
+#: acf-exports/translate-reference.php:223
+msgid "Header logotype"
+msgstr "Logotyp i sidhuvud"
+
+#: acf-exports/translate-reference.php:224
+msgid "Logotype to use in header"
+msgstr "Logotyp att använda i sidhuvudet"
+
+#: acf-exports/translate-reference.php:227
+msgid "Logotype tooltip"
+msgstr "Inforuta vid logotypen"
+
+#: acf-exports/translate-reference.php:228
+msgid ""
+"Tooltip text when hovering over the logotype in the header. The logo links "
+"to the front page. Leave empty if you don't want to show anything."
+msgstr ""
+"Inforuta som dyker upp när du håller musen ovanpå logotypen i sidhuvudet. "
+"Logotypen länkar till startsidan. Lämna tomt om du inte vill visa någon "
+"inforuta."
+
+#: acf-exports/translate-reference.php:229
+msgid "Header tagline"
+msgstr "Slogan i sidhuvud"
+
+#: acf-exports/translate-reference.php:230
+msgid "Enable tagline"
+msgstr "Aktivera slogan"
+
+#: acf-exports/translate-reference.php:231
+msgid "Yes, enable tagline in header"
+msgstr "Ja, aktivera slogan i sidhuvudet"
+
+#: acf-exports/translate-reference.php:232
+msgid "Tagline"
+msgstr "Slogan"
+
+#: acf-exports/translate-reference.php:233
+msgid "Use site description"
+msgstr "Använd sidbeskrivningen"
+
+#: acf-exports/translate-reference.php:234
+msgid "Input custom"
+msgstr "Använd egen"
+
+#: acf-exports/translate-reference.php:235
+msgid "Tagline text"
+msgstr "Slogantext"
+
+#: acf-exports/translate-reference.php:236 library/Admin/Options/Theme.php:36
+#: library/Admin/Options/Theme.php:37
+msgid "Header"
+msgstr "Sidhuvud"
+
+#: acf-exports/translate-reference.php:237
+msgid "Layout"
+msgstr "Layout"
+
+#: acf-exports/translate-reference.php:238
+msgid "business"
+msgstr "business"
+
+#: acf-exports/translate-reference.php:239
+msgid "Business (default)"
+msgstr "Business (standardval)"
+
+#: acf-exports/translate-reference.php:240
+msgid "Casual"
+msgstr "Casual"
+
+#: acf-exports/translate-reference.php:241
+msgid "Jumbo"
+msgstr "Jumbo"
+
+#: acf-exports/translate-reference.php:243
+msgid "Standard logotype"
+msgstr "Standardlogotyp"
+
+#: acf-exports/translate-reference.php:244
+msgid "Only .svg-files are supported."
+msgstr "Accepterar enbart .svg-filer"
+
+#: acf-exports/translate-reference.php:245
+msgid "Negative logotype"
+msgstr "Negativ (vit) logotyp"
+
+#: acf-exports/translate-reference.php:246
+msgid ""
+"Please upload a brand logo in the format .svg. The negative logo refers to a "
+"100% white logotype that can be used on dark backgrounds."
+msgstr ""
+"Vänligen ladda upp en logotyp i .svg-format. Den negativa logotypen är en "
+"100% vit version av din logotyp som kan användas på mörka bakgrunden."
+
+#: acf-exports/translate-reference.php:285
+msgid "Timestamp"
+msgstr "Tidstämplar"
+
+#: acf-exports/translate-reference.php:286
+msgid "Post footer timestamps"
+msgstr "Tidstämplar under inlägg"
+
+#: acf-exports/translate-reference.php:287
+msgid ""
+"Check boxes to enable timestamps for post types. Will be displayed after the "
+"content area, if applicable."
+msgstr ""
+"Klicka i kryssrutorna för att aktivera tidsstämplar för inläggstyper. "
+"Tidstämplarna visas under brödtexten, om möjligt."
+
+#: acf-exports/translate-reference.php:288
+#: views/partials/archive-filters.blade.php:17
+msgid "Date published"
+msgstr "Publiceringsdatum"
+
+#: acf-exports/translate-reference.php:289
+#: acf-exports/translate-reference.php:292
+msgid "Posts"
+msgstr "Inlägg"
+
+#: acf-exports/translate-reference.php:290
+#: acf-exports/translate-reference.php:293
+msgid "Pages"
+msgstr "Sidor"
+
+#: acf-exports/translate-reference.php:291
+msgid "Date updated"
+msgstr "Senast uppdaterad"
+
+#: acf-exports/translate-reference.php:294
+msgid "Primary navigation"
+msgstr "Huvudmeny"
+
+#: acf-exports/translate-reference.php:296
+msgid "Enable primary navigation"
+msgstr "Aktivera huvudmeny"
+
+#: acf-exports/translate-reference.php:297
+#: acf-exports/translate-reference.php:341
+msgid "Menu type"
+msgstr "Typ av meny"
+
+#: acf-exports/translate-reference.php:298
+msgid "auto"
+msgstr "auto"
+
+#: acf-exports/translate-reference.php:299
+#: acf-exports/translate-reference.php:344
+msgid "Automatically generated"
+msgstr "Automatiskt genererad"
+
+#: acf-exports/translate-reference.php:300
+#: acf-exports/translate-reference.php:345
+msgid "WP Menu"
+msgstr "WP Meny"
+
+#: acf-exports/translate-reference.php:301
+msgid "Dropdown sub-menus"
+msgstr "Dropdown submenyer"
+
+#: acf-exports/translate-reference.php:302
+msgid "Yes, display sub-menus as dropdowns"
+msgstr "Ja, visa submenyer som dropdowns"
+
+#: acf-exports/translate-reference.php:303
+#: acf-exports/translate-reference.php:307
+#: acf-exports/translate-reference.php:351
+msgid "Menu depth"
+msgstr "Menydjup"
+
+#: acf-exports/translate-reference.php:304
+msgid ""
+"When \\\"dropdown sub-menus\\\" is inacticated only the top level menu items "
+"will be displayed in the main menu. To display the submenu items in the "
+"sidebar menu you should set the \\\"secondary menu\\\" settings to \\\"Act "
+"as sub menu to the primary menu\\\"."
+msgstr ""
+"När \\”dropdown submenyer\\” är inaktiverade kommer bara den första nivån av "
+"menyval visas i huvudmenyn. För att aktivera submenyn i vänster-sidebaren "
+"bör du ställa in \\”sekundär meny\\” till \\”Agera submeny till huvudmenyn\\”"
+
+#: acf-exports/translate-reference.php:305
+#: acf-exports/translate-reference.php:346
+msgid "Automatically generated menu"
+msgstr "Automatiskt genererad meny"
+
+#: acf-exports/translate-reference.php:306
+#: acf-exports/translate-reference.php:347
+msgid ""
+"The automatically generated menu type will include all published pages from "
+"top level pages and down to the below specified depth level. The "
+"automatically generated menu is a heavy procedure for the system to run. The "
+"deeper it should go the longer loading time."
+msgstr ""
+"Den automatiskt genererade menyn inkluderar alla publicerade sidor i "
+"hierarkisk ordning ned till det angivna djupet. Den automatiska genererade "
+"menyn kan ta lång tid att ladda in om det är många sidor som ska genereras i "
+"menyn."
+
+#: acf-exports/translate-reference.php:308
+#: acf-exports/translate-reference.php:352
+msgid "Set to 0 to show all levels"
+msgstr "Sätt till 0 för att visa alla nivåer"
+
+#: acf-exports/translate-reference.php:309
+#: acf-exports/translate-reference.php:353
+msgid "Render"
+msgstr "Rendering"
+
+#: acf-exports/translate-reference.php:310
+#: acf-exports/translate-reference.php:354
+msgid "How to render the items"
+msgstr "Hur menyalternativen ska renderas"
+
+#: acf-exports/translate-reference.php:311
+msgid "All levels"
+msgstr "Alla nivåer"
+
+#: acf-exports/translate-reference.php:312
+msgid "Only sub levels of active top level item"
+msgstr "Bara undernivåer till aktiv förstanivå"
+
+#: acf-exports/translate-reference.php:313
+msgid "Menu items alignment"
+msgstr "Justering för menylternativ"
+
+#: acf-exports/translate-reference.php:314
+msgid "justify"
+msgstr "justify"
+
+#: acf-exports/translate-reference.php:315
+msgid "Left"
+msgstr "Vänster"
+
+#: acf-exports/translate-reference.php:316
+msgid "Center"
+msgstr "Centrerad"
+
+#: acf-exports/translate-reference.php:317
+msgid "Right"
+msgstr "Höger"
+
+#: acf-exports/translate-reference.php:318
+msgid "Justify"
+msgstr "Fyll bredd"
+
+#: acf-exports/translate-reference.php:320
+msgid "Display search"
+msgstr "Visa sök"
+
+#: acf-exports/translate-reference.php:321
+msgid "In front-page hero/slider"
+msgstr "I headern på startsidan"
+
+#: acf-exports/translate-reference.php:322
+msgid "In the header of all pages but front page"
+msgstr "I headern på alla sidor utom startsidan"
+
+#: acf-exports/translate-reference.php:323
+msgid "In the header of all pages"
+msgstr "I headern på alla sidor"
+
+#: acf-exports/translate-reference.php:324
+msgid "Icon in main menu"
+msgstr "Ikon i huvudmenyn"
+
+#: acf-exports/translate-reference.php:325
+msgid "Search field label"
+msgstr "Sökfältets titel"
+
+#: acf-exports/translate-reference.php:326
+msgid "Search field placeholder"
+msgstr "Sökfältets beskrivning"
+
+#: acf-exports/translate-reference.php:327
+msgid "Search button text"
+msgstr "Sök-knappens text"
+
+#: acf-exports/translate-reference.php:328
+msgid "Sök"
+msgstr "Sök"
+
+#: acf-exports/translate-reference.php:329
+msgid "Google Search"
+msgstr "Google Sök"
+
+#: acf-exports/translate-reference.php:331
+msgid "Use Google Site Search"
+msgstr "Använd Google Site Search"
+
+#: acf-exports/translate-reference.php:332
+msgid "Google API Key"
+msgstr "Google API Key"
+
+#: acf-exports/translate-reference.php:333
+msgid "Google Api CX"
+msgstr "Google Api CX"
+
+#: acf-exports/translate-reference.php:335
+msgid "Show share icons"
+msgstr "Visa delningsikoner"
+
+#: acf-exports/translate-reference.php:336
+msgid ""
+"This is a master control which will enable/disable the social share icons "
+"for each and all posts and pages."
+msgstr ""
+"Detta är en master-kontroll som inaktiverar/aktiverar delningsikoner för "
+"alla sidor och inlägg."
+
+#: acf-exports/translate-reference.php:338
+msgid "Sub navigation"
+msgstr "Sekundär meny"
+
+#: acf-exports/translate-reference.php:340
+msgid "Enable sub navigation"
+msgstr "Aktivera sekundär meny"
+
+#: acf-exports/translate-reference.php:342
+msgid "sub"
+msgstr "sub"
+
+#: acf-exports/translate-reference.php:343
+msgid "Act as sub menu to the primary menu"
+msgstr "Agera submeny åt huvudmenyn"
+
+#: acf-exports/translate-reference.php:348
+msgid "Top level pages"
+msgstr "Sidor från första nivån"
+
+#: acf-exports/translate-reference.php:349
+msgid ""
+"Weather to include the top level pages. If unchecked the pages will be "
+"generated from depth 2."
+msgstr ""
+"Bestäm om sidor från första nivån från den hierarkiska ordningen ska visas. "
+"Om ej aktiverad så kommer sidorna börja genereras från djup 2."
+
+#: acf-exports/translate-reference.php:350
+msgid "Include top level pages"
+msgstr "Inkludera första nivån"
+
+#: acf-exports/translate-reference.php:355
+msgid "All"
+msgstr "Alla"
+
+#: acf-exports/translate-reference.php:356
+msgid "Only active level's subitems"
+msgstr "Bara aktiva sidans undersidor"
+
+#: acf-exports/translate-reference.php:357
+msgid "User profile picture"
+msgstr "Profilbild"
+
+#: acf-exports/translate-reference.php:358
+msgid "Author picture"
+msgstr "Bild på författare"
+
+#: acf-exports/translate-reference.php:359
+msgid "Picture that show in author information for posts published by you"
+msgstr "Bild som kan visas i byline."
+
+#: acf-exports/translate-reference.php:360
+msgid "Contact widget"
+msgstr "Kontaktwidget"
+
+#: acf-exports/translate-reference.php:361
+msgid "Contact person"
+msgstr "Kontaktperson"
+
+#: acf-exports/translate-reference.php:362
+msgid "Company"
+msgstr "Företag"
+
+#: acf-exports/translate-reference.php:363
+msgid "Phone numer"
+msgstr "Telefonnummer"
+
+#: acf-exports/translate-reference.php:364
+msgid "Email"
+msgstr "Epost"
+
+#: acf-exports/translate-reference.php:365
+msgid "Address"
+msgstr "Adress"
+
+#: acf-exports/translate-reference.php:366
+msgid "Contacts"
+msgstr "Kontakter"
+
+#: library/Admin/General.php:64
+msgid "Only for logged in users"
+msgstr "Endast för inloggade användare"
+
+#: library/Admin/General.php:118
+msgid "Private"
+msgstr "Privat"
+
+#: library/Admin/Options/Archives.php:41
+msgid "Archive for"
+msgstr "Arkiv för"
+
+#: library/Admin/Options/Theme.php:19 library/Admin/Options/Theme.php:20
+msgid "Theme Options"
+msgstr "Temainställningar"
+
+#: library/Admin/Options/Theme.php:28 library/Admin/Options/Theme.php:29
+msgid "Navigation"
+msgstr "Navigering"
+
+#: library/Admin/Options/Theme.php:44 library/Admin/Options/Theme.php:45
+msgid "Content"
+msgstr "Innehåll"
+
+#: library/Admin/Options/Theme.php:52 library/Admin/Options/Theme.php:53
+#: library/Theme/Sidebars.php:80
+msgid "Footer"
+msgstr "Sidfot"
+
+#: library/Admin/Options/Theme.php:60 library/Admin/Options/Theme.php:61
+#: library/Theme/Navigation.php:135 views/partials/archive-filters.blade.php:7
+#: views/partials/archive-filters.blade.php:10
+#: views/partials/archive-filters.blade.php:28
+msgid "Search"
+msgstr "Sök"
+
+#: library/Admin/Options/Theme.php:68 library/Admin/Options/Theme.php:69
+msgid "Blog & Archives"
+msgstr "Bloggar & Arkiv"
+
+#: library/Admin/Options/Theme.php:108
+msgid "Custom Post Types"
+msgstr "Egna inläggstyper"
+
+#: library/Admin/Options/Theme.php:109
+msgid "Post Types"
+msgstr "Inläggstyper"
+
+#: library/Admin/Options/Theme.php:116
+msgid "Custom Taxonomies"
+msgstr "Egna taxonomies"
+
+#: library/Admin/Options/Theme.php:117
+msgid "Taxonomies"
+msgstr "Taxonomies"
+
+#: library/Admin/Options/Theme.php:124
+msgid "Custom CSS/JS Editor"
+msgstr "Egen CSS/JS"
+
+#: library/Admin/Options/Theme.php:125
+msgid "Custom CSS/JS"
+msgstr "Egen CSS/JS"
+
+#: library/Admin/UI/BackEnd.php:16 library/Admin/UI/BackEnd.php:21
+#: library/Admin/UI/BackEnd.php:26
+msgid "Notice"
+msgstr "Notis"
+
+#: library/Admin/UI/BackEnd.php:16
+msgid "You're on a local server."
+msgstr "Detta är en lokal server."
+
+#: library/Admin/UI/BackEnd.php:21
+msgid "This it the test-environment. Your content will not be published."
+msgstr "Detta är en test-miljö. Ditt innehåll kommer inte att publiceras."
+
+#: library/Admin/UI/BackEnd.php:26
+msgid "This it the beta-environment. All functionality is not guaranteed."
+msgstr "Detta är en beta-miljö. All funktionalitet är inte garanterad."
+
+#: library/Admin/UI/VarnishPurge.php:38
+msgid "Varnish cache purged for this post!"
+msgstr "Varnish cachen tömd för denna sida"
+
+#: library/Admin/UI/VarnishPurge.php:64
+msgid "Purge Page"
+msgstr "Töm cache för sidan"
+
+#: library/Admin/UI/VarnishPurge.php:77
+msgid "Purge Varnish"
+msgstr "Töm varnish"
+
+#: library/Comment/HoneyPot.php:66
+msgid "Could not verify that you are human (image check)."
+msgstr "Kunde inte verifiera att du är mänsklig (bildkontroll)"
+
+#: library/Comment/HoneyPot.php:113
+msgid ""
+"Could not verify that you are human (some hidden form fields are "
+"manipulated)."
+msgstr "Kunde inte verifiera att du är mänsklig (ett dolt fält är manipulerat)"
+
+#: library/Comment/HoneyPot.php:116
+msgid "Could not verify that you are human (some form fields are missing)."
+msgstr "Kunde inte verifiera att du är mänsklig (något formulärsfält saknas)"
+
+#: library/Content/CustomPostType.php:55
+msgid "Add new"
+msgstr "Skapa ny"
+
+#: library/Content/CustomPostType.php:56
+#, php-format
+msgid "Add new %s"
+msgstr "Skapa ny %s"
+
+#: library/Content/CustomPostType.php:57
+#, php-format
+msgid "New %s"
+msgstr "Ny %s"
+
+#: library/Content/CustomPostType.php:58
+#, php-format
+msgid "Edit %s"
+msgstr "Redigera %s"
+
+#: library/Content/CustomPostType.php:59
+#, php-format
+msgid "View %s"
+msgstr "Visa %s"
+
+#: library/Content/CustomPostType.php:60
+#, php-format
+msgid "All %s"
+msgstr "Alla %s"
+
+#: library/Content/CustomPostType.php:61
+#, php-format
+msgid "Search %s"
+msgstr "Sök %s"
+
+#: library/Content/CustomPostType.php:62
+#, php-format
+msgid "Parent %s"
+msgstr "Förälder %s"
+
+#: library/Content/CustomPostType.php:63
+#, php-format
+msgid "No %s found"
+msgstr "Inga %s hittades"
+
+#: library/Content/CustomPostType.php:64
+#, php-format
+msgid "No %s found in trash"
+msgstr "Inga %s hittades i papperskorgen"
+
+#: library/Content/CustomPostType.php:69
+msgid "Auto generated cpt from user iterface."
+msgstr "Automatiskt genererade posttyper från inställningspanel"
+
+#: library/Helper/GravityForm.php:47
+msgid "Submit"
+msgstr "Skicka"
+
+#: library/Template.php:49
+msgid "Page"
+msgstr "Sida"
+
+#: library/Template.php:53
+msgid "Front page"
+msgstr "Startsida"
+
+#: library/Template.php:132
+msgid "Admin notice"
+msgstr "Administratörsnotis"
+
+#: library/Template.php:132
+#, php-format
+msgid "View [%s] was not found. Defaulting to [page.blade.php]."
+msgstr "Mallen [%s] hittades inte. Använder [page.blade.php] istället."
+
+#: library/Theme/Enqueue.php:105
+msgid "Insert Print Page Break tag"
+msgstr "Infoga sidbrytning för utskrift"
+
+#: library/Theme/Sidebars.php:81
+msgid "The footer area"
+msgstr "Footer-arean"
+
+#: library/Theme/Sidebars.php:93
+msgid "Hero"
+msgstr "Hero"
+
+#: library/Theme/Sidebars.php:94
+msgid "The hero area"
+msgstr "Hero-arean"
+
+#: library/Theme/Sidebars.php:106
+msgid "Content area (above article)"
+msgstr "Innehållsarea (ovanför artikel)"
+
+#: library/Theme/Sidebars.php:107
+msgid "The area above the content"
+msgstr "Arean ovanför huvudinnehållet"
+
+#: library/Theme/Sidebars.php:117
+msgid "Content area (below article)"
+msgstr "Innehållsarea (nedanför artikel)"
+
+#: library/Theme/Sidebars.php:118
+msgid "The area below the content"
+msgstr "Arean under innehållet"
+
+#: library/Theme/Sidebars.php:128
+msgid "Main container bottom"
+msgstr "Main container bottom"
+
+#: library/Theme/Sidebars.php:129
+msgid "The area below the main container"
+msgstr "Arean under main container"
+
+#: library/Theme/Sidebars.php:139
+msgid "Left sidebar"
+msgstr "Vänster sidebar"
+
+#: library/Theme/Sidebars.php:140
+msgid "The left sidebar area"
+msgstr "Sidebar till vänster"
+
+#: library/Theme/Sidebars.php:152
+msgid "Left sidebar bottom"
+msgstr "Vänster sidebar bottom"
+
+#: library/Theme/Sidebars.php:153
+msgid "The area below the left sidebar content"
+msgstr "Sidebar vänster botten"
+
+#: library/Theme/Sidebars.php:165
+msgid "Right sidebar"
+msgstr "Höger sidebar"
+
+#: library/Theme/Sidebars.php:166
+msgid "The right sidebar area"
+msgstr "Sidebar till höger"
+
+#: library/Theme/Support.php:146
+msgid "Article"
+msgstr "Artikel"
+
+#: library/Widget/Contact.php:11
+msgid "Contact"
+msgstr "Kontakt"
+
+#: library/Widget/Contact.php:13
+msgid "Displays the contact information given."
+msgstr "Visar den angivna kontaktinformationen"
+
+#: views/archive.blade.php:47
+msgid "No posts to show"
+msgstr "Inga inlägg att visa"
+
+#: views/partials/archive-filters.blade.php:19
+msgid "From"
+msgstr "Från"
+
+#: views/partials/archive-filters.blade.php:20
+msgid "From date"
+msgstr "Från datum"
+
+#: views/partials/archive-filters.blade.php:21
+msgid "To"
+msgstr "Till"
+
+#: views/partials/archive-filters.blade.php:22
+msgid "To date"
+msgstr "Till datum"
+
+#: views/partials/blog/post-categories.blade.php:6
+msgid "No categories"
+msgstr "Inga kategorier"
+
+#: views/partials/blog/post-footer.blade.php:9
+#: views/partials/page-footer.blade.php:11
+msgid "Share the page"
+msgstr "Dela sidan"
+
+#: views/partials/blog/post-footer.blade.php:34
+#: views/partials/timestamps.blade.php:4
+msgid "Published by"
+msgstr "Publicerad av"
+
+#: views/partials/blog/post-tags.blade.php:8
+msgid "No tags"
+msgstr "Inga taggar"
+
+#: views/partials/blog/taxonomy-filters.blade.php:10
+msgid "Show all"
+msgstr "Visa alla"
+
+#: views/partials/header/default.blade.php:39
+msgid "Menu"
+msgstr "Meny"
+
+#: views/partials/header/jumbo.blade.php:24
+msgid "More"
+msgstr "Mer"
+
+#: views/partials/mobile-menu.blade.php:5
+msgid "What are you looking for?"
+msgstr "Vad letar du efter?"
+
+#: views/partials/search/google.blade.php:24
+#: views/partials/search/wp.blade.php:24
+msgid "Found no matching results on your search…"
+msgstr "Hittade inga matchande resultat för din sökning…"
+
+#: views/partials/social-share.blade.php:3
+#: views/partials/social-share.blade.php:5
+#: views/partials/social-share.blade.php:9
+#: views/partials/social-share.blade.php:11
+#: views/partials/social-share.blade.php:15
+#: views/partials/social-share.blade.php:17
+msgid "Share on"
+msgstr "Dela på"
+
+#: views/partials/timestamps.blade.php:24
+#: views/partials/timestamps.blade.php:45
+msgid "Published"
+msgstr "Publicerad"
+
+#: views/partials/timestamps.blade.php:33
+msgid "Last updated"
+msgstr "Senast uppdaterad"
+
+#: views/templates/master.blade.php:52
+msgid "Jump to the main menu"
+msgstr "Hoppa till huvudmenyn"
+
+#: views/templates/master.blade.php:53
+msgid "Jump to the main content"
+msgstr "Hoppa till innehåll"
+
+#. Theme Name of the plugin/theme
+msgid "Municipio"
+msgstr "Municipio"
+
+#. Theme URI of the plugin/theme
+msgid "https://github.com/helsingborg-stad/Municipio"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A bootstrap theme for creating municipality sites. Works veary webb with "
+"Modularity Plugin."
+msgstr "Ett bootstrap-tema för att skapa hemsidor för kommuner."
+
+#. Author of the plugin/theme
+msgid ""
+"Sebastian Thulin @ Helsingborg stad, Kristoffer Svanmark @ Lexicon IT-Konsult"
+msgstr ""
+"Sebastian Thulin @ Helsingborg stad, Kristoffer Svanmark @ Lexicon IT-Konsult"
+
+#. Author URI of the plugin/theme
+msgid "http://www.helsingborg.se"
+msgstr "http://www.helsingborg.se"
+
+#~ msgid "Filter"
+#~ msgstr "Filtrera"
+
+#~ msgid "Theme options"
+#~ msgstr "Temainställningar"
+
+#~ msgid "Custom CSS Editor"
+#~ msgstr "CSS Editor"
+
+#~ msgid "Content area"
+#~ msgstr "Innehållsarea"
+
+#~ msgid "No posts found…"
+#~ msgstr "Inga inlägg hittades…"
+
+#~ msgid "https://github.com/helsingborg-stad/Bootstrap-Theme/"
+#~ msgstr "https://github.com/helsingborg-stad/Bootstrap-Theme/"
+
+#~ msgid "Feed post style"
+#~ msgstr "Stil på inlägg"
+
+#~ msgid "Full"
+#~ msgstr "Fullständig"
+
+#~ msgid "Collapsed"
+#~ msgstr "Infälld"
+
+#~ msgid "Grid"
+#~ msgstr "Rutnät"
+
+#~ msgid "Grid columns"
+#~ msgstr "Kolumner i rutnät"
+
+#~ msgid "datetime"
+#~ msgstr "datetime"
+
+#~ msgid "Do not show the date"
+#~ msgstr "Visa inte datum"
+
+#~ msgid "Date only"
+#~ msgstr "Bara datum"
+
+#~ msgid "Time only"
+#~ msgstr "Bara tid"
+
+#~ msgid "Date and time"
+#~ msgstr "Datum och tid"
+
+#~ msgid "Category"
+#~ msgstr "Kategori"
+
+#~ msgid "Only one category will be shown even if multiple existing."
+#~ msgstr "Bara en kategori kommer att visas även om det finns flera."
+
+#~ msgid "Show blog post category"
+#~ msgstr "Visa kategori"
+
+#~ msgid "Blog post display settings"
+#~ msgstr "Visningsinställningar för blogginlägg"
+
+#~ msgid "Show post author"
+#~ msgstr "Visa författare"
+
+#~ msgid "Show author's profile picture"
+#~ msgstr "Visa bild på författare"
+
+#~ msgid "Show post tags"
+#~ msgstr "Visa taggar"
+
+#~ msgid "Show post categories"
+#~ msgstr "Visa kategorier"
+
+#~ msgid "Horizontal position"
+#~ msgstr "Horisontell positionering"
+
+#~ msgid "left"
+#~ msgstr "vänster"
+
+#~ msgid "Blog"
+#~ msgstr "Blogg"
+
+#~ msgid "Archives"
+#~ msgstr "Arkiv"
+
+#~ msgid "my-first-custom-pos"
+#~ msgstr "min-forsta-post-typ"
+
+#~ msgid "henriks-post-typdaw"
+#~ msgstr "henriks-post-typ"
+
+#~ msgid "Set to -1 to disable depth limit"
+#~ msgstr "Sätt till -1 för att inaktivera djup"
+
+#~ msgid "Show hero search on front page"
+#~ msgstr "Visa sök-ruta i heron på startsidan"
+
+#~ msgid "Label text"
+#~ msgstr "Märkning"
+
+#~ msgid "Placeholder text"
+#~ msgstr "Platshållare"
+
+#~ msgid "Button text"
+#~ msgstr "Knapptext"
+
+#~ msgid "archive"
+#~ msgstr "archive"
+
+#~ msgid "collapsed"
+#~ msgstr "infälld"

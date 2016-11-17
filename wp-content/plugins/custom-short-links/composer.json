@@ -1,0 +1,13 @@
+{
+    "name": "helsingborg-stad/custom-short-links",
+    "description": "Create shortlinks for any type of content",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kristoffer Svanmark",
+            "email": "kristoffer.svanmark@lexiconitkonsult.se"
+        }
+    ],
+    "require": {}
+}

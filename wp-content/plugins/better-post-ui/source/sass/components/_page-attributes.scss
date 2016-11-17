@@ -1,0 +1,17 @@
+#pageparentdiv .inside {
+    padding: 0;
+    margin-top: 0;
+}
+
+#pageparentdiv section {
+    padding: 12px;
+
+    strong {
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+}
+
+#pageparentdiv section + section {
+    border-top: 1px solid #ddd;
+}

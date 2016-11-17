@@ -1,0 +1,1568 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Municipio\n"
+"POT-Creation-Date: 2016-10-14 13:30+0200\n"
+"PO-Revision-Date: 2016-02-24 09:12+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: acf-exports/translate-reference.php:2
+#: acf-exports/translate-reference.php:319
+msgid "Display settings"
+msgstr ""
+
+#: acf-exports/translate-reference.php:3
+#: acf-exports/translate-reference.php:334
+msgid "Share"
+msgstr ""
+
+#: acf-exports/translate-reference.php:4
+msgid "Show social media share buttons"
+msgstr ""
+
+#: acf-exports/translate-reference.php:5 acf-exports/translate-reference.php:39
+msgid "Author"
+msgstr ""
+
+#: acf-exports/translate-reference.php:6 acf-exports/translate-reference.php:40
+msgid "Show author"
+msgstr ""
+
+#: acf-exports/translate-reference.php:7
+msgid "Author image"
+msgstr ""
+
+#: acf-exports/translate-reference.php:8
+msgid "Show author's image"
+msgstr ""
+
+#: acf-exports/translate-reference.php:9
+msgid "Navigation settings"
+msgstr ""
+
+#: acf-exports/translate-reference.php:10
+msgid "Hide from sidebar menu"
+msgstr ""
+
+#: acf-exports/translate-reference.php:11
+msgid "Hide"
+msgstr ""
+
+#: acf-exports/translate-reference.php:12
+msgid "Menu title"
+msgstr ""
+
+#: acf-exports/translate-reference.php:13
+msgid ""
+"If you want to use another title for this page in the sidebar navigation "
+"fill it in here. If you want to use the page title just leave this field "
+"empty."
+msgstr ""
+
+#: acf-exports/translate-reference.php:14
+msgid "Default post types"
+msgstr ""
+
+#: acf-exports/translate-reference.php:15
+msgid "Disable blog"
+msgstr ""
+
+#: acf-exports/translate-reference.php:16
+msgid "Yes, disable posts."
+msgstr ""
+
+#: acf-exports/translate-reference.php:17
+msgid "Disable pages"
+msgstr ""
+
+#: acf-exports/translate-reference.php:18
+msgid "Yes, disable pages."
+msgstr ""
+
+#: acf-exports/translate-reference.php:19
+#: acf-exports/translate-reference.php:242
+msgid "Logotype"
+msgstr ""
+
+#: acf-exports/translate-reference.php:20
+#: acf-exports/translate-reference.php:193
+msgid "standard"
+msgstr ""
+
+#: acf-exports/translate-reference.php:21
+#: acf-exports/translate-reference.php:194
+#: acf-exports/translate-reference.php:225
+msgid "Standard"
+msgstr ""
+
+#: acf-exports/translate-reference.php:22
+#: acf-exports/translate-reference.php:195
+#: acf-exports/translate-reference.php:226
+msgid "Negative"
+msgstr ""
+
+#: acf-exports/translate-reference.php:23
+msgid "Error message"
+msgstr ""
+
+#: acf-exports/translate-reference.php:24
+msgid "The message that will be displayed underneeth the 404-error code"
+msgstr ""
+
+#: acf-exports/translate-reference.php:25
+msgid "The page could not be found"
+msgstr ""
+
+#: acf-exports/translate-reference.php:26
+msgid "Error info"
+msgstr ""
+
+#: acf-exports/translate-reference.php:27
+msgid "Additional information about the error or other information"
+msgstr ""
+
+#: acf-exports/translate-reference.php:28
+msgid "Display"
+msgstr ""
+
+#: acf-exports/translate-reference.php:29
+msgid "Link to home"
+msgstr ""
+
+#: acf-exports/translate-reference.php:30
+msgid "Link to search"
+msgstr ""
+
+#: acf-exports/translate-reference.php:31
+msgid "Back button (previous page in browser history)"
+msgstr ""
+
+#: acf-exports/translate-reference.php:32
+msgid "Home link text"
+msgstr ""
+
+#: acf-exports/translate-reference.php:33
+msgid "Back to home"
+msgstr ""
+
+#: acf-exports/translate-reference.php:34
+msgid "Back button text"
+msgstr ""
+
+#: acf-exports/translate-reference.php:35
+msgid "Go back"
+msgstr ""
+
+#: acf-exports/translate-reference.php:36
+msgid "Search link text"
+msgstr ""
+
+#: acf-exports/translate-reference.php:37
+#, php-format
+msgid "Use %s to output suggested search query"
+msgstr ""
+
+#: acf-exports/translate-reference.php:38
+#, php-format
+msgid "Search for \\\"%s\\\""
+msgstr ""
+
+#: acf-exports/translate-reference.php:41
+#: acf-exports/translate-reference.php:43
+#: acf-exports/translate-reference.php:222
+#: acf-exports/translate-reference.php:295
+#: acf-exports/translate-reference.php:330
+#: acf-exports/translate-reference.php:337
+#: acf-exports/translate-reference.php:339
+msgid "Enable"
+msgstr ""
+
+#: acf-exports/translate-reference.php:42
+msgid "Show author image"
+msgstr ""
+
+#: acf-exports/translate-reference.php:44
+#: acf-exports/translate-reference.php:45
+msgid "Color scheme"
+msgstr ""
+
+#: acf-exports/translate-reference.php:46
+msgid "gray"
+msgstr ""
+
+#: acf-exports/translate-reference.php:47
+msgid "Gray"
+msgstr ""
+
+#: acf-exports/translate-reference.php:48
+msgid "Red"
+msgstr ""
+
+#: acf-exports/translate-reference.php:49
+msgid "Blue"
+msgstr ""
+
+#: acf-exports/translate-reference.php:50
+msgid "Green"
+msgstr ""
+
+#: acf-exports/translate-reference.php:51
+msgid "Purple"
+msgstr ""
+
+#: acf-exports/translate-reference.php:52
+msgid "Cookie consent"
+msgstr ""
+
+#: acf-exports/translate-reference.php:53
+msgid "Active"
+msgstr ""
+
+#: acf-exports/translate-reference.php:54
+msgid "Show cookie consent to users if not already accepted"
+msgstr ""
+
+#: acf-exports/translate-reference.php:55
+msgid "Message"
+msgstr ""
+
+#: acf-exports/translate-reference.php:56
+msgid ""
+"This website uses cookies to ensure you get the best experience on our "
+"website."
+msgstr ""
+
+#: acf-exports/translate-reference.php:57
+msgid "Button"
+msgstr ""
+
+#: acf-exports/translate-reference.php:58
+msgid "Got it!"
+msgstr ""
+
+#: acf-exports/translate-reference.php:59
+msgid "Placement"
+msgstr ""
+
+#: acf-exports/translate-reference.php:60
+msgid "At the top of the page"
+msgstr ""
+
+#: acf-exports/translate-reference.php:61
+msgid "Fixed to bottom of window"
+msgstr ""
+
+#: acf-exports/translate-reference.php:62
+msgid "Custom CSS"
+msgstr ""
+
+#: acf-exports/translate-reference.php:63
+msgid "Css input"
+msgstr ""
+
+#: acf-exports/translate-reference.php:64
+msgid ""
+"Enter your CSS-code here. It will be wrapped with \\\"style\\\" tags, and "
+"included on all pages."
+msgstr ""
+
+#: acf-exports/translate-reference.php:65
+#: acf-exports/translate-reference.php:120
+#: acf-exports/translate-reference.php:247
+msgid "Manage post types"
+msgstr ""
+
+#: acf-exports/translate-reference.php:66
+#: acf-exports/translate-reference.php:121
+#: acf-exports/translate-reference.php:248
+msgid "Post type name"
+msgstr ""
+
+#: acf-exports/translate-reference.php:67
+#: acf-exports/translate-reference.php:122
+#: acf-exports/translate-reference.php:249
+msgid ""
+"<span style=\\\"color: #ff0000;\\\">Will generate the post type name, select "
+"a name with care! Cannot be changed! </span>"
+msgstr ""
+
+#: acf-exports/translate-reference.php:68
+#: acf-exports/translate-reference.php:106
+#: acf-exports/translate-reference.php:123
+#: acf-exports/translate-reference.php:250
+msgid "Permalänk"
+msgstr ""
+
+#: acf-exports/translate-reference.php:69
+#: acf-exports/translate-reference.php:124
+#: acf-exports/translate-reference.php:251
+msgid "Public /url/ to show archive on."
+msgstr ""
+
+#: acf-exports/translate-reference.php:70
+#: acf-exports/translate-reference.php:125
+#: acf-exports/translate-reference.php:252
+msgid "Menu icon"
+msgstr ""
+
+#: acf-exports/translate-reference.php:71
+#: acf-exports/translate-reference.php:126
+#: acf-exports/translate-reference.php:253
+msgid "Menu position"
+msgstr ""
+
+#: acf-exports/translate-reference.php:72
+#: acf-exports/translate-reference.php:127
+#: acf-exports/translate-reference.php:254
+msgid "Select where to place this custom post type admin section."
+msgstr ""
+
+#: acf-exports/translate-reference.php:73
+#: acf-exports/translate-reference.php:128
+#: acf-exports/translate-reference.php:255
+msgid "Below Posts"
+msgstr ""
+
+#: acf-exports/translate-reference.php:74
+#: acf-exports/translate-reference.php:129
+#: acf-exports/translate-reference.php:256
+msgid "Below Media"
+msgstr ""
+
+#: acf-exports/translate-reference.php:75
+#: acf-exports/translate-reference.php:130
+#: acf-exports/translate-reference.php:257
+msgid "Below Links"
+msgstr ""
+
+#: acf-exports/translate-reference.php:76
+#: acf-exports/translate-reference.php:131
+#: acf-exports/translate-reference.php:258
+msgid "Below Pages"
+msgstr ""
+
+#: acf-exports/translate-reference.php:77
+#: acf-exports/translate-reference.php:132
+#: acf-exports/translate-reference.php:259
+msgid "Below comments"
+msgstr ""
+
+#: acf-exports/translate-reference.php:78
+#: acf-exports/translate-reference.php:133
+#: acf-exports/translate-reference.php:260
+msgid "Below first separator"
+msgstr ""
+
+#: acf-exports/translate-reference.php:79
+#: acf-exports/translate-reference.php:134
+#: acf-exports/translate-reference.php:261
+msgid "Below Plugins"
+msgstr ""
+
+#: acf-exports/translate-reference.php:80
+#: acf-exports/translate-reference.php:135
+#: acf-exports/translate-reference.php:262
+msgid "Below Users"
+msgstr ""
+
+#: acf-exports/translate-reference.php:81
+#: acf-exports/translate-reference.php:136
+#: acf-exports/translate-reference.php:263
+msgid "Below Tools"
+msgstr ""
+
+#: acf-exports/translate-reference.php:82
+#: acf-exports/translate-reference.php:137
+#: acf-exports/translate-reference.php:264
+msgid "Below Settings"
+msgstr ""
+
+#: acf-exports/translate-reference.php:83
+#: acf-exports/translate-reference.php:138
+#: acf-exports/translate-reference.php:265
+msgid "Below second separator"
+msgstr ""
+
+#: acf-exports/translate-reference.php:84
+#: acf-exports/translate-reference.php:139
+#: acf-exports/translate-reference.php:266
+msgid "Public?"
+msgstr ""
+
+#: acf-exports/translate-reference.php:85
+#: acf-exports/translate-reference.php:140
+#: acf-exports/translate-reference.php:267
+msgid "Controls how the type is visible to authors"
+msgstr ""
+
+#: acf-exports/translate-reference.php:86
+#: acf-exports/translate-reference.php:141
+#: acf-exports/translate-reference.php:268
+msgid "Exclude from search?"
+msgstr ""
+
+#: acf-exports/translate-reference.php:87
+#: acf-exports/translate-reference.php:142
+#: acf-exports/translate-reference.php:269
+msgid ""
+"Whether to exclude posts with this post type from front end search results."
+msgstr ""
+
+#: acf-exports/translate-reference.php:88
+#: acf-exports/translate-reference.php:143
+#: acf-exports/translate-reference.php:270
+msgid "Avabile in nav menus?"
+msgstr ""
+
+#: acf-exports/translate-reference.php:89
+#: acf-exports/translate-reference.php:144
+#: acf-exports/translate-reference.php:271
+msgid "Make post type available for selection in navigation menus."
+msgstr ""
+
+#: acf-exports/translate-reference.php:90
+#: acf-exports/translate-reference.php:145
+#: acf-exports/translate-reference.php:272
+msgid "Hierarchical"
+msgstr ""
+
+#: acf-exports/translate-reference.php:91
+#: acf-exports/translate-reference.php:146
+#: acf-exports/translate-reference.php:273
+msgid ""
+"Whether the post type is hierarchical (e.g. page). Allows Parent to be "
+"specified."
+msgstr ""
+
+#: acf-exports/translate-reference.php:92
+#: acf-exports/translate-reference.php:147
+#: acf-exports/translate-reference.php:274
+msgid "Post type functions"
+msgstr ""
+
+#: acf-exports/translate-reference.php:93
+#: acf-exports/translate-reference.php:148
+#: acf-exports/translate-reference.php:275 library/Admin/Options/Theme.php:100
+#: library/Admin/Options/Theme.php:101
+msgid "Content editor"
+msgstr ""
+
+#: acf-exports/translate-reference.php:94
+#: acf-exports/translate-reference.php:149
+#: acf-exports/translate-reference.php:276
+msgid "Author Select"
+msgstr ""
+
+#: acf-exports/translate-reference.php:95
+#: acf-exports/translate-reference.php:150
+#: acf-exports/translate-reference.php:277
+msgid "Featured Image"
+msgstr ""
+
+#: acf-exports/translate-reference.php:96
+#: acf-exports/translate-reference.php:151
+#: acf-exports/translate-reference.php:278
+msgid "Excerpt"
+msgstr ""
+
+#: acf-exports/translate-reference.php:97
+#: acf-exports/translate-reference.php:152
+#: acf-exports/translate-reference.php:279
+msgid "Trackbacks"
+msgstr ""
+
+#: acf-exports/translate-reference.php:98
+#: acf-exports/translate-reference.php:153
+#: acf-exports/translate-reference.php:280
+#: views/partials/blog/post-info.blade.php:36
+msgid "Comments"
+msgstr ""
+
+#: acf-exports/translate-reference.php:99
+#: acf-exports/translate-reference.php:154
+#: acf-exports/translate-reference.php:281
+msgid "Page Attributes"
+msgstr ""
+
+#: acf-exports/translate-reference.php:100
+#: acf-exports/translate-reference.php:155
+#: acf-exports/translate-reference.php:282
+msgid "Post Formats"
+msgstr ""
+
+#: acf-exports/translate-reference.php:101
+#: acf-exports/translate-reference.php:156
+#: acf-exports/translate-reference.php:283
+msgid "Available post types"
+msgstr ""
+
+#: acf-exports/translate-reference.php:102
+#: acf-exports/translate-reference.php:157
+#: acf-exports/translate-reference.php:284
+msgid "Add post type"
+msgstr ""
+
+#: acf-exports/translate-reference.php:103
+msgid "Manage taxonomies"
+msgstr ""
+
+#: acf-exports/translate-reference.php:104
+msgid "Label"
+msgstr ""
+
+#: acf-exports/translate-reference.php:105
+msgid ""
+"<span style=\\\"color: #ff0000;\\\">Once you have published a post type the "
+"name cannot be changed!</span>"
+msgstr ""
+
+#: acf-exports/translate-reference.php:107
+msgid "Only applies if you enable the option to publish your taxonomy."
+msgstr ""
+
+#: acf-exports/translate-reference.php:108
+msgid "Type of taxonomy"
+msgstr ""
+
+#: acf-exports/translate-reference.php:109
+#: views/partials/blog/post-tags.blade.php:2
+msgid "Tags"
+msgstr ""
+
+#: acf-exports/translate-reference.php:110
+#: views/partials/blog/post-categories.blade.php:2
+msgid "Categories"
+msgstr ""
+
+#: acf-exports/translate-reference.php:111
+msgid "Connect to post type(s)"
+msgstr ""
+
+#: acf-exports/translate-reference.php:112
+msgid "post"
+msgstr ""
+
+#: acf-exports/translate-reference.php:113
+msgid "page"
+msgstr ""
+
+#: acf-exports/translate-reference.php:114
+msgid "Offentlig"
+msgstr ""
+
+#: acf-exports/translate-reference.php:115
+msgid "Enable visitors to browse this taxonomy"
+msgstr ""
+
+#: acf-exports/translate-reference.php:116
+msgid "Admin user interface"
+msgstr ""
+
+#: acf-exports/translate-reference.php:117
+msgid "Enable administration UI"
+msgstr ""
+
+#: acf-exports/translate-reference.php:118
+msgid "Available dynamic taxonomies"
+msgstr ""
+
+#: acf-exports/translate-reference.php:119
+msgid "Add taxonomy"
+msgstr ""
+
+#: acf-exports/translate-reference.php:158
+msgid "Favicon"
+msgstr ""
+
+#: acf-exports/translate-reference.php:159
+msgid "Type"
+msgstr ""
+
+#: acf-exports/translate-reference.php:160
+msgid "favicon.ico (16x16px, 32x32px, 48x48px)"
+msgstr ""
+
+#: acf-exports/translate-reference.php:161
+msgid "iOS, Android (152x152px)"
+msgstr ""
+
+#: acf-exports/translate-reference.php:162
+msgid "IE10, Windows Metro (144x144px)"
+msgstr ""
+
+#: acf-exports/translate-reference.php:163
+msgid "Icon 152x152"
+msgstr ""
+
+#: acf-exports/translate-reference.php:164
+msgid "Must be 152x152 pixels .png"
+msgstr ""
+
+#: acf-exports/translate-reference.php:165
+msgid "Icon 144x144"
+msgstr ""
+
+#: acf-exports/translate-reference.php:166
+msgid "Must be 144x144 pixels .png"
+msgstr ""
+
+#: acf-exports/translate-reference.php:167
+msgid "Favicon.ico"
+msgstr ""
+
+#: acf-exports/translate-reference.php:168
+msgid "Must be a .ico containing 16x16px, 32x32px and 48x48px"
+msgstr ""
+
+#: acf-exports/translate-reference.php:169
+#: acf-exports/translate-reference.php:176
+#: acf-exports/translate-reference.php:218
+msgid "Icon"
+msgstr ""
+
+#: acf-exports/translate-reference.php:170
+msgid "Metro tile color"
+msgstr ""
+
+#: acf-exports/translate-reference.php:171
+msgid "#FFFFFF"
+msgstr ""
+
+#: acf-exports/translate-reference.php:172
+msgid "Favicons"
+msgstr ""
+
+#: acf-exports/translate-reference.php:173
+msgid ""
+"Add favicons in various sizes. If a size has multiple icons specified only "
+"the latest specified icon will be used."
+msgstr ""
+
+#: acf-exports/translate-reference.php:174
+#: acf-exports/translate-reference.php:367
+msgid "Lägg till rad"
+msgstr ""
+
+#: acf-exports/translate-reference.php:175
+msgid "Footer Icons"
+msgstr ""
+
+#: acf-exports/translate-reference.php:177
+msgid "null"
+msgstr ""
+
+#: acf-exports/translate-reference.php:178
+msgid "- Select -"
+msgstr ""
+
+#: acf-exports/translate-reference.php:179
+msgid "Title"
+msgstr ""
+
+#: acf-exports/translate-reference.php:180
+msgid "Url"
+msgstr ""
+
+#: acf-exports/translate-reference.php:181
+msgid "Footer icons repeater"
+msgstr ""
+
+#: acf-exports/translate-reference.php:182
+msgid ""
+"Add icons to the footer of your site. Link to external resources link "
+"facebook, twitter and linkedin! <style>.acf-field-font-awesome .fa-live-"
+"preview {display:none;}</style>"
+msgstr ""
+
+#: acf-exports/translate-reference.php:183
+msgid "Add icon"
+msgstr ""
+
+#: acf-exports/translate-reference.php:184
+#: acf-exports/translate-reference.php:185
+msgid "Footer layout"
+msgstr ""
+
+#: acf-exports/translate-reference.php:186
+msgid "Default style"
+msgstr ""
+
+#: acf-exports/translate-reference.php:187
+msgid "Compressed"
+msgstr ""
+
+#: acf-exports/translate-reference.php:188
+msgid "Footer signature"
+msgstr ""
+
+#: acf-exports/translate-reference.php:189
+msgid ""
+"If enabled a predefined footer signature logo will be appended to the footer."
+msgstr ""
+
+#: acf-exports/translate-reference.php:190
+msgid "Enable footer signature"
+msgstr ""
+
+#: acf-exports/translate-reference.php:191
+msgid "Footer logotype"
+msgstr ""
+
+#: acf-exports/translate-reference.php:192
+msgid "Logotype to use in footer"
+msgstr ""
+
+#: acf-exports/translate-reference.php:196
+msgid "Hide logotype in footer"
+msgstr ""
+
+#: acf-exports/translate-reference.php:197
+msgid "Vertical position"
+msgstr ""
+
+#: acf-exports/translate-reference.php:198
+msgid "top"
+msgstr ""
+
+#: acf-exports/translate-reference.php:199
+msgid "Above footer content"
+msgstr ""
+
+#: acf-exports/translate-reference.php:200
+msgid "Below footer content"
+msgstr ""
+
+#: acf-exports/translate-reference.php:201
+msgid "Google Analytics"
+msgstr ""
+
+#: acf-exports/translate-reference.php:202
+msgid "Google Analytics UA"
+msgstr ""
+
+#: acf-exports/translate-reference.php:203
+msgid ""
+"To activate Google Analytics please insert your Google Analytics UA.<br> "
+"Usally a string like this: UA-XXXXX-Y"
+msgstr ""
+
+#: acf-exports/translate-reference.php:204
+msgid "Google Translate"
+msgstr ""
+
+#: acf-exports/translate-reference.php:205
+msgid "Where to show Google Translate"
+msgstr ""
+
+#: acf-exports/translate-reference.php:206
+msgid "Do not show"
+msgstr ""
+
+#: acf-exports/translate-reference.php:207
+msgid "Above header"
+msgstr ""
+
+#: acf-exports/translate-reference.php:208
+msgid "Below footer"
+msgstr ""
+
+#: acf-exports/translate-reference.php:209
+msgid "Fixed to right edge"
+msgstr ""
+
+#: acf-exports/translate-reference.php:210
+msgid "Menu to show translate link in"
+msgstr ""
+
+#: acf-exports/translate-reference.php:211 library/Theme/Navigation.php:75
+msgid "Help menu"
+msgstr ""
+
+#: acf-exports/translate-reference.php:212 library/Theme/Navigation.php:76
+msgid "Header tabs menu"
+msgstr ""
+
+#: acf-exports/translate-reference.php:213 library/Theme/Navigation.php:80
+msgid "Main menu"
+msgstr ""
+
+#: acf-exports/translate-reference.php:214 library/Theme/Navigation.php:84
+msgid "Sidebar menu"
+msgstr ""
+
+#: acf-exports/translate-reference.php:215
+msgid "Show as"
+msgstr ""
+
+#: acf-exports/translate-reference.php:216
+msgid "text"
+msgstr ""
+
+#: acf-exports/translate-reference.php:217
+msgid "Text"
+msgstr ""
+
+#: acf-exports/translate-reference.php:219
+msgid "Icon and text"
+msgstr ""
+
+#: acf-exports/translate-reference.php:220
+msgid "Track usage with Google Analytics"
+msgstr ""
+
+#: acf-exports/translate-reference.php:221
+msgid ""
+"If set to enabled, Google Translate usage will be tracked in Google "
+"Analytics (to the account specified under the Google Analytics settings)"
+msgstr ""
+
+#: acf-exports/translate-reference.php:223
+msgid "Header logotype"
+msgstr ""
+
+#: acf-exports/translate-reference.php:224
+msgid "Logotype to use in header"
+msgstr ""
+
+#: acf-exports/translate-reference.php:227
+msgid "Logotype tooltip"
+msgstr ""
+
+#: acf-exports/translate-reference.php:228
+msgid ""
+"Tooltip text when hovering over the logotype in the header. The logo links "
+"to the front page. Leave empty if you don't want to show anything."
+msgstr ""
+
+#: acf-exports/translate-reference.php:229
+msgid "Header tagline"
+msgstr ""
+
+#: acf-exports/translate-reference.php:230
+msgid "Enable tagline"
+msgstr ""
+
+#: acf-exports/translate-reference.php:231
+msgid "Yes, enable tagline in header"
+msgstr ""
+
+#: acf-exports/translate-reference.php:232
+msgid "Tagline"
+msgstr ""
+
+#: acf-exports/translate-reference.php:233
+msgid "Use site description"
+msgstr ""
+
+#: acf-exports/translate-reference.php:234
+msgid "Input custom"
+msgstr ""
+
+#: acf-exports/translate-reference.php:235
+msgid "Tagline text"
+msgstr ""
+
+#: acf-exports/translate-reference.php:236 library/Admin/Options/Theme.php:36
+#: library/Admin/Options/Theme.php:37
+msgid "Header"
+msgstr ""
+
+#: acf-exports/translate-reference.php:237
+msgid "Layout"
+msgstr ""
+
+#: acf-exports/translate-reference.php:238
+msgid "business"
+msgstr ""
+
+#: acf-exports/translate-reference.php:239
+msgid "Business (default)"
+msgstr ""
+
+#: acf-exports/translate-reference.php:240
+msgid "Casual"
+msgstr ""
+
+#: acf-exports/translate-reference.php:241
+msgid "Jumbo"
+msgstr ""
+
+#: acf-exports/translate-reference.php:243
+msgid "Standard logotype"
+msgstr ""
+
+#: acf-exports/translate-reference.php:244
+msgid "Only .svg-files are supported."
+msgstr ""
+
+#: acf-exports/translate-reference.php:245
+msgid "Negative logotype"
+msgstr ""
+
+#: acf-exports/translate-reference.php:246
+msgid ""
+"Please upload a brand logo in the format .svg. The negative logo refers to a "
+"100% white logotype that can be used on dark backgrounds."
+msgstr ""
+
+#: acf-exports/translate-reference.php:285
+msgid "Timestamp"
+msgstr ""
+
+#: acf-exports/translate-reference.php:286
+msgid "Post footer timestamps"
+msgstr ""
+
+#: acf-exports/translate-reference.php:287
+msgid ""
+"Check boxes to enable timestamps for post types. Will be displayed after the "
+"content area, if applicable."
+msgstr ""
+
+#: acf-exports/translate-reference.php:288
+#: views/partials/archive-filters.blade.php:17
+msgid "Date published"
+msgstr ""
+
+#: acf-exports/translate-reference.php:289
+#: acf-exports/translate-reference.php:292
+msgid "Posts"
+msgstr ""
+
+#: acf-exports/translate-reference.php:290
+#: acf-exports/translate-reference.php:293
+msgid "Pages"
+msgstr ""
+
+#: acf-exports/translate-reference.php:291
+msgid "Date updated"
+msgstr ""
+
+#: acf-exports/translate-reference.php:294
+msgid "Primary navigation"
+msgstr ""
+
+#: acf-exports/translate-reference.php:296
+msgid "Enable primary navigation"
+msgstr ""
+
+#: acf-exports/translate-reference.php:297
+#: acf-exports/translate-reference.php:341
+msgid "Menu type"
+msgstr ""
+
+#: acf-exports/translate-reference.php:298
+msgid "auto"
+msgstr ""
+
+#: acf-exports/translate-reference.php:299
+#: acf-exports/translate-reference.php:344
+msgid "Automatically generated"
+msgstr ""
+
+#: acf-exports/translate-reference.php:300
+#: acf-exports/translate-reference.php:345
+msgid "WP Menu"
+msgstr ""
+
+#: acf-exports/translate-reference.php:301
+msgid "Dropdown sub-menus"
+msgstr ""
+
+#: acf-exports/translate-reference.php:302
+msgid "Yes, display sub-menus as dropdowns"
+msgstr ""
+
+#: acf-exports/translate-reference.php:303
+#: acf-exports/translate-reference.php:307
+#: acf-exports/translate-reference.php:351
+msgid "Menu depth"
+msgstr ""
+
+#: acf-exports/translate-reference.php:304
+msgid ""
+"When \\\"dropdown sub-menus\\\" is inacticated only the top level menu items "
+"will be displayed in the main menu. To display the submenu items in the "
+"sidebar menu you should set the \\\"secondary menu\\\" settings to \\\"Act "
+"as sub menu to the primary menu\\\"."
+msgstr ""
+
+#: acf-exports/translate-reference.php:305
+#: acf-exports/translate-reference.php:346
+msgid "Automatically generated menu"
+msgstr ""
+
+#: acf-exports/translate-reference.php:306
+#: acf-exports/translate-reference.php:347
+msgid ""
+"The automatically generated menu type will include all published pages from "
+"top level pages and down to the below specified depth level. The "
+"automatically generated menu is a heavy procedure for the system to run. The "
+"deeper it should go the longer loading time."
+msgstr ""
+
+#: acf-exports/translate-reference.php:308
+#: acf-exports/translate-reference.php:352
+msgid "Set to 0 to show all levels"
+msgstr ""
+
+#: acf-exports/translate-reference.php:309
+#: acf-exports/translate-reference.php:353
+msgid "Render"
+msgstr ""
+
+#: acf-exports/translate-reference.php:310
+#: acf-exports/translate-reference.php:354
+msgid "How to render the items"
+msgstr ""
+
+#: acf-exports/translate-reference.php:311
+msgid "All levels"
+msgstr ""
+
+#: acf-exports/translate-reference.php:312
+msgid "Only sub levels of active top level item"
+msgstr ""
+
+#: acf-exports/translate-reference.php:313
+msgid "Menu items alignment"
+msgstr ""
+
+#: acf-exports/translate-reference.php:314
+msgid "justify"
+msgstr ""
+
+#: acf-exports/translate-reference.php:315
+msgid "Left"
+msgstr ""
+
+#: acf-exports/translate-reference.php:316
+msgid "Center"
+msgstr ""
+
+#: acf-exports/translate-reference.php:317
+msgid "Right"
+msgstr ""
+
+#: acf-exports/translate-reference.php:318
+msgid "Justify"
+msgstr ""
+
+#: acf-exports/translate-reference.php:320
+msgid "Display search"
+msgstr ""
+
+#: acf-exports/translate-reference.php:321
+msgid "In front-page hero/slider"
+msgstr ""
+
+#: acf-exports/translate-reference.php:322
+msgid "In the header of all pages but front page"
+msgstr ""
+
+#: acf-exports/translate-reference.php:323
+msgid "In the header of all pages"
+msgstr ""
+
+#: acf-exports/translate-reference.php:324
+msgid "Icon in main menu"
+msgstr ""
+
+#: acf-exports/translate-reference.php:325
+msgid "Search field label"
+msgstr ""
+
+#: acf-exports/translate-reference.php:326
+msgid "Search field placeholder"
+msgstr ""
+
+#: acf-exports/translate-reference.php:327
+msgid "Search button text"
+msgstr ""
+
+#: acf-exports/translate-reference.php:328
+msgid "Sök"
+msgstr ""
+
+#: acf-exports/translate-reference.php:329
+msgid "Google Search"
+msgstr ""
+
+#: acf-exports/translate-reference.php:331
+msgid "Use Google Site Search"
+msgstr ""
+
+#: acf-exports/translate-reference.php:332
+msgid "Google API Key"
+msgstr ""
+
+#: acf-exports/translate-reference.php:333
+msgid "Google Api CX"
+msgstr ""
+
+#: acf-exports/translate-reference.php:335
+msgid "Show share icons"
+msgstr ""
+
+#: acf-exports/translate-reference.php:336
+msgid ""
+"This is a master control which will enable/disable the social share icons "
+"for each and all posts and pages."
+msgstr ""
+
+#: acf-exports/translate-reference.php:338
+msgid "Sub navigation"
+msgstr ""
+
+#: acf-exports/translate-reference.php:340
+msgid "Enable sub navigation"
+msgstr ""
+
+#: acf-exports/translate-reference.php:342
+msgid "sub"
+msgstr ""
+
+#: acf-exports/translate-reference.php:343
+msgid "Act as sub menu to the primary menu"
+msgstr ""
+
+#: acf-exports/translate-reference.php:348
+msgid "Top level pages"
+msgstr ""
+
+#: acf-exports/translate-reference.php:349
+msgid ""
+"Weather to include the top level pages. If unchecked the pages will be "
+"generated from depth 2."
+msgstr ""
+
+#: acf-exports/translate-reference.php:350
+msgid "Include top level pages"
+msgstr ""
+
+#: acf-exports/translate-reference.php:355
+msgid "All"
+msgstr ""
+
+#: acf-exports/translate-reference.php:356
+msgid "Only active level's subitems"
+msgstr ""
+
+#: acf-exports/translate-reference.php:357
+msgid "User profile picture"
+msgstr ""
+
+#: acf-exports/translate-reference.php:358
+msgid "Author picture"
+msgstr ""
+
+#: acf-exports/translate-reference.php:359
+msgid "Picture that show in author information for posts published by you"
+msgstr ""
+
+#: acf-exports/translate-reference.php:360
+msgid "Contact widget"
+msgstr ""
+
+#: acf-exports/translate-reference.php:361
+msgid "Contact person"
+msgstr ""
+
+#: acf-exports/translate-reference.php:362
+msgid "Company"
+msgstr ""
+
+#: acf-exports/translate-reference.php:363
+msgid "Phone numer"
+msgstr ""
+
+#: acf-exports/translate-reference.php:364
+msgid "Email"
+msgstr ""
+
+#: acf-exports/translate-reference.php:365
+msgid "Address"
+msgstr ""
+
+#: acf-exports/translate-reference.php:366
+msgid "Contacts"
+msgstr ""
+
+#: library/Admin/General.php:64
+msgid "Only for logged in users"
+msgstr ""
+
+#: library/Admin/General.php:118
+msgid "Private"
+msgstr ""
+
+#: library/Admin/Options/Archives.php:41
+msgid "Archive for"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:19 library/Admin/Options/Theme.php:20
+msgid "Theme Options"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:28 library/Admin/Options/Theme.php:29
+msgid "Navigation"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:44 library/Admin/Options/Theme.php:45
+msgid "Content"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:52 library/Admin/Options/Theme.php:53
+#: library/Theme/Sidebars.php:80
+msgid "Footer"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:60 library/Admin/Options/Theme.php:61
+#: library/Theme/Navigation.php:135 views/partials/archive-filters.blade.php:7
+#: views/partials/archive-filters.blade.php:10
+#: views/partials/archive-filters.blade.php:28
+msgid "Search"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:68 library/Admin/Options/Theme.php:69
+msgid "Blog & Archives"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:108
+msgid "Custom Post Types"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:109
+msgid "Post Types"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:116
+msgid "Custom Taxonomies"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:117
+msgid "Taxonomies"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:124
+msgid "Custom CSS/JS Editor"
+msgstr ""
+
+#: library/Admin/Options/Theme.php:125
+msgid "Custom CSS/JS"
+msgstr ""
+
+#: library/Admin/UI/BackEnd.php:16 library/Admin/UI/BackEnd.php:21
+#: library/Admin/UI/BackEnd.php:26
+msgid "Notice"
+msgstr ""
+
+#: library/Admin/UI/BackEnd.php:16
+msgid "You're on a local server."
+msgstr ""
+
+#: library/Admin/UI/BackEnd.php:21
+msgid "This it the test-environment. Your content will not be published."
+msgstr ""
+
+#: library/Admin/UI/BackEnd.php:26
+msgid "This it the beta-environment. All functionality is not guaranteed."
+msgstr ""
+
+#: library/Admin/UI/VarnishPurge.php:38
+msgid "Varnish cache purged for this post!"
+msgstr ""
+
+#: library/Admin/UI/VarnishPurge.php:64
+msgid "Purge Page"
+msgstr ""
+
+#: library/Admin/UI/VarnishPurge.php:77
+msgid "Purge Varnish"
+msgstr ""
+
+#: library/Comment/HoneyPot.php:66
+msgid "Could not verify that you are human (image check)."
+msgstr ""
+
+#: library/Comment/HoneyPot.php:113
+msgid ""
+"Could not verify that you are human (some hidden form fields are "
+"manipulated)."
+msgstr ""
+
+#: library/Comment/HoneyPot.php:116
+msgid "Could not verify that you are human (some form fields are missing)."
+msgstr ""
+
+#: library/Content/CustomPostType.php:55
+msgid "Add new"
+msgstr ""
+
+#: library/Content/CustomPostType.php:56
+#, php-format
+msgid "Add new %s"
+msgstr ""
+
+#: library/Content/CustomPostType.php:57
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: library/Content/CustomPostType.php:58
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: library/Content/CustomPostType.php:59
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: library/Content/CustomPostType.php:60
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: library/Content/CustomPostType.php:61
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: library/Content/CustomPostType.php:62
+#, php-format
+msgid "Parent %s"
+msgstr ""
+
+#: library/Content/CustomPostType.php:63
+#, php-format
+msgid "No %s found"
+msgstr ""
+
+#: library/Content/CustomPostType.php:64
+#, php-format
+msgid "No %s found in trash"
+msgstr ""
+
+#: library/Content/CustomPostType.php:69
+msgid "Auto generated cpt from user iterface."
+msgstr ""
+
+#: library/Helper/GravityForm.php:47
+msgid "Submit"
+msgstr ""
+
+#: library/Template.php:49
+msgid "Page"
+msgstr ""
+
+#: library/Template.php:53
+msgid "Front page"
+msgstr ""
+
+#: library/Template.php:132
+msgid "Admin notice"
+msgstr ""
+
+#: library/Template.php:132
+#, php-format
+msgid "View [%s] was not found. Defaulting to [page.blade.php]."
+msgstr ""
+
+#: library/Theme/Enqueue.php:105
+msgid "Insert Print Page Break tag"
+msgstr ""
+
+#: library/Theme/Sidebars.php:81
+msgid "The footer area"
+msgstr ""
+
+#: library/Theme/Sidebars.php:93
+msgid "Hero"
+msgstr ""
+
+#: library/Theme/Sidebars.php:94
+msgid "The hero area"
+msgstr ""
+
+#: library/Theme/Sidebars.php:106
+msgid "Content area (above article)"
+msgstr ""
+
+#: library/Theme/Sidebars.php:107
+msgid "The area above the content"
+msgstr ""
+
+#: library/Theme/Sidebars.php:117
+msgid "Content area (below article)"
+msgstr ""
+
+#: library/Theme/Sidebars.php:118
+msgid "The area below the content"
+msgstr ""
+
+#: library/Theme/Sidebars.php:128
+msgid "Main container bottom"
+msgstr ""
+
+#: library/Theme/Sidebars.php:129
+msgid "The area below the main container"
+msgstr ""
+
+#: library/Theme/Sidebars.php:139
+msgid "Left sidebar"
+msgstr ""
+
+#: library/Theme/Sidebars.php:140
+msgid "The left sidebar area"
+msgstr ""
+
+#: library/Theme/Sidebars.php:152
+msgid "Left sidebar bottom"
+msgstr ""
+
+#: library/Theme/Sidebars.php:153
+msgid "The area below the left sidebar content"
+msgstr ""
+
+#: library/Theme/Sidebars.php:165
+msgid "Right sidebar"
+msgstr ""
+
+#: library/Theme/Sidebars.php:166
+msgid "The right sidebar area"
+msgstr ""
+
+#: library/Theme/Support.php:146
+msgid "Article"
+msgstr ""
+
+#: library/Widget/Contact.php:11
+msgid "Contact"
+msgstr ""
+
+#: library/Widget/Contact.php:13
+msgid "Displays the contact information given."
+msgstr ""
+
+#: views/archive.blade.php:47
+msgid "No posts to show"
+msgstr ""
+
+#: views/partials/archive-filters.blade.php:19
+msgid "From"
+msgstr ""
+
+#: views/partials/archive-filters.blade.php:20
+msgid "From date"
+msgstr ""
+
+#: views/partials/archive-filters.blade.php:21
+msgid "To"
+msgstr ""
+
+#: views/partials/archive-filters.blade.php:22
+msgid "To date"
+msgstr ""
+
+#: views/partials/blog/post-categories.blade.php:6
+msgid "No categories"
+msgstr ""
+
+#: views/partials/blog/post-footer.blade.php:9
+#: views/partials/page-footer.blade.php:11
+msgid "Share the page"
+msgstr ""
+
+#: views/partials/blog/post-footer.blade.php:34
+#: views/partials/timestamps.blade.php:4
+msgid "Published by"
+msgstr ""
+
+#: views/partials/blog/post-tags.blade.php:8
+msgid "No tags"
+msgstr ""
+
+#: views/partials/blog/taxonomy-filters.blade.php:10
+msgid "Show all"
+msgstr ""
+
+#: views/partials/header/default.blade.php:39
+msgid "Menu"
+msgstr ""
+
+#: views/partials/header/jumbo.blade.php:24
+msgid "More"
+msgstr ""
+
+#: views/partials/mobile-menu.blade.php:5
+msgid "What are you looking for?"
+msgstr ""
+
+#: views/partials/search/google.blade.php:24
+#: views/partials/search/wp.blade.php:24
+msgid "Found no matching results on your search…"
+msgstr ""
+
+#: views/partials/social-share.blade.php:3
+#: views/partials/social-share.blade.php:5
+#: views/partials/social-share.blade.php:9
+#: views/partials/social-share.blade.php:11
+#: views/partials/social-share.blade.php:15
+#: views/partials/social-share.blade.php:17
+msgid "Share on"
+msgstr ""
+
+#: views/partials/timestamps.blade.php:24
+#: views/partials/timestamps.blade.php:45
+msgid "Published"
+msgstr ""
+
+#: views/partials/timestamps.blade.php:33
+msgid "Last updated"
+msgstr ""
+
+#: views/templates/master.blade.php:52
+msgid "Jump to the main menu"
+msgstr ""
+
+#: views/templates/master.blade.php:53
+msgid "Jump to the main content"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Municipio"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://github.com/helsingborg-stad/Municipio"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A bootstrap theme for creating municipality sites. Works veary webb with "
+"Modularity Plugin."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid ""
+"Sebastian Thulin @ Helsingborg stad, Kristoffer Svanmark @ Lexicon IT-Konsult"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.helsingborg.se"
+msgstr ""

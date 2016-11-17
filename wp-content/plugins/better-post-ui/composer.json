@@ -1,0 +1,13 @@
+{
+    "name": "helsingborg-stad/better-post-ui",
+    "description": "Improves the UI and UX of the WordPress admin post form.",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kristoffer Svanmark",
+            "email": "kristoffer.svanmark@lexiconitkonsult.se"
+        }
+    ],
+    "require": {}
+}

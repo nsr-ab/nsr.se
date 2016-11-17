@@ -1,0 +1,180 @@
+    {
+        "key": "group_56cdb952464a7",
+        "title": "ReadSpeaker",
+        "fields": [
+            {
+                "key": "field_56cea7bb7d688",
+                "label": "Customer ID",
+                "name": "readspeaker-helper-customer-id",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": 50,
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56cdc815d542f",
+                "label": "Script in footer",
+                "name": "readspeaker-helper-script-footer",
+                "type": "true_false",
+                "instructions": "If checked, the JavaScript of the ReadSpeaker Helper will be placed in wp_footer. If not checked it will be placed in wp_head.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": 50,
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Put the ReadSpeaker helper script in the footer",
+                "default_value": 0
+            },
+            {
+                "key": "field_56cdb95b37279",
+                "label": "Enable ReadSpeaker for post types",
+                "name": "readspeaker-helper-enable-posttypes",
+                "type": "checkbox",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "post": "post",
+                    "page": "page",
+                    "attachment": "attachment",
+                    "mod-booking": "mod-booking",
+                    "mod-contact": "mod-contact",
+                    "mod-gallery": "mod-gallery",
+                    "mod-iframe": "mod-iframe",
+                    "mod-index": "mod-index",
+                    "mod-inheritpost": "mod-inheritpost",
+                    "mod-inlaylist": "mod-inlaylist",
+                    "mod-latest": "mod-latest",
+                    "mod-mainnews": "mod-mainnews",
+                    "mod-script": "mod-script",
+                    "mod-slider": "mod-slider",
+                    "mod-social": "mod-social",
+                    "mod-table": "mod-table",
+                    "mod-text": "mod-text",
+                    "testing": "testing",
+                    "bilar": "bilar"
+                },
+                "default_value": [],
+                "layout": "horizontal",
+                "toggle": 0
+            },
+            {
+                "key": "field_56cead17a98c7",
+                "label": "Placement",
+                "name": "readspeaker-helper-placement",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "manually": "Place manually (code)",
+                    "the_content": "Prepend to the_content"
+                },
+                "default_value": [
+                    "manually"
+                ],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "disabled": 0,
+                "readonly": 0
+            },
+            {
+                "key": "field_56cec4d6d9352",
+                "label": "Read selector",
+                "name": "readspeaker-helper-read-wrapper-id",
+                "type": "text",
+                "instructions": "ID selector to area of site to read",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56cead17a98c7",
+                            "operator": "==",
+                            "value": "manually"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "article",
+                "placeholder": "",
+                "prepend": "#",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56cead74a98c8",
+                "label": "Manual placement instructions",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56cead17a98c7",
+                            "operator": "==",
+                            "value": "manually"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Use the function <i>ReadSpeakerHelper_playButton($classes = array())<\/i> to echo the play button.\r\nUse the function <i>ReadSpeakerHelper_player()<\/i> to echo the player element.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "readspeaker-helper"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }

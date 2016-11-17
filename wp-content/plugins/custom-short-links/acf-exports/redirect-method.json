@@ -1,0 +1,158 @@
+    {
+        "key": "group_57060b2076f48",
+        "title": "Redirect method",
+        "fields": [
+            {
+                "key": "field_57060b8ceb9d2",
+                "label": "Select redirect method",
+                "name": "custom_short_links_redirect_method",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "301": "301 Moved Permanently",
+                    "302": "302 Moved Temporarily",
+                    "meta": "Meta Refresh"
+                },
+                "default_value": [
+                    301
+                ],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "disabled": 0,
+                "readonly": 0
+            },
+            {
+                "key": "field_57060d7eeb9d3",
+                "label": "301 Moved Permanently",
+                "name": "301_moved_permanently",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_57060b8ceb9d2",
+                            "operator": "==",
+                            "value": "301"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "The 301 Moved Permanently redirect should be used when the redirect is permanent. When using this redirect method search engines will know that the page on the original url has moved to the redirect url.\r\n\r\nFor short links the 301 Moved Permanently method is the default method and fits 95% of all short link redirect cases.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_57060e26eb9d4",
+                "label": "302 Moved Temporarily",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_57060b8ceb9d2",
+                            "operator": "==",
+                            "value": "302"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Use the 302 Moved Temporarily method if a page is moved temporarily and will be \"restored\" to the original state.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_57060e60eb9d5",
+                "label": "Meta Refresh",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_57060b8ceb9d2",
+                            "operator": "==",
+                            "value": "meta"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Use the meta refresh redirection method if you would like to redirect to another page after a certain amount of seconds.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_57060e92eb9d6",
+                "label": "Seconds before redirect",
+                "name": "custom_short_links_timeout",
+                "type": "number",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_57060b8ceb9d2",
+                            "operator": "==",
+                            "value": "meta"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": "seconds",
+                "min": "",
+                "max": "",
+                "step": "",
+                "readonly": 0,
+                "disabled": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "custom-short-link"
+                }
+            ]
+        ],
+        "menu_order": 100,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }

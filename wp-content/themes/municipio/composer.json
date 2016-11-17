@@ -1,0 +1,33 @@
+{
+    "name": "helsingborg-stad/municipio",
+    "description": "A bootstrap theme for creating municipality sites.",
+    "license": "GNU",
+    "type": "wordpress-theme",
+    "authors": [
+        {
+            "name": "Kristoffer Svanmark",
+            "email": "kristoffer.svanmark@lexiconitkonsult.se"
+        },
+        {
+            "name": "Sebastian Thulin",
+            "email": "sebastian.thulin@helsingborg.se"
+        }
+    ],
+    "repositories": [
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.0",
+        "philo/laravel-blade": "^3.1",
+        "symfony/debug": "^3.0",
+        "wpackagist-plugin/advanced-custom-fields": "^4.4.7"
+    },
+    "extra" : {
+        "installer-paths" : {
+            "vendor/{$name}/": ["type:wordpress-plugin"]
+        }
+    }
+}

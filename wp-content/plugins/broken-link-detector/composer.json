@@ -1,0 +1,13 @@
+{
+    "name": "helsingborg-stad/broken-link-detector",
+    "description": "Detects and fixes (if possible) broken links in post_content",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kristoffer Svanmark",
+            "email": "kristoffer.svanmark@lexiconitkonsult.se"
+        }
+    ],
+    "require": {}
+}
