@@ -16,8 +16,10 @@ class SidebarsExtended
          */
 
         unregister_sidebar('footer-area');
+        if( ! class_exists('acf') ) {
+            $footerBeforeWidgetClass = get_field('footer_layout', 'option') == 'compressed' ? 'grid-lg-6' : 'grid-lg-3 grid-md-3 grid-sm-6';
+        }
 
-        $footerBeforeWidgetClass = get_field('footer_layout', 'option') == 'compressed' ? 'grid-lg-6' : 'grid-lg-3 grid-md-3 grid-sm-6';
         register_sidebar(array(
             'id'            => 'footer-area',
             'name'          => __('Footer', 'municipio'),
