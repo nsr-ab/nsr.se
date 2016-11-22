@@ -1,6 +1,3 @@
-<?php
-$page_obj = get_post_type_object('page');
-?>
 <div class="nestedpages-list-header">
 	<div class="np-check-all">
 		<input type="checkbox" data-np-check-all="nestedpages_bulk[]" data-np-bulk-checkbox />
@@ -15,6 +12,7 @@ $page_obj = get_post_type_object('page');
 			<?php if ( current_user_can('delete_pages') ) : ?>
 			<option value="trash"><?php _e('Move to Trash', 'nestedpages'); ?></option>
 			<?php endif; ?>
+			<option value="edit"><?php _e('Edit', 'nestedpages'); ?></option>
 		</select>
 		<input type="submit" class="button" value="Apply">
 	</form>

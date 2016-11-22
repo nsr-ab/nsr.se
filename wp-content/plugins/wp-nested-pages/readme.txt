@@ -4,7 +4,7 @@ Donate link: http://nestedpages.com/
 Tags: pages, admin, nested, tree view, page tree, sort, quick edit, structure
 Requires at least: 3.8
 Tested up to: 4.6
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -98,6 +98,17 @@ As of version 1.6, yes. Visit Settings > Nested Pages > Post Types to configure 
 9. The Nested Pages interface can be enabled on a per-post-type basis, with customizable options for each type.
 
 == Changelog ==
+
+= 1.6.5.1 =
+* Temporarily rolling back to 1.6.3
+
+= 1.6.5 =
+* PHP fatal error bug fix
+
+= 1.6.4 =
+* Text domain updated to wp-nested-pages in compliance with wordpress.org translation requirments
+* Custom columns are now supported. Visit Settings > Nested Pages > Post Types to enable and order custom columns for each post type. Columns made available through the appropriate WordPress filters are available for selection, along with any taxonomies enabled for the post type.
+* Additional bug fixes in front end redirects that were causing duplicate slugs to be unreliable
 
 = 1.6.3 =
 * Temporary removal of front end redirects (resolves issue of duplicate slugs being overriden)

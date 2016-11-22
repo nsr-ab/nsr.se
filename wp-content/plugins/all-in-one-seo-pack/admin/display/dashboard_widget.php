@@ -9,6 +9,9 @@ if ( ! class_exists( 'aioseop_dashboard_widget' ) ) {
 	 */
 	class aioseop_dashboard_widget {
 
+		/**
+		 * Add the action to the constructor.
+		 */
 		function __construct() {
 			add_action( "wp_dashboard_setup", array( $this, 'aioseop_add_dashboard_widget' ) );
 		}
@@ -30,11 +33,11 @@ if ( ! class_exists( 'aioseop_dashboard_widget' ) ) {
 		/**
 		 * @since 2.3.10.2
 		 */
-		function show_widget(){
+		function show_widget() {
 
 			$show = true;
 
-			if( apply_filters( 'aioseo_show_seo_news', true) === false ){
+			if ( apply_filters( 'aioseo_show_seo_news', true ) === false ) {
 				// API filter hook to disable showing SEO News dashboard widget.
 				return false;
 			}
@@ -60,6 +63,7 @@ if ( ! class_exists( 'aioseop_dashboard_widget' ) ) {
 				$rss = fetch_feed( "https://www.semperplugins.com/feed/" );
 				if ( is_wp_error( $rss ) ) {
 					echo '{Temporarily unable to load feed.}';
+
 					return;
 				}
 				$rss_items = $rss->get_items( 0, 4 ); // Show four items.

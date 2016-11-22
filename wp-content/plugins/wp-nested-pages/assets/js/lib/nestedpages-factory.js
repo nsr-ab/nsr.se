@@ -36,12 +36,18 @@ NestedPages.selectors = {
 	toggleEditButtons : '.np-toggle-edit', // Button that toggles responsive buttons
 
 	// Bulk Actions
+	bulkActionsHeader : '.nestedpages-list-header',
 	bulkActionsForm : '[data-np-bulk-form]',
 	bulkActionsCheckbox : '[data-np-bulk-checkbox]',
 	bulkActionsIds : '[data-np-bulk-ids]',
 	bulkActionRedirectIds : '[data-np-bulk-redirect-ids]',
 	hiddenItemCount : '[data-np-hidden-count]',
 	hiddenItemCountParent : '[data-np-hidden-count-parent]',
+	bulkEditForm : '[data-np-bulk-edit-form]', // The primary bulk edit form
+	bulkEditTitles : '[data-np-bulk-titles]', // Titles to perform bulk edits on (includes hidden ids),
+	bulkEditRemoveItem : '[data-np-remove-bulk-item]', // Remove an item from bulk edit
+	bulkEditCancel : '[data-np-cancel-bulk-edit]', // Cancel button in bulk edit form
+	bulkEditLinkCount : '[data-bulk-edit-link-count]', // Count of selected links in bulk edit
 
 	// Quick Edit
 	quickEditOverlay : '.np-inline-overlay', // The inline modal
