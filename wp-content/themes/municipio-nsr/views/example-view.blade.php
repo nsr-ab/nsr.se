@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('Templates')
 
 @section('content')
     <!-- Content start -->
