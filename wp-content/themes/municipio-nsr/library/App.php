@@ -7,7 +7,7 @@ class App
     {
         new \Nsr\Theme\Enqueue();
         new \Nsr\Theme\SidebarsExtended();
-
+        new \Nsr\Theme\NSRTemplates();
 
 
         add_action( 'after_setup_theme', array( $this, 'nsr_theme_setup' ) );
@@ -19,7 +19,8 @@ class App
      *  nsr_theme_setup
      *  Adding language file
      */
-    public function nsr_theme_setup() {
+    public function nsr_theme_setup()
+    {
         load_child_theme_textdomain( 'nsr', get_stylesheet_directory() . '/languages' );
     }
 

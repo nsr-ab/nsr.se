@@ -14,7 +14,8 @@ wp-content/uploads/*
 !wp-content/plugins/readspeaker-helper/
 !wp-content/plugins/wp-editor-widget/
 !wp-content/plugins/wp-nested-pages/
-!wp-content/plugins/varnish-http-purge
+!wp-content/plugins/varnish-http-purge/
+!wp-content/plugins/nsr-vc-extended/
 
 
 

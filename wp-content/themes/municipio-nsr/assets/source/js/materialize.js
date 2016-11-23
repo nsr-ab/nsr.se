@@ -7011,7 +7011,7 @@ DatePicker.prototype.nodes = function( isOpen ) {
 
     // Create and return the entire calendar.
 return _.node(
-        // Date presentation View
+        // Date presentation Templates
         'div',
             _.node(
                 'div',
