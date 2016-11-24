@@ -7,7 +7,7 @@ class App
     {
         new \Nsr\Theme\Enqueue();
         new \Nsr\Theme\SidebarsExtended();
-        new \Nsr\Theme\NSRTemplates();
+        //new \Nsr\Theme\NSRTemplates();
 
 
         add_action( 'after_setup_theme', array( $this, 'nsr_theme_setup' ) );
