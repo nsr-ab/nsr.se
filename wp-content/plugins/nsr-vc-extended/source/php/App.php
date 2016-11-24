@@ -41,7 +41,7 @@ class App
     {
 
     }
-    
+
 
     /**
      *  nsr_theme_setup
