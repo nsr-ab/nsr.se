@@ -22,6 +22,8 @@ class App
 
     }
 
+
+
     /**
      * Enqueue required style
      * @return void
@@ -39,7 +41,7 @@ class App
     {
 
     }
-
+    
 
     /**
      *  nsr_theme_setup
