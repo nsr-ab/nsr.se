@@ -84,7 +84,7 @@ class Enqueue
         }
 
         //Custom
-        if (defined('DEV_MODE') && DEV_MODE === true) {
+        if ((defined('DEV_MODE') && DEV_MODE === true) || (isset($_GET['DEV_MODE']) && $_GET['DEV_MODE'] === 'true')) {
             wp_register_script('hbg-prime', '//hbgprime.dev/dist/js/hbg-prime.min.js', '', '1.0.0', true);
         } else {
             wp_register_script('hbg-prime', '//helsingborg-stad.github.io/styleguide-web-cdn/styleguide.dev/dist/js/hbg-prime.min.js', '', '1.0.0', true);
@@ -101,6 +101,11 @@ class Enqueue
             'googleTranslate' => array(
                 'gaTrack' => get_field('google_translate_ga_track', 'option'),
                 'gaUA'    => get_field('google_analytics_ua', 'option')
+            ),
+            'scrollElevator' => array(
+                'cta' => get_field('scroll_elevator_text', 'option'),
+                'tooltip' => get_field('scroll_elevator_tooltio', 'option'),
+                'tooltipPosition' => get_field('scroll_elevator_tooltio_position', 'option')
             )
         ));
         wp_enqueue_script('hbg-prime');

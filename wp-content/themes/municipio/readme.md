@@ -179,6 +179,15 @@ apply_filters('Municipio/search_result/permalink_url', $permalink_url, $post);
 apply_filters('Municipio/search_result/permalink_text', $permalink_text, $post);
 ```
 
+#### Municipio/search_form/…
+Filters applied to the search form
+
+- ```@param string $var``` - The content of the variable
+
+```php
+apply_filters('Municipio/search_form/action', $url);
+```
+
 #### Municipio/archive/sort_keys
 Modify the avaiable sorting keys for archives
 
@@ -198,6 +207,24 @@ Modify the date filter WHERE clause
 
 ```php
 apply_filters('Municipio/archive/date_filter', $where, $from, $to);
+```
+
+#### Municipio/Breadcrumbs
+Show/hide (true/false) breadcrumbs
+
+- ```@param boolean $bool```- True or false (show or hide)
+
+```php
+apply_filters('Municipio/Breadcrumbs', $bool, get_queried_object())
+```
+
+#### Municipio/Breadcrumbs/Items
+Filter the items/links in the breadcrumb
+
+- ```@param array $items``` - The breadcrumb items
+
+```php
+apply_filters('Municipio/Breadcrumbs/Items', $items, get_queried_object());
 ```
 
 #### Municipio/admin/editor_stylesheet

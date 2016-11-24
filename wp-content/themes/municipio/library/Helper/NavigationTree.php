@@ -47,26 +47,31 @@ class NavigationTree
                 $this->postStatuses[] = 'private';
             }
 
-            $this->topLevelPages = get_posts(array(
+            $topLevelQuery = new \WP_Query(array(
                 'post_parent' => 0,
                 'post_type' => 'page',
                 'post_status' => $this->postStatuses,
                 'orderby' => 'menu_order post_title',
                 'order' => 'asc',
-                'numberposts' => -1,
+                'posts_per_page' => -1,
                 'meta_query'    => array(
-                    'relation' => 'OR',
+                    'relation' => 'AND',
                     array(
-                        'key' => 'hide_in_menu',
-                        'compare' => 'NOT EXISTS'
-                    ),
-                    array(
-                        'key'   => 'hide_in_menu',
-                        'value' => '0',
-                        'compare' => '='
+                        'relation' => 'OR',
+                        array(
+                            'key' => 'hide_in_menu',
+                            'compare' => 'NOT EXISTS'
+                        ),
+                        array(
+                            'key'   => 'hide_in_menu',
+                            'value' => '0',
+                            'compare' => '='
+                        )
                     )
                 )
             ));
+
+            $this->topLevelPages = $topLevelQuery->posts;
         }
 
         if ($this->args['include_top_level']) {
@@ -176,9 +181,10 @@ class NavigationTree
                 return get_posts(array(
                     'post_type' => $key,
                     'post_status' => $this->postStatuses,
+                    'post_parent' => 0,
                     'orderby' => 'menu_order post_title',
                     'order' => 'asc',
-                    'numberposts' => -1,
+                    'posts_per_page' => -1,
                     'meta_query'    => array(
                         'relation' => 'OR',
                         array(
@@ -199,21 +205,24 @@ class NavigationTree
 
         return get_posts(array(
             'post_parent' => $parent,
-            'post_type' => 'page',
+            'post_type' => 'any',
             'post_status' => $this->postStatuses,
             'orderby' => 'menu_order post_title',
             'order' => 'asc',
-            'numberposts' => -1,
+            'posts_per_page' => -1,
             'meta_query'    => array(
-                'relation' => 'OR',
+                'relation' => 'AND',
                 array(
-                    'key' => 'hide_in_menu',
-                    'compare' => 'NOT EXISTS'
-                ),
-                array(
-                    'key'   => 'hide_in_menu',
-                    'value' => '0',
-                    'compare' => '='
+                    'relation' => 'OR',
+                    array(
+                        'key' => 'hide_in_menu',
+                        'compare' => 'NOT EXISTS'
+                    ),
+                    array(
+                        'key'   => 'hide_in_menu',
+                        'value' => '0',
+                        'compare' => '='
+                    )
                 )
             )
         ), 'OBJECT');

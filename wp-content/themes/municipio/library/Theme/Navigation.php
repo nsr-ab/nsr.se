@@ -18,6 +18,27 @@ class Navigation
         }
 
         add_action('save_post', array($this, 'purgeTreeMenuTransient'), 10, 2);
+
+        add_filter('the_posts', array($this, 'pageForPostTypeNavigation'));
+    }
+
+    /**
+     * Fix sidebar nav if "page for post type" is same as the curretn post's post type
+     * @param  array $posts
+     * @return array
+     */
+    public function pageForPostTypeNavigation($posts)
+    {
+        if (is_main_query() && is_single() && isset($posts[0])) {
+            $postType = $posts[0]->post_type;
+            $parent = get_option("page_for_{$postType}");
+
+            if ($parent) {
+                $posts[0]->post_parent = $parent;
+            }
+        }
+
+        return $posts;
     }
 
     /**
@@ -147,20 +168,15 @@ class Navigation
         global $post;
 
         $title = get_the_title();
-        $output = '';
+        $output = array();
 
         echo '<ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">';
 
         if (!is_front_page()) {
-            if (is_category() || is_single()) {
-                echo '<li>';
-                the_category('<li>');
-
-                if (is_single()) {
-                    echo '<li>';
-                    the_title();
-                    echo '</li>';
-                }
+            if (is_single()) {
+                $output[] = '<li>' . get_the_title() . '</li>';
+            } elseif (is_category()) {
+                $output[] = '<li>' . get_the_category() . '</li>';
             } elseif (is_page()) {
                 if ($post->post_parent) {
                     $anc = get_post_ancestors($post->ID);
@@ -169,30 +185,33 @@ class Navigation
                     $int = 1;
                     foreach ($anc as $ancestor) {
                         if (get_post_status($ancestor) != 'private') {
-                            $output = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                            $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                                             <a itemprop="item" href="' . get_permalink($ancestor) . '" title="' . get_the_title($ancestor) . '">
                                                 <span itemprop="name">' . get_the_title($ancestor) . '</span>
                                                 <meta itemprop="position" content="' . $int . '" />
                                             </a>
-                                       </li>' . $output;
+                                       </li>';
 
                             $int++;
                         }
                     }
 
-                    echo $output;
-                    echo '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                    $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                             <span itemprop="name" class="breadcrumbs-current" title="' . $title . '">' . $title . '</span>
                             <meta itemprop="position" content="' . ($int+1) . '" />
                           </li>';
                 } else {
-                    echo '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                    $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                             <span itemprop="name" class="breadcrumbs-current">' . get_the_title() . '</span>
                             <meta itemprop="position" content="1" />
                           </li>';
                 }
             }
         }
+
+        $output = apply_filters('Municipio/Breadcrumbs/Items', $output, get_queried_object());
+
+        echo implode("\n", $output);
         echo '</ol>';
     }
 }
