@@ -7,9 +7,8 @@ class App
     public function __construct()
     {
 
-
         /**
-         * Ad-dons
+         * Ad-dons Collapsible menus
          */
         new \VcExtended\Library\MenuCollapsible();
 
