@@ -14,8 +14,3 @@
     $loader->register();
 
     new Nsr\App();
-
-    /**
-     * Visual Composer Ad-dons
-     */
-    require_once ABSPATH  . 'wp-admin/includes/plugin.php';
