@@ -11,12 +11,12 @@ class NSRTemplates
 
     public function addVCPageTemplate()
     {
-        /*\Municipio\Helper\Template::add(
-            __('Campaign', 'fredriksdal'),
-            \Municipio\Helper\Template::locateTemplate('campaign.blade.php')
+        \Municipio\Helper\Template::add(
+            __('Sida utan rubrik', 'NSRTemplates'),
+            \Municipio\Helper\Template::locateTemplate('vc-page.blade.php')
         );
 
-        */
+    
     }
 }
 
