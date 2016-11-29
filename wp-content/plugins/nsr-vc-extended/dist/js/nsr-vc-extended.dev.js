@@ -31,7 +31,7 @@ VcExtended.MenuCollapsible.Collapsible = (function ($) {
             this.eventHandler();
         }.bind(this));
 
-        if(!$('body').hasClass('page') || !$('body').hasClass('post'))
+        if(!$('body').hasClass('page'))
             this.colorPickerDefaultColors();
 
 
@@ -61,8 +61,11 @@ VcExtended.MenuCollapsible.Collapsible = (function ($) {
         // Accordion open & close and links
         $('body').on('click', '.collapsible-header', function () {
 
+            $id = $(this).parents('ul').attr('id');
+
             if($(this).find("a").length === 0) {
-                $('.materialIconState').text('add');
+
+                $($id).find('.materialIconState').text('add');
                 if($(this).hasClass('active')) {
                     $(this).find('.materialIconState').text('clear');
                 }

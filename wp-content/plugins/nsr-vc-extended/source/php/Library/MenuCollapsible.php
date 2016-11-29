@@ -170,7 +170,8 @@ class MenuCollapsible
                 'name' => __('Menu accordion', 'vc_extend'),
                 'description' => __('Menu Accordion', 'vc_extend'),
                 'base' => 'nsr_menu-collapsible',
-                'class' => 'vc_extended',
+                'class' => 'vc_extended ',
+                'show_settings_on_create' => true,
                 'controls' => 'full',
                 'icon' => 'vc_general vc_element-icon icon-wpb-ui-accordion',
                 'category' => __('NSR', 'js_composer'),
@@ -192,7 +193,7 @@ class MenuCollapsible
 
         $vc_extend_rows = vc_param_group_parse_atts( $atts['vc_extend_rows'] );
         $content = wpb_js_remove_wpautop($content, true);
-        $output = "<ul class=\"collapsible\" data-collapsible=\"accordion\">";
+        $output = "<ul id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" class=\"collapsible\" data-collapsible=\"accordion\">";
 
         $int = 0;
         $countRows = count($vc_extend_rows);
