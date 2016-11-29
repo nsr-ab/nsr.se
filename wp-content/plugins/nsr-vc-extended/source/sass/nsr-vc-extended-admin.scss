@@ -1,0 +1,36 @@
+/*.iris-picker, .iris-picker-inner {
+    width:100% !important;
+
+
+}
+.iris-square {
+  width:100% !important;
+}
+
+*/
+
+.vc_edit-form-tab .vc_extend_description {
+  min-height:278px;
+}
+
+/*
+Change icon in the "Add element" content elements list
+Note: path to the icon file should be relative to the css file where you place your css rules (this file)
+*/
+.wpb-layout-element-button[data-element=bartag] .vc_element-icon {
+  //background-image: url({you_theme_url}/vc_extend/my_shortcode_icon.png);
+}
+/*
+Change icon in the Visual Composer page schematic representation (backend).
+*/
+.wpb_bartag .vc_element-icon {
+  //background-image: url({you_theme_url}/vc_extend/my_shortcode_icon.png);
+}
+/*
+Alternatively, if you specified class name in the "icon" attribute during the vc_map() function call, you can use this selector instead:
+".my_bartag.vc_element-icon" where my_bartag is value passed to the "icon" attribute.
+This example will change icon of your content element in both: "Add element" window and backend schematic representation, so you can use just one css rule instead.
+*/
+.my_bartag.vc_element-icon {
+  //background-image: url({you_theme_url}/vc_extend/my_shortcode_icon.png);
+}

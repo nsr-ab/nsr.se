@@ -17,6 +17,7 @@ VcExtended.MenuCollapsible.Collapsible = (function ($) {
     function Collapsible() {
 
         this.init();
+
     }
 
 
@@ -30,6 +31,10 @@ VcExtended.MenuCollapsible.Collapsible = (function ($) {
             this.eventHandler();
         }.bind(this));
 
+        if(!$('body').hasClass('page') || !$('body').hasClass('post'))
+            this.colorPickerDefaultColors();
+
+
     };
 
 
@@ -42,6 +47,7 @@ VcExtended.MenuCollapsible.Collapsible = (function ($) {
 
         var timeout = null;
 
+        // fetch data by input
         $('body').on('keyup', '.vcext_search_pagetitle', function () {
 
             clearTimeout(timeout);
@@ -52,7 +58,28 @@ VcExtended.MenuCollapsible.Collapsible = (function ($) {
 
         }).bind(this);
 
+        // Accordion open & close and links
+        $('body').on('click', '.collapsible-header', function () {
+
+            if($(this).find("a").length === 0) {
+                $('.materialIconState').text('add');
+                if($(this).hasClass('active')) {
+                    $(this).find('.materialIconState').text('clear');
+                }
+                else {
+                    $(this).find('.materialIconState').text('add');
+                }
+            }
+            else {
+                window.location.href = $(this).find('a').attr('href');
+            }
+
+        }).bind(this);
+
     };
+
+
+
 
 
     /**
@@ -70,10 +97,24 @@ VcExtended.MenuCollapsible.Collapsible = (function ($) {
             console.log(jQuery.parseJSON(response));
         });
 
-
-
-
     };
+
+
+    /**
+     *  colorPickerDefaultColors
+     *  Adding button functionality
+     */
+    Collapsible.prototype.colorPickerDefaultColors = function () {
+
+        jQuery(document).ready(function($){
+
+
+            $.wp.wpColorPicker.prototype.options = {
+                palettes: ['#75a3eb','#6d7dcc','#a27ac3', '#fe0e35', '#00aaff', '#00f2d3']
+            };
+        });
+    }
+
 
 
     return new Collapsible;

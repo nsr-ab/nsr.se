@@ -1,0 +1,44 @@
+.mce-content-body ul,
+.modularity-mod-text .box-content ul,
+.unordered-list,
+article ul:not(.nav):not(.slider-items):not(.line-numbers) {
+  padding-left: 0px !important;
+}
+
+.mce-content-body ul li:before,
+.modularity-mod-text .box-content ul li:before,
+.unordered-list li:before,
+article ul:not(.nav):not(.slider-items):not(.line-numbers) li:before {
+      background:none;
+}
+.collapsible li {
+  max-width:100% !important;
+}
+.collapsible-body {
+  background-color: #fafafa;
+}
+.collapsible-body p, .mce-content-body p:first-of-type, article p:first-of-type {
+  margin-top:0px;
+}
+
+.mce-content-body ul li+li, .modularity-mod-text .box-content ul li+li,
+.unordered-list li+li, article ul:not(.nav):not(.slider-items):not(.line-numbers) li+li {
+  margin-top:0px;
+}
+
+.collapsible-header i {
+  color:#007586;
+}
+.collapsible-header.wlink i {
+  color:#fff;
+}
+
+.hasMargin {
+  .collapsible & {
+    margin-bottom:-10px;
+  }
+}
+
+
+
+

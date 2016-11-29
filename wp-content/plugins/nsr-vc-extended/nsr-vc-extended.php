@@ -20,7 +20,7 @@ if (! defined('WPINC')) {
 
 define('NSR_VC_EXTENDED_PATH', plugin_dir_path(__FILE__));
 define('NSR_VC_EXTENDED_URL', plugins_url('', __FILE__));
-define('NSR_VC_EXTENDED_TEMPLATE_PATH', NSR_VC_EXTENDED_PATH . 'Templates/');
+define('NSR_VC_EXTENDED_TEMPLATE_PATH', NSR_VC_EXTENDED_PATH . 'source/php/Templates/');
 
 load_plugin_textdomain('nsr-vc-extended', false, plugin_basename(dirname(__FILE__)) . '/languages');
 
