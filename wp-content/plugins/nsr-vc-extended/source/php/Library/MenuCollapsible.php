@@ -10,6 +10,7 @@ class MenuCollapsible
 
         add_action('init', array($this, 'integrateWithVC'));
         add_shortcode('nsr_menu-collapsible', array($this, 'renderExtend'));
+
     }
 
 
@@ -25,8 +26,9 @@ class MenuCollapsible
 
                 'type' => 'textfield',
                 'value' => '',
-                'heading' => 'Designation',
+                'heading' => __('Designation', 'vc_extend'),
                 'param_name' => 'designation',
+                'admin_label' => true
             ),
 
             array(
@@ -45,7 +47,8 @@ class MenuCollapsible
                         'heading' => __('Title', 'vc_extend'),
                         'param_name' => 'vc_extend_text_pagetitle',
                         'value' => __('', 'vc_extend'),
-                        'description' => __('Title, prefered maxchars 255', 'vc_extend')
+                        'description' => __('Title, prefered maxchars 160', 'vc_extend'),
+                        'admin_label' => true
                     ),
 
                     array(
@@ -54,10 +57,10 @@ class MenuCollapsible
                         'holder' => 'div',
                         'class' => 'vc_extend_bordercolor',
                         'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
-                        'heading' => __('Left border color (Menu only)', 'js_composer'),
+                        'heading' => __('Left border color (Menu only)', 'vc_extend'),
                         'param_name' => 'vc_extend_bordercolor',
-                        'description' => __('Menu left border color', 'js_composer'),
-                        'dependency' => array('element' => 'color'),
+                        'description' => __('Menu left border color', 'vc_extend'),
+                        'dependency' => array('element' => 'color')
                     ),
 
                     array(
@@ -81,7 +84,7 @@ class MenuCollapsible
                         'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
                         'heading' => __('Margin bottom (Menus only)', 'vc_extend'),
                         'param_name' => 'vc_extend_row_margin_bottom',
-                        'value' => array('No margins' => '', 'Margin' => '1' ),
+                        'value' => array(__('No margins', 'vc_extend') => '', __('Margins', 'vc_extend') => '1' ),
                         'description' => __('Margin bottom', 'vc_extend')
                     ),
 
@@ -92,10 +95,24 @@ class MenuCollapsible
                         'holder' => 'div',
                         'class' => 'vc_extend_description',
                         'edit_field_class' => 'vc_col-sm-6 vc_col-md-8',
-                        'heading' => __('Text', 'Description'),
+                        'heading' => __('Your text', 'vc_extend'),
                         'param_name' => 'vc_extend_description',
-                        'value' => __('', 'vc_extend'),
-                        'description' => __('Add your text, prefered maxchars 255.', 'vc_extend')
+                        'value' => '',
+                        'description' => __('<table>
+                                                <tr col>
+                                                    <th class="col-md-4">Description</th><th>HTML</th>
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-md-4">Linebreak</td><td><b>&#60;br /&#62;</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Paragraph</td><td><b>&#60;p&#62;</b>Your text<b>&#60;/p&#62;</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Link</td><td><b>&#60;a href="http://link.se"&#62;</b>Read more...<b>&#60;/a&#62;</b> </td>
+                                                </tr>
+                                            </table>
+                        ', 'vc_extend')
                     ),
 
                     array(
@@ -104,9 +121,9 @@ class MenuCollapsible
                         'holder' => 'div',
                         'class' => 'vc_extend_colors',
                         'edit_field_class' => 'vc_col-sm-6 vc_col-md-4',
-                        'heading' => __('Background color', 'js_composer'),
+                        'heading' => __('Background color', 'vc_extend'),
                         'param_name' => 'vc_extend_colors',
-                        'description' => __('Select row background color.', 'js_composer'),
+                        'description' => __('Select row background color.', 'vc_extend'),
                         'dependency' => array('element' => 'color'),
                     ),
 
@@ -117,7 +134,7 @@ class MenuCollapsible
                         'holder' => 'div',
                         'class' => 'vc_extend_icon',
                         'edit_field_class' => 'vc_col-sm-12 vc_col-md-12',
-                        'heading' => __('Icon', 'js_composer'),
+                        'heading' => __('Icon', 'vc_extend'),
                         'param_name' => 'vc_extend_material',
                         'settings' => array(
 
@@ -170,8 +187,11 @@ class MenuCollapsible
                 'name' => __('Menu accordion', 'vc_extend'),
                 'description' => __('Menu Accordion', 'vc_extend'),
                 'base' => 'nsr_menu-collapsible',
+                "content_element" => true,
                 'class' => 'vc_extended ',
                 'show_settings_on_create' => true,
+                "is_container" => true,
+                'admin_label' => true,
                 'controls' => 'full',
                 'icon' => 'vc_general vc_element-icon icon-wpb-ui-accordion',
                 'category' => __('NSR', 'js_composer'),
@@ -190,6 +210,11 @@ class MenuCollapsible
      */
     public function renderExtend($atts, $content = null)
     {
+
+        extract( shortcode_atts( array(
+            'foo' => 'something',
+            'color' => '#FF0000'
+        ), $atts ) );
 
         $vc_extend_rows = vc_param_group_parse_atts( $atts['vc_extend_rows'] );
         $content = wpb_js_remove_wpautop($content, true);

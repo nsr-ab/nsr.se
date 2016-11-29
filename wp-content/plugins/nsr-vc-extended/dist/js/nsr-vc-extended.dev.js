@@ -35,6 +35,8 @@ VcExtended.MenuCollapsible.Collapsible = (function ($) {
             this.colorPickerDefaultColors();
 
 
+
+
     };
 
 
