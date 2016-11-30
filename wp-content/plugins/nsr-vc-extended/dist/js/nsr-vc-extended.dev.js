@@ -1,9 +1,12 @@
 /**
- *  eventHandler
- *  Managing all event handlers (Silence is gold)
+ * WMenuCollapsible ad-don for Visual Composer
+ *
+ * @package NSRVCExtended
+ *
+ * Author: Johan Silvergrund
+ * Company: HIQ
+ *
  */
-
-
 
 var VcExtended = VcExtended || {};
 
@@ -33,9 +36,6 @@ VcExtended.MenuCollapsible.Collapsible = (function ($) {
 
         if(!$('body').hasClass('page'))
             this.colorPickerDefaultColors();
-
-
-
 
     };
 
@@ -81,9 +81,9 @@ VcExtended.MenuCollapsible.Collapsible = (function ($) {
 
         }).bind(this);
 
+
+
     };
-
-
 
 
 
@@ -112,14 +112,11 @@ VcExtended.MenuCollapsible.Collapsible = (function ($) {
     Collapsible.prototype.colorPickerDefaultColors = function () {
 
         jQuery(document).ready(function($){
-
-
             $.wp.wpColorPicker.prototype.options = {
                 palettes: ['#75a3eb','#6d7dcc','#a27ac3', '#fe0e35', '#00aaff', '#00f2d3']
             };
         });
     }
-
 
 
     return new Collapsible;

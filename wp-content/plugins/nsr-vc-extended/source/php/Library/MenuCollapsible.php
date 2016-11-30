@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * WMenuCollapsible ad-don for Visual Composer
+ *
+ * @package NSRVCExtended
+ *
+ * Author: Johan Silvergrund
+ * Company: HIQ
+ *
+ */
+
 namespace VcExtended\Library;
 
 class MenuCollapsible
@@ -7,7 +17,6 @@ class MenuCollapsible
 
     function __construct()
     {
-
         add_action('init', array($this, 'integrateWithVC'));
         add_shortcode('nsr_menu-collapsible', array($this, 'renderExtend'));
 
@@ -22,119 +31,130 @@ class MenuCollapsible
     {
         return array(
 
+            /** @Array Designation parameter */
             array(
 
                 'type' => 'textfield',
-                'value' => '',
-                'heading' => __('Designation', 'vc_extend'),
+                'heading' => __('Designation', 'nsr-vc-extended'),
                 'param_name' => 'designation',
                 'admin_label' => true
             ),
 
+            /** @Array Parameter Group */
             array(
 
                 'type' => 'param_group',
-                'value' => '',
                 'param_name' => 'vc_extend_rows',
                 'params' => array(
 
+                    /** @Array Title parameter */
                     array(
 
                         'type' => 'textfield',
                         'holder' => 'div',
                         'class' => 'vc_extend_text_pagetitle',
                         'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
-                        'heading' => __('Title', 'vc_extend'),
+                        'heading' => __('Title', 'nsr-vc-extended'),
                         'param_name' => 'vc_extend_text_pagetitle',
-                        'value' => __('', 'vc_extend'),
-                        'description' => __('Title, prefered maxchars 160', 'vc_extend'),
+                        'description' => __('Title, prefered maxchars 160', 'nsr-vc-extended'),
                         'admin_label' => true
                     ),
 
+                    /** @Array Colorpicker component parameter for left border color */
                     array(
 
                         'type' => 'colorpicker',
                         'holder' => 'div',
                         'class' => 'vc_extend_bordercolor',
                         'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
-                        'heading' => __('Left border color (Menu only)', 'vc_extend'),
+                        'heading' => __('Left border color (Menu only)', 'nsr-vc-extended'),
                         'param_name' => 'vc_extend_bordercolor',
-                        'description' => __('Menu left border color', 'vc_extend'),
+                        'description' => __('Menu left border color', 'nsr-vc-extended'),
                         'dependency' => array('element' => 'color')
                     ),
 
+                    /** @Array Link component parameter */
                     array(
 
                         'type' => 'vc_link',
                         'holder' => 'div',
                         'class' => 'vc_extend_text_pagelink',
                         'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
-                        'heading' => __('Link title to page', 'vc_extend'),
+                        'heading' => __('Link title to page', 'nsr-vc-extended'),
                         'param_name' => 'vc_extend_text_pagelink',
-                        'value' => __('', 'vc_extend'),
-                        'description' => __('If selected the title is going to be linked, if link title is selected, the main link title will be active.', 'vc_extend')
+                        'description' => __('If selected the title is going to be linked, if link title is selected, the main link title will be active.', 'nsr-vc-extended')
                     ),
 
-
+                    /** @Array Margin parameter (only for menus)*/
                     array(
 
                         'type' => 'dropdown',
                         'holder' => 'div',
                         'class' => 'vc_extend_row_margin_bottom',
                         'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
-                        'heading' => __('Margin bottom (Menus only)', 'vc_extend'),
+                        'heading' => __('Margin bottom (Menus only)', 'nsr-vc-extended'),
                         'param_name' => 'vc_extend_row_margin_bottom',
-                        'value' => array(__('No margins', 'vc_extend') => '', __('Margins', 'vc_extend') => '1' ),
-                        'description' => __('Margin bottom', 'vc_extend')
+                        'value' => array(__('No margins', 'nsr-vc-extended') => '', __('Margins', 'nsr-vc-extended') => '1' ),
+                        'description' => __('Margin bottom', 'nsr-vc-extended')
                     ),
 
-
+                    /** @Array Text parameter */
                     array(
 
                         'type' => 'textarea',
                         'holder' => 'div',
                         'class' => 'vc_extend_description',
                         'edit_field_class' => 'vc_col-sm-6 vc_col-md-8',
-                        'heading' => __('Your text', 'vc_extend'),
+                        'heading' => __('Your text', 'nsr-vc-extended'),
                         'param_name' => 'vc_extend_description',
-                        'value' => '',
                         'description' => __('<table>
                                                 <tr col>
-                                                    <th class="col-md-4">Description</th><th>HTML</th>
+                                                    <th class="col-md-5">Description</th><th>HTML</th>
                                                 </tr>
                                                 <tr>
-                                                    <td class="col-md-4">Linebreak</td><td><b>&#60;br /&#62;</b></td>
-                                                </tr>
+                                                    <td class="col-md-5">Linebreak</td><td><b>&#60;br /&#62;</b></td>                             
+                                                </tr>                                             
                                                 <tr>
-                                                    <td>Paragraph</td><td><b>&#60;p&#62;</b>Your text<b>&#60;/p&#62;</b></td>
+                                                    <td>Paragraph</td><td><b>&#60;p&#62;</b>Your text<b>&#60;/p&#62;</b></td>                                             
                                                 </tr>
                                                 <tr>
                                                     <td>Link</td><td><b>&#60;a href="http://link.se"&#62;</b>Read more...<b>&#60;/a&#62;</b> </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td class="col-md-4">Bold text</td><td><b>&#60;b&#62;</b>Your text<b>&#60;/b&#62;</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Italic text</td><td><b>&#60;i&#62;</b>Your text<b>&#60;/i&#62;</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Headings (H1,H2,H3...)</td><td><b>&#60;h3&#62;</b>Your text<b>&#60;/h3&#62;</b></td>
                                                 </tr>
                                             </table>
-                        ', 'vc_extend')
+                        ', 'nsr-vc-extended')
                     ),
 
+                    /** @Array Color picker component for background color */
                     array(
 
                         'type' => 'colorpicker',
                         'holder' => 'div',
                         'class' => 'vc_extend_colors',
                         'edit_field_class' => 'vc_col-sm-6 vc_col-md-4',
-                        'heading' => __('Background color', 'vc_extend'),
+                        'heading' => __('Background color', 'nsr-vc-extended'),
                         'param_name' => 'vc_extend_colors',
-                        'description' => __('Select row background color.', 'vc_extend'),
+                        'description' => __('Select row background color.', 'nsr-vc-extended'),
                         'dependency' => array('element' => 'color'),
                     ),
 
-
+                    /** @Array Icon component parameter */
                     array(
 
                         'type' => 'iconpicker',
                         'holder' => 'div',
                         'class' => 'vc_extend_icon',
                         'edit_field_class' => 'vc_col-sm-12 vc_col-md-12',
-                        'heading' => __('Icon', 'vc_extend'),
+                        'heading' => __('Icon', 'nsr-vc-extended'),
                         'param_name' => 'vc_extend_material',
                         'settings' => array(
 
@@ -149,14 +169,12 @@ class MenuCollapsible
                             'value' => 'material',
                         ),
 
-                        'description' => __('Select icon from library.', 'js_composer'),
+                        'description' => __('Select icon from library.', 'nsr-vc-extended'),
 
                     )
                 )
             ),
         );
-
-
     }
 
 
@@ -184,8 +202,8 @@ class MenuCollapsible
 
         vc_map(array(
 
-                'name' => __('Menu accordion', 'vc_extend'),
-                'description' => __('Menu Accordion', 'vc_extend'),
+                'name' => __('Menu accordion', 'nsr-vc-extended'),
+                'description' => __('Menu Accordion', 'nsr-vc-extended'),
                 'base' => 'nsr_menu-collapsible',
                 "content_element" => true,
                 'class' => 'vc_extended ',
@@ -210,11 +228,6 @@ class MenuCollapsible
      */
     public function renderExtend($atts, $content = null)
     {
-
-        extract( shortcode_atts( array(
-            'foo' => 'something',
-            'color' => '#FF0000'
-        ), $atts ) );
 
         $vc_extend_rows = vc_param_group_parse_atts( $atts['vc_extend_rows'] );
         $content = wpb_js_remove_wpautop($content, true);
@@ -311,9 +324,10 @@ class MenuCollapsible
     public function showVcVersionNotice()
     {
         $plugin_data = get_plugin_data(__FILE__);
+
         echo '
         <div class="updated">
-          <p>' . sprintf(__('<strong>%s</strong> requires <strong><a href="http://bit.ly/vcomposer" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', 'vc_extend'), $plugin_data['Name']) . '</p>
+          <p>' . sprintf(__('<strong>%s</strong> requires <strong><a href="http://bit.ly/vcomposer" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', 'nsr-vc-extended'), $plugin_data['Name']) . '</p>
         </div>';
     }
 
