@@ -1,7 +1,7 @@
 <?php
 
 /**
- * WMenuCollapsible ad-don for Visual Composer
+ * MenuCollapsible ad-don for Visual Composer
  *
  * @package NSRVCExtended
  *
