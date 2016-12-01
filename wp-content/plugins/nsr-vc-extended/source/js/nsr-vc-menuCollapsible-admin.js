@@ -90,7 +90,8 @@ VcExtended.MenuCollapsibleAdmin.CollapsibleAdmin = (function ($) {
 
         jQuery(document).ready(function($){
             $.wp.wpColorPicker.prototype.options = {
-                palettes: ['#75a3eb','#6d7dcc','#a27ac3', '#fe0e35', '#00aaff', '#00f2d3']
+                palettes: ['#75a3eb','#6d7dcc','#a27ac3', '#fe0e35', '#00aaff', '#00f2d3'],
+                hide: true
             };
         });
     }

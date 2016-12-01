@@ -40,9 +40,9 @@ class ListNewsAndPosts
                 'type'      => 'textfield',
                 'heading' => __('Designation', 'nsr-vc-extended'),
                 'param_name' => 'vc_designation',
+                'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
                 'admin_label' => true
             ),
-
 
 
             /** @Param Show date parameter*/
@@ -58,26 +58,20 @@ class ListNewsAndPosts
 
             ),
 
-            /** @Param Post loop parameter */
-            array(
-
-                'type' => 'loop',
-                'heading' => __('Select your post & categories', 'nsr-vc-extended'),
-                'param_name' => 'vc_loop',
-
-            ),
 
             /** @Param Icon component parameter */
             array(
 
                 'type' => 'iconpicker',
                 'param_name' => 'vc_extend_material_list',
+                'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
                 'settings' => array(
                     'emptyIcon' => true,
                     'type' => 'material',
-                    'iconsPerPage' => 4000,
+                    'iconsPerPage' => 26,
                 )
             ),
+
 
             /** @Param Color picker component for background color */
             array(
@@ -85,11 +79,29 @@ class ListNewsAndPosts
                 'type' => 'colorpicker',
                 'holder' => 'div',
                 'class' => 'vc_extend_colors',
-                'edit_field_class' => 'vc_col-sm-6 vc_col-md-4',
+                'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
                 'heading' => __('Icon color', 'nsr-vc-extended'),
                 'param_name' => 'vc_extend_colors',
                 'dependency' => array('element' => 'color'),
-            )
+            ),
+
+            /** @Param Post loop parameter */
+            array(
+
+                'type' => 'loop',
+                'heading' => __('Select your post & categories', 'nsr-vc-extended'),
+                'param_name' => 'vc_loop',
+                'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
+            ),
+
+
+
+
+
+
+
+
+
         );
     }
 
