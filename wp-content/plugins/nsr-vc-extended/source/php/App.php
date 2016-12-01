@@ -24,6 +24,13 @@ class App
         }
 
         /**
+         * Ad-dons List News & Posts
+         */
+        if ( !class_exists( 'ListNewsAndPosts' ) ) {
+            new \VcExtended\Library\ListNewsAndPosts();
+        }
+
+        /**
          * Hooks
          */
         add_action('wp_enqueue_scripts', array($this, 'enqueueStyles'));
@@ -55,6 +62,7 @@ class App
         wp_enqueue_style( 'vc_material-css' );
     }
 
+
     /**
      * Enqueue required scripts Admin
      * @return void
@@ -67,6 +75,7 @@ class App
             wp_enqueue_script('nsr-extended-admin');
         }
     }
+
 
     /**
      * Enqueue required scripts
@@ -88,9 +97,11 @@ class App
      */
     public function after_nsr_theme_setup()
     {
+
         add_action( 'wp_enqueue_scripts', array($this, 'enqueueScripts') );
         add_action('admin_enqueue_scripts', array($this, 'enqueueScriptsAdmin'));
 
-
     }
 }
+
+

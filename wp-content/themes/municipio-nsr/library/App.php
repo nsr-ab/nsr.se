@@ -25,8 +25,10 @@ class App
     }
 
 
-
-
+    /**
+     *  add_excerpts_to_pages
+     *  Adding Excerpts to page
+     */
     public function add_excerpts_to_pages() {
         add_post_type_support( 'page', 'excerpt' );
     }

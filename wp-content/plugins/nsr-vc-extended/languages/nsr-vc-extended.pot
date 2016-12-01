@@ -1,0 +1,150 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: NSR Visual Composer Extended\n"
+"POT-Creation-Date: 2016-11-30 00:31+0100\n"
+"PO-Revision-Date: 2016-11-30 00:31+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: nsr-vc-extended.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: source/php/Library/MenuCollapsible.php:38
+msgid "Designation"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:57
+msgid "Title"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:59
+msgid "Title, prefered maxchars 160"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:70
+msgid "Left border color (Menu only)"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:72
+msgid "Menu left border color"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:83
+msgid "Link title to page"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:85
+msgid ""
+"If selected the title is going to be linked, if link title is selected, the "
+"main link title will be active."
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:95
+msgid "Margin bottom (Menus only)"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:97
+msgid "No margins"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:97
+msgid "Margins"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:98
+msgid "Margin bottom"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:108
+msgid "Your text"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:110
+msgid ""
+"<table>\n"
+"                                                <tr col>\n"
+"                                                    <th class=\"col-"
+"md-4\">Description</th><th>HTML</th>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td class=\"col-"
+"md-4\">Linebreak</td><td><b>&#60;br /&#62;</b></td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td>Paragraph</"
+"td><td><b>&#60;p&#62;</b>Your text<b>&#60;/p&#62;</b></td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td>Link</td><td><b>&#60;"
+"a href=\"http://link.se\"&#62;</b>Read more...<b>&#60;/a&#62;</b> </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                        "
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:134
+msgid "Background color"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:136
+msgid "Select row background color."
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:147
+msgid "Icon"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:162
+msgid "Select icon from library."
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:195
+msgid "Menu accordion"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:196
+msgid "Menu Accordion"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:205
+msgid "NSR"
+msgstr ""
+
+#: source/php/Library/MenuCollapsible.php:320
+#, php-format
+msgid ""
+"<strong>%s</strong> requires <strong><a href=\"http://bit.ly/vcomposer\" "
+"target=\"_blank\">Visual Composer</a></strong> plugin to be installed and "
+"activated on your site."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "NSR Visual Composer Extended"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "nsr.se"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Visual Composer Ad-dons for NSR website"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Johan Silvergrund"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "hiq.se"
+msgstr ""

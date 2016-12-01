@@ -7,6 +7,9 @@
  *
  * Author: Johan Silvergrund
  * Company: HIQ
+
+ * -- MenuCollapsible --
+ * A Visual composer ad-don to create and manage menus and accordions
  *
  */
 
@@ -27,11 +30,11 @@ class MenuCollapsible
      * Available parameters
      * @return array
      */
-    public function params()
+    static function params()
     {
         return array(
 
-            /** @Array Designation parameter */
+            /** @Param Designation parameter */
             array(
 
                 'type' => 'textfield',
@@ -40,14 +43,14 @@ class MenuCollapsible
                 'admin_label' => true
             ),
 
-            /** @Array Parameter Group */
+            /** @Param Parameter Group */
             array(
 
                 'type' => 'param_group',
                 'param_name' => 'vc_extend_rows',
                 'params' => array(
 
-                    /** @Array Title parameter */
+                    /** @Param Title parameter */
                     array(
 
                         'type' => 'textfield',
@@ -60,7 +63,7 @@ class MenuCollapsible
                         'admin_label' => true
                     ),
 
-                    /** @Array Colorpicker component parameter for left border color */
+                    /** @Param Colorpicker component parameter for left border color */
                     array(
 
                         'type' => 'colorpicker',
@@ -73,7 +76,7 @@ class MenuCollapsible
                         'dependency' => array('element' => 'color')
                     ),
 
-                    /** @Array Link component parameter */
+                    /** @Param Link component parameter */
                     array(
 
                         'type' => 'vc_link',
@@ -85,7 +88,7 @@ class MenuCollapsible
                         'description' => __('If selected the title is going to be linked, if link title is selected, the main link title will be active.', 'nsr-vc-extended')
                     ),
 
-                    /** @Array Margin parameter (only for menus)*/
+                    /** @Param Margin parameter (only for menus)*/
                     array(
 
                         'type' => 'dropdown',
@@ -98,7 +101,7 @@ class MenuCollapsible
                         'description' => __('Margin bottom', 'nsr-vc-extended')
                     ),
 
-                    /** @Array Text parameter */
+                    /** @Param Text parameter */
                     array(
 
                         'type' => 'textarea',
@@ -134,7 +137,7 @@ class MenuCollapsible
                         ', 'nsr-vc-extended')
                     ),
 
-                    /** @Array Color picker component for background color */
+                    /** @Param Color picker component for background color */
                     array(
 
                         'type' => 'colorpicker',
@@ -147,7 +150,7 @@ class MenuCollapsible
                         'dependency' => array('element' => 'color'),
                     ),
 
-                    /** @Array Icon component parameter */
+                    /** @Param Icon component parameter */
                     array(
 
                         'type' => 'iconpicker',
@@ -211,7 +214,8 @@ class MenuCollapsible
                 "is_container" => true,
                 'admin_label' => true,
                 'controls' => 'full',
-                'icon' => 'vc_general vc_element-icon icon-wpb-ui-accordion',
+                //'icon' => 'vc_general vc_element-icon icon-wpb-ui-accordion',
+                'icon' => plugins_url( 'nsr-vc-extended/dist/img/icn_accordion_kommun.svg' ),
                 'category' => __('NSR', 'js_composer'),
                 'admin_enqueue_css' => array( plugins_url( 'nsr-vc-extended/dist/css/nsr-vc-extended-admin.min.css' ) ),
                 'params' => $this->params()
@@ -230,7 +234,6 @@ class MenuCollapsible
     {
 
         $vc_extend_rows = vc_param_group_parse_atts( $atts['vc_extend_rows'] );
-        $content = wpb_js_remove_wpautop($content, true);
         $output = "<ul id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" class=\"collapsible\" data-collapsible=\"accordion\">";
 
         $int = 0;
@@ -296,7 +299,9 @@ class MenuCollapsible
             /** Custom Description */
             if($vc_extend_description)
                 $output .= (!$vc_extend_text_pagelink) ?  " <i class=\"right material-icons materialIconState\">add</i></div>" : "";
-                $output .= (!$vc_extend_text_pagelink) ?  "<div class=\"collapsible-body\"><p>".$vc_extend_description."</p></div>" : "";
+
+            if($vc_extend_description)
+            $output .= (!$vc_extend_text_pagelink) ?  "<div class=\"collapsible-body\"><p>".$vc_extend_description."</p></div>" : "";
 
             $output .= "</li>";
             $int++;

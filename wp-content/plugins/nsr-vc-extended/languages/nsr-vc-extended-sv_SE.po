@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2016-11-30 01:01+0100\n"
-"PO-Revision-Date: 2016-11-30 01:05+0100\n"
+"POT-Creation-Date: 2016-12-01 14:28+0100\n"
+"PO-Revision-Date: 2016-12-01 14:40+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,31 +20,77 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/Library/MenuCollapsible.php:38
+#: source/php/Library/ListNewsAndPosts.php:41
+#: source/php/Library/MenuCollapsible.php:41
 msgid "Designation"
 msgstr "Benämning"
 
-#: source/php/Library/MenuCollapsible.php:57
+#: source/php/Library/ListNewsAndPosts.php:51
+msgid "Post date"
+msgstr "Publiseringsdatum"
+
+#: source/php/Library/ListNewsAndPosts.php:55
+msgid "Include"
+msgstr "Inkludera"
+
+#: source/php/Library/ListNewsAndPosts.php:56
+msgid "Exclude"
+msgstr "Exkludera"
+
+#: source/php/Library/ListNewsAndPosts.php:65
+msgid "Select your post & categories"
+msgstr "Välj post och kategori"
+
+#: source/php/Library/ListNewsAndPosts.php:89
+msgid "Icon color"
+msgstr "Färg på ikon"
+
+#: source/php/Library/ListNewsAndPosts.php:121
+msgid "List news & posts"
+msgstr "Lista nyheter, inlägg och sidor"
+
+#: source/php/Library/ListNewsAndPosts.php:122
+msgid "List news and posts"
+msgstr "Lista nyheter, inlägg och sidor"
+
+#: source/php/Library/ListNewsAndPosts.php:131
+#: source/php/Library/MenuCollapsible.php:219
+msgid "NSR"
+msgstr "NSR"
+
+#: source/php/Library/ListNewsAndPosts.php:236
+#: source/php/Library/MenuCollapsible.php:336
+#, php-format
+msgid ""
+"<strong>%s</strong> requires <strong><a href=\"http://bit.ly/vcomposer\" "
+"target=\"_blank\">Visual Composer</a></strong> plugin to be installed and "
+"activated on your site."
+msgstr ""
+"OBS! <strong>%s</strong> behövs för att fungera <strong><a href=\"http://bit."
+"ly/vcomposer\" target=\"_blank\">Visual Composer</a></strong> plugin är inte "
+"installerad eller aktiverad på din sajt."
+
+#: source/php/Library/MenuCollapsible.php:60
 msgid "Title"
 msgstr "Titel"
 
-#: source/php/Library/MenuCollapsible.php:59
+#: source/php/Library/MenuCollapsible.php:62
 msgid "Title, prefered maxchars 160"
 msgstr "Titel, antal tecken 160"
 
-#: source/php/Library/MenuCollapsible.php:70
+#: source/php/Library/MenuCollapsible.php:73
 msgid "Left border color (Menu only)"
 msgstr "Vänster Kantlinjefärg"
 
-#: source/php/Library/MenuCollapsible.php:72
+#: source/php/Library/MenuCollapsible.php:75
 msgid "Menu left border color"
 msgstr "Vänster Kantlinjefärg  (Endast meny)"
 
-#: source/php/Library/MenuCollapsible.php:83
+#: source/php/Library/MenuCollapsible.php:86
 msgid "Link title to page"
 msgstr "Länka titel till sida"
 
-#: source/php/Library/MenuCollapsible.php:85
+#: source/php/Library/MenuCollapsible.php:88
 msgid ""
 "If selected the title is going to be linked, if link title is selected, the "
 "main link title will be active."
@@ -52,27 +98,27 @@ msgstr ""
 "Väljer du att länka en sida så kommer inte den vanliga titeln att synas. "
 "<br />OBS! Glöm inte namnge länken."
 
-#: source/php/Library/MenuCollapsible.php:95
+#: source/php/Library/MenuCollapsible.php:98
 msgid "Margin bottom (Menus only)"
 msgstr "Nedre marginaler"
 
-#: source/php/Library/MenuCollapsible.php:97
+#: source/php/Library/MenuCollapsible.php:100
 msgid "No margins"
 msgstr "Ingen marginal"
 
-#: source/php/Library/MenuCollapsible.php:97
+#: source/php/Library/MenuCollapsible.php:100
 msgid "Margins"
 msgstr "Marginal"
 
-#: source/php/Library/MenuCollapsible.php:98
+#: source/php/Library/MenuCollapsible.php:101
 msgid "Margin bottom"
 msgstr "Nedre marginal (Endast meny)"
 
-#: source/php/Library/MenuCollapsible.php:108
+#: source/php/Library/MenuCollapsible.php:111
 msgid "Your text"
 msgstr "Skriv din text"
 
-#: source/php/Library/MenuCollapsible.php:110
+#: source/php/Library/MenuCollapsible.php:113
 msgid ""
 "<table>\n"
 "                                                <tr col>\n"
@@ -147,44 +193,29 @@ msgstr ""
 "                                            </table>\n"
 "                        "
 
-#: source/php/Library/MenuCollapsible.php:144
+#: source/php/Library/MenuCollapsible.php:147
 msgid "Background color"
 msgstr "Bakgrundsfärg"
 
-#: source/php/Library/MenuCollapsible.php:146
+#: source/php/Library/MenuCollapsible.php:149
 msgid "Select row background color."
 msgstr "Välj bakgrundsfärg på rad"
 
-#: source/php/Library/MenuCollapsible.php:157
+#: source/php/Library/MenuCollapsible.php:160
 msgid "Icon"
 msgstr "Ikon"
 
-#: source/php/Library/MenuCollapsible.php:172
+#: source/php/Library/MenuCollapsible.php:175
 msgid "Select icon from library."
 msgstr "Välj ikon från bibliotek"
 
-#: source/php/Library/MenuCollapsible.php:205
+#: source/php/Library/MenuCollapsible.php:208
 msgid "Menu accordion"
 msgstr "Meny / Dragspel "
 
-#: source/php/Library/MenuCollapsible.php:206
+#: source/php/Library/MenuCollapsible.php:209
 msgid "Menu Accordion"
 msgstr "Meny / Dragspel (Visa titel göm beskrivning)"
-
-#: source/php/Library/MenuCollapsible.php:215
-msgid "NSR"
-msgstr "NSR"
-
-#: source/php/Library/MenuCollapsible.php:330
-#, php-format
-msgid ""
-"<strong>%s</strong> requires <strong><a href=\"http://bit.ly/vcomposer\" "
-"target=\"_blank\">Visual Composer</a></strong> plugin to be installed and "
-"activated on your site."
-msgstr ""
-"OBS! <strong>%s</strong> behövs för att fungera <strong><a href=\"http://bit."
-"ly/vcomposer\" target=\"_blank\">Visual Composer</a></strong> plugin är inte "
-"installerad eller aktiverad på din sajt."
 
 #. Plugin Name of the plugin/theme
 msgid "NSR Visual Composer Extended"
