@@ -97,13 +97,6 @@ class ListNewsAndPosts
             ),
 
 
-
-
-
-
-
-
-
         );
     }
 
