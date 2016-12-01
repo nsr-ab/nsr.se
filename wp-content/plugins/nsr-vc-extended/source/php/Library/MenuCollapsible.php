@@ -163,7 +163,7 @@ class MenuCollapsible
 
                             'emptyIcon' => true,
                             'type' => 'material',
-                            'iconsPerPage' => 4000,
+                            'iconsPerPage' => 30,
                         ),
 
                         'dependency' => array(

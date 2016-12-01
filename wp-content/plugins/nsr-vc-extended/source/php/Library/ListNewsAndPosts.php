@@ -65,11 +65,13 @@ class ListNewsAndPosts
                 'type' => 'iconpicker',
                 'param_name' => 'vc_extend_material_list',
                 'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
+                'heading' => __('Icon', 'nsr-vc-extended'),
                 'settings' => array(
                     'emptyIcon' => true,
                     'type' => 'material',
                     'iconsPerPage' => 26,
-                )
+                ),
+                'description' => __('Select icon from library.', 'nsr-vc-extended'),
             ),
 
 
@@ -91,7 +93,7 @@ class ListNewsAndPosts
                 'type' => 'loop',
                 'heading' => __('Select your post & categories', 'nsr-vc-extended'),
                 'param_name' => 'vc_loop',
-                'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
+                'edit_field_class' => 'vc_col-sm-12 vc_col-md-12',
             ),
 
 
