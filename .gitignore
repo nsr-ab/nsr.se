@@ -1,6 +1,8 @@
+*/.idea/*
 .idea/*
 config/*
 wp/*
+wp-content/.idea/*
 wp-content/plugins/*
 wp-content/uploads/*
 wp-content/themes/municipio-nsr/node_modules/

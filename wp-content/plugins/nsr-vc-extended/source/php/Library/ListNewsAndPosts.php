@@ -41,6 +41,7 @@ class ListNewsAndPosts
                 'heading' => __('Designation', 'nsr-vc-extended'),
                 'param_name' => 'vc_designation',
                 'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
+                'description' => __('Visible in admin (only!)', 'nsr-vc-extended'),
                 'admin_label' => true
             ),
 

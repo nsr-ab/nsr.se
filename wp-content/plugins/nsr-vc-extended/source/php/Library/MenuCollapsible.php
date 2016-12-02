@@ -40,6 +40,7 @@ class MenuCollapsible
                 'type' => 'textfield',
                 'heading' => __('Designation', 'nsr-vc-extended'),
                 'param_name' => 'designation',
+                'description' => __('Visible in admin (only!)', 'nsr-vc-extended'),
                 'admin_label' => true
             ),
 
@@ -320,6 +321,8 @@ class MenuCollapsible
 
         return $output;
     }
+
+
 
 
     /**

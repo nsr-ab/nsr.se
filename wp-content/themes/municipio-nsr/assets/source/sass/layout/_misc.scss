@@ -27,3 +27,9 @@
 
     margin-top:70px;
 }
+
+.card.large .card-image+.card-content,
+.card.medium .card-image+.card-content,
+.card.small .card-image+.card-content {
+    max-height:100%;
+}

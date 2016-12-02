@@ -11,9 +11,21 @@ i {
 }
 
 
-a {
+a, .mce-content-body a:not([class]),
+.widget_archive [class*=theme-] article a,
+.widget_categories [class*=theme-] article a,
+.widget_meta [class*=theme-] article a,
+.widget_recent_comments [class*=theme-] article a,
+.widget_recent_entries [class*=theme-] article a,
+[class*=theme-] article .widget_archive a,
+[class*=theme-] article .widget_categories a,
+[class*=theme-] article .widget_meta a,
+[class*=theme-] article .widget_recent_comments a,
+[class*=theme-] article .widget_recent_entries a,
+[class*=theme-] article a.link-item,
+[class*=theme-] article a:not([class]) {
     @include font('Lato', 600);
-    color: $palette-primary-green;
+    color: $palette-primary-green !important;
     &:hover {
         text-decoration: underline;
         color: alpha-color($palette-primary-green, 10%, $type:'dark')  !important;
@@ -67,7 +79,7 @@ p {
 
 article h4 {
     font-weight:400;
-    color: $palette-primary-black !important;
+    color: $palette-primary-black;
     font-size: 1.8rem;
     margin-bottom:-8px;
     padding-bottom: .0em;

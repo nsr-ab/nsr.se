@@ -31,6 +31,16 @@ class App
         }
 
         /**
+         * Ad-dons List links with a thumbnail
+         */
+        if ( !class_exists( 'ListLinksWithThumbnail' ) ) {
+            new \VcExtended\Library\ListLinksWithThumbnail();
+        }
+
+
+
+
+        /**
          * Hooks
          */
         add_action('wp_enqueue_scripts', array($this, 'enqueueStyles'));

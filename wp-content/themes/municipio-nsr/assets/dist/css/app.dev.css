@@ -6910,12 +6910,36 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-family: "Material Icons";
     font-weight: 400;
     font-style: normal; }
-  .is-child-theme a {
+  .is-child-theme a, .is-child-theme .mce-content-body a:not([class]),
+  .is-child-theme .widget_archive [class*=theme-] article a,
+  .is-child-theme .widget_categories [class*=theme-] article a,
+  .is-child-theme .widget_meta [class*=theme-] article a,
+  .is-child-theme .widget_recent_comments [class*=theme-] article a,
+  .is-child-theme .widget_recent_entries [class*=theme-] article a,
+  .is-child-theme [class*=theme-] article .widget_archive a,
+  .is-child-theme [class*=theme-] article .widget_categories a,
+  .is-child-theme [class*=theme-] article .widget_meta a,
+  .is-child-theme [class*=theme-] article .widget_recent_comments a,
+  .is-child-theme [class*=theme-] article .widget_recent_entries a,
+  .is-child-theme [class*=theme-] article a.link-item,
+  .is-child-theme [class*=theme-] article a:not([class]) {
     font-family: "Lato";
     font-weight: 600;
     font-style: normal;
-    color: #007586; }
-    .is-child-theme a:hover {
+    color: #007586 !important; }
+    .is-child-theme a:hover, .is-child-theme .mce-content-body a:not([class]):hover,
+    .is-child-theme .widget_archive [class*=theme-] article a:hover,
+    .is-child-theme .widget_categories [class*=theme-] article a:hover,
+    .is-child-theme .widget_meta [class*=theme-] article a:hover,
+    .is-child-theme .widget_recent_comments [class*=theme-] article a:hover,
+    .is-child-theme .widget_recent_entries [class*=theme-] article a:hover,
+    .is-child-theme [class*=theme-] article .widget_archive a:hover,
+    .is-child-theme [class*=theme-] article .widget_categories a:hover,
+    .is-child-theme [class*=theme-] article .widget_meta a:hover,
+    .is-child-theme [class*=theme-] article .widget_recent_comments a:hover,
+    .is-child-theme [class*=theme-] article .widget_recent_entries a:hover,
+    .is-child-theme [class*=theme-] article a.link-item:hover,
+    .is-child-theme [class*=theme-] article a:not([class]):hover {
       text-decoration: underline;
       color: #004853 !important; }
   .is-child-theme b, .is-child-theme strong {
@@ -6954,7 +6978,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     line-height: 145%; }
   .is-child-theme article h4 {
     font-weight: 400;
-    color: #000 !important;
+    color: #000;
     font-size: 1.8rem;
     margin-bottom: -8px;
     padding-bottom: .0em;
@@ -7135,3 +7159,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin: 20px 0; }
   .is-child-theme .notice {
     margin-top: 70px; }
+  .is-child-theme .card.large .card-image + .card-content,
+  .is-child-theme .card.medium .card-image + .card-content,
+  .is-child-theme .card.small .card-image + .card-content {
+    max-height: 100%; }

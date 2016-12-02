@@ -88,8 +88,7 @@ VcExtended.MenuCollapsibleAdmin.CollapsibleAdmin = (function ($) {
             this.eventHandler();
         }.bind(this));
 
-        if(!$('body').hasClass('page'))
-            this.colorPickerDefaultColors();
+        this.colorPickerDefaultColors();
 
     };
 
@@ -143,6 +142,8 @@ VcExtended.MenuCollapsibleAdmin.CollapsibleAdmin = (function ($) {
     CollapsibleAdmin.prototype.colorPickerDefaultColors = function () {
 
         jQuery(document).ready(function($){
+
+            if( typeof $.wp === 'object' && typeof $.wp.wpColorPicker === 'function' )
             $.wp.wpColorPicker.prototype.options = {
                 palettes: ['#75a3eb','#6d7dcc','#a27ac3', '#fe0e35', '#00aaff', '#00f2d3'],
                 hide: true
