@@ -199,11 +199,6 @@ class MenuCollapsible
     public function integrateWithVC()
     {
 
-        if (!defined('WPB_VC_VERSION')) {
-            add_action('admin_notices', array($this, 'showVcVersionNotice'));
-            return;
-        }
-
         vc_map(array(
 
                 'name' => __('Menu accordion', 'nsr-vc-extended'),
@@ -243,48 +238,22 @@ class MenuCollapsible
         foreach($vc_extend_rows as $row) {
 
             /** @var  $vc_extend_colors */
-            $vc_extend_colors = (isset($row['vc_extend_colors'])) ? $row['vc_extend_colors'] : '';
+            $vc_extend_colors               = (isset($row['vc_extend_colors'])) ? $row['vc_extend_colors'] : null;
+            $vc_extend_bordercolor          = (isset($row['vc_extend_bordercolor'])) ? $row['vc_extend_bordercolor'] : null;
+            $vc_extend_material             = (isset($row['vc_extend_material'])) ? $row['vc_extend_material'] : null;
+            $vc_extend_description          = (isset($row['vc_extend_description'])) ? $row['vc_extend_description'] : null;
+            $vc_extend_text_pagetitle       = (isset($row['vc_extend_text_pagetitle'])) ? $row['vc_extend_text_pagetitle'] : null;
+            $vc_extend_text_pagelink        = (isset($row['vc_extend_text_pagelink'])) ? $row['vc_extend_text_pagelink'] : null;
+            $vc_extend_row_margin_bottom    = (isset($row['vc_extend_row_margin_bottom'])) ? $row['vc_extend_row_margin_bottom'] : null;
+            $colors                         = $vc_extend_colors ? $colors = " color:#fff; background-color:" . $vc_extend_colors . ";" : null;
+            $forceLinkColor                 = $vc_extend_colors ? $forceLinkColor = " style=\"color:#fff; \"" : " style=\"color:#007586; \"";
+            $colorClass                     = $vc_extend_colors ? $colorClass = "wlink" : null;
+            $hasMargin                      = $vc_extend_row_margin_bottom ? $hasMargin = "hasMargin" : null;
+            $menuBorderColor                = $vc_extend_bordercolor ? "border-left: 8px solid ".$vc_extend_bordercolor.";" : null;
+            $liCSS                          = "style=\"".$colors." ".$menuBorderColor." \"";
 
-            /** @var  $vc_extend_bordercolor */
-            $vc_extend_bordercolor = (isset($row['vc_extend_bordercolor'])) ? $row['vc_extend_bordercolor'] : '';
-
-            /** @var  $vc_extend_material */
-            $vc_extend_material = (isset($row['vc_extend_material'])) ? $row['vc_extend_material'] : '';
-
-            /** @var  $vc_extend_description */
-            $vc_extend_description = (isset($row['vc_extend_description'])) ? $row['vc_extend_description'] : '';
-
-            /** @var  $vc_extend_text_pagetitle */
-            $vc_extend_text_pagetitle = (isset($row['vc_extend_text_pagetitle'])) ? $row['vc_extend_text_pagetitle'] : '';
-
-            /** @var  $vc_extend_text_pagelink */
-            $vc_extend_text_pagelink = (isset($row['vc_extend_text_pagelink'])) ? $row['vc_extend_text_pagelink'] : '';
-
-            /** @var  $vc_extend_row_margin_bottom */
-            $vc_extend_row_margin_bottom = (isset($row['vc_extend_row_margin_bottom'])) ? $row['vc_extend_row_margin_bottom'] : '';
-
-            /** @var  $colors */
-            $colors = ($vc_extend_colors) ? $colors = " color:#fff; background-color:" . $vc_extend_colors . ";" : "";
-
-            /** @var  $forceLinkColor */
-            $forceLinkColor = ($vc_extend_colors) ? $forceLinkColor = " style=\"color:#fff; \"" : " style=\"color:#007586; \"";
-
-            /** @var  $colorClass */
-            $colorClass = ($vc_extend_colors) ? $colorClass = "wlink" : "";
-
-            /** @var  $hasMargin */
-            $hasMargin = ($vc_extend_row_margin_bottom) ? $hasMargin = "hasMargin" : "";
-
-            /** @var  $menuBorderColor */
-            $menuBorderColor = ($vc_extend_bordercolor) ? "border-left: 8px solid ".$vc_extend_bordercolor.";" : "";
-
-            /** @var  $liCSS */
-            $liCSS = "style=\"".$colors." ".$menuBorderColor." \"";
-
-
-            /** @var  $output */
             $output .= "<li><div class=\"collapsible-header ".$colorClass." ".$hasMargin."\"  ". $liCSS ."\">";
-            $output .= ($vc_extend_material) ? "<i class=\"material-icons ".$vc_extend_material."\"></i>" : "";
+            $output .= ($vc_extend_material) ? "<i class=\"material-icons ".$vc_extend_material."\"></i>" : null;
 
 
             /** Custom Title & Link */
@@ -322,22 +291,6 @@ class MenuCollapsible
         return $output;
     }
 
-
-
-
-    /**
-     * Show Notice if Visual Composer is activated or not.
-     * @return string
-     */
-    public function showVcVersionNotice()
-    {
-        $plugin_data = get_plugin_data(__FILE__);
-
-        echo '
-        <div class="updated">
-          <p>' . sprintf(__('<strong>%s</strong> requires <strong><a href="http://bit.ly/vcomposer" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', 'nsr-vc-extended'), $plugin_data['Name']) . '</p>
-        </div>';
-    }
 
 
 }

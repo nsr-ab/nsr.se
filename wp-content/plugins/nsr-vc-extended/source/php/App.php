@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MenuCollapsible ad-don for Visual Composer
+ * NSR Visual Composer Extended
  *
  * @package NSRVCExtended
  *
@@ -16,6 +16,16 @@ class App
 {
     public function __construct()
     {
+
+
+        /**
+         * Check if Visual composer is activated
+         */
+        if (!defined('WPB_VC_VERSION')) {
+            add_action('admin_notices', array($this, 'showVcVersionNotice'));
+            return;
+        }
+
         /**
          * Ad-dons Collapsible menus
          */
@@ -38,14 +48,32 @@ class App
         }
 
 
-
-
         /**
-         * Hooks
+         * Scripts & CSS
          */
         add_action('wp_enqueue_scripts', array($this, 'enqueueStyles'));
         add_action('admin_enqueue_scripts', array($this, 'enqueueStylesAdmin'));
         add_action( 'after_setup_theme', array( $this, 'after_nsr_theme_setup' ) );
+
+
+        add_action( 'init', array($this,'add_taxonomies_to_pages') );
+        if ( ! is_admin() ) {
+            add_action( 'pre_get_posts', array($this,'category_and_tag_archives') );
+
+        }
+    }
+
+    /**
+     * Show Notice if Visual Composer is activated or not.
+     * @return string
+     */
+    public function showVcVersionNotice()
+    {
+
+        echo '
+        <div class="notice notice-error is-dismissible">
+          <p>' . __('<strong>NSR Visual Composer Extended</strong> requires <strong><a href="http://bit.ly/vcomposer" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', 'nsr-vc-extended') . '</p>
+        </div>';
     }
 
 
@@ -112,6 +140,32 @@ class App
         add_action('admin_enqueue_scripts', array($this, 'enqueueScriptsAdmin'));
 
     }
+
+
+    /**
+     *  nsr_theme_setup
+     *  Adding language file
+     */
+    function add_taxonomies_to_pages() {
+        register_taxonomy_for_object_type( 'post_tag', 'page' );
+        register_taxonomy_for_object_type( 'category', 'page' );
+    }
+
+
+    /**
+     *  nsr_theme_setup
+     *  Adding language file
+     */
+    function category_and_tag_archives( $wp_query ) {
+        $my_post_array = array('post','page');
+
+        if ( $wp_query->get( 'category_name' ) || $wp_query->get( 'cat' ) )
+            $wp_query->set( 'post_type', $my_post_array );
+
+        if ( $wp_query->get( 'tag' ) )
+            $wp_query->set( 'post_type', $my_post_array );
+    }
+
 }
 
 

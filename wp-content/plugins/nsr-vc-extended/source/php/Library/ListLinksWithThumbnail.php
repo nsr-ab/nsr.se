@@ -141,11 +141,6 @@ class ListLinksWithThumbnail
     public function integrateWithVC()
     {
 
-        if (!defined('WPB_VC_VERSION')) {
-            add_action('admin_notices', array($this, 'showVcVersionNotice'));
-            return;
-        }
-
         vc_map(array(
 
                 'name' => __('List links with thumbnail', 'nsr-vc-extended'),
@@ -207,22 +202,6 @@ class ListLinksWithThumbnail
         return $output;
     }
 
-
-
-
-    /**
-     * Show Notice if Visual Composer is activated or not.
-     * @return string
-     */
-    public function showVcVersionNotice()
-    {
-        $plugin_data = get_plugin_data(__FILE__);
-
-        return '
-        <div class="updated notice notice-success is-dismissible">
-          <p>' . sprintf(_e('<strong>%s</strong> requires <strong><a href="http://bit.ly/vcomposer" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', 'nsr-vc-extended'), $plugin_data['Name']) . '</p>
-        </div>';
-    }
 
 
 }
