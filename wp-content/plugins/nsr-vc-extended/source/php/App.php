@@ -143,8 +143,8 @@ class App
 
 
     /**
-     *  nsr_theme_setup
-     *  Adding language file
+     *  category_and_tag_archives
+     *  Adding categories and tags to pages
      */
     function add_taxonomies_to_pages() {
         register_taxonomy_for_object_type( 'post_tag', 'page' );
@@ -153,8 +153,8 @@ class App
 
 
     /**
-     *  nsr_theme_setup
-     *  Adding language file
+     *  category_and_tag_archives
+     *  Adding categories and tags to pages
      */
     function category_and_tag_archives( $wp_query ) {
         $my_post_array = array('post','page');

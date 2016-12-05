@@ -57,3 +57,25 @@ a.collection-item {
   font-size: 1.2em !important;
   font-weight: 600 !important;
   color: #007586 !important; }
+
+.card.small {
+  height: 100% !important; }
+
+.card-image {
+  max-height: 264px;
+  overflow: hidden; }
+
+.card-content li {
+  padding-bottom: 8px; }
+
+.card-content li a {
+  font-weight: 600; }
+
+.card-content h4 {
+  margin-bottom: 12px !important; }
+
+.card-content h4 a {
+  text-decoration: none !important; }
+
+.card-content h4 a:hover {
+  text-decoration: underline; }

@@ -38,29 +38,31 @@ class ListLinksWithThumbnail
 
             /** @Param Designation parameter */
             array(
-
+                'admin_label' => true,
                 'type'      => 'textfield',
                 'heading' => __('Designation', 'nsr-vc-extended'),
                 'param_name' => 'vc_designation',
                 'edit_field_class' => 'vc_col-sm-9 vc_col-md-9',
                 'description' => __('Visible in admin (only!)', 'nsr-vc-extended'),
-                'admin_label' => true
+
             ),
 
             /** @Param Image component parameter */
             array(
 
+                'admin_label' => false,
                 'type'      => 'attach_image',
                 'heading' => __('Image', 'nsr-vc-extended'),
                 'param_name' => 'vc_image',
                 'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
-                'description' => __('Bilder som är 991px x 264px.', 'nsr-vc-extended')
+                'description' => __('Bilder som är 991px x 264px.', 'nsr-vc-extended'),
+
             ),
 
 
             /** @Param Color picker component for border color */
             array(
-
+                'admin_label' => false,
                 'type' => 'colorpicker',
                 'holder' => 'div',
                 'class' => 'vc_extend_border_colors',
@@ -68,67 +70,28 @@ class ListLinksWithThumbnail
                 'heading' => __('Top border color', 'nsr-vc-extended'),
                 'param_name' => 'vc_border_colors',
                 'dependency' => array('element' => 'color'),
-            ),
-
-
-            /** @Param heading parameter */
-            array(
-
-                'type'      => 'textfield',
-                'heading' => __('Link group heading', 'nsr-vc-extended'),
-                'param_name' => 'vc_heading',
-                'edit_field_class' => 'vc_col-sm-9 vc_col-md-9',
-                'admin_label' => true
 
             ),
 
-            /** @Param Parameter Group */
+
             array(
+                'admin_label' => false,
+                'type' => 'vc_link',
+                'holder' => 'div',
+                'class' => 'vc_pagelink',
+                'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
+                'heading' => __('Heading with link', 'nsr-vc-extended'),
+                'param_name' => 'vc_pagelink',
 
-                'type' => 'param_group',
-                'param_name' => 'vc_extend_rows',
-                'params' => array(
+            ),
 
-                    /** @Param Link component parameter */
-                    array(
-
-                        'type' => 'vc_link',
-                        'holder' => 'div',
-                        'class' => 'vc_extend_text_pagelink',
-                        'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
-                        'heading' => __('Link', 'nsr-vc-extended'),
-                        'param_name' => 'vc_extend_text_pagelink',
-                        'description' => __('Select link to post, page or external webpage.', 'nsr-vc-extended')
-                    ),
-
-                    /** @Param Icon component parameter */
-                    array(
-
-                        'type' => 'iconpicker',
-                        'param_name' => 'vc_extend_material_list',
-                        'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
-                        'heading' => __('Icon', 'nsr-vc-extended'),
-                        'settings' => array(
-                            'emptyIcon' => true,
-                            'type' => 'material',
-                            'iconsPerPage' => 26,
-                        ),
-                        'description' => __('Select icon from library.', 'nsr-vc-extended'),
-                    ),
-
-
-                    /** @Param Color picker component for background color */
-                    array(
-
-                        'type' => 'colorpicker',
-                        'holder' => 'div',
-                        'class' => 'vc_extend_colors',
-                        'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
-                        'heading' => __('Icon color', 'nsr-vc-extended'),
-                        'param_name' => 'vc_extend_colors',
-                        'dependency' => array('element' => 'color'),
-                    )
-                )
+            /** @Param Post loop parameter */
+            array(
+                'admin_label' => false,
+                'type' => 'loop',
+                'heading' => __('Select your post & categories', 'nsr-vc-extended'),
+                'param_name' => 'vc_loop',
+                'edit_field_class' => 'vc_col-sm-12 vc_col-md-12',
             ),
         );
     }
@@ -150,7 +113,7 @@ class ListLinksWithThumbnail
                 'class' => 'vc_extended ',
                 'show_settings_on_create' => true,
                 "is_container" => true,
-                'admin_label' => true,
+                'admin_label' => false,
                 'controls' => 'full',
                 'icon' => 'vc_general vc_element-icon icon-wpb-ui-accordion',
                 'category' => __('NSR', 'js_composer'),
@@ -170,40 +133,133 @@ class ListLinksWithThumbnail
     public function renderExtend(array $atts)
     {
 
-        $image = wp_get_attachment_image( $atts['vc_image'], $size = 'nsr-rect-front-size', $icon = false, $attr = '' );
-        $vc_extend_rows = vc_param_group_parse_atts( $atts['vc_extend_rows'] );
+        $params['vc_image'] = isset($atts['vc_image']) ? $postdate = $atts['vc_image'] : null;
+        $params['vc_pagelink'] = isset($atts['vc_pagelink']) ? $atts['vc_pagelink'] : null;
+        $params['vc_border_colors'] = isset($atts['vc_border_colors']) ? $atts['vc_border_colors'] : null;
 
-        $output = "<div id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" style=\"border-top:2px solid ".$atts['vc_border_colors']."; \" class=\"card hoverable small\" >";
-        $output .= "<div class=\"card-image\">";
-        $output .= $image;
-        $output .= "</div>";
-        $output .= "<div class=\"card-content\">";
-        $output .= "<h4>".$atts['vc_heading']."</h4>";
-        $int = 0;
-        $countRows = count($vc_extend_rows);
-        $output .= "<ul>";
-        foreach($vc_extend_rows as $row) {
-
-            /** @var  $vc_extend_colors */
-            $vc_extend_text_pagelink = (isset($row['vc_extend_text_pagelink'])) ? $row['vc_extend_text_pagelink'] : '';
-
-            /** @var  $vc_extend_bordercolor */
-            $vc_extend_material_list = (isset($row['vc_extend_material_list'])) ? $row['vc_extend_material_list'] : '';
-
-            /** @var  $vc_extend_material */
-            $vc_extend_colors = (isset($row['vc_extend_colors'])) ? $row['vc_extend_colors'] : '';
-
-            $href = vc_build_link($vc_extend_text_pagelink);
-
-            $output .= "<li><a href=\"" . $href['url'] . "\">" . $href['title'] . "</a></li>";
-
+        if ( isset( $atts['vc_loop'] ) && ! empty( $atts['vc_loop'] ) ) {
+            $query = $atts['vc_loop'];
         }
-        $output .= "</ul></div> </div>";
-        return $output;
+
+        if ( isset( $query ) ) {
+
+            $pairs = explode('|', $query);
+
+            foreach ($pairs as $pair) {
+
+                $pair = explode(':', $pair, 2);
+                $params['order_by'] = ($pair[0] === 'order_by') ? $pair[1] : null;
+                $params['size'] = ($pair[0] === 'size') ? $pair[1] : null;
+                $params['order'] = ($pair[0] === 'order') ? $pair[1] : null;
+                $params['post_type'] = ($pair[0] === 'post_type') ? $pair[1] : null;
+                $params['author'] = ($pair[0] === 'author') ? $pair[1] : null;
+                $params['categories'] = ($pair[0] === 'categories') ? $pair[1] : null;
+                $params['tags'] = ($pair[0] === 'tags') ? $pair[1] : null;
+                $params['tax_query'] = ($pair[0] === 'tax_query') ? $pair[1] : null;
+            }
+
+            return $this->fetchPostData($params);
+        }
+    }
+
+
+    /**
+     * Query db and posts get result
+     * @param array
+     * @return string
+     */
+    private function fetchPostData(array $params)
+    {
+
+        $term_data = $this->mergeParams($ermtax = array($params['categories'], $params['tags']));
+
+        global $wpdb;
+
+        $sql = "SELECT $wpdb->posts.*
+                    FROM $wpdb->posts  ";
+
+        if($term_data) {
+            $sql .= "INNER JOIN $wpdb->term_relationships ON ($wpdb->posts.ID = $wpdb->term_relationships.object_id) 
+                         WHERE $wpdb->posts.post_status = 'publish'             
+                         AND ( $wpdb->term_relationships.term_taxonomy_id IN (" . $term_data . ") ) ";
+        }
+        else {
+            $sql .= " WHERE $wpdb->posts.post_status = 'publish'  ";
+        }
+
+        $sql .= $params['author'] ? "AND $wpdb->posts.post_author = ".$params['authors']." " : null;
+        $sql .= $params['post_type'] ? " AND $wpdb->posts.post_type = '" . $params['post_type'] . "' " : null;
+        $sql .= $params['order_by'] ? " ORDER BY '$wpdb->posts.post_" . $params['order_by'] . "' " : null;
+        $sql .= $params['order'] ? $params['order'] : null;
+        $sql .= $params['size'] ? " LIMIT " . $params['size'] . " " : null;
+
+        return $this->renderMarkup($wpdb->get_results($sql), $param = (object) $params);
+
     }
 
 
 
+    /**
+     * Merge arrays
+     * @param array
+     * @return array
+     */
+    public function mergeParams($params)
+    {
+
+        $term_cat = explode(',', $params[0]);
+        $term_tax = explode(',', $params[1]);
+        $term_prepare = array_merge($term_cat, $term_tax);
+        $term_data = ltrim(rtrim(implode(',', $term_prepare), ','),',');
+
+        return $term_data;
+    }
+
+
+
+    /**
+     * loop object and render markup
+     * @param object $get_results
+     * @param array $params
+     * @return string
+     */
+    public function renderMarkup($get_results, $params)
+    {
+
+        $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"border-top:2px solid ".$params->vc_border_colors .";\" " : null;
+
+        $output = "<div id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" ". $vc_border_colors ." class=\"card hoverable small\" >";
+        $output .= "<div class=\"card-image\">";
+        $output .= wp_get_attachment_image( $params->vc_image, $size = 'nsr-rect-front-size', $icon = false, $attr = '' );
+        $output .= "</div>";
+        $output .= "<div class=\"card-content\">";
+
+        if(isset($params->vc_pagelink)) {
+            $href = vc_build_link($params->vc_pagelink);
+            $output .= "<h4><a  href=\"".$href['url']."\">".$href['title']."</a></h4>";
+        }
+
+        $output .= "<ul id=\"vc_ulId_".md5(date('YmdHis').rand(0,9999999))."\">";
+
+        $int = 0;
+        $countRows = count($get_results);
+        foreach( $get_results as $result ) {
+
+            $hideRest = ($int > 4)  ? " class=\"hide\" " : null;
+            $output .= "<li ".$hideRest."><a href=\"".get_permalink($result->ID)."\">";
+            $output .= "<span>".$result->post_title."</span>";
+            $output .= "</a></li>";
+
+            $int++;
+        }
+
+        if($countRows>5)
+            $output .= "<li><br /><a href=\"\" class=\"showAllPosts showPosts\">Visa alla (".$countRows.")</a></li>";
+        $output .= "</ul>";
+        $output .= "</div></div> ";
+
+        return $output;
+    }
 }
 
 

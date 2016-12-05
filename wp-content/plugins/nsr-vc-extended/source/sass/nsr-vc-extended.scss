@@ -44,18 +44,22 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers) li:before {
 .collection .date {
   font-size:0.8rem
 }
+
 .listIcons {
   display: table-cell;
   vertical-align: middle;
   padding-right:6px;
 }
+
 a.collection-item {
   padding:10px 0;
 }
+
 .collection span {
   position:relative;
   top: 3px;
 }
+
 .collection a.collection-item:not(.active):hover {
   background-color:#efefef !important;
 }
@@ -64,6 +68,33 @@ a.collection-item {
   font-size: 1.2em !important;
   font-weight: 600 !important;
   color: #007586 !important;
+}
+
+.card.small {
+  height:100% !important;
+}
+
+.card-image {
+  max-height:264px;
+  overflow:hidden;
+}
+
+.card-content li {
+  padding-bottom:8px;
+}
+
+.card-content li a {
+  font-weight:600;
+}
+.card-content h4 {
+  margin-bottom:12px !important;
+}
+.card-content h4 a {
+  text-decoration: none !important;
+
+}
+.card-content h4 a:hover {
+  text-decoration:underline;
 }
 
 
