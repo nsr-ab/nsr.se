@@ -29,6 +29,14 @@ class App
         /**
          * Ad-dons Collapsible menus
          */
+        if ( !class_exists( 'MasterVCExtended' ) ) {
+            new \VcExtended\Library\MasterVCExtended();
+        }
+
+
+        /**
+         * Ad-dons Collapsible menus
+         */
         if ( !class_exists( 'MenuCollapsible' ) ) {
             new \VcExtended\Library\MenuCollapsible();
         }
@@ -56,11 +64,6 @@ class App
         add_action( 'after_setup_theme', array( $this, 'after_nsr_theme_setup' ) );
 
 
-        add_action( 'init', array($this,'add_taxonomies_to_pages') );
-        if ( ! is_admin() ) {
-            add_action( 'pre_get_posts', array($this,'category_and_tag_archives') );
-
-        }
     }
 
     /**
@@ -142,29 +145,7 @@ class App
     }
 
 
-    /**
-     *  category_and_tag_archives
-     *  Adding categories and tags to pages
-     */
-    function add_taxonomies_to_pages() {
-        register_taxonomy_for_object_type( 'post_tag', 'page' );
-        register_taxonomy_for_object_type( 'category', 'page' );
-    }
 
-
-    /**
-     *  category_and_tag_archives
-     *  Adding categories and tags to pages
-     */
-    function category_and_tag_archives( $wp_query ) {
-        $my_post_array = array('post','page');
-
-        if ( $wp_query->get( 'category_name' ) || $wp_query->get( 'cat' ) )
-            $wp_query->set( 'post_type', $my_post_array );
-
-        if ( $wp_query->get( 'tag' ) )
-            $wp_query->set( 'post_type', $my_post_array );
-    }
 
 }
 

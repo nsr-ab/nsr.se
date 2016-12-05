@@ -15,6 +15,12 @@ class App
 
         add_action( 'admin_menu', array( $this,'nsr_change_post_label' ) );
         add_action( 'init', array( $this,'nsr_change_post_object' ) );
+
+        add_action( 'init', array($this,'add_taxonomies_to_pages') );
+        if ( ! is_admin() ) {
+            add_action( 'pre_get_posts', array($this,'category_and_tag_archives') );
+
+        }
     }
 
 
@@ -38,6 +44,11 @@ class App
     }
 
 
+
+    /**
+     *  nsr_change_post_label
+     *  Change designation post to news
+     */
     function nsr_change_post_label()
     {
 
@@ -49,6 +60,12 @@ class App
         $submenu['edit.php'][10][0] = __('Add News', 'nsr');
         $submenu['edit.php'][16][0] = __('News Tags', 'nsr');
     }
+
+
+    /**
+     *  nsr_change_post_object
+     *  Change designation post to news
+     */
     function nsr_change_post_object()
     {
         global $wp_post_types;
@@ -69,6 +86,31 @@ class App
     }
 
 
+    /**
+     *  add_taxonomies_to_pages
+     *  Adding categories and tags to pages
+     */
+    function add_taxonomies_to_pages()
+    {
+        register_taxonomy_for_object_type( 'post_tag', 'page' );
+        register_taxonomy_for_object_type( 'category', 'page' );
+    }
+
+
+    /**
+     *  category_and_tag_archives
+     *  Adding categories and tags to pages
+     */
+    function category_and_tag_archives( $wp_query )
+    {
+        $my_post_array = array('post','page');
+
+        if ( $wp_query->get( 'category_name' ) || $wp_query->get( 'cat' ) )
+            $wp_query->set( 'post_type', $my_post_array );
+
+        if ( $wp_query->get( 'tag' ) )
+            $wp_query->set( 'post_type', $my_post_array );
+    }
 
 
 
