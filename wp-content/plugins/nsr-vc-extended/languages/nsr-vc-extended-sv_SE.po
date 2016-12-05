@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2016-12-02 15:33+0100\n"
-"PO-Revision-Date: 2016-12-02 16:14+0100\n"
+"POT-Creation-Date: 2016-12-05 11:50+0100\n"
+"PO-Revision-Date: 2016-12-05 11:52+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/App.php:68
+#: source/php/App.php:75
 msgid ""
 "<strong>NSR Visual Composer Extended</strong> requires <strong><a href="
 "\"http://bit.ly/vcomposer\" target=\"_blank\">Visual Composer</a></strong> "
@@ -42,56 +42,36 @@ msgstr "Benämning"
 msgid "Visible in admin (only!)"
 msgstr "Är bara synlig i back-end"
 
-#: source/php/Library/ListLinksWithThumbnail.php:54
+#: source/php/Library/ListLinksWithThumbnail.php:55
 msgid "Image"
 msgstr "Bild"
 
-#: source/php/Library/ListLinksWithThumbnail.php:57
-msgid "Bilder som är 991px x 264px."
-msgstr ""
+#: source/php/Library/ListLinksWithThumbnail.php:58
+msgid "Image size 991px x 264px."
+msgstr "Ladda upp bilder som har 991 pixlar i bredd, 264 pixlar i höjd."
 
-#: source/php/Library/ListLinksWithThumbnail.php:68
+#: source/php/Library/ListLinksWithThumbnail.php:70
 msgid "Top border color"
 msgstr "Övre kantfärg"
 
-#: source/php/Library/ListLinksWithThumbnail.php:78
-msgid "Link group heading"
-msgstr "Rubrik"
+#: source/php/Library/ListLinksWithThumbnail.php:83
+msgid "Heading with link"
+msgstr "Rubrik och länk"
 
-#: source/php/Library/ListLinksWithThumbnail.php:99
-msgid "Link"
-msgstr "Länk"
+#: source/php/Library/ListLinksWithThumbnail.php:92
+#: source/php/Library/ListNewsAndPosts.php:94
+msgid "Select your post & categories"
+msgstr "Välj post och kategori"
 
-#: source/php/Library/ListLinksWithThumbnail.php:101
-msgid "Select link to post, page or external webpage."
-msgstr "Välj länk"
-
-#: source/php/Library/ListLinksWithThumbnail.php:110
-#: source/php/Library/ListNewsAndPosts.php:68
-#: source/php/Library/MenuCollapsible.php:161
-msgid "Icon"
-msgstr "Ikon"
-
-#: source/php/Library/ListLinksWithThumbnail.php:116
-#: source/php/Library/ListNewsAndPosts.php:74
-#: source/php/Library/MenuCollapsible.php:176
-msgid "Select icon from library."
-msgstr "Välj ikon från bibliotek"
-
-#: source/php/Library/ListLinksWithThumbnail.php:127
-#: source/php/Library/ListNewsAndPosts.php:85
-msgid "Icon color"
-msgstr "Färg på ikon"
-
-#: source/php/Library/ListLinksWithThumbnail.php:146
+#: source/php/Library/ListLinksWithThumbnail.php:109
 msgid "List links with thumbnail"
 msgstr "Puff med länkar"
 
-#: source/php/Library/ListLinksWithThumbnail.php:147
+#: source/php/Library/ListLinksWithThumbnail.php:110
 msgid "List links, post, pages and add Thumbnail"
 msgstr "Bild och länkar"
 
-#: source/php/Library/ListLinksWithThumbnail.php:156
+#: source/php/Library/ListLinksWithThumbnail.php:119
 #: source/php/Library/ListNewsAndPosts.php:123
 #: source/php/Library/MenuCollapsible.php:215
 msgid "NSR"
@@ -109,9 +89,19 @@ msgstr "Inkludera"
 msgid "Exclude"
 msgstr "Exkludera"
 
-#: source/php/Library/ListNewsAndPosts.php:94
-msgid "Select your post & categories"
-msgstr "Välj post och kategori"
+#: source/php/Library/ListNewsAndPosts.php:68
+#: source/php/Library/MenuCollapsible.php:161
+msgid "Icon"
+msgstr "Ikon"
+
+#: source/php/Library/ListNewsAndPosts.php:74
+#: source/php/Library/MenuCollapsible.php:176
+msgid "Select icon from library."
+msgstr "Välj ikon från bibliotek"
+
+#: source/php/Library/ListNewsAndPosts.php:85
+msgid "Icon color"
+msgstr "Färg på ikon"
 
 #: source/php/Library/ListNewsAndPosts.php:113
 msgid "List news & posts"
@@ -279,6 +269,15 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "hiq.se"
 msgstr ""
+
+#~ msgid "Link group heading"
+#~ msgstr "Rubrik"
+
+#~ msgid "Link"
+#~ msgstr "Länk"
+
+#~ msgid "Select link to post, page or external webpage."
+#~ msgstr "Välj länk"
 
 #~ msgid ""
 #~ "<strong>%s</strong> requires <strong><a href=\"http://bit.ly/vcomposer\" "

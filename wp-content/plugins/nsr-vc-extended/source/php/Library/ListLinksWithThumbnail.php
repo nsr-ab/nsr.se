@@ -55,7 +55,7 @@ class ListLinksWithThumbnail
                 'heading' => __('Image', 'nsr-vc-extended'),
                 'param_name' => 'vc_image',
                 'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
-                'description' => __('Bilder som är 991px x 264px.', 'nsr-vc-extended'),
+                'description' => __('Image size 991px x 264px.', 'nsr-vc-extended'),
 
             ),
 

@@ -7124,6 +7124,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme #main-content .btn.btn-primary, .is-child-theme #main-content .btn-primary.btn-large {
       background-color: #007586 !important;
       border-color: #007586 !important; }
+    .is-child-theme #main-content .post-header {
+      background: none;
+      border: none; }
   .is-child-theme aside h2 {
     font-size: 2.2rem;
     font-weight: 600; }
