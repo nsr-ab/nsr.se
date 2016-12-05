@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR\n"
-"POT-Creation-Date: 2016-11-11 15:05+0100\n"
-"PO-Revision-Date: 2016-11-11 15:05+0100\n"
+"POT-Creation-Date: 2016-12-05 13:21+0100\n"
+"PO-Revision-Date: 2016-12-05 13:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -19,6 +19,59 @@ msgstr ""
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: library/App.php:47 library/App.php:48 library/App.php:56 library/App.php:57
+#: library/App.php:67 library/App.php:68
+msgid "News"
+msgstr "Nyheter"
+
+#: library/App.php:49 library/App.php:58 library/App.php:59
+msgid "Add News"
+msgstr "Skapa nyhet"
+
+#: library/App.php:50
+msgid "News Tags"
+msgstr "Taggar"
+
+#: library/App.php:60
+msgid "Edit News"
+msgstr "Redigera nyhet"
+
+#: library/App.php:61
+msgid "Add"
+msgstr "Lägg till"
+
+#: library/App.php:62
+msgid "View News"
+msgstr "Visa nyhet"
+
+#: library/App.php:63
+msgid "Search News"
+msgstr "Sök nyhet"
+
+#: library/App.php:64
+msgid "No news found"
+msgstr "Kunde inte hitta någon nyhet"
+
+#: library/App.php:65
+msgid "No news found in the trash"
+msgstr "Kunde inte hitta någon nyhet i papperskorgen"
+
+#: library/App.php:66
+msgid "All News"
+msgstr "Alla nyheter"
+
+#: library/Theme/NSRTemplates.php:15
+msgid "Sida utan rubrik"
+msgstr ""
+
+#: library/Theme/SidebarsExtended.php:29
+msgid "Footer"
+msgstr "Footer"
+
+#: library/Theme/SidebarsExtended.php:30
+msgid "The footer area"
+msgstr "Footer area"
 
 #: views/partials/header/default.blade.php:27
 #: views/partials/header/default.blade.php:60
@@ -50,8 +103,11 @@ msgid "NSR Child theme developed by HIQ"
 msgstr "NSR Child tema utvecklad av HIQ"
 
 #. Author of the plugin/theme
-msgid "HIQ"
-msgstr "HIQ"
+msgid "HIQ hiq.se"
+msgstr ""
+
+#~ msgid "HIQ"
+#~ msgstr "HIQ"
 
 #~ msgid "What customer are you today"
 #~ msgstr "Vilken kund är du idag?"
