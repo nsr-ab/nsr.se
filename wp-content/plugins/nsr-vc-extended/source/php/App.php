@@ -27,7 +27,7 @@ class App
         }
 
         /**
-         * Ad-dons Collapsible menus
+         * Master methods
          */
         if ( !class_exists( 'MasterVCExtended' ) ) {
             new \VcExtended\Library\MasterVCExtended();

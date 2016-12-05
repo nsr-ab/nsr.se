@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR\n"
-"POT-Creation-Date: 2016-12-05 13:21+0100\n"
-"PO-Revision-Date: 2016-12-05 13:25+0100\n"
+"POT-Creation-Date: 2016-12-05 16:34+0100\n"
+"PO-Revision-Date: 2016-12-05 16:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,44 +20,44 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: library/App.php:47 library/App.php:48 library/App.php:56 library/App.php:57
-#: library/App.php:67 library/App.php:68
+#: library/App.php:58 library/App.php:59 library/App.php:73 library/App.php:74
+#: library/App.php:84 library/App.php:85
 msgid "News"
 msgstr "Nyheter"
 
-#: library/App.php:49 library/App.php:58 library/App.php:59
+#: library/App.php:60 library/App.php:75 library/App.php:76
 msgid "Add News"
 msgstr "Skapa nyhet"
 
-#: library/App.php:50
+#: library/App.php:61
 msgid "News Tags"
 msgstr "Taggar"
 
-#: library/App.php:60
+#: library/App.php:77
 msgid "Edit News"
 msgstr "Redigera nyhet"
 
-#: library/App.php:61
+#: library/App.php:78
 msgid "Add"
 msgstr "Lägg till"
 
-#: library/App.php:62
+#: library/App.php:79
 msgid "View News"
 msgstr "Visa nyhet"
 
-#: library/App.php:63
+#: library/App.php:80
 msgid "Search News"
 msgstr "Sök nyhet"
 
-#: library/App.php:64
+#: library/App.php:81
 msgid "No news found"
 msgstr "Kunde inte hitta någon nyhet"
 
-#: library/App.php:65
+#: library/App.php:82
 msgid "No news found in the trash"
 msgstr "Kunde inte hitta någon nyhet i papperskorgen"
 
-#: library/App.php:66
+#: library/App.php:83
 msgid "All News"
 msgstr "Alla nyheter"
 
