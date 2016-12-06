@@ -19,8 +19,9 @@ class App
         add_action( 'init', array($this,'add_taxonomies_to_pages') );
         if ( ! is_admin() ) {
             add_action( 'pre_get_posts', array($this,'category_and_tag_archives') );
-
         }
+
+
     }
 
 

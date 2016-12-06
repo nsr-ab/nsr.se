@@ -97,4 +97,59 @@ a.collection-item {
   text-decoration:underline;
 }
 
+.page-template-default, .page-template-vc-page-blade {
+
+  .vc_col-sm-6 .collection-title {
+    max-width: 80%;
+    display: inline-block;
+  }
+  .vc_col-sm-4 .collection-title {
+    max-width: 70%;
+    display: inline-block;
+  }
+  @media only screen and (max-width: 1200px) {
+    .vc_col-sm-4 .collection-title {
+      max-width: 65%;
+    }
+  }
+
+  @media only screen and (max-width: 991px) {
+    .vc_col-sm-6 .collection-title {
+      max-width: 65%;
+    }
+    .vc_col-sm-4 .collection-title {
+      max-width: 45%;
+    }
+  }
+  @media only screen and (max-width: 930px) {
+    .vc_col-sm-4 .collection-title {
+      clear:both;
+      position:relative;
+
+    }
+    .vc_col-sm-4 .date{
+
+    }
+  }
+
+}
+.home {
+
+  .vc_col-sm-6 .collection-title,
+  .vc_col-sm-4 .collection-title{
+    display: inline-block;
+  }
+  .vc_col-sm-6 .collection-title {
+      max-width: 75%;
+  }
+  .vc_col-sm-4 .collection-title {
+      max-width: 80%;
+  }
+  @media only screen and (max-width: 1150px) {
+    .vc_col-sm-4 .collection-title {
+      max-width: 67%;
+    }
+  }
+
+}
 

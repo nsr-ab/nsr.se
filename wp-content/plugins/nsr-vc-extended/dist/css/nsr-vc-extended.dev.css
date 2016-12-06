@@ -79,3 +79,40 @@ a.collection-item {
 
 .card-content h4 a:hover {
   text-decoration: underline; }
+
+.page-template-default .vc_col-sm-6 .collection-title, .page-template-vc-page-blade .vc_col-sm-6 .collection-title {
+  max-width: 80%;
+  display: inline-block; }
+
+.page-template-default .vc_col-sm-4 .collection-title, .page-template-vc-page-blade .vc_col-sm-4 .collection-title {
+  max-width: 70%;
+  display: inline-block; }
+
+@media only screen and (max-width: 1200px) {
+  .page-template-default .vc_col-sm-4 .collection-title, .page-template-vc-page-blade .vc_col-sm-4 .collection-title {
+    max-width: 65%; } }
+
+@media only screen and (max-width: 991px) {
+  .page-template-default .vc_col-sm-6 .collection-title, .page-template-vc-page-blade .vc_col-sm-6 .collection-title {
+    max-width: 65%; }
+  .page-template-default .vc_col-sm-4 .collection-title, .page-template-vc-page-blade .vc_col-sm-4 .collection-title {
+    max-width: 45%; } }
+
+@media only screen and (max-width: 930px) {
+  .page-template-default .vc_col-sm-4 .collection-title, .page-template-vc-page-blade .vc_col-sm-4 .collection-title {
+    clear: both;
+    position: relative; } }
+
+.home .vc_col-sm-6 .collection-title,
+.home .vc_col-sm-4 .collection-title {
+  display: inline-block; }
+
+.home .vc_col-sm-6 .collection-title {
+  max-width: 75%; }
+
+.home .vc_col-sm-4 .collection-title {
+  max-width: 80%; }
+
+@media only screen and (max-width: 1150px) {
+  .home .vc_col-sm-4 .collection-title {
+    max-width: 67%; } }

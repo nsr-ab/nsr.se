@@ -169,7 +169,7 @@ class ListNewsAndPosts extends MasterVCExtended
 
             $output .= "<a class=\"collection-item\" href=\"".get_permalink($result->ID)."\">";
             $output .= isset($params->vc_extend_material) ? "<i ".$vc_icon_colors." class=\"listIcons material-icons ".isset($params->vc_extend_material)."\"></i>" : null;
-            $output .= "<span>".$result->post_title."</span>";
+            $output .= "<span class=\"collection-title\">".$result->post_title."</span>";
             $output .= (isset($params->date) == 1) ? "<span class=\"right date\">".date('Y-m-d', strtotime($result->post_date))."</span>" : null;
             $output .= "</a>";
         }

@@ -48,13 +48,14 @@ class MasterVCExtended
             $term_data = $this->mergeParams($termtax = array( $params['categories'], $params['tags'] ) );
         }
         else {
-            isset($params['categories']) ? $term_data = $params['categories'] : $term_data = '';
-            isset($params['tags']) ? $term_data = $params['tags'] : $term_data = '';
+            $term_data = (isset($params['categories'])) ? $params['categories'] : '';
+            $term_data .=  (isset($params['tags'])) ? $params['tags'] : '';
         }
 
 
+        /* Query */
         $sql = "SELECT $wpdb->posts.*
-                    FROM $wpdb->posts  ";
+                FROM $wpdb->posts  ";
 
         if($term_data) {
             $sql .= "INNER JOIN $wpdb->term_relationships ON ($wpdb->posts.ID = $wpdb->term_relationships.object_id) 
@@ -115,6 +116,7 @@ class MasterVCExtended
                 $params['tags'] = $pair[1];
 
         }
+        #echo "----->".$params['categories']."<......";
         return $params;
 
     }
