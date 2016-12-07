@@ -8,7 +8,7 @@ class App
         new \Nsr\Theme\Enqueue();
         new \Nsr\Theme\SidebarsExtended();
         new \Nsr\Theme\NSRTemplates();
-
+        new \Nsr\Theme\CustomNSRPages();
 
         add_action( 'after_setup_theme', array( $this, 'nsr_theme_setup' ) );
         add_action( 'init', array( $this,'add_excerpts_to_pages' ) );
@@ -112,7 +112,6 @@ class App
         if ( $wp_query->get( 'tag' ) )
             $wp_query->set( 'post_type', $my_post_array );
     }
-
 
 
 

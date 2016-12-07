@@ -116,7 +116,7 @@ class MasterVCExtended
                 $params['tags'] = $pair[1];
 
         }
-        #echo "----->".$params['categories']."<......";
+
         return $params;
 
     }
