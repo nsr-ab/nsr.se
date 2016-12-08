@@ -7127,6 +7127,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme #main-content .post-header {
       background: none;
       border: none; }
+    .is-child-theme #main-content .grid-md-12 p,
+    .is-child-theme #main-content .grid-lg-12 p,
+    .is-child-theme #main-content .grid-sm-12 p,
+    .is-child-theme #main-content .grid-xs-12 p {
+      max-width: 100% !important; }
   .is-child-theme aside h2 {
     font-size: 2.2rem;
     font-weight: 600; }

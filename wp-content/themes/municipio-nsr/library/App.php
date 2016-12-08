@@ -5,10 +5,17 @@ class App
 {
     public function __construct()
     {
+
+        /**
+         * Template
+         */
+
+        new \Nsr\Theme\CustomPostTypes();
         new \Nsr\Theme\Enqueue();
         new \Nsr\Theme\SidebarsExtended();
         new \Nsr\Theme\NSRTemplates();
-        new \Nsr\Theme\CustomNSRPages();
+        new \Nsr\Theme\CustomPostTypesMetaSidebar();
+
 
         add_action( 'after_setup_theme', array( $this, 'nsr_theme_setup' ) );
         add_action( 'init', array( $this,'add_excerpts_to_pages' ) );

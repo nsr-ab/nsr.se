@@ -115,6 +115,14 @@
     }
 
 
+    .grid-md-12 p,
+    .grid-lg-12 p,
+    .grid-sm-12 p,
+    .grid-xs-12 p {
+        max-width:100% !important;
+    }
+
+
     // ***********************************************************************************
     // *** Wake up gfx card to rerender fonts
     // *** OBS! It breaks position: fixed so use it on children only under fixed element
