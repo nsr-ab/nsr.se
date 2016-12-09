@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2016-12-09 14:37+0100\n"
-"PO-Revision-Date: 2016-12-09 14:43+0100\n"
+"POT-Creation-Date: 2016-12-09 15:24+0100\n"
+"PO-Revision-Date: 2016-12-09 15:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/App.php:86
+#: source/php/App.php:94
 msgid ""
 "<strong>NSR Visual Composer Extended</strong> requires <strong><a href="
 "\"http://bit.ly/vcomposer\" target=\"_blank\">Visual Composer</a></strong> "
@@ -33,34 +33,34 @@ msgstr ""
 #: source/php/Library/ListLinksWithThumbnail.php:42
 #: source/php/Library/ListNewsAndPosts.php:41
 #: source/php/Library/MenuCollapsible.php:41
-#: source/php/Library/ThumbnailAndTextarea.php:42
+#: source/php/Library/ThumbnailAndTextarea.php:41
 msgid "Designation"
 msgstr "Benämning"
 
 #: source/php/Library/ListLinksWithThumbnail.php:45
 #: source/php/Library/ListNewsAndPosts.php:44
 #: source/php/Library/MenuCollapsible.php:43
-#: source/php/Library/ThumbnailAndTextarea.php:45
+#: source/php/Library/ThumbnailAndTextarea.php:44
 msgid "Visible in admin (only!)"
 msgstr "Är bara synlig i back-end"
 
 #: source/php/Library/ListLinksWithThumbnail.php:54
-#: source/php/Library/ThumbnailAndTextarea.php:54
+#: source/php/Library/ThumbnailAndTextarea.php:53
 msgid "Image"
 msgstr "Bild"
 
 #: source/php/Library/ListLinksWithThumbnail.php:57
-#: source/php/Library/ThumbnailAndTextarea.php:57
 msgid "Image size 991px x 264px."
 msgstr "Ladda upp bilder som har 991 pixlar i bredd, 264 pixlar i höjd."
 
 #: source/php/Library/ListLinksWithThumbnail.php:69
-#: source/php/Library/ThumbnailAndTextarea.php:69
+#: source/php/Library/Puff.php:44
+#: source/php/Library/ThumbnailAndTextarea.php:68
 msgid "Top border color"
 msgstr "Övre kantfärg"
 
 #: source/php/Library/ListLinksWithThumbnail.php:82
-#: source/php/Library/ThumbnailAndTextarea.php:82
+#: source/php/Library/ThumbnailAndTextarea.php:81
 msgid "Heading with link"
 msgstr "Rubrik och länk"
 
@@ -90,8 +90,8 @@ msgstr "Bild och länkar"
 
 #: source/php/Library/ListLinksWithThumbnail.php:132
 #: source/php/Library/ListNewsAndPosts.php:136
-#: source/php/Library/MenuCollapsible.php:215
-#: source/php/Library/ThumbnailAndTextarea.php:120
+#: source/php/Library/MenuCollapsible.php:215 source/php/Library/Puff.php:121
+#: source/php/Library/ThumbnailAndTextarea.php:117
 msgid "NSR"
 msgstr "NSR"
 
@@ -108,16 +108,16 @@ msgid "Exclude"
 msgstr "Exkludera"
 
 #: source/php/Library/ListNewsAndPosts.php:68
-#: source/php/Library/MenuCollapsible.php:161
+#: source/php/Library/MenuCollapsible.php:161 source/php/Library/Puff.php:67
 msgid "Icon"
 msgstr "Ikon"
 
 #: source/php/Library/ListNewsAndPosts.php:74
-#: source/php/Library/MenuCollapsible.php:176
+#: source/php/Library/MenuCollapsible.php:176 source/php/Library/Puff.php:73
 msgid "Select icon from library."
 msgstr "Välj ikon från bibliotek"
 
-#: source/php/Library/ListNewsAndPosts.php:85
+#: source/php/Library/ListNewsAndPosts.php:85 source/php/Library/Puff.php:83
 msgid "Icon color"
 msgstr "Färg på ikon"
 
@@ -129,7 +129,7 @@ msgstr "Senaste nyheter"
 msgid "List news and posts"
 msgstr "Lista nyheter och sidor"
 
-#: source/php/Library/MenuCollapsible.php:61
+#: source/php/Library/MenuCollapsible.php:61 source/php/Library/Puff.php:54
 msgid "Title"
 msgstr "Titel"
 
@@ -268,17 +268,30 @@ msgstr "Meny / Dragspel "
 msgid "Menu Accordion"
 msgstr "Meny / Lista / Dragspel"
 
-#: source/php/Library/ThumbnailAndTextarea.php:90
+#: source/php/Library/Puff.php:92
+#: source/php/Library/ThumbnailAndTextarea.php:89
 msgid "Content"
 msgstr "Kort beskrivning"
 
-#: source/php/Library/ThumbnailAndTextarea.php:110
-msgid "Thumbnail, link and description"
-msgstr "Puff med bild, text"
+#: source/php/Library/Puff.php:111
+msgid "Brick with content"
+msgstr "Puff med text"
 
-#: source/php/Library/ThumbnailAndTextarea.php:111
-msgid "Brick with image, heading and description"
-msgstr "Puff med bild, länk och text"
+#: source/php/Library/Puff.php:112
+msgid "Title, icon, textarea"
+msgstr "Rubrik, icon, text"
+
+#: source/php/Library/ThumbnailAndTextarea.php:56
+msgid "Image size 620px x 300px."
+msgstr "Bildstorlek 620px x 300px"
+
+#: source/php/Library/ThumbnailAndTextarea.php:107
+msgid "Thumbnail, link, heading and text"
+msgstr "Puff med länk"
+
+#: source/php/Library/ThumbnailAndTextarea.php:108
+msgid "Image, link, heading and description"
+msgstr "Bild, länk, rubrik, text"
 
 #. Plugin Name of the plugin/theme
 msgid "NSR Visual Composer Extended"
@@ -299,6 +312,12 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "hiq.se"
 msgstr ""
+
+#~ msgid "Thumbnail, link and description"
+#~ msgstr "Puff med bild, text"
+
+#~ msgid "Brick with image, heading and description"
+#~ msgstr "Puff med bild, länk och text"
 
 #~ msgid "Link group heading"
 #~ msgstr "Rubrik"

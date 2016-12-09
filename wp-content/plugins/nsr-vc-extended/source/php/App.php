@@ -62,6 +62,14 @@ class App
             new \VcExtended\Library\ThumbnailAndTextarea();
         }
 
+        /**
+         * Ad-dons Thumbnail, link heading and description
+         */
+        if ( !class_exists( 'Puff' ) ) {
+            new \VcExtended\Library\Puff();
+        }
+
+
 
 
         /**

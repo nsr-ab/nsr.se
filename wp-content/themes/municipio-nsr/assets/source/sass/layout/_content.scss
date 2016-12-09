@@ -123,6 +123,10 @@
     }
 
 
+    .card-content .faq {
+        color:$palette-primary-black !important;
+    }
+
     // ***********************************************************************************
     // *** Wake up gfx card to rerender fonts
     // *** OBS! It breaks position: fixed so use it on children only under fixed element

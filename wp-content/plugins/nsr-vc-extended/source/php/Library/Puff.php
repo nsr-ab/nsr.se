@@ -1,27 +1,27 @@
 <?php
 
 /**
- * ThumbnailAndTextarea ad-don for Visual Composer
+ * Puff ad-don for Visual Composer
  *
  * @package NSRVCExtended
  *
  * Author: Johan Silvergrund
  * Company: HIQ
 
- * -- ThumbnailAndTextarea --
- * A Visual composer ad-don to create content etc.
+ * -- Puff --
+ * A Visual composer ad-don to create brick with content.
  *
  */
 
 namespace VcExtended\Library;
 
-class ThumbnailAndTextarea
+class Puff
 {
 
     function __construct()
     {
         add_action('init', array($this, 'integrateWithVC'));
-        add_shortcode('nsr_thumb_link_desc', array($this, 'renderExtend'));
+        add_shortcode('nsr_faq_list', array($this, 'renderExtend'));
         add_image_size( 'nsr-square-front-size', 620, 300 );
     }
 
@@ -34,52 +34,55 @@ class ThumbnailAndTextarea
     {
         return array(
 
-            /** @Param Designation parameter */
-            array(
-                'admin_label' => true,
-                'type'      => 'textfield',
-                'heading' => __('Designation', 'nsr-vc-extended'),
-                'param_name' => 'vc_designation',
-                'edit_field_class' => 'vc_col-sm-9 vc_col-md-9',
-                'description' => __('Visible in admin (only!)', 'nsr-vc-extended'),
-
-            ),
-
-            /** @Param Image component parameter */
-            array(
-
-                'admin_label' => false,
-                'type'      => 'attach_image',
-                'heading' => __('Image', 'nsr-vc-extended'),
-                'param_name' => 'vc_image',
-                'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
-                'description' => __('Image size 620px x 300px.', 'nsr-vc-extended'),
-
-            ),
-
-
             /** @Param Color picker component for border color */
             array(
                 'admin_label' => false,
                 'type' => 'colorpicker',
                 'holder' => 'div',
                 'class' => 'vc_extend_border_colors',
-                'edit_field_class' => 'vc_col-sm-2 vc_col-md-2',
+                'edit_field_class' => 'vc_col-sm-12 vc_col-md-12',
                 'heading' => __('Top border color', 'nsr-vc-extended'),
                 'param_name' => 'vc_border_colors',
                 'dependency' => array('element' => 'color'),
 
             ),
 
-            /** @Param Heading & link */
+            /** @Param Designation parameter */
+            array(
+                'admin_label' => true,
+                'type'      => 'textfield',
+                'heading' => __('Title', 'nsr-vc-extended'),
+                'param_name' => 'vc_title',
+                'edit_field_class' => 'vc_col-sm-9 vc_col-md-9',
+
+            ),
+
+
+            /** @Param Icon component parameter */
+            array(
+
+                'type' => 'iconpicker',
+                'param_name' => 'vc_icon',
+                'edit_field_class' => 'vc_col-sm-7 vc_col-md-7',
+                'heading' => __('Icon', 'nsr-vc-extended'),
+                'settings' => array(
+                    'emptyIcon' => true,
+                    'type' => 'material',
+                    'iconsPerPage' => 26,
+                ),
+                'description' => __('Select icon from library.', 'nsr-vc-extended'),
+            ),
+
+            /** @Param Color picker component for border color */
             array(
                 'admin_label' => false,
-                'type' => 'vc_link',
+                'type' => 'colorpicker',
                 'holder' => 'div',
-                'class' => 'vc_pagelink',
-                'edit_field_class' => 'vc_col-sm-8 vc_col-md-8',
-                'heading' => __('Heading with link', 'nsr-vc-extended'),
-                'param_name' => 'vc_pagelink',
+                'class' => 'vc_extend_icon_colors',
+                'edit_field_class' => 'vc_col-sm-2 vc_col-md-2',
+                'heading' => __('Icon color', 'nsr-vc-extended'),
+                'param_name' => 'vc_icon_colors',
+                'dependency' => array('element' => 'color'),
 
             ),
 
@@ -89,6 +92,7 @@ class ThumbnailAndTextarea
                 'heading'     => __( 'Content', 'nsr-vc-extended' ),
                 'param_name'  => 'content',
                 'description' => 'Lite beskrivande text',
+                'admin_label' => true,
             ),
 
         );
@@ -104,9 +108,9 @@ class ThumbnailAndTextarea
 
         vc_map(array(
 
-                'name' => __('Thumbnail, link, heading and text', 'nsr-vc-extended'),
-                'description' => __('Image, link, heading and description', 'nsr-vc-extended'),
-                'base' => 'nsr_thumb_link_desc',
+                'name' => __('Brick with content', 'nsr-vc-extended'),
+                'description' => __('Title, icon, textarea', 'nsr-vc-extended'),
+                'base' => 'nsr_faq_list',
                 "content_element" => true,
                 'class' => 'vc_extended ',
                 'show_settings_on_create' => true,
@@ -133,8 +137,9 @@ class ThumbnailAndTextarea
     public function renderExtend(array $atts, $content = null)
     {
 
-        $params['vc_image'] = isset($atts['vc_image']) ? $postdate = $atts['vc_image'] : null;
-        $params['vc_pagelink'] = isset($atts['vc_pagelink']) ? $atts['vc_pagelink'] : null;
+        $params['vc_title'] = isset($atts['vc_title']) ? $postdate = $atts['vc_title'] : null;
+        $params['vc_icon'] = isset($atts['vc_icon']) ? $postdate = $atts['vc_icon'] : null;
+        $params['vc_icon_colors'] = isset($atts['vc_icon_colors']) ? $postdate = $atts['vc_icon_colors'] : null;
         $params['vc_border_colors'] = isset($atts['vc_border_colors']) ? $atts['vc_border_colors'] : null;
         $params['content'] = isset($content) ? $content : null;
 
@@ -153,20 +158,14 @@ class ThumbnailAndTextarea
     public function renderMarkup($params)
     {
 
-        $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"border-top:2px solid ".$params->vc_border_colors .";\" " : null;
+        if(!isset($params->vc_icon_colors))
+            $params->vc_icon_colors = "#7e7f80";
 
+        $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"border-top:2px solid ". $params->vc_border_colors .";\" " : null;
+        $vc_icon_colors = isset($params->vc_icon_colors)  ? " style=\"color:".$params->vc_icon_colors .";\" " : null;
         $output = "<div id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" ". $vc_border_colors ." class=\"card hoverable small\" >";
-        $output .= "<div class=\"card-image\">";
-        if( isset($params->vc_image) )
-            $output .= wp_get_attachment_image( $params->vc_image, $size = 'nsr-rect-front-size', $icon = false, $attr = '' );
-        $output .= "</div>";
         $output .= "<div class=\"card-content\">";
-
-        if(isset($params->vc_pagelink)) {
-            $href = vc_build_link($params->vc_pagelink);
-            $output .= "<h4><a  href=\"".$href['url']."\">".$href['title']."</a></h4>";
-        }
-
+        $output .= "<h4 class=\"faq\"><i ".$vc_icon_colors." class=\"listIcons material-icons ".$params->vc_icon."\"></i>".$params->vc_title."</h4>";
         $output .= $params->content;
         $output .= "</div></div> ";
 
