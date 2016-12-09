@@ -74,9 +74,15 @@ class MasterVCExtended
         else {
             $sql .= isset($params['post_type']) ? " AND $wpdb->posts.post_type = '" . $params['post_type'] . "' " : null;
         }
+
         $sql .= isset($params['order_by']) ? " ORDER BY '$wpdb->posts.post_" . $params['order_by'] . "' " : null;
-        $sql .= isset($params['order']) ? " LIMIT ".$params['order'] : null;
-        $sql .= isset($params['size']) ? " LIMIT " . $params['size'] . " " : null;
+        $sql .= isset($params['order']) ? " ".$params['order'] : null;
+
+        if ( isset($params['size']) ) {
+            $sql .= isset($params['size']) ? " LIMIT " : null;
+            $sql .= isset($params['vc_startfrom']) ? " " . $params['vc_startfrom'] . ", " : null;
+            $sql .= isset($params['size']) ? " " . $params['size'] . "" : null;
+        }
 
         return $this->renderMarkup($wpdb->get_results($sql), $param = (object) $params);
 
@@ -100,8 +106,11 @@ class MasterVCExtended
             if($pair[0] === 'order_by')
                 $params['order_by'] = $pair[1];
 
-            if($pair[0] === 'size')
+            if($pair[0] === 'order')
                 $params['order'] = $pair[1];
+
+            if($pair[0] === 'size')
+                $params['size'] = $pair[1];
 
             if($pair[0] === 'post_type')
                 $params['post_type'] = $pair[1];

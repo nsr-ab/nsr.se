@@ -84,6 +84,7 @@ class ListLinksWithThumbnail extends MasterVCExtended
 
             ),
 
+
             /** @Param Post loop parameter */
             array(
                 'admin_label' => false,
@@ -92,6 +93,19 @@ class ListLinksWithThumbnail extends MasterVCExtended
                 'param_name' => 'vc_loop',
                 'edit_field_class' => 'vc_col-sm-12 vc_col-md-12',
             ),
+
+
+            /** @Param Start from db query parameter */
+            array(
+
+                'type'      => 'textfield',
+                'heading' => __('Skip posts', 'nsr-vc-extended'),
+                'param_name' => 'vc_startfrom',
+                'edit_field_class' => 'vc_col-sm-7 vc_col-md-7',
+                'description' => __('Skip posts in query, Only use if you set Post count in build query', 'nsr-vc-extended'),
+                'admin_label' => true
+            ),
+
         );
     }
 
@@ -142,6 +156,7 @@ class ListLinksWithThumbnail extends MasterVCExtended
             $params['vc_image'] = isset($atts['vc_image']) ? $postdate = $atts['vc_image'] : null;
             $params['vc_pagelink'] = isset($atts['vc_pagelink']) ? $atts['vc_pagelink'] : null;
             $params['vc_border_colors'] = isset($atts['vc_border_colors']) ? $atts['vc_border_colors'] : null;
+            $params['vc_startfrom'] = isset($atts['vc_startfrom']) ? $postdate = $atts['vc_startfrom'] : null;
             return parent::fetchDataFromDB($params);
         }
     }

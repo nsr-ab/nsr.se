@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2016-12-05 11:50+0100\n"
-"PO-Revision-Date: 2016-12-05 11:52+0100\n"
+"POT-Creation-Date: 2016-12-09 13:08+0100\n"
+"PO-Revision-Date: 2016-12-09 13:10+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/App.php:75
+#: source/php/App.php:78
 msgid ""
 "<strong>NSR Visual Composer Extended</strong> requires <strong><a href="
 "\"http://bit.ly/vcomposer\" target=\"_blank\">Visual Composer</a></strong> "
@@ -30,49 +30,60 @@ msgstr ""
 "installerad och aktiverad för att fungera.<strong><a href=\"http://bit.ly/"
 "vcomposer\" target=\"_blank\">Visual Composer</a></strong>."
 
-#: source/php/Library/ListLinksWithThumbnail.php:43
+#: source/php/Library/ListLinksWithThumbnail.php:42
 #: source/php/Library/ListNewsAndPosts.php:41
 #: source/php/Library/MenuCollapsible.php:41
 msgid "Designation"
 msgstr "Benämning"
 
-#: source/php/Library/ListLinksWithThumbnail.php:46
+#: source/php/Library/ListLinksWithThumbnail.php:45
 #: source/php/Library/ListNewsAndPosts.php:44
 #: source/php/Library/MenuCollapsible.php:43
 msgid "Visible in admin (only!)"
 msgstr "Är bara synlig i back-end"
 
-#: source/php/Library/ListLinksWithThumbnail.php:55
+#: source/php/Library/ListLinksWithThumbnail.php:54
 msgid "Image"
 msgstr "Bild"
 
-#: source/php/Library/ListLinksWithThumbnail.php:58
+#: source/php/Library/ListLinksWithThumbnail.php:57
 msgid "Image size 991px x 264px."
 msgstr "Ladda upp bilder som har 991 pixlar i bredd, 264 pixlar i höjd."
 
-#: source/php/Library/ListLinksWithThumbnail.php:70
+#: source/php/Library/ListLinksWithThumbnail.php:69
 msgid "Top border color"
 msgstr "Övre kantfärg"
 
-#: source/php/Library/ListLinksWithThumbnail.php:83
+#: source/php/Library/ListLinksWithThumbnail.php:82
 msgid "Heading with link"
 msgstr "Rubrik och länk"
 
 #: source/php/Library/ListLinksWithThumbnail.php:92
-#: source/php/Library/ListNewsAndPosts.php:94
+#: source/php/Library/ListNewsAndPosts.php:95
 msgid "Select your post & categories"
 msgstr "Välj post och kategori"
 
-#: source/php/Library/ListLinksWithThumbnail.php:109
+#: source/php/Library/ListLinksWithThumbnail.php:102
+#: source/php/Library/ListNewsAndPosts.php:105
+msgid "Skip posts"
+msgstr "Hur många poster vill du hoppa över?"
+
+#: source/php/Library/ListLinksWithThumbnail.php:105
+#: source/php/Library/ListNewsAndPosts.php:108
+msgid "Skip posts in query, Only use if you set Post count in build query"
+msgstr ""
+"Använd bara om du valt att visa antal poster (post count) i Build query"
+
+#: source/php/Library/ListLinksWithThumbnail.php:122
 msgid "List links with thumbnail"
 msgstr "Puff med länkar"
 
-#: source/php/Library/ListLinksWithThumbnail.php:110
+#: source/php/Library/ListLinksWithThumbnail.php:123
 msgid "List links, post, pages and add Thumbnail"
 msgstr "Bild och länkar"
 
-#: source/php/Library/ListLinksWithThumbnail.php:119
-#: source/php/Library/ListNewsAndPosts.php:123
+#: source/php/Library/ListLinksWithThumbnail.php:132
+#: source/php/Library/ListNewsAndPosts.php:136
 #: source/php/Library/MenuCollapsible.php:215
 msgid "NSR"
 msgstr "NSR"
@@ -103,11 +114,11 @@ msgstr "Välj ikon från bibliotek"
 msgid "Icon color"
 msgstr "Färg på ikon"
 
-#: source/php/Library/ListNewsAndPosts.php:113
+#: source/php/Library/ListNewsAndPosts.php:126
 msgid "List news & posts"
 msgstr "Senaste nyheter"
 
-#: source/php/Library/ListNewsAndPosts.php:114
+#: source/php/Library/ListNewsAndPosts.php:127
 msgid "List news and posts"
 msgstr "Lista nyheter och sidor"
 

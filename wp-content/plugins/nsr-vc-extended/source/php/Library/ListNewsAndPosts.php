@@ -87,6 +87,7 @@ class ListNewsAndPosts extends MasterVCExtended
                 'dependency' => array('element' => 'color'),
             ),
 
+
             /** @Param Post loop parameter */
             array(
 
@@ -94,6 +95,18 @@ class ListNewsAndPosts extends MasterVCExtended
                 'heading' => __('Select your post & categories', 'nsr-vc-extended'),
                 'param_name' => 'vc_loop',
                 'edit_field_class' => 'vc_col-sm-12 vc_col-md-12',
+            ),
+
+
+            /** @Param Start from db query parameter */
+            array(
+
+                'type'      => 'textfield',
+                'heading' => __('Skip posts', 'nsr-vc-extended'),
+                'param_name' => 'vc_startfrom',
+                'edit_field_class' => 'vc_col-sm-7 vc_col-md-7',
+                'description' => __('Skip posts in query, Only use if you set Post count in build query', 'nsr-vc-extended'),
+                'admin_label' => true
             ),
 
 
@@ -145,6 +158,7 @@ class ListNewsAndPosts extends MasterVCExtended
 
             $params = parent::pairParams($query);
             $params['date'] = isset($atts['vc_postdate']) ? $postdate = $atts['vc_postdate'] : null;
+            $params['vc_startfrom'] = isset($atts['vc_startfrom']) ? $postdate = $atts['vc_startfrom'] : null;
             $params['vc_extend_material'] = isset($atts['vc_extend_material_list']) ? $atts['vc_extend_material_list'] : null;
             $params['vc_extend_colors'] = isset($atts['vc_extend_colors']) ? $atts['vc_extend_colors'] : null;
 
