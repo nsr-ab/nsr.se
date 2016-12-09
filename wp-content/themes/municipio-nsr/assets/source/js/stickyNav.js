@@ -11,7 +11,7 @@ Nsr.Sticky.StickyNav = (function ($) {
     function StickyNav() {
         this.init();
 
-    }
+    };
 
 
 
@@ -24,8 +24,36 @@ Nsr.Sticky.StickyNav = (function ($) {
         this.sticky();
         this.winScroll();
         this.winResize();
-
+        this.setItemAsActive();
     };
+
+    /**
+     *  setItemAsActive
+     *  Active menu section
+     */
+    StickyNav.prototype.setItemAsActive = function () {
+
+        var path = window.location.pathname;
+        var menu = false;
+
+        path = path.replace(/\/$/, "");
+        path = decodeURIComponent(path).split('/')[1] + "/";
+
+        $('.nav-wrapper .nav li').removeClass('active');
+        $('.nav-wrapper .nav a').each(function () {
+
+            var menuSection = location.protocol +'//'+ location.hostname +'/'+ path;
+            var href = $(this).attr('href');
+            if (menuSection === href) {
+                $(this).closest('li').addClass('active');
+                menu = true;
+            }
+        });
+
+        if(!menu)
+            $('.nav-wrapper .nav li:first-child').addClass('active');
+    }
+
 
 
 
