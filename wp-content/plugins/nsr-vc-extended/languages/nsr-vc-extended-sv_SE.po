@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2016-12-09 13:08+0100\n"
-"PO-Revision-Date: 2016-12-09 13:10+0100\n"
+"POT-Creation-Date: 2016-12-09 14:37+0100\n"
+"PO-Revision-Date: 2016-12-09 14:43+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/App.php:78
+#: source/php/App.php:86
 msgid ""
 "<strong>NSR Visual Composer Extended</strong> requires <strong><a href="
 "\"http://bit.ly/vcomposer\" target=\"_blank\">Visual Composer</a></strong> "
@@ -33,28 +33,34 @@ msgstr ""
 #: source/php/Library/ListLinksWithThumbnail.php:42
 #: source/php/Library/ListNewsAndPosts.php:41
 #: source/php/Library/MenuCollapsible.php:41
+#: source/php/Library/ThumbnailAndTextarea.php:42
 msgid "Designation"
 msgstr "Benämning"
 
 #: source/php/Library/ListLinksWithThumbnail.php:45
 #: source/php/Library/ListNewsAndPosts.php:44
 #: source/php/Library/MenuCollapsible.php:43
+#: source/php/Library/ThumbnailAndTextarea.php:45
 msgid "Visible in admin (only!)"
 msgstr "Är bara synlig i back-end"
 
 #: source/php/Library/ListLinksWithThumbnail.php:54
+#: source/php/Library/ThumbnailAndTextarea.php:54
 msgid "Image"
 msgstr "Bild"
 
 #: source/php/Library/ListLinksWithThumbnail.php:57
+#: source/php/Library/ThumbnailAndTextarea.php:57
 msgid "Image size 991px x 264px."
 msgstr "Ladda upp bilder som har 991 pixlar i bredd, 264 pixlar i höjd."
 
 #: source/php/Library/ListLinksWithThumbnail.php:69
+#: source/php/Library/ThumbnailAndTextarea.php:69
 msgid "Top border color"
 msgstr "Övre kantfärg"
 
 #: source/php/Library/ListLinksWithThumbnail.php:82
+#: source/php/Library/ThumbnailAndTextarea.php:82
 msgid "Heading with link"
 msgstr "Rubrik och länk"
 
@@ -85,6 +91,7 @@ msgstr "Bild och länkar"
 #: source/php/Library/ListLinksWithThumbnail.php:132
 #: source/php/Library/ListNewsAndPosts.php:136
 #: source/php/Library/MenuCollapsible.php:215
+#: source/php/Library/ThumbnailAndTextarea.php:120
 msgid "NSR"
 msgstr "NSR"
 
@@ -260,6 +267,18 @@ msgstr "Meny / Dragspel "
 #: source/php/Library/MenuCollapsible.php:205
 msgid "Menu Accordion"
 msgstr "Meny / Lista / Dragspel"
+
+#: source/php/Library/ThumbnailAndTextarea.php:90
+msgid "Content"
+msgstr "Kort beskrivning"
+
+#: source/php/Library/ThumbnailAndTextarea.php:110
+msgid "Thumbnail, link and description"
+msgstr "Puff med bild, text"
+
+#: source/php/Library/ThumbnailAndTextarea.php:111
+msgid "Brick with image, heading and description"
+msgstr "Puff med bild, länk och text"
 
 #. Plugin Name of the plugin/theme
 msgid "NSR Visual Composer Extended"

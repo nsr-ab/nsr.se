@@ -55,6 +55,14 @@ class App
             new \VcExtended\Library\ListLinksWithThumbnail();
         }
 
+        /**
+         * Ad-dons Thumbnail, link heading and description
+         */
+        if ( !class_exists( 'ThumbnailAndTextarea' ) ) {
+            new \VcExtended\Library\ThumbnailAndTextarea();
+        }
+
+
 
         /**
          * Scripts & CSS
