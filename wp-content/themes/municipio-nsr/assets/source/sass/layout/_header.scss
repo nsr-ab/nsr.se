@@ -1,4 +1,4 @@
-header {
+.site-header {
     background-color:$palette-primary-grey;
     border-bottom: 1px solid alpha-color($palette-primary-grey, 10%, $type: 'dark');
 
@@ -7,3 +7,4 @@ header {
 .site-header>.container {
     padding: 0px 0;
 }
+

@@ -6991,19 +6991,19 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       font-weight: 400 !important; }
     .is-child-theme .theme-green .breadcrumbs li:nth-last-child(2) a:before {
       color: #dddddd; }
-  .is-child-theme header {
+  .is-child-theme .site-header {
     background-color: #f6f6f6;
     border-bottom: 1px solid #dddddd; }
   .is-child-theme .site-header > .container {
     padding: 0px 0; }
   .is-child-theme .main-footer {
     background-color: #f6f6f6 !important; }
-  .is-child-theme .home .main-footer, .is-child-theme footer {
-    background-color: #fff !important; }
   .is-child-theme .main-footer {
     border-top: 4px solid #b3d6da;
     margin-top: 0;
     color: #b3d6da; }
+  .is-child-theme .home .main-footer, .is-child-theme .home footer {
+    background-color: #fff !important; }
   .is-child-theme .main-footer nav {
     background: none !important; }
   .is-child-theme .main-footer, .is-child-theme .main-footer *, .is-child-theme .page-footer {
@@ -7173,3 +7173,12 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .card.medium .card-image + .card-content,
   .is-child-theme .card.small .card-image + .card-content {
     max-height: 100%; }
+
+.is-child-theme.home header {
+  background-color: #fff; }
+
+.is-child-theme.home main {
+  background-color: #f6f6f6 !important; }
+
+.is-child-theme.home footer {
+  background-color: #fff !important; }
