@@ -127,6 +127,16 @@
         color:$palette-primary-black !important;
     }
 
+    .theme-green .mce-content-body ul li:before,
+    .theme-green .modularity-mod-text .box-content ul li:before,
+    .theme-green .unordered-list li:before,
+    .theme-green article ul:not(.nav):not(.slider-items):not(.line-numbers) li:before
+    {
+        background:none !important;
+    }
+
+
+
     // ***********************************************************************************
     // *** Wake up gfx card to rerender fonts
     // *** OBS! It breaks position: fixed so use it on children only under fixed element
