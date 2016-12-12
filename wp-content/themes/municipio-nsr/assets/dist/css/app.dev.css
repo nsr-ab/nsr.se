@@ -7134,12 +7134,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       max-width: 100% !important; }
     .is-child-theme #main-content .card-content .faq {
       color: #000 !important; }
-    .is-child-theme #main-content .theme-green .mce-content-body ul li:before,
-    .is-child-theme #main-content .theme-green .modularity-mod-text .box-content ul li:before,
-    .is-child-theme #main-content .theme-green .unordered-list li:before,
-    .is-child-theme #main-content .theme-green article ul:not(.nav):not(.slider-items):not(.line-numbers) li:before {
-      background-color: #fff !important;
-      display: none; }
+    .is-child-theme #main-content .mce-content-body ul li:before,
+    .is-child-theme #main-content .modularity-mod-text .box-content ul li:before,
+    .is-child-theme #main-content .unordered-list li:before,
+    .is-child-theme #main-content article ul:not(.nav):not(.slider-items):not(.line-numbers) li:before {
+      background-color: #fff !important; }
   .is-child-theme aside h2 {
     font-size: 2.2rem;
     font-weight: 600; }
