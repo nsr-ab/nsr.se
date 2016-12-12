@@ -6906,7 +6906,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-family: "Lato";
     font-weight: 400;
     font-style: normal; }
-  .is-child-theme i {
+  .is-child-theme .material-icons {
     font-family: "Material Icons";
     font-weight: 400;
     font-style: normal; }

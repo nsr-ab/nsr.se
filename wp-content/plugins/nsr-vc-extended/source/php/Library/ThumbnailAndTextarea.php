@@ -130,7 +130,7 @@ class ThumbnailAndTextarea
      * @param string $content
      * @return string
      */
-    public function renderExtend(array $atts, $content = null)
+    public function renderExtend($atts, $content = null)
     {
 
         $params['vc_image'] = isset($atts['vc_image']) ? $postdate = $atts['vc_image'] : null;

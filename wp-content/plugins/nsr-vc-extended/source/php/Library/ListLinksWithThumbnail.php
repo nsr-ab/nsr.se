@@ -144,7 +144,7 @@ class ListLinksWithThumbnail extends MasterVCExtended
      * @param array
      * @return string
      */
-    public function renderExtend(array $atts)
+    public function renderExtend($atts)
     {
 
         if ( isset( $atts['vc_loop'] ) && ! empty( $atts['vc_loop'] ) )

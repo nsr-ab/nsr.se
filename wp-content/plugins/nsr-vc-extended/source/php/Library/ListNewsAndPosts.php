@@ -176,13 +176,13 @@ class ListNewsAndPosts extends MasterVCExtended
      */
     public function renderMarkup($get_results, $params){
 
-        $vc_icon_colors = isset($params->vc_extend_colors)  ? " style=\"color:".isset($params->vc_extend_colors) .";\" " : null;
+        $vc_icon_colors = isset($params->vc_extend_colors)  ? " style=\"color:".$params->vc_extend_colors .";\" " : null;
         $output = "<ul id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" class=\"collection\">";
 
         foreach( $get_results as $result ) {
 
             $output .= "<a class=\"collection-item\" href=\"".get_permalink($result->ID)."\">";
-            $output .= isset($params->vc_extend_material) ? "<i ".$vc_icon_colors." class=\"listIcons material-icons ".isset($params->vc_extend_material)."\"></i>" : null;
+            $output .= isset($params->vc_extend_material) ? "<i ".$vc_icon_colors." class=\"listIcons material-icons ".$params->vc_extend_material."\"></i>" : null;
             $output .= "<span class=\"collection-title\">".$result->post_title."</span>";
             $output .= (isset($params->date) == 1) ? "<span class=\"right date\">".date('Y-m-d', strtotime($result->post_date))."</span>" : null;
             $output .= "</a>";
