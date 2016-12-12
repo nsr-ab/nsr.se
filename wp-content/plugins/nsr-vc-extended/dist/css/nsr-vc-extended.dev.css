@@ -116,3 +116,15 @@ a.collection-item {
 @media only screen and (max-width: 1150px) {
   .home .vc_col-sm-4 .collection-title {
     max-width: 67%; } }
+
+.collapsible-body p,
+.collapsible-body i,
+.collapsible-body b,
+.collapsible-body h1,
+.collapsible-body h2,
+.collapsible-body h3,
+.collapsible-body h4,
+.collapsible-body h5,
+.collapsible-body h6 {
+  padding: 0 2rem 15px 2rem !important;
+  margin: 0px; }
