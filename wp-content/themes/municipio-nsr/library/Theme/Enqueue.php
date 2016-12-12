@@ -30,9 +30,9 @@ class Enqueue
      */
     public function script()
     {
-        /* (OBS! JQuery enqueue...  - Temporär fix)  - Måste fixas senare ..... */
-        wp_register_script('jquery', 'https://code.jquery.com/jquery-2.2.4.min.js',  true);
-        wp_enqueue_script('jquery');
+
+        //wp_register_script('jquery', 'https://code.jquery.com/jquery-2.2.4.min.js',  true);
+        //wp_enqueue_script('jquery');
 
         apply_filters('Municipio/load-wp-jquery', true, 10, 2);
 
