@@ -132,7 +132,8 @@
     .theme-green .unordered-list li:before,
     .theme-green article ul:not(.nav):not(.slider-items):not(.line-numbers) li:before
     {
-        background:none !important;
+        background-color: #fff !important;
+        display:none;
     }
 
 
