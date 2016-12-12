@@ -20,16 +20,16 @@ class OnTheFlyImages
      */
     public function runResizeImage($downsize, $id, $size)
     {
-        if (is_array($size) && count($size) == 2) {
+        if (is_array($size) && count($size) == 2 && !empty($id)) {
             return array(
                 $this->resizeImage($id, $size[0], $size[1], true),
                 $size[0],
                 $size[1],
                 true
             );
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /* Resize image on the fly
@@ -51,7 +51,7 @@ class OnTheFlyImages
         // Get file path info
         $path      = get_attached_file($attachment_id);
         $path_info = pathinfo($path);
-        $ext       = $path_info['extension'];
+        $ext       = isset($path_info['extension']) && !empty($path_info['extension']) ? $path_info['extension'] : '';
         $rel_path  = str_replace(array( $upload_dir, ".$ext" ), '', $path);
         $suffix    = "{$width}x{$height}";
         $dest_path = "{$upload_dir}{$rel_path}-{$suffix}.{$ext}";

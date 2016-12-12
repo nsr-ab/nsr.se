@@ -9,9 +9,16 @@ class General
         add_filter('body_class', array($this, 'colorScheme'));
         add_filter('body_class', array($this, 'isChildTheme'));
 
-        add_filter('the_lead', array($this, 'theLead'));
+        add_filter('private_title_format', array($this, 'titleFormat'));
+        add_filter('protected_title_format', array($this, 'titleFormat'));
 
+        add_filter('the_lead', array($this, 'theLead'));
         add_filter('the_content', array($this, 'removeEmptyPTag'));
+    }
+
+    public function titleFormat($format)
+    {
+        return '%s';
     }
 
     /**
