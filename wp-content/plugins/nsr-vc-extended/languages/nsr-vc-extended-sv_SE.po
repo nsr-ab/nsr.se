@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2016-12-09 15:24+0100\n"
-"PO-Revision-Date: 2016-12-09 15:25+0100\n"
+"POT-Creation-Date: 2016-12-16 11:34+0100\n"
+"PO-Revision-Date: 2016-12-16 11:35+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/App.php:94
+#: source/php/App.php:126
 msgid ""
 "<strong>NSR Visual Composer Extended</strong> requires <strong><a href="
 "\"http://bit.ly/vcomposer\" target=\"_blank\">Visual Composer</a></strong> "
@@ -30,126 +30,150 @@ msgstr ""
 "installerad och aktiverad för att fungera.<strong><a href=\"http://bit.ly/"
 "vcomposer\" target=\"_blank\">Visual Composer</a></strong>."
 
-#: source/php/Library/ListLinksWithThumbnail.php:42
-#: source/php/Library/ListNewsAndPosts.php:41
-#: source/php/Library/MenuCollapsible.php:41
-#: source/php/Library/ThumbnailAndTextarea.php:41
+#: source/php/App.php:190
+msgid "Persons"
+msgstr "Personer"
+
+#: source/php/App.php:191 source/php/Library/Addons/Puff.php:92
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:89
+msgid "Content"
+msgstr "Kort beskrivning"
+
+#: source/php/App.php:192
+msgid "View all results"
+msgstr "Visa fler resultat"
+
+#: source/php/App.php:243
+msgid "News"
+msgstr "Nyheter"
+
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:42
+#: source/php/Library/Addons/ListNewsAndPosts.php:41
+#: source/php/Library/Addons/MenuCollapsible.php:41
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:41
 msgid "Designation"
 msgstr "Benämning"
 
-#: source/php/Library/ListLinksWithThumbnail.php:45
-#: source/php/Library/ListNewsAndPosts.php:44
-#: source/php/Library/MenuCollapsible.php:43
-#: source/php/Library/ThumbnailAndTextarea.php:44
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:45
+#: source/php/Library/Addons/ListNewsAndPosts.php:44
+#: source/php/Library/Addons/MenuCollapsible.php:43
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:44
 msgid "Visible in admin (only!)"
 msgstr "Är bara synlig i back-end"
 
-#: source/php/Library/ListLinksWithThumbnail.php:54
-#: source/php/Library/ThumbnailAndTextarea.php:53
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:54
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:53
 msgid "Image"
 msgstr "Bild"
 
-#: source/php/Library/ListLinksWithThumbnail.php:57
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:57
 msgid "Image size 991px x 264px."
 msgstr "Ladda upp bilder som har 991 pixlar i bredd, 264 pixlar i höjd."
 
-#: source/php/Library/ListLinksWithThumbnail.php:69
-#: source/php/Library/Puff.php:44
-#: source/php/Library/ThumbnailAndTextarea.php:68
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:69
+#: source/php/Library/Addons/Puff.php:44
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:68
 msgid "Top border color"
 msgstr "Övre kantfärg"
 
-#: source/php/Library/ListLinksWithThumbnail.php:82
-#: source/php/Library/ThumbnailAndTextarea.php:81
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:82
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:81
 msgid "Heading with link"
 msgstr "Rubrik och länk"
 
-#: source/php/Library/ListLinksWithThumbnail.php:92
-#: source/php/Library/ListNewsAndPosts.php:95
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:92
+#: source/php/Library/Addons/ListNewsAndPosts.php:95
 msgid "Select your post & categories"
 msgstr "Välj post och kategori"
 
-#: source/php/Library/ListLinksWithThumbnail.php:102
-#: source/php/Library/ListNewsAndPosts.php:105
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:102
+#: source/php/Library/Addons/ListNewsAndPosts.php:105
 msgid "Skip posts"
 msgstr "Hur många poster vill du hoppa över?"
 
-#: source/php/Library/ListLinksWithThumbnail.php:105
-#: source/php/Library/ListNewsAndPosts.php:108
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:105
+#: source/php/Library/Addons/ListNewsAndPosts.php:108
 msgid "Skip posts in query, Only use if you set Post count in build query"
 msgstr ""
 "Använd bara om du valt att visa antal poster (post count) i Build query"
 
-#: source/php/Library/ListLinksWithThumbnail.php:122
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:122
 msgid "List links with thumbnail"
 msgstr "Puff med länkar"
 
-#: source/php/Library/ListLinksWithThumbnail.php:123
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:123
 msgid "List links, post, pages and add Thumbnail"
 msgstr "Bild och länkar"
 
-#: source/php/Library/ListLinksWithThumbnail.php:132
-#: source/php/Library/ListNewsAndPosts.php:136
-#: source/php/Library/MenuCollapsible.php:215 source/php/Library/Puff.php:121
-#: source/php/Library/ThumbnailAndTextarea.php:117
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:132
+#: source/php/Library/Addons/ListNewsAndPosts.php:136
+#: source/php/Library/Addons/MenuCollapsible.php:215
+#: source/php/Library/Addons/NSRSearch.php:71
+#: source/php/Library/Addons/Puff.php:121
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:117
 msgid "NSR"
 msgstr "NSR"
 
-#: source/php/Library/ListNewsAndPosts.php:52
+#: source/php/Library/Addons/ListNewsAndPosts.php:52
 msgid "Post date"
 msgstr "Publiseringsdatum"
 
-#: source/php/Library/ListNewsAndPosts.php:56
+#: source/php/Library/Addons/ListNewsAndPosts.php:56
 msgid "Include"
 msgstr "Inkludera"
 
-#: source/php/Library/ListNewsAndPosts.php:57
+#: source/php/Library/Addons/ListNewsAndPosts.php:57
 msgid "Exclude"
 msgstr "Exkludera"
 
-#: source/php/Library/ListNewsAndPosts.php:68
-#: source/php/Library/MenuCollapsible.php:161 source/php/Library/Puff.php:67
+#: source/php/Library/Addons/ListNewsAndPosts.php:68
+#: source/php/Library/Addons/MenuCollapsible.php:161
+#: source/php/Library/Addons/Puff.php:67
 msgid "Icon"
 msgstr "Ikon"
 
-#: source/php/Library/ListNewsAndPosts.php:74
-#: source/php/Library/MenuCollapsible.php:176 source/php/Library/Puff.php:73
+#: source/php/Library/Addons/ListNewsAndPosts.php:74
+#: source/php/Library/Addons/MenuCollapsible.php:176
+#: source/php/Library/Addons/Puff.php:73
 msgid "Select icon from library."
 msgstr "Välj ikon från bibliotek"
 
-#: source/php/Library/ListNewsAndPosts.php:85 source/php/Library/Puff.php:83
+#: source/php/Library/Addons/ListNewsAndPosts.php:85
+#: source/php/Library/Addons/Puff.php:83
 msgid "Icon color"
 msgstr "Färg på ikon"
 
-#: source/php/Library/ListNewsAndPosts.php:126
+#: source/php/Library/Addons/ListNewsAndPosts.php:126
 msgid "List news & posts"
 msgstr "Senaste nyheter"
 
-#: source/php/Library/ListNewsAndPosts.php:127
+#: source/php/Library/Addons/ListNewsAndPosts.php:127
 msgid "List news and posts"
 msgstr "Lista nyheter och sidor"
 
-#: source/php/Library/MenuCollapsible.php:61 source/php/Library/Puff.php:54
+#: source/php/Library/Addons/MenuCollapsible.php:61
+#: source/php/Library/Addons/NSRSearch.php:42
+#: source/php/Library/Addons/Puff.php:54
 msgid "Title"
 msgstr "Titel"
 
-#: source/php/Library/MenuCollapsible.php:63
+#: source/php/Library/Addons/MenuCollapsible.php:63
 msgid "Title, prefered maxchars 160"
 msgstr "Titel, antal tecken 160"
 
-#: source/php/Library/MenuCollapsible.php:74
+#: source/php/Library/Addons/MenuCollapsible.php:74
 msgid "Left border color (Menu only)"
 msgstr "Vänster Kantlinjefärg"
 
-#: source/php/Library/MenuCollapsible.php:76
+#: source/php/Library/Addons/MenuCollapsible.php:76
 msgid "Menu left border color"
 msgstr "Vänster Kantlinjefärg  (Endast meny)"
 
-#: source/php/Library/MenuCollapsible.php:87
+#: source/php/Library/Addons/MenuCollapsible.php:87
 msgid "Link title to page"
 msgstr "Länka titel till sida"
 
-#: source/php/Library/MenuCollapsible.php:89
+#: source/php/Library/Addons/MenuCollapsible.php:89
 msgid ""
 "If selected the title is going to be linked, if link title is selected, the "
 "main link title will be active."
@@ -157,27 +181,27 @@ msgstr ""
 "Väljer du att länka en sida så kommer inte den vanliga titeln att synas. "
 "<br />OBS! Glöm inte namnge länken."
 
-#: source/php/Library/MenuCollapsible.php:99
+#: source/php/Library/Addons/MenuCollapsible.php:99
 msgid "Margin bottom (Menus only)"
 msgstr "Nedre marginaler"
 
-#: source/php/Library/MenuCollapsible.php:101
+#: source/php/Library/Addons/MenuCollapsible.php:101
 msgid "No margins"
 msgstr "Ingen marginal"
 
-#: source/php/Library/MenuCollapsible.php:101
+#: source/php/Library/Addons/MenuCollapsible.php:101
 msgid "Margins"
 msgstr "Marginal"
 
-#: source/php/Library/MenuCollapsible.php:102
+#: source/php/Library/Addons/MenuCollapsible.php:102
 msgid "Margin bottom"
 msgstr "Nedre marginal (Endast meny)"
 
-#: source/php/Library/MenuCollapsible.php:112
+#: source/php/Library/Addons/MenuCollapsible.php:112
 msgid "Your text"
 msgstr "Skriv din text"
 
-#: source/php/Library/MenuCollapsible.php:114
+#: source/php/Library/Addons/MenuCollapsible.php:114
 msgid ""
 "<table>\n"
 "                                                <tr col>\n"
@@ -252,46 +276,64 @@ msgstr ""
 "                                            </table>\n"
 "                        "
 
-#: source/php/Library/MenuCollapsible.php:148
+#: source/php/Library/Addons/MenuCollapsible.php:148
 msgid "Background color"
 msgstr "Bakgrundsfärg"
 
-#: source/php/Library/MenuCollapsible.php:150
+#: source/php/Library/Addons/MenuCollapsible.php:150
 msgid "Select row background color."
 msgstr "Välj bakgrundsfärg på rad"
 
-#: source/php/Library/MenuCollapsible.php:204
+#: source/php/Library/Addons/MenuCollapsible.php:204
 msgid "Menu accordion"
 msgstr "Meny / Dragspel "
 
-#: source/php/Library/MenuCollapsible.php:205
+#: source/php/Library/Addons/MenuCollapsible.php:205
 msgid "Menu Accordion"
 msgstr "Meny / Lista / Dragspel"
 
-#: source/php/Library/Puff.php:92
-#: source/php/Library/ThumbnailAndTextarea.php:89
-msgid "Content"
-msgstr "Kort beskrivning"
+#: source/php/Library/Addons/NSRSearch.php:61
+msgid "Search"
+msgstr "Sök"
 
-#: source/php/Library/Puff.php:111
+#: source/php/Library/Addons/NSRSearch.php:62
+msgid "NSR Search"
+msgstr "Sök på NSR"
+
+#: source/php/Library/Addons/NSRSearch.php:112
+msgid "Tömningskalender eller sorteringsguiden"
+msgstr "Tömningskalender eller sorteringsguiden"
+
+#: source/php/Library/Addons/NSRSearch.php:116
+msgid ""
+"Where do you live? What stuff do you want to sort? Are you looking for "
+"something else?"
+msgstr ""
+"Vilken adress bor du på? Vad vill du sortera? Letar du efter något annat?"
+
+#: source/php/Library/Addons/Puff.php:111
 msgid "Brick with content"
 msgstr "Puff med text"
 
-#: source/php/Library/Puff.php:112
+#: source/php/Library/Addons/Puff.php:112
 msgid "Title, icon, textarea"
 msgstr "Rubrik, icon, text"
 
-#: source/php/Library/ThumbnailAndTextarea.php:56
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:56
 msgid "Image size 620px x 300px."
 msgstr "Bildstorlek 620px x 300px"
 
-#: source/php/Library/ThumbnailAndTextarea.php:107
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:107
 msgid "Thumbnail, link, heading and text"
 msgstr "Puff med länk"
 
-#: source/php/Library/ThumbnailAndTextarea.php:108
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:108
 msgid "Image, link, heading and description"
 msgstr "Bild, länk, rubrik, text"
+
+#: source/php/Library/Search/ElasticSearch.php:42
+msgid "Exclude from search"
+msgstr "Exkludera från sök"
 
 #. Plugin Name of the plugin/theme
 msgid "NSR Visual Composer Extended"
@@ -312,6 +354,9 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "hiq.se"
 msgstr ""
+
+#~ msgid "Vad letar du efter?"
+#~ msgstr "Vad söker du efter?"
 
 #~ msgid "Thumbnail, link and description"
 #~ msgstr "Puff med bild, text"

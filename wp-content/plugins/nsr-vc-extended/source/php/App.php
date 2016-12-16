@@ -14,9 +14,9 @@ namespace VcExtended;
 
 class App
 {
+
     public function __construct()
     {
-
 
         /**
          * Check if Visual composer is activated
@@ -30,7 +30,7 @@ class App
          * Master methods
          */
         if ( !class_exists( 'MasterVCExtended' ) ) {
-            new \VcExtended\Library\MasterVCExtended();
+            new \VcExtended\Library\Addons\MasterVCExtended();
         }
 
 
@@ -38,49 +38,83 @@ class App
          * Ad-dons Collapsible menus
          */
         if ( !class_exists( 'MenuCollapsible' ) ) {
-            new \VcExtended\Library\MenuCollapsible();
+            new \VcExtended\Library\Addons\MenuCollapsible();
         }
 
         /**
          * Ad-dons List News & Posts
          */
         if ( !class_exists( 'ListNewsAndPosts' ) ) {
-            new \VcExtended\Library\ListNewsAndPosts();
+            new \VcExtended\Library\Addons\ListNewsAndPosts();
         }
 
         /**
          * Ad-dons List links with a thumbnail
          */
         if ( !class_exists( 'ListLinksWithThumbnail' ) ) {
-            new \VcExtended\Library\ListLinksWithThumbnail();
+            new \VcExtended\Library\Addons\ListLinksWithThumbnail();
         }
 
         /**
          * Ad-dons Thumbnail, link heading and description
          */
         if ( !class_exists( 'ThumbnailAndTextarea' ) ) {
-            new \VcExtended\Library\ThumbnailAndTextarea();
+            new \VcExtended\Library\Addons\ThumbnailAndTextarea();
         }
 
         /**
          * Ad-dons Thumbnail, link heading and description
          */
         if ( !class_exists( 'Puff' ) ) {
-            new \VcExtended\Library\Puff();
+            new \VcExtended\Library\Addons\Puff();
+        }
+
+        /**
+         * Ad-dons Elastic Site Search
+         */
+        if ( !class_exists( 'NSRSearch' ) ) {
+            new \VcExtended\Library\Addons\NSRSearch();
+        }
+
+        /**
+         *  Helper - PostType
+         */
+        if ( !class_exists( 'PostType' ) ) {
+            new \VcExtended\Library\Helper\PostType();
+        }
+
+
+        /**
+         * Elastic search Query
+         */
+        if ( !class_exists( 'QueryElastic' ) ) {
+            new \VcExtended\Library\Search\QueryElastic();
+        }
+
+        /**
+         * Enqueue Scripts
+         */
+        if ( !class_exists( 'Elasticsearch' ) ) {
+            new \VcExtended\Library\Search\Elasticsearch();
+        }
+
+
+        /**
+         * Enqueue Scripts
+         */
+        if ( !class_exists( 'Enqueue' ) ) {
+            new \VcExtended\Library\Enqueue();
         }
 
 
 
 
-        /**
-         * Scripts & CSS
-         */
-        add_action('wp_enqueue_scripts', array($this, 'enqueueStyles'));
-        add_action('admin_enqueue_scripts', array($this, 'enqueueStylesAdmin'));
-        add_action( 'after_setup_theme', array( $this, 'after_nsr_theme_setup' ) );
-
+        add_action( 'wp_ajax_nopriv_fetch_data', array( $this, 'fetch_data' ) );
+        add_action( 'wp_ajax_fetch_data', array( $this, 'fetch_data' ) );
 
     }
+
+
 
     /**
      * Show Notice if Visual Composer is activated or not.
@@ -96,72 +130,16 @@ class App
     }
 
 
-    /**
-     * Enqueue required style Admin
-     * @return void
-     */
-    public function enqueueStylesAdmin()
-    {
-        wp_register_style( 'vc_extend_style-admin', plugins_url( 'nsr-vc-extended/dist/css/nsr-vc-extended-admin.min.css' ) );
-        wp_enqueue_style( 'vc_extend_style-admin' );
-    }
-
 
     /**
-     * Enqueue required style
-     * @return void
+     *  fetch_data
+     *  Get data from Elastic Search
      */
-    public function enqueueStyles()
-    {
-        wp_register_style( 'vc_extend_style', plugins_url( 'nsr-vc-extended/dist/css/nsr-vc-extended.min.css' ) );
-        wp_enqueue_style( 'vc_extend_style' );
-        wp_register_style( 'vc_material-css', plugins_url( 'nsr-vc-extended/dist/css/vc-material/vc_material.css' ) );
-        wp_enqueue_style( 'vc_material-css' );
+    public function fetch_data() {
+        $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array( 'query' => $_GET['query'],'limit'=>$_GET['limit'] ));
+        wp_send_json($result);
+        exit;
     }
-
-
-    /**
-     * Enqueue required scripts Admin
-     * @return void
-     */
-    public function enqueueScriptsAdmin()
-    {
-
-        if (is_admin()) {
-            wp_register_script('nsr-extended-admin', plugins_url('nsr-vc-extended/dist/js/nsr-vc-extended.min.js'));
-            wp_enqueue_script('nsr-extended-admin');
-        }
-    }
-
-
-    /**
-     * Enqueue required scripts
-     * @return void
-     */
-    public function enqueueScripts()
-    {
-        if (!is_admin()) {
-            wp_register_script( 'nsr-extended', plugins_url( 'nsr-vc-extended/dist/js/nsr-vc-extended.min.js'), null, null, true);
-            wp_enqueue_script( 'nsr-extended' );
-        }
-    }
-
-
-
-    /**
-     *  nsr_theme_setup
-     *  Adding language file
-     */
-    public function after_nsr_theme_setup()
-    {
-
-        add_action( 'wp_enqueue_scripts', array($this, 'enqueueScripts') );
-        add_action('admin_enqueue_scripts', array($this, 'enqueueScriptsAdmin'));
-
-    }
-
-
-
 
 }
 

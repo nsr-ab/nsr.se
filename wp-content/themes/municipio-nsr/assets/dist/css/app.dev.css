@@ -6901,7 +6901,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
  *  Wake up the gfx card
  */
 .is-child-theme {
-  /* Structure fix */ }
+  /* Structure fix */
+  /* Move later */ }
   .is-child-theme * {
     font-family: "Lato";
     font-weight: 400;
@@ -6950,7 +6951,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-family: "Lato";
     font-weight: 900;
     font-style: normal;
-    color: #007586 !important; }
+    color: #007586; }
   .is-child-theme h1 {
     font-size: 4.9rem;
     letter-spacing: 1.6px;
@@ -6969,7 +6970,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme h5.page-excertpt {
     font-size: 1.81rem;
     font-weight: normal;
-    color: #444444 !important;
+    color: #444444;
     line-height: 129%;
     margin-bottom: 27px;
     margin-top: 8px; }
@@ -7138,7 +7139,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme #main-content .modularity-mod-text .box-content ul li:before,
     .is-child-theme #main-content .unordered-list li:before,
     .is-child-theme #main-content article ul:not(.nav):not(.slider-items):not(.line-numbers) li:before {
-      background-color: #fff !important; }
+      background-color: transparent !important; }
   .is-child-theme aside h2 {
     font-size: 2.2rem;
     font-weight: 600; }
@@ -7178,6 +7179,23 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .card.medium .card-image + .card-content,
   .is-child-theme .card.small .card-image + .card-content {
     max-height: 100%; }
+  .is-child-theme .searchNSR input[type=search] {
+    border-bottom: 1px solid #23aabd;
+    box-shadow: 0 1px 0 0 #23aabd; }
+  .is-child-theme .searchNSR input[type=search].invalid, .is-child-theme input[type=search]:focus.invalid {
+    border-bottom: 1px solid #f44336;
+    box-shadow: 0 1px 0 0 #f44336; }
+  .is-child-theme .searchNSR input[type=search].valid, .is-child-theme input[type=search]:focus.valid {
+    border-bottom: 1px solid #4caf50;
+    box-shadow: 0 1px 0 0 #4caf50; }
+  .is-child-theme .searchNSR h4 {
+    text-transform: uppercase;
+    color: #fff !important;
+    margin: 0 auto;
+    font-weight: normal; }
+  .is-child-theme li.before {
+    position: static !important;
+    background-color: transparent !important; }
 
 .is-child-theme.home header {
   background-color: #fff; }

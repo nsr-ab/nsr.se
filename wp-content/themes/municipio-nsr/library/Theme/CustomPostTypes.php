@@ -52,7 +52,7 @@ class CustomPostTypes
         $args = array(
                 "label" => __( 'Villa & Fritidsboende', 'nsr' ),
                 "labels" => $labels,
-                "description" => "Villa & Fritidsboendes pages",
+                "description" => "Villa & Fritidsboendes",
                 "public" => true,
                 "publicly_queryable" => true,
                 "show_ui" => true,
@@ -108,7 +108,7 @@ class CustomPostTypes
         $args = array(
             "label" => __( 'Företag & Restauranger', 'nsr' ),
             "labels" => $labels,
-            "description" => "Företag & Restaurangers pages",
+            "description" => "Företag & Restaurangers",
             "public" => true,
             "publicly_queryable" => true,
             "show_ui" => true,
@@ -163,7 +163,7 @@ class CustomPostTypes
         $args = array(
             "label" => __( 'Fastighetsägare & Bostadsrättsföreningar', 'nsr' ),
             "labels" => $labels,
-            "description" => "Fastighetsägare & Bostadsrättsföreningars pages",
+            "description" => "Fastighetsägare & Bostadsrättsföreningars",
             "public" => true,
             "publicly_queryable" => true,
             "show_ui" => true,

@@ -13,7 +13,7 @@
  *
  */
 
-namespace VcExtended\Library;
+namespace VcExtended\Library\Addons;
 
 class MasterVCExtended
 {

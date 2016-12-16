@@ -128,3 +128,184 @@ a.collection-item {
 .collapsible-body h6 {
   padding: 0 2rem 15px 2rem !important;
   margin: 0px; }
+
+/* SEARCH */
+input[type=search].invalid,
+input[type=search]:focus.invalid,
+input[type=text].invalid,
+input[type=text]:focus.invalid {
+  border: none; }
+
+.searchNSR .input-field input[type=search] {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #009aad;
+  margin-top: 10px;
+  padding-left: 4.5rem; }
+
+.searchNSR .input-field input[type=search]:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+.searchNSR .prefix {
+  color: #2dbccd;
+  left: 4.6rem;
+  top: 1.7rem;
+  font-size: 2.7em !important; }
+
+.searchNSR .input-field input[type=search] + label {
+  left: 5.2rem !important;
+  top: 2.1rem;
+  font-size: 1.2em;
+  color: #2dbccd; }
+
+.searchNSR .input-field input[type=search] + label.active {
+  font-size: 0.9em;
+  margin-top: 12px; }
+
+.searchNSR {
+  padding: 20px; }
+
+input[type=search].form-control-lg {
+  font-size: 2.0em;
+  padding-top: 1.2rem;
+  width: calc(93% - 7rem) !important; }
+
+#searchResult .small {
+  color: #6f6f6f; }
+
+.searchNSR .collection-item {
+  max-width: 100% !important; }
+
+.searchNSR {
+  background-color: #007684 !important; }
+
+.searchNSR .collection, .searchNSR .collection-item {
+  background-color: #006875 !important;
+  border: none; }
+
+.searchNSR span, .searchNSR p, .searchNSR a {
+  color: #fff; }
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #fff !important; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #fff !important; }
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #fff !important; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #fff !important; }
+
+.searchNSR {
+  transition: 300ms ease;
+  margin-left: 0rem !important;
+  margin-right: 0rem !important;
+  position: relative; }
+
+.searchNSR.fullscreen {
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 60px;
+  left: 0px;
+  bottom: 0px;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 500ms ease;
+  transform: translateY(-2%);
+  margin-left: 0rem !important;
+  margin-right: 0rem !important; }
+
+.search-autocomplete-nothing-found {
+  display: block;
+  padding: 7.5px 10px;
+  font-style: italic; }
+
+.search-autocomplete, .search-content {
+  display: none;
+  position: absolute;
+  top: 182px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  font-size: 1em;
+  display: table;
+  width: 100%; }
+  .search-autocomplete li, .search-content li {
+    font-size: .9em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: table-cell; }
+    .search-autocomplete li:hover, .search-content li:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      box-shadow: none;
+      text-decoration: none;
+      color: #fff !important; }
+  .search-autocomplete .read-more, .search-content .read-more {
+    background-color: #007684 !important;
+    border: none;
+    border-radius: 0 !important;
+    margin: 0 -1px -1px -1px;
+    width: calc(100% + 2px);
+    color: #aaeaf2 !important; }
+    .search-autocomplete .read-more:hover, .search-content .read-more:hover {
+      color: #fff !important; }
+  .search-autocomplete li a, .search-content li a {
+    display: block;
+    padding: 7.5px 20px;
+    text-decoration: none !important;
+    color: #aaeaf2 !important; }
+    .search-autocomplete li a:hover, .search-content li a:hover {
+      color: #fff !important; }
+  .search-autocomplete li.selected a, .search-content li.selected a {
+    background-color: rgba(0, 0, 0, 0.1); }
+  .search-autocomplete i, .search-content i {
+    float: left;
+    padding-top: 10px;
+    color: #039db0; }
+
+.search-content h5 {
+  font-size: 1.64rem;
+  margin: 0 0 0 0.8rem;
+  color: #aaeaf2 !important; }
+
+.search-content p {
+  padding: 0 2rem 2rem 0; }
+
+.search-autocomplete-image {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  border-radius: 2px; }
+
+.search-autocomplete-content li, .search-content li {
+  max-width: 100% !important; }
+
+.search-autocomplete-content li a {
+  padding-left: 30px; }
+
+.closeSearch {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #2dbccd;
+  cursor: pointer;
+  font-size: 2.4rem !important; }
+  .closeSearch:hover {
+    color: #54cbd9; }

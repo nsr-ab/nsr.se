@@ -38,7 +38,7 @@ b, strong {
 
 h1, h2, h3, h4, h5 {
     @include font('Lato', 900);
-    color:$palette-primary-green !important;
+    color:$palette-primary-green;
 }
 
 h1 {
@@ -66,7 +66,7 @@ h6 {
 h5.page-excertpt {
     font-size: 1.81rem;
     font-weight:normal;
-    color: alpha-color($palette-primary-grey, 70%, $type:'dark') !important;
+    color: alpha-color($palette-primary-grey, 70%, $type:'dark');
     line-height: 129%;
     margin-bottom:27px;
     margin-top:8px;

@@ -16,6 +16,13 @@ class App
         new \Nsr\Theme\NSRTemplates();
         new \Nsr\Theme\CustomPostTypesMetaSidebar();
 
+        //new \Nsr\Search\ElasticSearch();
+        // Data
+        //new \Nsr\Helper\PostType();
+        //new \Nsr\Helper\FragmentCache();
+
+        //\Nsr\Search\ElasticSearch::test();
+
 
         add_action( 'after_setup_theme', array( $this, 'nsr_theme_setup' ) );
         add_action( 'init', array( $this,'add_excerpts_to_pages' ) );
