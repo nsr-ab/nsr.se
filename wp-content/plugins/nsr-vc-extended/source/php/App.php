@@ -92,13 +92,6 @@ class App
 
         }
 
-        /**
-         * Elastic
-         */
-        if ( !class_exists( 'Elasticsearch' ) ) {
-            new \VcExtended\Library\Search\Search();
-
-        }
 
         /**
          * Elastic search Query
@@ -106,8 +99,6 @@ class App
         if ( !class_exists( 'QueryElastic' ) ) {
             new \VcExtended\Library\Search\QueryElastic();
         }
-
-
 
 
         /**
