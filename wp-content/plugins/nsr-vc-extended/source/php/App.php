@@ -88,8 +88,7 @@ class App
          * Elastic
          */
         if ( !class_exists( 'Elasticsearch' ) ) {
-            new \VcExtended\Library\Search\Elasticsearch();
-
+            new \VcExtended\Library\Search\ElasticSearch();
         }
 
 
@@ -144,9 +143,6 @@ class App
                 $result['content'][$int]->guid = str_replace(get_site_url(), "", get_permalink($property->ID));
                 $int++;
             }
-        }
-        else {
-            //$result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array( 'query' => $_GET['query'],'limit'=>$_GET['limit'] ));
         }
 
         wp_send_json($result);
