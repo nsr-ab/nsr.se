@@ -112,17 +112,16 @@ class NSRSearch
                             <h4>".__('Tömningskalender eller sorteringsguiden', 'nsr-vc-extended')."</h4>
                             <div class=\"input-field col s12 searchArea\">
                                 <i class=\"material-icons prefix\">search</i>
-                                <input class=\"form-control form-control-lg validated \" itemprop=\"query-input\" required=\"\" id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
+                                <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\" required=\"\" id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
                                 <label for=\"searchQ-input\">".__('Where do you live? What stuff do you want to sort? Are you looking for something else?', 'nsr-vc-extended')."</label>
                             </div>
                            
                         </form>
                     </div></div>  
-                     <i class=\"closeSearch material-icons\">cancel</i>
+                     <i class=\"hide closeSearch material-icons\">cancel</i>
                      
                      <div id=\"searchResult\"></div>
                      </div>";
-
 
             return $output;
 

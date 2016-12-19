@@ -7191,8 +7191,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .searchNSR h4 {
     text-transform: uppercase;
     color: #fff !important;
-    margin: 0 auto;
-    font-weight: normal; }
+    margin: 0 auto !important;
+    font-weight: normal;
+    text-align: center !important; }
   .is-child-theme li.before {
     position: static !important;
     background-color: transparent !important; }

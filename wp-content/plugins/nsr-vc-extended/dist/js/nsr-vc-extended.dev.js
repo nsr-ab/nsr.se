@@ -49,6 +49,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('body').on('click', '.searchNSR .searchArea', function () {
 
             $('.searchNSR').addClass('fullscreen').focus();
+            $('.closeSearch').removeClass('hide');
             event.stopPropagation();
 
         }).bind(this);
@@ -58,6 +59,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             event.stopPropagation();
             $('.searchNSR').removeClass('fullscreen');
+            $(this).addClass('hide');
             $('#searchResult').html('');
             $('#searchkeyword-nsr').val('');
             $('.search-autocomplete').remove();
@@ -160,7 +162,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     var $excerpt = "";
                 }
 
-                $content.append('<li class="col s12 m6 l6"> <i class="material-icons"> ' + $icon + '</i><a href="' + post.permalink + '"><h5>' + post.post_title + '</h5></a><p>'+$excerpt+'</p></li>');
+                $content.append('<li class="col s12 m6 l6"> <i class="material-icons"> ' + $icon + '</i><a href="' + post.guid + '"><h5>' + post.post_title + '</h5></a><p>'+$excerpt+'</p></li>');
             });
         }
 
@@ -225,7 +227,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             clearTimeout(typingTimer);
 
-            if ($input.val().length < 3) {
+            if ($input.val().length < 2) {
                 $element.find('.search-autocomplete').remove();
                 return;
             }
@@ -242,7 +244,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         });
 
         $input.on('focus', function (e) {
-            if ($input.val().length < 3) {
+            if ($input.val().length < 2) {
                 return;
             }
 
@@ -396,9 +398,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
 
                 if (post.is_file) {
-                    $content.append('<li class="col s12 m4 l4"><i class="material-icons"> ' + $icon + '</i>"><a class="link-item-before" href="' + post.permalink + '" target="_blank">' + post.post_title + '</a></li>');
+                    $content.append('<li class="col s12 m4 l4"><i class="material-icons"> ' + $icon + '</i>"><a class="link-item-before" href="' + post.guid + '" target="_blank">' + post.post_title + '</a></li>');
                 } else {
-                    $content.append('<li class="col s12 m4 l4"> <i class="material-icons"> ' + $icon + '</i><a href="' + post.permalink + '">' + post.post_title + '</a></li>');
+                    $content.append('<li class="col s12 m4 l4"> <i class="material-icons"> ' + $icon + '</i><a href="' + post.guid + '">' + post.post_title + '</a></li>');
                 }
             });
         } else {
@@ -411,7 +413,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
         $content.appendTo($autocomplete);
-        $autocomplete.append('<button class="read-more block-level">' + ajax_object.searchAutocomplete.viewAll + '</a>');
+        $autocomplete.append('<div class="extNfo"><button class="read-more block-level">' + ajax_object.searchAutocomplete.viewAll + '</a></div>');
 
         $autocomplete.appendTo($element).show();
         $('.search-autocomplete-content li').matchHeight();

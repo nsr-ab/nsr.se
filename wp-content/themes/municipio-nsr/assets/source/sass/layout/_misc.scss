@@ -52,8 +52,9 @@
 .searchNSR h4 {
     text-transform: uppercase;
     color:#fff !important;
-    margin:0 auto;
+    margin:0 auto !important;
     font-weight:normal;
+    text-align: center !important;
 }
 li.before {
     position: static !important;

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
 "POT-Creation-Date: 2016-12-16 11:34+0100\n"
-"PO-Revision-Date: 2016-12-16 11:35+0100\n"
+"PO-Revision-Date: 2016-12-19 10:00+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -41,7 +41,7 @@ msgstr "Kort beskrivning"
 
 #: source/php/App.php:192
 msgid "View all results"
-msgstr "Visa fler resultat"
+msgstr "Visa sökresultat med mer ingående information"
 
 #: source/php/App.php:243
 msgid "News"

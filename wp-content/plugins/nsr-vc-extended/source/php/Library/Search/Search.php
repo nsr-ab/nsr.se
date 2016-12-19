@@ -14,9 +14,8 @@ class Search
 
         $this->data['resultCount'] = $wp_query->found_posts;
         $this->data['keyword'] = get_search_query();
-        $this->data['level'] = \VcExtended\Library\Search\ElasticSearch::$level;
+        //$this->data['level'] = \VcExtended\Library\Search\ElasticSearch::$level;
 
-        //$this->data['users'] = \Intranet\User\General::searchUsers(get_search_query());
 
         if ($this->data['level'] === 'users') {
             $this->data['resultCount'] = count($this->data['users']);

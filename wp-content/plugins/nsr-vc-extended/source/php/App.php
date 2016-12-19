@@ -85,18 +85,29 @@ class App
 
 
         /**
+         * Elastic
+         */
+        if ( !class_exists( 'Elasticsearch' ) ) {
+            new \VcExtended\Library\Search\Elasticsearch();
+
+        }
+
+        /**
+         * Elastic
+         */
+        if ( !class_exists( 'Elasticsearch' ) ) {
+            new \VcExtended\Library\Search\Search();
+
+        }
+
+        /**
          * Elastic search Query
          */
         if ( !class_exists( 'QueryElastic' ) ) {
             new \VcExtended\Library\Search\QueryElastic();
         }
 
-        /**
-         * Enqueue Scripts
-         */
-        if ( !class_exists( 'Elasticsearch' ) ) {
-            new \VcExtended\Library\Search\Elasticsearch();
-        }
+
 
 
         /**
@@ -105,8 +116,6 @@ class App
         if ( !class_exists( 'Enqueue' ) ) {
             new \VcExtended\Library\Enqueue();
         }
-
-
 
 
         add_action( 'wp_ajax_nopriv_fetch_data', array( $this, 'fetch_data' ) );
@@ -137,6 +146,18 @@ class App
      */
     public function fetch_data() {
         $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array( 'query' => $_GET['query'],'limit'=>$_GET['limit'] ));
+        $int = 0;
+
+        if ($result['content']){
+            foreach ($result['content'] as $property) {
+                $result['content'][$int]->guid = str_replace(get_site_url(), "", get_permalink($property->ID));
+                $int++;
+            }
+        }
+        else {
+            //$result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array( 'query' => $_GET['query'],'limit'=>$_GET['limit'] ));
+        }
+
         wp_send_json($result);
         exit;
     }
