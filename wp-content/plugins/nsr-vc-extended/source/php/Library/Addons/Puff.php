@@ -134,7 +134,7 @@ class Puff
      * @param string $content
      * @return string
      */
-    public function renderExtend(array $atts, $content = null)
+    public function renderExtend($atts, $content = null)
     {
 
         $params['vc_title'] = isset($atts['vc_title']) ? $postdate = $atts['vc_title'] : null;

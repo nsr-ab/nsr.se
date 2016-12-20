@@ -1,0 +1,42 @@
+[
+    {
+        "key": "group_56d9a47c90e25",
+        "title": "Todays opening hours",
+        "fields": [
+            {
+                "key": "field_56d9a4880cd89",
+                "label": "Shortcode <em>[opening-hours]<\/em> will print out information displayed below.",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "kjhkj",
+                "new_lines": "",
+                "esc_html": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "open-hours-settings"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "side",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
+]

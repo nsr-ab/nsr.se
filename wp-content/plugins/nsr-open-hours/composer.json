@@ -1,0 +1,13 @@
+{
+    "name": "helsingborg-stad/open-hours",
+    "description": "WordPress plugin that handles opening hours and exeptions.",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastian Thulin",
+            "email": "sebastian.thulin@helsingborg.se"
+        }
+    ],
+    "require": {}
+}
