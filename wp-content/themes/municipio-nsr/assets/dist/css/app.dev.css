@@ -7197,6 +7197,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme li.before {
     position: static !important;
     background-color: transparent !important; }
+  .is-child-theme .searchNSR p {
+    max-width: 80% !important; }
 
 .is-child-theme.home header {
   background-color: #fff; }

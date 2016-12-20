@@ -8,6 +8,7 @@ class CustomPostTypes
     {
 
         add_action('init', array($this, 'register_custom_post_types'));
+        add_action( 'init', array($this, 'cptui_register_my_taxes_fraktion') );
     }
 
 
@@ -186,10 +187,91 @@ class CustomPostTypes
 
 
 
+        /* Fastighetsägare & Bostadsrättsföreningar */
 
+        $labels = array(
+
+            "name" => __( 'F.A.Q', 'nsr' ),
+            "singular_name" => __( 'Pages F.A.Q', 'nsr' ),
+            "menu_name" => __( 'Pages F.A.Q', 'nsr' ),
+            "all_items" => __( 'All Items', 'nsr' ),
+            "add_new" => __( 'Add New', 'nsr' ),
+            "add_new_item" => __( 'Add New Item', 'nsr' ),
+            "edit_item" => __( 'Edit Item', 'nsr' ),
+            "new_item" => __( 'New Item', 'nsr' ),
+            "view_item" => __( 'View Item', 'nsr' ),
+            "search_items" => __( 'Search Item', 'nsr' ),
+            "not_found" => __( 'Not Found', 'nsr' ),
+            "not_found_in_trash" => __( 'Not Found in Trash', 'nsr' ),
+            "parent_item_colon" => __( 'Parent', 'nsr' ),
+            "featured_image" => __( 'Featured Image', 'nsr' ),
+            "set_featured_image" => __( 'Set Featured Image', 'nsr' ),
+            "remove_featured_image" => __( 'Remove Featured Image', 'nsr' ),
+            "use_featured_image" => __( 'Use Featured Image', 'nsr' ),
+            "archives" => __( 'Use Featured Image', 'nsr' ),
+            "insert_into_item" => __( 'Insert into item', 'nsr' ),
+            "uploaded_to_this_item" => __( 'Uploaded to this Item', 'nsr' ),
+            "filter_items_list" => __( 'Filter Items List', 'nsr' ),
+            "items_list_navigation" => __( 'Items List Navigation', 'nsr' ),
+            "items_list" => __( 'Items List', 'nsr' ),
+            "parent_item_colon" => __( 'Parent', 'nsr' ),
+        );
+
+        $args = array(
+            "label" => __( 'F.A.Q', 'nsr' ),
+            "labels" => $labels,
+            "description" => "Frequently asked questions & answers",
+            "public" => true,
+            "publicly_queryable" => true,
+            "show_ui" => true,
+            "show_in_rest" => false,
+            "rest_base" => "",
+            "has_archive" => false,
+            "show_in_menu" => true,
+            "exclude_from_search" => false,
+            "capability_type" => "post",
+            "map_meta_cap" => true,
+            "hierarchical" => false,
+            "rewrite" => array( "slug" => "faq", "with_front" => true ),
+            "query_var" => true,
+            "menu_position" => 21,
+            "menu_icon" => "dashicons-admin-page",
+            "supports" => array( "title", "editor", "excerpt", "page-attributes" ),
+            "taxonomies" => array( "category", "post_tag" ),
+        );
+        register_post_type( "faq", $args );
 
 
     }
+
+
+    public function cptui_register_my_taxes_fraktion() {
+        $labels = array(
+            "name" => __( 'Fraktioner', 'nsr' ),
+            "singular_name" => __( 'Fraktioner', 'nsr' ),
+        );
+
+        $args = array(
+            "label" => __( 'Fraktioner', 'nsr' ),
+            "labels" => $labels,
+            "public" => true,
+            "hierarchical" => false,
+            "label" => "Fraktioner",
+            "show_ui" => true,
+            "show_in_menu" => true,
+            "show_in_nav_menus" => true,
+            "query_var" => true,
+            "rewrite" => array( 'slug' => 'fraktion', 'with_front' => true, ),
+            "show_admin_column" => false,
+            "show_in_rest" => false,
+            "rest_base" => "",
+            "show_in_quick_edit" => false,
+        );
+        register_taxonomy( "fraktion", array( "faq" ), $args );
+
+    }
+
+
 
 
 

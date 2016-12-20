@@ -29,7 +29,7 @@ class CustomPostTypesMetaSidebar {
      */
     public function add_metabox() {
 
-        $type_name = array('fastighet','villa','foretag');
+        $type_name = array('fastighet','villa','foretag','faq');
         foreach ( $type_name as $custom_post_type ) {
             add_meta_box(
                 'sidebar-meta-box',

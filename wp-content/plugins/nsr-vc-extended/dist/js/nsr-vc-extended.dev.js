@@ -39,16 +39,17 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var timeout = null;
 
-        $('body').on('click', '.searchNSR label', function () {
 
-            $(this).addClass('active');
-            $('#searchkeyword-nsr').focus();
 
-        });
 
-        $('body').on('click', '.searchNSR .searchArea', function () {
+        $('body').on('click', '.searchArea *', function (e) {
 
-            $('.searchNSR').addClass('fullscreen').focus();
+            if($(e.target).is('i') || $(e.target).is('.search-autocomplete') ){
+                e.preventDefault();
+                return;
+            }
+            $('.searchNSR input').focus();
+            $('.searchNSR').addClass('fullscreen');
             $('.closeSearch').removeClass('hide');
             event.stopPropagation();
 
@@ -99,6 +100,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $('#searchResult').html('');
             this.autocomplete(element);
+
+            if ($('.searchNSR').find('input[type="search"]').is(":empty")) {
+                $('.search-autocomplete').remove();
+            }
 
         }.bind(this));
 
@@ -152,17 +157,37 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.searchOutput = function (result) {
 
         var $content = $('<ul class="search-content"></ul>');
-        console.log(result.content);
+
         if (typeof result.content != 'undefined' && result.content !== null && result.content.length > 0) {
             $.each(result.content, function (index, post) {
                 if(post.post_excerpt) {
                     var $excerpt = post.post_excerpt.replace(/^(.{180}[^\s]*).*/, "$1")+"...";
                 }
                 else {
-                    var $excerpt = "";
+                    var $excerpt = '';
                 }
 
-                $content.append('<li class="col s12 m6 l6"> <i class="material-icons"> ' + $icon + '</i><a href="' + post.guid + '"><h5>' + post.post_title + '</h5></a><p>'+$excerpt+'</p></li>');
+                switch(post.post_type){
+                    case 'post':
+                        $postSection = 'Nyheter';
+                        break;
+
+                    case "fastighet":
+                        $postSection = 'Fastighetsägare & Bostadsrättsföreningar';
+                        break;
+
+                    case "villa":
+                        $postSection = 'Villa & Fritidsboende';
+                        break;
+
+                    case "foretag":
+                        $postSection = 'Företag & Restauranger';
+                        break;
+
+                    default:
+                        $postSection = '';
+                }
+                $content.append('<li class="col s12 m6 l6"> <i class="material-icons"> ' + $icon + '</i><a href="' + post.guid + '"><h5>' + post.post_title + '</h5></a><span class="section right">'+$postSection+'</span><p>'+$excerpt+'</p></li>');
             });
         }
 
@@ -385,15 +410,32 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var $element = $(element);
         var $autocomplete = $('<div class="search-autocomplete"></div>');
-        //var $content = $('<ul class="search-autocomplete-content"><li class="title"> ' + ajax_object.searchAutocomplete.content + '</li></ul>');
         var $content = $('<ul class="search-autocomplete-content"></ul>');
 
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
             $.each(res.content, function (index, post) {
 
+                var $icon = "";
+
                 switch(post.post_type){
                     case "post":
-                        $icon = 'library_books';
+                        $icon = 'chat';
+                        break;
+
+                    case "fastighet":
+                        $icon = 'location_city';
+                        break;
+
+                    case "villa":
+                        $icon = 'home';
+                        break;
+
+                    case "foretag":
+                        $icon = 'domain';
+                        break;
+
+                    case "page":
+                        $icon = 'insert_drive_file';
                         break;
                 }
 
@@ -417,6 +459,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         $autocomplete.appendTo($element).show();
         $('.search-autocomplete-content li').matchHeight();
+
     };
 
     return new Extended;

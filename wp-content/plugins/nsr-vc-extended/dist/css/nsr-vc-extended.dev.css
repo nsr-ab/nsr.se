@@ -209,6 +209,12 @@ input[type=text]:focus.invalid {
     transform: translateY(-2%);
     margin-left: 0rem !important;
     margin-right: 0rem !important; }
+  .searchNSR .section {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-weight: 600;
+    color: #2dbccd !important; }
   .searchNSR ul {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
   .searchNSR .search-autocomplete-nothing-found {
@@ -234,7 +240,7 @@ input[type=text]:focus.invalid {
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       display: table-cell; }
       .searchNSR .search-autocomplete li:hover, .searchNSR .search-content li:hover {
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.2);
         box-shadow: none;
         text-decoration: none;
         color: #fff !important; }
