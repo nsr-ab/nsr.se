@@ -8,6 +8,18 @@ class App
     {
         add_action('admin_notices', array($this, 'sendRequirementsWarning'));
         add_shortcode('opening-hours', array($this, 'getTodaysOpeningHours'));
+
+        /**
+         * Check if Visual composer is activated
+         */
+        if (!defined('WPB_VC_VERSION')) {
+            add_action('admin_notices', array($this, 'showVcVersionNotice'));
+            return;
+        }
+
+        add_action( 'widgets_init', function(){
+            register_widget( 'openhours\OpenHoursWidget' );
+        });
     }
 
     public function sendRequirementsWarning()
@@ -41,7 +53,8 @@ class App
 
         //Get exception for this day
         if (!is_null($unique_exception) && is_array($unique_exception)) {
-            $return_value = $unique_exception['ex_info_'.$section];
+            $return_value = $unique_exception['ex_title_'.$section] . " ";
+            $return_value .= $unique_exception['ex_info_'.$section];
             $filter_is_exception = true;
         } else {
             $return_value = get_field($this->getMetaKeyByDayId(date("w"), $section), 'option');
@@ -81,4 +94,6 @@ class App
                 return false;
         }
     }
+
+
 }

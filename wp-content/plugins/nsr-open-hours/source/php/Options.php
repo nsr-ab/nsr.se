@@ -9,14 +9,57 @@ class Options extends App
         add_action('init', array($this, 'registerOptionsPage'));
         add_action('init', array($this, 'registerOptionsOnPage'));
         add_action('acf/load_field/key=field_56d9a4880cd89', array($this, 'printCurrentDayDataMeta'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueueStylesAdmin'));
+        add_action( 'after_setup_theme', array( $this, 'after_nsr_theme_setup' ) );
     }
 
+    /**
+     * Enqueue required scripts
+     * @return void
+     */
+    public function enqueueScriptsAdmin()
+    {
+
+        if (is_admin()) {
+            wp_register_script('nsr-openHours-admin', plugins_url('nsr-open-hours/dist/js/nsr-open-hours.min.js'));
+            wp_enqueue_script('nsr-openHours-admin');
+        }
+    }
+
+
+    /**
+     * Enqueue required style Admin
+     * @return void
+     */
+    public function enqueueStylesAdmin()
+    {
+        wp_register_style('nsr-openHours-admin-style', plugins_url('nsr-open-hours/dist/css/nsr-open-hours.min.css'));
+        wp_enqueue_style('nsr-openHours-admin-style');
+    }
+
+
+    /**
+     * Enqueue after everything else
+     * @return void
+     */
+    public function after_nsr_theme_setup()
+    {
+        add_action('admin_enqueue_scripts', array($this, 'enqueueScriptsAdmin'));
+
+    }
+
+
+    /**
+     * Sidebar info
+     * @return void
+     */
     public function printCurrentDayDataMeta($field)
     {
         $field['label'] = __("Shortcode", 'opening-hours-slug')." <em>[opening-hours]</em> ".__("will print out information displayed below.", 'opening-hours-slug');
         $field['message'] = $this->getTodaysOpeningHours();
         return $field;
     }
+
 
     /**
      * Register options page
@@ -35,310 +78,43 @@ class Options extends App
         }
     }
 
-    public function multipleSections(){
-        return array (  array('section_id' => 1, 'section_name' => 'Helsingborg'),
-                        array('section_id' => 2, 'section_name' => 'Höganäs'),
-                        array('section_id' => 3, 'section_name' => 'Ängelholm')
-        );
 
+    /**
+     * populate Combo
+     * @return array
+     */
+    function popChoices(  ) {
 
+        $field['choices'] = array();
+        $oph_sections = get_field('oph_sections', 'option');
+
+        foreach ($oph_sections as $section) {
+            $locId = substr(md5($section['location']), 0, 6);
+            $field['choices'][$locId] = $section['location'];
+        }
+
+        return $field;
     }
 
 
+    /**
+     * Register custom fields
+     * @return void
+     */
     public function registerOptionsOnPage()
     {
         if (function_exists('acf_add_local_field_group')):
 
-
-            foreach($this->multipleSections() as $section){
-
-                acf_add_local_field_group(array(
-                    'key' => 'group_56d9834986648_' . $section['section_id'],
-                    'title' => $section['section_name'] . ' Open Hours (exceptions)',
-                    'fields' => array(
-                        array(
-                            'key' => 'field_56d98368ebaf6_'. $section['section_id'],
-                            'label' => 'Exeptions in open hours',
-                            'name' => 'oph_exeptions_'.$section['section_id'],
-                            'type' => 'repeater',
-                            'instructions' => 'Add one or more exceptions to this scheme. ',
-                            'required' => 0,
-                            'conditional_logic' => 0,
-                            'wrapper' => array(
-                                'width' => '',
-                                'class' => '',
-                                'id' => '',
-                            ),
-                            'collapsed' => '',
-                            'min' => '',
-                            'max' => '',
-                            'layout' => 'table',
-                            'button_label' => 'Add exception',
-                            'sub_fields' => array(
-                                array(
-                                    'key' => 'field_56d9863b80865_'. $section['section_id'],
-                                    'label' => 'Datum',
-                                    'name' => 'date_'.$section['section_id'],
-                                    'type' => 'date_picker',
-                                    'instructions' => '',
-                                    'required' => 1,
-                                    'conditional_logic' => 0,
-                                    'wrapper' => array(
-                                        'width' => 25,
-                                        'class' => '',
-                                        'id' => '',
-                                    ),
-                                    'display_format' => 'j F, Y',
-                                    'return_format' => 'Y-m-d',
-                                    'first_day' => 1,
-                                ),
-                                array(
-                                    'key' => 'field_56d9866980865_'. $section['section_id'],
-                                    'label' => 'Exeption title',
-                                    'name' => 'ex_title_'.$section['section_id'],
-                                    'type' => 'text',
-                                    'instructions' => '',
-                                    'required' => 1,
-                                    'conditional_logic' => 0,
-                                    'wrapper' => array(
-                                        'width' => 35,
-                                        'class' => '',
-                                        'id' => '',
-                                    ),
-                                    'default_value' => '',
-                                    'placeholder' => 'eg. Juldagen',
-                                    'prepend' => '',
-                                    'append' => '',
-                                    'maxlength' => '',
-                                    'readonly' => 0,
-                                    'disabled' => 0,
-                                ),
-                                array(
-                                    'key' => 'field_56d9866980866_'. $section['section_id'],
-                                    'label' => 'Exeption information',
-                                    'name' => 'ex_info_'.$section['section_id'],
-                                    'type' => 'text',
-                                    'instructions' => '',
-                                    'required' => 1,
-                                    'conditional_logic' => 0,
-                                    'wrapper' => array(
-                                        'width' => 40,
-                                        'class' => '',
-                                        'id' => '',
-                                    ),
-                                    'default_value' => '',
-                                    'placeholder' => 'eg. 08:00 - 16:00',
-                                    'prepend' => '',
-                                    'append' => '',
-                                    'maxlength' => '',
-                                    'readonly' => 0,
-                                    'disabled' => 0,
-                                ),
-                            ),
-                        ),
-                    ),
-                    'location' => array(
-                        array(
-                            array(
-                                'param' => 'options_page',
-                                'operator' => '==',
-                                'value' => 'open-hours-settings',
-                            ),
-                        ),
-                    ),
-                    'menu_order' => 0,
-                    'position' => 'normal',
-                    'style' => 'default',
-                    'label_placement' => 'top',
-                    'instruction_placement' => 'label',
-                    'hide_on_screen' => '',
-                    'active' => 1,
-                    'description' => '',
-                ));
-
-
-                acf_add_local_field_group(array(
-                    'key' => 'group_56d97cfb40e8f_'. $section['section_id'],
-                    'title' => $section['section_name']. ' Opening Hours',
-                    'fields' => array(
-                        array(
-                            'key' => 'field_56d97d49daceb_'. $section['section_id'],
-                            'label' => 'Hours monday',
-                            'name' => 'oph_mon_'.$section['section_id'],
-                            'type' => 'text',
-                            'instructions' => '',
-                            'required' => 0,
-                            'conditional_logic' => 0,
-                            'wrapper' => array(
-                                'width' => '',
-                                'class' => '',
-                                'id' => '',
-                            ),
-                            'default_value' => '',
-                            'placeholder' => 'eg. 08:00 - 15:00',
-                            'prepend' => '',
-                            'append' => '',
-                            'maxlength' => '',
-                            'readonly' => 0,
-                            'disabled' => 0,
-                        ),
-                        array(
-                            'key' => 'field_56d985ad34d5c_'. $section['section_id'],
-                            'label' => 'Hours tuesday',
-                            'name' => 'oph_tue_'.$section['section_id'],
-                            'type' => 'text',
-                            'instructions' => '',
-                            'required' => 0,
-                            'conditional_logic' => 0,
-                            'wrapper' => array(
-                                'width' => '',
-                                'class' => '',
-                                'id' => '',
-                            ),
-                            'default_value' => '',
-                            'placeholder' => 'eg. 08:00 - 15:00',
-                            'prepend' => '',
-                            'append' => '',
-                            'maxlength' => '',
-                            'readonly' => 0,
-                            'disabled' => 0,
-                        ),
-                        array(
-                            'key' => 'field_56d985c2f3f99_'. $section['section_id'],
-                            'label' => 'Hours wednesday',
-                            'name' => 'oph_wed_'.$section['section_id'],
-                            'type' => 'text',
-                            'instructions' => '',
-                            'required' => 0,
-                            'conditional_logic' => 0,
-                            'wrapper' => array(
-                                'width' => '',
-                                'class' => '',
-                                'id' => '',
-                            ),
-                            'default_value' => '',
-                            'placeholder' => 'eg. 08:00 - 15:00',
-                            'prepend' => '',
-                            'append' => '',
-                            'maxlength' => '',
-                            'readonly' => 0,
-                            'disabled' => 0,
-                        ),
-                        array(
-                            'key' => 'field_56d985e9f3f9a_'. $section['section_id'],
-                            'label' => 'Hours thursday',
-                            'name' => 'oph_thu_'.$section['section_id'],
-                            'type' => 'text',
-                            'instructions' => '',
-                            'required' => 0,
-                            'conditional_logic' => 0,
-                            'wrapper' => array(
-                                'width' => '',
-                                'class' => '',
-                                'id' => '',
-                            ),
-                            'default_value' => '',
-                            'placeholder' => 'eg. 08:00 - 15:00',
-                            'prepend' => '',
-                            'append' => '',
-                            'maxlength' => '',
-                            'readonly' => 0,
-                            'disabled' => 0,
-                        ),
-                        array(
-                            'key' => 'field_56d985faf3f9b_'. $section['section_id'],
-                            'label' => 'Hours friday',
-                            'name' => 'oph_fri_'.$section['section_id'],
-                            'type' => 'text',
-                            'instructions' => '',
-                            'required' => 0,
-                            'conditional_logic' => 0,
-                            'wrapper' => array(
-                                'width' => '',
-                                'class' => '',
-                                'id' => '',
-                            ),
-                            'default_value' => '',
-                            'placeholder' => 'eg. 08:00 - 15:00',
-                            'prepend' => '',
-                            'append' => '',
-                            'maxlength' => '',
-                            'readonly' => 0,
-                            'disabled' => 0,
-                        ),
-                        array(
-                            'key' => 'field_56d98607f3f9c_'. $section['section_id'],
-                            'label' => 'Hours saturday',
-                            'name' => 'oph_sat_'.$section['section_id'],
-                            'type' => 'text',
-                            'instructions' => '',
-                            'required' => 0,
-                            'conditional_logic' => 0,
-                            'wrapper' => array(
-                                'width' => '',
-                                'class' => '',
-                                'id' => '',
-                            ),
-                            'default_value' => '',
-                            'placeholder' => 'eg. 08:00 - 15:00',
-                            'prepend' => '',
-                            'append' => '',
-                            'maxlength' => '',
-                            'readonly' => 0,
-                            'disabled' => 0,
-                        ),
-                        array(
-                            'key' => 'field_56d98611f3f9d_'. $section['section_id'],
-                            'label' => 'Hours sunday',
-                            'name' => 'oph_sun_'.$section['section_id'],
-                            'type' => 'text',
-                            'instructions' => '',
-                            'required' => 0,
-                            'conditional_logic' => 0,
-                            'wrapper' => array(
-                                'width' => '',
-                                'class' => '',
-                                'id' => '',
-                            ),
-                            'default_value' => '',
-                            'placeholder' => 'eg. 08:00 - 15:00',
-                            'prepend' => '',
-                            'append' => '',
-                            'maxlength' => '',
-                            'readonly' => 0,
-                            'disabled' => 0,
-                        ),
-                    ),
-                    'location' => array(
-                        array(
-                            array(
-                                'param' => 'options_page',
-                                'operator' => '==',
-                                'value' => 'open-hours-settings',
-                            ),
-                        ),
-                    ),
-                    'menu_order' => 0,
-                    'position' => 'normal',
-                    'style' => 'default',
-                    'label_placement' => 'top',
-                    'instruction_placement' => 'label',
-                    'hide_on_screen' => '',
-                    'active' => 1,
-                    'description' => '',
-                ));
-
-
             acf_add_local_field_group(array(
-                'key' => 'group_56d9a47c90e25_'. $section['section_id'],
-                'title' => $section['section_name'].', Todays opening hours',
+                'key' => 'group_locations',
+                'title' =>  ' NSR locations',
                 'fields' => array(
                     array(
-                        'key' => 'field_56d9a4880cd89_'. $section['section_id'],
-                        'label' => 'Shortcode:<br><em>[opening-hours section="'.$section['section_id'].'"]</em><br />will print out information displayed below.',
-                        'name' => '',
-                        'type' => 'message',
-                        'instructions' => '',
+                        'key' => 'field_56d9dfdf3Df6',
+                        'label' => 'Add Location',
+                        'name' => 'oph_sections',
+                        'type' => 'repeater',
+                        'instructions' => 'Add one or more location. (Click on update after you added the location to fetch location scheme)',
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(
@@ -346,9 +122,28 @@ class Options extends App
                             'class' => '',
                             'id' => '',
                         ),
-                        'message' => '',
-                        'new_lines' => '',
-                        'esc_html' => 1,
+                        'collapsed' => '',
+                        'min' => '',
+                        'max' => '',
+                        'layout' => 'table',
+                        'button_label' => 'Add location',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'field_DsJsd0m4rvx',
+                                'label' => 'NSR has facilities on following locations',
+                                'name' => 'location',
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => '',
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => 100,
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+
+                            ),
+                        ),
                     ),
                 ),
                 'location' => array(
@@ -360,8 +155,8 @@ class Options extends App
                         ),
                     ),
                 ),
-                'menu_order' => 0,
-                'position' => 'side',
+                'menu_order' => 1,
+                'position' => 'normal',
                 'style' => 'default',
                 'label_placement' => 'top',
                 'instruction_placement' => 'label',
@@ -370,8 +165,367 @@ class Options extends App
                 'description' => '',
             ));
 
-        }
+
+            acf_add_local_field_group(array(
+                'key' => 'group_select_section',
+                'title' => 'Select location to edit opening hours',
+                'fields' => array (
+                    array (
+                        'key' => 'field_select',
+                        'label' => 'Location',
+                        'name' => 'location-name',
+                        'type' => 'select',
+                        'choices' => array (
+                            $this->popChoices()
+                        ),
+                    )
+                ),
+                'location' => array(
+                    array(
+                        array(
+                            'param' => 'options_page',
+                            'operator' => '==',
+                            'value' => 'open-hours-settings',
+                        ),
+                    ),
+                ),
+                'menu_order' => 2,
+                'position' => 'normal',
+                'style' => 'default',
+                'label_placement' => 'top',
+                'instruction_placement' => 'label',
+                'hide_on_screen' => '',
+                'active' => 1,
+                'description' => '',
+            ));
+
+            $oph_sections = get_field('oph_sections', 'option');
+
+            if (is_array($oph_sections) && !empty($oph_sections)) {
+                foreach ($oph_sections as $section) {
+                    $locId = substr(md5($section['location']), 0, 6);
+                    acf_add_local_field_group(array(
+                        'key' => 'group_exception_' . $locId,
+                        'title' => $section['location'] . ' Open Hours (exceptions)',
+                        'fields' => array(
+                            array(
+                                'key' => 'field_56d98368ebaf6_'. $locId,
+                                'label' => 'Exeptions in open hours',
+                                'name' => 'oph_exeptions_'.$locId,
+                                'type' => 'repeater',
+                                'instructions' => 'Add one or more exceptions to this scheme. ',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'collapsed' => '',
+                                'min' => '',
+                                'max' => '',
+                                'layout' => 'table',
+                                'button_label' => 'Add exception',
+                                'sub_fields' => array(
+                                    array(
+                                        'key' => 'field_56d9863b80865_'. $locId,
+                                        'label' => 'Datum',
+                                        'name' => 'date_'.$locId,
+                                        'type' => 'date_picker',
+                                        'instructions' => '',
+                                        'required' => 1,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => 25,
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'display_format' => 'j F, Y',
+                                        'return_format' => 'Y-m-d',
+                                        'first_day' => 1,
+                                    ),
+                                    array(
+                                        'key' => 'field_56d9866980865_'. $locId,
+                                        'label' => 'Exeption title',
+                                        'name' => 'ex_title_'.$locId,
+                                        'type' => 'text',
+                                        'instructions' => '',
+                                        'required' => 1,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => 35,
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => '',
+                                        'placeholder' => 'eg. Juldagen',
+                                        'prepend' => '',
+                                        'append' => '',
+                                        'maxlength' => '',
+                                        'readonly' => 0,
+                                        'disabled' => 0,
+                                    ),
+                                    array(
+                                        'key' => 'field_56d9866980866_'. $locId,
+                                        'label' => 'Exeption information',
+                                        'name' => 'ex_info_'.$locId,
+                                        'type' => 'text',
+                                        'instructions' => '',
+                                        'required' => 1,
+                                        'conditional_logic' => 0,
+                                        'wrapper' => array(
+                                            'width' => 40,
+                                            'class' => '',
+                                            'id' => '',
+                                        ),
+                                        'default_value' => '',
+                                        'placeholder' => 'eg. 08:00 - 16:00',
+                                        'prepend' => '',
+                                        'append' => '',
+                                        'maxlength' => '',
+                                        'readonly' => 0,
+                                        'disabled' => 0,
+                                    ),
+                                ),
+                            ),
+                        ),
+                        'location' => array(
+                            array(
+                                array(
+                                    'param' => 'options_page',
+                                    'operator' => '==',
+                                    'value' => 'open-hours-settings',
+                                ),
+                            ),
+                        ),
+                        'menu_order' => 3,
+                        'position' => 'normal',
+                        'style' => 'default',
+                        'label_placement' => 'top',
+                        'instruction_placement' => 'label',
+                        'hide_on_screen' => '',
+                        'active' => 1,
+                        'description' => '',
+                    ));
+
+
+                    acf_add_local_field_group(array(
+                        'key' => 'group_hours_'. $locId,
+                        'title' => $section['location']. ' Opening Hours',
+                        'fields' => array(
+                            array(
+                                'key' => 'field_56d97d49daceb_'. $locId,
+                                'label' => 'Hours monday',
+                                'name' => 'oph_mon_'.$locId,
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => 'eg. 08:00 - 15:00',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                                'readonly' => 0,
+                                'disabled' => 0,
+                            ),
+                            array(
+                                'key' => 'field_56d985ad34d5c_'. $locId,
+                                'label' => 'Hours tuesday',
+                                'name' => 'oph_tue_'.$locId,
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => 'eg. 08:00 - 15:00',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                                'readonly' => 0,
+                                'disabled' => 0,
+                            ),
+                            array(
+                                'key' => 'field_56d985c2f3f99_'. $locId,
+                                'label' => 'Hours wednesday',
+                                'name' => 'oph_wed_'.$locId,
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => 'eg. 08:00 - 15:00',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                                'readonly' => 0,
+                                'disabled' => 0,
+                            ),
+                            array(
+                                'key' => 'field_56d985e9f3f9a_'. $locId,
+                                'label' => 'Hours thursday',
+                                'name' => 'oph_thu_'.$locId,
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => 'eg. 08:00 - 15:00',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                                'readonly' => 0,
+                                'disabled' => 0,
+                            ),
+                            array(
+                                'key' => 'field_56d985faf3f9b_'. $locId,
+                                'label' => 'Hours friday',
+                                'name' => 'oph_fri_'.$locId,
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => 'eg. 08:00 - 15:00',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                                'readonly' => 0,
+                                'disabled' => 0,
+                            ),
+                            array(
+                                'key' => 'field_56d98607f3f9c_'. $locId,
+                                'label' => 'Hours saturday',
+                                'name' => 'oph_sat_'.$locId,
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => 'eg. 08:00 - 15:00',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                                'readonly' => 0,
+                                'disabled' => 0,
+                            ),
+                            array(
+                                'key' => 'field_56d98611f3f9d_'. $locId,
+                                'label' => 'Hours sunday',
+                                'name' => 'oph_sun_'.$locId,
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => 'eg. 08:00 - 15:00',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                                'readonly' => 0,
+                                'disabled' => 0,
+                            ),
+                        ),
+                        'location' => array(
+                            array(
+                                array(
+                                    'param' => 'options_page',
+                                    'operator' => '==',
+                                    'value' => 'open-hours-settings',
+                                ),
+                            ),
+                        ),
+                        'menu_order' => 3,
+                        'position' => 'normal',
+                        'style' => 'default',
+                        'label_placement' => 'top',
+                        'instruction_placement' => 'label',
+                        'hide_on_screen' => '',
+                        'active' => 1,
+                        'description' => '',
+                    ));
+
+
+                acf_add_local_field_group(array(
+                    'key' => 'group_shortcode_'. $locId,
+                    'title' => $section['location'].', Todays opening hours',
+                    'fields' => array(
+                        array(
+                            'key' => 'field_56d9a4880cd89_'. $locId,
+                            'label' => 'Shortcode:<br><em>[opening-hours section="'.$locId.'"]</em><br />will print out information displayed below.',
+                            'name' => '',
+                            'type' => 'message',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'message' => '',
+                            'new_lines' => '',
+                            'esc_html' => 1,
+                        ),
+                    ),
+                    'location' => array(
+                        array(
+                            array(
+                                'param' => 'options_page',
+                                'operator' => '==',
+                                'value' => 'open-hours-settings',
+                            ),
+                        ),
+                    ),
+                    'menu_order' => 3,
+                    'position' => 'side',
+                    'style' => 'default',
+                    'label_placement' => 'top',
+                    'instruction_placement' => 'label',
+                    'hide_on_screen' => '',
+                    'active' => 1,
+                    'description' => '',
+                ));
+
+                }
+            }
 
         endif;
+
     }
 }
