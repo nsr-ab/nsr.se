@@ -2,13 +2,13 @@
 
 /**
  * Plugin Name:       NSR OpenHours
- * Plugin URI:        (#plugin_url#)
+ * Plugin URI:        https://github.com/nsr-ab/nsr.se
  * Description:       Adds the ability to add opening hours and display them via shortcodes (today, full week)
- * Version:           1.5.0
+ * Version:           1.5.1
  * Author:            Sebastian Thulin, Johan Silvergrund
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
- * Text Domain:       opening-hours-slug
+ * Text Domain:       opening-hours
  * Domain Path:       /languages
  */
 

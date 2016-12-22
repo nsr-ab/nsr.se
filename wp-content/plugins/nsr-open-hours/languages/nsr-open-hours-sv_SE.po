@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR OpenHours\n"
-"POT-Creation-Date: 2016-12-22 15:55+0100\n"
-"PO-Revision-Date: 2016-12-22 15:56+0100\n"
+"POT-Creation-Date: 2016-12-23 00:29+0100\n"
+"PO-Revision-Date: 2016-12-23 00:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/App.php:71
+#: source/php/App.php:74
 msgid ""
 "Open hours require ACF PRO to function. Please make shure that this is "
 "installed and enabled."
@@ -28,36 +28,52 @@ msgstr ""
 "Open hours behöver ACF PRO för att fungera. Säkerställ att ACF PRO är "
 "installerad och aktiverad."
 
-#: source/php/OpenHoursWidget.php:42
+#: source/php/OpenHoursWidget.php:46
 msgid "Helsingborg"
 msgstr ""
 
-#: source/php/OpenHoursWidget.php:48
+#: source/php/OpenHoursWidget.php:52
 msgid "Title:"
-msgstr "Titel:"
+msgstr "Menytitel"
 
-#: source/php/OpenHoursWidget.php:61
+#: source/php/OpenHoursWidget.php:60
 msgid "Type:"
 msgstr "Visningstyp"
 
-#: source/php/Options.php:24
-msgid "Shortcode"
-msgstr ""
+#: source/php/OpenHoursWidget.php:68
+msgid "Show todays opening hours"
+msgstr "Visa dagens öppettid"
 
-#: source/php/Options.php:24
+#: source/php/OpenHoursWidget.php:72
+msgid "Show 7 days"
+msgstr "Visa en veckas öppettider med start igår."
+
+#: source/php/OpenHoursWidget.php:76
+msgid "Show exceptions"
+msgstr "Visa alla undantag"
+
+#: source/php/OpenHoursWidget.php:81
+msgid "City:"
+msgstr "Stad/Ort:"
+
+#: source/php/Options.php:22
+msgid "Shortcode"
+msgstr "Kortkod"
+
+#: source/php/Options.php:22
 msgid "will print out information displayed below."
 msgstr "kommer att skriva ut informationen som visas här under"
 
 #. Plugin Name of the plugin/theme
-#: source/php/Options.php:38 source/php/Options.php:39
+#: source/php/Options.php:36 source/php/Options.php:37
 msgid "NSR OpenHours"
 msgstr ""
 
-#: source/php/Options.php:80
+#: source/php/Options.php:79
 msgid "Add Location"
 msgstr "Lägg till stad/ort"
 
-#: source/php/Options.php:83
+#: source/php/Options.php:82
 msgid ""
 "Add one or more location. (Click on update after you added the location to "
 "fetch location scheme)"
@@ -65,115 +81,119 @@ msgstr ""
 "Lägg till 1 eller flera städer/orter (Glöm inte att klicka på uppdatera, för "
 "att se öppettider)"
 
-#: source/php/Options.php:95
+#: source/php/Options.php:94
 msgid "Add location"
 msgstr "Lägg till stad/ort"
 
-#: source/php/Options.php:99
+#: source/php/Options.php:98
 msgid "NSR has facilities on following locations"
 msgstr "NSR har anläggningar på följande orter"
 
-#: source/php/Options.php:137
+#: source/php/Options.php:136
 msgid "Select location to edit opening hours"
 msgstr "Välj stad/ort för att visa ortens öppetider"
 
-#: source/php/Options.php:175
+#: source/php/Options.php:140
+msgid "Location"
+msgstr "Stad/Ort"
+
+#: source/php/Options.php:174
 msgid "Open Hours (exceptions)"
 msgstr "Open Hours (undantag)"
 
-#: source/php/Options.php:179
+#: source/php/Options.php:178
 msgid "Exeptions in open hours"
 msgstr "Undantag i öppettider"
 
-#: source/php/Options.php:182
+#: source/php/Options.php:181
 msgid "Add one or more exceptions to this scheme. "
 msgstr "Lägg till en eller flera undantag i det här schemat"
 
-#: source/php/Options.php:194
+#: source/php/Options.php:193
 msgid "Add exception"
 msgstr "Lägg till undantag"
 
-#: source/php/Options.php:198
+#: source/php/Options.php:197
 msgid "Date"
 msgstr "Datum"
 
-#: source/php/Options.php:215
+#: source/php/Options.php:214
 msgid "Exeption title"
 msgstr "Undantagstitel"
 
-#: source/php/Options.php:227
+#: source/php/Options.php:226
 msgid "eg. Juldagen"
 msgstr "ex. Juldagen"
 
-#: source/php/Options.php:236
+#: source/php/Options.php:235
 msgid "Exeption information"
 msgstr "Undantagsinformation (ex. Stängt)"
 
-#: source/php/Options.php:248
-msgid "eg. 08:00 - 16:00"
-msgstr "ex. 08:00 - 16:00"
+#: source/php/Options.php:247
+msgid "eg. (Closed)"
+msgstr "ex. (Stängt)"
 
-#: source/php/Options.php:280
+#: source/php/Options.php:279
 msgid " Opening Hours"
 msgstr "Öppettider"
 
-#: source/php/Options.php:284
+#: source/php/Options.php:283
 msgid "Hours monday"
 msgstr "Måndag"
 
-#: source/php/Options.php:296 source/php/Options.php:317
-#: source/php/Options.php:338 source/php/Options.php:359
-#: source/php/Options.php:380 source/php/Options.php:401
-#: source/php/Options.php:422
+#: source/php/Options.php:295 source/php/Options.php:316
+#: source/php/Options.php:337 source/php/Options.php:358
+#: source/php/Options.php:379 source/php/Options.php:400
+#: source/php/Options.php:421
 msgid "eg. 08:00 - 15:00"
 msgstr "ex. 08:00 - 15:00"
 
-#: source/php/Options.php:305
+#: source/php/Options.php:304
 msgid "Hours tuesday"
 msgstr "Tisdag"
 
-#: source/php/Options.php:326
+#: source/php/Options.php:325
 msgid "Hours wednesday"
 msgstr "Onsdag"
 
-#: source/php/Options.php:347
+#: source/php/Options.php:346
 msgid "Hours thursday"
 msgstr "Torsdag"
 
-#: source/php/Options.php:368
+#: source/php/Options.php:367
 msgid "Hours friday"
 msgstr "Fredag"
 
-#: source/php/Options.php:389
+#: source/php/Options.php:388
 msgid "Hours saturday"
 msgstr "Lördag"
 
-#: source/php/Options.php:410
+#: source/php/Options.php:409
 msgid "Hours sunday"
 msgstr "Söndag"
 
-#: source/php/Options.php:452
+#: source/php/Options.php:451
 msgid ", Todays opening hours"
 msgstr ", Dagens öppettider"
 
-#: source/php/Options.php:456
+#: source/php/Options.php:455
 msgid "Shortcode for today: "
 msgstr "Shortcode för idag:"
 
-#: source/php/Options.php:457
+#: source/php/Options.php:456
 msgid "Shortcode for this week: "
 msgstr "Shortcode för veckan:"
 
-#: source/php/Options.php:458
+#: source/php/Options.php:457
 msgid "Shortcode this years weekends: "
 msgstr "Shortcode för helger:"
 
-#: source/php/Options.php:458
+#: source/php/Options.php:457
 msgid "Remove (markup=true) if you only want to display text."
 msgstr "Radera (markup=true) om du bara vill visa text."
 
 #. Plugin URI of the plugin/theme
-msgid "(#plugin_url#)"
+msgid "https://github.com/nsr-ab/nsr.se"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -187,6 +207,9 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Sebastian Thulin, Johan Silvergrund"
 msgstr ""
+
+#~ msgid "eg. 08:00 - 16:00"
+#~ msgstr "ex. 08:00 - 16:00"
 
 #~ msgid "Shortkod: "
 #~ msgstr "Snabbkod"

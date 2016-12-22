@@ -91,5 +91,9 @@ li.before {
     font-weight:600;
     border-bottom: 2px solid alpha-color($palette-primary-grey, 34%, $type:'dark')  !important;
     max-width:100% !important;
-
+}
+.collection-header i {
+    top: 5px;
+    position: relative;
+    color:alpha-color($palette-primary-grey, 40%, $type:'dark');
 }

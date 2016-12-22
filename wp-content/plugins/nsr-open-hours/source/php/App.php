@@ -7,7 +7,7 @@ class App
     public function __construct()
     {
         add_action('admin_notices', array($this, 'sendRequirementsWarning'));
-        add_shortcode('opening-hours', array($this, 'getTodaysOpeningHours'));
+        add_shortcode('opening-hours', array($this, 'getOpeningHours'));
 
         /**
          * Check if Visual composer is activated
@@ -17,14 +17,13 @@ class App
             return;
         }
 
-        add_action( 'widgets_init', function(){
-            register_widget( 'openhours\OpenHoursWidget' );
+        add_action('widgets_init', function () {
+            register_widget('openhours\OpenHoursWidget');
         });
 
 
-
         add_action('admin_enqueue_scripts', array($this, 'enqueueStylesAdmin'));
-        add_action( 'after_setup_theme', array( $this, 'after_nsr_theme_setup' ) );
+        add_action('after_setup_theme', array($this, 'after_nsr_theme_setup'));
     }
 
     /**
@@ -63,44 +62,55 @@ class App
     }
 
 
-
-
+    /**
+     * Requirement warning (Plugin ACF PRO to work)
+     * @return void
+     */
     public function sendRequirementsWarning()
     {
         if (!function_exists('get_field')) {
             echo '<div class="notice notice-error">';
-                echo '<p>';
-                    _e("Open hours require ACF PRO to function. Please make shure that this is installed and enabled.", 'nsr-open-hours');
-                echo '</p>';
+            echo '<p>';
+            _e("Open hours require ACF PRO to function. Please make shure that this is installed and enabled.", 'nsr-open-hours');
+            echo '</p>';
             echo '</div>';
         }
     }
 
 
-    public function in_array_r($item , $array){
-        return preg_match('/"'.$item.'"/i' , json_encode($array));
+    /**
+     * Macthing stuff in vector
+     * @return boolean
+     */
+    public function in_array_r($item, $array)
+    {
+        return preg_match('/"' . $item . '"/i', json_encode($array));
     }
 
 
-
-    public function getTodaysOpeningHours($atts)
+    /**
+     * Creating openingHour markup for shortcode
+     * @return shortcode hook
+     */
+    public function getOpeningHours($atts)
     {
 
-        //Default data
         $section = isset($atts['section']) ? $section = $atts['section'] : null;
         $type = isset($atts['type']) ? $type = $atts['type'] : null;
         $city = isset($atts['city']) ? $city = $atts['city'] : null;
 
-        switch($type) {
+        switch ($type) {
 
             case "today":
 
-                $unique_exception   = false;
-                $exception_info     = get_field('oph_exeptions_'.$section, 'option');
+                $unique_exception = false;
+                $exception_info = get_field('oph_exeptions_' . $section, 'option');
 
                 if (is_array($exception_info) && !empty($exception_info)) {
+
                     foreach ($exception_info as $exception_data) {
-                        if ($exception_data['date_'.$section] == date("Y-m-d")) {
+
+                        if ($exception_data['date_' . $section] == date("Y-m-d")) {
                             $unique_exception = $exception_data;
                             break;
                         }
@@ -108,10 +118,14 @@ class App
                 }
 
                 if (!is_null($unique_exception) && is_array($unique_exception)) {
-                    $return_value = $unique_exception['ex_title_'.$section] . " ";
-                    $return_value .= $unique_exception['ex_info_'.$section];
+
+                    $return_value = $unique_exception['ex_title_' . $section] . " ";
+                    $return_value .= $unique_exception['ex_info_' . $section];
                     $filter_is_exception = true;
-                } else {
+
+                }
+                else {
+
                     $return_value = get_field($this->getMetaKeyByDayId(date("w"), $section), 'option');
                     $filter_is_exception = true;
                 }
@@ -131,20 +145,24 @@ class App
                 $return_value = "";
                 $i = 0;
 
-                $return_value .= "<li class=\"collection-header\">Öppettider NSR ".$city."</li>";
+                $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> Öppettider " . $city . "</li>";
+
                 while (true) {
 
-                    if ($i === 6)
+                    if ($i === 7)
                         break;
-                    if ($datetime->format('N') === '7' && $i === 0) {
+                    if ($datetime->format('N') === '8' && $i === 0) {
+
                         $datetime->add(new \DateInterval('P1D'));
                         continue;
                     }
 
-                    $exception_info = get_field('oph_exeptions_'.$section, 'option');
+                    $exception_info = get_field('oph_exeptions_' . $section, 'option');
 
-                    if ( $this->in_array_r($datetime->format('Y-m-d') , $exception_info)) {
-                        foreach($exception_info as $exc) {
+                    if ($this->in_array_r($datetime->format('Y-m-d'), $exception_info)) {
+
+                        foreach ($exception_info as $exc) {
+
                             if ($exc['date_' . $section] === $datetime->format('Y-m-d')) {
                                 $ex_title = $exc['ex_title_' . $section];
                                 $ex_info = $exc['ex_info_' . $section];
@@ -153,41 +171,35 @@ class App
                         }
                     }
                     else {
+
                         $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date">' : null;
                         $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
-                        if($datetime->format('Y-m-d') != date('Y-m-d')) {
-                            $return_value .= $listItem[0] . $openSpan . ucfirst ( date_i18n('D',strtotime($datetime->format('D'))) ) . $closeSpan . " " . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
-                        }
-                        else {
-                            $return_value .= $listItem[3] . $openSpan . ucfirst ( date_i18n('D',strtotime($datetime->format('D'))) ) . $closeSpan . " " . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+                        if ($datetime->format('Y-m-d') != date('Y-m-d')) {
+                            $return_value .= $listItem[0] . $openSpan . ucfirst(date_i18n('D', strtotime($datetime->format('D')))) . $closeSpan . " " . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+                        } else {
+                            $return_value .= $listItem[3] . $openSpan . ucfirst(date_i18n('D', strtotime($datetime->format('D')))) . $closeSpan . " " . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
                         }
                     }
+
                     $return_value .= isset($atts['markup']) ? '' : '<br />';
                     $filter_is_exception = false;
-                    $openLi = isset($atts['markup']) ? $openLi = '<li class="collection-item">' : null;
-                    $closeLi = isset($atts['markup']) ? $closeLi = '</li>' : null;
-                    $openLiWeekend = isset($atts['markup']) ? $openLiWeekend = '<li class="collection-item weekender">' : null;
-                    $openLiToday = isset($atts['markup']) ? $openLiToday = '<li class="collection-item today">' : null;
-                    $listItem = array($openLi, $closeLi, $openLiWeekend, $openLiToday);
                     $datetime->add(new \DateInterval('P1D'));
                     $i++;
                 }
                 break;
 
             case "weekends":
+
                 $datetime = new \DateTime();
 
                 $datetime->modify('-1 day');
                 $openLiStart = isset($atts['markup']) ? $openLiStart = '<li class="collection-item">' : null;
                 $closeLiItemStart = isset($atts['markup']) ? $closeLiItemStart = '</li>' : null;
-
                 $openLiToday = isset($atts['markup']) ? $openLiToday = '<li class="collection-item today">' : null;
                 $listItem = array($openLiStart, $closeLiItemStart, $openLiToday);
                 $return_value = "";
-
-                $return_value .= "<li class=\"collection-header\">Helgdagar NSR ".$city."</li>";
-                $exception_info = get_field('oph_exeptions_'.$section, 'option');
-
+                $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> Helgdagar " . $city . "</li>";
+                $exception_info = get_field('oph_exeptions_' . $section, 'option');
                 $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date-day">' : null;
                 $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
 
@@ -196,19 +208,12 @@ class App
                     $ex_title = $exc['ex_title_' . $section];
                     $ex_info = $exc['ex_info_' . $section];
                     $ex_date = $exc['date_' . $section];
-                    $return_value .= $listItem[0] . $openSpan . substr($ex_date, strrpos($ex_date, '-') + 1) . " " . ucfirst ( date_i18n('M',strtotime($ex_date)) ) . $closeSpan . " " . $ex_title . " " . $ex_info . $listItem[1];
+                    $return_value .= $listItem[0] . $openSpan . substr($ex_date, strrpos($ex_date, '-') + 1) . " " . ucfirst(date_i18n('M', strtotime($ex_date))) . $closeSpan . " " . $ex_title . " " . $ex_info . $listItem[1];
 
                 }
 
                 $return_value .= isset($atts['markup']) ? '' : '<br />';
-
-
                 $filter_is_exception = false;
-                $openLi = isset($atts['markup']) ? $openLi = '<li class="collection-item">' : null;
-                $closeLi = isset($atts['markup']) ? $closeLi = '</li>' : null;
-                $openLiWeekend = isset($atts['markup']) ? $openLiWeekend = '<li class="collection-item weekender">' : null;
-                $openLiToday = isset($atts['markup']) ? $openLiToday = '<li class="collection-item today">' : null;
-                $listItem = array($openLi, $closeLi, $openLiWeekend, $openLiToday);
                 $datetime->add(new \DateInterval('P1D'));
 
                 break;
@@ -221,31 +226,43 @@ class App
 
     }
 
-    public function getMetaKeyByDayId($day_id,$section)
+
+    /**
+     * OptionsDay
+     * @return string
+     */
+    public function getMetaKeyByDayId($day_id, $section)
     {
         switch ($day_id) {
             case 1:
-                return 'oph_mon_'.$section;
+                return 'oph_mon_' . $section;
                 break;
+
             case 2:
-                return 'oph_tue_'.$section;
+                return 'oph_tue_' . $section;
                 break;
+
             case 3:
-                return 'oph_wed_'.$section;
+                return 'oph_wed_' . $section;
                 break;
+
             case 4:
-                return 'oph_thu_'.$section;
+                return 'oph_thu_' . $section;
                 break;
+
             case 5:
-                return 'oph_fri_'.$section;
+                return 'oph_fri_' . $section;
                 break;
+
             case 6:
-                return 'oph_sat_'.$section;
+                return 'oph_sat_' . $section;
                 break;
+
             case 0:
             case 7:
-                return 'oph_sun_'.$section;
+                return 'oph_sun_' . $section;
                 break;
+
             default:
                 return false;
         }

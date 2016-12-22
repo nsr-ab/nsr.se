@@ -2,14 +2,14 @@
 
 /**
  * Plugin Name:       NSR Visual Composer Extended
- * Plugin URI:        nsr.se
+ * Plugin URI:        https://github.com/nsr-ab/nsr.se
  * Description:       Visual Composer Ad-dons for NSR website
  * Version:           1.0.0
  * Author:            Johan Silvergrund
  * Author URI:        hiq.se
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
- * Text Domain:       nsr-vc-extended
+ * Text Domain:       nsr-open-hours
  * Domain Path:       /languages
  */
 
