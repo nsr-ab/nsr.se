@@ -21,6 +21,8 @@ class App
             register_widget( 'openhours\OpenHoursWidget' );
         });
 
+
+
         add_action('admin_enqueue_scripts', array($this, 'enqueueStylesAdmin'));
         add_action( 'after_setup_theme', array( $this, 'after_nsr_theme_setup' ) );
     }
@@ -214,6 +216,7 @@ class App
 
         $openUl = isset($atts['markup']) ? $openUl = '<ul class="collection openhours with-header">' : null;
         $closeUl = isset($atts['markup']) ? $closeUl = '</ul>' : null;
+
         return apply_filters('openhours/shortcode', $openUl . $return_value . $closeUl, $filter_is_exception);
 
     }
