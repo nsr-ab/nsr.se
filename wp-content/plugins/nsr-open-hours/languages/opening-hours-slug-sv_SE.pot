@@ -1,0 +1,171 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: NSR OpenHours\n"
+"POT-Creation-Date: 2016-12-22 09:36+0100\n"
+"PO-Revision-Date: 2016-12-22 09:35+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: nsr-open-hours.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: source/php/App.php:30
+msgid ""
+"Open hours require ACF PRO to function. Please make shure that this is "
+"installed and enabled."
+msgstr ""
+
+#: source/php/OpenHoursWidget.php:28
+msgid "Hello, World!"
+msgstr ""
+
+#: source/php/OpenHoursWidget.php:40
+msgid "NSR Helsingborg"
+msgstr ""
+
+#: source/php/OpenHoursWidget.php:44
+msgid "Title:"
+msgstr ""
+
+#: source/php/Options.php:58
+msgid "Shortcode"
+msgstr ""
+
+#: source/php/Options.php:58 source/php/Options.php:490
+msgid "will print out information displayed below."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: source/php/Options.php:72 source/php/Options.php:73
+msgid "NSR OpenHours"
+msgstr ""
+
+#: source/php/Options.php:114
+msgid "Add Location"
+msgstr ""
+
+#: source/php/Options.php:117
+msgid ""
+"Add one or more location. (Click on update after you added the location to "
+"fetch location scheme)"
+msgstr ""
+
+#: source/php/Options.php:129
+msgid "Add location"
+msgstr ""
+
+#: source/php/Options.php:133
+msgid "NSR has facilities on following locations"
+msgstr ""
+
+#: source/php/Options.php:171
+msgid "Select location to edit opening hours"
+msgstr ""
+
+#: source/php/Options.php:209
+msgid "Open Hours (exceptions)"
+msgstr ""
+
+#: source/php/Options.php:213
+msgid "Exeptions in open hours"
+msgstr ""
+
+#: source/php/Options.php:216
+msgid "Add one or more exceptions to this scheme. "
+msgstr ""
+
+#: source/php/Options.php:228
+msgid "Add exception"
+msgstr ""
+
+#: source/php/Options.php:232
+msgid "Date"
+msgstr ""
+
+#: source/php/Options.php:249
+msgid "Exeption title"
+msgstr ""
+
+#: source/php/Options.php:261
+msgid "eg. Juldagen"
+msgstr ""
+
+#: source/php/Options.php:270
+msgid "Exeption information"
+msgstr ""
+
+#: source/php/Options.php:282
+msgid "eg. 08:00 - 16:00"
+msgstr ""
+
+#: source/php/Options.php:314
+msgid " Opening Hours"
+msgstr ""
+
+#: source/php/Options.php:318
+msgid "Hours monday"
+msgstr ""
+
+#: source/php/Options.php:330 source/php/Options.php:351
+#: source/php/Options.php:372 source/php/Options.php:393
+#: source/php/Options.php:414 source/php/Options.php:435
+#: source/php/Options.php:456
+msgid "eg. 08:00 - 15:00"
+msgstr ""
+
+#: source/php/Options.php:339
+msgid "Hours tuesday"
+msgstr ""
+
+#: source/php/Options.php:360
+msgid "Hours wednesday"
+msgstr ""
+
+#: source/php/Options.php:381
+msgid "Hours thursday"
+msgstr ""
+
+#: source/php/Options.php:402
+msgid "Hours friday"
+msgstr ""
+
+#: source/php/Options.php:423
+msgid "Hours saturday"
+msgstr ""
+
+#: source/php/Options.php:444
+msgid "Hours sunday"
+msgstr ""
+
+#: source/php/Options.php:486
+msgid ", Todays opening hours"
+msgstr ""
+
+#: source/php/Options.php:490
+msgid "Shortkod: "
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "(#plugin_url#)"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Adds the ability to add opening hours and display them via shortcodes "
+"(today, full week)"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Sebastian Thulin, Johan Silvergrund"
+msgstr ""

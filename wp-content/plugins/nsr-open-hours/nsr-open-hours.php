@@ -4,7 +4,7 @@
  * Plugin Name:       NSR OpenHours
  * Plugin URI:        (#plugin_url#)
  * Description:       Adds the ability to add opening hours and display them via shortcodes (today, full week)
- * Version:           1.0.4
+ * Version:           1.5.0
  * Author:            Sebastian Thulin, Johan Silvergrund
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
@@ -21,7 +21,7 @@ define('OPENHOURS_PATH', plugin_dir_path(__FILE__));
 define('OPENHOURS_URL', plugins_url('', __FILE__));
 define('OPENHOURS_TEMPLATE_PATH', OPENHOURS_PATH . 'templates/');
 
-load_plugin_textdomain('(#plugin_slug#)', false, plugin_basename(dirname(__FILE__)) . '/languages');
+load_plugin_textdomain('nsr-open-hours', false, plugin_basename(dirname(__FILE__)) . '/languages');
 
 require_once OPENHOURS_PATH . 'source/php/Vendor/Psr4ClassLoader.php';
 require_once OPENHOURS_PATH . 'Public.php';

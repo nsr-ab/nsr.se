@@ -7043,6 +7043,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .box-filled a:not(.btn):not(.btn-large), .is-child-theme .box-filled a:not(.btn):not(.btn-large):not(.btn-large) {
     color: #007586 !important;
     margin-left: 10px !important; }
+  .is-child-theme .collection-item {
+    max-width: 100% !important; }
   .is-child-theme #main-content {
     text-rendering: geometricPrecision;
     -webkit-font-feature-settings: "kern" 1;
@@ -7199,6 +7201,27 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     background-color: transparent !important; }
   .is-child-theme .searchNSR p {
     max-width: 80% !important; }
+  .is-child-theme .openhours.collection .date, .is-child-theme .openhours.collection .date-day {
+    top: -5px !important;
+    font-size: 0.9rem !important;
+    display: inline-block;
+    width: 30px; }
+  .is-child-theme .openhours.collection .date-day {
+    top: 0px !important;
+    color: #777777;
+    font-size: 0.9rem !important;
+    width: 50px; }
+  .is-child-theme .weekender {
+    color: #777777;
+    font-style: italic;
+    font-size: .9rem !important; }
+  .is-child-theme .today {
+    font-weight: 600;
+    color: #007586; }
+  .is-child-theme .collection-header {
+    font-weight: 600;
+    border-bottom: 2px solid #9f9f9f !important;
+    max-width: 100% !important; }
 
 .is-child-theme.home header {
   background-color: #fff; }

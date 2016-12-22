@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2016-12-16 11:34+0100\n"
-"PO-Revision-Date: 2016-12-19 10:00+0100\n"
+"POT-Creation-Date: 2016-12-20 11:54+0100\n"
+"PO-Revision-Date: 2016-12-22 15:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/App.php:126
+#: source/php/App.php:127
 msgid ""
 "<strong>NSR Visual Composer Extended</strong> requires <strong><a href="
 "\"http://bit.ly/vcomposer\" target=\"_blank\">Visual Composer</a></strong> "
@@ -29,23 +29,6 @@ msgstr ""
 "<strong>NSR Visual Composer Extended</strong> kräver att Visual Composer är "
 "installerad och aktiverad för att fungera.<strong><a href=\"http://bit.ly/"
 "vcomposer\" target=\"_blank\">Visual Composer</a></strong>."
-
-#: source/php/App.php:190
-msgid "Persons"
-msgstr "Personer"
-
-#: source/php/App.php:191 source/php/Library/Addons/Puff.php:92
-#: source/php/Library/Addons/ThumbnailAndTextarea.php:89
-msgid "Content"
-msgstr "Kort beskrivning"
-
-#: source/php/App.php:192
-msgid "View all results"
-msgstr "Visa sökresultat med mer ingående information"
-
-#: source/php/App.php:243
-msgid "News"
-msgstr "Nyheter"
 
 #: source/php/Library/Addons/ListLinksWithThumbnail.php:42
 #: source/php/Library/Addons/ListNewsAndPosts.php:41
@@ -311,6 +294,12 @@ msgid ""
 msgstr ""
 "Vilken adress bor du på? Vad vill du sortera? Letar du efter något annat?"
 
+#: source/php/Library/Addons/Puff.php:92
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:89
+#: source/php/Library/Enqueue.php:86
+msgid "Content"
+msgstr "Kort beskrivning"
+
 #: source/php/Library/Addons/Puff.php:111
 msgid "Brick with content"
 msgstr "Puff med text"
@@ -331,7 +320,15 @@ msgstr "Puff med länk"
 msgid "Image, link, heading and description"
 msgstr "Bild, länk, rubrik, text"
 
-#: source/php/Library/Search/ElasticSearch.php:42
+#: source/php/Library/Enqueue.php:85
+msgid "Persons"
+msgstr "Personer"
+
+#: source/php/Library/Enqueue.php:87
+msgid "View all results"
+msgstr "Visa sökresultat med mer ingående information"
+
+#: source/php/Library/Search/ElasticSearch.php:41
 msgid "Exclude from search"
 msgstr "Exkludera från sök"
 
@@ -354,6 +351,9 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "hiq.se"
 msgstr ""
+
+#~ msgid "News"
+#~ msgstr "Nyheter"
 
 #~ msgid "Vad letar du efter?"
 #~ msgstr "Vad söker du efter?"
