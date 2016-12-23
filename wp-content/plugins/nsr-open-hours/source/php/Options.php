@@ -52,13 +52,14 @@ class Options extends App
 
         $field['choices'] = array();
         $oph_sections = get_field('oph_sections', 'option');
+        if(isset($oph_sections)) {
+            foreach ($oph_sections as $section) {
+                $locId = substr(md5($section['location']), 0, 6);
+                $field['choices'][$locId] = $section['location'];
+            }
 
-        foreach ($oph_sections as $section) {
-            $locId = substr(md5($section['location']), 0, 6);
-            $field['choices'][$locId] = $section['location'];
+            return $field;
         }
-
-        return $field;
     }
 
 
