@@ -8,8 +8,8 @@
  * Author: Johan Silvergrund
  * Company: HIQ
 
- * -- Puff --
- * A Visual composer ad-don to create brick with content.
+ * -- Open Hours --
+ * A Visual composer ad-don add opening hours.
  *
  */
 

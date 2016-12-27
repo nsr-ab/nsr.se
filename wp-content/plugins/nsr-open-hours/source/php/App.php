@@ -228,7 +228,8 @@ class App
 
         $openUl = isset($atts['markup']) ? $openUl = '<ul class="collection openhours with-header">' : null;
         $closeUl = isset($atts['markup']) ? $closeUl = '</ul>' : null;
-
+        $return_value = isset($return_value) ? $return_value : null;
+        $filter_is_exception = isset($filter_is_exception) ? $filter_is_exception : null;
         return apply_filters('NsrOpenHours/shortcode', $openUl . $return_value . $closeUl, $filter_is_exception);
 
     }
