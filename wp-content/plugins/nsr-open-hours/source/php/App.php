@@ -146,7 +146,7 @@ class App
 
                 $openLiStart = isset($atts['markup']) ? $openLiStart = '<li class="collection-item '.$align.'">' : null;
                 $closeLiItemStart = isset($atts['markup']) ? $closeLiItemStart = '</li>' : null;
-                $openLiWeekend = isset($atts['markup']) ? $openLiWeekend = '<li class="collection-item weekender '.$align.'">' : null;
+                $openLiWeekend = isset($atts['markup']) ? $openLiWeekend = '<li class="collection-item weekender ">' : null;
                 $openLiToday = isset($atts['markup']) ? $openLiToday = '<li class="collection-item today '.$align.'">' : null;
                 $listItem = array($openLiStart, $closeLiItemStart, $openLiWeekend, $openLiToday);
                 $return_value = "";
@@ -173,11 +173,12 @@ class App
                             if ($exc['date_' . $section] === $datetime->format('Y-m-d')) {
                                 $ex_title = $exc['ex_title_' . $section];
                                 $ex_info = $exc['ex_info_' . $section];
-                                $return_value .= $listItem[2] . $ex_title . " " . $ex_info . $listItem[1];
+                                $return_value .= $listItem[2] . $ex_title . " <span class='".$align."'>" . $ex_info ."</span>". $listItem[1];
                             }
                         }
                     }
                     else {
+
 
                         $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date left text-align-left  '.$fulldateCSS.'">' : null;
                         $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;

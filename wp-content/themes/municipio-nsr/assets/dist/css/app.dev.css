@@ -6987,7 +6987,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .text-align-left {
     text-align: left; }
   .is-child-theme .text-align-right {
-    text-align: right; }
+    text-align: right;
+    position: relative;
+    right: 0px; }
   .is-child-theme .theme-green a, .is-child-theme .theme-green .breadcrumbs a {
     color: #007586; }
   .is-child-theme .theme-green .breadcrumbs {
