@@ -31,7 +31,13 @@ NSROpenHours.op.OpenHours = (function ($) {
                 if($(this).attr('id') != 'acf-group_locations' &&  $(this).attr('id') != 'acf-group_select_section')
                     $(this).addClass('hide');
             });
-            var $firstSection = $('#acf-field_select option:first').val();
+            if($('#acf-field_select option:selected')) {
+                var $firstSection = $('#acf-field_select option:selected').val()
+            }
+            else {
+                var $firstSection = $('#acf-field_select option:first').val();
+            }
+
             OpenHours.prototype.showSection($firstSection);
 
             $('body').on('change', '#acf-field_select', function (e) {

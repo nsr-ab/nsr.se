@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2016-12-20 11:54+0100\n"
-"PO-Revision-Date: 2016-12-22 15:54+0100\n"
+"POT-Creation-Date: 2016-12-27 16:36+0100\n"
+"PO-Revision-Date: 2016-12-27 16:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/App.php:127
+#: source/php/App.php:140
 msgid ""
 "<strong>NSR Visual Composer Extended</strong> requires <strong><a href="
 "\"http://bit.ly/vcomposer\" target=\"_blank\">Visual Composer</a></strong> "
@@ -92,6 +92,7 @@ msgstr "Bild och länkar"
 #: source/php/Library/Addons/ListNewsAndPosts.php:136
 #: source/php/Library/Addons/MenuCollapsible.php:215
 #: source/php/Library/Addons/NSRSearch.php:71
+#: source/php/Library/Addons/OpenHours.php:148
 #: source/php/Library/Addons/Puff.php:121
 #: source/php/Library/Addons/ThumbnailAndTextarea.php:117
 msgid "NSR"
@@ -136,6 +137,7 @@ msgstr "Lista nyheter och sidor"
 
 #: source/php/Library/Addons/MenuCollapsible.php:61
 #: source/php/Library/Addons/NSRSearch.php:42
+#: source/php/Library/Addons/OpenHours.php:64
 #: source/php/Library/Addons/Puff.php:54
 msgid "Title"
 msgstr "Titel"
@@ -294,6 +296,66 @@ msgid ""
 msgstr ""
 "Vilken adress bor du på? Vad vill du sortera? Letar du efter något annat?"
 
+#: source/php/Library/Addons/OpenHours.php:28
+msgid ""
+"Open hours require ACF PRO to function. Please make shure that this is "
+"installed and enabled."
+msgstr ""
+"ACF Pro måste vara installerad och aktiverad för att OpenHours tillägget ska "
+"fungera i Visual Composer."
+
+#: source/php/Library/Addons/OpenHours.php:38
+msgid ""
+"NSR OpenHours plugin is required for Visual Composer OpenHour ad-don to "
+"work. Please make shure that this is installed and enabled."
+msgstr ""
+"NSR OpenHours måste vara installerat och aktiverat för att OpenHour "
+"tillägget ska fungera."
+
+#: source/php/Library/Addons/OpenHours.php:75
+msgid "Location"
+msgstr "Stad/Ort"
+
+#: source/php/Library/Addons/OpenHours.php:86
+msgid "Date Size"
+msgstr "Datumformat"
+
+#: source/php/Library/Addons/OpenHours.php:91
+msgid "Short"
+msgstr "Kort"
+
+#: source/php/Library/Addons/OpenHours.php:92
+msgid "Full"
+msgstr "Full"
+
+#: source/php/Library/Addons/OpenHours.php:101
+msgid "Type"
+msgstr "Visningstyp"
+
+#: source/php/Library/Addons/OpenHours.php:105
+msgid "Choose Type..."
+msgstr "Välj visningtyp"
+
+#: source/php/Library/Addons/OpenHours.php:106
+msgid "Weekends"
+msgstr "Helgdagar / Undantag"
+
+#: source/php/Library/Addons/OpenHours.php:107
+msgid "Week"
+msgstr "Vecka"
+
+#: source/php/Library/Addons/OpenHours.php:127
+msgid "Choose Location..."
+msgstr "Välj Stad/Ort"
+
+#: source/php/Library/Addons/OpenHours.php:138
+msgid "NSR OpenHours"
+msgstr ""
+
+#: source/php/Library/Addons/OpenHours.php:139
+msgid "Add Openening hours"
+msgstr "Lägg till öppettider"
+
 #: source/php/Library/Addons/Puff.php:92
 #: source/php/Library/Addons/ThumbnailAndTextarea.php:89
 #: source/php/Library/Enqueue.php:86
@@ -337,7 +399,7 @@ msgid "NSR Visual Composer Extended"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "nsr.se"
+msgid "https://github.com/nsr-ab/nsr.se"
 msgstr ""
 
 #. Description of the plugin/theme

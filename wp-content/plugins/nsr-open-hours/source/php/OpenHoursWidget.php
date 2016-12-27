@@ -31,7 +31,7 @@ class OpenHoursWidget extends \WP_Widget
         $options = new \NsrOpenHours\OpenHoursOptions();
         $sections = $options->popChoices();
         $city = $sections['choices'][$instance['section']];
-        echo do_shortcode('[opening-hours datesize="' . $instance['date_size'] . '" align="' . $instance['align'] . '" city="' . $instance['title'] . '" type="' . $instance['type'] . '" section="' . $instance['section'] . '" markup="true"]');
+        echo do_shortcode('[opening-hours datesize="' . $instance['date_size'] . '" city="' . $instance['title'] . '" type="' . $instance['type'] . '" section="' . $instance['section'] . '" markup="true"]');
         echo $args['after_widget'];
     }
 
@@ -47,7 +47,7 @@ class OpenHoursWidget extends \WP_Widget
         $title = !empty($instance['title']) ? $instance['title'] : esc_html__('Helsingborg', 'nsr-open-hours');
         $type = !empty($instance['type']) ? $instance['type'] : $instance['type'];
         $date_size = !empty($instance['date_size']) ? $instance['date_size'] : $instance['date_size'];
-        $align = !empty($instance['align']) ? $instance['align'] : $instance['align'];
+
 
         $output = "<p></p>
                         <p>
@@ -66,9 +66,7 @@ class OpenHoursWidget extends \WP_Widget
                         <select name=\"" . esc_attr($this->get_field_name('type')) . "\" class='widefat' id=\"" . $this->get_field_id('type') . "\">
                             <option value=\"today\" ";
 
-        if ($type === "today")
-            $output .= "selected=\"selected\"";
-        $output .= ">". __('Show todays opening hours', 'nsr-open-hours') ."</option><option value=\"week\"";
+        $output .= "<option value=\"week\" ";
 
         if ($type === "week")
             $output .= "selected=\"selected\"";
@@ -78,21 +76,6 @@ class OpenHoursWidget extends \WP_Widget
             $output .= "selected=\"selected\"";
         $output .= ">". __('Show exceptions', 'nsr-open-hours') ."</option></select></p>";
 
-        $output .= "<p>
-                        <label for=\"" . esc_attr($this->get_field_id('align')) . "\">
-                            " . __('Align hours:', 'nsr-open-hours') . "
-                        </label>";
-
-        $output .= "<select name=\"" . esc_attr($this->get_field_name('align')) . "\" class='widefat' id=\"" . $this->get_field_id('align') . "\">
-                            <option value=\"left\" ";
-
-        if ($align === "left")
-            $output .= "selected=\"selected\"";
-        $output .= ">". __('Left', 'nsr-open-hours') ."</option><option value=\"right\"";
-
-        if ($align === "right")
-            $output .= "selected=\"selected\"";
-        $output .= ">". __('Right', 'nsr-open-hours') ."</option></select></p>";
 
 
         $output .= "<p>
@@ -101,7 +84,7 @@ class OpenHoursWidget extends \WP_Widget
                         </label>";
 
         $output .= "<select name=\"" . esc_attr($this->get_field_name('date_size')) . "\" class='widefat' id=\"" . $this->get_field_id('date_size') . "\">
-                            <option value=\"left\" ";
+                            <option value=\"short\" ";
 
         if ($date_size === "short")
             $output .= "selected=\"selected\"";
@@ -146,7 +129,6 @@ class OpenHoursWidget extends \WP_Widget
         $instance = array();
         $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
         $instance['type'] = (!empty($new_instance['type'])) ? strip_tags($new_instance['type']) : '';
-        $instance['align'] = (!empty($new_instance['align'])) ? strip_tags($new_instance['align']) : '';
         $instance['date_size'] = (!empty($new_instance['date_size'])) ? strip_tags($new_instance['date_size']) : '';
         $instance['section'] = (!empty($new_instance['section'])) ? strip_tags($new_instance['section']) : '';
         return $instance;

@@ -6987,9 +6987,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .text-align-left {
     text-align: left; }
   .is-child-theme .text-align-right {
-    text-align: right;
-    position: relative;
-    right: 0px; }
+    text-align: right; }
   .is-child-theme .theme-green a, .is-child-theme .theme-green .breadcrumbs a {
     color: #007586; }
   .is-child-theme .theme-green .breadcrumbs {
@@ -7210,8 +7208,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .openhours.collection .date, .is-child-theme .openhours.collection .date-day {
     top: -5px !important;
     font-size: 0.9rem !important;
-    display: inline-block;
-    width: 30px; }
+    display: inline-block; }
   .is-child-theme .openhours.collection .date-day {
     top: 0px !important;
     color: #777777;
@@ -7221,9 +7218,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     color: #777777;
     font-style: italic;
     font-size: .9rem !important; }
-  .is-child-theme .today {
+  .is-child-theme .secondary-content {
+    color: #777777; }
+  .is-child-theme .today span {
     font-weight: 600;
-    color: #007586; }
+    color: #007586 !important; }
   .is-child-theme .collection-header {
     font-weight: 600;
     border-bottom: 2px solid #9f9f9f !important;
@@ -7233,7 +7232,16 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     position: relative;
     color: #909090; }
   .is-child-theme .fulldate {
-    width: 60px !important; }
+    min-width: 40px !important; }
+  @media (max-width: 1070px) {
+    .is-child-theme .openhours .collection .collection-item {
+      padding: 10px; } }
+  .is-child-theme .left {
+    float: left; }
+  .is-child-theme .right {
+    float: right; }
+  .is-child-theme .secondary-content {
+    top: 0px; }
 
 .is-child-theme.home header {
   background-color: #fff; }

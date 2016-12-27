@@ -68,7 +68,7 @@ li.before {
     top: -5px !important;
     font-size: 0.9rem !important;
     display: inline-block;
-    width:30px;
+
 }
 .openhours.collection .date-day {
     top: 0px !important;
@@ -82,10 +82,12 @@ li.before {
     font-style: italic;
     font-size: .9rem !important;
 }
-
-.today {
+.secondary-content {
+    color:alpha-color($palette-primary-grey, 50%, $type:'dark');
+}
+.today span{
     font-weight:600;
-    color:$palette-primary-green;
+    color:$palette-primary-green !important;
 }
 .collection-header {
     font-weight:600;
@@ -97,6 +99,21 @@ li.before {
     position: relative;
     color:alpha-color($palette-primary-grey, 40%, $type:'dark');
 }
+
 .fulldate {
-    width:60px !important;
+    min-width:40px !important;
+}
+@media (max-width: 1070px) {
+    .openhours .collection .collection-item {
+        padding:10px;
+    }
+}
+.left {
+    float:left;
+}
+.right {
+    float:right;
+}
+.secondary-content {
+    top:0px;
 }
