@@ -1,6 +1,6 @@
 <?php
 
-namespace openhours;
+namespace NsrOpenHours;
 
 class App
 {
@@ -18,7 +18,7 @@ class App
         }
 
         add_action('widgets_init', function () {
-            register_widget('openhours\OpenHoursWidget');
+            register_widget('NsrOpenHours\OpenHoursWidget');
         });
 
 
@@ -229,7 +229,7 @@ class App
         $openUl = isset($atts['markup']) ? $openUl = '<ul class="collection openhours with-header">' : null;
         $closeUl = isset($atts['markup']) ? $closeUl = '</ul>' : null;
 
-        return apply_filters('openhours/shortcode', $openUl . $return_value . $closeUl, $filter_is_exception);
+        return apply_filters('NsrOpenHours/shortcode', $openUl . $return_value . $closeUl, $filter_is_exception);
 
     }
 

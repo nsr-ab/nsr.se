@@ -1,6 +1,6 @@
 <?php
 
-namespace openhours\Vendor;
+namespace NsrOpenHours\Vendor;
 
 /**
  * A PSR-4 compatible class loader.

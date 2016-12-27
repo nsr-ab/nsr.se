@@ -1,6 +1,6 @@
 <?php
 
-namespace openhours;
+namespace NsrOpenHours;
 
 class OpenHoursOptions extends App
 {

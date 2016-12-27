@@ -5,7 +5,7 @@
  * Plugin URI:        https://github.com/nsr-ab/nsr.se
  * Description:       Adds the ability to add opening hours and display them via shortcodes (today, full week)
  * Version:           1.5.1
- * Author:            Sebastian Thulin, Johan Silvergrund
+ * Author:            Johan Silvergrund, Sebastian Thulin
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
  * Text Domain:       opening-hours
@@ -27,13 +27,13 @@ require_once OPENHOURS_PATH . 'source/php/Vendor/Psr4ClassLoader.php';
 require_once OPENHOURS_PATH . 'Public.php';
 
 // Instantiate and register the autoloader
-$loader = new openhours\Vendor\Psr4ClassLoader();
-$loader->addPrefix('openhours', OPENHOURS_PATH);
-$loader->addPrefix('openhours', OPENHOURS_PATH . 'source/php/');
+$loader = new NsrOpenHours\Vendor\Psr4ClassLoader();
+$loader->addPrefix('NsrOpenHours', OPENHOURS_PATH);
+$loader->addPrefix('NsrOpenHours', OPENHOURS_PATH . 'source/php/');
 $loader->register();
 
 // Start application
-new openhours\App();
+new NsrOpenHours\App();
 
 //Options page
-new openhours\OpenHoursOptions();
+new NsrOpenHours\OpenHoursOptions();
