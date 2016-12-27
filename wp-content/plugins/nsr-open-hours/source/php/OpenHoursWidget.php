@@ -28,7 +28,7 @@ class OpenHoursWidget extends \WP_Widget
     {
 
         echo $args['before_widget'];
-        $options = new \openhours\Options();
+        $options = new \openhours\OpenHoursOptions();
         $sections = $options->popChoices();
         $city = $sections['choices'][$instance['section']];
         echo do_shortcode('[opening-hours datesize="' . $instance['date_size'] . '" align="' . $instance['align'] . '" city="' . $instance['title'] . '" type="' . $instance['type'] . '" section="' . $instance['section'] . '" markup="true"]');
@@ -116,7 +116,7 @@ class OpenHoursWidget extends \WP_Widget
 
 
 
-        $options = new \openhours\Options();
+        $options = new \openhours\OpenHoursOptions();
         $sections = $options->popChoices();
 
         $output .= "<p><label for=\"" . esc_attr($this->get_field_id('section')) . "\">" . __('City:', 'nsr-open-hours') . "</label>";

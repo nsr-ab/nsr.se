@@ -103,8 +103,6 @@ class App
         $dateformat = ($dsize === 'full' ) ? 'l' : 'D';
         $fulldateCSS = ($dsize === 'full' ) ? 'fulldate' : '';
 
-
-
         switch ($type) {
 
             case "today":

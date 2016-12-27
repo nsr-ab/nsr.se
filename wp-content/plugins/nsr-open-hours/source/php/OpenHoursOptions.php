@@ -2,7 +2,7 @@
 
 namespace openhours;
 
-class Options extends App
+class OpenHoursOptions extends App
 {
     public function __construct()
     {

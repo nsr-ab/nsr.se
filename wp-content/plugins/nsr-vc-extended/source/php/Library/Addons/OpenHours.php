@@ -32,7 +32,7 @@ class OpenHours
         }
 
 
-        if ( !class_exists( '\openhours\Options' ) ) {
+        if ( !class_exists( \openhours\OpenHoursOptions::class) ) {
             echo '<div class="notice notice-error">';
             echo '<p>';
             _e("NSR OpenHours plugin is required for Visual Composer OpenHour ad-don to work. Please make shure that this is installed and enabled.", 'nsr-open-hours');

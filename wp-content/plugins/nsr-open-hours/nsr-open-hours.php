@@ -36,4 +36,4 @@ $loader->register();
 new openhours\App();
 
 //Options page
-new openhours\Options();
+new openhours\OpenHoursOptions();
