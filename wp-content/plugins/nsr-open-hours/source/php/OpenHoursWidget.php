@@ -30,7 +30,8 @@ class OpenHoursWidget extends \WP_Widget
         echo $args['before_widget'];
         $options = new \openhours\Options();
         $sections = $options->popChoices();
-        echo do_shortcode('[opening-hours city="' . $sections['choices'][$instance['section']] . '" type="' . $instance['type'] . '" section="' . $instance['section'] . '" markup="true"]');
+        $city = $sections['choices'][$instance['section']];
+        echo do_shortcode('[opening-hours city="' . $instance['title'] . '" type="' . $instance['type'] . '" section="' . $instance['section'] . '" markup="true"]');
         echo $args['after_widget'];
     }
 

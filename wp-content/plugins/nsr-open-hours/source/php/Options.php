@@ -453,9 +453,7 @@ class Options extends App
                         'fields' => array(
                             array(
                                 'key' => 'field_56d9a4880cd89_' . $locId,
-                                'label' => '<div>' . __("Shortcode for today: ", 'nsr-open-hours') . '<br><em style=\'color:dimgrey\'>[opening-hours city="' . $section['location'] . '" type="today" section="' . $locId . '"]</em></div><br />' .
-                                    '<div>' . __("Shortcode for this week: ", 'nsr-open-hours') . '<br><em style=\'color:dimgrey\'>[opening-hours city="' . $section['location'] . '" type="week" section="' . $locId . '" markup=true]</em></div><br />' .
-                                    '<div>' . __("Shortcode this years weekends: ", 'nsr-open-hours') . '<br><em style=\'color:dimgrey\'>[opening-hours city="' . $section['location'] . '" type="weekends" section="' . $locId . '" markup=true]</em><br /><br />' . __("Remove (markup=true) if you only want to display text.", 'nsr-open-hours') . '<br /></div>',
+                                'label' => '<div>' . __("Use Visual Composer or openHours Widget to display openHours: ", 'nsr-open-hours') . '</div>',
                                 'name' => '',
                                 'type' => 'message',
                                 'instructions' => '',

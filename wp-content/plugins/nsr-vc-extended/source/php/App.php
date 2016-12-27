@@ -69,6 +69,15 @@ class App
             new \VcExtended\Library\Addons\Puff();
         }
 
+
+        /**
+         * Ad-dons NSR openHour
+         */
+        if ( !class_exists( 'OpenHours' ) ) {
+            new \VcExtended\Library\Addons\OpenHours();
+        }
+
+
         /**
          * Ad-dons Elastic Site Search
          */
@@ -106,6 +115,10 @@ class App
         if ( !class_exists( 'Enqueue' ) ) {
             new \VcExtended\Library\Enqueue();
         }
+
+
+
+
 
 
         add_action( 'wp_ajax_nopriv_fetch_data', array( $this, 'fetch_data' ) );

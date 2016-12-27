@@ -98,6 +98,12 @@ class App
         $section = isset($atts['section']) ? $section = $atts['section'] : null;
         $type = isset($atts['type']) ? $type = $atts['type'] : null;
         $city = isset($atts['city']) ? $city = $atts['city'] : null;
+        $align = isset($atts['align']) ? $align = $atts['align'] : null;
+        $dsize = isset($atts['datesize']) ? $atts['datesize'] : null;
+        $dateformat = ($dsize === 'full' ) ? 'l' : 'D';
+        $fulldateCSS = ($dsize === 'full' ) ? 'fulldate' : '';
+
+
 
         switch ($type) {
 
@@ -135,17 +141,20 @@ class App
             case "week":
 
                 $datetime = new \DateTime();
-
                 $datetime->modify('-1 day');
-                $openLiStart = isset($atts['markup']) ? $openLiStart = '<li class="collection-item">' : null;
+
+                if($align)
+                    $align = "text-align-".$align;
+
+                $openLiStart = isset($atts['markup']) ? $openLiStart = '<li class="collection-item '.$align.'">' : null;
                 $closeLiItemStart = isset($atts['markup']) ? $closeLiItemStart = '</li>' : null;
-                $openLiWeekend = isset($atts['markup']) ? $openLiWeekend = '<li class="collection-item weekender">' : null;
-                $openLiToday = isset($atts['markup']) ? $openLiToday = '<li class="collection-item today">' : null;
+                $openLiWeekend = isset($atts['markup']) ? $openLiWeekend = '<li class="collection-item weekender '.$align.'">' : null;
+                $openLiToday = isset($atts['markup']) ? $openLiToday = '<li class="collection-item today '.$align.'">' : null;
                 $listItem = array($openLiStart, $closeLiItemStart, $openLiWeekend, $openLiToday);
                 $return_value = "";
                 $i = 0;
 
-                $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> Öppettider " . $city . "</li>";
+                $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
 
                 while (true) {
 
@@ -172,12 +181,12 @@ class App
                     }
                     else {
 
-                        $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date">' : null;
+                        $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date left text-align-left  '.$fulldateCSS.'">' : null;
                         $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
                         if ($datetime->format('Y-m-d') != date('Y-m-d')) {
-                            $return_value .= $listItem[0] . $openSpan . ucfirst(date_i18n('D', strtotime($datetime->format('D')))) . $closeSpan . " " . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+                            $return_value .= $listItem[0] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " " . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
                         } else {
-                            $return_value .= $listItem[3] . $openSpan . ucfirst(date_i18n('D', strtotime($datetime->format('D')))) . $closeSpan . " " . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+                            $return_value .= $listItem[3] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " " . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
                         }
                     }
 
@@ -198,7 +207,7 @@ class App
                 $openLiToday = isset($atts['markup']) ? $openLiToday = '<li class="collection-item today">' : null;
                 $listItem = array($openLiStart, $closeLiItemStart, $openLiToday);
                 $return_value = "";
-                $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> Helgdagar " . $city . "</li>";
+                $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
                 $exception_info = get_field('oph_exeptions_' . $section, 'option');
                 $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date-day">' : null;
                 $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;

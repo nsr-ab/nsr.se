@@ -86,7 +86,13 @@ article h4 {
     margin-top:0px;
 }
 
+.text-align-left {
+    text-align:left;
+}
 
+.text-align-right {
+    text-align:right;
+}
 
 .theme-green a, .theme-green .breadcrumbs a {
     color: $palette-primary-green;

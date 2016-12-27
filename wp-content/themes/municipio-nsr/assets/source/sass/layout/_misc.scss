@@ -97,3 +97,6 @@ li.before {
     position: relative;
     color:alpha-color($palette-primary-grey, 40%, $type:'dark');
 }
+.fulldate {
+    width:60px !important;
+}

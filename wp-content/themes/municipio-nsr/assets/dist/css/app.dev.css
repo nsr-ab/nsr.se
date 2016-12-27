@@ -6984,6 +6984,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: -8px;
     padding-bottom: .0em;
     margin-top: 0px; }
+  .is-child-theme .text-align-left {
+    text-align: left; }
+  .is-child-theme .text-align-right {
+    text-align: right; }
   .is-child-theme .theme-green a, .is-child-theme .theme-green .breadcrumbs a {
     color: #007586; }
   .is-child-theme .theme-green .breadcrumbs {
@@ -7226,6 +7230,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     top: 5px;
     position: relative;
     color: #909090; }
+  .is-child-theme .fulldate {
+    width: 60px !important; }
 
 .is-child-theme.home header {
   background-color: #fff; }
