@@ -21,7 +21,6 @@ class App
             register_widget('NsrOpenHours\OpenHoursWidget');
         });
 
-
         add_action('admin_enqueue_scripts', array($this, 'enqueueStylesAdmin'));
         add_action('after_setup_theme', array($this, 'after_nsr_theme_setup'));
     }
@@ -100,9 +99,8 @@ class App
         $city = isset($atts['city']) ? $atts['city'] : null;
 
         $dsize = isset($atts['datesize']) ? $atts['datesize'] : null;
-        $dateformat = ($dsize === 'full' ) ? 'l' : 'D';
-        $fulldateCSS = ($dsize === 'full' ) ? 'fulldate' : '';
-
+        $dateformat = ($dsize === 'full') ? 'l' : 'D';
+        $fulldateCSS = ($dsize === 'full') ? 'fulldate' : '';
 
 
         switch ($type) {
@@ -129,10 +127,9 @@ class App
                     $return_value .= $unique_exception['ex_info_' . $section];
                     $filter_is_exception = true;
 
-                }
-                else {
+                } else {
 
-                    $return_value = $city . " " . get_field($this->getMetaKeyByDayId(date("w"), $section), 'option').".";
+                    $return_value = $city . " " . get_field($this->getMetaKeyByDayId(date("w"), $section), 'option') . ".";
                     $filter_is_exception = true;
                 }
 
@@ -154,8 +151,6 @@ class App
 
                 $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
 
-
-
                 while (true) {
 
                     if ($i === 7)
@@ -167,7 +162,7 @@ class App
                     }
 
                     $exception_info = get_field('oph_exeptions_' . $section, 'option');
-                    $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date text-align-left  '.$fulldateCSS.'">' : null;
+                    $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date text-align-left  ' . $fulldateCSS . '">' : null;
                     $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
                     if ($this->in_array_r($datetime->format('Y-m-d'), $exception_info)) {
 
@@ -180,9 +175,7 @@ class App
                                 $return_value .= $listItem[2] . $openSpan . $ex_title . $closeSpan . "  <span class=\"secondary-content\">" . $ex_info . $listItem[1];
                             }
                         }
-                    }
-                    else {
-
+                    } else {
 
                         if ($datetime->format('Y-m-d') != date('Y-m-d')) {
                             $return_value .= $listItem[0] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
@@ -214,7 +207,7 @@ class App
 
                 $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date-day">' : null;
                 $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
-                if($exception_info) {
+                if ($exception_info) {
                     foreach ($exception_info as $exc) {
 
                         $ex_title = $exc['ex_title_' . $section];
@@ -236,7 +229,7 @@ class App
         $return_value = isset($return_value) ? $return_value : null;
         $filter_is_exception = isset($filter_is_exception) ? $filter_is_exception : null;
 
-        if($type == "today") {
+        if ($type == "today") {
             $openUl = "";
             $closeUl = "";
         }

@@ -70,13 +70,11 @@ class OpenHoursWidget extends \WP_Widget
 
         if ($type === "week")
             $output .= "selected=\"selected\"";
-        $output .= ">". __('Show 7 days', 'nsr-open-hours') ."</option><option value=\"exceptions\"";
+        $output .= ">" . __('Show 7 days', 'nsr-open-hours') . "</option><option value=\"exceptions\"";
 
         if ($type === "exceptions")
             $output .= "selected=\"selected\"";
-        $output .= ">". __('Show exceptions', 'nsr-open-hours') ."</option></select></p>";
-
-
+        $output .= ">" . __('Show exceptions', 'nsr-open-hours') . "</option></select></p>";
 
         $output .= "<p>
                         <label for=\"" . esc_attr($this->get_field_id('date_size')) . "\">
@@ -88,16 +86,11 @@ class OpenHoursWidget extends \WP_Widget
 
         if ($date_size === "short")
             $output .= "selected=\"selected\"";
-        $output .= ">". __('Short', 'nsr-open-hours') ."</option><option value=\"full\"";
+        $output .= ">" . __('Short', 'nsr-open-hours') . "</option><option value=\"full\"";
 
         if ($date_size === "full")
             $output .= "selected=\"selected\"";
-        $output .= ">". __('Full', 'nsr-open-hours') ."</option></select></p>";
-
-
-
-
-
+        $output .= ">" . __('Full', 'nsr-open-hours') . "</option></select></p>";
 
         $options = new \NsrOpenHours\OpenHoursOptions();
         $sections = $options->popChoices();
