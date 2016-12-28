@@ -81,7 +81,7 @@ class App
      * Macthing stuff in vector
      * @return boolean
      */
-    public function in_array_r($item, $array)
+    public static function in_array_r($item, $array)
     {
         return preg_match('/"' . $item . '"/i', json_encode($array));
     }
@@ -129,7 +129,7 @@ class App
 
                 } else {
 
-                    $return_value = $city . " " . get_field($this->getMetaKeyByDayId(date("w"), $section), 'option') . ".";
+                    $return_value = $city . " " . get_field(self::getMetaKeyByDayId(date("w"), $section), 'option') . ".";
                     $filter_is_exception = true;
                 }
 
@@ -164,23 +164,22 @@ class App
                     $exception_info = get_field('oph_exeptions_' . $section, 'option');
                     $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date text-align-left  ' . $fulldateCSS . '">' : null;
                     $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
-                    if ($this->in_array_r($datetime->format('Y-m-d'), $exception_info)) {
+                    if (self::in_array_r($datetime->format('Y-m-d'), $exception_info)) {
 
                         foreach ($exception_info as $exc) {
 
                             if ($exc['date_' . $section] === $datetime->format('Y-m-d')) {
                                 $ex_title = $exc['ex_title_' . $section];
                                 $ex_info = $exc['ex_info_' . $section];
-
                                 $return_value .= $listItem[2] . $openSpan . $ex_title . $closeSpan . "  <span class=\"secondary-content\">" . $ex_info . $listItem[1];
                             }
                         }
                     } else {
 
                         if ($datetime->format('Y-m-d') != date('Y-m-d')) {
-                            $return_value .= $listItem[0] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+                            $return_value .= $listItem[0] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field(self::getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
                         } else {
-                            $return_value .= $listItem[3] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+                            $return_value .= $listItem[3] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field(self::getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
                         }
                     }
 
@@ -194,8 +193,8 @@ class App
             case "weekends":
 
                 $datetime = new \DateTime();
-
                 $datetime->modify('-1 day');
+
                 $openLiStart = isset($atts['markup']) ? $openLiStart = '<li class="collection-item">' : null;
                 $closeLiItemStart = isset($atts['markup']) ? $closeLiItemStart = '</li>' : null;
                 $openLiToday = isset($atts['markup']) ? $openLiToday = '<li class="collection-item today">' : null;
@@ -207,6 +206,7 @@ class App
 
                 $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date-day">' : null;
                 $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
+
                 if ($exception_info) {
                     foreach ($exception_info as $exc) {
 
@@ -217,6 +217,7 @@ class App
 
                     }
                 }
+
                 $return_value .= isset($atts['markup']) ? '' : '<br />';
                 $filter_is_exception = false;
                 $datetime->add(new \DateInterval('P1D'));
@@ -244,7 +245,7 @@ class App
      * OptionsDay
      * @return string
      */
-    public function getMetaKeyByDayId($day_id, $section)
+    public static function getMetaKeyByDayId($day_id, $section)
     {
         switch ($day_id) {
             case 1:

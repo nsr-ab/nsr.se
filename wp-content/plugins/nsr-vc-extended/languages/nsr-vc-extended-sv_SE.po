@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2016-12-27 16:36+0100\n"
-"PO-Revision-Date: 2016-12-27 16:39+0100\n"
+"POT-Creation-Date: 2016-12-28 09:38+0100\n"
+"PO-Revision-Date: 2016-12-28 09:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -92,7 +92,7 @@ msgstr "Bild och länkar"
 #: source/php/Library/Addons/ListNewsAndPosts.php:136
 #: source/php/Library/Addons/MenuCollapsible.php:215
 #: source/php/Library/Addons/NSRSearch.php:71
-#: source/php/Library/Addons/OpenHours.php:148
+#: source/php/Library/Addons/OpenHours.php:145
 #: source/php/Library/Addons/Puff.php:121
 #: source/php/Library/Addons/ThumbnailAndTextarea.php:117
 msgid "NSR"
@@ -320,6 +320,10 @@ msgstr "Stad/Ort"
 msgid "Date Size"
 msgstr "Datumformat"
 
+#: source/php/Library/Addons/OpenHours.php:90
+msgid "Choose format..."
+msgstr "Välj format…"
+
 #: source/php/Library/Addons/OpenHours.php:91
 msgid "Short"
 msgstr "Kort"
@@ -344,15 +348,19 @@ msgstr "Helgdagar / Undantag"
 msgid "Week"
 msgstr "Vecka"
 
-#: source/php/Library/Addons/OpenHours.php:127
+#: source/php/Library/Addons/OpenHours.php:108
+msgid "Today"
+msgstr "Idag"
+
+#: source/php/Library/Addons/OpenHours.php:124
 msgid "Choose Location..."
 msgstr "Välj Stad/Ort"
 
-#: source/php/Library/Addons/OpenHours.php:138
+#: source/php/Library/Addons/OpenHours.php:135
 msgid "NSR OpenHours"
 msgstr ""
 
-#: source/php/Library/Addons/OpenHours.php:139
+#: source/php/Library/Addons/OpenHours.php:136
 msgid "Add Openening hours"
 msgstr "Lägg till öppettider"
 
