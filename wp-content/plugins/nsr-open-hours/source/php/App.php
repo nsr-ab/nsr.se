@@ -110,12 +110,12 @@ class App
             $return_value = "<li class=\"collection-header cleanHeader\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
             $return_value .= "<li class=\"collection-item alltoday\"><span class='date text-align-left fulldate collection-subheader'>ÅTERVINNINGSCENTRALER</span><span class=\"secondary-content collection-subheader\">IDAG</span></li>";
 
-
             if(isset($oph_sections)) {
 
                 foreach ($oph_sections as $allsec) {
 
                     $allsections = substr(md5($allsec['location']), 0, 6);
+                    $sectionsLink = "<a href=\"".$allsec['link_to_page']."\">".$allsec['location']."</a>";
                     $datetime = new \DateTime();
 
                     $openLiStart = isset($atts['markup']) ? '<li class="collection-item ">' : null;
@@ -146,15 +146,15 @@ class App
                                 if ($exc['date_' . $allsections] === $datetime->format('Y-m-d')) {
                                     $ex_title = $exc['ex_title_' . $allsections];
                                     $ex_info = $exc['ex_info_' . $allsections];
-                                    $return_value .= $listItem[2] . $openSpan . $allsec['location']  . $closeSpan . "  <span class=\"secondary-content\"> " . $ex_info . $listItem[1];
+                                    $return_value .= $listItem[2] . $openSpan . $sectionsLink  . $closeSpan . "  <span class=\"secondary-content\"> " . $ex_info . $listItem[1];
                                 }
                             }
                         } else {
 
                             if ($datetime->format('Y-m-d') != date('Y-m-d')) {
-                                $return_value .= $listItem[0] . $openSpan . $allsec['location'] . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $allsections), 'option') . $listItem[1];
+                                $return_value .= $listItem[0] . $openSpan . $sectionsLink . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $allsections), 'option') . $listItem[1];
                             } else {
-                                $return_value .= $listItem[3] . $openSpan . $allsec['location'] . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $allsections), 'option') . $listItem[1];
+                                $return_value .= $listItem[3] . $openSpan . $sectionsLink . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $allsections), 'option') . $listItem[1];
                             }
                         }
 

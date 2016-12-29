@@ -103,14 +103,36 @@ class OpenHoursOptions extends App
                                 'required' => '',
                                 'conditional_logic' => 0,
                                 'wrapper' => array(
-                                    'width' => 100,
+                                    'width' => 50,
                                     'class' => '',
                                     'id' => '',
                                 ),
 
                             ),
+                            array (
+                                'post_type' => array (
+                                ),
+                                'taxonomy' => array (
+                                ),
+                                'allow_null' => 0,
+                                'multiple' => 0,
+                                'allow_archives' => 1,
+                                'key' => 'field_5865200cd37b9',
+                                'label' => 'Länk till sida',
+                                'name' => 'link_to_page',
+                                'type' => 'page_link',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array (
+                                    'width' => 50,
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                            ),
                         ),
                     ),
+
                 ),
                 'location' => array(
                     array(
@@ -144,7 +166,8 @@ class OpenHoursOptions extends App
                         'choices' => array(
                             $this->popChoices()
                         ),
-                    )
+                    ),
+
                 ),
                 'location' => array(
                     array(
