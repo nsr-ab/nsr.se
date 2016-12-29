@@ -73,7 +73,7 @@ class OpenHours
                 'type' => 'checkbox',
                 'heading' => __('All locations', 'nsr-vc-extended'),
                 'param_name' => 'vc_all_locations',
-                'edit_field_class' => 'vc_col-sm-4 vc_col-md-4 all-locations',
+                'edit_field_class' => 'vc_col-sm-12 vc_col-md-12 all-locations',
                 'value' => array(
                     __('Show 1 location', 'nsr-vc-extended')   => 'true',
 
