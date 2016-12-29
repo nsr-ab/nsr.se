@@ -6,3 +6,6 @@
 
 .vc_pagelink {
   display: none; }
+
+.disable-when-all, .vc_dependent-hidden {
+  display: block !important; }

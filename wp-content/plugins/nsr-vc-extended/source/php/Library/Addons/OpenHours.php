@@ -67,6 +67,19 @@ class OpenHours
 
             ),
 
+            /** @Param Type parameter*/
+            array(
+                'admin_label' => true,
+                'type' => 'checkbox',
+                'heading' => __('All locations', 'nsr-vc-extended'),
+                'param_name' => 'vc_all_locations',
+                'edit_field_class' => 'vc_col-sm-4 vc_col-md-4 all-locations',
+                'value' => array(
+                    __('Show 1 location', 'nsr-vc-extended')   => 'true',
+
+                )
+
+            ),
 
             /** @Param Type parameter*/
             array(
@@ -74,8 +87,13 @@ class OpenHours
                 'type' => 'dropdown',
                 'heading' => __('Location', 'nsr-vc-extended'),
                 'param_name' => 'vc_location',
-                'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
+                'edit_field_class' => 'vc_col-sm-4 vc_col-md-4 disable-when-all',
                 'value' => $stack,
+                'dependency' => array(
+                    'element' => 'vc_all_locations',
+                    'value' => 'true',
+                    'callback' => 'callbackOutsideScope'
+                )
             ),
 
 
@@ -85,7 +103,12 @@ class OpenHours
                 'type' => 'dropdown',
                 'heading' => __('Date Size', 'nsr-vc-extended'),
                 'param_name' => 'vc_date_size',
-                'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
+                'edit_field_class' => 'vc_col-sm-4 vc_col-md-4 ',
+                'dependency' => array(
+                    'element' => 'vc_all_locations',
+                    'value' => 'true',
+                    'callback' => 'callbackOutsideScope'
+                ),
                 'value' => array(
                     __('Choose format...', 'nsr-vc-extended')  => '',
                     __('Short', 'nsr-vc-extended')   => 'short',
@@ -101,7 +124,12 @@ class OpenHours
                 'heading' => __('Type', 'nsr-vc-extended'),
                 'param_name' => 'vc_type',
                 'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
-                "value"       => array(
+                'dependency' => array(
+                    'element' => 'vc_all_locations',
+                    'value' => 'true',
+                    'callback' => 'callbackOutsideScope'
+                ),
+                'value'       => array(
                     __('Choose Type...', 'nsr-vc-extended') => '',
                     __('Weekends', 'nsr-vc-extended')   => 'weekends',
                     __('Week', 'nsr-vc-extended')   => 'week',
@@ -136,7 +164,7 @@ class OpenHours
                 'description' => __('Add Openening hours', 'nsr-vc-extended'),
                 'base' => 'nsr_vcOpenHours',
                 "content_element" => true,
-                'class' => 'vc_extended ',
+                'class' => 'vc_extended vc_openhours',
                 'show_settings_on_create' => true,
                 "is_container" => true,
                 'admin_label' => false,
@@ -145,6 +173,7 @@ class OpenHours
                 'category' => __('NSR', 'js_composer'),
                 'icon' => plugins_url( 'nsr-vc-extended/dist/img/icn_puff_links.svg' ),
                 'admin_enqueue_css' => array( plugins_url( 'nsr-vc-extended/dist/css/nsr-vc-extended-admin.min.css' ) ),
+                'admin_enqueue_css' => array( plugins_url( 'nsr-vc-extended/source/js/nsr-vc-menuCollapsible-admin.js' ) ),
                 'params' => $this->params($stack)
             )
         );
@@ -169,8 +198,9 @@ class OpenHours
             $params['type'] = isset($atts['vc_type']) ? $atts['vc_type'] : null;
             $params['section'] = isset($atts['vc_location']) ? $atts['vc_location'] : null;
             $params['date_size'] = isset($atts['vc_date_size']) ? $atts['vc_date_size'] : null;
+            $params['vc_all_locations'] = isset($atts['vc_all_locations']) ? $atts['vc_all_locations'] : null;
 
-            return do_shortcode('[opening-hours  datesize="'.$params['date_size'].'" city="'.$params['title'].'" type="' . $params['type'] . '"  section="' . $params['section'] . '" markup="true"]');
+            return do_shortcode('[opening-hours  showall="'.$params['vc_all_locations'].'" datesize="'.$params['date_size'].'" city="'.$params['title'].'" type="' . $params['type'] . '"  section="' . $params['section'] . '" markup="true"]');
 
         }
 

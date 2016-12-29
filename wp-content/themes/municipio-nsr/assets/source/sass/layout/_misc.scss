@@ -82,11 +82,17 @@ li.before {
     font-style: italic;
     font-size: .9rem !important;
 }
+.weekender.allsections {
+    font-size: 1.1rem !important;
+}
 .secondary-content {
     color:alpha-color($palette-primary-grey, 50%, $type:'dark');
 }
 .today span{
     font-weight:600;
+    color:$palette-primary-green !important;
+}
+.alltoday span{
     color:$palette-primary-green !important;
 }
 .collection-header {
@@ -99,10 +105,13 @@ li.before {
     position: relative;
     color:alpha-color($palette-primary-grey, 40%, $type:'dark');
 }
-
+.collection-subheader {
+    font-weight:600;
+}
 .fulldate {
     min-width:40px !important;
 }
+
 @media (max-width: 1070px) {
     .openhours .collection .collection-item {
         padding:10px;
@@ -117,3 +126,10 @@ li.before {
 .secondary-content {
     top:0px;
 }
+.openhours .secondary-content {
+   font-size: 0.8em;
+}
+.cleanHeader {
+    border-bottom:none !important;
+}
+

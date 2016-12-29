@@ -67,6 +67,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }).bind(this);
 
+
         /* Enter key function */
         $.fn.enterKey = function (fnc) {
 

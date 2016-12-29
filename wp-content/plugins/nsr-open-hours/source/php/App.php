@@ -94,6 +94,7 @@ class App
     public function getOpeningHours($atts)
     {
 
+        $showAllSections = isset($atts['showall']) ? $atts['showall'] : null;
         $section = isset($atts['section']) ? $atts['section'] : null;
         $type = isset($atts['type']) ? $atts['type'] : null;
         $city = isset($atts['city']) ? $atts['city'] : null;
@@ -103,129 +104,194 @@ class App
         $fulldateCSS = ($dsize === 'full') ? 'fulldate' : '';
 
 
-        switch ($type) {
+        if($showAllSections != 'true'){
 
-            case "today":
+            $oph_sections = get_field('oph_sections', 'option');
+            $return_value = "<li class=\"collection-header cleanHeader\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
+            $return_value .= "<li class=\"collection-item alltoday\"><span class='date text-align-left fulldate collection-subheader'>ÅTERVINNINGSCENTRALER</span><span class=\"secondary-content collection-subheader\">IDAG</span></li>";
 
-                $unique_exception = false;
-                $exception_info = get_field('oph_exeptions_' . $section, 'option');
 
-                if (is_array($exception_info) && !empty($exception_info)) {
+            if(isset($oph_sections)) {
 
-                    foreach ($exception_info as $exception_data) {
+                foreach ($oph_sections as $allsec) {
 
-                        if ($exception_data['date_' . $section] == date("Y-m-d")) {
-                            $unique_exception = $exception_data;
+                    $allsections = substr(md5($allsec['location']), 0, 6);
+                    $datetime = new \DateTime();
+
+                    $openLiStart = isset($atts['markup']) ? '<li class="collection-item ">' : null;
+                    $closeLiItemStart = isset($atts['markup']) ? '</li>' : null;
+                    $openLiWeekend = isset($atts['markup']) ? '<li class="collection-item weekender allsections">' : null;
+                    $openLiToday = isset($atts['markup']) ? '<li class="collection-item alltoday ">' : null;
+
+                    $listItem = array($openLiStart, $closeLiItemStart, $openLiWeekend, $openLiToday);
+
+                    $i = 0;
+
+                    while (true) {
+
+                        if ($i === 1)
                             break;
+                        if ($datetime->format('N') === '1' && $i === 0) {
+                            $datetime->add(new \DateInterval('P1D'));
+                            continue;
                         }
-                    }
-                }
 
-                if (!is_null($unique_exception) && is_array($unique_exception)) {
+                        $exception_info = get_field('oph_exeptions_' . $allsections, 'option');
+                        $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date text-align-left  ' . $fulldateCSS . '">' : null;
+                        $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
+                        if (self::in_array_r($datetime->format('Y-m-d'), $exception_info)) {
 
-                    $return_value = $unique_exception['ex_title_' . $section] . " ";
-                    $return_value .= $unique_exception['ex_info_' . $section];
-                    $filter_is_exception = true;
+                            foreach ($exception_info as $exc) {
 
-                } else {
+                                if ($exc['date_' . $allsections] === $datetime->format('Y-m-d')) {
+                                    $ex_title = $exc['ex_title_' . $allsections];
+                                    $ex_info = $exc['ex_info_' . $allsections];
+                                    $return_value .= $listItem[2] . $openSpan . $allsec['location']  . $closeSpan . "  <span class=\"secondary-content\"> " . $ex_info . $listItem[1];
+                                }
+                            }
+                        } else {
 
-                    $return_value = $city . " " . get_field(self::getMetaKeyByDayId(date("w"), $section), 'option') . ".";
-                    $filter_is_exception = true;
-                }
-
-                break;
-
-            case "week":
-
-                $datetime = new \DateTime();
-                $datetime->modify('-1 day');
-
-                $openLiStart = isset($atts['markup']) ? '<li class="collection-item ">' : null;
-                $closeLiItemStart = isset($atts['markup']) ? '</li>' : null;
-                $openLiWeekend = isset($atts['markup']) ? '<li class="collection-item weekender ">' : null;
-                $openLiToday = isset($atts['markup']) ? '<li class="collection-item today ">' : null;
-
-                $listItem = array($openLiStart, $closeLiItemStart, $openLiWeekend, $openLiToday);
-                $return_value = "";
-                $i = 0;
-
-                $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
-
-                while (true) {
-
-                    if ($i === 7)
-                        break;
-                    if ($datetime->format('N') === '8' && $i === 0) {
-
-                        $datetime->add(new \DateInterval('P1D'));
-                        continue;
-                    }
-
-                    $exception_info = get_field('oph_exeptions_' . $section, 'option');
-                    $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date text-align-left  ' . $fulldateCSS . '">' : null;
-                    $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
-                    if (self::in_array_r($datetime->format('Y-m-d'), $exception_info)) {
-
-                        foreach ($exception_info as $exc) {
-
-                            if ($exc['date_' . $section] === $datetime->format('Y-m-d')) {
-                                $ex_title = $exc['ex_title_' . $section];
-                                $ex_info = $exc['ex_info_' . $section];
-                                $return_value .= $listItem[2] . $openSpan . $ex_title . $closeSpan . "  <span class=\"secondary-content\">" . $ex_info . $listItem[1];
+                            if ($datetime->format('Y-m-d') != date('Y-m-d')) {
+                                $return_value .= $listItem[0] . $openSpan . $allsec['location'] . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $allsections), 'option') . $listItem[1];
+                            } else {
+                                $return_value .= $listItem[3] . $openSpan . $allsec['location'] . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $allsections), 'option') . $listItem[1];
                             }
                         }
+
+                        $return_value .= isset($atts['markup']) ? '' : '<br />';
+                        $filter_is_exception = false;
+                        $datetime->add(new \DateInterval('P1D'));
+                        $i++;
+                    }
+                }
+            }
+        }
+        else {
+
+            switch ($type) {
+
+                case "today":
+
+                    $unique_exception = false;
+                    $exception_info = get_field('oph_exeptions_' . $section, 'option');
+
+                    if (is_array($exception_info) && !empty($exception_info)) {
+
+                        foreach ($exception_info as $exception_data) {
+
+                            if ($exception_data['date_' . $section] == date("Y-m-d")) {
+                                $unique_exception = $exception_data;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!is_null($unique_exception) && is_array($unique_exception)) {
+
+                        $return_value = $unique_exception['ex_title_' . $section] . " ";
+                        $return_value .= $unique_exception['ex_info_' . $section];
+                        $filter_is_exception = true;
+
                     } else {
 
-                        if ($datetime->format('Y-m-d') != date('Y-m-d')) {
-                            $return_value .= $listItem[0] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field(self::getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+                        $return_value = $city . " " . get_field($this->getMetaKeyByDayId(date("w"), $section), 'option') . ".";
+                        $filter_is_exception = true;
+                    }
+
+                    break;
+
+                case "week":
+
+                    $datetime = new \DateTime();
+                    $datetime->modify('-1 day');
+
+                    $openLiStart = isset($atts['markup']) ? '<li class="collection-item ">' : null;
+                    $closeLiItemStart = isset($atts['markup']) ? '</li>' : null;
+                    $openLiWeekend = isset($atts['markup']) ? '<li class="collection-item weekender ">' : null;
+                    $openLiToday = isset($atts['markup']) ? '<li class="collection-item today ">' : null;
+
+                    $listItem = array($openLiStart, $closeLiItemStart, $openLiWeekend, $openLiToday);
+                    $return_value = "";
+                    $i = 0;
+
+                    $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
+
+                    while (true) {
+
+                        if ($i === 7)
+                            break;
+                        if ($datetime->format('N') === '8' && $i === 0) {
+                            $datetime->add(new \DateInterval('P1D'));
+                            continue;
+                        }
+
+                        $exception_info = get_field('oph_exeptions_' . $section, 'option');
+                        $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date text-align-left  ' . $fulldateCSS . '">' : null;
+                        $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
+                        if (self::in_array_r($datetime->format('Y-m-d'), $exception_info)) {
+
+                            foreach ($exception_info as $exc) {
+
+                                if ($exc['date_' . $section] === $datetime->format('Y-m-d')) {
+                                    $ex_title = $exc['ex_title_' . $section];
+                                    $ex_info = $exc['ex_info_' . $section];
+                                    $return_value .= $listItem[2] . $openSpan . $ex_title . $closeSpan . "  <span class=\"secondary-content\">" . $ex_info . $listItem[1];
+                                }
+                            }
                         } else {
-                            $return_value .= $listItem[3] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field(self::getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+
+                            if ($datetime->format('Y-m-d') != date('Y-m-d')) {
+                                $return_value .= $listItem[0] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+                            } else {
+                                $return_value .= $listItem[3] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+                            }
+                        }
+
+                        $return_value .= isset($atts['markup']) ? '' : '<br />';
+                        $filter_is_exception = false;
+                        $datetime->add(new \DateInterval('P1D'));
+                        $i++;
+                    }
+                    break;
+
+                case "weekends":
+
+                    $datetime = new \DateTime();
+                    $datetime->modify('-1 day');
+
+                    $openLiStart = isset($atts['markup']) ? $openLiStart = '<li class="collection-item">' : null;
+                    $closeLiItemStart = isset($atts['markup']) ? $closeLiItemStart = '</li>' : null;
+                    $openLiToday = isset($atts['markup']) ? $openLiToday = '<li class="collection-item today">' : null;
+                    $listItem = array($openLiStart, $closeLiItemStart, $openLiToday);
+                    $return_value = "";
+                    $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
+
+                    $exception_info = get_field('oph_exeptions_' . $section, 'option');
+
+                    $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date-day">' : null;
+                    $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
+
+                    if ($exception_info) {
+                        foreach ($exception_info as $exc) {
+
+                            $ex_title = $exc['ex_title_' . $section];
+                            $ex_info = $exc['ex_info_' . $section];
+                            $ex_date = $exc['date_' . $section];
+                            $return_value .= $listItem[0] . $openSpan . substr($ex_date, strrpos($ex_date, '-') + 1) . " " . ucfirst(date_i18n('M', strtotime($ex_date))) . $closeSpan . " " . $ex_title . " " . $ex_info . $listItem[1];
                         }
                     }
 
                     $return_value .= isset($atts['markup']) ? '' : '<br />';
                     $filter_is_exception = false;
                     $datetime->add(new \DateInterval('P1D'));
-                    $i++;
-                }
-                break;
 
-            case "weekends":
-
-                $datetime = new \DateTime();
-                $datetime->modify('-1 day');
-
-                $openLiStart = isset($atts['markup']) ? $openLiStart = '<li class="collection-item">' : null;
-                $closeLiItemStart = isset($atts['markup']) ? $closeLiItemStart = '</li>' : null;
-                $openLiToday = isset($atts['markup']) ? $openLiToday = '<li class="collection-item today">' : null;
-                $listItem = array($openLiStart, $closeLiItemStart, $openLiToday);
-                $return_value = "";
-                $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
-
-                $exception_info = get_field('oph_exeptions_' . $section, 'option');
-
-                $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date-day">' : null;
-                $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
-
-                if ($exception_info) {
-                    foreach ($exception_info as $exc) {
-
-                        $ex_title = $exc['ex_title_' . $section];
-                        $ex_info = $exc['ex_info_' . $section];
-                        $ex_date = $exc['date_' . $section];
-                        $return_value .= $listItem[0] . $openSpan . substr($ex_date, strrpos($ex_date, '-') + 1) . " " . ucfirst(date_i18n('M', strtotime($ex_date))) . $closeSpan . " " . $ex_title . " " . $ex_info . $listItem[1];
-
-                    }
-                }
-
-                $return_value .= isset($atts['markup']) ? '' : '<br />';
-                $filter_is_exception = false;
-                $datetime->add(new \DateInterval('P1D'));
-
-                break;
+                    break;
+            }
         }
 
+
         $openUl = isset($atts['markup']) ? $openUl = '<ul class="collection openhours with-header">' : null;
+
         $closeUl = isset($atts['markup']) ? $closeUl = '</ul>' : null;
         $return_value = isset($return_value) ? $return_value : null;
         $filter_is_exception = isset($filter_is_exception) ? $filter_is_exception : null;
@@ -234,7 +300,6 @@ class App
             $openUl = "";
             $closeUl = "";
         }
-
 
         return apply_filters('NsrOpenHours/shortcode', $openUl . $return_value . $closeUl, $filter_is_exception);
 
@@ -245,7 +310,7 @@ class App
      * OptionsDay
      * @return string
      */
-    public static function getMetaKeyByDayId($day_id, $section)
+    public function getMetaKeyByDayId($day_id, $section)
     {
         switch ($day_id) {
             case 1:

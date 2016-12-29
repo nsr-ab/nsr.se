@@ -67,6 +67,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }).bind(this);
 
+
         /* Enter key function */
         $.fn.enterKey = function (fnc) {
 
@@ -528,6 +529,13 @@ VcExtended.MenuCollapsibleAdmin.CollapsibleAdmin = (function ($) {
 
         }).bind(this);
 
+
+        $('body').on('change', '.vc_all_locations', function (e) {
+                $('.vc_location').val('Välj Stad/Ort...').change();
+                $('.vc_date_size').val('Välj format...').change();
+                $('.vc_type').val('Välj visningstyp...').change();
+        }).bind(this);
+
     };
 
 
@@ -570,6 +578,10 @@ VcExtended.MenuCollapsibleAdmin.CollapsibleAdmin = (function ($) {
     return new CollapsibleAdmin;
 
 })(jQuery);
+
+var callbackOutsideScope = function () {
+    //jQuery('.vc_location').val('Välj Stad/Ort').change();
+};
 
 
 /**

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2016-12-28 09:38+0100\n"
-"PO-Revision-Date: 2016-12-28 09:38+0100\n"
+"POT-Creation-Date: 2016-12-29 11:25+0100\n"
+"PO-Revision-Date: 2016-12-29 11:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -92,7 +92,7 @@ msgstr "Bild och länkar"
 #: source/php/Library/Addons/ListNewsAndPosts.php:136
 #: source/php/Library/Addons/MenuCollapsible.php:215
 #: source/php/Library/Addons/NSRSearch.php:71
-#: source/php/Library/Addons/OpenHours.php:145
+#: source/php/Library/Addons/OpenHours.php:173
 #: source/php/Library/Addons/Puff.php:121
 #: source/php/Library/Addons/ThumbnailAndTextarea.php:117
 msgid "NSR"
@@ -312,55 +312,63 @@ msgstr ""
 "NSR OpenHours måste vara installerat och aktiverat för att OpenHour "
 "tillägget ska fungera."
 
-#: source/php/Library/Addons/OpenHours.php:75
+#: source/php/Library/Addons/OpenHours.php:74
+msgid "All locations"
+msgstr "Visa en eller flera städer"
+
+#: source/php/Library/Addons/OpenHours.php:78
+msgid "Show 1 location"
+msgstr "Ja, Visa bara en Stad/Ort"
+
+#: source/php/Library/Addons/OpenHours.php:88
 msgid "Location"
 msgstr "Stad/Ort"
 
-#: source/php/Library/Addons/OpenHours.php:86
+#: source/php/Library/Addons/OpenHours.php:104
 msgid "Date Size"
 msgstr "Datumformat"
 
-#: source/php/Library/Addons/OpenHours.php:90
+#: source/php/Library/Addons/OpenHours.php:113
 msgid "Choose format..."
 msgstr "Välj format…"
 
-#: source/php/Library/Addons/OpenHours.php:91
+#: source/php/Library/Addons/OpenHours.php:114
 msgid "Short"
 msgstr "Kort"
 
-#: source/php/Library/Addons/OpenHours.php:92
+#: source/php/Library/Addons/OpenHours.php:115
 msgid "Full"
 msgstr "Full"
 
-#: source/php/Library/Addons/OpenHours.php:101
+#: source/php/Library/Addons/OpenHours.php:124
 msgid "Type"
 msgstr "Visningstyp"
 
-#: source/php/Library/Addons/OpenHours.php:105
+#: source/php/Library/Addons/OpenHours.php:133
 msgid "Choose Type..."
-msgstr "Välj visningtyp"
+msgstr "Välj visningtyp…"
 
-#: source/php/Library/Addons/OpenHours.php:106
+#: source/php/Library/Addons/OpenHours.php:134
 msgid "Weekends"
 msgstr "Helgdagar / Undantag"
 
-#: source/php/Library/Addons/OpenHours.php:107
+#: source/php/Library/Addons/OpenHours.php:135
 msgid "Week"
 msgstr "Vecka"
 
-#: source/php/Library/Addons/OpenHours.php:108
+#: source/php/Library/Addons/OpenHours.php:136
 msgid "Today"
 msgstr "Idag"
 
-#: source/php/Library/Addons/OpenHours.php:124
+#: source/php/Library/Addons/OpenHours.php:152
 msgid "Choose Location..."
 msgstr "Välj Stad/Ort"
 
-#: source/php/Library/Addons/OpenHours.php:135
+#: source/php/Library/Addons/OpenHours.php:163
 msgid "NSR OpenHours"
-msgstr ""
+msgstr "NSR OpenHours"
 
-#: source/php/Library/Addons/OpenHours.php:136
+#: source/php/Library/Addons/OpenHours.php:164
 msgid "Add Openening hours"
 msgstr "Lägg till öppettider"
 
@@ -421,6 +429,15 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "hiq.se"
 msgstr ""
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid "Show all locations ?..."
+#~ msgstr "Vill du visa alla städer..."
+
+#~ msgid "No"
+#~ msgstr "Nej"
 
 #~ msgid "News"
 #~ msgstr "Nyheter"
