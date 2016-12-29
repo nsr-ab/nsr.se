@@ -100,11 +100,23 @@ li.before {
     border-bottom: 2px solid alpha-color($palette-primary-grey, 34%, $type:'dark')  !important;
     max-width:100% !important;
 }
+
+.cleanHeader {
+    color:$palette-primary-green;
+}
+.cleanHeader {
+    border-bottom:none !important;
+}
+
+
 .collection-header i {
     top: 5px;
     position: relative;
     color:alpha-color($palette-primary-grey, 40%, $type:'dark');
 }
+
+
+
 .collection-subheader {
     font-weight:600;
 }
@@ -128,8 +140,5 @@ li.before {
 }
 .openhours .secondary-content {
    font-size: 0.8em;
-}
-.cleanHeader {
-    border-bottom:none !important;
 }
 

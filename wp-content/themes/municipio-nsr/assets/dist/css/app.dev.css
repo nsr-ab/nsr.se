@@ -7231,6 +7231,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-weight: 600;
     border-bottom: 2px solid #9f9f9f !important;
     max-width: 100% !important; }
+  .is-child-theme .cleanHeader {
+    color: #007586; }
+  .is-child-theme .cleanHeader {
+    border-bottom: none !important; }
   .is-child-theme .collection-header i {
     top: 5px;
     position: relative;
@@ -7250,8 +7254,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     top: 0px; }
   .is-child-theme .openhours .secondary-content {
     font-size: 0.8em; }
-  .is-child-theme .cleanHeader {
-    border-bottom: none !important; }
 
 .is-child-theme.home header {
   background-color: #fff; }
