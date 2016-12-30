@@ -115,7 +115,7 @@ class ThumbnailAndTextarea
                 'controls' => 'full',
                 'icon' => 'vc_general vc_element-icon icon-wpb-ui-accordion',
                 'category' => __('NSR', 'js_composer'),
-                'icon' => plugins_url( 'nsr-vc-extended/dist/img/icn_puff_links.svg' ),
+                'icon' => plugins_url( 'nsr-vc-extended/dist/img/icn_puff_link.svg' ),
                 'admin_enqueue_css' => array( plugins_url( 'nsr-vc-extended/dist/css/nsr-vc-extended-admin.min.css' ) ),
                 'params' => $this->params()
             )
