@@ -8,12 +8,20 @@ class QueryElastic
     public static function jsonSearch($data)
     {
         $q = sanitize_text_field($data['query']);
+        $post_type = sanitize_text_field($data['post_type']);
         $limit = isset($data['limit'])  ? $data['limit'] : 9;
         $postStatuses = array('publish', 'inherit');
 
         $q =  \VcExtended\Library\Search\ElasticSearch::filterQuery(
             trim($q)
         );
+
+        if($post_type === "" || $post_type === "all") {
+            $post_types = \VcExtended\Library\Helper\PostType::getPublic();
+        }
+        else {
+            $post_types = array(0 => $post_type);
+        }
 
         $query = new \WP_Query(array(
             'ep_integrate' => true,
@@ -28,7 +36,7 @@ class QueryElastic
             'orderby'       => 'relevance',
             'posts_per_page' => $limit,
             'post_status' => $postStatuses,
-            'post_type' => \VcExtended\Library\Helper\PostType::getPublic(),
+            'post_type' => $post_types,
             'cache_results' => false
         ));
 
@@ -37,5 +45,4 @@ class QueryElastic
             'content' => array_slice($query->posts, 0, 10)
         );
     }
-
 }

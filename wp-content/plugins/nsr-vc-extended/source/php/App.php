@@ -116,11 +116,6 @@ class App
             new \VcExtended\Library\Enqueue();
         }
 
-
-
-
-
-
         add_action( 'wp_ajax_nopriv_fetch_data', array( $this, 'fetch_data' ) );
         add_action( 'wp_ajax_fetch_data', array( $this, 'fetch_data' ) );
 
@@ -147,8 +142,10 @@ class App
      *  fetch_data
      *  Get data from Elastic Search
      */
-    public function fetch_data() {
-        $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array( 'query' => $_GET['query'],'limit'=>$_GET['limit'] ));
+    public function fetch_data()
+    {
+
+        $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array( 'query' => $_GET['query'],'limit'=>$_GET['limit'], 'post_type' => $_GET['post_type'] ));
         $int = 0;
 
         if ($result['content']){

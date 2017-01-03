@@ -41,8 +41,26 @@ class NSRSearch
                 'type'      => 'textfield',
                 'heading' => __('Title', 'nsr-vc-extended'),
                 'param_name' => 'vc_designation',
-                'edit_field_class' => 'vc_col-sm-9 vc_col-md-9',
+                'edit_field_class' => 'vc_col-sm-7 vc_col-md-7',
 
+            ),
+
+            /** @Param post types parameter*/
+            array(
+                'admin_label' => true,
+                'type' => 'dropdown',
+                'heading' => __('Search section', 'nsr-vc-extended'),
+                'param_name' => 'vc_search_sections',
+                'edit_field_class' => 'vc_col-sm-7 vc_col-md-7',
+                'value'       => array(
+                    __('Choose section...', 'nsr-vc-extended')   => '',
+                    __('All sections', 'nsr-vc-extended')   => 'all',
+                    __('Villa & Fritidsboende', 'nsr-vc-extended')   => 'villa',
+                    __('Fastighetsägare & Bostadsrättsföreningar', 'nsr-vc-extended')   => 'fastighet',
+                    __('Företag & Restauranger', 'nsr-vc-extended')   => 'foretag',
+                    __('Vanliga frågor', 'nsr-vc-extended')   => 'faq',
+
+                ),
             )
 
         );
@@ -87,7 +105,8 @@ class NSRSearch
     public function renderExtend(array $atts, $content = null)
     {
 
-        $params['vc_title'] = isset($atts['vc_title']) ? $postdate = $atts['vc_title'] : null;
+        $params['vc_designation'] = isset($atts['vc_designation']) ? $atts['vc_designation'] : null;
+        $params['vc_search_sections'] = isset($atts['vc_search_sections']) ? $atts['vc_search_sections'] : null;
         return $this->renderMarkup($param = (object) $params);
 
     }
@@ -102,18 +121,17 @@ class NSRSearch
     public function renderMarkup($params)
     {
 
-       $designation = isset($params->vc_designation)  ? " style=\"border-top:2px solid ". $params->vc_designation .";\" " : null;
-
             $output = "<div class=\"row search searchNSR\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\">
                         
                         <div class=\"col s12\">
                           <div class=\"row\">
                         <form itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/SearchAction\">
-                            <h4>".__('Tömningskalender eller sorteringsguiden', 'nsr-vc-extended')."</h4>
+                            <h4>".$params->vc_designation."</h4>
                             <div class=\"input-field col s12 searchArea\">
                                 <i class=\"material-icons prefix\">search</i>
                                 <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\" required=\"\" id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
                                 <label for=\"searchQ-input\">".__('Where do you live? What stuff do you want to sort? Are you looking for something else?', 'nsr-vc-extended')."</label>
+                                <input type=\"hidden\" id=\"post_type\" value=\"".$params->vc_search_sections."\">
                             </div>
                            
                         </form>

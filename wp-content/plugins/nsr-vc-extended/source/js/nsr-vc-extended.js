@@ -89,9 +89,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $('.searchNSR').append('<div id="searchResult"></div>');
             clearTimeout(timeout);
-            var searchQuery = $(this).val();
+            var $searchQuery = $(this).val();
+            var $post_type = $('#post_type').val();
             timeout = setTimeout(function () {
-                Extended.prototype.siteSearch({query: searchQuery});
+                Extended.prototype.siteSearch({query: $searchQuery, post_type: $post_type});
             }, 200);
 
         }).bind(this);
@@ -111,7 +112,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('body').on('click', '.read-more', function () {
 
             var searchQuery = $('.searchNSR').find('input[type="search"]').val();
-            Extended.prototype.siteSearch({query: searchQuery});
+            var $post_type = $('#post_type').val();
+            Extended.prototype.siteSearch({query: searchQuery, post_type: $post_type});
 
         });
 
@@ -127,10 +129,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         $('#searchResult').html("");
         var query = param.query;
+        var $post_type = param.post_type;
 
         var data = {
             action: 'fetch_data',
-            query: param.query,
+            query: param.query + "&post_type" + param.post_type,
             limit: 18
         };
 
@@ -373,10 +376,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.autocompleteQuery = function(element) {
 
         var $element = $(element);
-        var $input = $element.find('input[type="search"]');
+        var $input = $element.find('input[type="search"]').val();
+        var $post_type = $('#post_type').val();
         var data = {
             action: 'fetch_data',
-            query: $input.val(),
+            query: $input,
+            post_type: $post_type,
             level: 'ajax',
             type: 'json'
         };
