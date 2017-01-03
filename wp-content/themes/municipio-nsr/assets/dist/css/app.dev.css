@@ -7214,6 +7214,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     color: #777777;
     font-size: 0.9rem !important;
     width: 50px; }
+  @media only screen and (max-width: 500px) {
+    .is-child-theme .searchNSR h4 {
+      font-size: 1.2rem; } }
   .is-child-theme .weekender {
     color: #777777;
     font-style: italic;

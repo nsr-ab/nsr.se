@@ -22,21 +22,23 @@ class App
         });
 
         add_action('admin_enqueue_scripts', array($this, 'enqueueStylesAdmin'));
-        add_action('after_setup_theme', array($this, 'after_nsr_theme_setup'));
+        add_action( 'current_screen', array($this, 'setLocalScript') );
+
     }
 
     /**
-     * Enqueue required scripts
+     * Enqueue script only on openHour admin page
      * @return void
      */
-    public function enqueueScriptsAdmin()
-    {
+    public function setLocalScript(){
 
-        if (is_admin()) {
+        if(get_current_screen()->base === "toplevel_page_open-hours-settings") {
             wp_register_script('nsr-openHours-admin', plugins_url('nsr-open-hours/dist/js/nsr-open-hours.min.js'));
             wp_enqueue_script('nsr-openHours-admin');
         }
     }
+
+
 
 
     /**
@@ -49,16 +51,6 @@ class App
         wp_enqueue_style('nsr-openHours-admin-style');
     }
 
-
-    /**
-     * Enqueue after everything else
-     * @return void
-     */
-    public function after_nsr_theme_setup()
-    {
-        add_action('admin_enqueue_scripts', array($this, 'enqueueScriptsAdmin'));
-
-    }
 
 
     /**

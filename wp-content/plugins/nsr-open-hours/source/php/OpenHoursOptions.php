@@ -195,7 +195,7 @@ class OpenHoursOptions extends App
                     $locId = substr(md5($section['location']), 0, 6);
                     acf_add_local_field_group(array(
                         'key' => 'group_exception_' . $locId,
-                        'title' => $section['location'] . __("Open Hours (exceptions)", 'nsr-open-hours'),
+                        'title' =>  __("Open Hours (exceptions)", 'nsr-open-hours') . " " . $section['location'],
                         'fields' => array(
                             array(
                                 'key' => 'field_56d98368ebaf6_' . $locId,
@@ -300,7 +300,7 @@ class OpenHoursOptions extends App
 
                     acf_add_local_field_group(array(
                         'key' => 'group_hours_' . $locId,
-                        'title' => $section['location'] . __(" Opening Hours", 'nsr-open-hours'),
+                        'title' => __(" Opening Hours", 'nsr-open-hours') . " " . $section['location'] ,
                         'fields' => array(
                             array(
                                 'key' => 'field_56d97d49daceb_' . $locId,
@@ -472,7 +472,7 @@ class OpenHoursOptions extends App
 
                     acf_add_local_field_group(array(
                         'key' => 'group_shortcode_' . $locId,
-                        'title' => $section['location'] . __(", Todays opening hours", 'nsr-open-hours'),
+                        'title' =>  __("Todays opening hours", 'nsr-open-hours') . " " . $section['location'],
                         'fields' => array(
                             array(
                                 'key' => 'field_56d9a4880cd89_' . $locId,

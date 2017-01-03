@@ -76,7 +76,12 @@ li.before {
     font-size: 0.9rem !important;
     width:50px;
 }
+@media only screen and (max-width: 500px) {
+    .searchNSR h4 {
+        font-size:1.2rem;
 
+    }
+}
 .weekender {
     color:alpha-color($palette-primary-grey, 50%, $type:'dark');
     font-style: italic;

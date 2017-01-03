@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR OpenHours\n"
-"POT-Creation-Date: 2016-12-27 16:43+0100\n"
-"PO-Revision-Date: 2016-12-27 23:56+0100\n"
+"POT-Creation-Date: 2017-01-03 10:58+0100\n"
+"PO-Revision-Date: 2017-01-03 10:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/App.php:74
+#: source/php/App.php:65
 msgid ""
 "Open hours require ACF PRO to function. Please make shure that this is "
 "installed and enabled."
@@ -61,94 +61,94 @@ msgstr "Lägg till stad/ort"
 msgid "NSR has facilities on following locations"
 msgstr "NSR har anläggningar på följande orter"
 
-#: source/php/OpenHoursOptions.php:137
+#: source/php/OpenHoursOptions.php:159
 msgid "Select location to edit opening hours"
 msgstr "Välj stad/ort för att visa ortens öppetider"
 
-#: source/php/OpenHoursOptions.php:141
+#: source/php/OpenHoursOptions.php:163
 msgid "Location"
 msgstr "Stad/Ort"
 
-#: source/php/OpenHoursOptions.php:175
+#: source/php/OpenHoursOptions.php:198
 msgid "Open Hours (exceptions)"
 msgstr "Open Hours (undantag)"
 
-#: source/php/OpenHoursOptions.php:179
+#: source/php/OpenHoursOptions.php:202
 msgid "Exeptions in open hours"
 msgstr "Undantag i öppettider"
 
-#: source/php/OpenHoursOptions.php:182
+#: source/php/OpenHoursOptions.php:205
 msgid "Add one or more exceptions to this scheme. "
 msgstr "Lägg till en eller flera undantag i det här schemat"
 
-#: source/php/OpenHoursOptions.php:194
+#: source/php/OpenHoursOptions.php:217
 msgid "Add exception"
 msgstr "Lägg till undantag"
 
-#: source/php/OpenHoursOptions.php:198
+#: source/php/OpenHoursOptions.php:221
 msgid "Date"
 msgstr "Datum"
 
-#: source/php/OpenHoursOptions.php:215
+#: source/php/OpenHoursOptions.php:238
 msgid "Exeption title"
 msgstr "Undantagstitel"
 
-#: source/php/OpenHoursOptions.php:227
+#: source/php/OpenHoursOptions.php:250
 msgid "eg. Juldagen"
 msgstr "ex. Juldagen"
 
-#: source/php/OpenHoursOptions.php:236
+#: source/php/OpenHoursOptions.php:259
 msgid "Exeption information"
 msgstr "Undantagsinformation (ex. Stängt)"
 
-#: source/php/OpenHoursOptions.php:248
+#: source/php/OpenHoursOptions.php:271
 msgid "eg. (Closed)"
 msgstr "ex. (Stängt)"
 
-#: source/php/OpenHoursOptions.php:280
+#: source/php/OpenHoursOptions.php:303
 msgid " Opening Hours"
 msgstr "Öppettider"
 
-#: source/php/OpenHoursOptions.php:284
+#: source/php/OpenHoursOptions.php:307
 msgid "Hours monday"
 msgstr "Måndag"
 
-#: source/php/OpenHoursOptions.php:296 source/php/OpenHoursOptions.php:317
-#: source/php/OpenHoursOptions.php:338 source/php/OpenHoursOptions.php:359
-#: source/php/OpenHoursOptions.php:380 source/php/OpenHoursOptions.php:401
-#: source/php/OpenHoursOptions.php:422
+#: source/php/OpenHoursOptions.php:319 source/php/OpenHoursOptions.php:340
+#: source/php/OpenHoursOptions.php:361 source/php/OpenHoursOptions.php:382
+#: source/php/OpenHoursOptions.php:403 source/php/OpenHoursOptions.php:424
+#: source/php/OpenHoursOptions.php:445
 msgid "eg. 08:00 - 15:00"
 msgstr "ex. 08:00 - 15:00"
 
-#: source/php/OpenHoursOptions.php:305
+#: source/php/OpenHoursOptions.php:328
 msgid "Hours tuesday"
 msgstr "Tisdag"
 
-#: source/php/OpenHoursOptions.php:326
+#: source/php/OpenHoursOptions.php:349
 msgid "Hours wednesday"
 msgstr "Onsdag"
 
-#: source/php/OpenHoursOptions.php:347
+#: source/php/OpenHoursOptions.php:370
 msgid "Hours thursday"
 msgstr "Torsdag"
 
-#: source/php/OpenHoursOptions.php:368
+#: source/php/OpenHoursOptions.php:391
 msgid "Hours friday"
 msgstr "Fredag"
 
-#: source/php/OpenHoursOptions.php:389
+#: source/php/OpenHoursOptions.php:412
 msgid "Hours saturday"
 msgstr "Lördag"
 
-#: source/php/OpenHoursOptions.php:410
+#: source/php/OpenHoursOptions.php:433
 msgid "Hours sunday"
 msgstr "Söndag"
 
-#: source/php/OpenHoursOptions.php:452
-msgid ", Todays opening hours"
-msgstr ", Dagens öppettider"
+#: source/php/OpenHoursOptions.php:475
+msgid "Todays opening hours"
+msgstr "Dagens öppettider i"
 
-#: source/php/OpenHoursOptions.php:456
+#: source/php/OpenHoursOptions.php:479
 msgid "Use Visual Composer or openHours Widget to display openHours: "
 msgstr "Använd Visual Composer eller openHours Widget för att visa öppettider:"
 
@@ -172,19 +172,19 @@ msgstr "Visa en veckas öppettider med start igår."
 msgid "Show exceptions"
 msgstr "Visa alla undantag"
 
-#: source/php/OpenHoursWidget.php:83
+#: source/php/OpenHoursWidget.php:81
 msgid "Dateformat:"
 msgstr "Datumformat"
 
-#: source/php/OpenHoursWidget.php:91
+#: source/php/OpenHoursWidget.php:89
 msgid "Short"
 msgstr "Kort veckodagsnamn"
 
-#: source/php/OpenHoursWidget.php:95
+#: source/php/OpenHoursWidget.php:93
 msgid "Full"
 msgstr "Hela veckodagsnamnet"
 
-#: source/php/OpenHoursWidget.php:105
+#: source/php/OpenHoursWidget.php:98
 msgid "City:"
 msgstr "Stad/Ort:"
 
@@ -203,6 +203,9 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Johan Silvergrund, Sebastian Thulin"
 msgstr ""
+
+#~ msgid ", Todays opening hours"
+#~ msgstr ", Dagens öppettider"
 
 #~ msgid "Show todays opening hours"
 #~ msgstr "Visa dagens öppettid"
