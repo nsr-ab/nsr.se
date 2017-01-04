@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR\n"
-"POT-Creation-Date: 2016-12-20 11:57+0100\n"
-"PO-Revision-Date: 2016-12-22 09:34+0100\n"
+"POT-Creation-Date: 2017-01-04 13:33+0100\n"
+"PO-Revision-Date: 2017-01-04 13:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -61,144 +61,184 @@ msgstr "Kunde inte hitta någon nyhet i papperskorgen"
 msgid "All News"
 msgstr "Alla nyheter"
 
-#: library/Theme/CustomPostTypes.php:27 library/Theme/CustomPostTypes.php:28
-#: library/Theme/CustomPostTypes.php:29
+#: library/Theme/CustomPostTypes.php:28 library/Theme/CustomPostTypes.php:29
+#: library/Theme/CustomPostTypes.php:30
 msgid "Pages Villa"
 msgstr "Sidor Villa"
 
-#: library/Theme/CustomPostTypes.php:30 library/Theme/CustomPostTypes.php:86
-#: library/Theme/CustomPostTypes.php:141 library/Theme/CustomPostTypes.php:197
+#: library/Theme/CustomPostTypes.php:31 library/Theme/CustomPostTypes.php:87
+#: library/Theme/CustomPostTypes.php:142 library/Theme/CustomPostTypes.php:198
 msgid "All Items"
 msgstr "Alla sidor"
 
-#: library/Theme/CustomPostTypes.php:31 library/Theme/CustomPostTypes.php:87
-#: library/Theme/CustomPostTypes.php:142 library/Theme/CustomPostTypes.php:198
+#: library/Theme/CustomPostTypes.php:32 library/Theme/CustomPostTypes.php:88
+#: library/Theme/CustomPostTypes.php:143 library/Theme/CustomPostTypes.php:199
+#: library/Theme/CustomPostTypes.php:256
 msgid "Add New"
 msgstr "Lägg till ny"
 
-#: library/Theme/CustomPostTypes.php:32 library/Theme/CustomPostTypes.php:88
-#: library/Theme/CustomPostTypes.php:143 library/Theme/CustomPostTypes.php:199
+#: library/Theme/CustomPostTypes.php:33 library/Theme/CustomPostTypes.php:89
+#: library/Theme/CustomPostTypes.php:144 library/Theme/CustomPostTypes.php:200
 msgid "Add New Item"
 msgstr "Lägg till ny sida"
 
-#: library/Theme/CustomPostTypes.php:33 library/Theme/CustomPostTypes.php:89
-#: library/Theme/CustomPostTypes.php:144 library/Theme/CustomPostTypes.php:200
+#: library/Theme/CustomPostTypes.php:34 library/Theme/CustomPostTypes.php:90
+#: library/Theme/CustomPostTypes.php:145 library/Theme/CustomPostTypes.php:201
 msgid "Edit Item"
 msgstr "Redigera sida"
 
-#: library/Theme/CustomPostTypes.php:34 library/Theme/CustomPostTypes.php:90
-#: library/Theme/CustomPostTypes.php:145 library/Theme/CustomPostTypes.php:201
+#: library/Theme/CustomPostTypes.php:35 library/Theme/CustomPostTypes.php:91
+#: library/Theme/CustomPostTypes.php:146 library/Theme/CustomPostTypes.php:202
 msgid "New Item"
 msgstr "Ny sida"
 
-#: library/Theme/CustomPostTypes.php:35 library/Theme/CustomPostTypes.php:91
-#: library/Theme/CustomPostTypes.php:146 library/Theme/CustomPostTypes.php:202
+#: library/Theme/CustomPostTypes.php:36 library/Theme/CustomPostTypes.php:92
+#: library/Theme/CustomPostTypes.php:147 library/Theme/CustomPostTypes.php:203
 msgid "View Item"
 msgstr "Visa sida"
 
-#: library/Theme/CustomPostTypes.php:36 library/Theme/CustomPostTypes.php:92
-#: library/Theme/CustomPostTypes.php:147 library/Theme/CustomPostTypes.php:203
+#: library/Theme/CustomPostTypes.php:37 library/Theme/CustomPostTypes.php:93
+#: library/Theme/CustomPostTypes.php:148 library/Theme/CustomPostTypes.php:204
 msgid "Search Item"
 msgstr "Sök sida"
 
-#: library/Theme/CustomPostTypes.php:37 library/Theme/CustomPostTypes.php:93
-#: library/Theme/CustomPostTypes.php:148 library/Theme/CustomPostTypes.php:204
+#: library/Theme/CustomPostTypes.php:38 library/Theme/CustomPostTypes.php:94
+#: library/Theme/CustomPostTypes.php:149 library/Theme/CustomPostTypes.php:205
+#: library/Theme/CustomPostTypes.php:262
 msgid "Not Found"
 msgstr "Kunde inte hitta sida"
 
-#: library/Theme/CustomPostTypes.php:38 library/Theme/CustomPostTypes.php:94
-#: library/Theme/CustomPostTypes.php:149 library/Theme/CustomPostTypes.php:205
+#: library/Theme/CustomPostTypes.php:39 library/Theme/CustomPostTypes.php:95
+#: library/Theme/CustomPostTypes.php:150 library/Theme/CustomPostTypes.php:206
+#: library/Theme/CustomPostTypes.php:263
 msgid "Not Found in Trash"
 msgstr "Kunde inte hitta sida i papperskorgen"
 
-#: library/Theme/CustomPostTypes.php:39 library/Theme/CustomPostTypes.php:50
-#: library/Theme/CustomPostTypes.php:95 library/Theme/CustomPostTypes.php:106
-#: library/Theme/CustomPostTypes.php:150 library/Theme/CustomPostTypes.php:161
-#: library/Theme/CustomPostTypes.php:206 library/Theme/CustomPostTypes.php:217
+#: library/Theme/CustomPostTypes.php:40 library/Theme/CustomPostTypes.php:51
+#: library/Theme/CustomPostTypes.php:96 library/Theme/CustomPostTypes.php:107
+#: library/Theme/CustomPostTypes.php:151 library/Theme/CustomPostTypes.php:162
+#: library/Theme/CustomPostTypes.php:207 library/Theme/CustomPostTypes.php:218
+#: library/Theme/CustomPostTypes.php:264 library/Theme/CustomPostTypes.php:275
 msgid "Parent"
 msgstr "Förälder"
 
-#: library/Theme/CustomPostTypes.php:40 library/Theme/CustomPostTypes.php:96
-#: library/Theme/CustomPostTypes.php:151 library/Theme/CustomPostTypes.php:207
+#: library/Theme/CustomPostTypes.php:41 library/Theme/CustomPostTypes.php:97
+#: library/Theme/CustomPostTypes.php:152 library/Theme/CustomPostTypes.php:208
+#: library/Theme/CustomPostTypes.php:265
 msgid "Featured Image"
 msgstr "Utvald bild"
 
-#: library/Theme/CustomPostTypes.php:41 library/Theme/CustomPostTypes.php:97
-#: library/Theme/CustomPostTypes.php:152 library/Theme/CustomPostTypes.php:208
+#: library/Theme/CustomPostTypes.php:42 library/Theme/CustomPostTypes.php:98
+#: library/Theme/CustomPostTypes.php:153 library/Theme/CustomPostTypes.php:209
+#: library/Theme/CustomPostTypes.php:266
 msgid "Set Featured Image"
 msgstr "Lägg till utvald bild"
 
-#: library/Theme/CustomPostTypes.php:42 library/Theme/CustomPostTypes.php:98
-#: library/Theme/CustomPostTypes.php:153 library/Theme/CustomPostTypes.php:209
+#: library/Theme/CustomPostTypes.php:43 library/Theme/CustomPostTypes.php:99
+#: library/Theme/CustomPostTypes.php:154 library/Theme/CustomPostTypes.php:210
+#: library/Theme/CustomPostTypes.php:267
 msgid "Remove Featured Image"
 msgstr "Radera utvald bild"
 
-#: library/Theme/CustomPostTypes.php:43 library/Theme/CustomPostTypes.php:44
-#: library/Theme/CustomPostTypes.php:99 library/Theme/CustomPostTypes.php:100
-#: library/Theme/CustomPostTypes.php:154 library/Theme/CustomPostTypes.php:155
-#: library/Theme/CustomPostTypes.php:210 library/Theme/CustomPostTypes.php:211
+#: library/Theme/CustomPostTypes.php:44 library/Theme/CustomPostTypes.php:45
+#: library/Theme/CustomPostTypes.php:100 library/Theme/CustomPostTypes.php:101
+#: library/Theme/CustomPostTypes.php:155 library/Theme/CustomPostTypes.php:156
+#: library/Theme/CustomPostTypes.php:211 library/Theme/CustomPostTypes.php:212
+#: library/Theme/CustomPostTypes.php:268 library/Theme/CustomPostTypes.php:269
 msgid "Use Featured Image"
 msgstr "Använd utvald bild"
 
-#: library/Theme/CustomPostTypes.php:45 library/Theme/CustomPostTypes.php:101
-#: library/Theme/CustomPostTypes.php:156 library/Theme/CustomPostTypes.php:212
+#: library/Theme/CustomPostTypes.php:46 library/Theme/CustomPostTypes.php:102
+#: library/Theme/CustomPostTypes.php:157 library/Theme/CustomPostTypes.php:213
+#: library/Theme/CustomPostTypes.php:270
 msgid "Insert into item"
 msgstr "Lägg till utvald bild"
 
-#: library/Theme/CustomPostTypes.php:46 library/Theme/CustomPostTypes.php:102
-#: library/Theme/CustomPostTypes.php:157 library/Theme/CustomPostTypes.php:213
+#: library/Theme/CustomPostTypes.php:47 library/Theme/CustomPostTypes.php:103
+#: library/Theme/CustomPostTypes.php:158 library/Theme/CustomPostTypes.php:214
+#: library/Theme/CustomPostTypes.php:271
 msgid "Uploaded to this Item"
 msgstr "Ladda upp"
 
-#: library/Theme/CustomPostTypes.php:47 library/Theme/CustomPostTypes.php:103
-#: library/Theme/CustomPostTypes.php:158 library/Theme/CustomPostTypes.php:214
+#: library/Theme/CustomPostTypes.php:48 library/Theme/CustomPostTypes.php:104
+#: library/Theme/CustomPostTypes.php:159 library/Theme/CustomPostTypes.php:215
+#: library/Theme/CustomPostTypes.php:272
 msgid "Filter Items List"
 msgstr "Filtrera lista"
 
-#: library/Theme/CustomPostTypes.php:48 library/Theme/CustomPostTypes.php:104
-#: library/Theme/CustomPostTypes.php:159 library/Theme/CustomPostTypes.php:215
+#: library/Theme/CustomPostTypes.php:49 library/Theme/CustomPostTypes.php:105
+#: library/Theme/CustomPostTypes.php:160 library/Theme/CustomPostTypes.php:216
+#: library/Theme/CustomPostTypes.php:273
 msgid "Items List Navigation"
 msgstr "Navigera lista"
 
-#: library/Theme/CustomPostTypes.php:49 library/Theme/CustomPostTypes.php:105
-#: library/Theme/CustomPostTypes.php:160 library/Theme/CustomPostTypes.php:216
+#: library/Theme/CustomPostTypes.php:50 library/Theme/CustomPostTypes.php:106
+#: library/Theme/CustomPostTypes.php:161 library/Theme/CustomPostTypes.php:217
 msgid "Items List"
 msgstr "Lista sidor"
 
-#: library/Theme/CustomPostTypes.php:54
+#: library/Theme/CustomPostTypes.php:55
 msgid "Villa & Fritidsboende"
 msgstr "Villa & Fritidsboende"
 
-#: library/Theme/CustomPostTypes.php:83 library/Theme/CustomPostTypes.php:84
-#: library/Theme/CustomPostTypes.php:85
+#: library/Theme/CustomPostTypes.php:84 library/Theme/CustomPostTypes.php:85
+#: library/Theme/CustomPostTypes.php:86
 msgid "Pages Företag"
 msgstr "Sidor Företag"
 
-#: library/Theme/CustomPostTypes.php:110
+#: library/Theme/CustomPostTypes.php:111
 msgid "Företag & Restauranger"
 msgstr "Företag & Restauranger"
 
-#: library/Theme/CustomPostTypes.php:138 library/Theme/CustomPostTypes.php:139
-#: library/Theme/CustomPostTypes.php:140
+#: library/Theme/CustomPostTypes.php:139 library/Theme/CustomPostTypes.php:140
+#: library/Theme/CustomPostTypes.php:141
 msgid "Pages Fastighet"
 msgstr "Sidor Fastighet"
 
-#: library/Theme/CustomPostTypes.php:165
+#: library/Theme/CustomPostTypes.php:166
 msgid "Fastighetsägare & Bostadsrättsföreningar"
 msgstr "Fastighetsägare & Bostadsrättsföreningar"
 
-#: library/Theme/CustomPostTypes.php:194 library/Theme/CustomPostTypes.php:221
+#: library/Theme/CustomPostTypes.php:195 library/Theme/CustomPostTypes.php:222
 msgid "F.A.Q"
 msgstr "Frågor & Svar"
 
-#: library/Theme/CustomPostTypes.php:195 library/Theme/CustomPostTypes.php:196
+#: library/Theme/CustomPostTypes.php:196 library/Theme/CustomPostTypes.php:197
 msgid "Pages F.A.Q"
 msgstr "Sidor F&S"
 
-#: library/Theme/CustomPostTypes.php:250 library/Theme/CustomPostTypes.php:251
+#: library/Theme/CustomPostTypes.php:252 library/Theme/CustomPostTypes.php:253
+#: library/Theme/CustomPostTypes.php:254 library/Theme/CustomPostTypes.php:279
+msgid "Sorting guide"
+msgstr "Sorteringsguide"
+
 #: library/Theme/CustomPostTypes.php:255
-msgid "Fraktioner"
-msgstr "Fraktioner"
+msgid "All waste"
+msgstr "Allt avfall"
+
+#: library/Theme/CustomPostTypes.php:257
+msgid "Add New Waste"
+msgstr "Lägg till nytt avfall"
+
+#: library/Theme/CustomPostTypes.php:258
+msgid "Edit Waste"
+msgstr "Redigera avfall"
+
+#: library/Theme/CustomPostTypes.php:259
+msgid "New Waste"
+msgstr "Nytt avfall"
+
+#: library/Theme/CustomPostTypes.php:260
+msgid "View Waste"
+msgstr "Visa avfall"
+
+#: library/Theme/CustomPostTypes.php:261
+msgid "Search Waste"
+msgstr "Sök avfall"
+
+#: library/Theme/CustomPostTypes.php:274
+msgid "Waste List"
+msgstr "Lista avfall"
 
 #: library/Theme/CustomPostTypesMetaSidebar.php:36
 msgid "Display sidebar"
@@ -272,6 +312,9 @@ msgstr "NSR Child tema utvecklad av HIQ"
 #. Author of the plugin/theme
 msgid "HIQ hiq.se"
 msgstr ""
+
+#~ msgid "Fraktioner"
+#~ msgstr "Fraktioner"
 
 #~ msgid "HIQ"
 #~ msgstr "HIQ"
