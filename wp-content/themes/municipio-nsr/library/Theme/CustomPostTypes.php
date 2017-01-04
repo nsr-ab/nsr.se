@@ -7,8 +7,9 @@ class CustomPostTypes
     public function __construct()
     {
 
-        add_action('init', array($this, 'register_custom_post_types'));
         add_action( 'init', array($this, 'cptui_register_taxes_sorteringsguide') );
+        add_action('init', array($this, 'register_custom_post_types'));
+
 
     }
 
@@ -253,7 +254,7 @@ class CustomPostTypes
             "singular_name" => __( 'Sorting guide', 'nsr' ),
             "menu_name" => __( 'Sorting guide', 'nsr' ),
             "all_items" => __( 'All waste', 'nsr' ),
-            "add_new" => __( 'Add New', 'nsr' ),
+            "add_new" => __( 'Add New waste', 'nsr' ),
             "add_new_item" => __( 'Add New Waste', 'nsr' ),
             "edit_item" => __( 'Edit Waste', 'nsr' ),
             "new_item" => __( 'New Waste', 'nsr' ),
@@ -295,7 +296,7 @@ class CustomPostTypes
             "menu_position" => 21,
             "menu_icon" => "dashicons-trash",
             "supports" => array( "title", "editor"),
-            "taxonomies" => array("Fraktioner", "Inlämningsställen")
+            "taxonomies" => array("fraktioner", "inlamningsstallen")
         );
         register_post_type( "sorteringsguide", $args );
 
@@ -319,35 +320,35 @@ class CustomPostTypes
             "show_in_menu" => true,
             "show_in_nav_menus" => true,
             "query_var" => true,
-            "rewrite" => array( 'slug' => 'fraktion', 'with_front' => true ),
+            "rewrite" => array( 'slug' => 'fraktioner', 'with_front' => true ),
             "show_admin_column" => false,
             "show_in_rest" => false,
             "rest_base" => "",
             "show_in_quick_edit" => true,
         );
-        register_taxonomy( "fraktion", array( "faq" ), $args );
+        register_taxonomy( "fraktioner", array( "faq" ), $args );
 
         $labels = array(
-            "name" => __( 'Inlämingsställen', 'nsr' ),
+            "name" => __( 'Inlämningsställen', 'nsr' ),
             "singular_name" => __( 'Inlämingsställe', 'nsr' ),
         );
         $args = array(
-            "label" => __( 'Inlämingsställen', 'nsr' ),
+            "label" => __( 'Inlämningsställen', 'nsr' ),
             "labels" => $labels,
             "public" => true,
             "hierarchical" => false,
-            "label" => "Inlämingsställen",
+            "label" => "Inlämningsställen",
             "show_ui" => true,
             "show_in_menu" => true,
             "show_in_nav_menus" => true,
             "query_var" => true,
-            "rewrite" => array( 'slug' => 'inlamningsstalle', 'with_front' => true ),
+            "rewrite" => array( 'slug' => 'inlamningsstallen', 'with_front' => true ),
             "show_admin_column" => false,
             "show_in_rest" => false,
             "rest_base" => "",
             "show_in_quick_edit" => true,
         );
-        register_taxonomy( "inlamningsstalle", array( "inlamningsstalle" ), $args );
+        register_taxonomy( "inlamningsstallen", array( "inlamningsstallen" ), $args );
     }
 
 
