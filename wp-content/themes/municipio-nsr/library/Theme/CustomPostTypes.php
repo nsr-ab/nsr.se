@@ -8,7 +8,8 @@ class CustomPostTypes
     {
 
         add_action('init', array($this, 'register_custom_post_types'));
-        add_action( 'init', array($this, 'cptui_register_my_taxes_fraktion') );
+
+
     }
 
 
@@ -187,7 +188,7 @@ class CustomPostTypes
 
 
 
-        /* Fastighetsägare & Bostadsrättsföreningar */
+        /* FAQ */
 
         $labels = array(
 
@@ -243,39 +244,6 @@ class CustomPostTypes
 
 
     }
-
-
-    public function cptui_register_my_taxes_fraktion() {
-        $labels = array(
-            "name" => __( 'Fraktioner', 'nsr' ),
-            "singular_name" => __( 'Fraktioner', 'nsr' ),
-        );
-
-        $args = array(
-            "label" => __( 'Fraktioner', 'nsr' ),
-            "labels" => $labels,
-            "public" => true,
-            "hierarchical" => false,
-            "label" => "Fraktioner",
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "show_in_nav_menus" => true,
-            "query_var" => true,
-            "rewrite" => array( 'slug' => 'fraktion', 'with_front' => true, ),
-            "show_admin_column" => false,
-            "show_in_rest" => false,
-            "rest_base" => "",
-            "show_in_quick_edit" => false,
-        );
-        register_taxonomy( "fraktion", array( "faq" ), $args );
-
-    }
-
-
-
-
-
-
 
 
 
