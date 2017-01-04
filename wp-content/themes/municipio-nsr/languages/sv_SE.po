@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR\n"
-"POT-Creation-Date: 2017-01-04 13:33+0100\n"
-"PO-Revision-Date: 2017-01-04 13:34+0100\n"
+"POT-Creation-Date: 2017-01-04 13:50+0100\n"
+"PO-Revision-Date: 2017-01-04 13:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -72,8 +72,7 @@ msgid "All Items"
 msgstr "Alla sidor"
 
 #: library/Theme/CustomPostTypes.php:32 library/Theme/CustomPostTypes.php:88
-#: library/Theme/CustomPostTypes.php:143 library/Theme/CustomPostTypes.php:199
-#: library/Theme/CustomPostTypes.php:256
+#: library/Theme/CustomPostTypes.php:143 library/Theme/CustomPostTypes.php:256
 msgid "Add New"
 msgstr "Lägg till ny"
 
@@ -206,6 +205,10 @@ msgstr "Frågor & Svar"
 #: library/Theme/CustomPostTypes.php:196 library/Theme/CustomPostTypes.php:197
 msgid "Pages F.A.Q"
 msgstr "Sidor F&S"
+
+#: library/Theme/CustomPostTypes.php:199
+msgid "Add New waste"
+msgstr "Lägg till nytt avfall"
 
 #: library/Theme/CustomPostTypes.php:252 library/Theme/CustomPostTypes.php:253
 #: library/Theme/CustomPostTypes.php:254 library/Theme/CustomPostTypes.php:279

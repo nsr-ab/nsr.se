@@ -196,7 +196,7 @@ class CustomPostTypes
             "singular_name" => __( 'Pages F.A.Q', 'nsr' ),
             "menu_name" => __( 'Pages F.A.Q', 'nsr' ),
             "all_items" => __( 'All Items', 'nsr' ),
-            "add_new" => __( 'Add New', 'nsr' ),
+            "add_new" => __( 'Add New waste', 'nsr' ),
             "add_new_item" => __( 'Add New Item', 'nsr' ),
             "edit_item" => __( 'Edit Item', 'nsr' ),
             "new_item" => __( 'New Item', 'nsr' ),
@@ -295,7 +295,7 @@ class CustomPostTypes
             "menu_position" => 21,
             "menu_icon" => "dashicons-admin-page",
             "supports" => array( "title", "editor", "excerpt", "page-attributes" ),
-            "taxonomies" => ''
+            "taxonomies" => array()
         );
         register_post_type( "sorteringsguide", $args );
 
