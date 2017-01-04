@@ -236,7 +236,7 @@ class CustomPostTypes
             "rewrite" => array( "slug" => "faq", "with_front" => true ),
             "query_var" => true,
             "menu_position" => 21,
-            "menu_icon" => "dashicons-admin-page",
+            "menu_icon" => "dashicons-welcome-learn-more",
             "supports" => array( "title", "editor", "excerpt", "page-attributes" ),
             "taxonomies" => array( "category", "post_tag" ),
         );
@@ -293,7 +293,7 @@ class CustomPostTypes
             "rewrite" => array( "slug" => "sorteringsguide", "with_front" => true ),
             "query_var" => true,
             "menu_position" => 21,
-            "menu_icon" => "dashicons-admin-page",
+            "menu_icon" => "dashicons-trash",
             "supports" => array( "title", "editor", "excerpt", "page-attributes" ),
             "taxonomies" => array()
         );
