@@ -8,7 +8,7 @@ class CustomPostTypes
     {
 
         add_action('init', array($this, 'register_custom_post_types'));
-
+        add_action( 'init', array($this, 'cptui_register_taxes_sorteringsguide') );
 
     }
 
@@ -294,12 +294,60 @@ class CustomPostTypes
             "query_var" => true,
             "menu_position" => 21,
             "menu_icon" => "dashicons-trash",
-            "supports" => array( "title", "editor", "excerpt", "page-attributes" ),
-            "taxonomies" => array()
+            "supports" => array( "title", "editor"),
+            "taxonomies" => array("Fraktioner", "Inlämningsställen")
         );
         register_post_type( "sorteringsguide", $args );
 
 
+    }
+
+
+    public function cptui_register_taxes_sorteringsguide() {
+
+        $labels = array(
+            "name" => __( 'Fraktioner', 'nsr' ),
+            "singular_name" => __( 'Fraktion', 'nsr' ),
+        );
+        $args = array(
+            "label" => __( 'Fraktioner', 'nsr' ),
+            "labels" => $labels,
+            "public" => true,
+            "hierarchical" => false,
+            "label" => "Fraktioner",
+            "show_ui" => true,
+            "show_in_menu" => true,
+            "show_in_nav_menus" => true,
+            "query_var" => true,
+            "rewrite" => array( 'slug' => 'fraktion', 'with_front' => true ),
+            "show_admin_column" => false,
+            "show_in_rest" => false,
+            "rest_base" => "",
+            "show_in_quick_edit" => true,
+        );
+        register_taxonomy( "fraktion", array( "faq" ), $args );
+
+        $labels = array(
+            "name" => __( 'Inlämingsställen', 'nsr' ),
+            "singular_name" => __( 'Inlämingsställe', 'nsr' ),
+        );
+        $args = array(
+            "label" => __( 'Inlämingsställen', 'nsr' ),
+            "labels" => $labels,
+            "public" => true,
+            "hierarchical" => false,
+            "label" => "Inlämingsställen",
+            "show_ui" => true,
+            "show_in_menu" => true,
+            "show_in_nav_menus" => true,
+            "query_var" => true,
+            "rewrite" => array( 'slug' => 'inlamningsstalle', 'with_front' => true ),
+            "show_admin_column" => false,
+            "show_in_rest" => false,
+            "rest_base" => "",
+            "show_in_quick_edit" => true,
+        );
+        register_taxonomy( "inlamningsstalle", array( "inlamningsstalle" ), $args );
     }
 
 
