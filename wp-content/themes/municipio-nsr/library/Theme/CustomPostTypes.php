@@ -471,6 +471,29 @@ class CustomPostTypes
                             'id' => '',
                         ),
                     ),
+                    array (
+                        'post_type' => array (
+                            0 => 'page',
+                        ),
+                        'taxonomy' => array (
+                        ),
+                        'allow_null' => 0,
+                        'multiple' => 0,
+                        'return_format' => 'object',
+                        'ui' => 1,
+                        'key' => 'field_586e2225ccf51',
+                        'label' => 'Länk till sida',
+                        'name' => 'tax_pageurl',
+                        'type' => 'post_object',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                    ),
                 ),
                 'location' => array (
                     array (
