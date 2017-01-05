@@ -16,13 +16,6 @@ class App
         new \Nsr\Theme\NSRTemplates();
         new \Nsr\Theme\CustomPostTypesMetaSidebar();
 
-        //new \Nsr\Search\ElasticSearch();
-        // Data
-        //new \Nsr\Helper\PostType();
-        //new \Nsr\Helper\FragmentCache();
-
-        //\Nsr\Search\ElasticSearch::test();
-
 
         add_action( 'after_setup_theme', array( $this, 'nsr_theme_setup' ) );
         add_action( 'init', array( $this,'add_excerpts_to_pages' ) );
@@ -35,6 +28,8 @@ class App
             add_action( 'pre_get_posts', array($this,'category_and_tag_archives') );
         }
 
+        $this->customRedirects();
+
 
     }
 
@@ -42,6 +37,7 @@ class App
     /**
      *  nsr_theme_setup
      *  Adding language file
+     *  @return void
      */
     public function nsr_theme_setup()
     {
@@ -52,6 +48,7 @@ class App
     /**
      *  add_excerpts_to_pages
      *  Adding Excerpts to page
+     *  @return void
      */
     public function add_excerpts_to_pages()
     {
@@ -63,6 +60,7 @@ class App
     /**
      *  nsr_change_post_label
      *  Change designation post to news
+     *  @return void
      */
     function nsr_change_post_label()
     {
@@ -80,6 +78,7 @@ class App
     /**
      *  nsr_change_post_object
      *  Change designation post to news
+     *  @return void
      */
     function nsr_change_post_object()
     {
@@ -104,6 +103,7 @@ class App
     /**
      *  add_taxonomies_to_pages
      *  Adding categories and tags to pages
+     *  @return void
      */
     function add_taxonomies_to_pages()
     {
@@ -115,6 +115,7 @@ class App
     /**
      *  category_and_tag_archives
      *  Adding categories and tags to pages
+     *  @return void
      */
     function category_and_tag_archives( $wp_query )
     {
@@ -125,6 +126,47 @@ class App
 
         if ( $wp_query->get( 'tag' ) )
             $wp_query->set( 'post_type', $my_post_array );
+    }
+
+
+    /**
+     * customRedirects
+     * Fixing redirects when saving taxanomy.
+     * @return location
+     */
+    public function customRedirects()
+    {
+
+        add_filter( 'wp_redirect',
+            function( $location ){
+                $args = array(
+                    'public'   => true,
+                    '_builtin' => true
+
+                );
+                $taxonomy = get_taxonomies($args);
+                foreach ($taxonomy  as $mytaxonomy) {
+                    $args = array(
+                        'action'   => FILTER_SANITIZE_STRING,
+                        'taxonomy' => FILTER_SANITIZE_STRING,
+                        'tag_ID'   => FILTER_SANITIZE_NUMBER_INT,
+                    );
+                    $_inputs    = filter_input_array( INPUT_POST, $args );
+                    $_post_type = filter_input( INPUT_GET, 'post_type', FILTER_SANITIZE_STRING );
+                    if( 'editedtag' === $_inputs['action']
+                        or $mytaxonomy === $_inputs['taxonomy']
+                        or $_inputs['tag_ID'] > 0
+                    ){
+                        $location = add_query_arg( 'action',   'edit',               $location );
+                        $location = add_query_arg( 'taxonomy', $_inputs['taxonomy'], $location );
+                        $location = add_query_arg( 'tag_ID',   $_inputs['tag_ID'],   $location );
+                        if( $_post_type )
+                            $location = add_query_arg( 'post_type', $_post_type, $location );
+                    }
+                    return $location;
+                }
+            }
+        );
     }
 
 

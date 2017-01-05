@@ -9,8 +9,6 @@ class CustomPostTypes
 
         add_action( 'init', array($this, 'cptui_register_taxes_sorteringsguide') );
         add_action('init', array($this, 'register_custom_post_types'));
-
-        $this->customRedirects();
     }
 
 
@@ -519,48 +517,6 @@ class CustomPostTypes
 
 
     }
-
-
-    /**
-     * Fixing redirects when saving taxanomy.
-     * @return location
-     */
-    public function customRedirects()
-    {
-
-        add_filter( 'wp_redirect',
-            function( $location ){
-                $args = array(
-                    'public'   => true,
-                    '_builtin' => true
-
-                );
-                $taxonomy = get_taxonomies($args);
-                foreach ($taxonomy  as $mytaxonomy) {
-                    $args = array(
-                        'action'   => FILTER_SANITIZE_STRING,
-                        'taxonomy' => FILTER_SANITIZE_STRING,
-                        'tag_ID'   => FILTER_SANITIZE_NUMBER_INT,
-                    );
-                    $_inputs    = filter_input_array( INPUT_POST, $args );
-                    $_post_type = filter_input( INPUT_GET, 'post_type', FILTER_SANITIZE_STRING );
-                    if( 'editedtag' === $_inputs['action']
-                        or $mytaxonomy === $_inputs['taxonomy']
-                        or $_inputs['tag_ID'] > 0
-                    ){
-                        $location = add_query_arg( 'action',   'edit',               $location );
-                        $location = add_query_arg( 'taxonomy', $_inputs['taxonomy'], $location );
-                        $location = add_query_arg( 'tag_ID',   $_inputs['tag_ID'],   $location );
-                        if( $_post_type )
-                            $location = add_query_arg( 'post_type', $_post_type, $location );
-                    }
-                    return $location;
-                }
-            }
-        );
-    }
-
-
 
 
 }
