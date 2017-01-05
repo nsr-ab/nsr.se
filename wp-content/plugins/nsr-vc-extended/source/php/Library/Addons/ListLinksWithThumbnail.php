@@ -90,6 +90,7 @@ class ListLinksWithThumbnail extends MasterVCExtended
                 'admin_label' => false,
                 'type' => 'loop',
                 'heading' => __('Select your post & categories', 'nsr-vc-extended'),
+                'description' => __('No value equals all posts', 'nsr-vc-extended'),
                 'param_name' => 'vc_loop',
                 'edit_field_class' => 'vc_col-sm-12 vc_col-md-12',
             ),

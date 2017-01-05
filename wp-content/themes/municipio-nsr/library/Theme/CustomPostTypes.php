@@ -10,12 +10,12 @@ class CustomPostTypes
         add_action( 'init', array($this, 'cptui_register_taxes_sorteringsguide') );
         add_action('init', array($this, 'register_custom_post_types'));
 
-
+        $this->customRedirects();
     }
 
 
     /**
-     * Register static custom posttypes for Företag & Restauranger, Fastighetsägare & Bostadsrättsföreningar
+     * Register custom posttypes for Företag & Restauranger, Fastighetsägare & Bostadsrättsföreningar, FAQ, Sorteringsguide
      * @return void
      */
     function register_custom_post_types()
@@ -304,6 +304,11 @@ class CustomPostTypes
     }
 
 
+
+    /**
+     * Register taxonomies.
+     * @return void
+     */
     public function cptui_register_taxes_sorteringsguide() {
 
         $labels = array(
@@ -349,7 +354,151 @@ class CustomPostTypes
             "show_in_quick_edit" => true,
         );
         register_taxonomy( "inlamningsstallen", array( "inlamningsstallen" ), $args );
+
+
+
+        if( function_exists('acf_add_local_field_group') ):
+
+            acf_add_local_field_group(array (
+                'key' => 'group_586cd2a01195f',
+                'title' => 'Fraktioner - Koppling inlämningsställen',
+                'fields' => array (
+                    array (
+                        'taxonomy' => 'inlamningsstallen',
+                        'field_type' => 'multi_select',
+                        'multiple' => 0,
+                        'allow_null' => 1,
+                        'return_format' => 'id',
+                        'add_term' => 1,
+                        'load_terms' => 0,
+                        'save_terms' => 0,
+                        'key' => 'field_586cd2ac7119c',
+                        'label' => 'Inlämningsställen',
+                        'name' => 'fraktion_inlamningsstallen',
+                        'type' => 'taxonomy',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                    ),
+                ),
+
+                'location' => array (
+                    array (
+                        array (
+                            'param' => 'taxonomy',
+                            'operator' => '==',
+                            'value' => 'fraktioner',
+                        ),
+                    ),
+                ),
+
+                'menu_order' => 0,
+                'position' => 'normal',
+                'style' => 'default',
+                'label_placement' => 'top',
+                'instruction_placement' => 'label',
+                'hide_on_screen' => '',
+                'active' => 1,
+                'description' => '',
+            ));
+
+            acf_add_local_field_group(array (
+                'key' => 'group_586ccede33e92',
+                'title' => 'Inlämningsställen - Koppling Fraktioner',
+                'fields' => array (
+                    array (
+                        'taxonomy' => 'fraktioner',
+                        'field_type' => 'multi_select',
+                        'multiple' => 0,
+                        'allow_null' => 0,
+                        'return_format' => 'id',
+                        'add_term' => 1,
+                        'load_terms' => 0,
+                        'save_terms' => 0,
+                        'key' => 'field_586ccf26a85a5',
+                        'label' => 'Fraktioner',
+                        'name' => 'inlamningsstalle_fraktioner',
+                        'type' => 'taxonomy',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                    ),
+                ),
+                'location' => array (
+                    array (
+                        array (
+                            'param' => 'taxonomy',
+                            'operator' => '==',
+                            'value' => 'inlamningsstallen',
+                        ),
+                    ),
+                ),
+                'menu_order' => 0,
+                'position' => 'normal',
+                'style' => 'default',
+                'label_placement' => 'top',
+                'instruction_placement' => 'label',
+                'hide_on_screen' => '',
+                'active' => 1,
+                'description' => '',
+            ));
+
+        endif;
+
+
+
     }
+
+
+    /**
+     * Fixing redirects when saving taxanomy.
+     * @return location
+     */
+    public function customRedirects()
+    {
+
+        add_filter( 'wp_redirect',
+            function( $location ){
+                $args = array(
+                    'public'   => true,
+                    '_builtin' => true
+
+                );
+                $taxonomy = get_taxonomies($args);
+                foreach ($taxonomy  as $mytaxonomy) {
+                    $args = array(
+                        'action'   => FILTER_SANITIZE_STRING,
+                        'taxonomy' => FILTER_SANITIZE_STRING,
+                        'tag_ID'   => FILTER_SANITIZE_NUMBER_INT,
+                    );
+                    $_inputs    = filter_input_array( INPUT_POST, $args );
+                    $_post_type = filter_input( INPUT_GET, 'post_type', FILTER_SANITIZE_STRING );
+                    if( 'editedtag' === $_inputs['action']
+                        or $mytaxonomy === $_inputs['taxonomy']
+                        or $_inputs['tag_ID'] > 0
+                    ){
+                        $location = add_query_arg( 'action',   'edit',               $location );
+                        $location = add_query_arg( 'taxonomy', $_inputs['taxonomy'], $location );
+                        $location = add_query_arg( 'tag_ID',   $_inputs['tag_ID'],   $location );
+                        if( $_post_type )
+                            $location = add_query_arg( 'post_type', $_post_type, $location );
+                    }
+                    return $location;
+                }
+            }
+        );
+    }
+
 
 
 

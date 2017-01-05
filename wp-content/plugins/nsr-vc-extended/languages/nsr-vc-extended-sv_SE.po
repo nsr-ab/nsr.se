@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2016-12-29 11:25+0100\n"
-"PO-Revision-Date: 2016-12-29 11:25+0100\n"
+"POT-Creation-Date: 2017-01-05 09:27+0100\n"
+"PO-Revision-Date: 2017-01-05 10:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/App.php:140
+#: source/php/App.php:135
 msgid ""
 "<strong>NSR Visual Composer Extended</strong> requires <strong><a href="
 "\"http://bit.ly/vcomposer\" target=\"_blank\">Visual Composer</a></strong> "
@@ -69,29 +69,34 @@ msgstr "Rubrik och länk"
 msgid "Select your post & categories"
 msgstr "Välj post och kategori"
 
-#: source/php/Library/Addons/ListLinksWithThumbnail.php:102
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:93
+msgid "No value equals all posts"
+msgstr ""
+"Välj artiklar från systemet, Justera hur många som ska visas med Post Count"
+
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:103
 #: source/php/Library/Addons/ListNewsAndPosts.php:105
 msgid "Skip posts"
 msgstr "Hur många poster vill du hoppa över?"
 
-#: source/php/Library/Addons/ListLinksWithThumbnail.php:105
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:106
 #: source/php/Library/Addons/ListNewsAndPosts.php:108
 msgid "Skip posts in query, Only use if you set Post count in build query"
 msgstr ""
 "Använd bara om du valt att visa antal poster (post count) i Build query"
 
-#: source/php/Library/Addons/ListLinksWithThumbnail.php:122
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:123
 msgid "List links with thumbnail"
 msgstr "Puff med länkar"
 
-#: source/php/Library/Addons/ListLinksWithThumbnail.php:123
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:124
 msgid "List links, post, pages and add Thumbnail"
 msgstr "Bild och länkar"
 
-#: source/php/Library/Addons/ListLinksWithThumbnail.php:132
+#: source/php/Library/Addons/ListLinksWithThumbnail.php:133
 #: source/php/Library/Addons/ListNewsAndPosts.php:136
 #: source/php/Library/Addons/MenuCollapsible.php:215
-#: source/php/Library/Addons/NSRSearch.php:71
+#: source/php/Library/Addons/NSRSearch.php:89
 #: source/php/Library/Addons/OpenHours.php:173
 #: source/php/Library/Addons/Puff.php:121
 #: source/php/Library/Addons/ThumbnailAndTextarea.php:117
@@ -277,19 +282,43 @@ msgstr "Meny / Dragspel "
 msgid "Menu Accordion"
 msgstr "Meny / Lista / Dragspel"
 
+#: source/php/Library/Addons/NSRSearch.php:52
+msgid "Search section"
+msgstr ""
+
+#: source/php/Library/Addons/NSRSearch.php:56
+msgid "Choose section..."
+msgstr ""
+
+#: source/php/Library/Addons/NSRSearch.php:57
+msgid "All sections"
+msgstr ""
+
+#: source/php/Library/Addons/NSRSearch.php:58
+msgid "Villa & Fritidsboende"
+msgstr ""
+
+#: source/php/Library/Addons/NSRSearch.php:59
+msgid "Fastighetsägare & Bostadsrättsföreningar"
+msgstr ""
+
+#: source/php/Library/Addons/NSRSearch.php:60
+msgid "Företag & Restauranger"
+msgstr ""
+
 #: source/php/Library/Addons/NSRSearch.php:61
+msgid "Vanliga frågor"
+msgstr ""
+
+#: source/php/Library/Addons/NSRSearch.php:79
 msgid "Search"
 msgstr "Sök"
 
-#: source/php/Library/Addons/NSRSearch.php:62
+#: source/php/Library/Addons/NSRSearch.php:80
 msgid "NSR Search"
 msgstr "Sök på NSR"
 
-#: source/php/Library/Addons/NSRSearch.php:112
-msgid "Tömningskalender eller sorteringsguiden"
-msgstr "Tömningskalender eller sorteringsguiden"
-
-#: source/php/Library/Addons/NSRSearch.php:116
+#: source/php/Library/Addons/NSRSearch.php:133
 msgid ""
 "Where do you live? What stuff do you want to sort? Are you looking for "
 "something else?"
@@ -429,6 +458,9 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "hiq.se"
 msgstr ""
+
+#~ msgid "Tömningskalender eller sorteringsguiden"
+#~ msgstr "Tömningskalender eller sorteringsguiden"
 
 #~ msgid "Yes"
 #~ msgstr "Ja"

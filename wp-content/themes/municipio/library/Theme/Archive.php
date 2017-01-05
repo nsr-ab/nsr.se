@@ -29,3 +29,4 @@ class Archive
         $query->set('post_parent', 0);
     }
 }
+

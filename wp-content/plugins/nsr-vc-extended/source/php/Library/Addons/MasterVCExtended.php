@@ -78,7 +78,10 @@ class MasterVCExtended
         $sql .= isset($params['order_by']) ? " ORDER BY '$wpdb->posts.post_" . $params['order_by'] . "' " : null;
         $sql .= isset($params['order']) ? " ".$params['order'] : null;
 
+
+
         if ( isset($params['size']) ) {
+            $params['size'] = ($params['size'] === 'all') ? null : $params['size'];
             $sql .= isset($params['size']) ? " LIMIT " : null;
             $sql .= isset($params['vc_startfrom']) ? " " . $params['vc_startfrom'] . ", " : null;
             $sql .= isset($params['size']) ? " " . $params['size'] . "" : null;
