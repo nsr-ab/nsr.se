@@ -40,8 +40,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var timeout = null;
 
 
-
-
         $('body').on('click', '.searchArea *', function (e) {
 
             if($(e.target).is('i') || $(e.target).is('.search-autocomplete') ){
@@ -154,6 +152,48 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
     /**
+     *  postIcon
+     *  @param post_type string
+     */
+    Extended.prototype.postIcon = function (post_type) {
+
+        switch (post_type) {
+
+            case "post":
+                $icon = 'chat';
+                break;
+
+            case "fastighet":
+                $icon = 'location_city';
+                break;
+
+            case "villa":
+                $icon = 'home';
+                break;
+
+            case "foretag":
+                $icon = 'domain';
+                break;
+
+            case "page":
+                $icon = 'insert_drive_file';
+                break;
+
+            case "faq":
+                $icon = 'forum';
+                break;
+
+            case "sorteringsguide":
+                $icon = 'delete';
+                break;
+
+        }
+        return $icon;
+    };
+
+
+
+    /**
      *  searchOutput
      *  Printing data.
      *  @param result string
@@ -171,26 +211,38 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     var $excerpt = '';
                 }
 
+                $icon = "find_in_page";
+
                 switch(post.post_type){
+                    case 'page':
+                        $postSection = 'Sidor';
+                        $icon = Extended.prototype.postIcon('page');
+                        break;
+
                     case 'post':
                         $postSection = 'Nyheter';
+                        $icon = Extended.prototype.postIcon('post');
                         break;
 
                     case "fastighet":
                         $postSection = 'Fastighetsägare & Bostadsrättsföreningar';
+                        $icon = Extended.prototype.postIcon('fastighet');
                         break;
 
                     case "villa":
                         $postSection = 'Villa & Fritidsboende';
+                        $icon = Extended.prototype.postIcon('villa');
                         break;
 
                     case "foretag":
                         $postSection = 'Företag & Restauranger';
+                        $icon = Extended.prototype.postIcon('foretag');
                         break;
 
                     default:
                         $postSection = '';
                 }
+
                 $content.append('<li class="col s12 m6 l6"> <i class="material-icons"> ' + $icon + '</i><a href="' + post.guid + '"><h5>' + post.post_title + '</h5></a><span class="section right">'+$postSection+'</span><p>'+$excerpt+'</p></li>');
             });
         }
@@ -418,35 +470,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $autocomplete = $('<div class="search-autocomplete"></div>');
         var $content = $('<ul class="search-autocomplete-content"></ul>');
 
+
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
+
             $.each(res.content, function (index, post) {
 
-                var $icon = "";
-
-                switch(post.post_type){
-                    case "post":
-                        $icon = 'chat';
-                        break;
-
-                    case "fastighet":
-                        $icon = 'location_city';
-                        break;
-
-                    case "villa":
-                        $icon = 'home';
-                        break;
-
-                    case "foretag":
-                        $icon = 'domain';
-                        break;
-
-                    case "page":
-                        $icon = 'insert_drive_file';
-                        break;
-                }
-
+                var $icon = Extended.prototype.postIcon(post.post_type);
+                if(!$icon)
+                    var $icon = "find_in_page";
                 if (post.is_file) {
-                    $content.append('<li class="col s12 m4 l4"><i class="material-icons"> ' + $icon + '</i>"><a class="link-item-before" href="' + post.guid + '" target="_blank">' + post.post_title + '</a></li>');
+                    $content.append('<li class="col s12 m4 l4"><i class="material-icons"> ' + $icon + '</i><a class="link-item-before" href="' + post.guid + '" target="_blank">' + post.post_title + '</a></li>');
                 } else {
                     $content.append('<li class="col s12 m4 l4"> <i class="material-icons"> ' + $icon + '</i><a href="' + post.guid + '">' + post.post_title + '</a></li>');
                 }
