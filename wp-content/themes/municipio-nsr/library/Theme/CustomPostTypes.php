@@ -470,6 +470,44 @@ class CustomPostTypes
                         ),
                     ),
                     array (
+                        'default_value' => '',
+                        'maxlength' => '',
+                        'placeholder' => 'Storgatan 5b',
+                        'prepend' => '',
+                        'append' => '',
+                        'key' => 'field_58749b3d11fb1',
+                        'label' => 'Adress',
+                        'name' => 'inlamningsstalle_adress',
+                        'type' => 'text',
+                        'instructions' => 'Skriv in inlämningsställets adress',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                    ),
+                    array (
+                        'default_value' => '',
+                        'maxlength' => '',
+                        'placeholder' => 'Helsingborg',
+                        'prepend' => '',
+                        'append' => '',
+                        'key' => 'field_58749b8ca6b78',
+                        'label' => 'Stad/Ort',
+                        'name' => 'inlamningsstalle_stadort',
+                        'type' => 'text',
+                        'instructions' => 'Skriv in Ort/Stad',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                    ),
+                    array (
                         'post_type' => array (
                             0 => 'page',
                         ),
@@ -492,6 +530,7 @@ class CustomPostTypes
                             'id' => '',
                         ),
                     ),
+
                 ),
                 'location' => array (
                     array (
