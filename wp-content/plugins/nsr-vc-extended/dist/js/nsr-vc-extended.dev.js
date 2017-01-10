@@ -31,15 +31,28 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.init = function () {
 
-        $(function() {
 
-            this.eventHandler();
+        /* Ad-don Puff med länkar - Visa fler nyheter */
+        $('body').on('click', '.showAllPosts', function () {
+            event.preventDefault();
 
-        }.bind(this));
+            if($(this).closest( "ul" ).find('li').hasClass('hide')) {
+                $(this).closest("ul").find('.hide').addClass('show');
+                $(this).closest("ul").find('li').removeClass('hide');
+                var countItemsHide = $(this).closest("ul").find('li').length-6;
+                $(this).closest("ul").find('.showPosts').text('Dölj ('+countItemsHide+')');
+            }
+            else {
+                $(this).closest("ul").find('.show').addClass('hide');
+                $(this).closest("ul").find('li').removeClass('show');
+                var countItemsShow = $(this).closest("ul").find('li').length-1;
+                $(this).closest("ul").find('.showPosts').text('Visa alla ('+countItemsShow+')');
+            }
+        }).bind(this);
 
         var timeout = null;
 
-
+        /* Ad-don searchNSR - Full screen */
         $('body').on('click', '.searchArea *', function (e) {
 
             if($(e.target).is('i') || $(e.target).is('.search-autocomplete') ){
@@ -53,7 +66,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }).bind(this);
 
-        /* */
+        /* Ad-don searchNSR - Close full screen */
         $('body').on('click', '.closeSearch', function (e) {
 
             event.stopPropagation();
@@ -66,8 +79,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }).bind(this);
 
-
-        /* Enter key function */
+        /* Ad-don searchNSR - Enter key function */
         $.fn.enterKey = function (fnc) {
 
             return this.each(function () {
@@ -84,7 +96,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             })
         }
 
-        /* Hitting Enter on search */
+        /* Ad-don searchNSR - Hiting Enter on search */
         $('.searchNSR').enterKey(function () {
 
             $('.searchNSR').append('<div id="searchResult"></div>');
@@ -97,7 +109,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }).bind(this);
 
-        /* Autocomplete */
+        /* Ad-don searchNSR - Autocomplete */
         $('.search').each(function (index, element) {
 
             $('#searchResult').html('');
@@ -110,6 +122,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }.bind(this));
 
+        /* Ad-don searchNSR - Read more... */
         $('body').on('click', '.read-more', function () {
 
             var searchQuery = $('.searchNSR').find('input[type="search"]').val();
@@ -254,34 +267,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('#searchResult').html($content);
         $('.search-autocomplete').remove();
         $('.search-content li').matchHeight();
-    };
-
-
-
-
-    /**
-     *  eventHandler
-     *  Managing all event handlers (Silence is gold)
-     */
-    Extended.prototype.eventHandler = function () {
-
-        $('body').on('click', '.showAllPosts', function () {
-            event.preventDefault();
-
-            if($(this).closest( "ul" ).find('li').hasClass('hide')) {
-                $(this).closest("ul").find('.hide').addClass('show');
-                $(this).closest("ul").find('li').removeClass('hide');
-                var countItemsHide = $(this).closest("ul").find('li').length-6;
-                $(this).closest("ul").find('.showPosts').text('Dölj ('+countItemsHide+')');
-            }
-            else {
-                $(this).closest("ul").find('.show').addClass('hide');
-                $(this).closest("ul").find('li').removeClass('show');
-                var countItemsShow = $(this).closest("ul").find('li').length-1;
-                $(this).closest("ul").find('.showPosts').text('Visa alla ('+countItemsShow+')');
-            }
-        }).bind(this);
-
     };
 
 
