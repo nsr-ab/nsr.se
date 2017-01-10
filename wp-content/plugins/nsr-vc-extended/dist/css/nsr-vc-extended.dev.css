@@ -197,7 +197,6 @@ input[type=text]:focus.invalid {
     top: 60px;
     left: 0px;
     bottom: 0px;
-    height: 100%;
     width: 100%;
     margin: 0;
     padding: 15px;
@@ -221,30 +220,39 @@ input[type=text]:focus.invalid {
     display: block;
     padding: 7.5px 10px;
     font-style: italic; }
-  .searchNSR .search-autocomplete, .searchNSR .search-content {
+  .searchNSR .sorteringsguiden h4, .searchNSR .search-autocomplete h4 {
+    font-size: 1.40rem; }
+  .searchNSR .search-autocomplete, .searchNSR .search-content, .searchNSR .sorterings-guide-table {
     display: none;
-    position: absolute;
-    top: 182px;
-    left: 0;
-    right: 0;
+    margin-top: 20px;
     z-index: 99;
-    background-color: #016a77;
     border-radius: 3px;
     overflow: hidden;
     font-size: 1em;
     display: table;
     width: 100%;
     transition: 300ms ease; }
-    .searchNSR .search-autocomplete li, .searchNSR .search-content li {
+    .searchNSR .search-autocomplete tr, .searchNSR .search-autocomplete td, .searchNSR .search-autocomplete tbody, .searchNSR .search-autocomplete table, .searchNSR .search-content tr, .searchNSR .search-content td, .searchNSR .search-content tbody, .searchNSR .search-content table, .searchNSR .sorterings-guide-table tr, .searchNSR .sorterings-guide-table td, .searchNSR .sorterings-guide-table tbody, .searchNSR .sorterings-guide-table table {
+      border-color: #016a77;
+      border-bottom: none; }
+    .searchNSR .search-autocomplete th, .searchNSR .search-content th, .searchNSR .sorterings-guide-table th {
+      font-weight: 600; }
+    .searchNSR .search-autocomplete.striped > tbody > tr:nth-child(even), .searchNSR .search-content.striped > tbody > tr:nth-child(even), .searchNSR .sorterings-guide-table.striped > tbody > tr:nth-child(even) {
+      background-color: #017886;
+      color: #aaeaf2 !important; }
+    .searchNSR .search-autocomplete.striped > tbody > tr:nth-child(odd), .searchNSR .search-content.striped > tbody > tr:nth-child(odd), .searchNSR .sorterings-guide-table.striped > tbody > tr:nth-child(odd) {
+      background-color: #016a77;
+      color: #aaeaf2 !important; }
+    .searchNSR .search-autocomplete li, .searchNSR .search-content li, .searchNSR .sorterings-guide-table li {
       font-size: .9em;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       display: table-cell; }
-      .searchNSR .search-autocomplete li:hover, .searchNSR .search-content li:hover {
+      .searchNSR .search-autocomplete li:hover, .searchNSR .search-content li:hover, .searchNSR .sorterings-guide-table li:hover {
         background-color: rgba(0, 0, 0, 0.2);
         box-shadow: none;
         text-decoration: none;
         color: #fff !important; }
-    .searchNSR .search-autocomplete .read-more, .searchNSR .search-content .read-more {
+    .searchNSR .search-autocomplete .read-more, .searchNSR .search-content .read-more, .searchNSR .sorterings-guide-table .read-more {
       padding: 18px;
       background-color: #007684 !important;
       border: none;
@@ -252,18 +260,18 @@ input[type=text]:focus.invalid {
       margin: 10px -1px -1px -1px;
       width: calc(100% + 2px);
       color: #aaeaf2 !important; }
-      .searchNSR .search-autocomplete .read-more:hover, .searchNSR .search-content .read-more:hover {
+      .searchNSR .search-autocomplete .read-more:hover, .searchNSR .search-content .read-more:hover, .searchNSR .sorterings-guide-table .read-more:hover {
         color: #fff !important; }
-    .searchNSR .search-autocomplete li a, .searchNSR .search-content li a {
+    .searchNSR .search-autocomplete li a, .searchNSR .search-content li a, .searchNSR .sorterings-guide-table li a {
       display: block;
       padding: 7.5px 20px;
       text-decoration: none !important;
       color: #aaeaf2 !important; }
-      .searchNSR .search-autocomplete li a:hover, .searchNSR .search-content li a:hover {
+      .searchNSR .search-autocomplete li a:hover, .searchNSR .search-content li a:hover, .searchNSR .sorterings-guide-table li a:hover {
         color: #fff !important; }
-    .searchNSR .search-autocomplete li.selected a, .searchNSR .search-content li.selected a {
+    .searchNSR .search-autocomplete li.selected a, .searchNSR .search-content li.selected a, .searchNSR .sorterings-guide-table li.selected a {
       background-color: rgba(0, 0, 0, 0.1); }
-    .searchNSR .search-autocomplete i, .searchNSR .search-content i {
+    .searchNSR .search-autocomplete i, .searchNSR .search-content i, .searchNSR .sorterings-guide-table i {
       float: left;
       padding-top: 10px;
       color: #039db0; }
@@ -273,6 +281,8 @@ input[type=text]:focus.invalid {
     color: #aaeaf2 !important; }
   .searchNSR .search-content p {
     padding: 0 2rem 2rem 0; }
+  .searchNSR .search-autocomplete-content li, .searchNSR .sorterings-guide-table {
+    background-color: #016a77; }
   .searchNSR .search-autocomplete-image {
     display: inline-block;
     vertical-align: middle;

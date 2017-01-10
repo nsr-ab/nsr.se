@@ -9,12 +9,14 @@ class QueryElastic
     {
         $q = sanitize_text_field($data['query']);
         $post_type = sanitize_text_field($data['post_type']);
+        $post_section = sanitize_text_field($data['post_section']);
         $limit = isset($data['limit'])  ? $data['limit'] : 9;
         $postStatuses = array('publish', 'inherit');
 
-        $q =  \VcExtended\Library\Search\ElasticSearch::filterQuery(
-            trim($q)
-        );
+        if($post_section != $post_type)
+            $post_type = $post_section;
+
+        $q =  \VcExtended\Library\Search\ElasticSearch::filterQuery(trim($q));
 
         if($post_type === "" || $post_type === "all") {
             $post_types = \VcExtended\Library\Helper\PostType::getPublic();

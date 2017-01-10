@@ -297,7 +297,6 @@ input[type=text]:focus.invalid {
     top: 60px;
     left: 0px;
     bottom:0px;
-    height:100%;
     width:100%;
     margin: 0;
     padding:15px;
@@ -309,6 +308,7 @@ input[type=text]:focus.invalid {
     transform: translateY(-2%);
     margin-left: 0rem !important;
     margin-right: 0rem !important;
+
 
   }
 
@@ -332,20 +332,36 @@ input[type=text]:focus.invalid {
     font-style: italic;
   }
 
-  .search-autocomplete, .search-content {
+  .sorteringsguiden h4, .search-autocomplete h4 {
+      font-size: 1.40rem;
+  }
+  .search-autocomplete, .search-content, .sorterings-guide-table {
     display: none;
-    position: absolute;
-    top: 182px; //calc(100% + 2px);
-    left: 0;
-    right: 0;
+    margin-top:20px;
     z-index: 99;
-    background-color:$darkerGreen;
+
     border-radius: 3px;
     overflow: hidden;
     font-size: 1em;
     display: table;
     width:100%;
     transition:300ms ease;
+
+    tr, td, tbody, table {
+      border-color:$darkerGreen;
+      border-bottom:none;
+    }
+    th {
+      font-weight:600;
+    }
+    &.striped>tbody>tr:nth-child(even) {
+      background-color:lighten($darkerGreen, 3%);
+      color:$lightGreen !important;
+    }
+    &.striped>tbody>tr:nth-child(odd) {
+      background-color:$darkerGreen;
+      color:$lightGreen !important;
+    }
 
     li {
       font-size: .9em;
@@ -408,6 +424,11 @@ input[type=text]:focus.invalid {
     p {
       padding:0 2rem 2rem 0;
     }
+  }
+
+
+  .search-autocomplete-content li, .sorterings-guide-table  {
+    background-color:$darkerGreen;
   }
 
   .search-autocomplete-image {

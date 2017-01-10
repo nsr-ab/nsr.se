@@ -145,7 +145,7 @@ class App
     public function fetch_data()
     {
 
-        $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array( 'query' => $_GET['query'],'limit'=>$_GET['limit'], 'post_type' => $_GET['post_type'] ));
+        $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array( 'query' => $_GET['query'],'limit'=>$_GET['limit'], 'post_type' => $_GET['post_type'], 'section' => $_GET['post_section'] ));
         $int = 0;
 
         if ($result['content']){

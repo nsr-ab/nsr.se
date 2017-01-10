@@ -62,6 +62,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('#searchResult').html('');
             $('#searchkeyword-nsr').val('');
             $('.search-autocomplete').remove();
+            $('.sorteringsguiden').remove();
 
         }).bind(this);
 
@@ -74,6 +75,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     var keycode = (ev.keyCode ? ev.keyCode : ev.which);
                     if (keycode == '13') {
                         $('.search-autocomplete').remove();
+                        $('.sorteringsguiden').remove();
                         fnc.call(this, ev);
                         event.preventDefault();
                         return false;
@@ -103,6 +105,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             if ($('.searchNSR').find('input[type="search"]').is(":empty")) {
                 $('.search-autocomplete').remove();
+                $('.sorteringsguiden').remove();
             }
 
         }.bind(this));
@@ -147,6 +150,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }).done(function (result) {
             this.searchOutput(result);
         }.bind(this));
+
 
     };
 
@@ -309,6 +313,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             clearTimeout(typingTimer);
 
             if ($input.val().length < 2) {
+                $element.find('.sorteringsguiden').remove();
                 $element.find('.search-autocomplete').remove();
                 return;
             }
@@ -328,7 +333,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             if ($input.val().length < 2) {
                 return;
             }
-
+            // Skapar dubbla queries.... avakta. Kolla imorgon.
             this.autocompleteQuery(element);
         }.bind(this));
     };
@@ -430,28 +435,49 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $element = $(element);
         var $input = $element.find('input[type="search"]').val();
         var $post_type = $('#post_type').val();
-        var data = {
-            action: 'fetch_data',
-            query: $input,
-            post_type: $post_type,
-            level: 'ajax',
-            type: 'json'
-        };
 
-        $.ajax({
-            url: ajax_object.ajax_url,
-            data: data,
-            method: 'GET',
-            dataType: 'json',
-            beforeSend: function ( xhr ) {
-                xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-            }
-        }).done(function (res) {
+        var searchSection = [$post_type, 'sorteringsguide'];
 
-            $element.find('.search-autocomplete').remove();
-            this.outputAutocomplete(element, res);
-            $('.search-content').remove();
-        }.bind(this));
+        for(var int=0; int < searchSection.length; int++){
+
+            var logic_type = searchSection[int];
+
+            if(logic_type === 'sorteringsguide')
+                $post_type = 'sorteringsguide';
+
+            var data = {
+                action: 'fetch_data',
+                query: $input,
+                post_type: $post_type,
+                level: 'ajax',
+                type: 'json'
+            };
+
+            $.ajax({
+                url: ajax_object.ajax_url,
+                data: data,
+                method: 'GET',
+                dataType: 'json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
+                }
+            }).done(function (res) {
+                if(logic_type === 'sorteringsguide') {
+                    $element.find('.sorteringsguiden').remove();
+                }
+                else {
+                    $element.find('.search-autocomplete').remove();
+                }
+
+                this.outputAutocomplete(element, res, logic_type);
+                $('.search-content').remove();
+                logic_type = '';
+
+
+            }.bind(this));
+
+
+        }
 
 
     };
@@ -464,12 +490,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {array}  res     Autocomplete query result
      * @return {void}
      */
-    Extended.prototype.outputAutocomplete = function(element, res) {
+    Extended.prototype.outputAutocomplete = function(element, res, searchSection) {
+
+        console.log(searchSection); // Debug Onsdag....
+
 
         var $element = $(element);
-        var $autocomplete = $('<div class="search-autocomplete"></div>');
+        var $autocomplete = $('<div class="search-autocomplete"><h4>Sidor på nsr.se</h4></div>');
         var $content = $('<ul class="search-autocomplete-content"></ul>');
-
+        var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4></div>');
+        var $sortMarkupTable = $('<table class="sorterings-guide-table striped"><tr><th></th><th>Sorteras som</th><th>Lämna nära dig</th><th>Bra att veta</th></tr></table>');
 
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
 
@@ -479,9 +509,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 if(!$icon)
                     var $icon = "find_in_page";
                 if (post.is_file) {
-                    $content.append('<li class="col s12 m4 l4"><i class="material-icons"> ' + $icon + '</i><a class="link-item-before" href="' + post.guid + '" target="_blank">' + post.post_title + '</a></li>');
-                } else {
-                    $content.append('<li class="col s12 m4 l4"> <i class="material-icons"> ' + $icon + '</i><a href="' + post.guid + '">' + post.post_title + '</a></li>');
+                    if(searchSection != "sorteringsguide")
+                        $content.append('<li class="col s12 m12 l12"><i class="material-icons"> ' + $icon + '</i><a class="link-item-before" href="' + post.guid + '" target="_blank">' + post.post_title + '</a></li>');
+                }
+                else {
+                    if(searchSection != "sorteringsguide")
+                        $content.append('<li class="col s12 m12 l12"> <i class="material-icons"> ' + $icon + '</i><a href="' + post.guid + '">' + post.post_title + '</a></li>');
+                    if(searchSection === "sorteringsguide")
+                        $sortMarkupTable.append('<tr><td>post.post_avfall</td><td>post.post_sorteras</td><td>post.post_inlamning</td><td>post.post_braveta</td></tr>');
                 }
             });
         } else {
@@ -489,14 +524,23 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
         if (res.content === null || res.content.length === 0) {
-            // $autocomplete.append('<ul><li class="search-autocomplete-nothing-found">Inga träffar…</li></ul>');
+            $autocomplete.append('<ul><li class="search-autocomplete-nothing-found">Inga träffar…</li></ul>');
             return;
         }
 
-        $content.appendTo($autocomplete);
-        $autocomplete.append('<div class="extNfo"><button class="read-more block-level">' + ajax_object.searchAutocomplete.viewAll + '</a></div>');
+        if(searchSection != "sorteringsguide") {
+            $content.appendTo($autocomplete);
+            $autocomplete.append('<div class="extNfo"><button class="read-more block-level">' + ajax_object.searchAutocomplete.viewAll + '</a></div>');
+        }
 
-        $autocomplete.appendTo($element).show();
+        if(searchSection === "sorteringsguide") {
+            $sortMarkupTable.appendTo($sorteringsguiden);
+            $sorteringsguiden.appendTo($element);
+        }
+
+        if(searchSection != "sorteringsguide")
+            $autocomplete.appendTo($element).show();
+
         $('.search-autocomplete-content li').matchHeight();
 
     };
