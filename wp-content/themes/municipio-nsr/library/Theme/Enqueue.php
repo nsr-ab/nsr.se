@@ -39,7 +39,7 @@ class Enqueue
 
         apply_filters('Municipio/load-wp-jquery', true, 10, 2);
         wp_enqueue_script('Nsr-js', get_stylesheet_directory_uri(). '/assets/dist/js/app.min.js', '', filemtime(get_stylesheet_directory() . '/assets/dist/js/app.min.js'), true);
-        wp_enqueue_script('Nsr-fontawsome', 'https://use.fontawesome.com/0f42bed9ec.js', '', filemtime('https://use.fontawesome.com/0f42bed9ec.js'), true);
+        wp_enqueue_script('Nsr-fontawsome', 'https://use.fontawesome.com/0f42bed9ec.js', '', 'https://use.fontawesome.com/0f42bed9ec.js', true);
 
 
 
