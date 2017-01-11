@@ -48,6 +48,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var countItemsShow = $(this).closest("ul").find('li').length-1;
                 $(this).closest("ul").find('.showPosts').text('Visa alla ('+countItemsShow+')');
             }
+            $('.card-content').matchHeight();
         }).bind(this);
 
         var timeout = null;
