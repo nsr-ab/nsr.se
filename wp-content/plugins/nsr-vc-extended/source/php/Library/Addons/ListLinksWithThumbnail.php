@@ -177,7 +177,7 @@ class ListLinksWithThumbnail extends MasterVCExtended
 
         $output = "<div id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" ". $vc_border_colors ." class=\"card hoverable small\" >";
         $output .= "<div class=\"card-image\">";
-        $output .= wp_get_attachment_image( $params->vc_image, $size = 'nsr-rect-front-size', $icon = false, $attr = '' );
+        $output .= wp_get_attachment_image( $params->vc_image, $size = 'Bild-till-puff', $icon = false, $attr = '' );
         $output .= "</div>";
         $output .= "<div class=\"card-content\">";
 
