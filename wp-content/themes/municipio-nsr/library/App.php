@@ -31,6 +31,7 @@ class App
         $this->customRedirects();
         $this->image_size();
         add_filter( 'image_size_names_choose', array($this,'nsr_image_sizes') );
+
     }
 
     /**
@@ -42,7 +43,6 @@ class App
     {
         add_image_size( 'Bild-till-puff', 757, 267, true );
     }
-
 
 
     /**
