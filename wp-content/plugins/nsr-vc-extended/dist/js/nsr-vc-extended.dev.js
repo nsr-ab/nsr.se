@@ -21,7 +21,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     function Extended() {
 
         this.init();
-
+        $('.card-content').matchHeight();
     }
 
 
