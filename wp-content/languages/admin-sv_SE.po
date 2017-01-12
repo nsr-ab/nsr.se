@@ -956,7 +956,7 @@ msgstr "Zip-fil med tema"
 msgid "Attach to existing content"
 msgstr "Bifoga till existerande innehåll"
 
-#: wp-admin/includes/post.php:1454
+#: wp-admin/includes/post.php:1425
 msgid "Click the image to edit or update"
 msgstr "Klicka på bilden för att redigera eller uppdatera"
 
@@ -1519,11 +1519,11 @@ msgstr "Hämta version %s"
 msgid "Toggle panel: %s"
 msgstr "Växla panel: %s"
 
-#: wp-admin/includes/post.php:1651
+#: wp-admin/includes/post.php:1622
 msgid "Saving revision&hellip;"
 msgstr "Sparar version&hellip;"
 
-#: wp-admin/includes/post.php:1380
+#: wp-admin/includes/post.php:1351
 msgid "Edit permalink"
 msgstr "Redigera permalänk"
 
@@ -3559,11 +3559,11 @@ msgstr "Översättningar"
 msgid "Future security updates will be applied automatically."
 msgstr "Framtida säkerhetsuppdateringar kommer att installeras automatiskt."
 
-#: wp-admin/includes/post.php:1614
+#: wp-admin/includes/post.php:1585
 msgid "If you take over, %s will be blocked from continuing to edit."
 msgstr "Om du tar över kommer %s att låsas ut från att fortsätta redigeringen."
 
-#: wp-admin/includes/post.php:1612
+#: wp-admin/includes/post.php:1583
 msgid "This content is currently locked."
 msgstr "Detta innehåll är för närvarande låst."
 
@@ -4139,7 +4139,7 @@ msgstr "Från denna sida kan du:"
 msgid "This screen is used for managing your custom navigation menus."
 msgstr "Denna sida används för att hantera dina anpassade navigationsmenyer."
 
-#: wp-admin/includes/post.php:1652
+#: wp-admin/includes/post.php:1623
 msgid "Your latest changes were saved as a revision."
 msgstr "Din senaste ändring sparades som en egen version."
 
@@ -4234,7 +4234,7 @@ msgstr "Utkast skapat den %1$s kl. %2$s"
 msgid "You cannot move this item to the Trash. %s is currently editing."
 msgstr "Du kan inte kasta denna post i papperskorgen. %s redigerar den just nu."
 
-#: wp-admin/includes/post.php:1637
+#: wp-admin/includes/post.php:1608
 msgid "Take over"
 msgstr "Ta över"
 
@@ -7706,7 +7706,7 @@ msgstr "Tillgängliga widgets"
 msgid "Error in displaying the widget settings form."
 msgstr "Ett fel uppstod när inställningsformuläret för widgeten skulle visas."
 
-#: wp-admin/includes/misc.php:882 wp-admin/includes/post.php:1814
+#: wp-admin/includes/misc.php:882 wp-admin/includes/post.php:1785
 #: wp-admin/widgets.php:340
 msgid "Error while saving."
 msgstr "Fel vid sparande."
@@ -8044,7 +8044,7 @@ msgid "You can&#8217;t edit this item because it is in the Trash. Please restore
 msgstr "Du kan inte redigera den här posten eftersom den ligger i papperskorgen. Återställ den och försök igen."
 
 #: wp-admin/async-upload.php:57 wp-admin/edit-tags.php:154
-#: wp-admin/includes/post.php:1820 wp-admin/media-upload.php:46
+#: wp-admin/includes/post.php:1791 wp-admin/media-upload.php:46
 #: wp-admin/post.php:117 wp-admin/term.php:38
 msgid "Sorry, you are not allowed to edit this item."
 msgstr "Du har inte behörighet att redigera det här objektet."
@@ -9184,11 +9184,11 @@ msgstr "En till %s webbplats"
 msgid "Just another WordPress site"
 msgstr "En till WordPress-webbplats"
 
-#: wp-admin/includes/post.php:1365
+#: wp-admin/includes/post.php:1336
 msgid "Change Permalinks"
 msgstr "Ändra permalänkar"
 
-#: wp-admin/includes/post.php:1354 wp-admin/includes/post.php:1377
+#: wp-admin/includes/post.php:1325 wp-admin/includes/post.php:1348
 msgid "Permalink:"
 msgstr "Permalänk:"
 
@@ -10841,7 +10841,7 @@ msgid "Sorry, you are not allowed to edit comments on this post."
 msgstr "Du har inte behörighet att redigera kommentarer på det här inlägget."
 
 #: wp-admin/comment.php:61 wp-admin/comment.php:255
-#: wp-admin/includes/post.php:1561
+#: wp-admin/includes/post.php:1532
 msgid "Go back"
 msgstr "Gå tillbaka"
 

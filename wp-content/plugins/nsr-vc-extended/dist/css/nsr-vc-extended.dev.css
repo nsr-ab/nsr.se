@@ -275,12 +275,17 @@ input[type=text]:focus.invalid {
       float: left;
       padding-top: 10px;
       color: #039db0; }
-  .searchNSR .search-content h5 {
+  .searchNSR .search-autocomplete-content h5 {
     font-size: 1.64rem;
     margin: 0 0 0 0.8rem;
     color: #aaeaf2 !important; }
-  .searchNSR .search-content p {
-    padding: 0 2rem 2rem 0; }
+  .searchNSR .search-autocomplete-content .moreinfo {
+    padding: 0 2rem 2rem 0;
+    max-width: 650px !important;
+    line-height: 1.0rem;
+    font-size: 0.9rem;
+    margin-top: -5px;
+    margin-left: 13px; }
   .searchNSR .search-autocomplete-content li, .searchNSR .sorterings-guide-table {
     background-color: #016a77; }
   .searchNSR .search-autocomplete-image {

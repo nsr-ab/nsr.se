@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-12-19 19:20:20+0000\n"
+"PO-Revision-Date: 2017-01-03 07:14:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,11 +84,11 @@ msgstr "REST basadress för inläggstypen."
 msgid "An alphanumeric identifier for the status."
 msgstr "En alfanumerisk ID-sträng för statusen."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1294
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1301
 msgid "Limit response to comments published after a given ISO8601 compliant date."
 msgstr "Begränsa svaret till kommentarer som publicerats efter ett visst datum enligt formatet ISO8601."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1323
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1330
 msgid "Limit response to comments published before a given ISO8601 compliant date."
 msgstr "Begränsa svaret till kommentarer som publicerats före ett visst datum enligt formatet ISO8601."
 
@@ -206,23 +206,23 @@ msgstr "Statusens titel."
 msgid "Cannot view status."
 msgstr "Kan inte visa status."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:463
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:468
 msgid "URL to the original attachment file."
 msgstr "URL till originalbilagan."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:413
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:418
 msgid "The attachment description."
 msgstr "Bilagans beskrivning."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:443
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:448
 msgid "The attachment MIME type."
 msgstr "Bilagans MIME-typ."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:435
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:440
 msgid "Attachment type."
 msgstr "Bilagans typ."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:391
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:396
 msgid "The attachment caption."
 msgstr "Bilagans bildtext."
 
@@ -272,7 +272,7 @@ msgid "Invalid email address."
 msgstr "Ogiltig e-postadress."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:486
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:680
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:687
 msgid "Invalid comment content."
 msgstr "Ogiltigt kommentarsinnehåll."
 
@@ -398,7 +398,7 @@ msgstr "Du har inte behörighet att redigera '%s' för kommentarer."
 msgid "Sorry, you are not allowed to create new terms."
 msgstr "Du har inte behörighet att skapa nya termer."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:748
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:755
 msgid "Sorry, you are not allowed to delete this comment."
 msgstr "Du har inte behörighet att ta bort denna kommentar."
 
@@ -629,19 +629,19 @@ msgctxt "default site language"
 msgid "Site Default"
 msgstr "Standardspråk för webbplatsen"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:426
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:431
 msgid "HTML description for the object, transformed for display."
 msgstr "HTML-beskrivning av objektet, omvandlad för visning."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:421
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:426
 msgid "Description for the object, as it exists in the database."
 msgstr "Beskrivning av objektet, så som det ser ut i databasen."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:404
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:409
 msgid "HTML caption for the attachment, transformed for display."
 msgstr "HTML-text för bilagan, omvandlad för visning."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:399
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:404
 msgid "Caption for the attachment, as it exists in the database."
 msgstr "Text för bilagan, så som den ser ut i databasen."
 
@@ -677,7 +677,7 @@ msgstr "Versioner saknar stöd för automatisk rensning. Ange force=true för at
 msgid "The post does not support trashing. Set force=true to delete."
 msgstr "Inlägget saknar stöd för automatisk rensning. Ange force=true för att radera."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:794
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:801
 msgid "The comment does not support trashing. Set force=true to delete."
 msgstr "Kommentaren saknar stöd för automatisk rensning. Ange force=true för att radera."
 
@@ -690,16 +690,16 @@ msgid "Invalid JSON body passed."
 msgstr "Ogiltig JSON-paket skickat."
 
 #. translators: %s: taxonomy name
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2130
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2136
 msgid "Limit result set to all items except those that have the specified term assigned in the %s taxonomy."
 msgstr "Begränsa resultatet till alla objekt förutom de med den specifika termen tilldelad i taxonomin %s."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2104
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2110
 msgid "Limit result set to posts assigned one or more statuses."
 msgstr "Begränsa sökresultatet till inlägg som är kopplade till ett eller flera statuslägen."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:531
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:688
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:695
 msgid "Comment field exceeds maximum length allowed."
 msgstr "Kommentarfältet överskrider den tillåtna maxlängden."
 
@@ -711,7 +711,7 @@ msgstr "Visa position"
 msgid "Taxonomies associated with post type."
 msgstr "Taxonomier förknippade med inläggstypen."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2094
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2100
 msgid "Limit result set to posts with one or more specific slugs."
 msgstr "Begränsa resultat till inlägg med en eller flera specifika permalänkar."
 
@@ -923,7 +923,7 @@ msgstr "Unik ID-sträng för användaren."
 msgid "HTML description of the term."
 msgstr "HTML-beskrivning av termen."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2141
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2147
 msgid "Limit result set to items that are sticky."
 msgstr "Begränsa resultat till objekt som är klistrade."
 
@@ -931,7 +931,7 @@ msgstr "Begränsa resultat till objekt som är klistrade."
 msgid "The %s property has an invalid stored value, and cannot be updated to null."
 msgstr "Egenskapen %s har ett ogiltigt värde sparat och kan inte uppdateras till värdet null."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2196
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2202
 msgid "Status is forbidden."
 msgstr "Statusen tillåts ej."
 
@@ -953,36 +953,36 @@ msgstr "Begränsa resultaten till taxonomier som är förknippade med en viss in
 msgid "Required to be true, as users do not support trashing."
 msgstr "Måste ha värdet true, eftersom användare inte kan placeras i papperskorgen."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1347
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2043
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1354
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2049
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:908
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1306
 msgid "Offset the result set by a specific number of items."
 msgstr "Hoppa framåt ett visst antal objekt i resultatet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2002
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2008
 msgid "Ensure result set excludes posts assigned to specific authors."
 msgstr "Se till att sökresultatet inte innehåller inlägg som är kopplade till vissa författare."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1994
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2000
 msgid "Limit result set to posts assigned to specific authors."
 msgstr "Begränsa sökresultatet till inlägg som är kopplade till vissa författare."
 
 #. translators: %s: taxonomy name
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2120
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2126
 msgid "Limit result set to all items that have the specified term assigned in the %s taxonomy."
 msgstr "Begränsa resultatet till alla objekt som har tilldelats en viss term i taxonomin %s."
 
 #. translators: %s: taxonomy name
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1961
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1967
 msgid "The terms assigned to the object in the %s taxonomy."
 msgstr "Termerna som är kopplade till objektet i taxonomin %s."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2076
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2082
 msgid "Limit result set to those of particular parent IDs."
 msgstr "Begränsa resultat till objekt som hör till specifika överordnades ID:n."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2084
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2090
 msgid "Limit result set to all items except those of a particular parent ID."
 msgstr "Begränsa resultatet till alla objekt förutom de med ett specifikt överordnat ID."
 
@@ -990,11 +990,11 @@ msgstr "Begränsa resultatet till alla objekt förutom de med ett specifikt öve
 msgid "Limit result set to users with a specific slug."
 msgstr "Begränsa resultatet till användare med en viss permalänk."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2037
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2043
 msgid "Limit result set to posts with a specific menu_order value."
 msgstr "Begränsa resultatet till inlägg med ett visst värde för menu_order."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1927
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1933
 msgid "The format for the object."
 msgstr "Objektets format."
 
@@ -1014,7 +1014,7 @@ msgstr "Om kommentarer är öppna eller ej på objektet."
 msgid "A password to protect access to the content and excerpt."
 msgstr "Ett lösenord för att begränsa åtkomst till innehållet och utdraget."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1950
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1956
 msgid "The theme file to use to display the object."
 msgstr "Tema-filen som används för att visa objektet."
 
@@ -1030,7 +1030,7 @@ msgstr "HTML-utdrag för objektet, omvandlat för visning."
 msgid "The ID of the featured media for the object."
 msgstr "ID för objektets utvalda media."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1943
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1949
 msgid "Whether or not the object should be treated as sticky."
 msgstr "Om objektet skall behandlas som klistrat eller ej."
 
@@ -1091,13 +1091,13 @@ msgstr "Datumet objektet senast ändrades i GMT."
 msgid "A sticky post can not be password protected."
 msgstr "Ett klistrat inlägg kan inte lösenordsskyddas."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1211
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1218
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1659
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:413
 msgid "The date the object was published, as GMT."
 msgstr "Datumet som objektet publicerades, i GMT."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1205
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1212
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1653
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:407
 msgid "The date the object was published, in the site's timezone."
@@ -1152,7 +1152,7 @@ msgstr "Du har inte behörighet att skapa nya användare."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:73
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:95
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1420
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1427
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:86
 msgid "The password for the post if it is password protected."
 msgstr "Lösenordet för inlägget om det är lösenordsskyddat."
@@ -1236,22 +1236,22 @@ msgstr "Metoden &rdcuo;%s&rdcuo; är inte implementerad och måste definieras i 
 msgid "Whether posts with this status should be private."
 msgstr "Om inlägg med denna status ska vara privata."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1413
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1420
 msgid "Limit result set to comments assigned a specific type. Requires authorization."
 msgstr "Begränsa resultatet till kommentarer som tilldelats en viss typ. Kräver behörighet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1405
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1412
 msgid "Limit result set to comments assigned a specific status. Requires authorization."
 msgstr "Begränsa resultatet till kommentarer som tilldelats en viss status. Kräver behörighet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1362
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2055
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1369
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2061
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1319
 msgid "Sort collection by object attribute."
 msgstr "Sortera samlingen efter objektattribut."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1352
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2048
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1359
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2054
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:914
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1312
 msgid "Order sort attribute ascending or descending."
@@ -1261,147 +1261,147 @@ msgstr "Sortera efter attributet i stigande eller fallande ordning."
 msgid "The register_routes() method must be overridden"
 msgstr "Metoden register_routes() måste definieras i en underordnad klass"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1387
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1394
 msgid "Ensure result set excludes specific parent IDs."
 msgstr "Se till att resultatet inte innehåller överordnade objekt med specifika ID:n."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1396
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1403
 msgid "Limit result set to comments assigned to specific post IDs."
 msgstr "Begränsa resultatet till kommentarer som tilldelats specifika inläggs-ID:n."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1378
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1385
 msgid "Limit result set to comments of specific parent IDs."
 msgstr "Begränsa resultatet till kommentarer med specifika överordnade ID:n."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1329
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2018
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1336
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2024
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:889
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1288
 msgid "Ensure result set excludes specific IDs."
 msgstr "Se till att resultat exkluderar specifika ID:n."
 
 #. translators: %d: avatar image size in pixels
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1259
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1266
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1253
 msgid "Avatar URL with image size of %d pixels."
 msgstr "Profilbilds-URL med bildstorleken %d pixlar."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1244
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1251
 msgid "Type of Comment for the object."
 msgstr "Typ av kommentar för objektet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1338
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2027
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1345
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2033
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:898
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1297
 msgid "Limit result set to specific IDs."
 msgstr "Begränsa resultatet till specifika ID:n."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1317
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1324
 msgid "Limit result set to that from a specific author email. Requires authorization."
 msgstr "Begränsa resultatet till en specifik e-postadress. Kräver behörighet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1308
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1315
 msgid "Ensure result set excludes comments assigned to specific user IDs. Requires authorization."
 msgstr "Se till att resultatet utesluter kommentarer som är kopplade till vissa användar-ID:n. Kräver behörighet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1300
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1307
 msgid "Limit result set to comments assigned to specific user IDs. Requires authorization."
 msgstr "Begränsa resultatet till kommentarer som är kopplade till vissa användar-ID:n. Kräver behörighet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1267
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1274
 msgid "Avatar URLs for the object author."
 msgstr "Profilbilds-URL:er för objektets författare."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2012
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2018
 msgid "Limit response to posts published before a given ISO8601 compliant date."
 msgstr "Begränsa svaret till inlägg som publicerats före ett visst datum enligt formatet ISO8601."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1987
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1993
 msgid "Limit response to posts published after a given ISO8601 compliant date."
 msgstr "Begränsa resultatet till inlägg som publicerats efter ett visst datum enligt formatet ISO8601."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1224
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1231
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1743
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:441
 msgid "The ID for the parent of the object."
 msgstr "ID för överordnad till objektet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1197
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1204
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1840
 msgid "HTML content for the object, transformed for display."
 msgstr "HTML-innehåll för objekt, omvandlas vid visning."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1217
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1224
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1691
 msgid "URL to the object."
 msgstr "URL till objektet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1236
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1243
 msgid "State of the object."
 msgstr "Objektets status."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1192
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1199
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1835
 msgid "Content for the object, as it exists in the database."
 msgstr "Objektets innehåll, så som det ser ut i databasen."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1230
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1237
 msgid "The ID of the associated post object."
 msgstr "ID för associerat inläggsobjekt."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1184
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1191
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1827
 msgid "The content for the object."
 msgstr "Innehållet för objektet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1156
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1163
 msgid "IP address for the object author."
 msgstr "IP-adress för objektets författare."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1162
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1169
 msgid "Display name for the object author."
 msgstr "Visningsnamn för objektets författare."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1176
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1183
 msgid "User agent for the object author."
 msgstr "User agent-sträng för objektets författare."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1170
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1177
 msgid "URL for the object author."
 msgstr "URL för objektets författare."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1146
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1153
 msgid "Email address for the object author."
 msgstr "E-postadress för objektets författare."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1141
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1148
 msgid "The ID of the user object, if author was a user."
 msgstr "Användareobjektets ID om författaren var en användare."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1135
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1142
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1685
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:424
 msgid "Unique identifier for the object."
 msgstr "Unik beteckning för objektet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:807
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:814
 msgid "The comment cannot be deleted."
 msgstr "Kommentaren kan inte raderas."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1063
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1070
 msgid "Invalid comment author ID."
 msgstr "Ogiltigt ID för kommentarens författare."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:798
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:805
 msgid "The comment has already been trashed."
 msgstr "Kommentaren har redan tagits bort."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:694
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:701
 msgid "Updating comment failed."
 msgstr "Uppdatering av kommentar misslyckades."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:672
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:679
 msgid "Updating comment status failed."
 msgstr "Kunde inte uppdatera kommentarens status."
 
@@ -1417,7 +1417,7 @@ msgstr "Kunde inte skapa kommentar."
 msgid "Cannot create existing comment."
 msgstr "Kan inte skapa en befintlig kommentar."
 
-#: wp-includes/comment.php:3062
+#: wp-includes/comment.php:3057
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:379
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:396
 msgid "Sorry, you must be logged in to comment."
@@ -1427,37 +1427,37 @@ msgstr "Du måste vara inloggad för att kommentera."
 msgid "Query parameter not permitted: %s"
 msgstr "Query-parameter ej tillåten: %s"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:487
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:687
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:492
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:692
 msgid "No data supplied."
 msgstr "Ingen data angiven."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:649
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:654
 msgid "Limit result set to attachments of a particular MIME type."
 msgstr "Begränsa resultatet till bilagor som har en viss MIME-typ."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:510
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:697
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:515
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:702
 msgid "Content hash did not match expected."
 msgstr "Innehållets hashvärde matchade inte det förväntade värdet."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:501
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:506
 msgid "Invalid Content-Disposition supplied. Content-Disposition needs to be formatted as `attachment; filename=\"image.png\"` or similar."
 msgstr "Ogiltigt värde för Content-Disposition har angetts. Content-Disposition måste ha formen `attachment; filename=\"image.png\"` eller liknande."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:495
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:500
 msgid "No Content-Disposition supplied."
 msgstr "Parametern Content-Disposition saknas."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:491
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:496
 msgid "No Content-Type supplied."
 msgstr "Parametern Content-Type saknas."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:642
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:647
 msgid "Limit result set to attachments of a particular media type."
 msgstr "Begränsa resultatet till bilagor av en viss mediatyp."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:526
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:531
 msgid "Could not open file handle."
 msgstr "Kunde inte öppna filnamn."
 
@@ -1466,7 +1466,7 @@ msgstr "Kunde inte öppna filnamn."
 msgid "Whether to bypass trash and force deletion."
 msgstr "Om papperskorgen ska hoppas över och radera direkt istället."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:457
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:462
 msgid "The ID for the associated post of the attachment."
 msgstr "ID för bilagans associerade inlägg."
 
@@ -1474,7 +1474,7 @@ msgstr "ID för bilagans associerade inlägg."
 msgid "Page Attributes"
 msgstr "Sidoattribut"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:70
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:75
 msgid "Sorry, you are not allowed to upload media on this site."
 msgstr "Du har inte behörighet att ladda upp media till denna webbplats."
 
@@ -1482,20 +1482,20 @@ msgstr "Du har inte behörighet att ladda upp media till denna webbplats."
 msgid "The REST API can no longer be completely disabled, the rest_authentication_errors can be used to restrict access to the API, instead."
 msgstr "REST API:t kan inte längre slås av helt. Använd rest_authentication_errors för att begränsa åtkomst till API:t istället."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:98
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:205
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:103
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:210
 msgid "Invalid parent type."
 msgstr "Ogiltig överordnad typ."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:79
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:84
 msgid "Sorry, you are not allowed to upload media to this post."
 msgstr "Du har inte behörighet att ladda upp media till detta inlägg."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:450
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:455
 msgid "Details about the media file, specific to its type."
 msgstr "Uppgifter om mediafilen som är specifika för filtypen."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:382
+#: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:387
 msgid "Alternative text to display when attachment is not displayed."
 msgstr "Alternativ text att visa när bilagan inte visas."
 
@@ -1649,7 +1649,7 @@ msgctxt "next set of posts"
 msgid "Next"
 msgstr "Nästa"
 
-#: wp-includes/media.php:3450
+#: wp-includes/media.php:3448
 msgid "Search media items..."
 msgstr "Sök medieobjekt..."
 
@@ -2361,7 +2361,7 @@ msgstr "%s är obligatoriskt för att ta bort bildmetadata."
 msgid "Plugin details"
 msgstr "Detaljer för tillägg"
 
-#: wp-includes/media.php:3451
+#: wp-includes/media.php:3449
 msgid "No media files found."
 msgstr "Inga mediafiler hittade."
 
@@ -2550,19 +2550,19 @@ msgctxt "comment status"
 msgid "Trash"
 msgstr "Papperskorg"
 
-#: wp-includes/comment.php:1138
+#: wp-includes/comment.php:1132
 msgid "<strong>ERROR</strong>: your name is too long."
 msgstr "<strong>FEL</strong>: ditt namn är för långt."
 
-#: wp-includes/comment.php:1142
+#: wp-includes/comment.php:1136
 msgid "<strong>ERROR</strong>: your email address is too long."
 msgstr "<strong>FEL</strong>: din e-postadress är för lång."
 
-#: wp-includes/comment.php:1146
+#: wp-includes/comment.php:1140
 msgid "<strong>ERROR</strong>: your url is too long."
 msgstr "<strong>FEL</strong>: din adress är för lång."
 
-#: wp-includes/comment.php:1150
+#: wp-includes/comment.php:1144
 msgid "<strong>ERROR</strong>: your comment is too long."
 msgstr "<strong>FEL</strong>: din kommentar är för lång."
 
@@ -2618,7 +2618,7 @@ msgstr "Fel vid sparande av kommentar"
 msgid "<strong>ERROR</strong>: Sorry, that username is not allowed."
 msgstr "<strong>FEL</strong>: Ledsen, det användarnamnet är inte tillåtet."
 
-#: wp-includes/rest-api/class-wp-rest-request.php:904
+#: wp-includes/rest-api/class-wp-rest-request.php:908
 msgid "Invalid parameter."
 msgstr "Ogiltig parameter."
 
@@ -3003,12 +3003,12 @@ msgstr "Ingen route hittades som motsvarade webbadressen och metod för begäran
 msgid "The handler for the route is invalid"
 msgstr "Hanteraren av route är ogiltig"
 
-#: wp-includes/rest-api/class-wp-rest-request.php:847
-#: wp-includes/rest-api/class-wp-rest-request.php:914
+#: wp-includes/rest-api/class-wp-rest-request.php:851
+#: wp-includes/rest-api/class-wp-rest-request.php:918
 msgid "Invalid parameter(s): %s"
 msgstr "Ogiltiga parametrar: %s"
 
-#: wp-includes/rest-api/class-wp-rest-request.php:886
+#: wp-includes/rest-api/class-wp-rest-request.php:890
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:157
 msgid "Missing parameter(s): %s"
 msgstr "Parametrar som saknas: %s"
@@ -4206,7 +4206,7 @@ msgstr "<strong>Kunde inte hitta webbplatsen %1$s.</strong> Sökte efter tabelle
 msgid "Post type names must be between 1 and 20 characters in length."
 msgstr "Namn på posttyper måste vara mellan 1 och 20 tecken."
 
-#: wp-includes/media.php:3417
+#: wp-includes/media.php:3415
 msgid "Drag and drop to reorder media files."
 msgstr "Använd drag och släpp för att ändra ordning på mediafiler."
 
@@ -4397,7 +4397,7 @@ msgstr "Föregående"
 msgid "Edit Selection"
 msgstr "Redigera val"
 
-#: wp-includes/media.php:3435
+#: wp-includes/media.php:3433
 msgctxt "noun"
 msgid "Trash"
 msgstr "Papperskorg"
@@ -4638,11 +4638,11 @@ msgstr "Lägg till ny"
 msgid "<strong>You have successfully updated WordPress!</strong> Please log back in to see what&#8217;s new."
 msgstr "<strong>Du har nu uppdaterat WordPress!</strong> Vänligen logga in igen för att se vad som är nytt."
 
-#: wp-includes/media.php:3442
+#: wp-includes/media.php:3440
 msgid "Trash Selected"
 msgstr "Kasta valda"
 
-#: wp-includes/media.php:3443
+#: wp-includes/media.php:3441
 msgid "Untrash Selected"
 msgstr "Återställ valda"
 
@@ -4650,7 +4650,7 @@ msgstr "Återställ valda"
 msgid "Untrash"
 msgstr "Återställ"
 
-#: wp-includes/media.php:3439
+#: wp-includes/media.php:3437
 msgid ""
 "You are about to trash these items.\n"
 "  'Cancel' to stop, 'OK' to delete."
@@ -4662,15 +4662,15 @@ msgstr ""
 msgid "Press return or enter to open this panel"
 msgstr "Tryck retur eller enter för att öppna denna panel"
 
-#: wp-includes/media.php:3440
+#: wp-includes/media.php:3438
 msgid "Bulk Select"
 msgstr "Välj flera"
 
-#: wp-includes/media.php:3444
+#: wp-includes/media.php:3442
 msgid "Delete Selected"
 msgstr "Radera valda"
 
-#: wp-includes/media.php:3441
+#: wp-includes/media.php:3439
 msgid "Cancel Selection"
 msgstr "Avbryt"
 
@@ -4730,23 +4730,23 @@ msgstr "Filtyp:"
 msgid "File name:"
 msgstr "Filnamn:"
 
-#: wp-includes/media.php:3431
+#: wp-includes/media.php:3429
 msgid "All dates"
 msgstr "Alla datum"
 
-#: wp-includes/media.php:3434
+#: wp-includes/media.php:3432
 msgid "Unattached"
 msgstr "Ej bifogat"
 
-#: wp-includes/media.php:3447
+#: wp-includes/media.php:3445
 msgid "Filter by date"
 msgstr "Filtrera efter datum"
 
-#: wp-includes/media.php:3448
+#: wp-includes/media.php:3446
 msgid "Filter by type"
 msgstr "Filtrera efter typ"
 
-#: wp-includes/media.php:3449
+#: wp-includes/media.php:3447
 msgid "Search Media"
 msgstr "Sök efter media"
 
@@ -4794,7 +4794,7 @@ msgstr "Visa bilagssida"
 msgid "Edit more details"
 msgstr "Redigera fler detaljer"
 
-#: wp-includes/media.php:3438 wp-includes/script-loader.php:80
+#: wp-includes/media.php:3436 wp-includes/script-loader.php:80
 msgid ""
 "You are about to permanently delete these items.\n"
 "  'Cancel' to stop, 'OK' to delete."
@@ -4816,7 +4816,7 @@ msgstr "Inga tillägg funna. Försök med andra sökord."
 msgid "You are customizing %s"
 msgstr "Du anpassar just nu %s"
 
-#: wp-includes/comment.php:3102
+#: wp-includes/comment.php:3097
 msgid "<strong>ERROR</strong>: The comment could not be saved. Please try again later."
 msgstr "<strong>FEL</strong>: Kommentaren kunde inte sparas. Vänligen försök igen senare."
 
@@ -4943,35 +4943,35 @@ msgctxt "video or audio"
 msgid "Length"
 msgstr "Längd"
 
-#: wp-includes/media.php:3487
+#: wp-includes/media.php:3485
 msgid "There has been an error cropping your image."
 msgstr "Ett fel uppstod när bilden skulle beskäras."
 
-#: wp-includes/media.php:3506
+#: wp-includes/media.php:3504
 msgid "Edit Audio Playlist"
 msgstr "Redigera ljudspellista"
 
-#: wp-includes/media.php:3507
+#: wp-includes/media.php:3505
 msgid "&#8592; Cancel Audio Playlist"
 msgstr "&#8592; Avsluta ljudspellista"
 
-#: wp-includes/media.php:3508
+#: wp-includes/media.php:3506
 msgid "Insert audio playlist"
 msgstr "Infoga ljudspellista"
 
-#: wp-includes/media.php:3509
+#: wp-includes/media.php:3507
 msgid "Update audio playlist"
 msgstr "Uppdatera ljudspellista"
 
-#: wp-includes/media.php:3510
+#: wp-includes/media.php:3508
 msgid "Add to audio playlist"
 msgstr "Lägg till i ljudspellista"
 
-#: wp-includes/media.php:3511
+#: wp-includes/media.php:3509
 msgid "Add to Audio Playlist"
 msgstr "Lägg till i ljudspellista"
 
-#: wp-includes/media-template.php:238 wp-includes/media.php:3486
+#: wp-includes/media-template.php:238 wp-includes/media.php:3484
 msgid "Suggested image dimensions:"
 msgstr "Rekommenderad bildstorlek:"
 
@@ -5024,7 +5024,7 @@ msgstr "Auto"
 msgid "Move to another area&hellip;"
 msgstr "Flytta till ett annat fält&hellip;"
 
-#: wp-includes/media.php:3485
+#: wp-includes/media.php:3483
 msgid "Cropping&hellip;"
 msgstr "Beskär&hellip;"
 
@@ -5267,7 +5267,7 @@ msgstr "Tabellomfång"
 msgid "Add alternate sources for maximum HTML5 playback:"
 msgstr "Lägg till alternativ källa för maximal HTML5-uppspelning:"
 
-#: wp-includes/media.php:3515
+#: wp-includes/media.php:3513
 msgid "Create Video Playlist"
 msgstr "Skapa videospellista"
 
@@ -5276,15 +5276,15 @@ msgstr "Skapa videospellista"
 msgid "%s and %s"
 msgstr "%s och %s"
 
-#: wp-includes/media.php:3475
+#: wp-includes/media.php:3473
 msgid "Replace Image"
 msgstr "Byt ut bild"
 
-#: wp-includes/media.php:3428
+#: wp-includes/media.php:3426
 msgid "Create a new video playlist"
 msgstr "Skapa en ny videospellista"
 
-#: wp-includes/media.php:3519
+#: wp-includes/media.php:3517
 msgid "Update video playlist"
 msgstr "Uppdatera videospellista"
 
@@ -5298,7 +5298,7 @@ msgstr "%s, och %s"
 #: wp-includes/class-wp-customize-section.php:368
 #: wp-includes/class-wp-customize-widgets.php:772
 #: wp-includes/customize/class-wp-customize-nav-menus-panel.php:75
-#: wp-includes/media.php:3411
+#: wp-includes/media.php:3409
 msgid "Back"
 msgstr "Tillbaka"
 
@@ -5311,15 +5311,15 @@ msgid "Metadata"
 msgstr "Metadata"
 
 #: wp-includes/customize/class-wp-customize-image-control.php:41
-#: wp-includes/media.php:3480
+#: wp-includes/media.php:3478
 msgid "Choose Image"
 msgstr "Välj bild"
 
-#: wp-includes/media.php:3497
+#: wp-includes/media.php:3495
 msgid "Replace Video"
 msgstr "Byt ut video"
 
-#: wp-includes/media.php:3520
+#: wp-includes/media.php:3518
 msgid "Add to video playlist"
 msgstr "Lägg till i videospellista"
 
@@ -5328,7 +5328,7 @@ msgctxt "Search widget"
 msgid "Search"
 msgstr "Sök"
 
-#: wp-includes/media.php:3518
+#: wp-includes/media.php:3516
 msgid "Insert video playlist"
 msgstr "Infoga videospellista"
 
@@ -5337,7 +5337,7 @@ msgstr "Infoga videospellista"
 msgid "%s, %s"
 msgstr "%s, %s"
 
-#: wp-includes/media.php:3474
+#: wp-includes/media.php:3472
 msgid "Image Details"
 msgstr "Detaljer för bild"
 
@@ -5365,32 +5365,32 @@ msgstr "Bildposter"
 msgid "There are no associated subtitles."
 msgstr "Det finns inga associerade undertexter."
 
-#: wp-includes/media.php:3427
+#: wp-includes/media.php:3425
 msgid "Create a new playlist"
 msgstr "Skapa en ny spellista"
 
-#: wp-includes/media.php:3476 wp-includes/media.php:3493
-#: wp-includes/media.php:3499
+#: wp-includes/media.php:3474 wp-includes/media.php:3491
+#: wp-includes/media.php:3497
 msgid "Cancel Edit"
 msgstr "Avbryt redigering"
 
-#: wp-includes/media.php:3481
+#: wp-includes/media.php:3479
 msgid "Select and Crop"
 msgstr "Välj och beskär"
 
-#: wp-includes/media.php:3514
+#: wp-includes/media.php:3512
 msgid "Drag and drop to reorder videos."
 msgstr "Dra och släpp för att ändra ordning på videoklipp."
 
-#: wp-includes/media.php:3516
+#: wp-includes/media.php:3514
 msgid "Edit Video Playlist"
 msgstr "Redigera videospellista"
 
-#: wp-includes/media.php:3517
+#: wp-includes/media.php:3515
 msgid "&#8592; Cancel Video Playlist"
 msgstr "&#8592; Avsluta videospellista"
 
-#: wp-includes/media.php:3521
+#: wp-includes/media.php:3519
 msgid "Add to Video Playlist"
 msgstr "Lägg till i videospellista"
 
@@ -5398,51 +5398,51 @@ msgstr "Lägg till i videospellista"
 msgid "Invalid menu ID."
 msgstr "Ogiltigt meny-ID."
 
-#: wp-includes/media.php:3500
+#: wp-includes/media.php:3498
 msgid "Select Poster Image"
 msgstr "Välj bildposter"
 
-#: wp-includes/media.php:3483
+#: wp-includes/media.php:3481
 msgid "Crop Image"
 msgstr "Beskär bild"
 
-#: wp-includes/media.php:3492
+#: wp-includes/media.php:3490
 msgid "Add Audio Source"
 msgstr "Lägg till ljudkälla"
 
-#: wp-includes/media.php:3498
+#: wp-includes/media.php:3496
 msgid "Add Video Source"
 msgstr "Lägg till videokälla"
 
-#: wp-includes/media.php:3496
+#: wp-includes/media.php:3494
 msgid "Video Details"
 msgstr "Detaljer för video"
 
-#: wp-includes/media.php:3484
+#: wp-includes/media.php:3482
 msgid "Crop your image"
 msgstr "Beskär din bild"
 
-#: wp-includes/media.php:3482
+#: wp-includes/media.php:3480
 msgid "Skip Cropping"
 msgstr "Hoppa över beskärning"
 
-#: wp-includes/media.php:3501
+#: wp-includes/media.php:3499
 msgid "Add Subtitles"
 msgstr "Lägg till undertexter"
 
-#: wp-includes/media.php:3504
+#: wp-includes/media.php:3502
 msgid "Drag and drop to reorder tracks."
 msgstr "Dra och släpp för att ordna spår."
 
-#: wp-includes/media.php:3505
+#: wp-includes/media.php:3503
 msgid "Create Audio Playlist"
 msgstr "Skapa ljudspellista"
 
-#: wp-includes/media.php:3490
+#: wp-includes/media.php:3488
 msgid "Audio Details"
 msgstr "Detaljer för ljud"
 
-#: wp-includes/media.php:3491
+#: wp-includes/media.php:3489
 msgid "Replace Audio"
 msgstr "Byt ut ljud"
 
@@ -5640,7 +5640,7 @@ msgstr "Vänsterställ"
 msgid "Horizontal line"
 msgstr "Horisontal linje"
 
-#: wp-includes/media-template.php:889 wp-includes/media.php:3409
+#: wp-includes/media-template.php:889 wp-includes/media.php:3407
 msgid "Replace"
 msgstr "Ersätt"
 
@@ -5958,7 +5958,7 @@ msgid "JavaScript must be enabled to use this feature."
 msgstr "JavaScript måste vara aktiverat för att använda denna funktion."
 
 #. translators: localized date format, see https://secure.php.net/date
-#: wp-includes/class-wp-locale.php:398 wp-includes/media.php:3087
+#: wp-includes/class-wp-locale.php:398 wp-includes/media.php:3088
 msgid "F j, Y"
 msgstr "j F, Y"
 
@@ -6084,7 +6084,7 @@ msgstr "Slumpvis ordning"
 msgid "Caption this image&hellip;"
 msgstr "Ge bilden en bildtext&hellip;"
 
-#: wp-includes/media.php:3457
+#: wp-includes/media.php:3455
 msgid "Insert from URL"
 msgstr "Infoga från URL"
 
@@ -6092,7 +6092,7 @@ msgstr "Infoga från URL"
 #. If there is not a word you can use in your language to avoid issues with
 #. the 		   lack of plural support here, turn it into "selected: %d" then
 #. translate it.
-#: wp-includes/media.php:3416
+#: wp-includes/media.php:3414
 msgid "%d selected"
 msgstr "%d valda"
 
@@ -6101,15 +6101,15 @@ msgctxt "Links widget"
 msgid "Random"
 msgstr "Slumpvis"
 
-#: wp-includes/media-template.php:1233 wp-includes/media.php:3432
+#: wp-includes/media-template.php:1233 wp-includes/media.php:3430
 msgid "No items found."
 msgstr "Inga objekt funna."
 
-#: wp-includes/media.php:3470
+#: wp-includes/media.php:3468
 msgid "Add to Gallery"
 msgstr "Lägg till i galleri"
 
-#: wp-includes/media.php:3471
+#: wp-includes/media.php:3469
 msgid "Reverse order"
 msgstr "Omvänd ordning"
 
@@ -6127,11 +6127,11 @@ msgid "Sorry, that file cannot be edited."
 msgstr "Ledsen, den filen kan inte redigeras."
 
 #: wp-includes/media-template.php:438 wp-includes/media-template.php:541
-#: wp-includes/media.php:3445
+#: wp-includes/media.php:3443
 msgid "Delete Permanently"
 msgstr "Radera permanent"
 
-#: wp-includes/media.php:3437
+#: wp-includes/media.php:3435
 msgid ""
 "You are about to permanently delete this item.\n"
 "  'Cancel' to stop, 'OK' to delete."
@@ -6201,7 +6201,7 @@ msgstr "Uppladdat till denna sida"
 msgid "Audio"
 msgstr "Ljud"
 
-#: wp-includes/media.php:3430
+#: wp-includes/media.php:3428
 msgid "All media items"
 msgstr "Alla mediaobjekt"
 
@@ -6209,7 +6209,7 @@ msgstr "Alla mediaobjekt"
 msgid "Uploaded to this post"
 msgstr "Uppladdat till detta inlägg"
 
-#: wp-includes/media.php:3429
+#: wp-includes/media.php:3427
 msgid "&#8592; Return to library"
 msgstr "&#8592; Tillbaka till bibliotek"
 
@@ -6227,12 +6227,12 @@ msgstr "Kolumner"
 msgid "Alt Text"
 msgstr "Alt text"
 
-#: wp-includes/media-template.php:498 wp-includes/media.php:3454
+#: wp-includes/media-template.php:498 wp-includes/media.php:3452
 msgid "Attachment Details"
 msgstr "Detaljer för bilaga"
 
 #: wp-includes/media-template.php:693 wp-includes/media-template.php:768
-#: wp-includes/media-template.php:942 wp-includes/media.php:3149
+#: wp-includes/media-template.php:942 wp-includes/media.php:3150
 msgid "Large"
 msgstr "Stor"
 
@@ -6244,11 +6244,11 @@ msgstr "Inställningar för bilagsvisning"
 msgid "Gallery Settings"
 msgstr "Inställningar för galleri"
 
-#: wp-includes/media.php:3421
+#: wp-includes/media.php:3419
 msgid "Upload Images"
 msgstr "Ladda upp bilder"
 
-#: wp-includes/media.php:3466
+#: wp-includes/media.php:3464
 msgid "&#8592; Cancel Gallery"
 msgstr "&#8592; Avsluta galleri"
 
@@ -6260,11 +6260,11 @@ msgstr "WordPress &rsaquo; Klart"
 msgid "Drop files anywhere to upload"
 msgstr "Släpp filer varsomhelst för att ladda upp"
 
-#: wp-includes/media.php:3420
+#: wp-includes/media.php:3418
 msgid "Upload Files"
 msgstr "Ladda upp filer"
 
-#: wp-includes/media.php:3467
+#: wp-includes/media.php:3465
 msgid "Insert gallery"
 msgstr "Infoga galleri"
 
@@ -6272,11 +6272,11 @@ msgstr "Infoga galleri"
 msgid "Drop files to upload"
 msgstr "Släpp filer för att ladda upp"
 
-#: wp-includes/media.php:3424
+#: wp-includes/media.php:3422
 msgid "Media Library"
 msgstr "Mediabibliotek"
 
-#: wp-includes/media.php:3464
+#: wp-includes/media.php:3462
 msgid "Create Gallery"
 msgstr "Skapa galleri"
 
@@ -6359,7 +6359,7 @@ msgstr "Beskriv denna ljudfil&hellip;"
 msgid "Describe this media file&hellip;"
 msgstr "Beskriv denna mediafil&hellip;"
 
-#: wp-includes/media.php:3468
+#: wp-includes/media.php:3466
 msgid "Update gallery"
 msgstr "Uppdatera galleri"
 
@@ -6418,11 +6418,11 @@ msgstr "Sparande i bildredigeraren misslyckades."
 msgid "View Attachment Page"
 msgstr "Visa sidan för bilaga"
 
-#: wp-includes/media.php:3425
+#: wp-includes/media.php:3423
 msgid "Insert Media"
 msgstr "Infoga media"
 
-#: wp-includes/media.php:3426
+#: wp-includes/media.php:3424
 msgid "Create a new gallery"
 msgstr "Skapa ett nytt galleri"
 
@@ -6430,7 +6430,7 @@ msgstr "Skapa ett nytt galleri"
 msgid "Insert into post"
 msgstr "Infoga i innehåll"
 
-#: wp-includes/media.php:3469
+#: wp-includes/media.php:3467
 msgid "Add to gallery"
 msgstr "Lägg till i galleri"
 
@@ -6646,7 +6646,7 @@ msgstr "Inläggssida"
 #: wp-includes/customize/class-wp-customize-image-control.php:37
 #: wp-includes/customize/class-wp-customize-media-control.php:63
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:144
-#: wp-includes/media-template.php:471 wp-includes/media.php:3410
+#: wp-includes/media-template.php:471 wp-includes/media.php:3408
 msgid "Remove"
 msgstr "Ta bort"
 
@@ -7052,15 +7052,15 @@ msgstr "%s överstiger den maximala filstorleken för uppladdning på den här w
 msgid "Feedback"
 msgstr "Feedback"
 
-#: wp-includes/comment.php:3077
+#: wp-includes/comment.php:3072
 msgid "<strong>ERROR</strong>: please type a comment."
 msgstr "<strong>FEL</strong>: Var vänlig skriv en kommentar."
 
-#: wp-includes/comment.php:3072
+#: wp-includes/comment.php:3067
 msgid "<strong>ERROR</strong>: please enter a valid email address."
 msgstr "<strong>FEL</strong>: Ange en giltig e-postadress."
 
-#: wp-includes/comment.php:3070
+#: wp-includes/comment.php:3065
 msgid "<strong>ERROR</strong>: please fill the required fields (name, email)."
 msgstr "<strong>FEL</strong>: Fyll i de obligatoriska fälten (namn, e-post)."
 
@@ -8131,8 +8131,8 @@ msgstr "Tyvärr, den nya kategorin misslyckades."
 #: wp-includes/class-wp-xmlrpc-server.php:3430
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:351
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:654
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:744
-#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:769
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:751
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:776
 msgid "Invalid comment ID."
 msgstr "Ogiltigt kommentars-ID."
 
@@ -8161,6 +8161,7 @@ msgstr "Ogiltig kommentarsstatus"
 #: wp-includes/class-wp-xmlrpc-server.php:6191 wp-includes/post.php:3012
 #: wp-includes/post.php:3546
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:357
+#: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:670
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:435
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:631
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:743
@@ -8312,7 +8313,7 @@ msgstr "Förkastad"
 msgid "Duplicate comment detected; it looks as though you&#8217;ve already said that!"
 msgstr "Hittade en likadan kommentar; det verkar som om du redan hade sagt det här!"
 
-#: wp-includes/comment.php:2101
+#: wp-includes/comment.php:2095
 msgid "Could not update comment status"
 msgstr "Kunde inte uppdatera kommentarsstatus"
 
@@ -8619,7 +8620,7 @@ msgid "Search Results %1$s %2$s"
 msgstr "Sökresultat %1$s %2$s"
 
 #. translators: 1: month name, 2: 4-digit year
-#: wp-includes/general-template.php:1743 wp-includes/media.php:3345
+#: wp-includes/general-template.php:1743 wp-includes/media.php:3343
 msgid "%1$s %2$d"
 msgstr "%1$s %2$d"
 
@@ -8934,10 +8935,6 @@ msgstr "Rubrik 5"
 msgid "Heading 6"
 msgstr "Rubrik 6"
 
-#: wp-includes/class-wp-editor.php:842 wp-includes/script-loader.php:105
-msgid "Blockquote"
-msgstr "Citering"
-
 #: wp-includes/class-wp-editor.php:856 wp-includes/script-loader.php:118
 msgid "Code"
 msgstr "Kod"
@@ -9047,7 +9044,7 @@ msgstr "Botten vänster"
 msgid "Bottom Right"
 msgstr "Botten höger"
 
-#: wp-includes/media.php:3465
+#: wp-includes/media.php:3463
 msgid "Edit Gallery"
 msgstr "Redigera galleri"
 
@@ -9782,6 +9779,10 @@ msgstr "%s [Autosparat]"
 msgid "%s [Current Revision]"
 msgstr "%s [Nuvarande version]"
 
+#: wp-includes/class-wp-editor.php:842 wp-includes/script-loader.php:105
+msgid "Blockquote"
+msgstr "Citat"
+
 #: wp-includes/class-wp-customize-panel.php:375
 #: wp-includes/class-wp-customize-section.php:377
 #: wp-includes/customize/class-wp-customize-nav-menus-panel.php:85
@@ -9926,7 +9927,7 @@ msgstr "Widgets"
 msgid "For some strange yet very annoying reason, this post could not be edited."
 msgstr "Av någon märklig men mycket irriterande orsak kan det här inlägget inte redigeras."
 
-#: wp-includes/class-wp-xmlrpc-server.php:3553 wp-includes/comment.php:2988
+#: wp-includes/class-wp-xmlrpc-server.php:3553 wp-includes/comment.php:2983
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:449
 msgid "Sorry, comments are closed for this item."
 msgstr "Tyvärr är kommentarer avstängda för det här inlägget."
@@ -10132,7 +10133,7 @@ msgstr "Författare"
 #: wp-includes/class-wp-editor.php:1448
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:91
 #: wp-includes/media-template.php:373 wp-includes/media-template.php:554
-#: wp-includes/media.php:3403
+#: wp-includes/media.php:3401
 msgid "URL"
 msgstr "URL"
 
@@ -10165,7 +10166,7 @@ msgid "Undo"
 msgstr "Ångra"
 
 #: wp-includes/class-wp-customize-widgets.php:728
-#: wp-includes/class-wp-editor.php:1055 wp-includes/media.php:3446
+#: wp-includes/class-wp-editor.php:1055 wp-includes/media.php:3444
 msgid "Apply"
 msgstr "Utför"
 
@@ -10268,7 +10269,7 @@ msgid "Plugins"
 msgstr "Tillägg"
 
 #: wp-includes/class-wp-editor.php:876 wp-includes/class-wp-editor.php:1489
-#: wp-includes/media.php:3407 wp-includes/script-loader.php:415
+#: wp-includes/media.php:3405 wp-includes/script-loader.php:415
 #: wp-includes/script-loader.php:465 wp-includes/script-loader.php:555
 msgid "Cancel"
 msgstr "Avbryt"
@@ -10329,7 +10330,7 @@ msgid "Redo"
 msgstr "Gör om"
 
 #: wp-includes/media-template.php:691 wp-includes/media-template.php:766
-#: wp-includes/media-template.php:940 wp-includes/media.php:3147
+#: wp-includes/media-template.php:940 wp-includes/media.php:3148
 msgid "Thumbnail"
 msgstr "Miniatyr"
 
@@ -10347,7 +10348,7 @@ msgstr "GD-grafikbiblioteket är inte installerat."
 msgid "File &#8220;%s&#8221; is not an image."
 msgstr "Filen &#8221;%s&#8221; är inte en bild."
 
-#: wp-includes/media.php:3404
+#: wp-includes/media.php:3402
 msgid "Add Media"
 msgstr "Lägg till media"
 
@@ -10370,12 +10371,12 @@ msgid "Right"
 msgstr "Höger"
 
 #: wp-includes/media-template.php:692 wp-includes/media-template.php:767
-#: wp-includes/media-template.php:941 wp-includes/media.php:3148
+#: wp-includes/media-template.php:941 wp-includes/media.php:3149
 msgid "Medium"
 msgstr "Medium"
 
 #: wp-includes/media-template.php:694 wp-includes/media-template.php:769
-#: wp-includes/media-template.php:943 wp-includes/media.php:3150
+#: wp-includes/media-template.php:943 wp-includes/media.php:3151
 msgid "Full Size"
 msgstr "Full storlek"
 
@@ -10389,7 +10390,7 @@ msgid "Alignment"
 msgstr "Justering"
 
 #: wp-includes/media-template.php:327 wp-includes/media-template.php:525
-#: wp-includes/media.php:3477
+#: wp-includes/media.php:3475
 msgid "Edit Image"
 msgstr "Redigera bild"
 
@@ -10422,7 +10423,7 @@ msgstr "Publik, Klistrad"
 msgid "Schedule"
 msgstr "Tidsinställ"
 
-#: wp-includes/media.php:3408 wp-includes/script-loader.php:429
+#: wp-includes/media.php:3406 wp-includes/script-loader.php:429
 #: wp-includes/script-loader.php:565 wp-includes/script-loader.php:641
 msgid "Update"
 msgstr "Uppdatera"
@@ -10441,7 +10442,7 @@ msgid "Dismiss"
 msgstr "Avfärda"
 
 #: wp-includes/admin-bar.php:857 wp-includes/admin-bar.php:858
-#: wp-includes/class-wp-editor.php:1464 wp-includes/media.php:3405
+#: wp-includes/class-wp-editor.php:1464 wp-includes/media.php:3403
 msgid "Search"
 msgstr "Sök"
 
@@ -10479,7 +10480,7 @@ msgstr "Sidor"
 msgid "Close"
 msgstr "Stäng"
 
-#: wp-includes/media.php:3406
+#: wp-includes/media.php:3404
 msgid "Select"
 msgstr "Välj"
 
@@ -10504,7 +10505,7 @@ msgstr "Skapa nytt"
 msgid "Search Categories"
 msgstr "Sök kategorier"
 
-#: wp-includes/media.php:3114 wp-includes/script-loader.php:431
+#: wp-includes/media.php:3115 wp-includes/script-loader.php:431
 #: wp-includes/script-loader.php:612
 msgid "(no title)"
 msgstr "(utan rubrik)"

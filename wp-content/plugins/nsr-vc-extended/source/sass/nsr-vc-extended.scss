@@ -415,15 +415,21 @@ input[type=text]:focus.invalid {
 
   }
 
-  .search-content {
+  .search-autocomplete-content {
     h5 {
       font-size: 1.64rem;
       margin: 0 0 0 0.8rem;
       color:$lightGreen !important;
     }
-    p {
+    .moreinfo {
       padding:0 2rem 2rem 0;
+      max-width:650px !important;
+      line-height:1.0rem;
+      font-size:0.9rem;
+      margin-top: -5px;
+      margin-left:13px;
     }
+
   }
 
 
