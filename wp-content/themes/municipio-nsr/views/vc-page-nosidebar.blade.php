@@ -18,7 +18,7 @@
             @endwhile
 
         </div>
-        
+
     </div>
 
     <div class="grid hidden-lg hidden-xl">
