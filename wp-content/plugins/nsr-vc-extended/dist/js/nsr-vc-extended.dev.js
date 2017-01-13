@@ -1,5 +1,5 @@
 /**
- * MenuCollapsible ad-don for Visual Composer
+ * Extended script for Visual Composer ad-dons
  *
  * @package NSRVCExtended
  *
@@ -184,7 +184,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.searchNSR').addClass('fullscreen');
         $('.closeSearch').removeClass('hide');
         event.stopPropagation();
-    }
+    };
 
 
 
@@ -196,12 +196,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.doneTyping = function () {
 
         $('.searchNSR').each(function (index, element) {
-
-            if ($('.searchNSR').find('input[type="search"]').is(":empty")) {
-                $('.search-autocomplete').remove();
-                $('.sorteringsguiden').remove();
-            }
-
             Extended.prototype.autocomplete(element);
         });
     };
@@ -219,8 +213,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $input = $element.find('input[type="search"]');
 
         if ($input.val().length < 2) {
-            $element.find('.sorteringsguiden').remove();
-            $element.find('.search-autocomplete').remove();
             return;
         }
 
@@ -260,49 +252,34 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $element = $(element);
         var $input = $element.find('input[type="search"]').val();
         var $post_type = $('#post_type').val();
-        var searchSection = [$post_type, 'sorteringsguide'];
 
-        for(var int=0; int < searchSection.length; int++){
+        var data = {
+            action: 'fetch_data',
+            query: $input,
+            post_type: $post_type,
+            level: 'ajax',
+            type: 'json'
+        };
 
-            var logic_type = searchSection[int];
+        $.ajax({
+            url: ajax_object.ajax_url,
+            data: data,
+            method: 'GET',
+            dataType: 'json',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
+            }
+        }).done(function (result) {
 
-            if(logic_type === 'sorteringsguide')
-                $post_type = 'sorteringsguide';
+            $element.find('.sorteringsguiden').remove();
+            $element.find('.search-autocomplete').remove();
 
-            var data = {
-                action: 'fetch_data',
-                query: $input,
-                post_type: $post_type,
-                level: 'ajax',
-                type: 'json'
-            };
+            this.outputAutocomplete(element, result, $post_type);
+        }.bind(this));
 
-            $.ajax({
-                url: ajax_object.ajax_url,
-                data: data,
-                method: 'GET',
-                dataType: 'json',
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-                }
-            }).done(function (res) {
-
-                if(logic_type === 'sorteringsguide') {
-                    $element.find('.sorteringsguiden').remove();
-                }
-                else {
-                    $element.find('.search-autocomplete').remove();
-                }
-
-                this.outputAutocomplete(element, res, logic_type);
-                $('.search-content').remove();
-                logic_type = '';
-
-            }.bind(this));
-        }
     };
 
-    
+
 
     /**
      *  postIcon
@@ -369,51 +346,42 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4></div>');
         var $sortMarkupTable = $('<table class="sorterings-guide-table striped"><tr><th></th><th>Sorteras som</th><th>Lämna nära dig</th><th>Bra att veta</th></tr></table>');
 
+        console.log(res);
+
+        if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
+
+            $.each(res.sortguide, function (index, spost) {
+                var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
+                $sortMarkupTable.append('<tr><td><i class="material-icons">'+$metaDataStr['icon']+'</i> '+spost.post_title+'</td><td>'+spost.terms.fraktioner[0].name+'</td><td>'+spost.terms.inlamningsstallen[0].name+'</td><td>'+spost.post_meta.avfall_bra_att_veta+'</td></tr>');
+                console.log(1);
+            });
+        }
+
+
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
-
             $.each(res.content, function (index, post) {
-
-                if(post.post_excerpt) {
-                    var $excerpt = post.post_excerpt.replace(/^(.{180}[^\s]*).*/, "$1")+"...";
-                }
-                else {
-                    var $excerpt = '';
-                }
-
+                var $excerpt = post.post_excerpt.replace(/^(.{180}[^\s]*).*/, "$1");
+                if($excerpt)
+                    $excerpt = $excerpt+"...";
                 var $metaDataStr = Extended.prototype.metaDataStr(post.post_type);
 
                 if(!$metaDataStr['icon'])
                     $metaDataStr['icon'] = "find_in_page";
 
-                if(searchSection != "sorteringsguide")
-                    $content.append('<li class="collapsible-header col s12 m12 l12"> <i class="material-icons"> '+$metaDataStr['icon']+'</i><a href="'+post.guid+'">'+post.post_title+'<span class="section right">'+$metaDataStr['postSection']+'</span><div class="moreinfo">'+$excerpt+'</div></a></li>');
-                if(searchSection === "sorteringsguide")
-                    $sortMarkupTable.append('<tr><td>post.post_avfall</td><td>post.post_sorteras</td><td>post.post_inlamning</td><td>post.post_braveta</td></tr>');
+                $content.append('<li class="collapsible-header col s12 m12 l12"> <i class="material-icons"> '+$metaDataStr['icon']+'</i><a href="'+post.guid+'">'+post.post_title+'<span class="section right">'+$metaDataStr['postSection']+'</span><div class="moreinfo">'+$excerpt+'</div></a></li>');
 
             });
         } else {
             $content = $('');
         }
 
-        if (res.content === null || res.content.length === 0) {
-            $autocomplete.append('<ul><li class="search-autocomplete-nothing-found">Inga träffar…</li></ul>');
-            return;
-        }
+        $sortMarkupTable.appendTo($sorteringsguiden);
+        $sorteringsguiden.appendTo($element);
+        $content.appendTo($autocomplete);
+        $autocomplete.appendTo($element).show();
 
-        if(searchSection != "sorteringsguide") {
-            $content.appendTo($autocomplete);
-        }
 
-        if(searchSection === "sorteringsguide") {
-            $sortMarkupTable.appendTo($sorteringsguiden);
-            $sorteringsguiden.appendTo($element);
-        }
-
-        if(searchSection != "sorteringsguide")
-            $autocomplete.appendTo($element).show();
-
-        $('.search-autocomplete-content li').matchHeight();
-
+        //$('.search-autocomplete-content li').matchHeight();
     };
 
     return new Extended;

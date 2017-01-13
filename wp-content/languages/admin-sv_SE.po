@@ -1,5 +1,5 @@
-# Translation of WordPress - Development - Administration in Swedish
-# This file is distributed under the same license as the WordPress - Development - Administration package.
+# Translation of WordPress - 4.7.x - Administration in Swedish
+# This file is distributed under the same license as the WordPress - 4.7.x - Administration package.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2016-12-06 19:42:34+0000\n"
@@ -9,7 +9,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.3.0-alpha\n"
 "Language: sv_SE\n"
-"Project-Id-Version: WordPress - Development - Administration\n"
+"Project-Id-Version: WordPress - 4.7.x - Administration\n"
 
 #. translators: default GMT offset or timezone string. Must be either a valid
 #. offset (-12 to 14) 	   or a valid timezone string (America/New_York). See
@@ -26,143 +26,143 @@ msgctxt "start of week"
 msgid "1"
 msgstr "1"
 
-#: wp-admin/about.php:223
+#: wp-admin/about.php:231
 msgid "Customize changesets make changes in the customizer persistent, like autosave drafts. They also make exciting new features like starter content possible."
 msgstr "Anpassningspaket gör att ändringar i anpassaren finns kvar på samma sätt som autosparade utkast. De möjliggör även spännande nya funktioner, såsom startinnehåll."
 
-#: wp-admin/about.php:222
+#: wp-admin/about.php:230
 msgid "Customize Changesets"
 msgstr "Anpassningspaket"
 
 #. translators: 1: register_setting(), 2:
 #. https://make.wordpress.org/core/2016/10/26/registering-your-settings-in-wordpress-4-7/
-#: wp-admin/about.php:215
+#: wp-admin/about.php:223
 msgid "%1$s <a href=\"%2$s\">has been enhanced</a> to include type, description, and REST API visibility."
 msgstr "Funktionen %1$s <a href=\"%2$s\">har förbättrats</a> så att den nu inkluderar typ, beskrivning och är åtkomlig via REST-API."
 
-#: wp-admin/about.php:211
+#: wp-admin/about.php:219
 msgid "Settings Registration API"
 msgstr "API för registrering av inställningar"
 
 #. translators: %s:
 #. https://make.wordpress.org/core/2016/09/08/wp_hook-next-generation-actions-and-filters/
-#: wp-admin/about.php:205
+#: wp-admin/about.php:213
 msgid "The code that lies beneath actions and filters has been overhauled and modernized, fixing bugs along the way."
 msgstr "Vi har gått över och moderniserat programkoden för åtgärder och filter, samtidigt som många fel har rättats."
 
-#: wp-admin/about.php:195
+#: wp-admin/about.php:203
 msgid "List tables, now with more than bulk edit and delete."
 msgstr "Tabeller i listform erbjuder nu nya massåtgärder, utöver ändra och radera."
 
-#: wp-admin/about.php:194
+#: wp-admin/about.php:202
 msgid "Custom Bulk Actions"
 msgstr "Anpssade samtidiga åtgärder på flera objekt"
 
 #. translators: %s:
 #. https://make.wordpress.org/core/2016/09/09/new-functions-hooks-and-behaviour-for-theme-developers-in-wordpress-4-7/
-#: wp-admin/about.php:188
+#: wp-admin/about.php:196
 msgid "WordPress 4.7 includes <a href=\"%s\">new functions, hooks, and behavior</a> for theme developers."
 msgstr "WordPress 4.7 erbjuder tema-utvecklare <a href=\"%s\">nya funktoner, hookar och beteenden</a>."
 
-#: wp-admin/about.php:184
+#: wp-admin/about.php:192
 msgid "More Theme API Goodies"
 msgstr "Ytterligare godsaker i tema-API:t"
 
-#: wp-admin/about.php:181
+#: wp-admin/about.php:189
 msgid "By opening up the page template functionality to all post types, theme developers have even more flexibility with the WordPress template hierarchy."
 msgstr "Genom att sidmallsfunktionen öppnats för alla inläggstyper ger mall-hierarkin i WordPress nu ännu större flexibilitet till tema-utvecklare."
 
-#: wp-admin/about.php:180
+#: wp-admin/about.php:188
 msgid "Post Type Templates"
 msgstr "Mallar för inläggstyper"
 
 #. translators: %s: smiling face with smiling eyes emoji
-#: wp-admin/about.php:173
+#: wp-admin/about.php:181
 msgid "Even More Developer Happiness %s"
 msgstr "Ännu fler saker för utvecklare att glädjas över %s"
 
 #. translators: %s: https://developer.wordpress.org/rest-api/
-#: wp-admin/about.php:161
+#: wp-admin/about.php:169
 msgid "Content endpoints provide machine-readable external access to your WordPress site with a clear, standards-driven interface, paving the way for new and innovative methods of interacting with sites through plugins, themes, apps, and beyond. Ready to get started with development? <a href=\"%s\">Check out the REST API reference.</a>"
 msgstr "Innehålls-ändpunkter gör din WordPress-webbplats åtkomlig via maskin till maskin-kommunikation över ett tydligt, standardiserat gränssnitt, något som banar väg för nya innovativa sätt att interagera med webbplatser via tillägg, teman, appar m.m. Är du redo att börja utveckla? <a href=\"%s\">Läs beskrivningen av vårt REST-API.</a>"
 
-#: wp-admin/about.php:156
+#: wp-admin/about.php:164
 msgid "WordPress 4.7 comes with REST API endpoints for posts, comments, terms, users, meta, and settings."
 msgstr "WordPress 4.7 innehåller REST API-ändpunkter för inlägg, kommentarer, termer, användare, meta och inställningar."
 
-#: wp-admin/about.php:155
+#: wp-admin/about.php:163
 msgid "Introducing REST API Content Endpoints"
 msgstr "Vi introducerar innehållsändpunkter i REST-API"
 
-#: wp-admin/about.php:148
+#: wp-admin/about.php:156
 msgid "Just because your site is in one language doesn&#8217;t mean that everybody helping manage it prefers that language for their admin. Add more languages to your site and a user language option will show up in your user&#8217;s profiles."
 msgstr "Även om din webbplats är på ett visst språk betyder inte det att alla som hjälper till att administrera webbplatsen föredrar just det språket i sin adminpanel. Om du lägger till fler språk till din webbplats går det att välja språk i varje användarrprofil."
 
-#: wp-admin/about.php:146
+#: wp-admin/about.php:154
 msgid "Dashboard in your language"
 msgstr "Adminpanelen på ditt språk"
 
-#: wp-admin/about.php:143
+#: wp-admin/about.php:151
 msgid "Managing your document collection is easier with WordPress 4.7. Uploading PDFs will generate thumbnail images so you can more easily distinguish between all your documents."
 msgstr "I WordPress 4.7 blir det enklare att hantera din dokumentsamling. När du laddar upp PDF-dokument kommer minatyrbilder att skapas så att du enklare kan se skillnad på dina olika dokument."
 
-#: wp-admin/about.php:141
+#: wp-admin/about.php:149
 msgid "PDF Thumbnail Previews"
 msgstr "Miniatyrbilder av PDF-dokument"
 
-#: wp-admin/about.php:133
+#: wp-admin/about.php:141
 msgid "Sometimes you just need a few visual tweaks to make your site perfect. WordPress 4.7 allows you to add custom CSS and instantly see how your changes affect your site. The live preview allows you to work quickly without page refreshes slowing you down."
 msgstr "Ibland räcker det med ett par-tre visuella justeringar för att din webbplats ska bli perfekt. WordPress 4.7 låter dig lägga till anpassad CSS-kod och direkt se hur dina ändringar påverkar webbplatsen. Den direkta förhandsgranskningen gör att du kan arbeta snabbare utan att du behöver förlora tid genom att ständigt ladda om sidan."
 
-#: wp-admin/about.php:128
+#: wp-admin/about.php:136
 msgid "Many menus for sites contain links to the pages of your site, but what happens when you don&#8217;t have any pages yet? Now you can add new pages while building menus instead of leaving the customizer and abandoning your changes. Once you&#8217;ve published your customizations, you&#8217;ll have new pages ready for you to fill with content."
 msgstr "Många webbplatsers menyer innehåller länkar till sidorna på sin webbplats. Men vad händer om du ännu inte har några sidor? Nu kan du lägga till nya sidor när du skapar menyer, i stället för att lämna meny-anpassaren och förlora de ändringar du just utfört. Så snart du publicerat din anpassade meny väntar de nya sidorna på att du ska fylla dem med innehåll."
 
-#: wp-admin/about.php:126
+#: wp-admin/about.php:134
 msgid "Smoother Menu Building"
 msgstr "Smidigare sätt att bygga menyer"
 
-#: wp-admin/about.php:120
+#: wp-admin/about.php:128
 msgid "Sometimes a big atmospheric video as a moving header image is just what you need to showcase your wares; go ahead and try it out with Twenty Seventeen. Need some video inspiration? Try searching for sites with video headers available for download and use."
 msgstr "Ibland kan ett sidhuvud i form av ett generöst, luftigt videoklipp vara just vad du behöver för att visa upp dina produkter. Ta och prova det med temat ”Twenty Seventeen”. Behöver du inspiration för ditt videoklipp? Prova att söka efter webbplatser som erbjuder videoklipp för sidhuvuden att ladda hem och använda."
 
-#: wp-admin/about.php:108
+#: wp-admin/about.php:116
 msgid "Video Headers"
 msgstr "Sidhuvudsvideo"
 
-#: wp-admin/about.php:105
+#: wp-admin/about.php:113
 msgid "Visible icons appear to show you which parts of your site can be customized while live previewing. Click on a shortcut and get straight to editing. Paired with starter content, getting started with customizing your site is faster than ever."
 msgstr "Speciella ikoner visar vilka delar av din webbplats som går att anpassa med direkt förhandsgranskning. Klicka på en genväg och börja göra ändringar direkt. I kombination med startinnehåll kan du nu komma igång snabbare än någonsin med anpassning av din webbplats."
 
-#: wp-admin/about.php:93
+#: wp-admin/about.php:101
 msgid "Edit Shortcuts"
 msgstr "Anpassningsgenvägar"
 
-#: wp-admin/about.php:74
+#: wp-admin/about.php:82
 msgid "To help give you a solid base to build from, individual themes can provide starter content that appears when you go to customize your brand new site. This can range from placing a business information widget in the best location to providing a sample menu with social icon links to a static front page complete with beautiful images. Don&#8217;t worry - nothing new will appear on the live site until you&#8217;re ready to save and publish your initial theme setup."
 msgstr "Vissa teman kan ge dig en stadig grund att stå på genom att erbjuda startinnehåll som visas när du ska anpassa din helt nya webbplats. Det kan gälla så skilda saker som att placera en widget med information om företaget på den bästa platsen till att erbjuda en exempelmeny med ikoner för olika sociala nätverk på en statisk startsida med vackra bilder. Du behöver inte vara orolig – ingenting av allt detta kommer att synas på din publika webbplats förrän du är redo att spara och publicera ditt temas första uppsättning av inställningar."
 
-#: wp-admin/about.php:73
+#: wp-admin/about.php:81
 msgid "Theme Starter Content"
 msgstr "Startinnehåll i teman"
 
-#: wp-admin/about.php:68
+#: wp-admin/about.php:76
 msgid "WordPress 4.7 adds new features to the customizer to help take you through the initial setup of a theme, with non-destructive live previews of all your changes in one uninterrupted workflow."
 msgstr "WordPress 4.7 innehåller nya funktioner i anpassaren som kan leda dig genom den första konfigureringen av ett tema med stöd av direkt förhandsgranskning av alla dina ändringar i ett oavbrutet arbetsflöde, utan att något förstörs på den publika webbplatsen."
 
-#: wp-admin/about.php:67
+#: wp-admin/about.php:75
 msgid "Your Site, Your Way"
 msgstr "Din webbplats, som Du vill ha den"
 
-#: wp-admin/about.php:61
+#: wp-admin/about.php:69
 msgid "Twenty Seventeen focuses on business sites and features a customizable front page with multiple sections. Personalize it with widgets, navigation, social menus, a logo, custom colors, and more. Our default theme for 2017 works great in many languages, on any device, and for a wide range of users."
 msgstr "Twenty Seventeen är inriktat på webbplatser för företag och innehåller en anpassningsbar startsida med flera sektioner. Anpassa den med hjälp av widgetar, navigeringsverktyg, menyer för sociala nätverk, en logga, anpassade färger m.m. Vårt standardtema för 2017 fungerar utmärkt på många olika språk, på alla typer av enheter och för många olika användare."
 
-#: wp-admin/about.php:55
+#: wp-admin/about.php:63
 msgid "A brand new default theme brings your site to life with immersive featured images and video headers."
 msgstr "Ett helt nytt standardtema som får din webbplats att leva upp med uppslukande utvalda bilder och sidhuvuden med videoklipp."
 
-#: wp-admin/about.php:54
+#: wp-admin/about.php:62
 msgid "Presenting Twenty Seventeen"
 msgstr "Låt oss presentera Twenty Seventeen"
 
@@ -314,9 +314,9 @@ msgstr "Oförändrad"
 #: wp-admin/plugin-editor.php:157 wp-admin/plugin-install.php:99
 #: wp-admin/plugins.php:410 wp-admin/revision.php:121
 #: wp-admin/theme-editor.php:43 wp-admin/theme-install.php:115
-#: wp-admin/themes.php:119 wp-admin/tools.php:29 wp-admin/update-core.php:574
+#: wp-admin/themes.php:119 wp-admin/tools.php:29 wp-admin/update-core.php:576
 #: wp-admin/upload.php:67 wp-admin/upload.php:211 wp-admin/user-edit.php:56
-#: wp-admin/user-new.php:214 wp-admin/users.php:69 wp-admin/widgets.php:75
+#: wp-admin/user-new.php:214 wp-admin/users.php:69 wp-admin/widgets.php:77
 msgid "<a href=\"https://wordpress.org/support/\">Support Forums</a>"
 msgstr "<a href=\"https://wordpress.org/support/\">Supportforum</a>"
 
@@ -440,9 +440,9 @@ msgstr "Du har inte behörighet att redigera denna version."
 msgid "Sorry, you are not allowed to update themes for this site."
 msgstr "Du har inte behörighet att uppdatera teman för på den här webbplatsen."
 
-#: wp-admin/update-core.php:23 wp-admin/update-core.php:635
-#: wp-admin/update-core.php:663 wp-admin/update-core.php:696
-#: wp-admin/update-core.php:731
+#: wp-admin/update-core.php:23 wp-admin/update-core.php:637
+#: wp-admin/update-core.php:665 wp-admin/update-core.php:698
+#: wp-admin/update-core.php:733
 msgid "Sorry, you are not allowed to update this site."
 msgstr "Du har inte behörighet att uppdatera den här webbplatsen."
 
@@ -484,7 +484,7 @@ msgstr "Du har inte behörighet att redigera oregistrerade inställningar för d
 msgid "Sorry, you are not allowed to manage options for this site."
 msgstr "Du har inte behörighet att hantera inställningar för den här webbplatsen."
 
-#: wp-admin/nav-menus.php:589 wp-admin/widgets.php:360
+#: wp-admin/nav-menus.php:589 wp-admin/widgets.php:362
 msgid "Manage with Live Preview"
 msgstr "Hantera med förhandsgranskning live"
 
@@ -844,7 +844,7 @@ msgstr "Mediafil uppdaterad."
 #: wp-admin/includes/theme.php:208 wp-admin/includes/update.php:385
 #: wp-admin/includes/update.php:396 wp-admin/includes/update.php:407
 #: wp-admin/includes/update.php:530 wp-admin/includes/update.php:541
-#: wp-admin/includes/update.php:552 wp-admin/update-core.php:285
+#: wp-admin/includes/update.php:552 wp-admin/update-core.php:287
 msgid "View %1$s version %2$s details"
 msgstr "Visa detaljer för version %2$s av %1$s"
 
@@ -1068,7 +1068,7 @@ msgid "Another update is currently in progress."
 msgstr "En annan uppdatering körs för närvarande."
 
 #: wp-admin/includes/class-plugin-upgrader-skin.php:46
-#: wp-admin/update-core.php:684 wp-admin/update-core.php:718
+#: wp-admin/update-core.php:686 wp-admin/update-core.php:720
 msgid "Update progress"
 msgstr "Uppdateringsframsteg"
 
@@ -1228,7 +1228,7 @@ msgid "Welcome to %s. This is your first post. Edit or delete it, then start blo
 msgstr "Välkommen till %s. Det här är ditt första inlägg. Redigera eller radera det, sen kan du börja blogga."
 
 #. translators: %s: WordPress version number
-#: wp-admin/about.php:258
+#: wp-admin/about.php:266
 msgid "<strong>Version %s</strong> addressed one security issue."
 msgstr "<strong>Version %s</strong> åtgärdar en sårbarhet."
 
@@ -1245,15 +1245,15 @@ msgstr "Du kan ändra din profilbild på <a href=\"%s\">Gravatar</a>."
 msgid "Profile Picture"
 msgstr "Profilbild"
 
-#: wp-admin/about.php:255
+#: wp-admin/about.php:263
 msgid "Maintenance and Security Releases"
 msgstr "Underhålls- och säkerhetsrelease"
 
-#: wp-admin/about.php:252
+#: wp-admin/about.php:260
 msgid "Security Releases"
 msgstr "Säkerhetsrelease"
 
-#: wp-admin/about.php:249
+#: wp-admin/about.php:257
 msgid "Maintenance Releases"
 msgstr "Underhållsrelease"
 
@@ -1400,11 +1400,11 @@ msgstr "Filer i mappen %s körs automatiskt."
 msgid "Sorry, you are not allowed to manage these options."
 msgstr "Du har inte behörighet att uppdatera dessa alternativ."
 
-#: wp-admin/widgets.php:436
+#: wp-admin/widgets.php:438
 msgid "This will clear all items from the inactive widgets list. You will not be able to restore any customizations."
 msgstr "Detta rensar alla poster från listan med inaktiva widgets. Du kommer inte kunna återställa några anpassningar."
 
-#: wp-admin/widgets.php:426
+#: wp-admin/widgets.php:428
 msgid "Clear Inactive Widgets"
 msgstr "Rensa inaktiva widgets"
 
@@ -1614,25 +1614,25 @@ msgstr "Ingen roll"
 msgid "An error occurred while updating %1$s: %2$s"
 msgstr "Ett fel uppstod vid uppdatering av %1$s: %2$s"
 
-#: wp-admin/includes/class-wp-screen.php:1226
+#: wp-admin/includes/class-wp-screen.php:1227
 msgid "View Mode"
 msgstr "Visningsläge"
 
-#: wp-admin/includes/class-wp-screen.php:1179
+#: wp-admin/includes/class-wp-screen.php:1180
 msgid "Pagination"
 msgstr "Sidindelning"
 
-#: wp-admin/includes/class-wp-screen.php:1119
+#: wp-admin/includes/class-wp-screen.php:1120
 msgid "%s column"
 msgid_plural "%s columns"
 msgstr[0] "%s kolumn"
 msgstr[1] "%s kolumner"
 
-#: wp-admin/includes/class-wp-screen.php:1030
+#: wp-admin/includes/class-wp-screen.php:1031
 msgid "Boxes"
 msgstr "Paneler"
 
-#: wp-admin/includes/class-wp-screen.php:921
+#: wp-admin/includes/class-wp-screen.php:922
 msgid "Additional settings"
 msgstr "Övriga inställningar"
 
@@ -2028,7 +2028,7 @@ msgstr "<a href=\"https://codex.wordpress.org/Appearance_Background_Screen\">Dok
 msgid "<a href=\"https://codex.wordpress.org/Plugins_Editor_Screen\">Documentation on Editing Plugins</a>"
 msgstr "<a href=\"https://codex.wordpress.org/Plugins_Editor_Screen\">Dokumentation för redigering av tillägg</a>"
 
-#: wp-admin/widgets.php:74
+#: wp-admin/widgets.php:76
 msgid "<a href=\"https://codex.wordpress.org/Appearance_Widgets_Screen\">Documentation on Widgets</a>"
 msgstr "<a href=\"https://codex.wordpress.org/Appearance_Widgets_Screen\">Dokumentation för widgets</a>"
 
@@ -2092,7 +2092,7 @@ msgstr "<a href=\"https://codex.wordpress.org/Administration_Screens#Comments\">
 msgid "<a href=\"https://codex.wordpress.org/Posts_Add_New_Screen\">Documentation on Writing and Editing Posts</a>"
 msgstr "<a href=\"https://codex.wordpress.org/Posts_Add_New_Screen\">Dokumentation för skapande och redigering av inlägg</a>"
 
-#: wp-admin/update-core.php:573
+#: wp-admin/update-core.php:575
 msgid "<a href=\"https://codex.wordpress.org/Dashboard_Updates_Screen\">Documentation on Updating WordPress</a>"
 msgstr "<a href=\"https://codex.wordpress.org/Dashboard_Updates_Screen\">Dokumentation för uppdatering av WordPress</a>"
 
@@ -2235,7 +2235,7 @@ msgstr "Du kan inte installera <a href=\"https://codex.wordpress.org/Version_%1$
 msgid "You cannot install because <a href=\"https://codex.wordpress.org/Version_%1$s\">WordPress %1$s</a> requires MySQL version %2$s or higher. You are running version %3$s."
 msgstr "Du kan inte installera <a href=\"https://codex.wordpress.org/Version_%1$s\">WordPress %1$s</a> eftersom det kräver minst MySQL %2$s eller senare. Du kör MySQL %3$s."
 
-#: wp-admin/widgets.php:79
+#: wp-admin/widgets.php:81
 msgid "The theme you are currently using isn&#8217;t widget-aware, meaning that it has no sidebars that you are able to change. For information on making your theme widget-aware, please <a href=\"https://codex.wordpress.org/Widgetizing_Themes\">follow these instructions</a>."
 msgstr "Temat du använder stöder inte widgets. Det innebär att det inte finns några sidopaneler som du kan ändra på. <a href=\"http://wp-support.se/dokumentation/Modifiering:Aktivera_widgets_för_tema\">Följ de här instruktionerna</a> för att lägga till stöd för widgets i ditt tema."
 
@@ -2395,7 +2395,7 @@ msgstr "Dölj inläggsalternativ"
 msgid "In the editing area the Tab key enters a tab character. To move below this area by pressing Tab, press the Esc key followed by the Tab key. In some cases the Esc key will need to be pressed twice before the Tab key will allow you to continue."
 msgstr "I redigeringsfältet kommer tabb-tangenten att infoga ett tabb-tecken. För att förflytta sig från detta fält med tabb-tangenten, tryck först ESC och sedan tabb. I vissa fall måste man trycka på ESC-tangenten två gånger innan tabb-tangenten förflyttar dig vidare."
 
-#: wp-admin/includes/class-wp-screen.php:1139
+#: wp-admin/includes/class-wp-screen.php:1140
 msgid "Number of items per page:"
 msgstr "Antal poster per sida:"
 
@@ -2496,7 +2496,7 @@ msgstr "Öppna Blogga det här"
 msgid "You can log out of other devices, such as your phone or a public computer, by clicking the Log Out Everywhere Else button."
 msgstr "Du kan logga ut från andra enheter, så som din mobiltelefon eller en offentlig dator genom att klicka på knappen Logga ut från alla enheter."
 
-#: wp-admin/update-core.php:419
+#: wp-admin/update-core.php:421
 msgid "New translations are available."
 msgstr "Nya översättningar är tillgängliga."
 
@@ -2796,7 +2796,7 @@ msgstr "Du kan ange språk, språkfilerna laddas då ner och installeras automat
 msgid "You cannot delete a theme while it has an active child theme."
 msgstr "Du kan inte radera ett tema när det har ett aktivt barntema."
 
-#: wp-admin/includes/class-wp-screen.php:923
+#: wp-admin/includes/class-wp-screen.php:924
 msgid "Enable full-height editor and distraction-free functionality."
 msgstr "Aktivera fullhöjdsredigerare och distraktionsfri funktionalitet."
 
@@ -2878,7 +2878,7 @@ msgctxt "theme editor"
 msgid "Editor"
 msgstr "Redigerare"
 
-#: wp-admin/includes/class-wp-screen.php:1046
+#: wp-admin/includes/class-wp-screen.php:1047
 msgctxt "Welcome panel"
 msgid "Welcome"
 msgstr "Välkommen"
@@ -3224,27 +3224,27 @@ msgstr "Typ"
 msgid "Search installed themes..."
 msgstr "Sök bland installerade teman..."
 
-#: wp-admin/update-core.php:562
+#: wp-admin/update-core.php:564
 msgid "<strong>Translations</strong> &mdash; The files translating WordPress into your language are updated for you whenever any other updates occur. But if these files are out of date, you can <strong>click the &#8220;Update Translations&#8221;</strong> button."
 msgstr "<strong>Översättningar</strong> &mdash; Filerna som översätter WordPress till ditt valda språk uppdateras automatiskt i samband med att andra uppdateringar körs. Men om filerna är föråldrade så kan du <strong>klicka på knappen &#8221;Uppdatera översättningar&#8221;</strong>."
 
-#: wp-admin/update-core.php:558
+#: wp-admin/update-core.php:560
 msgid "In most cases, WordPress will automatically apply maintenance and security updates in the background for you."
 msgstr "I de flesta fallen kommer WordPress automatiskt att uppdatera din installation för underhålls- och säkerhetsuppdateringar i bakgrunden."
 
-#: wp-admin/update-core.php:558
+#: wp-admin/update-core.php:560
 msgid "<strong>WordPress</strong> &mdash; Updating your WordPress installation is a simple one-click procedure: just <strong>click on the &#8220;Update Now&#8221; button</strong> when you are notified that a new version is available."
 msgstr "<strong>WordPress</strong> &mdash; Att uppdatera din installation av WordPress kräver bara ett klick: <strong>klicka bara på knappen &#8221;Uppdatera nu&#8221;</strong> så snart en notifikation dyker upp."
 
-#: wp-admin/update-core.php:550
+#: wp-admin/update-core.php:552
 msgid "If an update is available, you&#8127;ll see a notification appear in the Toolbar and navigation menu."
 msgstr "Om en uppdatering är tillgänglig så visas en notifikation i verktygsfältet och i adminmenyn."
 
-#: wp-admin/update-core.php:559
+#: wp-admin/update-core.php:561
 msgid "<strong>Themes and Plugins</strong> &mdash; To update individual themes or plugins from this screen, use the checkboxes to make your selection, then <strong>click on the appropriate &#8220;Update&#8221; button</strong>. To update all of your themes or plugins at once, you can check the box at the top of the section to select all before clicking the update button."
 msgstr "<strong>Teman och tillägg</strong> &mdash; För att uppdatera individuella teman eller tillägg på denna sida, använd checkboxarna för att välja vad som ska uppdateras och <strong>klicka sedan på avsedd &#8221;Uppdatera&#8221;-knapp</strong>. För att uppdatera alla teman eller tillägg i ett svep, markera checkboxen uppe i hörnet på sektionen för att markera alla innan du klickar på knappen 'Uppdatera'."
 
-#: wp-admin/update-core.php:549
+#: wp-admin/update-core.php:551
 msgid "On this screen, you can update to the latest version of WordPress, as well as update your themes, plugins, and translations from the WordPress.org repositories."
 msgstr "På denna sida kan du uppdatera WordPress till den senaste versionen och även uppdatera dina teman och tillägg från katalogerna på WordPress.org."
 
@@ -3341,7 +3341,7 @@ msgstr "Knacka eller för muspekaren över för att se knapparna för att aktive
 msgid "This screen is used for managing your installed themes. Aside from the default theme(s) included with your WordPress installation, themes are designed and developed by third parties."
 msgstr "Den här sidan används för att hantera dina installerade teman. Bortsett från WordPress standardteman som följer med installationen så är teman designade och utvecklade av tredje part."
 
-#: wp-admin/widgets.php:390
+#: wp-admin/widgets.php:392
 msgid "To activate a widget drag it to a sidebar or click on it. To deactivate a widget and delete its settings, drag it back."
 msgstr "För att aktivera en widget, dra den till ett widgetfält eller klicka på den. För att inaktivera en widget och radera dess inställningar, dra den tillbaka."
 
@@ -3395,7 +3395,7 @@ msgstr "Följande teman har uppdaterats:"
 msgid "The following plugins were successfully updated:"
 msgstr "Följande tillägg har uppdaterats:"
 
-#: wp-admin/widgets.php:504
+#: wp-admin/widgets.php:506
 msgid "Add Widget"
 msgstr "Lägg till widget"
 
@@ -3547,11 +3547,11 @@ msgstr "WordPress %s är också tillgängligt nu."
 msgid "The update cannot be installed because we will be unable to copy some files. This is usually due to inconsistent file permissions."
 msgstr "Uppdateringen kan inte installeras eftersom vi inte kommer kunna kopiera vissa filer. Detta beror oftast på inkonsekventa filrättigheter."
 
-#: wp-admin/update-core.php:410
+#: wp-admin/update-core.php:412
 msgid "Your translations are all up to date."
 msgstr "Du har de senaste versionerna av alla översättningar."
 
-#: wp-admin/update-core.php:409 wp-admin/update-core.php:417
+#: wp-admin/update-core.php:411 wp-admin/update-core.php:419
 msgid "Translations"
 msgstr "Översättningar"
 
@@ -3592,7 +3592,7 @@ msgid "If you experience any issues or need support, the volunteers in the WordP
 msgstr "Om du upplever problem eller behöver support så kan kanske supportforumet på WordPress.org vara till hjälp."
 
 #: wp-admin/includes/class-wp-automatic-updater.php:699
-#: wp-admin/update-core.php:550
+#: wp-admin/update-core.php:552
 msgid "Keeping your site updated is important for security. It also makes the internet a safer place for you and your readers."
 msgstr "Att hålla din webbplats uppdatera är viktigt för säkerheten. Det gör även Internet till en säkrare plats för dig och dina besökare."
 
@@ -3658,7 +3658,7 @@ msgid "Updating translations for %1$s (%2$s)&#8230;"
 msgstr "Uppdaterar översättningar för %1$s (%2$s)&#8230;"
 
 #: wp-admin/includes/class-language-pack-upgrader-skin.php:29
-#: wp-admin/update-core.php:421 wp-admin/update-core.php:740
+#: wp-admin/update-core.php:423 wp-admin/update-core.php:742
 msgid "Update Translations"
 msgstr "Uppdatera översättningar"
 
@@ -4315,7 +4315,7 @@ msgstr "Om du vill använda länkhanteringen, vänligen installera tillägget <a
 msgid "Manage <a href=\"%1$s\">widgets</a> or <a href=\"%2$s\">menus</a>"
 msgstr "Hantera <a href=\"%1$s\">widgets</a> eller <a href=\"%2$s\">menyer</a>"
 
-#: wp-admin/widgets.php:69
+#: wp-admin/widgets.php:71
 msgid "When changing themes, there is often some variation in the number and setup of widget areas/sidebars and sometimes these conflicts make the transition a bit less smooth. If you changed themes and seem to be missing widgets, scroll down on this screen to the Inactive Widgets area, where all of your widgets and their settings will have been saved."
 msgstr "När man ändrar teman så förekommer ofta variationer på antal tillgängliga widgetfält och detta kan i vissa fall röra till det. Om du byter teman och verkar sakna widgets, rulla ner en bit på denna sida, till panelen Inaktiva widgets där du hittar alla dina widgets med sina inställningar sparade."
 
@@ -4489,7 +4489,7 @@ msgstr "Synlighet i sökmotorer"
 msgid "You can also control the display of your content in RSS feeds, including the maximum numbers of posts to display and whether to show full text or a summary."
 msgstr "Du kan även kontrollera visningen av innehållet i dina RSS-flöden, inklusive maximalt antal inlägg att visa, om de ska visas fullständiga eller som utdrag."
 
-#: wp-admin/includes/update-core.php:1227 wp-admin/update-core.php:499
+#: wp-admin/includes/update-core.php:1227 wp-admin/update-core.php:501
 msgid "Welcome to WordPress %1$s. You will be redirected to the About WordPress screen. If not, click <a href=\"%2$s\">here</a>."
 msgstr "Välkommen till WordPress %1$s. Du kommer att omdirigeras till sidan om WordPress. Om inte, klicka <a href=\"%2$s\">här</a>."
 
@@ -4591,7 +4591,7 @@ msgstr "Du har använt allt tilldelat utrymme. Var vänlig radera några filer f
 msgid "Contextual Help Tab"
 msgstr "Hjälp"
 
-#: wp-admin/includes/class-wp-screen.php:978
+#: wp-admin/includes/class-wp-screen.php:979
 msgid "Screen Options Tab"
 msgstr "Panelinställningar"
 
@@ -4680,7 +4680,7 @@ msgstr "Taggar kan selektivt konverteras till kategorier genom att använda <a h
 #: wp-admin/includes/class-wp-posts-list-table.php:835
 #: wp-admin/includes/class-wp-terms-list-table.php:339
 #: wp-admin/includes/class-wp-users-list-table.php:432
-#: wp-admin/update-core.php:297 wp-admin/update-core.php:368
+#: wp-admin/update-core.php:299 wp-admin/update-core.php:370
 msgid "Select %s"
 msgstr "Välj %s"
 
@@ -4851,8 +4851,8 @@ msgstr "<strong>FEL</strong>: Vänligen ange ett smeknamn."
 
 #: wp-admin/includes/class-wp-list-table.php:1069
 #: wp-admin/includes/nav-menu.php:575 wp-admin/includes/nav-menu.php:774
-#: wp-admin/update-core.php:246 wp-admin/update-core.php:322
-#: wp-admin/update-core.php:354 wp-admin/update-core.php:393
+#: wp-admin/update-core.php:246 wp-admin/update-core.php:324
+#: wp-admin/update-core.php:356 wp-admin/update-core.php:395
 msgid "Select All"
 msgstr "Välj alla"
 
@@ -5383,7 +5383,7 @@ msgid "Contributing Developers"
 msgstr "Bidragande utvecklare"
 
 #. translators: 1: WordPress version number, 2: plural number of bugs.
-#: wp-admin/about.php:263
+#: wp-admin/about.php:271
 msgid "<strong>Version %1$s</strong> addressed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed %2$s bugs."
 msgstr[0] "<strong>Version %1$s</strong> åtgärdar %2$s bugg."
@@ -5391,20 +5391,20 @@ msgstr[1] "<strong>Version %1$s</strong> åtgärdar %2$s buggar."
 
 #. translators: 1: WordPress version number, 2: plural number of bugs. More
 #. than one security issue.
-#: wp-admin/about.php:271
+#: wp-admin/about.php:48 wp-admin/about.php:279
 msgid "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bugs."
 msgstr[0] "<strong>Version %1$s</strong> åtgärdar ett par sårbarheter och %2$s bugg."
 msgstr[1] "<strong>Version %1$s</strong> åtgärdar ett par sårbarheter och %2$s buggar."
 
 #. translators: %s: Codex URL
-#: wp-admin/about.php:275
+#: wp-admin/about.php:50 wp-admin/about.php:283
 msgid "For more information, see <a href=\"%s\">the release notes</a>."
 msgstr "För mer information, se <a href=\"%s\">detaljer för releasen</a>."
 
 #. translators: 1: WordPress version number, 2: plural number of bugs. Singular
 #. security issue.
-#: wp-admin/about.php:267
+#: wp-admin/about.php:275
 msgid "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bugs."
 msgstr[0] "<strong>Version %1$s</strong> åtgärdar en säkerhetsrisk och %2$s bugg."
@@ -5415,15 +5415,15 @@ msgid "Welcome to your WordPress Dashboard! This is the screen you will see when
 msgstr "Välkommen till din adminpanel för WordPress! Det här är sidan du kommer att se när du loggar in på din webbplats. Den ger dig tillgång till alla administrativa sidor för att hantera din webbplats. Du kan hitta hjälp för alla sidor i administrationen genom att klicka på fliken Hjälp uppe i hörnet."
 
 #. translators: %s: WordPress version number
-#: wp-admin/about.php:260
+#: wp-admin/about.php:268
 msgid "<strong>Version %s</strong> addressed some security issues."
 msgstr "<strong>Version %s</strong> åtgärdar sårbarheter."
 
-#: wp-admin/about.php:248
+#: wp-admin/about.php:256
 msgid "Maintenance Release"
 msgstr "Underhållsrelease"
 
-#: wp-admin/about.php:251
+#: wp-admin/about.php:259
 msgid "Security Release"
 msgstr "Säkerhetsrelease"
 
@@ -5431,7 +5431,7 @@ msgstr "Säkerhetsrelease"
 msgid "What&#8217;s New"
 msgstr "Vad är nytt"
 
-#: wp-admin/about.php:254
+#: wp-admin/about.php:47 wp-admin/about.php:262
 msgid "Maintenance and Security Release"
 msgstr "Underhålls och säkerhetsrelease"
 
@@ -5439,11 +5439,11 @@ msgstr "Underhålls och säkerhetsrelease"
 msgid "This screen allows you to choose your permalink structure. You can choose from common settings or create custom URL structures."
 msgstr "Den här sidan låter dig välja din permalänksstruktur, Du kan välja mellan vanligt använda inställningar eller skapa en anpassad URL-struktur."
 
-#: wp-admin/includes/update-core.php:1228 wp-admin/update-core.php:500
+#: wp-admin/includes/update-core.php:1228 wp-admin/update-core.php:502
 msgid "Welcome to WordPress %1$s. <a href=\"%2$s\">Learn more</a>."
 msgstr "Välkommen till WordPress %1$s. <a href=\"%2$s\">Läs mer</a>."
 
-#: wp-admin/about.php:234
+#: wp-admin/about.php:242
 msgid "Return to Updates"
 msgstr "Återgå till uppdateringar"
 
@@ -5487,7 +5487,7 @@ msgstr "Du kan också redigera eller flytta flera inlägg till papperskorgen på
 msgid "This screen provides access to all of your posts. You can customize the display of this screen to suit your workflow."
 msgstr "Den här sidan ger tillgång till alla dina inlägg. Du kan anpassa visningen av den här sidan så att den passar ditt arbetsflöde."
 
-#: wp-admin/update-core.php:567
+#: wp-admin/update-core.php:569
 msgid "How to Update"
 msgstr "Hur man uppdaterar"
 
@@ -5591,15 +5591,15 @@ msgstr "Den här sidan har ett antal alternativ för hantering och visning av ko
 msgid "You can change your password, turn on keyboard shortcuts, change the color scheme of your WordPress administration screens, and turn off the WYSIWYG (Visual) editor, among other things. You can hide the Toolbar (formerly called the Admin Bar) from the front end of your site, however it cannot be disabled on the admin screens."
 msgstr "Du kan ändra ditt lösenord, aktivera kortkommandon, ändra färgschemat för dina administrationssidor av WordPress och stäng av WYSIWYG (visuell) redigeraren osv. Du kan dölja verktygsfältet (tidigare kallat adminmeny) från främre delen av din webbplats, men det kan inte inaktiveras på adminsidor."
 
-#: wp-admin/widgets.php:98
+#: wp-admin/widgets.php:100
 msgid "This sidebar is no longer available and does not show anywhere on your site. Remove each of the widgets below to fully remove this inactive sidebar."
 msgstr "Detta sidofält är inte längre tillgängligt och visas inte någonstans på din webbplats. Ta bort varje widget nedan för att helt ta bort detta inaktiva sidofält."
 
-#: wp-admin/widgets.php:95
+#: wp-admin/widgets.php:97
 msgid "Inactive Sidebar (not used)"
 msgstr "Inaktivt sidofält (används inte)"
 
-#: wp-admin/widgets.php:66
+#: wp-admin/widgets.php:68
 msgid "Missing Widgets"
 msgstr "Saknade widgets"
 
@@ -5607,7 +5607,7 @@ msgstr "Saknade widgets"
 msgid "You can assign keywords to your posts using <strong>tags</strong>. Unlike categories, tags have no hierarchy, meaning there&#8217;s no relationship from one tag to another."
 msgstr "Du kan tilldela sökord till dina inlägg med <strong>taggar</strong>. Till skillnad från kategorier, har taggar ingen hierarki, dvs. det finns ingen relation mellan en tagg till en annan."
 
-#: wp-admin/widgets.php:58
+#: wp-admin/widgets.php:60
 msgid "Removing and Reusing"
 msgstr "Borttagning och återanvändning"
 
@@ -5723,11 +5723,11 @@ msgstr "Troligen används direkt infogande av wp-admin/includes/template.php fö
 msgid "Welcome to WordPress %s"
 msgstr "Välkommen till WordPress %s"
 
-#: wp-admin/about.php:234
+#: wp-admin/about.php:242
 msgid "Return to Dashboard &rarr; Updates"
 msgstr "Återgå till Adminpanel &rarr; Uppdateringar"
 
-#: wp-admin/about.php:237
+#: wp-admin/about.php:245
 msgid "Go to Dashboard &rarr; Home"
 msgstr "Gå till Adminpanel &rarr; Hem"
 
@@ -5825,7 +5825,7 @@ msgid "Successfully repaired the %s table."
 msgstr "Tabellen %s har reparerats."
 
 #. translators: %s: plugin version
-#: wp-admin/update-core.php:287
+#: wp-admin/update-core.php:289
 msgid "View version %s details."
 msgstr "Visa detaljer för version %s."
 
@@ -5883,9 +5883,9 @@ msgstr "FEL: du svarar på en kommentar i ett utkast."
 #: wp-admin/plugin-install.php:80 wp-admin/plugins.php:385
 #: wp-admin/revision.php:115 wp-admin/theme-editor.php:25
 #: wp-admin/theme-install.php:98 wp-admin/themes.php:82
-#: wp-admin/update-core.php:554 wp-admin/upload.php:48 wp-admin/upload.php:189
+#: wp-admin/update-core.php:556 wp-admin/upload.php:48 wp-admin/upload.php:189
 #: wp-admin/user-edit.php:49 wp-admin/user-new.php:194 wp-admin/users.php:31
-#: wp-admin/widgets.php:51
+#: wp-admin/widgets.php:53
 msgid "Overview"
 msgstr "Översikt"
 
@@ -5935,7 +5935,7 @@ msgstr "Alla användare"
 #: wp-admin/includes/class-wp-users-list-table.php:412
 #: wp-admin/includes/media.php:1501 wp-admin/includes/meta-boxes.php:916
 #: wp-admin/includes/template.php:561 wp-admin/includes/widgets.php:253
-#: wp-admin/themes.php:340 wp-admin/themes.php:486 wp-admin/widgets.php:318
+#: wp-admin/themes.php:340 wp-admin/themes.php:486 wp-admin/widgets.php:320
 msgid "Delete"
 msgstr "Radera"
 
@@ -5959,9 +5959,9 @@ msgstr "Lägg till ny"
 #: wp-admin/plugin-editor.php:154 wp-admin/plugin-install.php:97
 #: wp-admin/plugins.php:408 wp-admin/revision.php:119
 #: wp-admin/theme-editor.php:38 wp-admin/theme-install.php:113
-#: wp-admin/themes.php:117 wp-admin/tools.php:27 wp-admin/update-core.php:572
+#: wp-admin/themes.php:117 wp-admin/tools.php:27 wp-admin/update-core.php:574
 #: wp-admin/upload.php:65 wp-admin/upload.php:209 wp-admin/user-edit.php:54
-#: wp-admin/user-new.php:212 wp-admin/users.php:66 wp-admin/widgets.php:73
+#: wp-admin/user-new.php:212 wp-admin/users.php:66 wp-admin/widgets.php:75
 msgid "For more information:"
 msgstr "För mer information:"
 
@@ -6268,7 +6268,7 @@ msgstr "Bidragslämnare för kärnan till WordPress %s"
 msgid "Cofounder, Project Lead"
 msgstr "Grundare, projektledare"
 
-#: wp-admin/widgets.php:386
+#: wp-admin/widgets.php:388
 msgctxt "removing-widget"
 msgid "Deactivate"
 msgstr "Inaktivera"
@@ -6349,7 +6349,7 @@ msgstr "Uppladdade bilder"
 msgid "<strong>Random:</strong> Show a different image on each page."
 msgstr "<strong>Slumpvis:</strong> Visa olika bilder slumpvis på varje sida."
 
-#: wp-admin/includes/class-wp-screen.php:1113 wp-admin/includes/theme.php:237
+#: wp-admin/includes/class-wp-screen.php:1114 wp-admin/includes/theme.php:237
 #: wp-admin/includes/theme.php:302 wp-admin/index.php:62
 msgid "Layout"
 msgstr "Layout"
@@ -6573,7 +6573,7 @@ msgstr "Notera att du beskära bilden genom att klicka på den (beskärningsverk
 msgid "Remember to click Update Media to save metadata entered or changed."
 msgstr "Kom ihåg att klicka på Uppdatera Media för att spara metadata som angivits eller ändrats."
 
-#: wp-admin/widgets.php:54
+#: wp-admin/widgets.php:56
 msgid "The Available Widgets section contains all the widgets you can choose from. Once you drag a widget into a sidebar, it will open to allow you to configure its settings. When you are happy with the widget settings, click the Save button and the widget will go live on your site. If you click Delete, it will remove the widget."
 msgstr "Sektionen Tillgängliga widgets innehåller alla widgets som du kan välja mellan. När du drar en widget till en sidopanel så kommer den att öppna för att låta dig konfigurera dess inställningar. När du är nöjd med widgeten inställningarna klickar du på knappen Spara och widget kommer att visas live på din webbplats. Om du klickar Radera så tas widgeten bort."
 
@@ -6591,7 +6591,7 @@ msgstr "%1$s &lsaquo; %2$s &#8212; WordPress"
 msgid "Search Installed Themes"
 msgstr "Sök bland installerade teman"
 
-#: wp-admin/update-core.php:346
+#: wp-admin/update-core.php:348
 msgid "<strong>Please Note:</strong> Any customizations you have made to theme files will be lost. Please consider using <a href=\"%s\">child themes</a> for modifications."
 msgstr "<strong>Notera:</strong> Alla anpassningar du har genomfört i temats filer går förlorade. Vänligen överväg att använda <a href=\"%s\">barnteman</a> för modifikationer."
 
@@ -6602,20 +6602,20 @@ msgid_plural "Sticky <span class=\"count\">(%s)</span>"
 msgstr[0] "Klistrad <span class=\"count\">(%s)</span>"
 msgstr[1] "Klistrade <span class=\"count\">(%s)</span>"
 
-#: wp-admin/update-core.php:606
+#: wp-admin/update-core.php:608
 msgid "Check Again"
 msgstr "Kontrollera igen"
 
 #. translators: %1 date, %2 time.
-#: wp-admin/update-core.php:605
+#: wp-admin/update-core.php:607
 msgid "Last checked on %1$s at %2$s."
 msgstr "Senast kontrollerat den %1$s kl. %2$s."
 
-#: wp-admin/update-core.php:590
+#: wp-admin/update-core.php:592
 msgid "Please select one or more themes to update."
 msgstr "Välj ett eller flera teman att uppdatera."
 
-#: wp-admin/update-core.php:592
+#: wp-admin/update-core.php:594
 msgid "Please select one or more plugins to update."
 msgstr "Välj ett eller flera tillägg att uppdatera."
 
@@ -6751,7 +6751,7 @@ msgstr "FTP-användarnamn"
 msgid "FTP Password"
 msgstr "FTP-lösenord"
 
-#: wp-admin/widgets.php:68
+#: wp-admin/widgets.php:70
 msgid "Many themes show some sidebar widgets by default until you edit your sidebars, but they are not automatically displayed in your sidebar management tool. After you make your first widget change, you can re-add the default widgets by adding them from the Available Widgets area."
 msgstr "Många teman visar ett par widgets som standard tills du redigera din sidopaneler, men de visas inte automatiskt i widgethanteraren. När du gör dina första ändringar för widgetfälten så kan du lägga till motsvarande standardwidgets från panelen Tillgängliga widgets."
 
@@ -6775,7 +6775,7 @@ msgstr "Du kan välja vad som ska visas på startsidan av din webbplats. Det kan
 msgid "To add a new user for your site, click the Add New button at the top of the screen or Add New in the Users menu section."
 msgstr "För att lägga till nya användare på din webbplats, klicka på knappen Lägg till ny överst på sidan eller Lägg till ny i menysektionen för användare."
 
-#: wp-admin/widgets.php:60
+#: wp-admin/widgets.php:62
 msgid "If you want to remove the widget but save its setting for possible future use, just drag it into the Inactive Widgets area. You can add them back anytime from there. This is especially helpful when you switch to a theme with fewer or different widget areas."
 msgstr "Om du vill ta bort widgets men spara dess inställningar för framtida användning, dra helt enkelt bara widgeten till panelen Inaktiva widgets. Du kan när som helst återanvända dessa widgets. Kan vara särskilt användbart när man byter till ett tema med en annan uppsättning widgets."
 
@@ -6907,7 +6907,7 @@ msgstr "Panelerna för länknamn, webbadress och beskrivning har en fixerad posi
 msgid "An updated version of WordPress is available."
 msgstr "En uppdaterad version av WordPress finns tillgänglig"
 
-#: wp-admin/update-core.php:338
+#: wp-admin/update-core.php:340
 msgid "Your themes are all up to date."
 msgstr "Du har den senaste versionen av alla teman."
 
@@ -6980,7 +6980,7 @@ msgstr "Efter att du angett dina ändringar, klicka på Uppdatera fil."
 msgid "<strong>Advice:</strong> think very carefully about your site crashing if you are live-editing the theme currently in use."
 msgstr "<strong>Tips:</strong> var försiktig så att din sida inte kraschar när du redigerar ett tema som används live."
 
-#: wp-admin/widgets.php:53
+#: wp-admin/widgets.php:55
 msgid "Widgets are independent sections of content that can be placed into any widgetized area provided by your theme (commonly called sidebars). To populate your sidebars/widget areas with individual widgets, drag and drop the title bars into the desired area. By default, only the first widget area is expanded. To populate additional widget areas, click on their title bars to expand them."
 msgstr "Widgets är oberoende delar av innehåll som kan placeras i de widgetfält som finns i ditt tema (allmänt kallat sidopanel). För att fylla dina sidopaneler/widgetfält med enskilda widgets, dra och släpp titellisterna till önskat fält. Som standard så är bara den första widgetfältet utvidgat. Om du vill fylla ytterligare widgetfält, klicka på deras titelrad för att expandera dem."
 
@@ -6992,11 +6992,11 @@ msgstr "Börja genom att välja ett tema att redigera i rullgardinsmenyn och kli
 msgid "You can use the Theme Editor to edit the individual CSS and PHP files which make up your theme."
 msgstr "Du kan använda temaredigeraren för att redigera individuella CSS- och PHP-filer som tillhör ditt tema."
 
-#: wp-admin/widgets.php:62
+#: wp-admin/widgets.php:64
 msgid "Enabling Accessibility Mode, via Screen Options, allows you to use Add and Edit buttons instead of using drag and drop."
 msgstr "Att aktivera kompatibilitetsläge via Panelinställningar tillåter dig att använda knapparna Lägg till och Redigera istället för dra och släpp."
 
-#: wp-admin/widgets.php:61
+#: wp-admin/widgets.php:63
 msgid "Widgets may be used multiple times. You can give each widget a title, to display on your site, but it&#8217;s not required."
 msgstr "Widgets kan användas flera gånger. Du kan ange en titel som visas på din sida för varje widget, men det är inte obligatoriskt."
 
@@ -7195,7 +7195,7 @@ msgstr "Visa avancerade menyalternativ"
 
 #. translators: 1: plugin version, 2: new version
 #. translators: 1: theme version, 2: new version
-#: wp-admin/update-core.php:306 wp-admin/update-core.php:378
+#: wp-admin/update-core.php:308 wp-admin/update-core.php:380
 msgid "You have version %1$s installed. Update to %2$s."
 msgstr "Du har version %1$s installerad. Uppdatera till %2$s."
 
@@ -7377,7 +7377,7 @@ msgstr "Du har inte behörighet att återställa det här objektet från pappers
 msgid "Error in restoring from Trash."
 msgstr "Fel vid återställning från papperskorgen."
 
-#: wp-admin/update-core.php:345
+#: wp-admin/update-core.php:347
 msgid "The following themes have new versions available. Check the ones you want to update and then click &#8220;Update Themes&#8221;."
 msgstr "Följande teman har tillgängliga uppdateringar. Markera dem du vill uppdatera och klicka sedan på &#8220;Uppdatera teman&#8220;."
 
@@ -7539,21 +7539,21 @@ msgid "The password you chose during the install."
 msgstr "Lösenordet du valde under installationen."
 
 #: wp-admin/plugins.php:131 wp-admin/update-core.php:241
-#: wp-admin/update-core.php:326 wp-admin/update-core.php:679
-#: wp-admin/update-core.php:683
+#: wp-admin/update-core.php:328 wp-admin/update-core.php:681
+#: wp-admin/update-core.php:685
 msgid "Update Plugins"
 msgstr "Uppdatera tillägg"
 
-#: wp-admin/update-core.php:458
+#: wp-admin/update-core.php:460
 msgid "Update WordPress"
 msgstr "Uppdatera WordPress"
 
 #: wp-admin/includes/class-wp-automatic-updater.php:355
-#: wp-admin/includes/update-core.php:1224 wp-admin/update-core.php:498
+#: wp-admin/includes/update-core.php:1224 wp-admin/update-core.php:500
 msgid "WordPress updated successfully"
 msgstr "WordPress uppdaterades utan problem"
 
-#: wp-admin/update-core.php:546 wp-admin/update-core.php:585
+#: wp-admin/update-core.php:548 wp-admin/update-core.php:587
 msgid "WordPress Updates"
 msgstr "Uppdateringar för WordPress"
 
@@ -7583,7 +7583,7 @@ msgstr "Visa alla"
 msgid "Please enter a valid menu name."
 msgstr "Var vänlig ange ett giltigt menynamn."
 
-#: wp-admin/about.php:237
+#: wp-admin/about.php:245
 msgid "Go to Dashboard"
 msgstr "Gå till adminpanelen"
 
@@ -7694,40 +7694,40 @@ msgstr "Denna kommentarär för närvarande markerad som skräp."
 msgid "Categories:"
 msgstr "Kategorier:"
 
-#: wp-admin/widgets.php:115
+#: wp-admin/widgets.php:117
 msgid "Drag widgets here to remove them from the sidebar but keep their settings."
 msgstr "Dra widgets hit för att inaktivera dem på sidan men behålla dess inställningar."
 
-#: wp-admin/widgets.php:386
+#: wp-admin/widgets.php:388
 msgid "Available Widgets"
 msgstr "Tillgängliga widgets"
 
-#: wp-admin/widgets.php:341
+#: wp-admin/widgets.php:343
 msgid "Error in displaying the widget settings form."
 msgstr "Ett fel uppstod när inställningsformuläret för widgeten skulle visas."
 
 #: wp-admin/includes/misc.php:882 wp-admin/includes/post.php:1785
-#: wp-admin/widgets.php:340
+#: wp-admin/widgets.php:342
 msgid "Error while saving."
 msgstr "Fel vid sparande."
 
-#: wp-admin/widgets.php:320
+#: wp-admin/widgets.php:322
 msgid "Save Widget"
 msgstr "Spara widget"
 
-#: wp-admin/widgets.php:282
+#: wp-admin/widgets.php:284
 msgid "Position"
 msgstr "Position"
 
-#: wp-admin/widgets.php:280
+#: wp-admin/widgets.php:282
 msgid "Select both the sidebar for this widget and the position of the widget in that sidebar."
 msgstr "Välj både panel och position i den panelen för denna widget."
 
-#: wp-admin/widgets.php:269
+#: wp-admin/widgets.php:271
 msgid "Widget %s"
 msgstr "Widget %s"
 
-#: wp-admin/widgets.php:112
+#: wp-admin/widgets.php:114
 msgid "Inactive Widgets"
 msgstr "Inaktiva widgets"
 
@@ -7949,19 +7949,19 @@ msgid "Plugin Reactivation"
 msgstr "Återaktivering av tillägget"
 
 #: wp-admin/includes/class-wp-automatic-updater.php:353
-#: wp-admin/update-core.php:493
+#: wp-admin/update-core.php:495
 msgid "Installation Failed"
 msgstr "Installationen misslyckades"
 
-#: wp-admin/update-core.php:260 wp-admin/update-core.php:270
+#: wp-admin/update-core.php:262 wp-admin/update-core.php:272
 msgid "Compatibility with WordPress %1$s: Unknown"
 msgstr "Kompatibilitet med WordPress %1$s: Okänt"
 
-#: wp-admin/update-core.php:258 wp-admin/update-core.php:268
+#: wp-admin/update-core.php:260 wp-admin/update-core.php:270
 msgid "Compatibility with WordPress %1$s: %2$d%% (%3$d \"works\" votes out of %4$d total)"
 msgstr "Kompatibilitet med WordPress %1$s: %2$d%% (%3$d har markerat det som \"kompatibelt\" av totalt %4$d)"
 
-#: wp-admin/update-core.php:255 wp-admin/update-core.php:265
+#: wp-admin/update-core.php:257 wp-admin/update-core.php:267
 msgid "Compatibility with WordPress %1$s: 100%% (according to its author)"
 msgstr "Kompatibilitet med WordPress %1$s: 100%% (enligt dess skapare)"
 
@@ -8617,8 +8617,8 @@ msgstr "Inställningar för diskussioner"
 msgid "No users found."
 msgstr "Inga användare funna."
 
-#: wp-admin/update-core.php:349 wp-admin/update-core.php:397
-#: wp-admin/update-core.php:712 wp-admin/update-core.php:717
+#: wp-admin/update-core.php:351 wp-admin/update-core.php:399
+#: wp-admin/update-core.php:714 wp-admin/update-core.php:719
 msgid "Update Themes"
 msgstr "Uppdatera teman"
 
@@ -8967,11 +8967,11 @@ msgstr "Filter för egenskaper"
 msgid "Screen Options"
 msgstr "Panelinställningar"
 
-#: wp-admin/includes/class-wp-screen.php:918
+#: wp-admin/includes/class-wp-screen.php:919
 msgid "Disable accessibility mode"
 msgstr "Inaktivera kompatibilitetsläge"
 
-#: wp-admin/includes/class-wp-screen.php:918
+#: wp-admin/includes/class-wp-screen.php:919
 msgid "Enable accessibility mode"
 msgstr "Aktivera kompatibilitetsläge"
 
@@ -10457,7 +10457,7 @@ msgid "Export"
 msgstr "Exportera"
 
 #: wp-admin/includes/class-wp-list-table.php:163
-#: wp-admin/includes/class-wp-screen.php:1233
+#: wp-admin/includes/class-wp-screen.php:1234
 msgid "Excerpt View"
 msgstr "Lista med utdrag"
 
