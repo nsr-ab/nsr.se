@@ -353,14 +353,16 @@ input[type=text]:focus.invalid {
     }
     th {
       font-weight:600;
+      background-color:$darkerGreen;
     }
-    &.striped>tbody>tr:nth-child(even) {
+    tr:nth-child(even) {
       background-color:lighten($darkerGreen, 3%);
       color:$lightGreen !important;
     }
-    &.striped>tbody>tr:nth-child(odd) {
-      background-color:$darkerGreen;
+    tr:nth-child(odd) {
       color:$lightGreen !important;
+      //background-color:$darkerGreen;
+      background-color:lighten($darkerGreen, 3%);
     }
 
     li {
@@ -377,22 +379,9 @@ input[type=text]:focus.invalid {
 
     }
 
-    .read-more {
-      padding:18px;
-      background-color: $darkGreen !important;
-      border: none;
-      border-radius: 0 !important;
-      margin: 10px -1px -1px -1px;
-      width: calc(100% + 2px);
-      color:$lightGreen !important;
-      &:hover {
-        color:$white !important;
-      }
-    }
-
     li a {
       display: block;
-      padding: 7.5px 20px;
+      padding: 0px 20px;
       text-decoration: none !important;
       color:$lightGreen !important;
       &:hover {
@@ -409,7 +398,7 @@ input[type=text]:focus.invalid {
 
     i {
       float:left;
-      padding-top:10px;
+
       color:$mossGreen;
     }
 
@@ -431,10 +420,76 @@ input[type=text]:focus.invalid {
     }
 
   }
+  .sorterings-guide-table td {
+    position:relative;
+
+  }
+  .preSortCell {
+    min-width:200px;
+  }
+  .sorterings-guide-table .badge {
+    border-radius:16px !important;
+    font-size: 0.9rem;
+    background: darken($darkerGreen, 10%) !important;
+    min-width:0.9rem !important;
+    position:absolute;
+    top:5px;
+    right:5px;
+  }
+  .preSortCellMobile, .tabMobile  {
+    display:none;
+  }
+  @media (max-width: 540px) {
+    .tabDesk {
+      display:none;
+    }
+    .preSortCellMobile {
+      display:block;
+    }
+    .preSortCell {
+      display:none;
+    }
+    .tabMobile {
+      display:block;
+    }
+    .tabMobile th {
+      min-width:86px;
+    }
+    .tabMobile td {
+      width:100%;
+      background-color:lighten($darkerGreen, 3%);
+    }
+    .tabMobile tr:nth-child(even), .tabMobile tr:nth-child(odd)  {
+      background-color:lighten($darkerGreen, 3%);
+      color:$lightGreen !important;
+    }
+    .tabMobile th {
+      background-color:$darkerGreen;
+    }
+    .tabMobile tr.lastchild {
+      min-width:100%;
+      width:100%;
+      background-color:#005f6e;
+    }
+    .tabMobile td.lastchild {
+      background-color: transparent;
+    }
+
+    .tabMobile tr:last-child{
+      display:none;
+    }
+
+  }
+  @media (max-width: 700px) {
+    .exnfodispl {
+      display:none;
+    }
+  }
 
 
   .search-autocomplete-content li, .sorterings-guide-table  {
     background-color:$darkerGreen;
+    font-size:1.0rem;
   }
 
   .search-autocomplete-image {
@@ -471,10 +526,11 @@ input[type=text]:focus.invalid {
     margin-top:20px;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 1000px) {
     .search-autocomplete, .search-content {
       top: 210px;
     }
+
   }
 
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

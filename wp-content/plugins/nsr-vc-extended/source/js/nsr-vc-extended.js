@@ -270,7 +270,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
             }
         }).done(function (result) {
-
+            console.log(result);
             $element.find('.sorteringsguiden').remove();
             $element.find('.search-autocomplete').remove();
 
@@ -344,17 +344,51 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $autocomplete = $('<div class="search-autocomplete"><h4>Sidor på nsr.se</h4></div>');
         var $content = $('<ul class="search-autocomplete-content"></ul>');
         var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4></div>');
-        var $sortMarkupTable = $('<table class="sorterings-guide-table striped"><tr><th></th><th>Sorteras som</th><th>Lämna nära dig</th><th>Bra att veta</th></tr></table>');
-
-        console.log(res);
+        var $sortMarkupTable = $('<table class="sorterings-guide-table"><tr class="tabDesk"><th></th><th>Sorteras som</th><th>Lämna nära dig</th><th class="exnfodispl">Bra att veta</th></tr></table>');
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
+            var sortHTML;
+            var exid;
             $.each(res.sortguide, function (index, spost) {
+
                 var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
-                $sortMarkupTable.append('<tr><td><i class="material-icons">'+$metaDataStr['icon']+'</i> '+spost.post_title+'</td><td>'+spost.terms.fraktioner[0].name+'</td><td>'+spost.terms.inlamningsstallen[0].name+'</td><td>'+spost.post_meta.avfall_bra_att_veta+'</td></tr>');
-                console.log(1);
+                var tabMobile_frak;
+                var tabMobile_inl;
+
+                sortHTML += '<tr class="tabMobile"><th>Avfall:</th><td valign="top">'+spost.post_title+' <span class="badge sortSectionIcon">P</span></td></tr>';
+                sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">'+spost.post_title+' <span class="badge sortSectionIcon">P</span></td><td valign="top">';
+
+                if(spost.terms.fraktioner) {
+                    for (int = 0; int < spost.terms.fraktioner.length; int++) {
+                        sortHTML += spost.terms.fraktioner[int].name;
+                        tabMobile_frak += spost.terms.fraktioner[int].name;
+                        if(spost.terms.fraktioner.length > int) {
+                            sortHTML += "<br />";
+                            tabMobile_frak += "<br />";
+                        }
+                    }
+                }
+
+
+                sortHTML += '</td><td valign="top">';
+                if(spost.terms.inlamningsstallen) {
+                    for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
+                        sortHTML += spost.terms.inlamningsstallen[int].name;
+                        tabMobile_inl += spost.terms.inlamningsstallen[int].name;
+                        if(spost.terms.inlamningsstallen.length > int) {
+                            sortHTML += "<br />";
+                            tabMobile_inl += "<br />";
+                        }
+                    }
+                }
+
+                sortHTML += '</td><td class="exnfodispl">'+spost.post_meta.avfall_bra_att_veta+'</td></tr>';
+                sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td>'+tabMobile_frak+'</td></tr>';
+                sortHTML += '<tr class="tabMobile"><th>Lämnas:</th><td>'+tabMobile_inl+'</td></tr>';
+                sortHTML += '<tr class="tabMobile" class="lastchild"><td class="lastchild" colspan="2"> </td></tr>';
             });
+            $sortMarkupTable.append(sortHTML);
         }
 
 
@@ -368,8 +402,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 if(!$metaDataStr['icon'])
                     $metaDataStr['icon'] = "find_in_page";
 
-                $content.append('<li class="collapsible-header col s12 m12 l12"> <i class="material-icons"> '+$metaDataStr['icon']+'</i><a href="'+post.guid+'">'+post.post_title+'<span class="section right">'+$metaDataStr['postSection']+'</span><div class="moreinfo">'+$excerpt+'</div></a></li>');
-
+                var pageHTML = '<li class="collapsible-header col s12 m12 l12"> <i class="material-icons"> '+$metaDataStr['icon']+'</i><a href="'+post.guid+'">'+post.post_title+'<span class="section right">'+$metaDataStr['postSection']+'</span>';
+                if($excerpt)
+                    pageHTML += '<div class="moreinfo">'+$excerpt+'</div>';
+                pageHTML += '</a></li>';
+                $content.append(pageHTML);
             });
         } else {
             $content = $('');

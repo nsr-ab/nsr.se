@@ -236,13 +236,14 @@ input[type=text]:focus.invalid {
       border-color: #016a77;
       border-bottom: none; }
     .searchNSR .search-autocomplete th, .searchNSR .search-content th, .searchNSR .sorterings-guide-table th {
-      font-weight: 600; }
-    .searchNSR .search-autocomplete.striped > tbody > tr:nth-child(even), .searchNSR .search-content.striped > tbody > tr:nth-child(even), .searchNSR .sorterings-guide-table.striped > tbody > tr:nth-child(even) {
+      font-weight: 600;
+      background-color: #016a77; }
+    .searchNSR .search-autocomplete tr:nth-child(even), .searchNSR .search-content tr:nth-child(even), .searchNSR .sorterings-guide-table tr:nth-child(even) {
       background-color: #017886;
       color: #aaeaf2 !important; }
-    .searchNSR .search-autocomplete.striped > tbody > tr:nth-child(odd), .searchNSR .search-content.striped > tbody > tr:nth-child(odd), .searchNSR .sorterings-guide-table.striped > tbody > tr:nth-child(odd) {
-      background-color: #016a77;
-      color: #aaeaf2 !important; }
+    .searchNSR .search-autocomplete tr:nth-child(odd), .searchNSR .search-content tr:nth-child(odd), .searchNSR .sorterings-guide-table tr:nth-child(odd) {
+      color: #aaeaf2 !important;
+      background-color: #017886; }
     .searchNSR .search-autocomplete li, .searchNSR .search-content li, .searchNSR .sorterings-guide-table li {
       font-size: .9em;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -252,19 +253,9 @@ input[type=text]:focus.invalid {
         box-shadow: none;
         text-decoration: none;
         color: #fff !important; }
-    .searchNSR .search-autocomplete .read-more, .searchNSR .search-content .read-more, .searchNSR .sorterings-guide-table .read-more {
-      padding: 18px;
-      background-color: #007684 !important;
-      border: none;
-      border-radius: 0 !important;
-      margin: 10px -1px -1px -1px;
-      width: calc(100% + 2px);
-      color: #aaeaf2 !important; }
-      .searchNSR .search-autocomplete .read-more:hover, .searchNSR .search-content .read-more:hover, .searchNSR .sorterings-guide-table .read-more:hover {
-        color: #fff !important; }
     .searchNSR .search-autocomplete li a, .searchNSR .search-content li a, .searchNSR .sorterings-guide-table li a {
       display: block;
-      padding: 7.5px 20px;
+      padding: 0px 20px;
       text-decoration: none !important;
       color: #aaeaf2 !important; }
       .searchNSR .search-autocomplete li a:hover, .searchNSR .search-content li a:hover, .searchNSR .sorterings-guide-table li a:hover {
@@ -273,7 +264,6 @@ input[type=text]:focus.invalid {
       background-color: rgba(0, 0, 0, 0.1); }
     .searchNSR .search-autocomplete i, .searchNSR .search-content i, .searchNSR .sorterings-guide-table i {
       float: left;
-      padding-top: 10px;
       color: #039db0; }
   .searchNSR .search-autocomplete-content h5 {
     font-size: 1.64rem;
@@ -286,8 +276,53 @@ input[type=text]:focus.invalid {
     font-size: 0.9rem;
     margin-top: -5px;
     margin-left: 13px; }
+  .searchNSR .sorterings-guide-table td {
+    position: relative; }
+  .searchNSR .preSortCell {
+    min-width: 200px; }
+  .searchNSR .sorterings-guide-table .badge {
+    border-radius: 16px !important;
+    font-size: 0.9rem;
+    background: #013d44 !important;
+    min-width: 0.9rem !important;
+    position: absolute;
+    top: 5px;
+    right: 5px; }
+  .searchNSR .preSortCellMobile, .searchNSR .tabMobile {
+    display: none; }
+  @media (max-width: 540px) {
+    .searchNSR .tabDesk {
+      display: none; }
+    .searchNSR .preSortCellMobile {
+      display: block; }
+    .searchNSR .preSortCell {
+      display: none; }
+    .searchNSR .tabMobile {
+      display: block; }
+    .searchNSR .tabMobile th {
+      min-width: 86px; }
+    .searchNSR .tabMobile td {
+      width: 100%;
+      background-color: #017886; }
+    .searchNSR .tabMobile tr:nth-child(even), .searchNSR .tabMobile tr:nth-child(odd) {
+      background-color: #017886;
+      color: #aaeaf2 !important; }
+    .searchNSR .tabMobile th {
+      background-color: #016a77; }
+    .searchNSR .tabMobile tr.lastchild {
+      min-width: 100%;
+      width: 100%;
+      background-color: #005f6e; }
+    .searchNSR .tabMobile td.lastchild {
+      background-color: transparent; }
+    .searchNSR .tabMobile tr:last-child {
+      display: none; } }
+  @media (max-width: 700px) {
+    .searchNSR .exnfodispl {
+      display: none; } }
   .searchNSR .search-autocomplete-content li, .searchNSR .sorterings-guide-table {
-    background-color: #016a77; }
+    background-color: #016a77;
+    font-size: 1.0rem; }
   .searchNSR .search-autocomplete-image {
     display: inline-block;
     vertical-align: middle;
@@ -310,7 +345,7 @@ input[type=text]:focus.invalid {
       color: #54cbd9; }
   .searchNSR .extNfo {
     margin-top: 20px; }
-  @media (max-width: 500px) {
+  @media (max-width: 1000px) {
     .searchNSR .search-autocomplete, .searchNSR .search-content {
       top: 210px; } }
   .searchNSR ::-webkit-input-placeholder {
