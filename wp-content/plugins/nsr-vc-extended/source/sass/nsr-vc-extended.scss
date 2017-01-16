@@ -451,35 +451,49 @@ input[type=text]:focus.invalid {
     }
     .tabMobile {
       display:block;
-    }
-    .tabMobile th {
-      min-width:86px;
-    }
-    .tabMobile td {
-      width:100%;
-      background-color:lighten($darkerGreen, 3%);
-    }
-    .tabMobile tr:nth-child(even), .tabMobile tr:nth-child(odd)  {
-      background-color:lighten($darkerGreen, 3%);
-      color:$lightGreen !important;
-    }
-    .tabMobile th {
-      background-color:$darkerGreen;
-    }
-    .tabMobile tr.lastchild {
-      min-width:100%;
-      width:100%;
-      background-color:#005f6e;
-    }
-    .tabMobile td.lastchild {
-      background-color: transparent;
-    }
 
-    .tabMobile tr:last-child{
-      display:none;
+      th {
+        min-width:86px;
+        background-color:$darkerGreen;
+      }
+      td {
+        width:100%;
+        background-color:lighten($darkerGreen, 3%);
+      }
+      &tr:nth-child(even),  &tr:nth-child(odd)  {
+        background-color:lighten($darkerGreen, 3%);
+        color:$lightGreen !important;
+      }
+
+      &.lastchild, td.lastchild {
+        min-width:100%;
+        width:100%;
+        background-color:#005f6e !important;
+      }
+
+
+      tr:last-child{
+        display:none;
+      }
     }
 
   }
+  .sorterings-guide-table, td, tbody,
+  .table-bordered tbody tr+tr, article table tbody tr+tr{
+    box-shadow: none !important;
+    border:none !important;
+  }
+  .sorterings-guide-table ul, .sorterings-guide-table li {
+    border:none;
+    list-style: disc;
+    box-shadow:none;
+    float:none;
+    display:block;
+  }
+  .sorterings-guide-table li:hover {
+    background:none !important;
+  }
+
   @media (max-width: 700px) {
     .exnfodispl {
       display:none;
@@ -507,6 +521,21 @@ input[type=text]:focus.invalid {
 
   .search-autocomplete-content li a {
     padding-left:30px;
+  }
+  @media (max-width: 500px) {
+    .search-autocomplete-content li a {
+
+      line-height:1.4rem;
+      padding:10px 0;
+
+    }
+    .search-autocomplete-content .moreinfo {
+      padding-top:10px;
+      padding-left:30px;
+    }
+    .search-autocomplete-content .section {
+      display:none;
+    }
   }
   .closeSearch {
 

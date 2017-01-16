@@ -299,24 +299,33 @@ input[type=text]:focus.invalid {
       display: none; }
     .searchNSR .tabMobile {
       display: block; }
-    .searchNSR .tabMobile th {
-      min-width: 86px; }
-    .searchNSR .tabMobile td {
-      width: 100%;
-      background-color: #017886; }
-    .searchNSR .tabMobile tr:nth-child(even), .searchNSR .tabMobile tr:nth-child(odd) {
-      background-color: #017886;
-      color: #aaeaf2 !important; }
-    .searchNSR .tabMobile th {
-      background-color: #016a77; }
-    .searchNSR .tabMobile tr.lastchild {
-      min-width: 100%;
-      width: 100%;
-      background-color: #005f6e; }
-    .searchNSR .tabMobile td.lastchild {
-      background-color: transparent; }
-    .searchNSR .tabMobile tr:last-child {
-      display: none; } }
+      .searchNSR .tabMobile th {
+        min-width: 86px;
+        background-color: #016a77; }
+      .searchNSR .tabMobile td {
+        width: 100%;
+        background-color: #017886; }
+      .searchNSR .tabMobiletr:nth-child(even), .searchNSR .tabMobiletr:nth-child(odd) {
+        background-color: #017886;
+        color: #aaeaf2 !important; }
+      .searchNSR .tabMobile.lastchild, .searchNSR .tabMobile td.lastchild {
+        min-width: 100%;
+        width: 100%;
+        background-color: #005f6e !important; }
+      .searchNSR .tabMobile tr:last-child {
+        display: none; } }
+  .searchNSR .sorterings-guide-table, .searchNSR td, .searchNSR tbody,
+  .searchNSR .table-bordered tbody tr + tr, .searchNSR article table tbody tr + tr {
+    box-shadow: none !important;
+    border: none !important; }
+  .searchNSR .sorterings-guide-table ul, .searchNSR .sorterings-guide-table li {
+    border: none;
+    list-style: disc;
+    box-shadow: none;
+    float: none;
+    display: block; }
+  .searchNSR .sorterings-guide-table li:hover {
+    background: none !important; }
   @media (max-width: 700px) {
     .searchNSR .exnfodispl {
       display: none; } }
@@ -334,6 +343,15 @@ input[type=text]:focus.invalid {
     max-width: 100% !important; }
   .searchNSR .search-autocomplete-content li a {
     padding-left: 30px; }
+  @media (max-width: 500px) {
+    .searchNSR .search-autocomplete-content li a {
+      line-height: 1.4rem;
+      padding: 10px 0; }
+    .searchNSR .search-autocomplete-content .moreinfo {
+      padding-top: 10px;
+      padding-left: 30px; }
+    .searchNSR .search-autocomplete-content .section {
+      display: none; } }
   .searchNSR .closeSearch {
     position: absolute;
     top: 10px;

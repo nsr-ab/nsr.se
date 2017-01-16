@@ -349,44 +349,37 @@ VcExtended.NSRExtend.Extended = (function ($) {
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
             var sortHTML;
-            var exid;
-            $.each(res.sortguide, function (index, spost) {
+            var tabMobile_frak = '';
+            var tabMobile_inl = '';
 
+            $.each(res.sortguide, function (index, spost) {
+                console.log(spost);
                 var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
-                var tabMobile_frak;
-                var tabMobile_inl;
 
                 sortHTML += '<tr class="tabMobile"><th>Avfall:</th><td valign="top">'+spost.post_title+' <span class="badge sortSectionIcon">P</span></td></tr>';
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">'+spost.post_title+' <span class="badge sortSectionIcon">P</span></td><td valign="top">';
 
                 if(spost.terms.fraktioner) {
                     for (int = 0; int < spost.terms.fraktioner.length; int++) {
-                        sortHTML += spost.terms.fraktioner[int].name;
-                        tabMobile_frak += spost.terms.fraktioner[int].name;
-                        if(spost.terms.fraktioner.length > int) {
-                            sortHTML += "<br />";
-                            tabMobile_frak += "<br />";
-                        }
+                        sortHTML += '<li>'+spost.terms.fraktioner[int].name+'</li>';
+                        tabMobile_frak += '<li>'+spost.terms.fraktioner[int].name+"<li>";
                     }
                 }
 
 
-                sortHTML += '</td><td valign="top">';
+                sortHTML += '</td><td valign="top"><ul>';
                 if(spost.terms.inlamningsstallen) {
                     for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
-                        sortHTML += spost.terms.inlamningsstallen[int].name;
-                        tabMobile_inl += spost.terms.inlamningsstallen[int].name;
-                        if(spost.terms.inlamningsstallen.length > int) {
-                            sortHTML += "<br />";
-                            tabMobile_inl += "<br />";
-                        }
+                        sortHTML += '<li>'+spost.terms.inlamningsstallen[int].name+'</li>';
+                        tabMobile_inl += '<li>'+spost.terms.inlamningsstallen[int].name+'</li>';
+
                     }
                 }
 
-                sortHTML += '</td><td class="exnfodispl">'+spost.post_meta.avfall_bra_att_veta+'</td></tr>';
-                sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td>'+tabMobile_frak+'</td></tr>';
-                sortHTML += '<tr class="tabMobile"><th>Lämnas:</th><td>'+tabMobile_inl+'</td></tr>';
-                sortHTML += '<tr class="tabMobile" class="lastchild"><td class="lastchild" colspan="2"> </td></tr>';
+                sortHTML += '</ul></td><td class="exnfodispl">'+spost.post_meta.avfall_bra_att_veta+'</td></tr>';
+                sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul>'+tabMobile_frak+'</ul></td></tr>';
+                sortHTML += '<tr class="tabMobile"><th>Lämnas:</th><td><ul>'+tabMobile_inl+'</ul></td></tr>';
+                sortHTML += '<tr class="tabMobile lastchild"><td class="lastchild" colspan="2"> </td></tr>';
             });
             $sortMarkupTable.append(sortHTML);
         }
