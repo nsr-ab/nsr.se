@@ -22,7 +22,7 @@
 
         $fonts: str-slice($fonts, 2);
         @if $fonts != '' {
-            @import url('http://fonts.googleapis.com/css?family=#{$fonts}');
+            @import url('https://fonts.googleapis.com/css?family=#{$fonts}');
         }
     }
 
