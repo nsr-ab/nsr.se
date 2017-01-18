@@ -481,10 +481,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var lon = 40; // user's longitude
 
     var cities = [
-        ["city1", 10, 50, "blah"],
-        ["city2", 40, 60, "blah"],
-        ["city3", 25, 10, "blah"],
-        ["city4", 5, 80, "blah"]
+        ["Bjuv", 56.075457, 12.934698, " Bjuv... är närmast"],
+        ["Båstad", 56.440010, 12.766965, "Båstad... är närmasth"],
+        ["Ängelholm", 56.253554, 12.912307, "Ängelholm... är närmast"]
+
     ];
 
     Extended.prototype.NearestCity = function(latitude, longitude) {
