@@ -164,7 +164,7 @@ class App
                     $result['sortguide'][0]->post_meta['avfall_fraktion'][$int] = $getTerm->name;
 
             }
-            
+
             for ($int = 0; $int < count($result['sortguide'][0]->post_meta['avfall_fraktion_hemma']); $int++) {
                 $termId = maybe_unserialize( $result['sortguide'][0]->post_meta['avfall_fraktion_hemma'][$int] );
                 $getTerm = get_term( intval($termId[$int]) );

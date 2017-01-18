@@ -439,7 +439,7 @@ class CustomPostTypes
                         'return_format' => 'object',
                         'add_term' => 1,
                         'load_terms' => 0,
-                        'save_terms' => 0,
+                        'save_terms' => 1,
                         'key' => 'field_587e175490745',
                         'label' => 'Sorteras som hemma',
                         'name' => 'avfall_fraktion_hemma',
@@ -453,7 +453,6 @@ class CustomPostTypes
                             'id' => '',
                         ),
                     ),
-
                     array (
                         'default_value' => '',
                         'maxlength' => '',
