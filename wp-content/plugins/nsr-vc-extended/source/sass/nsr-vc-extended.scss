@@ -427,15 +427,34 @@ input[type=text]:focus.invalid {
   .preSortCell {
     min-width:200px;
   }
-  .sorterings-guide-table .badge {
+  .sorterings-guide-table .badge, .sorteringsguiden .badge  {
     border-radius:16px !important;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     background: darken($darkerGreen, 10%) !important;
     min-width:0.9rem !important;
+    margin-left:5px;
+  }
+  .badgeInfo .badge {
+    float:none;
+    padding:3px 6px;
+  }
+  .badgeInfo {
+    color:$white;
+    font-size:0.9rem;
+    margin-bottom:10px;
+  }
+  @media (max-width: 450px) {
+    .badgeInfo {
+      margin-top:10px;
+    }
+  }
+
+  .badgecontainer {
     position:absolute;
     top:5px;
     right:5px;
   }
+
   .preSortCellMobile, .tabMobile  {
     display:none;
   }
@@ -453,7 +472,7 @@ input[type=text]:focus.invalid {
       display:block;
 
       th {
-        min-width:86px;
+        min-width:92px;
         background-color:$darkerGreen;
       }
       td {
@@ -503,7 +522,7 @@ input[type=text]:focus.invalid {
 
   .search-autocomplete-content li, .sorterings-guide-table  {
     background-color:$darkerGreen;
-    font-size:1.0rem;
+    font-size:1.1rem;
   }
 
   .search-autocomplete-image {
@@ -550,7 +569,10 @@ input[type=text]:focus.invalid {
       color: lighten(#2dbccd, 10%);
     }
   }
+  .sortAs {
+    margin-bottom:10px;
 
+  }
   .extNfo {
     margin-top:20px;
   }

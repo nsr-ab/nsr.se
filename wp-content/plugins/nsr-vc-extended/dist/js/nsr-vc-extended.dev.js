@@ -14,7 +14,7 @@ VcExtended.NSRExtend = VcExtended.NSRExtend || {};
 VcExtended.NSRExtend.Extended = (function ($) {
 
     var typingTimer = null;
-    var doneTypingInterval = 300;
+    var doneTypingInterval = 200;
 
 
     /**
@@ -343,7 +343,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $element = $(element);
         var $autocomplete = $('<div class="search-autocomplete"><h4>Sidor på nsr.se</h4></div>');
         var $content = $('<ul class="search-autocomplete-content"></ul>');
-        var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4></div>');
+        var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4><div class="left badgeInfo"><span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div></div>');
         var $sortMarkupTable = $('<table class="sorterings-guide-table"><tr class="tabDesk"><th></th><th>Sorteras som</th><th>Lämna nära dig</th><th class="exnfodispl">Bra att veta</th></tr></table>');
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
@@ -353,30 +353,58 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var tabMobile_inl = '';
 
             $.each(res.sortguide, function (index, spost) {
-                console.log(spost);
-                var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
 
-                sortHTML += '<tr class="tabMobile"><th>Avfall:</th><td valign="top">'+spost.post_title+' <span class="badge sortSectionIcon">P</span></td></tr>';
-                sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">'+spost.post_title+' <span class="badge sortSectionIcon">P</span></td><td valign="top">';
-
-                if(spost.terms.fraktioner) {
-                    for (int = 0; int < spost.terms.fraktioner.length; int++) {
-                        sortHTML += '<li>'+spost.terms.fraktioner[int].name+'</li>';
-                        tabMobile_frak += '<li>'+spost.terms.fraktioner[int].name+"<li>";
+                var customerCatIcons = '';
+                if(spost.post_meta) {
+                    if(spost.post_meta.avfall_kundkategori[0].indexOf('villa') >= 0) {
+                        customerCatIcons += '<span class="badge sortSectionIcon private">P</span> ';
+                    }
+                    if(spost.post_meta.avfall_kundkategori[0].indexOf('foretag') >= 0) {
+                        customerCatIcons += '<span class="badge sortSectionIcon company">F</span>';
                     }
                 }
 
+                sortHTML += '<tr class="tabMobile"><th>Avfall:</th><td valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td></tr>';
+                sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td><td valign="top">';
+
+                if(spost.terms) {
+                    if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion.length) {
+                        sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs">';
+                        tabMobile_frak += '<li><b>Sorteras som på ÅVC:</b><ul>';
+                        for (int = 0; int < spost.post_meta.avfall_fraktion.length; int++) {
+                            sortHTML += '<li>'+spost.post_meta.avfall_fraktion[int]+'</li>';
+                            tabMobile_frak += '<li>'+spost.post_meta.avfall_fraktion[int]+"<li>";
+                        }
+                        sortHTML += '</ul></li>';
+                        tabMobile_frak += '</ul></li>';
+                    }
+                    if(spost.post_meta.avfall_fraktion_hemma && spost.post_meta.avfall_fraktion_hemma.length) {
+                        sortHTML += '<li><b>Hemma:</b><ul>';
+                        tabMobile_frak += '<li><b class="sortAs">Sorteras som hemma:</b><ul>';
+                        for (int = 0; int < spost.post_meta.avfall_fraktion_hemma.length; int++) {
+                            sortHTML += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + '</li>';
+                            tabMobile_frak += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + "<li>";
+                        }
+                        sortHTML += '</ul></li>';
+                        tabMobile_frak += '</ul></li>';
+                    }
+                }
 
                 sortHTML += '</td><td valign="top"><ul>';
-                if(spost.terms.inlamningsstallen) {
+                if(spost.terms) {
                     for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
                         sortHTML += '<li>'+spost.terms.inlamningsstallen[int].name+'</li>';
                         tabMobile_inl += '<li>'+spost.terms.inlamningsstallen[int].name+'</li>';
-
                     }
+
                 }
 
-                sortHTML += '</ul></td><td class="exnfodispl">'+spost.post_meta.avfall_bra_att_veta+'</td></tr>';
+                sortHTML += '</ul></td>';
+                var braAttVeta;
+                if(spost.post_meta)
+                        braAttVeta = spost.post_meta.avfall_bra_att_veta;
+                sortHTML += '<td class="exnfodispl">'+braAttVeta+'</td>';
+                sortHTML += '</tr>';
                 sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul>'+tabMobile_frak+'</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile"><th>Lämnas:</th><td><ul>'+tabMobile_inl+'</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile lastchild"><td class="lastchild" colspan="2"> </td></tr>';
@@ -384,7 +412,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $sortMarkupTable.append(sortHTML);
         }
 
-
+        var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
             $.each(res.content, function (index, post) {
                 var $excerpt = post.post_excerpt.replace(/^(.{180}[^\s]*).*/, "$1");

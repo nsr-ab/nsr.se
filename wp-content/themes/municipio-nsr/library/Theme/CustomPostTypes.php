@@ -195,14 +195,14 @@ class CustomPostTypes
             "singular_name" => __( 'Pages F.A.Q', 'nsr' ),
             "menu_name" => __( 'Pages F.A.Q', 'nsr' ),
             "all_items" => __( 'All Items', 'nsr' ),
-            "add_new" => __( 'Add New waste', 'nsr' ),
+            "add_new" => __( 'Add New question', 'nsr' ),
             "add_new_item" => __( 'Add New Item', 'nsr' ),
             "edit_item" => __( 'Edit Item', 'nsr' ),
             "new_item" => __( 'New Item', 'nsr' ),
             "view_item" => __( 'View Item', 'nsr' ),
             "search_items" => __( 'Search Item', 'nsr' ),
             "not_found" => __( 'Not Found', 'nsr' ),
-            "not_found_in_trash" => __( 'Not Found in Trash', 'nsr' ),
+            "not_found_in_trash" => __( 'Not Found in FAQ trash', 'nsr' ),
             "parent_item_colon" => __( 'Parent', 'nsr' ),
             "featured_image" => __( 'Featured Image', 'nsr' ),
             "set_featured_image" => __( 'Set Featured Image', 'nsr' ),
@@ -236,7 +236,7 @@ class CustomPostTypes
             "query_var" => true,
             "menu_position" => 21,
             "menu_icon" => "dashicons-welcome-learn-more",
-            "supports" => array( "title", "editor", "excerpt", "page-attributes" ),
+            "supports" => array( "title", "editor", "excerpt"),
             "taxonomies" => array( "category", "post_tag" ),
         );
         register_post_type( "faq", $args );
@@ -329,7 +329,7 @@ class CustomPostTypes
             "rest_base" => "",
             "show_in_quick_edit" => true,
         );
-        register_taxonomy( "fraktioner", array( "faq" ), $args );
+        register_taxonomy( "fraktioner", array( "fraktioner" ), $args );
 
         $labels = array(
             "name" => __( 'Inlämningsställen', 'nsr' ),
@@ -414,15 +414,15 @@ class CustomPostTypes
                         'field_type' => 'multi_select',
                         'multiple' => 0,
                         'allow_null' => 0,
-                        'return_format' => 'id',
+                        'return_format' => 'object',
                         'add_term' => 1,
                         'load_terms' => 0,
-                        'save_terms' => 0,
-                        'key' => 'field_586ccf26a85a5',
-                        'label' => 'Fraktioner',
-                        'name' => 'inlamningsstalle_fraktioner',
+                        'save_terms' => 1,
+                        'key' => 'field_586d08616a7b7',
+                        'label' => 'Sorteras som på ÅVC',
+                        'name' => 'avfall_fraktion',
                         'type' => 'taxonomy',
-                        'instructions' => '',
+                        'instructions' => 'Välj vilken fraktion avfallet sorteras under',
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array (
@@ -431,6 +431,29 @@ class CustomPostTypes
                             'id' => '',
                         ),
                     ),
+                    array (
+                        'taxonomy' => 'fraktioner',
+                        'field_type' => 'multi_select',
+                        'multiple' => 0,
+                        'allow_null' => 0,
+                        'return_format' => 'object',
+                        'add_term' => 1,
+                        'load_terms' => 0,
+                        'save_terms' => 0,
+                        'key' => 'field_587e175490745',
+                        'label' => 'Sorteras som hemma',
+                        'name' => 'avfall_fraktion_hemma',
+                        'type' => 'taxonomy',
+                        'instructions' => 'Välj vilken fraktion avfallet sorteras under',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                    ),
+
                     array (
                         'default_value' => '',
                         'maxlength' => '',
@@ -509,7 +532,7 @@ class CustomPostTypes
                     ),
                     array (
                         'post_type' => array (
-                            0 => 'page',
+                            0 => 'sorteringsguide',
                         ),
                         'taxonomy' => array (
                         ),

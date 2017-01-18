@@ -280,11 +280,23 @@ input[type=text]:focus.invalid {
     position: relative; }
   .searchNSR .preSortCell {
     min-width: 200px; }
-  .searchNSR .sorterings-guide-table .badge {
+  .searchNSR .sorterings-guide-table .badge, .searchNSR .sorteringsguiden .badge {
     border-radius: 16px !important;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     background: #013d44 !important;
     min-width: 0.9rem !important;
+    margin-left: 5px; }
+  .searchNSR .badgeInfo .badge {
+    float: none;
+    padding: 3px 6px; }
+  .searchNSR .badgeInfo {
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 10px; }
+  @media (max-width: 450px) {
+    .searchNSR .badgeInfo {
+      margin-top: 10px; } }
+  .searchNSR .badgecontainer {
     position: absolute;
     top: 5px;
     right: 5px; }
@@ -300,7 +312,7 @@ input[type=text]:focus.invalid {
     .searchNSR .tabMobile {
       display: block; }
       .searchNSR .tabMobile th {
-        min-width: 86px;
+        min-width: 92px;
         background-color: #016a77; }
       .searchNSR .tabMobile td {
         width: 100%;
@@ -331,7 +343,7 @@ input[type=text]:focus.invalid {
       display: none; } }
   .searchNSR .search-autocomplete-content li, .searchNSR .sorterings-guide-table {
     background-color: #016a77;
-    font-size: 1.0rem; }
+    font-size: 1.1rem; }
   .searchNSR .search-autocomplete-image {
     display: inline-block;
     vertical-align: middle;
@@ -361,6 +373,8 @@ input[type=text]:focus.invalid {
     font-size: 2.4rem !important; }
     .searchNSR .closeSearch:hover {
       color: #54cbd9; }
+  .searchNSR .sortAs {
+    margin-bottom: 10px; }
   .searchNSR .extNfo {
     margin-top: 20px; }
   @media (max-width: 1000px) {
