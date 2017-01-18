@@ -354,7 +354,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
             if (navigator.geolocation) {
-                Extended.prototype.UserLocation();
+                navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
             }
 
             $.each(res.sortguide, function (index, spost) {
