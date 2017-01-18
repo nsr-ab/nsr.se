@@ -483,10 +483,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var cities = [
         ["Bjuv", 56.075457, 12.934698, " Bjuv... är närmast"],
         ["Båstad", 56.440010, 12.766965, "Båstad... är närmasth"],
-        ["Helsingborg", 56.078561, 12.764072, "Höganäs... är närmast"]
+        ["Helsingborg", 56.078561, 12.764072, "Höganäs... är närmast"],
         ["Ängelholm", 56.253554, 12.912307, "Ängelholm... är närmast"],
         ["Åstorp", 56.137005, 12.914728, "Åstorp... är närmast"],
-        ["Åstorp", 56.218816, 12.557663, "Höganäs... är närmast"]
+        ["Åstorp", 56.218816, 12.557663, "Höganäs... är närmast"],
 
 
     ];
