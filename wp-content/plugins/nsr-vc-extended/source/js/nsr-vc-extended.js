@@ -352,6 +352,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var tabMobile_frak = '';
             var tabMobile_inl = '';
 
+
+            if (navigator.geolocation) {
+                Extended.prototype.UserLocation();
+            }
+
             $.each(res.sortguide, function (index, spost) {
 
                 var customerCatIcons = '';
@@ -447,6 +452,78 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         //$('.search-autocomplete-content li').matchHeight();
     };
+
+
+    // Callback function for asynchronous call to HTML5 geolocation
+    Extended.prototype.UserLocation = function(position) {
+        Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
+    }
+
+
+    // Convert Degress to Radians
+    Extended.prototype.Deg2Rad = function(deg) {
+        return deg * Math.PI / 180;
+    }
+
+    Extended.prototype.PythagorasEquirectangular = function(lat1, lon1, lat2, lon2) {
+        lat1 = Extended.prototype.Deg2Rad(lat1);
+        lat2 = Extended.prototype.Deg2Rad(lat2);
+        lon1 = Extended.prototype.Deg2Rad(lon1);
+        lon2 = Extended.prototype.Deg2Rad(lon2);
+        var R = 6371; // km
+        var x = (lon2 - lon1) * Math.cos((lat1 + lat2) / 2);
+        var y = (lat2 - lat1);
+        var d = Math.sqrt(x * x + y * y) * R;
+        return d;
+    }
+
+    var lat = 20; // user's latitude
+    var lon = 40; // user's longitude
+
+    var cities = [
+        ["city1", 10, 50, "blah"],
+        ["city2", 40, 60, "blah"],
+        ["city3", 25, 10, "blah"],
+        ["city4", 5, 80, "blah"]
+    ];
+
+    Extended.prototype.NearestCity = function(latitude, longitude) {
+        var mindif = 99999;
+        var closest;
+
+        for (index = 0; index < cities.length; ++index) {
+            var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[index][1], cities[index][2]);
+            if (dif < mindif) {
+                closest = index;
+                mindif = dif;
+            }
+        }
+
+        // echo the nearest city
+        console.log(cities[closest]);
+    }
+
+
+    /*Extended.prototype.getDistanceFromLatLonInKm = function(lat1,lon1,lat2,lon2){
+
+        var R = 6371; // Radius of the earth in km
+        var dLat = Extended.prototype.deg2rad(lat2-lat1);  // deg2rad below
+        var dLon = Extended.prototype.deg2rad(lon2-lon1);
+        var a =
+                Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(Extended.prototype.deg2rad(lat1)) * Math.cos(Extended.prototype.deg2rad(lat2)) *
+                Math.sin(dLon/2) * Math.sin(dLon/2)
+            ;
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var d = R * c; // Distance in km
+        return d;
+    }
+
+    Extended.prototype.deg2rad = function(deg) {
+        return deg * (Math.PI/180)
+    }*/
+
+
 
     return new Extended;
 
