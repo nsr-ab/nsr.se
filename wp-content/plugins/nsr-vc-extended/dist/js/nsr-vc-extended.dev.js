@@ -366,7 +366,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '<tr class="tabMobile"><th>Avfall:</th><td valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td></tr>';
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td><td valign="top">';
-                console.log(spost.post_meta);
+                console.log(spost);
+
                 if(spost.terms) {
                     if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion.length) {
                         sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs">';
@@ -392,9 +393,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '</td><td valign="top"><ul>';
                 if(spost.terms) {
-                    for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
-                        sortHTML += '<li>'+spost.terms.inlamningsstallen[int].name+'</li>';
-                        tabMobile_inl += '<li>'+spost.terms.inlamningsstallen[int].name+'</li>';
+                    if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
+                        for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
+                            sortHTML += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
+                            tabMobile_inl += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
+                        }
                     }
 
                 }

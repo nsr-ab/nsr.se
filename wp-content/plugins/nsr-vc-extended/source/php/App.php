@@ -157,22 +157,25 @@ class App
 
         if ($result['sortguide']) {
 
-            for ($int = 0; $int < count($result['sortguide'][0]->post_meta['avfall_fraktion']); $int++) {
-                $termId = maybe_unserialize( $result['sortguide'][0]->post_meta['avfall_fraktion'][$int] );
-                $getTerm = get_term( intval($termId[$int]) );
-                if($result['sortguide'][0]->post_meta['avfall_fraktion'][$int])
-                    $result['sortguide'][0]->post_meta['avfall_fraktion'][$int] = $getTerm->name;
 
+            for($metaInt=0;$metaInt < count($result['sortguide']); $metaInt++) {
+                for ($int1 = 0; $int1 < count($result['sortguide'][$metaInt]->post_meta['avfall_fraktion']); $int1++) {
+                    $termId = maybe_unserialize($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][$int1]);
+                    $getTerm = get_term(intval($termId[$int1]));
+                    $result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][$int1] = $getTerm->name;
+                }
             }
 
-            for ($int = 0; $int < count($result['sortguide'][0]->post_meta['avfall_fraktion_hemma']); $int++) {
-                $termId = maybe_unserialize( $result['sortguide'][0]->post_meta['avfall_fraktion_hemma'][$int] );
-                $getTerm = get_term( intval($termId[$int]) );
-                if($result['sortguide'][0]->post_meta['avfall_fraktion_hemma'][$int])
-                    $result['sortguide'][0]->post_meta['avfall_fraktion_hemma'][$int] = $getTerm->name;
+            for($metaInt=0;$metaInt < count($result['sortguide']); $metaInt++) {
+                for ($int = 0; $int < count($result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma']); $int++) {
+                    $termId = maybe_unserialize($result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][$int]);
+                    $getTerm = get_term(intval($termId[$int]));
+                    $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][$int] = $getTerm->name;
+                }
             }
-
         }
+
+
 
         wp_send_json($result);
         exit;
