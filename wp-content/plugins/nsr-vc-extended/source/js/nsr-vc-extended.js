@@ -366,10 +366,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '<tr class="tabMobile"><th>Avfall:</th><td valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td></tr>';
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td><td valign="top">';
-                
+
                 if(spost.terms) {
                     if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion.length) {
-                        sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs">';
+                        sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
                         tabMobile_frak += '<li><b>Sorteras som på ÅVC:</b><ul>';
                         for (int = 0; int < spost.post_meta.avfall_fraktion.length; int++) {
                             sortHTML += '<li>'+spost.post_meta.avfall_fraktion[int]+'</li>';
@@ -379,14 +379,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         tabMobile_frak += '</ul></li>';
                     }
                     if(spost.post_meta.avfall_fraktion_hemma && spost.post_meta.avfall_fraktion_hemma.length) {
-                        sortHTML += '<li><b>Hemma:</b><ul>';
-                        tabMobile_frak += '<li><b class="sortAs">Sorteras som hemma:</b><ul>';
-                        for (int = 0; int < spost.post_meta.avfall_fraktion_hemma.length; int++) {
-                            sortHTML += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + '</li>';
-                            tabMobile_frak += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + "<li>";
+                        console.log(spost.post_meta.avfall_fraktion_hemma.length);
+                        if(spost.post_meta.avfall_fraktion_hemma != '') {
+                            sortHTML += '<li><b>Hemma:</b><ul class="meta-fraktion">';
+                            tabMobile_frak += '<li><b class="sortAs">Sorteras som hemma:</b><ul>';
+
+                            for (int = 0; int < spost.post_meta.avfall_fraktion_hemma.length; int++) {
+                                sortHTML += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + '</li>';
+                                tabMobile_frak += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + "<li>";
+                            }
+                            sortHTML += '</ul></li>';
+                            tabMobile_frak += '</ul></li>';
                         }
-                        sortHTML += '</ul></li>';
-                        tabMobile_frak += '</ul></li>';
                     }
                 }
 

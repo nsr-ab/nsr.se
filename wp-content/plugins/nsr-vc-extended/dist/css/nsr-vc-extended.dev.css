@@ -260,6 +260,13 @@ input[type=text]:focus.invalid {
       color: #aaeaf2 !important; }
       .searchNSR .search-autocomplete li a:hover, .searchNSR .search-content li a:hover, .searchNSR .sorterings-guide-table li a:hover {
         color: #fff !important; }
+    .searchNSR .search-autocomplete .meta-fraktion i, .searchNSR .search-content .meta-fraktion i, .searchNSR .sorterings-guide-table .meta-fraktion i {
+      font-size: 1.0rem !important;
+      margin-top: 2px; }
+    .searchNSR .search-autocomplete .meta-fraktion a, .searchNSR .search-content .meta-fraktion a, .searchNSR .sorterings-guide-table .meta-fraktion a {
+      color: #d6f5f9 !important; }
+    .searchNSR .search-autocomplete td li b, .searchNSR .search-content td li b, .searchNSR .sorterings-guide-table td li b {
+      color: #7edfeb !important; }
     .searchNSR .search-autocomplete li.selected a, .searchNSR .search-content li.selected a, .searchNSR .sorterings-guide-table li.selected a {
       background-color: rgba(0, 0, 0, 0.1); }
     .searchNSR .search-autocomplete i, .searchNSR .search-content i, .searchNSR .sorterings-guide-table i {

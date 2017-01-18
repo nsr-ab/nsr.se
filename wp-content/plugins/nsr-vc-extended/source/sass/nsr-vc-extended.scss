@@ -389,6 +389,16 @@ input[type=text]:focus.invalid {
       }
 
     }
+    .meta-fraktion i {
+      font-size:1.0rem !important;
+      margin-top:2px;
+    }
+    .meta-fraktion a {
+      color: lighten($lightGreen, 10%) !important;
+    }
+    td li b {
+      color: darken($lightGreen, 10%) !important;
+    }
 
     li.selected a {
       background-color: rgba(0,0,0, .1);
@@ -571,8 +581,8 @@ input[type=text]:focus.invalid {
   }
   .sortAs {
     margin-bottom:10px;
-
   }
+
   .extNfo {
     margin-top:20px;
   }

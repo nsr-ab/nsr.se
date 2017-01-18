@@ -31,7 +31,7 @@ class QueryElastic
             's' => $q,
 
             'simple_query_string' => array(
-
+                'fields' => array('post_title^7', 'post_content^3'),
                 'query' => $q . '~' . \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
                 'analyzer' => 'elasticpress_synonyms'
             ),
@@ -56,7 +56,7 @@ class QueryElastic
             'orderby' => 'relevance',
             'posts_per_page' => $limit,
             'post_status' => $postStatuses,
-            'post_type' => $post_types,
+            'post_type' => str_replace("sorteringsguide","",$post_types),
             'cache_results' => false
         ));
 
