@@ -159,15 +159,19 @@ class App
 
             for ($int = 0; $int < count($result['sortguide'][0]->post_meta['avfall_fraktion']); $int++) {
                 $termId = maybe_unserialize( $result['sortguide'][0]->post_meta['avfall_fraktion'][$int] );
-                $getTerm = get_term( $termId[$int] );
-                $result['sortguide'][0]->post_meta['avfall_fraktion'][$int] = $getTerm->name;
-            }
+                $getTerm = get_term( intval($termId[$int]) );
+                if($result['sortguide'][0]->post_meta['avfall_fraktion'][$int])
+                    $result['sortguide'][0]->post_meta['avfall_fraktion'][$int] = $getTerm->name;
 
+            }
+            
             for ($int = 0; $int < count($result['sortguide'][0]->post_meta['avfall_fraktion_hemma']); $int++) {
                 $termId = maybe_unserialize( $result['sortguide'][0]->post_meta['avfall_fraktion_hemma'][$int] );
-                $getTerm = get_term( $termId[$int] );
-                $result['sortguide'][0]->post_meta['avfall_fraktion_hemma'][$int] = $getTerm->name;
+                $getTerm = get_term( intval($termId[$int]) );
+                if($result['sortguide'][0]->post_meta['avfall_fraktion_hemma'][$int])
+                    $result['sortguide'][0]->post_meta['avfall_fraktion_hemma'][$int] = $getTerm->name;
             }
+
         }
 
         wp_send_json($result);

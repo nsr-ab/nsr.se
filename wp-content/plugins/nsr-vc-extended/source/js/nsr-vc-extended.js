@@ -366,7 +366,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '<tr class="tabMobile"><th>Avfall:</th><td valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td></tr>';
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td><td valign="top">';
-
+                console.log(spost.post_meta);
                 if(spost.terms) {
                     if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion.length) {
                         sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs">';
