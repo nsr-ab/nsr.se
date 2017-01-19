@@ -383,6 +383,27 @@ class CustomPostTypes
                             'id' => '',
                         ),
                     ),
+                    array (
+                        'post_type' => array (
+                        ),
+                        'taxonomy' => array (
+                        ),
+                        'allow_null' => 0,
+                        'multiple' => 0,
+                        'allow_archives' => 1,
+                        'key' => 'field_587f45101d1d5',
+                        'label' => 'Länk till sida',
+                        'name' => 'fraktion_page_link',
+                        'type' => 'page_link',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                    ),
                 ),
 
                 'location' => array (
