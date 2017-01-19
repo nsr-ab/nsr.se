@@ -403,11 +403,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
                             cities[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].city];
                         }
-
+                        if (navigator.geolocation) {
+                            var closestCity = navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
+                        }
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
-                            if (navigator.geolocation) {
-                                var closestCity = navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
-                            }
+
                             if(!closestCity) {
                                 sortHTML += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
                                 tabMobile_inl += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
