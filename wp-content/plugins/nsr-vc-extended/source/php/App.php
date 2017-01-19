@@ -205,7 +205,8 @@ class App
                     $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$lint]['lat'] = $getTermLat[0];
                     $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$lint]['long'] = $getTermLong[0];
                     $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$lint]['city'] = $getTermCity[0];
-                    $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$lint]['pageurl'] = $pageurl[0];
+                    $termPageLink = get_page_link($pageurl[0]);
+                    $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$lint]['pageurl'] = $termPageLink;
                     $lint++;
                 }
             }
