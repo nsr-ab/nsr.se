@@ -15,7 +15,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     var typingTimer = null;
     var doneTypingInterval = 200;
-
+    var cities = [];
 
     /**
      * Constructor
@@ -352,13 +352,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var tabMobile_frak = '';
             var tabMobile_inl = '';
 
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
-            }
-
             $.each(res.sortguide, function (index, spost) {
-
+                console.log(spost);
                 var customerCatIcons = '';
                 if(spost.post_meta) {
                     if(spost.post_meta.avfall_kundkategori[0].indexOf('villa') >= 0) {
@@ -374,17 +369,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 if(spost.terms) {
                     if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion.length) {
-                        sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
-                        tabMobile_frak += '<li><b>Sorteras som på ÅVC:</b><ul>';
-                        for (int = 0; int < spost.post_meta.avfall_fraktion.length; int++) {
-                            sortHTML += '<li>'+spost.post_meta.avfall_fraktion[int]+'</li>';
-                            tabMobile_frak += '<li>'+spost.post_meta.avfall_fraktion[int]+"<li>";
+                        if(spost.post_meta.avfall_fraktion_hemma != '') {
+                            sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
+                            tabMobile_frak += '<li><b>Sorteras som på ÅVC:</b><ul>';
+                            for (int = 0; int < spost.post_meta.avfall_fraktion.length; int++) {
+                                sortHTML += '<li>' + spost.post_meta.avfall_fraktion[int] + '</li>';
+                                tabMobile_frak += '<li>' + spost.post_meta.avfall_fraktion[int] + "<li>";
+                            }
+                            sortHTML += '</ul></li>';
+                            tabMobile_frak += '</ul></li>';
                         }
-                        sortHTML += '</ul></li>';
-                        tabMobile_frak += '</ul></li>';
                     }
                     if(spost.post_meta.avfall_fraktion_hemma && spost.post_meta.avfall_fraktion_hemma.length) {
-                        console.log(spost.post_meta.avfall_fraktion_hemma.length);
                         if(spost.post_meta.avfall_fraktion_hemma != '') {
                             sortHTML += '<li><b>Hemma:</b><ul class="meta-fraktion">';
                             tabMobile_frak += '<li><b class="sortAs">Sorteras som hemma:</b><ul>';
@@ -402,12 +398,26 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '</td><td valign="top"><ul>';
                 if(spost.terms) {
                     if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
+
+                        var cities = [];
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
-                            sortHTML += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
-                            tabMobile_inl += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
+                            cities[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].city];
+                        }
+
+                        for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
+                            if (navigator.geolocation) {
+                                var closestCity = navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
+                            }
+                            if(!closestCity) {
+                                sortHTML += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
+                                tabMobile_inl += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
+                            }
+                        }
+                        if(closestCity) {
+                            sortHTML += '<li>' + closestCity + '</li>';
+                            tabMobile_inl += '<li>' + closestCity + '</li>';
                         }
                     }
-
                 }
 
                 sortHTML += '</ul></td>';
@@ -480,16 +490,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var lat = 20; // user's latitude
     var lon = 40; // user's longitude
 
-    var cities = [
-        ["Bjuv", 56.075457, 12.934698, " Bjuv... är närmast"],
-        ["Båstad", 56.440010, 12.766965, "Båstad... är närmasth"],
-        ["Helsingborg", 56.078561, 12.764072, "Höganäs... är närmast"],
-        ["Ängelholm", 56.253554, 12.912307, "Ängelholm... är närmast"],
-        ["Åstorp", 56.137005, 12.914728, "Åstorp... är närmast"],
-        ["Åstorp", 56.218816, 12.557663, "Höganäs... är närmast"],
 
-
-    ];
 
     Extended.prototype.NearestCity = function(latitude, longitude) {
         var mindif = 99999;
@@ -504,7 +505,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
         // echo the nearest city
-        console.log(cities[closest]);
+        return cities[closest];
     }
 
 
