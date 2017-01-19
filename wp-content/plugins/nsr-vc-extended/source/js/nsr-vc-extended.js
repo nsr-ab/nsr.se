@@ -15,7 +15,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     var typingTimer = null;
     var doneTypingInterval = 200;
-
+    var cities = [];
 
     /**
      * Constructor
@@ -75,6 +75,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
         });
 
     };
+
+
+
+    /**
+     *  displayMore
+     *  Show more or less posts
+     *  @param {object} element
+     *  @return {void}
+     */
+    Extended.prototype.encodeStr = function (str) {
+        return str.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+    }
 
 
 
@@ -270,7 +282,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
             }
         }).done(function (result) {
-            console.log(result);
+            //console.log(result);
             $element.find('.sorteringsguiden').remove();
             $element.find('.search-autocomplete').remove();
 
@@ -332,6 +344,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return $res;
     };
 
+
+
     /**
      * Outputs the autocomplete dropdown
      * @param  {object} element Autocomplete element
@@ -351,6 +365,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var sortHTML;
             var tabMobile_frak = '';
             var tabMobile_inl = '';
+            var CityItem;
 
             $.each(res.sortguide, function (index, spost) {
 
@@ -366,45 +381,58 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '<tr class="tabMobile"><th>Avfall:</th><td valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td></tr>';
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td><td valign="top">';
-                
+
                 if(spost.terms) {
                     if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion.length) {
-                        sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs">';
-                        tabMobile_frak += '<li><b>Sorteras som på ÅVC:</b><ul>';
-                        for (int = 0; int < spost.post_meta.avfall_fraktion.length; int++) {
-                            sortHTML += '<li>'+spost.post_meta.avfall_fraktion[int]+'</li>';
-                            tabMobile_frak += '<li>'+spost.post_meta.avfall_fraktion[int]+"<li>";
+                        if(spost.post_meta.avfall_fraktion_hemma != '') {
+                            sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
+                            tabMobile_frak += '<li><b>Sorteras som på ÅVC:</b><ul>';
+                            for (int = 0; int < spost.post_meta.avfall_fraktion.length; int++) {
+                                sortHTML += '<li>' + spost.post_meta.avfall_fraktion[int] + '</li>';
+                                tabMobile_frak += '<li>' + spost.post_meta.avfall_fraktion[int] + "<li>";
+                            }
+                            sortHTML += '</ul></li>';
+                            tabMobile_frak += '</ul></li>';
                         }
-                        sortHTML += '</ul></li>';
-                        tabMobile_frak += '</ul></li>';
                     }
                     if(spost.post_meta.avfall_fraktion_hemma && spost.post_meta.avfall_fraktion_hemma.length) {
-                        sortHTML += '<li><b>Hemma:</b><ul>';
-                        tabMobile_frak += '<li><b class="sortAs">Sorteras som hemma:</b><ul>';
-                        for (int = 0; int < spost.post_meta.avfall_fraktion_hemma.length; int++) {
-                            sortHTML += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + '</li>';
-                            tabMobile_frak += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + "<li>";
+                        if(spost.post_meta.avfall_fraktion_hemma != '') {
+                            sortHTML += '<li><b>Hemma:</b><ul class="meta-fraktion">';
+                            tabMobile_frak += '<li><b class="sortAs">Sorteras som hemma:</b><ul>';
+
+                            for (int = 0; int < spost.post_meta.avfall_fraktion_hemma.length; int++) {
+                                sortHTML += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + '</li>';
+                                tabMobile_frak += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + "<li>";
+                            }
+                            sortHTML += '</ul></li>';
+                            tabMobile_frak += '</ul></li>';
                         }
-                        sortHTML += '</ul></li>';
-                        tabMobile_frak += '</ul></li>';
                     }
                 }
 
                 sortHTML += '</td><td valign="top"><ul>';
                 if(spost.terms) {
                     if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
+                        CityItem = [];
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
-                            sortHTML += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
-                            tabMobile_inl += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
+                            if(int <= 5){
+                                var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;
+                                CityItem[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].name, cssClass];
+                                sortHTML += '<li class="cord-'+cssClass+'"><i class="material-icons hide isize">location_on</i> ' + spost.terms.inlamningsstallen[int].name+'</li>';
+                                tabMobile_inl += '<li class="cord-'+cssClass+'"><i class="material-icons hide ">location_on</i> ' + spost.terms.inlamningsstallen[int].name + '</li>';
+                            }
                         }
-                    }
+                        cities.push(CityItem);
 
+
+                    }
                 }
+
 
                 sortHTML += '</ul></td>';
                 var braAttVeta;
                 if(spost.post_meta)
-                        braAttVeta = spost.post_meta.avfall_bra_att_veta;
+                    braAttVeta = spost.post_meta.avfall_bra_att_veta;
                 sortHTML += '<td class="exnfodispl">'+braAttVeta+'</td>';
                 sortHTML += '</tr>';
                 sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul>'+tabMobile_frak+'</ul></td></tr>';
@@ -413,7 +441,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
             $sortMarkupTable.append(sortHTML);
         }
-
+        navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
         var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
             $.each(res.content, function (index, post) {
@@ -434,7 +462,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         } else {
             $content = $('');
         }
-
+        console.log(cities);
         $sortMarkupTable.appendTo($sorteringsguiden);
         $sorteringsguiden.appendTo($element);
         $content.appendTo($autocomplete);
@@ -443,6 +471,87 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         //$('.search-autocomplete-content li').matchHeight();
     };
+
+    /**
+     * Callback function for asynchronous call to HTML5 geolocation
+     * @param  {object} position
+     * @return {void}
+     */
+    Extended.prototype.UserLocation = function(position) {
+
+        Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
+    }
+
+
+
+    /**
+     * Convert Degress to Radians
+     * @param  {int} deg
+     * @return degree
+     */
+    Extended.prototype.Deg2Rad = function(deg) {
+        return deg * Math.PI / 180;
+    }
+
+
+
+    /**
+     * Calculates with Pythagoras
+     * @param  {int} lat long
+     * @return degree
+     */
+    Extended.prototype.PythagorasEquirectangular = function(lat1, lon1, lat2, lon2) {
+        lat1 = Extended.prototype.Deg2Rad(lat1);
+        lat2 = Extended.prototype.Deg2Rad(lat2);
+        lon1 = Extended.prototype.Deg2Rad(lon1);
+        lon2 = Extended.prototype.Deg2Rad(lon2);
+        var R = 6371; // km
+        var x = (lon2 - lon1) * Math.cos((lat1 + lat2) / 2);
+        var y = (lat2 - lat1);
+        var d = Math.sqrt(x * x + y * y) * R;
+        return d;
+    }
+
+    var lat = 20; // user's latitude
+    var lon = 40; // user's longitude
+
+
+
+
+    /**
+     * Closest location
+     * @param  {int} lat long
+     * @return {array} cities
+     */
+    Extended.prototype.NearestCity = function(latitude, longitude) {
+
+        var mindif = 99999;
+        var closest;
+        var icon = 0;
+        for (ind = 0; ind < cities.length; ++ind) {
+
+            for (index = 0; index < cities[ind].length; ++index) {
+                var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
+                if (dif < mindif) {
+                    closest = ind;
+                    mindif = dif;
+                    var cordClass = '.cord-' + cities[ind][index][4];
+
+                }
+            }
+
+            $(cordClass).find('i').removeClass('hide')
+            $(cordClass).css('font-weight','600');
+            $(cordClass).css('color','#fff');
+            icn = false;
+        }
+
+        return cities[closest];
+
+    }
+
+
+
 
     return new Extended;
 

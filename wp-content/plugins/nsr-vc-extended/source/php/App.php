@@ -157,24 +157,59 @@ class App
 
         if ($result['sortguide']) {
 
-
             for($metaInt=0;$metaInt < count($result['sortguide']); $metaInt++) {
                 for ($int1 = 0; $int1 < count($result['sortguide'][$metaInt]->post_meta['avfall_fraktion']); $int1++) {
                     $termId = maybe_unserialize($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][$int1]);
                     $getTerm = get_term(intval($termId[$int1]));
-                    $result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][$int1] = $getTerm->name;
+                    $termlink = get_term_meta(intval($termId[$int1]));
+                    $termPageLink = get_page_link($termlink['fraktion_page_link'][0]);
+                    if ($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][0]) {
+
+                        if ($termPageLink) {
+                            $termName = "<i class='material-icons'>description</i> <a href='" . $termPageLink . "'>" . $getTerm->name . "</a>";
+                        } else {
+                            $termName = $getTerm->name;
+                        }
+                        $result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][$int1] = $termName;
+                    }
                 }
             }
 
             for($metaInt=0;$metaInt < count($result['sortguide']); $metaInt++) {
-                for ($int = 0; $int < count($result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma']); $int++) {
-                    $termId = maybe_unserialize($result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][$int]);
-                    $getTerm = get_term(intval($termId[$int]));
-                    $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][$int] = $getTerm->name;
+                for ($int2 = 0; $int2 < count($result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma']); $int2++) {
+                    $termId = maybe_unserialize($result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][$int2]);
+                    $getTerm = get_term(intval($termId[$int2]));
+                    $termlink = get_term_meta( intval($termId[$int2]) );
+                    $termPageLink = get_page_link($termlink['fraktion_page_link'][0]);
+                    if($result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]) {
+
+                        if($termPageLink) {
+                            $termName = "<i class='material-icons'>description</i> <a href='" . $termPageLink . "'>" . $getTerm->name . "</a>";
+                        }
+                        else {
+                            $termName = $getTerm->name;
+                        }
+
+                        $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][$int2] = $termName;
+                    }
+                }
+
+                $lint=0;
+
+                foreach($result['sortguide'][$metaInt]->terms['inlamningsstallen'] as $term){
+                    $getTerm = get_term_meta($term['term_id']);
+                    $getTermLong = $getTerm['inlamningsstalle_longitude'];
+                    $getTermLat = $getTerm['inlamningsstalle_latitude'];
+                    $getTermCity = $getTerm['inlamningsstalle_stadort'];
+                    $pageurl = $getTerm['tax_pageurl'];
+                    $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$lint]['lat'] = $getTermLat[0];
+                    $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$lint]['long'] = $getTermLong[0];
+                    $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$lint]['city'] = $getTermCity[0];
+                    $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$lint]['pageurl'] = $pageurl[0];
+                    $lint++;
                 }
             }
         }
-
 
 
         wp_send_json($result);
