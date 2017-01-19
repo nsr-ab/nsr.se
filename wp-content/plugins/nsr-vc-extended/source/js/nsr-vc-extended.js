@@ -422,7 +422,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         CityItem = [];
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
                             if(int <= 5){
-                                var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;
+                                var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int + "-"+math.random(0,9999);
                                 console.log(spost.terms.inlamningsstallen[int]);
                                 var inlineClick;
                                 if(spost.terms.inlamningsstallen[int].pageurl)
@@ -524,10 +524,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var d = Math.sqrt(x * x + y * y) * R;
         return d;
     }
-
-    var lat = 20; // user's latitude
-    var lon = 40; // user's longitude
-
 
 
 
