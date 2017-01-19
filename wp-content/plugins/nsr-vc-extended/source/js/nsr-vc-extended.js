@@ -542,14 +542,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var closest;
         var icon = 0;
         for (ind = 0; ind < cities.length; ++ind) {
-
+            var exit = false;
             for (index = 0; index < cities[ind].length; ++index) {
                 var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
-                if (dif < mindif) {
-                    closest = ind;
-                    mindif = dif;
-                    var cordClass = '.cord-' + cities[ind][index][4];
-
+                if(!exit) {
+                    if (dif < mindif) {
+                        closest = ind;
+                        mindif = dif;
+                        var cordClass = '.cord-' + cities[ind][index][4];
+                        exit = true;
+                    }
                 }
             }
 
