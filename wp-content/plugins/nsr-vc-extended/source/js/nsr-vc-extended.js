@@ -415,11 +415,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 tabMobile_inl += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
                             }
                             else {
-                                sortHTML += '<li>' + closestCity[4] + '</li>';
-                                tabMobile_inl += '<li>' + closestCity[4] + '</li>';
+                                sortHTML += '<li>' + closestCity + '</li>';
+                                tabMobile_inl += '<li>' + closestCity + '</li>';
                             }
                         }
-                        console.log(closestCity[4]);
+                        console.log(closestCity);
                     }
                 }
 
@@ -476,7 +476,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
     }
 
-    
+
 
     /**
      * Convert Degress to Radians
@@ -528,7 +528,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 mindif = dif;
             }
         }
-        console.log(cities[closest]);
+        console.log(cities[closest]+'<------');
         return cities[closest];
     }
 
