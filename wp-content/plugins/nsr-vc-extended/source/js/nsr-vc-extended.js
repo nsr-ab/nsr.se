@@ -332,6 +332,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return $res;
     };
 
+
+
     /**
      * Outputs the autocomplete dropdown
      * @param  {object} element Autocomplete element
@@ -399,15 +401,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 if(spost.terms) {
                     if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
 
-                        /*var cities2 = [
-                            ["city1", 10, 50, "blah"],
-                            ["city2", 40, 60, "blah"],
-                            ["city3", 25, 10, "blah"],
-                            ["city4", 5, 80, "blah"]
-                        ];
-                        */
-
-
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
                             cities[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].name];
                         }
@@ -421,12 +414,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 sortHTML += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
                                 tabMobile_inl += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
                             }
+                            else {
+                                sortHTML += '<li>' + closestCity[4] + '</li>';
+                                tabMobile_inl += '<li>' + closestCity[4] + '</li>';
+                            }
                         }
-                        console.log(closestCity);
-                        if(closestCity) {
-                            sortHTML += '<li>' + closestCity + '</li>';
-                            tabMobile_inl += '<li>' + closestCity + '</li>';
-                        }
+                        console.log(closestCity[4]);
                     }
                 }
 
@@ -473,19 +466,34 @@ VcExtended.NSRExtend.Extended = (function ($) {
         //$('.search-autocomplete-content li').matchHeight();
     };
 
-
-    // Callback function for asynchronous call to HTML5 geolocation
+    /**
+     * Callback function for asynchronous call to HTML5 geolocation
+     * @param  {object} position
+     * @return {void}
+     */
     Extended.prototype.UserLocation = function(position) {
 
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
     }
 
+    
 
-    // Convert Degress to Radians
+    /**
+     * Convert Degress to Radians
+     * @param  {int} deg
+     * @return degree
+     */
     Extended.prototype.Deg2Rad = function(deg) {
         return deg * Math.PI / 180;
     }
 
+
+
+    /**
+     * Calculates with Pythagoras
+     * @param  {int} lat long
+     * @return degree
+     */
     Extended.prototype.PythagorasEquirectangular = function(lat1, lon1, lat2, lon2) {
         lat1 = Extended.prototype.Deg2Rad(lat1);
         lat2 = Extended.prototype.Deg2Rad(lat2);
@@ -502,6 +510,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var lon = 40; // user's longitude
 
 
+
+    /**
+     * Closest location
+     * @param  {int} lat long
+     * @return {array} cities
+     */
     Extended.prototype.NearestCity = function(latitude, longitude) {
 
         var mindif = 99999;
@@ -518,25 +532,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return cities[closest];
     }
 
-
-    /*Extended.prototype.getDistanceFromLatLonInKm = function(lat1,lon1,lat2,lon2){
-
-        var R = 6371; // Radius of the earth in km
-        var dLat = Extended.prototype.deg2rad(lat2-lat1);  // deg2rad below
-        var dLon = Extended.prototype.deg2rad(lon2-lon1);
-        var a =
-                Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(Extended.prototype.deg2rad(lat1)) * Math.cos(Extended.prototype.deg2rad(lat2)) *
-                Math.sin(dLon/2) * Math.sin(dLon/2)
-            ;
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        var d = R * c; // Distance in km
-        return d;
-    }
-
-    Extended.prototype.deg2rad = function(deg) {
-        return deg * (Math.PI/180)
-    }*/
 
 
 
