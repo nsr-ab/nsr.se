@@ -270,7 +270,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
             }
         }).done(function (result) {
-            console.log(result);
+            //console.log(result);
             $element.find('.sorteringsguiden').remove();
             $element.find('.search-autocomplete').remove();
 
@@ -353,7 +353,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var tabMobile_inl = '';
 
             $.each(res.sortguide, function (index, spost) {
-                console.log(spost);
+                //console.log(spost);
                 var customerCatIcons = '';
                 if(spost.post_meta) {
                     if(spost.post_meta.avfall_kundkategori[0].indexOf('villa') >= 0) {
@@ -399,10 +399,19 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 if(spost.terms) {
                     if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
 
-                        var cities = [];
+                        /*var cities2 = [
+                            ["city1", 10, 50, "blah"],
+                            ["city2", 40, 60, "blah"],
+                            ["city3", 25, 10, "blah"],
+                            ["city4", 5, 80, "blah"]
+                        ];
+                        */
+
+
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
-                            cities[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].city];
+                            cities[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].name];
                         }
+
                         if (navigator.geolocation) {
                             var closestCity = navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
                         }
@@ -413,6 +422,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 tabMobile_inl += '<li>' + spost.terms.inlamningsstallen[int].name + '</li>';
                             }
                         }
+                        console.log(closestCity);
                         if(closestCity) {
                             sortHTML += '<li>' + closestCity + '</li>';
                             tabMobile_inl += '<li>' + closestCity + '</li>';
@@ -466,6 +476,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     // Callback function for asynchronous call to HTML5 geolocation
     Extended.prototype.UserLocation = function(position) {
+
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
     }
 
@@ -491,8 +502,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var lon = 40; // user's longitude
 
 
-
     Extended.prototype.NearestCity = function(latitude, longitude) {
+
         var mindif = 99999;
         var closest;
 
@@ -503,8 +514,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 mindif = dif;
             }
         }
-
-        // echo the nearest city
+        console.log(cities[closest]);
         return cities[closest];
     }
 
