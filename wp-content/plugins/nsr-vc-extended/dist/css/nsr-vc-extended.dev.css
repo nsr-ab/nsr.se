@@ -275,6 +275,8 @@ input[type=text]:focus.invalid {
     .searchNSR .search-autocomplete .isize, .searchNSR .search-content .isize, .searchNSR .sorterings-guide-table .isize {
       font-size: 1.2rem;
       margin-top: 1px; }
+    .searchNSR .search-autocomplete .locationmap, .searchNSR .search-content .locationmap, .searchNSR .sorterings-guide-table .locationmap {
+      cursor: pointer; }
   .searchNSR .search-autocomplete-content h5 {
     font-size: 1.64rem;
     margin: 0 0 0 0.8rem;

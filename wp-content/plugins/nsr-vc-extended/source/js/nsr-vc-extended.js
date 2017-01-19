@@ -556,7 +556,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $(cordClass).css('font-weight','600');
             $(cordClass).css('color','#fff');
-            $(cordClass).find('i').css('color','#00ffd0');
+            $(cordClass).find('i').css('color','#00c1cf');
             icn = false;
         }
 
