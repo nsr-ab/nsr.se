@@ -422,7 +422,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         CityItem = [];
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
                             if(int <= 5){
-                                var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int + "-"+math.random(0,9999);
+                                var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int + "-"+Math.floor((Math.random() * 9999999) + 1);
                                 console.log(spost.terms.inlamningsstallen[int]);
                                 var inlineClick;
                                 if(spost.terms.inlamningsstallen[int].pageurl)
