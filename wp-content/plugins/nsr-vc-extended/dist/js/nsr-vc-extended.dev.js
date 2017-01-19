@@ -418,8 +418,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             if(int <= 5){
                                 var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;
                                 CityItem[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].name, cssClass];
-                                sortHTML += '<li class="cord-'+cssClass+'"><i class="material-icons isize">location_on</i> ' + spost.terms.inlamningsstallen[int].name+'</li>';
-                                tabMobile_inl += '<li class="cord-'+cssClass+'"><i class="material-icons isize">location_on</i> ' + spost.terms.inlamningsstallen[int].name + '</li>';
+                                sortHTML += '<li class="cord-'+cssClass+'"><i class="material-icons hide isize">location_on</i> ' + spost.terms.inlamningsstallen[int].name+'</li>';
+                                tabMobile_inl += '<li class="cord-'+cssClass+'"><i class="material-icons hide ">location_on</i> ' + spost.terms.inlamningsstallen[int].name + '</li>';
                             }
                         }
                         cities.push(CityItem);
