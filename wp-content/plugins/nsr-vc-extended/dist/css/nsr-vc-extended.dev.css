@@ -273,7 +273,8 @@ input[type=text]:focus.invalid {
       float: left;
       color: #039db0; }
     .searchNSR .search-autocomplete .isize, .searchNSR .search-content .isize, .searchNSR .sorterings-guide-table .isize {
-      font-size: 0.8rem; }
+      font-size: 1.2rem;
+      margin-top: 1px; }
   .searchNSR .search-autocomplete-content h5 {
     font-size: 1.64rem;
     margin: 0 0 0 0.8rem;
