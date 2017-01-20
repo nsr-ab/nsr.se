@@ -393,6 +393,9 @@ input[type=text]:focus.invalid {
       font-size:1.0rem !important;
       margin-top:2px;
     }
+
+
+
     .meta-fraktion a {
       color: lighten($lightGreen, 10%) !important;
     }
@@ -418,6 +421,10 @@ input[type=text]:focus.invalid {
     .locationmap {
       cursor:pointer;
     }
+
+  }
+
+  @media (max-width: 540px) {
 
   }
 
