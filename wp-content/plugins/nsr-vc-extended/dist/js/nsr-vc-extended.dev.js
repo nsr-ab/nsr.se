@@ -452,9 +452,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $sortMarkupTable.append(sortHTML);
         }
-
-
-
+        
         var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
 
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
@@ -483,6 +481,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $autocomplete.appendTo($element).show();
 
         if (navigator.geolocation) {
+            $('.preloader-wrapper').removeClass('hide');
             navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
         }
 
@@ -494,7 +493,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {void}
      */
     Extended.prototype.UserLocation = function(position) {
-        $('.preloader-wrapper').removeClass('hide');
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
     }
 
