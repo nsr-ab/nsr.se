@@ -409,4 +409,5 @@ input[type=text]:focus.invalid {
   .searchNSR .preloader-wrapper {
     width: 18px !important;
     height: 18px !important;
-    margin-right: 8px; }
+    margin-right: 8px;
+    float: right; }
