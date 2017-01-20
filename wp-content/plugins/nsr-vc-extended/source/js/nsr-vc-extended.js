@@ -416,13 +416,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
 
-                sortHTML += '</td><td valign="top">'+spinner+'<ul>';
-                var hideStuff;
+                sortHTML += '</td><td valign="top">'+spinner+'<ul clas="inlstallen">';
+                var hideStuff = '';
                 if(spost.terms) {
                     if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
                         CityItem = [];
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
-                            if(int >= 6)
+                            if(int >= 5)
                                 hideStuff = 'hide';
                                 var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;
 
@@ -557,6 +557,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $(cordClass).css('color','#fff');
                 $(cordClass).find('i').css('color','#00ffd0');
                 $(cordClass).removeClass('hide');
+
+                var int = 0;
+                $('.inlstallen li').each(function (t) {
+                    if(int > 4)
+                        $(this).addClass('hide');
+                    $(this).css('border','1px solid red');
+                }
                 icn = false;
                 cordClass = false;
             }
