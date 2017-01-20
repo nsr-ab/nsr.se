@@ -452,7 +452,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $sortMarkupTable.append(sortHTML);
         }
-        
+
         var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
 
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
@@ -481,7 +481,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $autocomplete.appendTo($element).show();
 
         if (navigator.geolocation) {
-            $('.preloader-wrapper').removeClass('hide');
+            $('.preloader-wrapper').fadeIn("slow");
             navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
         }
 
@@ -558,7 +558,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 cordClass = false;
             }
         }
-        $('.preloader-wrapper').addClass('hide');
+        $('.preloader-wrapper').fadeOut("slow");;
         return cities[closest];
     }
 
