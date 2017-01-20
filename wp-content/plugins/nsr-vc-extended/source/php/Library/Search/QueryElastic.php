@@ -9,7 +9,7 @@ class QueryElastic
     {
         $q = sanitize_text_field($data['query']);
         $post_type = sanitize_text_field($data['post_type']);
-        $post_section = sanitize_text_field($data['post_section']);
+        //$post_section = sanitize_text_field($data['post_section']);
         $limit = isset($data['limit'])  ? $data['limit'] : 9;
         $postStatuses = array('publish', 'inherit');
 

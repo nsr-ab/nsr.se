@@ -363,7 +363,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $autocomplete = $('<div class="search-autocomplete"><h4>Sidor på nsr.se</h4></div>');
         var $content = $('<ul class="search-autocomplete-content"></ul>');
         var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4><div class="left badgeInfo"><span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div></div>');
-        var $sortMarkupTable = $('<table class="sorterings-guide-table"><tr class="tabDesk"><th></th><th>Sorteras som</th><th>Lämna nära dig</th><th class="exnfodispl">Bra att veta</th></tr></table>');
+        var spinner = '<div class="preloader-wrapper small active hide"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
+        var $sortMarkupTable = $('<table class="sorterings-guide-table"><tr class="tabDesk"><th></th><th>Sorteras som</th><th class="relative">'+spinner+'Lämna nära dig... </th><th class="exnfodispl">Bra att veta</th></tr></table>');
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
@@ -480,7 +481,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $sorteringsguiden.appendTo($element);
         $content.appendTo($autocomplete);
         $autocomplete.appendTo($element).show();
-        navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
+        }
 
     };
 
@@ -490,7 +494,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {void}
      */
     Extended.prototype.UserLocation = function(position) {
-
+        $('.preloader-wrapper').removeClass('hide');
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
     }
 
@@ -556,7 +560,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 cordClass = false;
             }
         }
-
+        $('.preloader-wrapper').addClass('hide');
         return cities[closest];
     }
 

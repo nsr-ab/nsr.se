@@ -404,3 +404,9 @@ input[type=text]:focus.invalid {
   .searchNSR :-moz-placeholder {
     /* Firefox 18- */
     color: #fff !important; }
+  .searchNSR .relative {
+    position: relative; }
+  .searchNSR .preloader-wrapper {
+    width: 18px !important;
+    height: 18px !important;
+    margin-right: 8px; }
