@@ -434,10 +434,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                         cities[cityInt] = CityItem;
                         cityInt++;
-
                     }
                 }
-
 
                 sortHTML += '</ul></td>';
                 var braAttVeta;
@@ -450,6 +448,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '<tr class="tabMobile lastchild"><td class="lastchild" colspan="2"> </td></tr>';
                 tabMobile_inl = "";
             });
+
             $sortMarkupTable.append(sortHTML);
         }
 
@@ -524,11 +523,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var d = Math.sqrt(x * x + y * y) * R;
         return d;
     }
-
-    var lat = 20; // user's latitude
-    var lon = 40; // user's longitude
-
-
 
 
     /**
