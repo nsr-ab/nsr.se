@@ -435,8 +435,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         cities.push(CityItem);
 
 
-                        //Extended.prototype.NearestCity();
-
                     }
                 }
 
@@ -482,8 +480,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $sorteringsguiden.appendTo($element);
         $content.appendTo($autocomplete);
         $autocomplete.appendTo($element).show();
-
-
+        
         //$('.search-autocomplete-content li').matchHeight();
     };
 
@@ -540,15 +537,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.NearestCity = function(latitude, longitude) {
 
-
-
-
-
-        geocoder = new google.maps.Geocoder();
-        geocoder.geocode( { 'address': address }, function(r, s) {
-            console.log(r[0].geometry.location);
-        });
-
         var mindif = 99999;
         var closest;
         var icon = 0;
@@ -563,7 +551,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 }
             }
-
 
             $(cordClass).css('font-weight','600');
             $(cordClass).css('color','#fff');

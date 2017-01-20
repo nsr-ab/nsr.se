@@ -69,10 +69,6 @@ class Enqueue
     {
 
 
-
-        wp_register_script('geo', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBqZlY8U8PezST7KriV0I0iIg34cNWItDo&libraries=places', '', '', true);
-        wp_enqueue_script('geo');
-
         wp_register_script('matchHeight', plugins_url('nsr-vc-extended/dist/js/jquery.matchHeight-min.js'), '', '', true);
         wp_enqueue_script('matchHeight');
 
@@ -92,8 +88,6 @@ class Enqueue
                     'viewAll' => __('View all results', 'nsr-vc-extended')
                 )
             )
-
-
         );
         wp_enqueue_script('vcExtended');
 

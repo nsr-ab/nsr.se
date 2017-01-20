@@ -480,8 +480,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $sorteringsguiden.appendTo($element);
         $content.appendTo($autocomplete);
         $autocomplete.appendTo($element).show();
-
-
+        
         //$('.search-autocomplete-content li').matchHeight();
     };
 
@@ -552,7 +551,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 }
             }
-
 
             $(cordClass).css('font-weight','600');
             $(cordClass).css('color','#fff');
