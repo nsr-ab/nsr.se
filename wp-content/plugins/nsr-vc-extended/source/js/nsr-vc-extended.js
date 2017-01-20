@@ -422,7 +422,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         CityItem = [];
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
                             if(int <= 5){
-                                var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;// + "-"+Math.floor((Math.random() * 9999999) + 1);
+                                var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;
                                 console.log(spost.terms.inlamningsstallen[int]);
                                 var inlineClick;
                                 if(spost.terms.inlamningsstallen[int].pageurl)
@@ -434,6 +434,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         }
                         cities.push(CityItem);
 
+
+                        //Extended.prototype.NearestCity();
 
                     }
                 }
@@ -525,6 +527,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return d;
     }
 
+    var lat = 20; // user's latitude
+    var lon = 40; // user's longitude
+
+
 
 
     /**
@@ -534,28 +540,34 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.NearestCity = function(latitude, longitude) {
 
+
+
+
+
+        geocoder = new google.maps.Geocoder();
+        geocoder.geocode( { 'address': address }, function(r, s) {
+            console.log(r[0].geometry.location);
+        });
+
         var mindif = 99999;
         var closest;
         var icon = 0;
         for (ind = 0; ind < cities.length; ++ind) {
-            //var exit = false;
+
             for (index = 0; index < cities[ind].length; ++index) {
                 var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
-                //if(!exit) {
-                    if (dif < mindif) {
-                        closest = ind;
-                        mindif = dif;
-                        var cordClass = '.cord-' + cities[ind][index][4];
-                        exit = true;
-                    }
-                //}
-            }
+                if (dif < mindif) {
+                    closest = ind;
+                    mindif = dif;
+                    var cordClass = '.cord-' + cities[ind][index][4];
 
+                }
+            }
 
 
             $(cordClass).css('font-weight','600');
             $(cordClass).css('color','#fff');
-            $(cordClass).find('i').css('color','#00c1cf');
+            $(cordClass).find('i').css('color','#00ffd0');
             icn = false;
         }
 
