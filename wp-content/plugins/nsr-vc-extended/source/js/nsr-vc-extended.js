@@ -416,7 +416,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
 
-                sortHTML += '</td><td valign="top">'+spinner+'<ul clas="inlstallen">';
+                sortHTML += '</td><td valign="top">'+spinner+'<ul class="inlstallen">';
                 var hideStuff = '';
                 if(spost.terms) {
                     if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
@@ -559,11 +559,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $(cordClass).removeClass('hide');
 
                 var int = 0;
-                $('.inlstallen li').each(function (t) {
+                $('.inlstallen li ').each(function() {
                     if(int > 4)
                         $(this).addClass('hide');
-                    $(this).css('border','1px solid red');
-                }
+                });
                 icn = false;
                 cordClass = false;
             }
