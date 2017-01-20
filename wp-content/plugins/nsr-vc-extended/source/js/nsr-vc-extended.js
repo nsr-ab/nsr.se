@@ -416,7 +416,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
 
-                sortHTML += '</td><td valign="top"><ul>';
+                sortHTML += '</td><td valign="top">'+spinner+'<ul>';
                 if(spost.terms) {
                     if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
                         CityItem = [];
