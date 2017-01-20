@@ -417,20 +417,22 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
 
                 sortHTML += '</td><td valign="top">'+spinner+'<ul>';
+                var hideStuff;
                 if(spost.terms) {
                     if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
                         CityItem = [];
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
-                            if(int <= 5){
+                            if(int >= 6)
+                                hideStuff = 'hide';
                                 var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;
 
                                 var inlineClick;
                                 if(spost.terms.inlamningsstallen[int].pageurl)
                                     inlineClick = ' data-url="http://maps.google.com?q='+spost.terms.inlamningsstallen[int].lat+','+spost.terms.inlamningsstallen[int].long+'" ';
                                 CityItem[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].name, cssClass];
-                                sortHTML += '<li class="cord-'+cssClass+' locationmap" '+inlineClick+'><i class="material-icons isize">location_on</i> ' + spost.terms.inlamningsstallen[int].name+'</li>';
-                                tabMobile_inl += '<li class="cord-'+cssClass+' locationmap" '+inlineClick+'><i class="material-icons isize">location_on</i> ' + spost.terms.inlamningsstallen[int].name + '</li>';
-                            }
+                                sortHTML += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'><i class="material-icons isize">location_on</i> ' + spost.terms.inlamningsstallen[int].name+'</li>';
+                                tabMobile_inl += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'><i class="material-icons isize">location_on</i> ' + spost.terms.inlamningsstallen[int].name + '</li>';
+                                hideStuff = '';
                         }
 
                         cities[cityInt] = CityItem;
@@ -554,6 +556,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $(cordClass).css('font-weight','600');
                 $(cordClass).css('color','#fff');
                 $(cordClass).find('i').css('color','#00ffd0');
+                $(cordClass).removeClass('hide');
                 icn = false;
                 cordClass = false;
             }
