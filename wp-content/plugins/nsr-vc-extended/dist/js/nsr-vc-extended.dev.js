@@ -209,6 +209,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.vc_row').hide();
         $('.searchNSR').closest('.vc_row').show();
 
+        
     };
 
 
