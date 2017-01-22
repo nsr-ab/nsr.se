@@ -207,6 +207,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('body').on("touchmove", function(event) {
             event.preventDefault()
         });
+        $('body').on("touchmove", function(event) {
+            $('.fullscreen').off("touchmove");
+        });
 
     };
 

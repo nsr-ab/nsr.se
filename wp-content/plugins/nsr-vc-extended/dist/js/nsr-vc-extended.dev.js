@@ -203,9 +203,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.closeSearch').removeClass('hide');
         event.stopPropagation();
 
-        $('html, body'').animate({ scrollTop: 0 }, "slow");
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
         $('body').on("touchmove", function(event) {
             event.preventDefault()
+        });
+        $('body').on("touchmove", function(event) {
+            $('.fullscreen').off("touchmove");
         });
 
     };
