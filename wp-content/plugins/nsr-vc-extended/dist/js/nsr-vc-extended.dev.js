@@ -209,7 +209,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.vc_row').hide();
         $('.searchNSR').closest('.vc_row').show();
 
-        
+
     };
 
 
@@ -585,7 +585,36 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 })(jQuery);
 
+var getGeo = function() {
+    navigator.geolocation.getCurrentPosition( success, error, { maximumAge: 600000, timeout: 10000 } );
+}
 
+function success(position) {
+    var lng = position.coords.longitude;
+    var lat = position.coords.latitude;
+    alert("Longitude: " + lng + ", latitude: " + lat);
+}
+
+var constant;
+function error(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            constant = "PERMISSION_DENIED";
+            break;
+        case error.POSITION_UNAVAILABLE:
+            constant = "POSITION_UNAVAILABLE";
+            break;
+        case error.TIMEOUT:
+            constant = "TIMEOUT";
+            break;
+        default:
+            constant = "Unrecognized error";
+            break;
+    }
+    alert("Error code: " + error.code + "\nConstant: " + constant + "\nMessage: " + error.message);
+}
+
+getGeo(); 
 /**
  * MenuCollapsible ad-don for Visual Composer
  *
