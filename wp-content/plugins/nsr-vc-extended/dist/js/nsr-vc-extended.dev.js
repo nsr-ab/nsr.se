@@ -160,6 +160,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('#searchkeyword-nsr').val('');
         $('.search-autocomplete').remove();
         $('.sorteringsguiden').remove();
+        $('.vc_row').show();
     };
 
 
@@ -204,12 +205,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
         event.stopPropagation();
 
         $('html, body').animate({ scrollTop: 0 }, 'slow');
-        $('body').on("touchmove", function(event) {
-            event.preventDefault()
-        });
-        $('body').on("touchmove", function(event) {
-            $('.fullscreen').off("touchmove");
-        });
+
+        $('.vc_row').hide();
+        $('.searchNSR').closest('.vc_row').show();
 
     };
 
