@@ -16,7 +16,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var typingTimer = null;
     var doneTypingInterval = 200;
     var cities = [];
-
+    var geoConstant;
     /**
      * Constructor
      */
@@ -492,10 +492,36 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if (navigator.geolocation) {
             $('.preloader-wrapper').fadeIn("slow");
-            navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation);
+            navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
         }
 
     };
+
+
+
+    Extended.prototype.GeoError = function(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                constant = "PERMISSION_DENIED";
+                $('.spinner-layer').hide();
+                break;
+            case error.POSITION_UNAVAILABLE:
+                constant = "POSITION_UNAVAILABLE";
+                $('.spinner-layer').hide();
+                break;
+            case error.TIMEOUT:
+                constant = "TIMEOUT";
+                $('.spinner-layer').hide();
+                break;
+            default:
+                constant = "Unrecognized error";
+                $('.spinner-layer').hide();
+                break;
+        }
+
+    }
+
+
 
     /**
      * Callback function for asynchronous call to HTML5 geolocation
@@ -585,36 +611,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 })(jQuery);
 
-var getGeo = function() {
-    navigator.geolocation.getCurrentPosition( success, error, { maximumAge: 600000, timeout: 10000 } );
-}
 
-function success(position) {
-    var lng = position.coords.longitude;
-    var lat = position.coords.latitude;
-    alert("Longitude: " + lng + ", latitude: " + lat);
-}
 
-var constant;
-function error(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            constant = "PERMISSION_DENIED";
-            break;
-        case error.POSITION_UNAVAILABLE:
-            constant = "POSITION_UNAVAILABLE";
-            break;
-        case error.TIMEOUT:
-            constant = "TIMEOUT";
-            break;
-        default:
-            constant = "Unrecognized error";
-            break;
-    }
-    alert("Error code: " + error.code + "\nConstant: " + constant + "\nMessage: " + error.message);
-}
 
-getGeo(); 
+
 /**
  * MenuCollapsible ad-don for Visual Composer
  *
