@@ -202,6 +202,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.searchNSR').addClass('fullscreen');
         $('.closeSearch').removeClass('hide');
         event.stopPropagation();
+
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        $('body').on("touchmove", function(event) {
+            event.preventDefault()
+        });
+
     };
 
 
