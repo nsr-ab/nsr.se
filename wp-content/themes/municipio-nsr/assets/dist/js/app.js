@@ -1,8 +1,8 @@
-var Nsr;
+Default = Default || {};
 
-Nsr.App = Nsr.App || {};
+Default.App = Default.App || {};
 
-Nsr.App.AppDefault = (function ($) {
+Default.App.AppDefault = (function ($) {
 
 
     /**
@@ -27,7 +27,7 @@ Nsr.App.AppDefault = (function ($) {
 
 
     /**
-     *  Bypase !important on parent css
+     *  Bypasing !important on parent css
      *
      */
     AppDefault.prototype.hackz = function () {
@@ -36,7 +36,7 @@ Nsr.App.AppDefault = (function ($) {
 
     return new AppDefault();
 
-    
+
 })(jQuery);
 
 /*!
