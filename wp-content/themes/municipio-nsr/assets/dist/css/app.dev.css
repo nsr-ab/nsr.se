@@ -17,6 +17,12 @@ html.video-is-playing .scroll-down-please {
 html.translated-ltr #site-header {
   top: 39px; }
 
+.error404.theme-green {
+  background-color: #fff !important; }
+
+.error404 .sticky {
+  margin-left: -30px; }
+
 .materialize-red {
   background-color: #e51c23 !important; }
 
@@ -7174,6 +7180,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   @media only screen and (min-width: 601px) {
     .is-child-theme .container {
       width: 100%; } }
+  .is-child-theme .mobile-search {
+    display: none; }
   .is-child-theme .creamy {
     background-color: #f6f6f6;
     border: none; }

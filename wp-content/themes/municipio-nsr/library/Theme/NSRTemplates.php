@@ -26,6 +26,7 @@ class NSRTemplates
     }
 
 
+
     /**
      * Outputs the html for the breadcrumb
      * @return void
