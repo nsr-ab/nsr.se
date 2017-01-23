@@ -504,22 +504,22 @@ VcExtended.NSRExtend.Extended = (function ($) {
             case error.PERMISSION_DENIED:
                 constant = "PERMISSION_DENIED";
                 $('.spinner-layer').hide();
-                console.log(1);
+                console.log('geoLocation: '+constant);
                 break;
             case error.POSITION_UNAVAILABLE:
                 constant = "POSITION_UNAVAILABLE";
                 $('.spinner-layer').hide();
-                console.log(2);
+                console.log('geoLocation: '+constant);
                 break;
             case error.TIMEOUT:
                 constant = "TIMEOUT";
                 $('.spinner-layer').hide();
-                console.log(3);
+                console.log('geoLocation: '+constant);
                 break;
             default:
                 constant = "Unrecognized error";
                 $('.spinner-layer').hide();
-                console.log(4);
+                console.log('geoLocation: '+constant);
                 break;
         }
 
