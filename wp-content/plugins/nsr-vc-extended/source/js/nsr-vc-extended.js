@@ -504,18 +504,22 @@ VcExtended.NSRExtend.Extended = (function ($) {
             case error.PERMISSION_DENIED:
                 constant = "PERMISSION_DENIED";
                 $('.spinner-layer').hide();
+                console.log(1);
                 break;
             case error.POSITION_UNAVAILABLE:
                 constant = "POSITION_UNAVAILABLE";
                 $('.spinner-layer').hide();
+                console.log(2);
                 break;
             case error.TIMEOUT:
                 constant = "TIMEOUT";
                 $('.spinner-layer').hide();
+                console.log(3);
                 break;
             default:
                 constant = "Unrecognized error";
                 $('.spinner-layer').hide();
+                console.log(4);
                 break;
         }
 
