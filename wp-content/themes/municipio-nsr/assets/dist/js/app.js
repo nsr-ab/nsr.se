@@ -1,4 +1,4 @@
-Default = Default || {};
+var Default = Default || {};
 
 Default.App = Default.App || {};
 
