@@ -6890,7 +6890,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 .breadcrumbs {
   text-transform: uppercase;
-  font-size: 105% !important;
+  font-size: 90% !important;
   font-weight: normal !important; }
   .breadcrumbs a {
     text-decoration: underline;
@@ -6953,13 +6953,15 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-style: normal;
     color: #007586; }
   .is-child-theme h1 {
-    font-size: 4.9rem;
+    font-size: 3.75rem;
     letter-spacing: 1.6px;
     color: #393939 !important;
     min-height: 80px;
     max-width: 990px !important;
     line-height: 93%;
     padding: 0px; }
+  .is-child-theme h2 {
+    font-size: 1.5em; }
   @media only screen and (max-width: 600px) {
     .is-child-theme h1 {
       font-size: 3.2rem;
@@ -6968,7 +6970,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-weight: 700;
     text-transform: uppercase; }
   .is-child-theme h5.page-excertpt {
-    font-size: 1.81rem;
+    font-size: 1.4666rem;
     font-weight: normal;
     color: #444444;
     line-height: 129%;
@@ -6991,7 +6993,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .theme-green a, .is-child-theme .theme-green .breadcrumbs a {
     color: #007586; }
   .is-child-theme .theme-green .breadcrumbs {
-    font-size: 1.2rem; }
+    font-size: 0.9rem !important; }
     .is-child-theme .theme-green .breadcrumbs a {
       font-weight: 400 !important; }
     .is-child-theme .theme-green .breadcrumbs li:nth-last-child(2) a:before {

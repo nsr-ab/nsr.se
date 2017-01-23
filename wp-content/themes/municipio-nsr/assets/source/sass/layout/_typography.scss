@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-    font-size: 4.9rem;
+    font-size: 3.75rem;
     letter-spacing:1.6px;
     color: alpha-color($palette-primary-grey, 74%, $type:'dark') !important;
     min-height:80px;
@@ -50,7 +50,9 @@ h1 {
     line-height:93%;
     padding:0px;
 }
-
+h2 {
+    font-size: 1.5em;
+}
 @media only screen and (max-width: 600px) {
     h1 {
         font-size: 3.2rem;
@@ -64,7 +66,7 @@ h6 {
 }
 
 h5.page-excertpt {
-    font-size: 1.81rem;
+    font-size: 1.4666rem;
     font-weight:normal;
     color: alpha-color($palette-primary-grey, 70%, $type:'dark');
     line-height: 129%;
@@ -102,7 +104,7 @@ article h4 {
 
 .theme-green .breadcrumbs {
 
-    font-size:1.2rem;
+    font-size:0.9rem !important;
 
     a {
         font-weight:400 !important;
