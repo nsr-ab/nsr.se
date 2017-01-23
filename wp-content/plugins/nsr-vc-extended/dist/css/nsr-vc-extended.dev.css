@@ -355,6 +355,8 @@ input[type=text]:focus.invalid {
     display: block; }
   .searchNSR .sorterings-guide-table li:hover {
     background: none !important; }
+  .searchNSR .exnfodispl {
+    max-width: 200px; }
   @media (max-width: 700px) {
     .searchNSR .exnfodispl {
       display: none; } }

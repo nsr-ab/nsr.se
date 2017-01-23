@@ -549,6 +549,10 @@ input[type=text]:focus.invalid {
     background:none !important;
   }
 
+  .exnfodispl {
+    max-width: 200px;
+  }
+
   @media (max-width: 700px) {
     .exnfodispl {
       display:none;
