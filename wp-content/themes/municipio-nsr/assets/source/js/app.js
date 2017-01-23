@@ -1,8 +1,9 @@
-var Default = Default || {};
+var Nsr;
+Nsr = Nsr || {};
 
-Default.App = Default.App || {};
+Nsr.App = Nsr.App || {};
 
-Default.App.AppDefault = (function ($) {
+Nsr.App.AppDefault = (function ($) {
 
 
     /**
@@ -14,13 +15,12 @@ Default.App.AppDefault = (function ($) {
     };
 
 
-
     /**
      *  init
      *  Initializes all the necessary methods
      */
     AppDefault.prototype.init = function () {
-        this.hackz();
+        this.chngColor();
 
 
     };
@@ -30,8 +30,8 @@ Default.App.AppDefault = (function ($) {
      *  Bypasing !important on parent css
      *
      */
-    AppDefault.prototype.hackz = function () {
-        $('.main-footer .footer-title').css('color','#007586');
+    AppDefault.prototype.chngColor = function () {
+        $('.main-footer .footer-title').attr('style','color:#007586 !important;');
     };
 
     return new AppDefault();
