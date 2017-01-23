@@ -9,7 +9,7 @@
         <div class="grid {{ implode(' ', apply_filters('Municipio/Page/MainGrid/Classes', wp_get_post_parent_id(get_the_id()) != 0 ? array('no-margin-top') : array())) }}">
             @include('partials.sidebar-left')
 
-            <div class="{{ $contentGridSize }} grid-print-12" id="readspeaker-read">
+            <div class="grid-md-12 grid-lg-12 grid-print-12" id="readspeaker-read">
 
                 @if (is_active_sidebar('content-area-top'))
                     <div class="grid sidebar-content-area sidebar-content-area-top">
@@ -29,13 +29,10 @@
                     </div>
                 @endif
 
-                <div class="hidden-xs hidden-sm hidden-md hidden-print">
-                    @include('partials.page-footer')
-                </div>
             </div>
 
 
-            @include('partials.sidebar-right')
+
         </div>
 
         <div class="grid hidden-lg hidden-xl">
