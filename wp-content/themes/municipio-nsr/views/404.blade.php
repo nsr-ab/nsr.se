@@ -14,7 +14,7 @@
 
     <?php $cache = new Municipio\Helper\Cache('404','',600); if ($cache->start()) { ?>
 
-asdf
+
     <div class="container main-container">
 
         <div class="grid {{ implode(' ', apply_filters('Municipio/Page/MainGrid/Classes', wp_get_post_parent_id(get_the_id()) != 0 ? array('no-margin-top') : array())) }}">

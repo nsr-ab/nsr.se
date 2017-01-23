@@ -17,6 +17,9 @@ html.video-is-playing .scroll-down-please {
 html.translated-ltr #site-header {
   top: 39px; }
 
+.error404 {
+  color: #000; }
+
 .error404.theme-green {
   background-color: #fff !important; }
 
