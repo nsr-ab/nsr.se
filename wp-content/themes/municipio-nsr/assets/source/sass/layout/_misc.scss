@@ -152,3 +152,10 @@ li.before {
 .gform_wrapper input[type=checkbox]+label, .gform_wrapper input[type=radio]+label {
     padding-left:25px;
 }
+
+.mce-content-body iframe[src*="google.com/maps/"],
+.mce-content-body iframe[src*="youtube.com/embed/"],
+article iframe[src*="google.com/maps/"],
+article iframe[src*="youtube.com/embed/"] {
+    max-width:100% !important;
+}
