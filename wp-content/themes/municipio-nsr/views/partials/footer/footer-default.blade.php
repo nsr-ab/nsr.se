@@ -1,72 +1,10 @@
 <footer class="main-footer hidden-print">
     <div class="container">
 
-        @if (get_field('footer_logotype_vertical_position', 'option') == 'bottom')
-        <div class="grid">
-            <div class="grid-sm-12">
-                <nav>
-                    <ul class="nav nav-help nav-horizontal">
-                        {!!
-                            wp_nav_menu(array(
-                                'theme_location' => 'help-menu',
-                                'container' => false,
-                                'container_class' => 'menu-{menu-slug}-container',
-                                'container_id' => '',
-                                'menu_class' => '',
-                                'menu_id' => 'help-menu-top',
-                                'echo' => false,
-                                'before' => '',
-                                'after' => '',
-                                'link_before' => '',
-                                'link_after' => '',
-                                'items_wrap' => '%3$s',
-                                'depth' => 1,
-                                'fallback_cb' => '__return_false'
-                            ));
-                        !!}
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        @endif
-
         <div class="grid">
             <div class="{{ get_field('footer_signature_show', 'option') ? 'grid-md-10' : 'grid-md-12' }}">
 
-                {{-- ## Footer header befin ## --}}
-                @if (get_field('footer_logotype_vertical_position', 'option') == 'top' || !get_field('footer_logotype_vertical_position', 'option'))
-                <div class="grid">
-                    <div class="grid-md-12">
-                        @if (get_field('footer_logotype', 'option') != 'hide')
-                        {!! municipio_get_logotype(get_field('footer_logotype', 'option')) !!}
-                        @endif
 
-                        <nav class="{{ !get_field('footer_signature_show', 'option') ? 'pull-right' : '' }}">
-                            <ul class="nav nav-help nav-horizontal">
-                                {!!
-                                    wp_nav_menu(array(
-                                        'theme_location' => 'help-menu',
-                                        'container' => false,
-                                        'container_class' => 'menu-{menu-slug}-container',
-                                        'container_id' => '',
-                                        'menu_class' => '',
-                                        'menu_id' => 'help-menu-top',
-                                        'echo' => false,
-                                        'before' => '',
-                                        'after' => '',
-                                        'link_before' => '',
-                                        'link_after' => '',
-                                        'items_wrap' => '%3$s',
-                                        'depth' => 1,
-                                        'fallback_cb' => '__return_false'
-                                    ));
-                                !!}
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                @endif
-                {{-- ## Footer header end ## --}}
 
                 {{-- ## Footer widget area begin ## --}}
                 <div class="grid sidebar-footer-area">

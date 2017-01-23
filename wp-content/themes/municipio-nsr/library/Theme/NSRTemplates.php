@@ -12,19 +12,20 @@ class NSRTemplates
 
     public function addVCPageTemplate()
     {
-
+    /*
         \Municipio\Helper\Template::add(
             __('Sida utan rubrik med sidebar', 'NSRTemplates'),
             \Municipio\Helper\Template::locateTemplate('vc-page.blade.php')
         );
 
         \Municipio\Helper\Template::add(
-            __('Sida utan rubrik utan sidebar (Startsida)', 'NSRTemplates'),
+            __('NSR Startsida', 'NSRTemplates'),
             \Municipio\Helper\Template::locateTemplate('vc-page-nosidebar.blade.php')
         );
 
-    }
+      */
 
+    }
 
 
     /**
