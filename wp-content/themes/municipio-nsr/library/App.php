@@ -33,7 +33,7 @@ class App
         add_filter( 'image_size_names_choose', array($this,'nsr_image_sizes') );
         add_action('after_setup_theme', array( $this,'create_404_page') );
 
-        add_filter('upload_mimes', array( $this,'cc_mime_types' ) );
+        add_filter('upload_mimes', array( $this,'mime_types' ) );
 
     }
 
@@ -53,10 +53,12 @@ class App
      *  Allow svg files in upload
      *  @return void
      */
-    function cc_mime_types($mimes) {
-        $mimes['svg'] = 'image/svg+xml';
+    function mime_types($existing_mimes = array() ) {
+        //$mimes['svg'] = 'image/svg+xml';
+        $mimes['svg'] = 'mime/type';
         return $mimes;
     }
+
 
 
     function fix_svg_thumb_display() {
