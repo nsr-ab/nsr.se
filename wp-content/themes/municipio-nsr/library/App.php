@@ -33,7 +33,10 @@ class App
         add_filter( 'image_size_names_choose', array($this,'nsr_image_sizes') );
         add_action('after_setup_theme', array( $this,'create_404_page') );
 
-        add_filter('upload_mimes', array( $this,'mime_types' ) );
+        if ( is_admin() ) {
+            define('ALLOW_UNFILTERED_UPLOADS', true);
+        }
+
 
     }
 
@@ -45,18 +48,6 @@ class App
     public function image_size()
     {
         add_image_size( 'Bild-till-puff', 757, 267, true );
-    }
-
-
-    /**
-     *  SVG upload
-     *  Allow svg files in upload
-     *  @return void
-     */
-    function mime_types($existing_mimes = array() ) {
-        //$mimes['svg'] = 'image/svg+xml';
-        $mimes['svg'] = 'mime/type';
-        return $mimes;
     }
 
 
