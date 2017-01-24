@@ -37,6 +37,7 @@ class App
             define('ALLOW_UNFILTERED_UPLOADS', true);
         }
 
+        add_action( 'login_enqueue_scripts', array( $this, 'admin_login_logo') );
 
     }
 
@@ -60,7 +61,6 @@ class App
             }
           ';
     }
-
 
 
     /**
@@ -198,9 +198,13 @@ class App
         );
     }
 
-    // Ensures this function is only called after the theme is setup
-    // You could bind to the "init" event if "after_setup_theme" doesn't work well for you.
-    // Insert a privately published page we can query for our 404 page
+
+
+    /**
+     * create_404_page
+     * Insert a privately published page we can query for our 404 page
+     * @return location
+     */
     function create_404_page() {
 
         // Check if the 404 page exists

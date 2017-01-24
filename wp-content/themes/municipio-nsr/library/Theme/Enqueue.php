@@ -13,6 +13,8 @@ class Enqueue
         add_action( 'wp_enqueue_scripts', function() {
             wp_deregister_style('font-awesome');
         }, -1 );
+
+        add_action( 'login_enqueue_scripts', array($this,'style' ) );
     }
 
     /**

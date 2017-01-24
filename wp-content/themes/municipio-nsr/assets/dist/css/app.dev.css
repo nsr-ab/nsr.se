@@ -26,6 +26,11 @@ html.translated-ltr #site-header {
 .error404 .sticky {
   margin-left: -30px; }
 
+#login h1 a, .login h1 a {
+  height: 30px;
+  background-image: url("../img/logo-avc-admin.png");
+  padding-bottom: 30px; }
+
 .materialize-red {
   background-color: #e51c23 !important; }
 
