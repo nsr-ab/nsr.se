@@ -460,7 +460,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         CityItem = [];
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
                             var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;
-
                             var inlineClick;
                             if(spost.terms.inlamningsstallen[int].pageurl)
                                 inlineClick = ' data-url="http://maps.google.com?q='+spost.terms.inlamningsstallen[int].lat+','+spost.terms.inlamningsstallen[int].long+'" ';
@@ -631,8 +630,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
 
                 $(cordClass).css('font-weight','600');
-                $(cordClass).css('color','#fff');
-                $(cordClass).find('i').css('color','#00ffd0');
+                $(cordClass).before().css('color','#fff');
+             
                 $(cordClass).removeClass('hide');
 
                 var int = 0;
