@@ -265,13 +265,15 @@ input[type=text]:focus.invalid {
       color: #fff !important; }
       .searchNSR .search-autocomplete li a:hover, .searchNSR .search-content li a:hover, .searchNSR .sorterings-guide-table li a:hover {
         color: #fff !important; }
+    .searchNSR .search-autocomplete .meta-fraktion li a, .searchNSR .search-content .meta-fraktion li a, .searchNSR .sorterings-guide-table .meta-fraktion li a {
+      padding: 0px 15px; }
     .searchNSR .search-autocomplete .meta-fraktion i, .searchNSR .search-content .meta-fraktion i, .searchNSR .sorterings-guide-table .meta-fraktion i {
       font-size: 1.0rem !important;
       margin-top: 2px; }
     .searchNSR .search-autocomplete .meta-fraktion a, .searchNSR .search-content .meta-fraktion a, .searchNSR .sorterings-guide-table .meta-fraktion a {
       color: white !important; }
     .searchNSR .search-autocomplete td li b, .searchNSR .search-content td li b, .searchNSR .sorterings-guide-table td li b {
-      color: #e6e6e6 !important; }
+      color: #8ef3ff !important; }
     .searchNSR .search-autocomplete li.selected a, .searchNSR .search-content li.selected a, .searchNSR .sorterings-guide-table li.selected a {
       background-color: rgba(0, 0, 0, 0.1); }
     .searchNSR .search-autocomplete i, .searchNSR .search-content i, .searchNSR .sorterings-guide-table i {
@@ -282,6 +284,8 @@ input[type=text]:focus.invalid {
       margin-top: 1px; }
     .searchNSR .search-autocomplete .locationmap, .searchNSR .search-content .locationmap, .searchNSR .sorterings-guide-table .locationmap {
       cursor: pointer; }
+  .searchNSR .nofraktionlink.span > li {
+    border: 1px solid red; }
   .searchNSR .search-autocomplete-content h5 {
     font-size: 1.64rem;
     margin: 0 0 0 0.8rem;

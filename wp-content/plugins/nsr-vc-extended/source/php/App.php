@@ -164,14 +164,17 @@ class App
                     $termlink = get_term_meta(intval($termId[$int1]));
                     $termPageLink = get_page_link($termlink['fraktion_page_link'][0]);
                     if ($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][0]) {
-
+                        if (strpos($termPageLink, '?page_id=') !== false)
+                            $termPageLink = false;
                         if ($termPageLink) {
                             $termName = "<a href='" . $termPageLink . "'>" . $getTerm->name . "</a>";
                         } else {
-                            $termName = $getTerm->name;
+                            $termName = "<span class='nofraktionlink'>".$getTerm->name."</span>";
                         }
                         $result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][$int1] = $termName;
                     }
+                    unset($termName);
+                    unset($termPageLink);
                 }
             }
 
@@ -182,16 +185,19 @@ class App
                     $termlink = get_term_meta( intval($termId[$int2]) );
                     $termPageLink = get_page_link($termlink['fraktion_page_link'][0]);
                     if($result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]) {
-
+                        if (strpos($termPageLink, '?page_id=') !== false)
+                            $termPageLink = false;
                         if($termPageLink) {
                             $termName = "<a href='" . $termPageLink . "'>" . $getTerm->name . "</a>";
                         }
                         else {
-                            $termName = $getTerm->name;
+                            $termName = "<span class='nofraktionlink'>".$getTerm->name."</span>";
                         }
 
                         $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][$int2] = $termName;
                     }
+                    unset($termName);
+                    unset($termPageLink);
                 }
 
                 $lint=0;

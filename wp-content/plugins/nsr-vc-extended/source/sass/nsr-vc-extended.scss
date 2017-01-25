@@ -6,6 +6,7 @@ $darkGrey: darken($lighGrey, 55%);
 $defaultGreen: #007586;
 $defaultDarkGreen: darken($defaultGreen, 5%);
 $signalGreen : #2dbccd;
+$signalGreenNeo : #8ef3ff;
 //$lightGreen : #aaeaf2; // Snyggare men...
 $lightGreen : $white;
 $mossGreen : #039db0;
@@ -396,6 +397,9 @@ input[type=text]:focus.invalid {
       }
 
     }
+    .meta-fraktion li a {
+      padding: 0px 15px;
+    }
     .meta-fraktion i {
       font-size:1.0rem !important;
       margin-top:2px;
@@ -407,7 +411,7 @@ input[type=text]:focus.invalid {
       color: lighten($lightGreen, 10%) !important;
     }
     td li b {
-      color: darken($lightGreen, 10%) !important;
+      color: $signalGreenNeo !important;
     }
 
     li.selected a {
@@ -429,6 +433,11 @@ input[type=text]:focus.invalid {
       cursor:pointer;
     }
 
+  }
+
+
+  .nofraktionlink.span > li {
+    border:1px solid red;
   }
 
   @media (max-width: 540px) {
@@ -545,6 +554,7 @@ input[type=text]:focus.invalid {
     float:none;
     display:block;
   }
+
   .sorterings-guide-table li:hover {
     background:none !important;
   }
