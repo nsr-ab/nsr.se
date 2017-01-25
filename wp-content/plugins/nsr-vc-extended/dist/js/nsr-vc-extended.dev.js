@@ -183,6 +183,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.search-autocomplete').remove();
         $('.sorteringsguiden').remove();
         $('.vc_row').show();
+        $('.page-footer').show();
+        $('.main-container').removeAttr('style');
 
         if($('body').hasClass('error404'))
             $('.sidebar-footer-area').css('margin-top','0px');
@@ -207,12 +209,15 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.searchNSR input').focus();
         $('.searchNSR').addClass('fullscreen');
         $('.closeSearch').removeClass('hide');
+
         event.stopPropagation();
 
         $('html, body').animate({ scrollTop: 0 }, 'slow');
 
         $('.vc_row').hide();
+        $('.page-footer').hide();
         $('.searchNSR').closest('.vc_row').show();
+        $('.main-container').height(317);
 
         if($('body').hasClass('error404'))
              $('.sidebar-footer-area').css('margin-top','200px');

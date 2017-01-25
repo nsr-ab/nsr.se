@@ -9,3 +9,8 @@ main {
 footer {
   background-color:$palette-primary-white !important;
 }
+@media only screen and (max-width: 768px) {
+  .page-footer {
+    display:none;
+  }
+}
