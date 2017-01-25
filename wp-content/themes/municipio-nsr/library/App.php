@@ -38,7 +38,7 @@ class App
         }
 
         add_action( 'login_enqueue_scripts', array( $this, 'admin_login_logo') );
-
+        add_filter( 'login_headerurl', array( $this,'login_logo_url') );
     }
 
     /**
@@ -236,6 +236,11 @@ class App
         }
 
     }
+
+    function login_logo_url() {
+        return home_url();
+    }
+
 
 
 

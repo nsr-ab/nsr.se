@@ -31,9 +31,19 @@ html.translated-ltr #site-header {
     margin-left: -30px;
 }
 #login h1 a, .login h1 a {
-    height:30px;
     background-image: url('../img/logo-avc-admin.png');
     padding-bottom: 30px;
 }
+.button-primary {
+    background-color: #007586 !important;
+    border-color: #007586 !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px #007586, 1px 0 1px #007586, 0 1px 1px #007586, -1px 0 1px #007586;
+}
+
+
 
 
