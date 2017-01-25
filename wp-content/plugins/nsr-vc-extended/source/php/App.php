@@ -166,7 +166,7 @@ class App
                     if ($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][0]) {
 
                         if ($termPageLink) {
-                            $termName = "<i class='material-icons'>description</i> <a href='" . $termPageLink . "'>" . $getTerm->name . "</a>";
+                            $termName = "<a href='" . $termPageLink . "'>" . $getTerm->name . "</a>";
                         } else {
                             $termName = $getTerm->name;
                         }
@@ -184,7 +184,7 @@ class App
                     if($result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]) {
 
                         if($termPageLink) {
-                            $termName = "<i class='material-icons'>description</i> <a href='" . $termPageLink . "'>" . $getTerm->name . "</a>";
+                            $termName = "<a href='" . $termPageLink . "'>" . $getTerm->name . "</a>";
                         }
                         else {
                             $termName = $getTerm->name;

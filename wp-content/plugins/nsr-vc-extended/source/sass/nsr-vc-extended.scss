@@ -6,11 +6,11 @@ $darkGrey: darken($lighGrey, 55%);
 $defaultGreen: #007586;
 $defaultDarkGreen: darken($defaultGreen, 5%);
 $signalGreen : #2dbccd;
-$lightGreen : #aaeaf2;
+//$lightGreen : #aaeaf2; // Snyggare men...
+$lightGreen : $white;
 $mossGreen : #039db0;
 $darkGreen : #007684;
 $darkerGreen: #016a77;
-
 
 
 
@@ -551,6 +551,10 @@ input[type=text]:focus.invalid {
 
   .exnfodispl {
     max-width: 300px;
+
+  }
+  .preSortCell, .exnfodispl {
+    font-size:1.0rem;
   }
 
   @media (max-width: 700px) {
@@ -616,6 +620,29 @@ input[type=text]:focus.invalid {
   .extNfo {
     margin-top:20px;
   }
+
+  .locationmap:before, .fraktion-icon:before {
+    font-family: 'Material Icons';
+    color:$signalGreen;
+    top:0px !important;
+    left:0px !important;
+  }
+
+  .locationmap:before {
+    content: 'location_on' !important;
+  }
+
+  .fraktion-icon:before {
+    content: 'description' !important;
+  }
+  .fraktion-icon {
+    padding-left:0px;
+  }
+  .locationmap {
+    padding-left:15px;
+    padding-bottom:5px;
+  }
+
 
   @media (max-width: 1000px) {
     .search-autocomplete, .search-content {

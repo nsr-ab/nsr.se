@@ -177,8 +177,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         event.stopPropagation();
         $('.searchNSR').removeClass('fullscreen');
+        $('.searchNSR').removeClass('searchResult');
         $(element).addClass('hide');
-        $('#searchResult').html('');
+
         $('#searchkeyword-nsr').val('');
         $('.search-autocomplete').remove();
         $('.sorteringsguiden').remove();
@@ -218,6 +219,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.page-footer').hide();
         $('.searchNSR').closest('.vc_row').show();
         $('.main-container').height(317);
+
+        if($(window).width() < 540)
+            $('.main-container').height(237);
 
         if($('body').hasClass('error404'))
              $('.sidebar-footer-area').css('margin-top','200px');
@@ -308,9 +312,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
             }
         }).done(function (result) {
+            $('.searchNSR').addClass('searchResult');
             $element.find('.sorteringsguiden').remove();
             $element.find('.search-autocomplete').remove();
-
             this.outputAutocomplete(element, result, $post_type);
         }.bind(this));
 
@@ -380,11 +384,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.outputAutocomplete = function(element, res, searchSection) {
 
         var $element = $(element);
-        var $autocomplete = $('<div class="search-autocomplete"><h4>Sidor på nsr.se</h4></div>');
+        var $autocomplete = $('<div class="search-autocomplete"></div>');
         var $content = $('<ul class="search-autocomplete-content"></ul>');
-        var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4><div class="left badgeInfo"><span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div></div>');
+        var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4><div class="left badgeInfo"><span class="badge">F</span> Företag <span class="badge">P</span> Privat<br /></div></div>');
         var spinner = '<div class="preloader-wrapper small active" style="display:none;"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
-        var $sortMarkupTable = $('<table class="sorterings-guide-table"><tr class="tabDesk"><th></th><th>Sorteras som</th><th class="relative">Lämna nära dig...</th><th class="exnfodispl">Bra att veta</th></tr></table>');
+        var $sortMarkupTable = $('<table class="sorterings-guide-table"><tr class="tabDesk"><th></th><th>Sorteras som</th><th class="exnfodispl">Bra att veta</th><th class="relative">Lämnas nära dig</th></tr></table>');
+        var nosortGuidedata = false;
+        var noContent = false;
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
@@ -409,34 +415,45 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td><td valign="top">';
 
                 if(spost.terms) {
-                    if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion.length) {
+                    console.log(spost.post_title +" : "+ spost.post_meta.avfall_fraktion.length);
+                    if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion != '' && spost.post_meta.avfall_fraktion.length) {
                         if(spost.post_meta.avfall_fraktion_hemma != '') {
-                            sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
-                            tabMobile_frak += '<li><b>Sorteras som på ÅVC:</b><ul>';
+                            sortHTML += '<li><b>ÅVC:</b><ul class="sortAs meta-fraktion">';
+                            tabMobile_frak += '<li><b>ÅVC:</b><ul>';
+
                             for (int = 0; int < spost.post_meta.avfall_fraktion.length; int++) {
-                                sortHTML += '<li>' + spost.post_meta.avfall_fraktion[int] + '</li>';
-                                tabMobile_frak += '<li>' + spost.post_meta.avfall_fraktion[int] + "<li>";
+                                console.log(spost.post_meta.avfall_fraktion[int]);
+                                sortHTML += '<li class="fraktion-icon">' + spost.post_meta.avfall_fraktion[int] + '</li>';
+                                tabMobile_frak += '<li class="fraktion-icon">' + spost.post_meta.avfall_fraktion[int] + "<li>";
                             }
                             sortHTML += '</ul></li>';
                             tabMobile_frak += '</ul></li>';
+
                         }
                     }
-                    if(spost.post_meta.avfall_fraktion_hemma && spost.post_meta.avfall_fraktion_hemma.length) {
+                    if(spost.post_meta.avfall_fraktion_hemma && spost.post_meta.avfall_fraktion_hemma != '' && spost.post_meta.avfall_fraktion_hemma.length) {
                         if(spost.post_meta.avfall_fraktion_hemma != '') {
                             sortHTML += '<li><b>Hemma:</b><ul class="meta-fraktion">';
-                            tabMobile_frak += '<li><b class="sortAs">Sorteras som hemma:</b><ul>';
+                            tabMobile_frak += '<li><b class="sortAs">Hemma:</b><ul>';
 
                             for (int = 0; int < spost.post_meta.avfall_fraktion_hemma.length; int++) {
-                                sortHTML += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + '</li>';
-                                tabMobile_frak += '<li>' + spost.post_meta.avfall_fraktion_hemma[int] + "<li>";
+                                sortHTML += '<li class="fraktion-icon">' + spost.post_meta.avfall_fraktion_hemma[int] + '</li>';
+                                tabMobile_frak += '<li class="fraktion-icon">' + spost.post_meta.avfall_fraktion_hemma[int] + "<li>";
                             }
+
                             sortHTML += '</ul></li>';
                             tabMobile_frak += '</ul></li>';
                         }
                     }
                 }
 
-                sortHTML += '</td><td valign="top">'+spinner+'<ul class="inlstallen">';
+                sortHTML += '</td>';
+                var braAttVeta;
+                if(spost.post_meta)
+                    braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'), '<br />');;
+                sortHTML += '<td class="exnfodispl">'+braAttVeta+'</td>';
+
+                sortHTML += '<td valign="top">'+spinner+'<ul class="inlstallen">';
                 var hideStuff = '';
                 if(spost.terms) {
                     if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
@@ -450,8 +467,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             CityItem[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].name, cssClass];
                             if(int > 5)
                                 hideStuff = 'hide';
-                            sortHTML += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'><i class="material-icons isize">location_on</i> ' + spost.terms.inlamningsstallen[int].name+'</li>';
-                            tabMobile_inl += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'><i class="material-icons isize">location_on</i> ' + spost.terms.inlamningsstallen[int].name + '</li>';
+                            sortHTML += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'> ' + spost.terms.inlamningsstallen[int].name+'</li>';
+                            tabMobile_inl += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'> ' + spost.terms.inlamningsstallen[int].name + '</li>';
                             hideStuff = '';
                         }
 
@@ -461,15 +478,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
 
                 sortHTML += '</ul></td>';
-                var braAttVeta;
-                if(spost.post_meta)
-                    braAttVeta = spost.post_meta.avfall_bra_att_veta;
-                sortHTML += '<td class="exnfodispl">'+braAttVeta+'</td>';
                 sortHTML += '</tr>';
                 sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul class="meta-fraktion">'+tabMobile_frak+'</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile"><th>Lämnas:</th><td>'+spinner+'<ul>'+tabMobile_inl+'</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile lastchild"><td class="lastchild" colspan="2"> </td></tr>';
+
+
+                tabMobile_frak = "";
                 tabMobile_inl = "";
+
+                if(spost.post_title.length > 0)
+                    nosortGuidedata = true;
+
             });
 
             $sortMarkupTable.append(sortHTML);
@@ -492,15 +512,22 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     pageHTML += '<div class="moreinfo">'+$excerpt+'</div>';
                 pageHTML += '</a></li>';
                 $content.append(pageHTML);
+                noContent = true;
             });
-        } else {
-            $content = $('');
+            $('.search-autocomplete').prepend('<h4>Sidor på nsr.se</h4>');
+
+
         }
 
-        $sortMarkupTable.appendTo($sorteringsguiden);
-        $sorteringsguiden.appendTo($element);
-        $content.appendTo($autocomplete);
+        if(nosortGuidedata) {
+            $sortMarkupTable.appendTo($sorteringsguiden);
+            $sorteringsguiden.appendTo($element);
+        }
+        if(noContent)
+            $content.appendTo($autocomplete);
         $autocomplete.appendTo($element).show();
+        if(noContent)
+            $('.search-autocomplete').prepend('<h4>Sidor på nsr.se</h4>');
 
         if (navigator.geolocation) {
             $('.preloader-wrapper').fadeIn("slow");

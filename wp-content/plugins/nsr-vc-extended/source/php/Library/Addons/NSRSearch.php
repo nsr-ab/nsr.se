@@ -125,6 +125,7 @@ class NSRSearch
                         
                         <div class=\"col s12\">
                           <div class=\"row\">
+                          
                         <form itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/SearchAction\">
                             <h4>".$params->vc_designation."</h4>
                             <div class=\"input-field col s12 searchArea\">
@@ -137,8 +138,7 @@ class NSRSearch
                         </form>
                     </div></div>  
                      <i class=\"hide closeSearch material-icons\">cancel</i>
-                     
-                     <div id=\"searchResult\"></div>
+       
                      </div>";
 
             return $output;
