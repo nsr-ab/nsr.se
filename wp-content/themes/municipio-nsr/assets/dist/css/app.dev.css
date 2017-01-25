@@ -6674,7 +6674,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 /* Navigation li item,  Mobile & Desktop */
 .sites-nav li, .side-nav li {
   padding: 10px 0;
-  display: table-cell; }
+  display: table-cell;
+  min-width: 90px; }
   .sites-nav li:hover, .side-nav li:hover {
     background: none;
     color: #004853; }
