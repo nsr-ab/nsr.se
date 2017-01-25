@@ -159,3 +159,14 @@ article iframe[src*="google.com/maps/"],
 article iframe[src*="youtube.com/embed/"] {
     max-width:100% !important;
 }
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"] {
+    background-color:$palette-primary-grey-input !important;
+}

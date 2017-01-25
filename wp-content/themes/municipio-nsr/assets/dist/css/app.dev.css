@@ -7292,6 +7292,15 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme article iframe[src*="google.com/maps/"],
   .is-child-theme article iframe[src*="youtube.com/embed/"] {
     max-width: 100% !important; }
+  .is-child-theme textarea,
+  .is-child-theme input[type="text"],
+  .is-child-theme input[type="password"],
+  .is-child-theme input[type="datetime"],
+  .is-child-theme input[type="date"],
+  .is-child-theme input[type="month"],
+  .is-child-theme input[type="time"],
+  .is-child-theme input[type="week"] {
+    background-color: #e6e6e6 !important; }
 
 .is-child-theme.home header {
   background-color: #fff; }
