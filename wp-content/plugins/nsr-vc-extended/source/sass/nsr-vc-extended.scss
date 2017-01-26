@@ -430,7 +430,10 @@ input[type=text]:focus.invalid {
       margin-top:1px;
     }
     .locationmap {
-      cursor:pointer;
+      cursor: pointer;
+      &:hover {
+        color: $lightCyan !important;
+      }
     }
 
   }

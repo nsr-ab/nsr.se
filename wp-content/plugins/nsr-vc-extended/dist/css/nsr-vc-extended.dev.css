@@ -284,6 +284,8 @@ input[type=text]:focus.invalid {
       margin-top: 1px; }
     .searchNSR .search-autocomplete .locationmap, .searchNSR .search-content .locationmap, .searchNSR .sorterings-guide-table .locationmap {
       cursor: pointer; }
+      .searchNSR .search-autocomplete .locationmap:hover, .searchNSR .search-content .locationmap:hover, .searchNSR .sorterings-guide-table .locationmap:hover {
+        color: #90f3ff !important; }
   .searchNSR .geoLink {
     color: #fff;
     text-decoration: underline;
