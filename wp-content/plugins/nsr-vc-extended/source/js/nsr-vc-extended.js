@@ -429,7 +429,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 if(spost.terms) {
 
                     if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion != '' && spost.post_meta.avfall_fraktion.length) {
-                        if(spost.post_meta.avfall_fraktion_hemma != '') {
+                        if(spost.post_meta.avfall_fraktion != '') {
                             sortHTML += '<li><b>ÅVC:</b><ul class="sortAs meta-fraktion">';
                             tabMobile_frak += '<li><b>ÅVC:</b><ul>';
 
@@ -440,7 +440,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             }
                             sortHTML += '</ul></li>';
                             tabMobile_frak += '</ul></li>';
-
                         }
                     }
                     if(spost.post_meta.avfall_fraktion_hemma && spost.post_meta.avfall_fraktion_hemma != '' && spost.post_meta.avfall_fraktion_hemma.length) {
@@ -472,12 +471,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         CityItem = [];
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
                             var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;
-                            var inlineClick;
-
+                            var inlineClick, inlLink, inLinkClose;
                             if(spost.terms.inlamningsstallen[int].pageurl) {
 
                                 if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int].pageurl, '?page_id=') === 0) {
-                                    inlineClick = ' data-url="' + spost.terms.inlamningsstallen[int].pageurl + '" ';
+                                    inlLink = '<a href="'+spost.terms.inlamningsstallen[int].pageurl + '">';
+                                    inLinkClose = '</a>';
                                 }
                                 else {
                                     if(spost.terms.inlamningsstallen[int].lat && spost.terms.inlamningsstallen[int].long) {
@@ -489,8 +488,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             CityItem[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].name, cssClass];
                             if(int > 5)
                                 hideStuff = 'hide';
-                            sortHTML += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'> ' + spost.terms.inlamningsstallen[int].name+'</li>';
-                            tabMobile_inl += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'> ' + spost.terms.inlamningsstallen[int].name + '</li>';
+                            sortHTML += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'> ' + inlLink + spost.terms.inlamningsstallen[int].name + inLinkClose + '</li>';
+                            tabMobile_inl += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'> ' + inlLink + spost.terms.inlamningsstallen[int].name + inLinkClose +  '</li>';
                             hideStuff = '';
                         }
 
