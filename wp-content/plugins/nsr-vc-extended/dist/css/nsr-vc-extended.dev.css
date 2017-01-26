@@ -264,7 +264,7 @@ input[type=text]:focus.invalid {
       text-decoration: none !important;
       color: #fff !important; }
       .searchNSR .search-autocomplete li a:hover, .searchNSR .search-content li a:hover, .searchNSR .sorterings-guide-table li a:hover {
-        color: #fff !important; }
+        color: #90f3ff !important; }
     .searchNSR .search-autocomplete .meta-fraktion li a, .searchNSR .search-content .meta-fraktion li a, .searchNSR .sorterings-guide-table .meta-fraktion li a {
       padding: 0px 15px; }
     .searchNSR .search-autocomplete .meta-fraktion i, .searchNSR .search-content .meta-fraktion i, .searchNSR .sorterings-guide-table .meta-fraktion i {
