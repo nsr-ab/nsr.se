@@ -441,7 +441,7 @@ input[type=text]:focus.invalid {
     font-weight:600;
   }
   .geoLink:before {
-    color:#fff;
+    color:#fff !important;
   }
 
   .nofraktionlink.span > li {

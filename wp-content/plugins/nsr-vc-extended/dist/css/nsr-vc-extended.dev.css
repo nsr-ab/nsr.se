@@ -289,7 +289,7 @@ input[type=text]:focus.invalid {
     text-decoration: underline;
     font-weight: 600; }
   .searchNSR .geoLink:before {
-    color: #fff; }
+    color: #fff !important; }
   .searchNSR .nofraktionlink.span > li {
     border: 1px solid red; }
   .searchNSR .search-autocomplete-content h5 {
