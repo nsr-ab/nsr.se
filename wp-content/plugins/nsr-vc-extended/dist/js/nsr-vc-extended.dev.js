@@ -217,9 +217,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
         if(!$('.searchNSR').hasClass('position-relative'))
             $('html, body').animate({ scrollTop: 0 }, 'slow');
 
-        $('.vc_row').hide();
+        if(!$('.searchNSR').hasClass('position-relative'))
+            $('.vc_row').hide();
         $('.page-footer').hide();
-        $('.searchNSR').closest('.vc_row').show();
+
+        if(!$('.searchNSR').hasClass('position-relative'))
+            $('.searchNSR').closest('.vc_row').show();
+
         $('.main-container').height(317);
 
         if($(window).width() < 540)
