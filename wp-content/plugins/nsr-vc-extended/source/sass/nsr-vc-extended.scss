@@ -7,13 +7,12 @@ $defaultGreen: #007586;
 $defaultDarkGreen: darken($defaultGreen, 5%);
 $signalGreen : #2dbccd;
 $signalGreenNeo : #8ef3ff;
-$lightblue = #b2f8ff;
 //$lightGreen : #aaeaf2; // Snyggare men...
 $lightGreen : $white;
 $mossGreen : #039db0;
 $darkGreen : #007684;
 $darkerGreen: #016a77;
-
+$lightBlue = #b2f8ff;
 
 
 .mce-content-body ul,
@@ -249,7 +248,7 @@ input[type=text]:focus.invalid {
     left: 5.2rem !important;
     top: 2.1rem;
     font-size: 1.2em;
-    color: $lightblue;
+    color: $lightBlue;
   }
 
   .input-field input[type=search] + label.active {
