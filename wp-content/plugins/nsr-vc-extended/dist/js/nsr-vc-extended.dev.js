@@ -216,18 +216,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if(!$('.searchNSR').hasClass('position-relative'))
             $('html, body').animate({ scrollTop: 0 }, 'slow');
-
-        if(!$('.searchNSR').hasClass('position-relative'))
+        
+        if(!$('.searchNSR').hasClass('position-relative')) {
             $('.vc_row').hide();
-        $('.page-footer').hide();
-
-        if(!$('.searchNSR').hasClass('position-relative'))
+            $('.page-footer').hide();
             $('.searchNSR').closest('.vc_row').show();
+            $('.main-container').height(317);
 
-        $('.main-container').height(317);
-
-        if($(window).width() < 540)
-            $('.main-container').height(237);
+            if ($(window).width() < 540)
+                $('.main-container').height(237);
+        }
 
         if($('body').hasClass('error404'))
             $('.sidebar-footer-area').css('margin-top','200px');
