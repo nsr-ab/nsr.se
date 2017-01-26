@@ -530,7 +530,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             if($(this).find('span').hasClass('nofraktionlink'))
                 $(this).removeClass('fraktion-icon');
         });
-      
+
 
         if(noContent)
             $('.search-autocomplete').prepend('<h4>Sidor på nsr.se</h4>');
@@ -636,9 +636,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
 
-                $(cordClass).css('font-weight','600');
-                $(cordClass+':before').css('color','#fff');
-                //$(cordClass).after().css('color','#fff');
+                $(cordClass).addClass('geoLink');
                 $(cordClass).removeClass('hide');
 
                 var int = 0;

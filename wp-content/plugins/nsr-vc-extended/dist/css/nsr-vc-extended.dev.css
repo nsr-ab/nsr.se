@@ -284,6 +284,12 @@ input[type=text]:focus.invalid {
       margin-top: 1px; }
     .searchNSR .search-autocomplete .locationmap, .searchNSR .search-content .locationmap, .searchNSR .sorterings-guide-table .locationmap {
       cursor: pointer; }
+  .searchNSR .geoLink {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 600; }
+  .searchNSR .geoLink:before {
+    color: #fff; }
   .searchNSR .nofraktionlink.span > li {
     border: 1px solid red; }
   .searchNSR .search-autocomplete-content h5 {
