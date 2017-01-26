@@ -224,7 +224,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.main-container').height(237);
 
         if($('body').hasClass('error404'))
-             $('.sidebar-footer-area').css('margin-top','200px');
+            $('.sidebar-footer-area').css('margin-top','200px');
 
     };
 
@@ -374,6 +374,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
+    /**
+     * find occurance in strings
+     * @param  {string} haystack
+     * @param  {string}  res
+     * @param  {int}  offset
+     * @return {int}
+     */
+    Extended.prototype.Strpos = function strpos (haystack, needle, offset) {
+        var i = (haystack+'').indexOf(needle, (offset || 0));
+        return i === -1 ? 0 : i;
+    }
+
 
     /**
      * Outputs the autocomplete dropdown
@@ -415,14 +427,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td><td valign="top">';
 
                 if(spost.terms) {
-                    console.log(spost.post_title +" : "+ spost.post_meta.avfall_fraktion.length);
+
                     if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion != '' && spost.post_meta.avfall_fraktion.length) {
                         if(spost.post_meta.avfall_fraktion_hemma != '') {
                             sortHTML += '<li><b>ÅVC:</b><ul class="sortAs meta-fraktion">';
                             tabMobile_frak += '<li><b>ÅVC:</b><ul>';
 
                             for (int = 0; int < spost.post_meta.avfall_fraktion.length; int++) {
-                                console.log(spost.post_meta.avfall_fraktion[int]);
+
                                 sortHTML += '<li class="fraktion-icon">' + spost.post_meta.avfall_fraktion[int] + '</li>';
                                 tabMobile_frak += '<li class="fraktion-icon">' + spost.post_meta.avfall_fraktion[int] + "<li>";
                             }
@@ -461,8 +473,19 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
                             var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;
                             var inlineClick;
-                            if(spost.terms.inlamningsstallen[int].pageurl)
-                                inlineClick = ' data-url="http://maps.google.com?q='+spost.terms.inlamningsstallen[int].lat+','+spost.terms.inlamningsstallen[int].long+'" ';
+
+                            if(spost.terms.inlamningsstallen[int].pageurl) {
+
+                                if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int].pageurl, '?page_id=') === 0) {
+                                    inlineClick = ' data-url="' + spost.terms.inlamningsstallen[int].pageurl + '" ';
+                                }
+                                else {
+                                    if(spost.terms.inlamningsstallen[int].lat && spost.terms.inlamningsstallen[int].long) {
+                                        inlineClick = ' data-url="http://maps.google.com?q=' + spost.terms.inlamningsstallen[int].lat + ',' + spost.terms.inlamningsstallen[int].long + '" ';
+                                    }
+                                }
+                            }
+
                             CityItem[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].name, cssClass];
                             if(int > 5)
                                 hideStuff = 'hide';
@@ -619,9 +642,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.NearestCity = function(latitude, longitude) {
 
-
         var icon = 0;
-
         for (ind = 0; ind < cities.length; ++ind) {
             if(ind < cities.length+1) {
                 $(cordClass).closest('ul').addClass('parent-'+ind);
@@ -632,26 +653,26 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (dif < mindif) {
                         closest = ind;
                         mindif = dif;
-                        var cordClass = '.cord-' + cities[ind][index][4];
+                        var cordClass = 'cord-' + cities[ind][index][4];
                     }
                 }
 
-                $(cordClass).addClass('geoLink');
-                $(cordClass).removeClass('hide');
+                $('.'+cordClass).addClass('geoLink');
+                $('.'+cordClass).removeClass('hide');
 
                 var int = 0;
                 $('.inlstallen li ').each(function() {
                     if(int > 4)
                         $(this).addClass('hide');
+                    if($(this).hasClass(cordClass)) {
+                        var putMeInTheTopOfTheList = $(this).clone();
+                        $(this).parent().prepend(putMeInTheTopOfTheList);
+                        $(this).remove();
+                    }
                 });
                 icn = false;
                 cordClass = false;
-
-                var putMeInTheTopOfTheList = $(cordClass).html();
-                $(cordClass).parent().append(putMeInTheTopOfTheList);
-
-                $(cordClass).remove();
-
+                $(cordClass).parent().css('background','red');
             }
         }
 
