@@ -89,11 +89,11 @@ class OpenHours
                 'param_name' => 'vc_location',
                 'edit_field_class' => 'vc_col-sm-4 vc_col-md-4 disable-when-all',
                 'value' => $stack,
-                'dependency' => array(
+                /*'dependency' => array(
                     'element' => 'vc_all_locations',
                     'value' => 'true',
                     'callback' => 'callbackOutsideScope'
-                )
+                )*/
             ),
 
 
@@ -104,11 +104,11 @@ class OpenHours
                 'heading' => __('Date Size', 'nsr-vc-extended'),
                 'param_name' => 'vc_date_size',
                 'edit_field_class' => 'vc_col-sm-4 vc_col-md-4 ',
-                'dependency' => array(
+                /*'dependency' => array(
                     'element' => 'vc_all_locations',
                     'value' => 'true',
                     'callback' => 'callbackOutsideScope'
-                ),
+                ),*/
                 'value' => array(
                     __('Choose format...', 'nsr-vc-extended')  => '',
                     __('Short', 'nsr-vc-extended')   => 'short',
@@ -124,11 +124,11 @@ class OpenHours
                 'heading' => __('Type', 'nsr-vc-extended'),
                 'param_name' => 'vc_type',
                 'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
-                'dependency' => array(
+                /*'dependency' => array(
                     'element' => 'vc_all_locations',
                     'value' => 'true',
                     'callback' => 'callbackOutsideScope'
-                ),
+                ),*/
                 'value'       => array(
                     __('Choose Type...', 'nsr-vc-extended') => '',
                     __('Weekends', 'nsr-vc-extended')   => 'weekends',

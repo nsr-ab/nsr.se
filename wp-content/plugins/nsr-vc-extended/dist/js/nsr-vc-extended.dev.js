@@ -23,7 +23,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
     function Extended() {
 
         this.init();
-        $('.card-content').matchHeight();
+        if($('body').hasClass('wp-admin'))
+            $('.card-content').matchHeight();
     }
 
 

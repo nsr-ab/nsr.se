@@ -99,8 +99,8 @@ class App
         if($showAllSections != 'true'){
 
             $oph_sections = get_field('oph_sections', 'option');
-            $return_value = "<li class=\"collection-header cleanHeader\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
-            $return_value .= "<li class=\"collection-item alltoday\"><span class='date text-align-left fulldate collection-subheader'>ÅTERVINNINGSCENTRALER</span><span class=\"secondary-content collection-subheader\">IDAG</span></li>";
+            //$return_value = "<li class=\"collection-header cleanHeader\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
+            $return_value = "<li class=\"collection-item alltoday\"><span class='date text-align-left fulldate collection-subheader'>ÅTERVINNINGSCENTRALER</span><span class=\"secondary-content collection-subheader\">IDAG</span></li>";
 
             if(isset($oph_sections)) {
 
