@@ -145,7 +145,7 @@ input[type=text]:focus.invalid {
   position: relative; }
   .searchNSR .input-field input[type=search] {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #008295;
+    color: #fff;
     margin-top: 10px;
     padding-left: 4.5rem; }
   .searchNSR .input-field input[type=search]:focus {
