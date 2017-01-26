@@ -61,6 +61,19 @@ class NSRSearch
                     __('Vanliga frågor', 'nsr-vc-extended')   => 'faq',
 
                 ),
+            ),
+            /** @Param post types parameter*/
+            array(
+                'admin_label' => true,
+                'type' => 'dropdown',
+                'heading' => __('Page position', 'nsr-vc-extended'),
+                'param_name' => 'vc_search_position',
+                'edit_field_class' => 'vc_col-sm-7 vc_col-md-7',
+                'value'       => array(
+                    __('Längst upp på sidan', 'nsr-vc-extended')   => 'top',
+                    __('Nere i innehållet på sidan', 'nsr-vc-extended')   => 'content',
+
+                ),
             )
 
         );
@@ -107,6 +120,8 @@ class NSRSearch
 
         $params['vc_designation'] = isset($atts['vc_designation']) ? $atts['vc_designation'] : null;
         $params['vc_search_sections'] = isset($atts['vc_search_sections']) ? $atts['vc_search_sections'] : null;
+        $params['vc_search_position'] = isset($atts['vc_search_position']) ? $atts['vc_search_position'] : null;
+
         return $this->renderMarkup($param = (object) $params);
 
     }
@@ -121,7 +136,13 @@ class NSRSearch
     public function renderMarkup($params)
     {
 
-            $output = "<div class=\"row search searchNSR\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\">
+            if ($params->vc_search_position === 'content') {
+                $positionFixed = 'position-relative';
+            } else {
+                $positionFixed = 'position-absolute';
+            }
+
+            $output = "<div class=\"row search searchNSR ".$positionFixed."\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\">
                         
                         <div class=\"col s12\">
                           <div class=\"row\">

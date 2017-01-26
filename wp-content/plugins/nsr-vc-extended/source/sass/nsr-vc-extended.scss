@@ -320,6 +320,9 @@ input[type=text]:focus.invalid {
 
   }
 
+  &.position-relative {
+    position: relative !important;
+  }
   .section {
     position:absolute;
     top:-10px;

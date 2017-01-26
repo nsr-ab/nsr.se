@@ -214,7 +214,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         event.stopPropagation();
 
-        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        if(!$('.searchNSR').hasClass('position-relative'))
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
 
         $('.vc_row').hide();
         $('.page-footer').hide();
@@ -560,6 +561,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if(noContent)
             $('.search-autocomplete').prepend('<h4>Sidor på nsr.se</h4>');
+
+        if(!noContent && !nosortGuidedata){
+            $('#searchkeyword-nsr').addClass('invalid');
+            $('#searchkeyword-nsr').removeClass('valid');
+        }
+
 
         if (navigator.geolocation) {
             $('.preloader-wrapper').fadeIn("slow");

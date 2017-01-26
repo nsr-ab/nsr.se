@@ -117,7 +117,7 @@ class Elasticsearch
     {
         $max_fuzzyness = 5;
         $min_fuzzyness = 1;
-        $division_by = 3;
+        $division_by = 2;
 
         if (strlen($query) === $division_by) {
             return (string) '0';
