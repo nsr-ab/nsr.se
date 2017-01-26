@@ -472,7 +472,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         CityItem = [];
                         for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
                             var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;
-                            var inlineClick, inlLink, inLinkClose;
+                            var inlineClick = '';
+                            var inlLink = '';
+                            var inLinkClose = '';
                             if(spost.terms.inlamningsstallen[int].pageurl) {
 
                                 if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int].pageurl, '?page_id=') === 0) {

@@ -260,7 +260,7 @@ input[type=text]:focus.invalid {
         color: #fff !important; }
     .searchNSR .search-autocomplete li a, .searchNSR .search-content li a, .searchNSR .sorterings-guide-table li a {
       display: block;
-      padding: 0px 20px;
+      padding: 0px 0px;
       text-decoration: none !important;
       color: #fff !important; }
       .searchNSR .search-autocomplete li a:hover, .searchNSR .search-content li a:hover, .searchNSR .sorterings-guide-table li a:hover {

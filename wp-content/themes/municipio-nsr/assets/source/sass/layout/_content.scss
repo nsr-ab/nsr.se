@@ -138,9 +138,5 @@
         min-height:530px;
     }
 
-    // ***********************************************************************************
-    // *** Wake up gfx card to rerender fonts
-    // *** OBS! It breaks position: fixed so use it on children only under fixed element
-    // ***********************************************************************************
-    @include textRendering();
+
 }

@@ -1,5 +1,6 @@
 html {
     /*background: $black; //Fixes issues of color in footer, when page is to "short".*/
+    @include textRendering();
 }
 
 html.video-is-playing {
@@ -23,12 +24,44 @@ html.translated-ltr #site-header {
 }
 .error404 {
     color:#000;
+    position: relative !important;
+    background-color: #ae0b05;
+    color: #fff;
+    font-size: 1em;
+    padding: 0;
+    margin: 0;
+    display: table;
+    height: 100vh;
+    width: 100%;
+
+    #wrapper {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0px;
+    }
+
+    .sticky {
+        margin-left: -30px;
+    }
+    .right {
+        float: right;
+    }
+    .searchNSR .section {
+        position: relative;
+    }
+
+    .searchNSR .search-autocomplete .meta-fraktion li a,
+    .searchNSR .search-content .meta-fraktion li a,
+    .searchNSR .sorterings-guide-table .meta-fraktion li a {
+        margin-top:-23px;
+    }
+    td {
+        padding: 10px 15px !important;
+        vertical-align: middle !important;
+    }
 }
 .error404.theme-green {
     background-color: #fff !important;
-}
-.error404 .sticky {
-    margin-left: -30px;
 }
 #login h1 a, .login h1 a {
     background-image: url('../img/logo-avc-admin.png');

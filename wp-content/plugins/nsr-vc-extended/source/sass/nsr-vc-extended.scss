@@ -389,7 +389,7 @@ input[type=text]:focus.invalid {
 
     li a {
       display: block;
-      padding: 0px 20px;
+      padding: 0px 0px; //Removed 0px 20px
       text-decoration: none !important;
       color:$lightGreen !important;
       &:hover {

@@ -1,12 +1,24 @@
 
 
+
+    // ***********************************************************************************
+    // *** Wake up gfx card to rerender fonts
+    // *** OBS! It breaks position: fixed so use it on children only under fixed element
+    // ***********************************************************************************
+    @import 'mixin/_misc';
+
+
+    // ***************************************************************
+    // *** Master confs & pros
+    // ***************************************************************
+
     @import 'master';
     @import 'materialize';
     @import 'config/_colors';
     @import 'functions/_misc';
     @import 'mixin/_fonts';
     @import 'layout/_navigation';
-    @import 'mixin/_misc';
+
 
     // ***************************************************************
     // *** Overwrite Motherbird
@@ -72,6 +84,8 @@
         // ***************************************************************
         @import 'layout/_home';
     }
+
+
 
 
 
