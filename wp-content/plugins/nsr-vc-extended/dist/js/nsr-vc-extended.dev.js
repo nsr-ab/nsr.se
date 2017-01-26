@@ -415,11 +415,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 var customerCatIcons = '';
                 if(spost.post_meta) {
-                    if(spost.post_meta.avfall_kundkategori[0].indexOf('villa') >= 0) {
-                        customerCatIcons += '<span class="badge sortSectionIcon private">P</span> ';
-                    }
+
                     if(spost.post_meta.avfall_kundkategori[0].indexOf('foretag') >= 0) {
                         customerCatIcons += '<span class="badge sortSectionIcon company">F</span>';
+                    }
+                    if(spost.post_meta.avfall_kundkategori[0].indexOf('villa') >= 0) {
+                        customerCatIcons += '<span class="badge sortSectionIcon private">P</span> ';
                     }
                 }
 
