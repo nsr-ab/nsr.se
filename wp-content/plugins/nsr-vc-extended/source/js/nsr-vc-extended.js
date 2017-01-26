@@ -646,6 +646,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 });
                 icn = false;
                 cordClass = false;
+
+                var putMeInTheTopOfTheList = $(cordClass).html();
+                $(cordClass).parent().append(putMeInTheTopOfTheList);
+
+                $(cordClass).remove();
+
             }
         }
 
