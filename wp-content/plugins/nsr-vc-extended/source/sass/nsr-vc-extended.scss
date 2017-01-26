@@ -211,7 +211,7 @@ input[type=text]:focus.invalid {
 
   .input-field input[type=search] {
     background-color: rgba(255, 255, 255, 0.1);
-    color: $lightblue;
+    color: $white;
     margin-top: 10px;
     padding-left: 4.5rem;
   }
@@ -249,7 +249,7 @@ input[type=text]:focus.invalid {
     left: 5.2rem !important;
     top: 2.1rem;
     font-size: 1.2em;
-    color: $signalGreen;
+    color: $lightblue;
   }
 
   .input-field input[type=search] + label.active {
