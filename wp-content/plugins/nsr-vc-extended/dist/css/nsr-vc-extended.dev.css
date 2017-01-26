@@ -167,7 +167,7 @@ input[type=text]:focus.invalid {
     left: 5.2rem !important;
     top: 2.1rem;
     font-size: 1.2em;
-    color: #2dbccd; }
+    color: #90f3ff !important; }
   .searchNSR .input-field input[type=search] + label.active {
     font-size: 0.9em;
     margin-top: 12px; }

@@ -12,7 +12,7 @@ $lightGreen : $white;
 $mossGreen : #039db0;
 $darkGreen : #007684;
 $darkerGreen: #016a77;
-$lightBlue = #90f3ff;
+$lightCyan: #90f3ff;
 
 
 .mce-content-body ul,
@@ -248,7 +248,7 @@ input[type=text]:focus.invalid {
     left: 5.2rem !important;
     top: 2.1rem;
     font-size: 1.2em;
-    color: $lightBlue;
+    color: $lightCyan !important;
   }
 
   .input-field input[type=search] + label.active {
