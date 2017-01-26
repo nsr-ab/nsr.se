@@ -6994,7 +6994,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme h6 {
     font-weight: 700;
     text-transform: uppercase; }
-  .is-child-theme h5.page-excertpt {
+  .is-child-theme h5.page-excertpt, .is-child-theme .ingress {
     font-size: 1.4666rem;
     font-weight: normal;
     color: #444444;
