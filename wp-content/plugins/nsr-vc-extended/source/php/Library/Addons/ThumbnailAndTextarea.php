@@ -153,7 +153,7 @@ class ThumbnailAndTextarea
     public function renderMarkup($params)
     {
 
-        $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"border-top:2px solid ".$params->vc_border_colors .";\" " : null;
+        $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"border-top:4px solid ".$params->vc_border_colors .";\" " : null;
 
         $output = "<div id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" ". $vc_border_colors ." class=\"card hoverable small\" >";
         $output .= "<div class=\"card-image\">";
