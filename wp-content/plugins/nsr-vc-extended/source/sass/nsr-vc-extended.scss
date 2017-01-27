@@ -14,6 +14,9 @@ $darkGreen : #007684;
 $darkerGreen: #016a77;
 $lightCyan: #90f3ff;
 
+.main-content * {
+  overflow-wrap: break-word;
+}
 
 .mce-content-body ul,
 .modularity-mod-text .box-content ul,
