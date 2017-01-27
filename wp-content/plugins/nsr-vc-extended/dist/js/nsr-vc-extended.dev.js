@@ -216,18 +216,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
         event.stopPropagation();
 
         if(!$('.searchNSR').hasClass('position-relative')) {
-            $('html, body').animate({ scrollTop: 0 }, 'slow');
 
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
 
             $('.vc_row').hide();
             $('.page-footer').hide();
             $('.searchNSR').closest('.vc_row').show();
+            $('.main-container').height(317);
 
-            if($('body').hasClass('home')) {
-                $('.main-container').height(317);
-            }else {
-                $('.main-container').height(553);
-            }
             if ($(window).width() < 540)
                 $('.main-container').height(237);
         }
