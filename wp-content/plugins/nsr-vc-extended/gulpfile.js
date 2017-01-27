@@ -12,6 +12,7 @@ var plumber = require('gulp-plumber');
 
 // Compile Our Sass
 gulp.task('sass-dist', function() {
+
     gulp.src('source/sass/**/*.scss')
             .pipe(plumber())
             .pipe(sass())
@@ -22,6 +23,7 @@ gulp.task('sass-dist', function() {
 });
 
 gulp.task('sass-dev', function() {
+
     gulp.src('source/sass/**/*.scss')
         .pipe(plumber())
         .pipe(sass())
@@ -32,12 +34,22 @@ gulp.task('sass-dev', function() {
 
 // Concatenate & Minify JS
 gulp.task('scripts-dist', function() {
+
     gulp.src([
-            'source/js/**/*.js',
+            'source/js/**/nsr-vc-extended.js'
         ])
         .pipe(concat('nsr-vc-extended.dev.js'))
         .pipe(gulp.dest('dist/js'))
         .pipe(rename('nsr-vc-extended.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
+
+    gulp.src([
+        'source/js/**/nsr-vc-extended-admin.js'
+    ])
+        .pipe(concat('nsr-vc-extended-admin.dev.js'))
+        .pipe(gulp.dest('dist/js'))
+        .pipe(rename('nsr-vc-extended-admin.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist/js'));
 });

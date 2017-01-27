@@ -173,7 +173,7 @@ class OpenHours
                 'category' => __('NSR', 'js_composer'),
                 'icon' => plugins_url( 'nsr-vc-extended/dist/img/icn_openhours.svg' ),
                 'admin_enqueue_css' => array( plugins_url( 'nsr-vc-extended/dist/css/nsr-vc-extended-admin.min.css' ) ),
-                'admin_enqueue_css' => array( plugins_url( 'nsr-vc-extended/source/js/nsr-vc-menuCollapsible-admin.js' ) ),
+                'admin_enqueue_css' => array( plugins_url( 'nsr-vc-extended/source/js/nsr-vc-extended-admin.js' ) ),
                 'params' => $this->params($stack)
             )
         );

@@ -249,6 +249,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
 
+
     /**
      * Initializes the autocomplete functionality
      * @param  {object} element
@@ -265,6 +266,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         this.autocompleteQuery(element);
     };
+
 
 
 
@@ -286,6 +288,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         return false;
     };
+
 
 
 
@@ -324,6 +327,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }.bind(this));
 
     };
+
 
 
 
@@ -380,6 +384,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
 
+
     /**
      * find occurance in strings
      * @param  {string} haystack
@@ -390,7 +395,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.Strpos = function strpos (haystack, needle, offset) {
         var i = (haystack+'').indexOf(needle, (offset || 0));
         return i === -1 ? 0 : i;
-    }
+    };
+
 
 
 
@@ -546,8 +552,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 noContent = true;
             });
             $('.search-autocomplete').prepend('<h4>Sidor på nsr.se</h4>');
-
-
         }
 
         if(nosortGuidedata) {
@@ -582,6 +586,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
 
+    /**
+     * GEo Error
+     * @param  {object} error
+     * @return {void}
+     */
     Extended.prototype.GeoError = function(error) {
         switch(error.code) {
             case error.PERMISSION_DENIED:
@@ -703,196 +712,4 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
 
-
-
-/**
- * MenuCollapsible ad-don for Visual Composer
- *
- * @package NSRVCExtended
- *
- * Author: Johan Silvergrund
- * Company: HIQ
- *
- */
-
-var VcExtended = VcExtended || {};
-
-VcExtended.MenuCollapsibleAdmin = VcExtended.MenuCollapsibleAdmin || {};
-VcExtended.MenuCollapsibleAdmin.CollapsibleAdmin = (function ($) {
-
-
-    /**
-     * Constructor
-     */
-    function CollapsibleAdmin() {
-
-        this.init();
-
-    }
-
-
-    /**
-     *  init
-     *  Initializes all the necessary methods and binding stuff to events
-     */
-    CollapsibleAdmin.prototype.init = function () {
-
-        $(function() {
-            this.eventHandler();
-        }.bind(this));
-
-        this.colorPickerDefaultColors();
-
-    };
-
-
-
-    /**
-     *  eventHandler
-     *  Managing all event handlers (Silence is gold)
-     */
-    CollapsibleAdmin.prototype.eventHandler = function () {
-
-        var timeout = null;
-
-        // fetch data by input
-        $('body').on('keyup', '.vcext_search_pagetitle', function () {
-
-            clearTimeout(timeout);
-            var pageTitle = $(this).val();
-            timeout = setTimeout(function () {
-                CollapsibleAdmin.prototype.fetchDataByKeyword({ query: pageTitle });
-            }, 500);
-
-        }).bind(this);
-
-
-        $('body').on('change', '.vc_all_locations', function (e) {
-                $('.vc_location').val('Välj Stad/Ort...').change();
-                $('.vc_date_size').val('Välj format...').change();
-                $('.vc_type').val('Välj visningstyp...').change();
-        }).bind(this);
-
-    };
-
-
-
-    /**
-     *  fetchDataByKeyword
-     *  Ajax phone-call to headquarter - Fetching page title and id.
-     *  @param param.query string
-     */
-    CollapsibleAdmin.prototype.fetchDataByKeyword = function (param) {
-        var data = {
-            'action': 'fetch_data',
-            'query': param.query
-        };
-
-        jQuery.post(ajax_object.ajax_url, data, function(response) {
-            console.log(jQuery.parseJSON(response));
-        });
-
-    };
-
-
-    /**
-     *  colorPickerDefaultColors
-     *  Adding button functionality
-     */
-    CollapsibleAdmin.prototype.colorPickerDefaultColors = function () {
-
-        jQuery(document).ready(function($){
-
-            if( typeof $.wp === 'object' && typeof $.wp.wpColorPicker === 'function' )
-            $.wp.wpColorPicker.prototype.options = {
-                palettes: ['#75a3eb','#6d7dcc','#a27ac3', '#fe0e35', '#00aaff', '#00f2d3'],
-                hide: true
-            };
-        });
-    }
-
-
-    return new CollapsibleAdmin;
-
-})(jQuery);
-
-var callbackOutsideScope = function () {
-    //jQuery('.vc_location').val('Välj Stad/Ort').change();
-};
-
-
-/**
- * MenuCollapsible ad-don for Visual Composer
- *
- * @package NSRVCExtended
- *
- * Author: Johan Silvergrund
- * Company: HIQ
- *
- */
-
-var VcExtended = VcExtended || {};
-
-VcExtended.MenuCollapsible = VcExtended.MenuCollapsible || {};
-VcExtended.MenuCollapsible.Collapsible = (function ($) {
-
-
-    /**
-     * Constructor
-     */
-    function Collapsible() {
-
-        this.init();
-
-    }
-
-
-    /**
-     *  init
-     *  Initializes all the necessary methods and binding stuff to events
-     */
-    Collapsible.prototype.init = function () {
-
-        $(function() {
-            this.eventHandler();
-        }.bind(this));
-
-    };
-
-
-
-    /**
-     *  eventHandler
-     *  Managing all event handlers (Silence is gold)
-     */
-    Collapsible.prototype.eventHandler = function () {
-
-        // Accordion open & close and links
-        $('body').on('click', '.collapsible-header', function () {
-
-            $id = $(this).parents('ul').attr('id');
-
-            if($(this).find("a").length === 0) {
-
-                $($id).find('.materialIconState').text('add');
-                if($(this).hasClass('active')) {
-                    $(this).find('.materialIconState').text('clear');
-                }
-                else {
-                    $(this).find('.materialIconState').text('add');
-                }
-            }
-            else {
-                window.location.href = $(this).find('a').attr('href');
-            }
-
-        }).bind(this);
-
-
-
-    };
-
-    return new Collapsible;
-
-})(jQuery);
 

@@ -55,8 +55,8 @@ class Enqueue
     {
 
         if (is_admin()) {
-            //wp_register_script('nsr-extended-admin', plugins_url('nsr-vc-extended/dist/js/nsr-vc-extended.min.js'));
-            //wp_enqueue_script('nsr-extended-admin');
+            wp_register_script('nsr-extended-admin', plugins_url('nsr-vc-extended/dist/js/nsr-vc-extended-admin.min.js'));
+            wp_enqueue_script('nsr-extended-admin');
         }
     }
 

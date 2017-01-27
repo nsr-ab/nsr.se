@@ -249,6 +249,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
 
+
     /**
      * Initializes the autocomplete functionality
      * @param  {object} element
@@ -265,6 +266,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         this.autocompleteQuery(element);
     };
+
 
 
 
@@ -286,6 +288,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         return false;
     };
+
 
 
 
@@ -324,6 +327,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }.bind(this));
 
     };
+
 
 
 
@@ -380,6 +384,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
 
+
     /**
      * find occurance in strings
      * @param  {string} haystack
@@ -390,7 +395,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.Strpos = function strpos (haystack, needle, offset) {
         var i = (haystack+'').indexOf(needle, (offset || 0));
         return i === -1 ? 0 : i;
-    }
+    };
+
 
 
 
@@ -546,8 +552,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 noContent = true;
             });
             $('.search-autocomplete').prepend('<h4>Sidor på nsr.se</h4>');
-
-
         }
 
         if(nosortGuidedata) {
@@ -582,6 +586,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
 
+    /**
+     * GEo Error
+     * @param  {object} error
+     * @return {void}
+     */
     Extended.prototype.GeoError = function(error) {
         switch(error.code) {
             case error.PERMISSION_DENIED:
