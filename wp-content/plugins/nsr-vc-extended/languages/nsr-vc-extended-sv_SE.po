@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2017-01-05 09:27+0100\n"
-"PO-Revision-Date: 2017-01-26 11:40+0100\n"
+"POT-Creation-Date: 2017-01-27 11:31+0100\n"
+"PO-Revision-Date: 2017-01-27 11:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -96,7 +96,7 @@ msgstr "Bild och länkar"
 #: source/php/Library/Addons/ListLinksWithThumbnail.php:133
 #: source/php/Library/Addons/ListNewsAndPosts.php:136
 #: source/php/Library/Addons/MenuCollapsible.php:215
-#: source/php/Library/Addons/NSRSearch.php:89
+#: source/php/Library/Addons/NSRSearch.php:102
 #: source/php/Library/Addons/OpenHours.php:173
 #: source/php/Library/Addons/Puff.php:121
 #: source/php/Library/Addons/ThumbnailAndTextarea.php:117
@@ -284,15 +284,15 @@ msgstr "Meny / Lista / Dragspel"
 
 #: source/php/Library/Addons/NSRSearch.php:52
 msgid "Search section"
-msgstr ""
+msgstr "Kundkategori"
 
 #: source/php/Library/Addons/NSRSearch.php:56
 msgid "Choose section..."
-msgstr ""
+msgstr "Välj kundkategori"
 
 #: source/php/Library/Addons/NSRSearch.php:57
 msgid "All sections"
-msgstr ""
+msgstr "Alla kategorier"
 
 #: source/php/Library/Addons/NSRSearch.php:58
 msgid "Villa & Fritidsboende"
@@ -310,15 +310,27 @@ msgstr ""
 msgid "Vanliga frågor"
 msgstr ""
 
-#: source/php/Library/Addons/NSRSearch.php:79
+#: source/php/Library/Addons/NSRSearch.php:69
+msgid "Page position"
+msgstr "Var ska sökboxen ligga på sidan?"
+
+#: source/php/Library/Addons/NSRSearch.php:73
+msgid "Searchbox alone in row"
+msgstr "Sökboxen ligger på en egen rad"
+
+#: source/php/Library/Addons/NSRSearch.php:74
+msgid "Searchbox mixed with other content"
+msgstr "Sökboxen ligger i samma kolumn som annat innehåll"
+
+#: source/php/Library/Addons/NSRSearch.php:92
 msgid "Search"
 msgstr "Sök"
 
-#: source/php/Library/Addons/NSRSearch.php:80
+#: source/php/Library/Addons/NSRSearch.php:93
 msgid "NSR Search"
 msgstr "Sök på NSR"
 
-#: source/php/Library/Addons/NSRSearch.php:133
+#: source/php/Library/Addons/NSRSearch.php:154
 msgid ""
 "Where do you live? What stuff do you want to sort? Are you looking for "
 "something else?"
@@ -402,7 +414,7 @@ msgstr "Lägg till öppettider"
 
 #: source/php/Library/Addons/Puff.php:92
 #: source/php/Library/Addons/ThumbnailAndTextarea.php:89
-#: source/php/Library/Enqueue.php:86
+#: source/php/Library/Enqueue.php:87
 msgid "Content"
 msgstr "Kort beskrivning"
 
@@ -426,11 +438,11 @@ msgstr "Puff med länk"
 msgid "Image, link, heading and description"
 msgstr "Bild, länk, rubrik, text"
 
-#: source/php/Library/Enqueue.php:85
+#: source/php/Library/Enqueue.php:86
 msgid "Persons"
 msgstr "Personer"
 
-#: source/php/Library/Enqueue.php:87
+#: source/php/Library/Enqueue.php:88
 msgid "View all results"
 msgstr "Visa sökresultat med mer ingående information"
 

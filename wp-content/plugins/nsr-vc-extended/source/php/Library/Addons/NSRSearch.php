@@ -70,8 +70,8 @@ class NSRSearch
                 'param_name' => 'vc_search_position',
                 'edit_field_class' => 'vc_col-sm-7 vc_col-md-7',
                 'value'       => array(
-                    __('Längst upp på sidan', 'nsr-vc-extended')   => 'top',
-                    __('Nere i innehållet på sidan', 'nsr-vc-extended')   => 'content',
+                    __('Searchbox alone in row', 'nsr-vc-extended')   => 'top',
+                    __('Searchbox mixed with other content', 'nsr-vc-extended')   => 'content',
 
                 ),
             )

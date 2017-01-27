@@ -217,6 +217,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if(!$('.searchNSR').hasClass('position-relative')) {
             $('html, body').animate({ scrollTop: 0 }, 'slow');
+
+
             $('.vc_row').hide();
             $('.page-footer').hide();
             $('.searchNSR').closest('.vc_row').show();
