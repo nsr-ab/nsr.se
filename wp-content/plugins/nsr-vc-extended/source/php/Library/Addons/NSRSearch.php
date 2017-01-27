@@ -141,7 +141,9 @@ class NSRSearch
             } else {
                 $positionFixed = 'position-absolute';
             }
-
+            if ($params->vc_search_position === '' || $params->vc_search_position === false) {
+                $positionFixed = 'position-relative';
+            }
             $output = "<div class=\"row search searchNSR ".$positionFixed."\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\">
                         
                         <div class=\"col s12\">
