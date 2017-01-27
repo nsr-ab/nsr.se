@@ -64,6 +64,7 @@ class MenuCollapsible
                         'admin_label' => true
                     ),
 
+
                     /** @Param Colorpicker component parameter for left border color */
                     array(
 
@@ -87,6 +88,20 @@ class MenuCollapsible
                         'heading' => __('Link title to page', 'nsr-vc-extended'),
                         'param_name' => 'vc_extend_text_pagelink',
                         'description' => __('If selected the title is going to be linked, if link title is selected, the main link title will be active.', 'nsr-vc-extended')
+                    ),
+
+
+                    /** @Param Colorpicker component parameter for left border color */
+                    array(
+
+                        'type' => 'colorpicker',
+                        'holder' => 'div',
+                        'class' => 'vc_extend_textcolor',
+                        'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
+                        'heading' => __('Textcolor', 'nsr-vc-extended'),
+                        'param_name' => 'vc_extend_textcolor',
+                        'description' => __('Color on text if colored background', 'nsr-vc-extended'),
+                        'dependency' => array('element' => 'color')
                     ),
 
                     /** @Param Margin parameter (only for menus)*/
@@ -245,8 +260,9 @@ class MenuCollapsible
             $vc_extend_text_pagetitle       = (isset($row['vc_extend_text_pagetitle'])) ? $row['vc_extend_text_pagetitle'] : null;
             $vc_extend_text_pagelink        = (isset($row['vc_extend_text_pagelink'])) ? $row['vc_extend_text_pagelink'] : null;
             $vc_extend_row_margin_bottom    = (isset($row['vc_extend_row_margin_bottom'])) ? $row['vc_extend_row_margin_bottom'] : null;
+            $vc_extend_textcolor            = (isset($row['vc_extend_textcolor'])) ? $row['vc_extend_textcolor'] : null;
             $colors                         = $vc_extend_colors ? $colors = " color:#fff; background-color:" . $vc_extend_colors . ";" : null;
-            $forceLinkColor                 = $vc_extend_colors ? $forceLinkColor = " style=\"color:#fff; \"" : " style=\"color:#007586; \"";
+            $forceLinkColor                 = $vc_extend_textcolor ? $forceLinkColor = " style=\"color:".$vc_extend_textcolor." !important; \"" : " style=\"color:#007586; \"";
             $colorClass                     = $vc_extend_colors ? $colorClass = "wlink" : null;
             $hasMargin                      = $vc_extend_row_margin_bottom ? $hasMargin = "hasMargin" : null;
             $menuBorderColor                = $vc_extend_bordercolor ? "border-left: 8px solid ".$vc_extend_bordercolor.";" : null;

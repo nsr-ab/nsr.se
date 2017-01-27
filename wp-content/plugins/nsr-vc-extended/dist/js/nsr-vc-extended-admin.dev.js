@@ -1,5 +1,5 @@
 /**
- * MenuCollapsible ad-don for Visual Composer
+ * ExtendedAdmin ad-don for Visual Composer
  *
  * @package NSRVCExtended
  *
@@ -10,14 +10,14 @@
 
 var VcExtended = VcExtended || {};
 
-VcExtended.MenuCollapsibleAdmin = VcExtended.MenuCollapsibleAdmin || {};
-VcExtended.MenuCollapsibleAdmin.CollapsibleAdmin = (function ($) {
+VcExtended.NSRExtendAdmin = VcExtended.NSRExtendAdmin || {};
+VcExtended.NSRExtendAdmin.ExtendedAdmin = (function ($) {
 
 
     /**
      * Constructor
      */
-    function CollapsibleAdmin() {
+    function ExtendedAdmin() {
 
         this.init();
 
@@ -30,7 +30,7 @@ VcExtended.MenuCollapsibleAdmin.CollapsibleAdmin = (function ($) {
      *  init
      *  Initializes all the necessary methods and binding stuff to events
      */
-    CollapsibleAdmin.prototype.init = function () {
+    ExtendedAdmin.prototype.init = function () {
 
         this.colorPickerDefaultColors();
 
@@ -43,7 +43,7 @@ VcExtended.MenuCollapsibleAdmin.CollapsibleAdmin = (function ($) {
      *  colorPickerDefaultColors
      *  Adding button functionality
      */
-    CollapsibleAdmin.prototype.colorPickerDefaultColors = function () {
+    ExtendedAdmin.prototype.colorPickerDefaultColors = function () {
 
         jQuery(document).ready(function($){
 
@@ -56,7 +56,7 @@ VcExtended.MenuCollapsibleAdmin.CollapsibleAdmin = (function ($) {
     }
 
 
-    return new CollapsibleAdmin;
+    return new ExtendedAdmin;
 
 })(jQuery);
 

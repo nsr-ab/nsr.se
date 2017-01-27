@@ -23,8 +23,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     function Extended() {
 
         this.init();
-        if($('body').hasClass('wp-admin'))
-            $('.card-content').matchHeight();
     }
 
 
@@ -33,6 +31,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  Initializes all the necessary methods and binding stuff to events
      */
     Extended.prototype.init = function () {
+
+
+        if($('body').hasClass('wp-admin'))
+            $('.card-content').matchHeight();
+
+        $(function() {
+            this.CollapsibleHeaders();
+        }.bind(this));
 
         /* Puff med länkar - Visa fler nyheter */
         $('body').on('click', '.showAllPosts', function () {
@@ -80,6 +86,36 @@ VcExtended.NSRExtend.Extended = (function ($) {
             window.open($(this).data('url'), '_blank');
         }).bind(this);
 
+
+    };
+
+
+
+    /**
+     *  eventHandler
+     *  Managing all event handlers (Silence is gold)
+     */
+    Extended.prototype.CollapsibleHeaders = function () {
+
+        // Accordion open & close and links
+        $('body').on('click', '.collapsible-header', function () {
+
+            $id = $(this).parents('ul').attr('id');
+
+            if($(this).find("a").length === 0) {
+                $($id).find('.materialIconState').text('add');
+                if($(this).hasClass('active')) {
+                    $(this).find('.materialIconState').text('clear');
+                }
+                else {
+                    $(this).find('.materialIconState').text('add');
+                }
+            }
+            else {
+                window.location.href = $(this).find('a').attr('href');
+            }
+
+        }).bind(this);
 
     };
 
