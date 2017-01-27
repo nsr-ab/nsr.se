@@ -16,7 +16,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var typingTimer = null;
     var doneTypingInterval = 200;
     var cities = [];
-    var geoConstant;
+
     /**
      * Constructor
      */
@@ -179,6 +179,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         event.stopPropagation();
         $('.searchNSR').removeClass('fullscreen');
         $('.searchNSR').removeClass('searchResult');
+
         $(element).addClass('hide');
 
         $('#searchkeyword-nsr').val('');
@@ -214,15 +215,17 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         event.stopPropagation();
 
-        if(!$('.searchNSR').hasClass('position-relative'))
-            $('html, body').animate({ scrollTop: 0 }, 'slow');
-        
         if(!$('.searchNSR').hasClass('position-relative')) {
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
             $('.vc_row').hide();
             $('.page-footer').hide();
             $('.searchNSR').closest('.vc_row').show();
-            $('.main-container').height(317);
 
+            if($('body').hasClass('home')) {
+                $('.main-container').height(317);
+            }else {
+                $('.main-container').height(553);
+            }
             if ($(window).width() < 540)
                 $('.main-container').height(237);
         }
@@ -378,6 +381,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
+
     /**
      * find occurance in strings
      * @param  {string} haystack
@@ -389,6 +393,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var i = (haystack+'').indexOf(needle, (offset || 0));
         return i === -1 ? 0 : i;
     }
+
 
 
     /**
@@ -682,6 +687,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $(this).remove();
                     }
                 });
+
                 icn = false;
                 cordClass = false;
                 $(cordClass).parent().css('background','red');
