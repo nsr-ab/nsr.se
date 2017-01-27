@@ -33,7 +33,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.init = function () {
 
 
-        if($('body').hasClass('wp-admin'))
+        if(!$('body').hasClass('wp-admin'))
             $('.card-content').matchHeight();
 
         $(function() {

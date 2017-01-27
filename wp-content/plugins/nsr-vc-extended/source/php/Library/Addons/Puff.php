@@ -47,6 +47,19 @@ class Puff
 
             ),
 
+            /** @Param Color picker component for background color */
+            array(
+                'admin_label' => false,
+                'type' => 'colorpicker',
+                'holder' => 'div',
+                'class' => 'vc_extend_bg_colors',
+                'edit_field_class' => 'vc_col-sm-12 vc_col-md-12',
+                'heading' => __('Background color', 'nsr-vc-extended'),
+                'param_name' => 'vc_bg_colors',
+                'dependency' => array('element' => 'color'),
+
+            ),
+
             /** @Param Designation parameter */
             array(
                 'admin_label' => true,
@@ -73,7 +86,7 @@ class Puff
                 'description' => __('Select icon from library.', 'nsr-vc-extended'),
             ),
 
-            /** @Param Color picker component for border color */
+            /** @Param Color picker component for icon color */
             array(
                 'admin_label' => false,
                 'type' => 'colorpicker',
@@ -141,6 +154,8 @@ class Puff
         $params['vc_icon'] = isset($atts['vc_icon']) ? $postdate = $atts['vc_icon'] : null;
         $params['vc_icon_colors'] = isset($atts['vc_icon_colors']) ? $postdate = $atts['vc_icon_colors'] : null;
         $params['vc_border_colors'] = isset($atts['vc_border_colors']) ? $atts['vc_border_colors'] : null;
+        $params['vc_txt_colors'] = isset($atts['vc_txt_colors']) ? $atts['vc_txt_colors'] : null;
+        $params['vc_bg_colors'] = isset($atts['vc_bg_colors']) ? $atts['vc_bg_colors'] : null;
         $params['content'] = isset($content) ? $content : null;
 
         return $this->renderMarkup($param = (object) $params);
@@ -161,11 +176,25 @@ class Puff
         if(!isset($params->vc_icon_colors))
             $params->vc_icon_colors = "#7e7f80";
 
-        $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"border-top:3px solid ". $params->vc_border_colors .";\" " : null;
-        $vc_icon_colors = isset($params->vc_icon_colors)  ? " style=\"color:".$params->vc_icon_colors .";\" " : null;
+        $vc_bg_colors = isset($params->vc_bg_colors)  ? " color:#fff; background-color:" . $params->vc_icon_colors . "; " : null;
+        if($vc_bg_colors) {
+            $vc_icon_colors = "style=\"color:#fff;\" ";
+            $vc_txt_colors = "style=\"color:#fff !important;\" ";
+        }else {
+            $vc_icon_colors = isset($params->vc_icon_colors) ? " style=\"color:" . $params->vc_icon_colors . ";\" " : null;
+        }
+
+        if($params->vc_icon) {
+            $icon = "<i " . $vc_icon_colors . " class=\"listIcons material-icons " . $params->vc_icon . "\"></i>";
+        }
+        else {
+            $icon = false;
+        }
+        $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"".$vc_bg_colors." border-top:3px solid ". $params->vc_border_colors ."\" " : null;
+
         $output = "<div id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" ". $vc_border_colors ." class=\"card hoverable small\" >";
         $output .= "<div class=\"card-content\">";
-        $output .= "<h4 class=\"faq\"><i ".$vc_icon_colors." class=\"listIcons material-icons ".$params->vc_icon."\"></i>".$params->vc_title."</h4>";
+        $output .= "<h4 class=\"faq\" ".$vc_txt_colors.">".$icon." ".$params->vc_title."</h4>";
         $output .= $params->content;
         $output .= "</div></div> ";
 
