@@ -323,6 +323,11 @@ input[type=text]:focus.invalid {
   &.position-relative {
     position: relative !important;
   }
+
+  &.position-relative.fullscreen {
+    top:20px;
+  }
+
   .section {
     position:absolute;
     top:-10px;
