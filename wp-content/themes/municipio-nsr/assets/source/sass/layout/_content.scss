@@ -140,3 +140,14 @@
 
 
 }
+
+&.nsr-background-white main {
+    background-color:$palette-primary-white !important;
+}
+
+&.nsr-background-grey main {
+    background-color:$palette-primary-grey !important;
+}
+&.nsr-background-grey .page-footer {
+    display:none;
+}

@@ -35,6 +35,7 @@
 
     {!! wp_head() !!}
 </head>
+
 <body {!! body_class('no-js') !!}>
     <!--[if lt IE 9]>
         <div class="notice info browserupgrade">

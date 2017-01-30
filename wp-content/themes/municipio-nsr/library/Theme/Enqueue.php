@@ -15,6 +15,7 @@ class Enqueue
         }, -1 );
 
         add_action( 'login_enqueue_scripts', array($this,'style' ) );
+
     }
 
     /**
@@ -42,12 +43,7 @@ class Enqueue
         apply_filters('Municipio/load-wp-jquery', true, 10, 2);
         wp_enqueue_script('Nsr-js', get_stylesheet_directory_uri(). '/assets/dist/js/app.min.js', '', filemtime(get_stylesheet_directory() . '/assets/dist/js/app.min.js'), true);
 
-
     }
-
-
-
-
 
 
 }

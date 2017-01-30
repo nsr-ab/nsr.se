@@ -1,8 +1,12 @@
 <?php
 namespace Nsr;
 
+use Nsr\Theme\NSRTemplates;
+
 class App
 {
+
+
     public function __construct()
     {
 
@@ -15,7 +19,7 @@ class App
         new \Nsr\Theme\SidebarsExtended();
         new \Nsr\Theme\NSRTemplates();
         new \Nsr\Theme\CustomPostTypesMetaSidebar();
-
+        new \Nsr\Theme\MetaboxBackgroundColor();
 
         add_action( 'after_setup_theme', array( $this, 'nsr_theme_setup' ) );
         add_action( 'init', array( $this,'add_excerpts_to_pages' ) );
@@ -28,8 +32,6 @@ class App
             add_action( 'pre_get_posts', array($this,'category_and_tag_archives') );
         }
 
-        $this->customRedirects();
-        $this->image_size();
         add_filter( 'image_size_names_choose', array($this,'nsr_image_sizes') );
         add_action('after_setup_theme', array( $this,'create_404_page') );
 
@@ -39,6 +41,12 @@ class App
 
         add_action( 'login_enqueue_scripts', array( $this, 'admin_login_logo') );
         add_filter( 'login_headerurl', array( $this,'login_logo_url') );
+
+
+        $this->customRedirects();
+        $this->image_size();
+        $this->setBackgroundClass();
+
     }
 
     /**
@@ -237,11 +245,28 @@ class App
 
     }
 
+
+
+    /**
+     * login_logo_url
+     * changing Login logo url
+     * @return home address
+     */
     function login_logo_url() {
         return home_url();
     }
 
 
+
+    /**
+     * setBackgroundClass
+     * Adding css class to body
+     * @return location
+     */
+    function setBackgroundClass(){
+        $nsrCss = new \Nsr\Theme\NSRTemplates();
+        $bodyClasses = $nsrCss->setBackgroundColor();
+    }
 
 
 }

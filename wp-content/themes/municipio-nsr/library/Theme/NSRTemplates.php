@@ -7,7 +7,6 @@ class NSRTemplates
     public function __construct()
     {
         add_action('after_setup_theme', array($this, 'addVCPageTemplate'));
-
     }
 
     public function addVCPageTemplate()
@@ -24,6 +23,35 @@ class NSRTemplates
         );*/
 
     }
+
+
+    /**
+     * Set background class
+     * @return void
+     */
+    public function setBackgroundColor()
+    {
+        add_filter( 'body_class', array($this,'my_body_class' ));
+    }
+
+    function my_body_class( $color ) {
+
+        global $post;
+        $selectBackground = get_post_meta($post->ID, 'post_backgroundcolor', true);
+        switch($selectBackground){
+            case 0:
+                $color[] = 'nsr-background-white';
+                break;
+            case 1:
+                $color[] = 'nsr-background-grey';
+                break;
+            default:
+                $color[] = 'nsr-background-white';
+        }
+
+        return $color;
+    }
+
 
 
     /**

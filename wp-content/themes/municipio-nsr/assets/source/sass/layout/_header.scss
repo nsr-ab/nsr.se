@@ -8,3 +8,10 @@
     padding: 0px 0;
 }
 
+&.nsr-background-white header {
+    background-color:$palette-primary-grey;
+}
+&.nsr-background-grey header {
+    background-color:$palette-primary-white;
+}
+
