@@ -40,11 +40,13 @@ class NSRTemplates
         echo '<ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">';
 
         if (!is_front_page()) {
-            if (is_single()) {
+            if (is_single() && !is_singular( array( 'villa', 'fastighet', 'foretag' ) )) {
                 $output[] = '<li>' . get_the_title() . '</li>';
             } elseif (is_category()) {
                 $output[] = '<li>' . get_the_category() . '</li>';
-            } elseif (is_page()) {
+            }
+            if (is_page() || is_singular( array( 'villa', 'fastighet', 'foretag' ) ) )  {
+
                 if ($post->post_parent) {
                     $anc = get_post_ancestors($post->ID);
                     $title = get_the_title();
@@ -58,6 +60,27 @@ class NSRTemplates
                                             </a>
                                        </li>';
 
+                    if( is_singular( array( 'villa', 'fastighet', 'foretag' ) ) ) {
+
+                        $output[] .= '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">';
+                        if (is_singular(array('villa'))) {
+                            $output[] .= '<a itemprop="item" href="'.site_url().'/villa/" title="Start">
+                                                <span itemprop="name">Villa</span>
+                                                <meta itemprop="position" content="-0" />';
+                        }
+                        if (is_singular(array('fastighet'))) {
+                            $output[] .= '<a itemprop="item" href="'.site_url().'/fastighet/" title="Start">
+                                                <span itemprop="name">Fastighet</span>
+                                                <meta itemprop="position" content="-0" />';
+                        }
+                        if (is_singular(array('foretag'))) {
+                            $output[] .= '<a itemprop="item" href="'.site_url().'/foretag/" title="Start">
+                                                <span itemprop="name">Företag</span>
+                                                <meta itemprop="position" content="-0" />';
+                        }
+                        $output[] .= '<meta itemprop="position" content="-0" /></a></li>';
+                    }
+
                     foreach ($anc as $ancestor) {
                         if (get_post_status($ancestor) != 'private') {
                             $output[] .= '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
@@ -66,7 +89,6 @@ class NSRTemplates
                                                 <meta itemprop="position" content="' . $int . '" />
                                             </a>
                                        </li>';
-
                             $int++;
                         }
                     }

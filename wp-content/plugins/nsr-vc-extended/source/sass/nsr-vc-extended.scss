@@ -29,7 +29,7 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers) {
 .modularity-mod-text .box-content ul li:before,
 .unordered-list li:before,
 article ul:not(.nav):not(.slider-items):not(.line-numbers) li:before {
-      background:none;
+  background:none;
 }
 .collapsible li {
   max-width:100% !important;
@@ -162,10 +162,10 @@ a.collection-item {
     display: inline-block;
   }
   .vc_col-sm-6 .collection-title {
-      max-width: 75%;
+    max-width: 75%;
   }
   .vc_col-sm-4 .collection-title {
-      max-width: 80%;
+    max-width: 80%;
   }
   @media only screen and (max-width: 1150px) {
     .vc_col-sm-4 .collection-title {
@@ -353,13 +353,12 @@ input[type=text]:focus.invalid {
   }
 
   .sorteringsguiden h4, .search-autocomplete h4 {
-      font-size: 1.40rem;
+    font-size: 1.40rem;
   }
   .search-autocomplete, .search-content, .sorterings-guide-table {
     display: none;
     margin-top:20px;
     z-index: 99;
-
     border-radius: 3px;
     overflow: hidden;
     font-size: 1em;
@@ -521,6 +520,7 @@ input[type=text]:focus.invalid {
   .preSortCellMobile, .tabMobile  {
     display:none;
   }
+
   @media (max-width: 540px) {
     .tabDesk {
       display:none;
