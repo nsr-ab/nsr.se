@@ -158,6 +158,8 @@ class ListLinksWithThumbnail extends MasterVCExtended
             $params['vc_pagelink'] = isset($atts['vc_pagelink']) ? $atts['vc_pagelink'] : null;
             $params['vc_border_colors'] = isset($atts['vc_border_colors']) ? $atts['vc_border_colors'] : null;
             $params['vc_startfrom'] = isset($atts['vc_startfrom']) ? $postdate = $atts['vc_startfrom'] : null;
+            $params['vc_designation'] = isset($atts['vc_designation']) ? $postdate = $atts['vc_designation'] : null;
+
             return parent::fetchDataFromDB($params);
         }
     }
@@ -173,17 +175,46 @@ class ListLinksWithThumbnail extends MasterVCExtended
     public function renderMarkup($get_results, $params)
     {
 
+        if(isset($params->vc_pagelink))
+            $link =  $params->vc_pagelink;
+
+        if($link) {
+            $href = vc_build_link($params->vc_pagelink);
+        }
+        else {
+            $href = null;
+        }
+
         $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"border-top:3px solid ".$params->vc_border_colors .";\" " : null;
 
         $output = "<div id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" ". $vc_border_colors ." class=\"card hoverable small\" >";
         $output .= "<div class=\"card-image\">";
+
+        if($href['url'] != "")
+            $output .= "<a href=\"".$href['url']."\">";
+
         $output .= wp_get_attachment_image( $params->vc_image, $size = 'Bild-till-puff', $icon = false, $attr = '' );
+
+        if($href['url']  != "")
+            $output .= "</a>";
+
         $output .= "</div>";
         $output .= "<div class=\"card-content\">";
 
-        if(isset($params->vc_pagelink)) {
+
+
+        if($href['url'] != "") {
             $href = vc_build_link($params->vc_pagelink);
-            $output .= "<h4><a  href=\"".$href['url']."\">".$href['title']."</a></h4>";
+            if(!$href['title']) {
+                $output .= "<h4><a  href=\"".$href['url']."\">".$params->vc_designation."</a></h4>";
+            }
+            else {
+                $output .= "<h4><a  href=\"".$href['url']."\">".$href['title']."</a></h4>";
+            }
+
+        }
+        else {
+            $output .= "<h4>".$params->vc_designation."</h4>";
         }
 
         $output .= "<ul id=\"vc_ulId_".md5(date('YmdHis').rand(0,9999999))."\">";

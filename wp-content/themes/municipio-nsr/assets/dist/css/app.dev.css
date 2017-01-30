@@ -6955,6 +6955,12 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     color: #007586 !important;
     font-size: 105% !important; }
 
+@media (max-width: 469px) {
+  .breadcrumbs li:nth-last-child(2) a:before {
+    font-family: "Material Icons";
+    content: '\E5D9';
+    color: #007586; } }
+
 .is-child-theme {
   /* Structure fix */
   /* Move later */ }

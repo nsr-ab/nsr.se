@@ -344,4 +344,12 @@
 
     }
 
+    @media (max-width: 469px) {
+        .breadcrumbs li:nth-last-child(2) a:before {
+
+            font-family: "Material Icons";
+            content: '\E5D9';
+            color: $palette-primary-green;
+        }
+    }
 
