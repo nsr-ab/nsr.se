@@ -7017,7 +7017,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-size: 3.75rem;
     letter-spacing: 1.6px;
     color: #393939 !important;
-    min-height: 80px;
+    /*min-height:80px;*/
     max-width: 990px !important;
     line-height: 93%;
     padding: 0px; }
