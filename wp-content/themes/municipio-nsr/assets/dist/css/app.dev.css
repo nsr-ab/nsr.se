@@ -7057,7 +7057,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme .theme-green .breadcrumbs li:nth-last-child(2) a:before {
       color: #dddddd; }
   .is-child-theme a, .is-child-theme p, .is-child-theme label, .is-child-theme input,
-  .is-child-theme h2, .is-child-theme h3, .is-child-theme h4, .is-child-theme h5, .is-child-theme li, .is-child-theme span {
+  .is-child-theme h2, .is-child-theme h3, .is-child-theme h4, .is-child-theme h5, .is-child-theme li, .is-child-theme span, .is-child-theme table, .is-child-theme td, .is-child-theme th, .is-child-theme tr {
     text-rendering: geometricPrecision;
     -webkit-font-feature-settings: "kern" 1;
        -moz-font-feature-settings: "kern" 1;
@@ -7370,6 +7370,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme forceWhiteLinkColor h4,
   .is-child-theme forceWhiteLinkColor p {
     color: #fff !important; }
+  .is-child-theme .mce-item-table td, .is-child-theme .modularity-table td, .is-child-theme .table td, .is-child-theme article table td {
+    vertical-align: top !important; }
 
 .is-child-theme.home header {
   background-color: #fff; }

@@ -120,6 +120,6 @@ article h4 {
 
 /* Text rendering - dont set on div or html element - sticky nav will crash with 3d translate*/
 a, p, label, input,
- h2, h3, h4 ,h5, li, span {
+ h2, h3, h4 ,h5, li, span, table, td, th, tr {
     @include textRendering();
 }

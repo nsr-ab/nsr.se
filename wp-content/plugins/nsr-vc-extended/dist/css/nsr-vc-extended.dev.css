@@ -220,6 +220,8 @@ input[type=text]:focus.invalid {
     box-sizing: border-box;
     display: table;
     transition: 300ms ease; }
+  .searchNSR td, .searchNSR tr {
+    vertical-align: top !important; }
   .searchNSR.position-relative {
     position: relative !important; }
   .searchNSR.position-relative.fullscreen {
@@ -458,3 +460,6 @@ input[type=text]:focus.invalid {
     height: 18px !important;
     margin-right: 8px;
     float: right; }
+
+td, tr {
+  vertical-align: top !important; }

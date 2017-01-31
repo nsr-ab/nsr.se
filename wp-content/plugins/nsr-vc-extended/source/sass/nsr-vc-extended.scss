@@ -326,6 +326,11 @@ input[type=text]:focus.invalid {
 
   }
 
+  td, tr {
+    vertical-align: top !important;
+  }
+
+
   &.position-relative {
     position: relative !important;
   }
@@ -711,4 +716,7 @@ input[type=text]:focus.invalid {
     float:right;
   }
 }
+td, tr {
+  vertical-align: top !important;
 
+}
