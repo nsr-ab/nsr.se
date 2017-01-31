@@ -539,8 +539,8 @@ class CustomPostTypes
                         ),
                         'taxonomy' => array (
                         ),
-                        'allow_null' => 0,
-                        'multiple' => 0,
+                        'allow_null' => 1,
+                        'multiple' => 1,
                         'return_format' => 'object',
                         'ui' => 1,
                         'key' => 'field_586e2225ccf51',
