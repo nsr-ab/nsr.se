@@ -126,7 +126,18 @@
     .card-content .faq {
         color:$palette-primary-black !important;
     }
-
+    .card-content .forceWhiteLinkColor,
+    .forceWhiteLinkColor a,
+    .forceWhiteLinkColor a:hover,
+    .forceWhiteLinkColor a:visited,
+    .forceWhiteLinkColor h1,
+    .forceWhiteLinkColor h2,
+    .forceWhiteLinkColor h3,
+    .forceWhiteLinkColor h4,
+    .forceWhiteLinkColor.faq h4,
+    .forceWhiteLinkColor p {
+        color:$palette-primary-white !important;
+    }
     .mce-content-body ul li:before,
     .modularity-mod-text .box-content ul li:before,
     .unordered-list li:before,

@@ -7057,7 +7057,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme .theme-green .breadcrumbs li:nth-last-child(2) a:before {
       color: #dddddd; }
   .is-child-theme a, .is-child-theme p, .is-child-theme label, .is-child-theme input,
-  .is-child-theme h1, .is-child-theme h2, .is-child-theme h3, .is-child-theme h4, .is-child-theme h5, .is-child-theme li, .is-child-theme span {
+  .is-child-theme h2, .is-child-theme h3, .is-child-theme h4, .is-child-theme h5, .is-child-theme li, .is-child-theme span {
     text-rendering: geometricPrecision;
     -webkit-font-feature-settings: "kern" 1;
        -moz-font-feature-settings: "kern" 1;
@@ -7208,6 +7208,17 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     max-width: 100% !important; }
   .is-child-theme #main-content .card-content .faq {
     color: #000 !important; }
+  .is-child-theme #main-content .card-content .forceWhiteLinkColor,
+  .is-child-theme #main-content .forceWhiteLinkColor a,
+  .is-child-theme #main-content .forceWhiteLinkColor a:hover,
+  .is-child-theme #main-content .forceWhiteLinkColor a:visited,
+  .is-child-theme #main-content .forceWhiteLinkColor h1,
+  .is-child-theme #main-content .forceWhiteLinkColor h2,
+  .is-child-theme #main-content .forceWhiteLinkColor h3,
+  .is-child-theme #main-content .forceWhiteLinkColor h4,
+  .is-child-theme #main-content .forceWhiteLinkColor.faq h4,
+  .is-child-theme #main-content .forceWhiteLinkColor p {
+    color: #fff !important; }
   .is-child-theme #main-content .mce-content-body ul li:before,
   .is-child-theme #main-content .modularity-mod-text .box-content ul li:before,
   .is-child-theme #main-content .unordered-list li:before,
@@ -7356,6 +7367,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .forceWhiteLinkColor h1,
   .is-child-theme forceWhiteLinkColor h2,
   .is-child-theme forceWhiteLinkColor h3,
+  .is-child-theme forceWhiteLinkColor h4,
   .is-child-theme forceWhiteLinkColor p {
     color: #fff !important; }
 
