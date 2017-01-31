@@ -40,6 +40,7 @@ b, strong {
 h1, h2, h3, h4, h5 {
     @include font('Lato', 900);
     color:$palette-primary-green;
+
 }
 
 h1 {
@@ -117,4 +118,8 @@ article h4 {
     }
 }
 
-
+/* Text rendering - dont set on div or html element - sticky nav will crash with 3d translate*/
+a, p, label, input,
+h1, h2, h3, h4 ,h5, li, span {
+    @include textRendering();
+}

@@ -75,6 +75,8 @@
         @include importGoogleFonts();
 
 
+        
+        @import 'layout/outsidescope';
 
     }
 
@@ -84,6 +86,9 @@
         // ***************************************************************
         @import 'layout/_home';
     }
+
+
+
 
 
 

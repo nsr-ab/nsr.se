@@ -3,14 +3,10 @@
  */
 @import url("https://fonts.googleapis.com/css?family=Lato:400,600,700,900|Material+Icons:400");
 html {
-  /*background: $black; //Fixes issues of color in footer, when page is to "short".*/
-  text-rendering: geometricPrecision;
-  -webkit-font-feature-settings: "kern" 1;
-     -moz-font-feature-settings: "kern" 1;
-          font-feature-settings: "kern" 1;
-  font-smoothing: antialiased;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0); }
+  /*background: $black; //Fixes issues of color in footer, when page is to "short".*/ }
+
+.sticky {
+  top: 0; }
 
 html.video-is-playing .scroll-down-please-icon,
 html.video-is-playing .scroll-down-please {
@@ -6962,6 +6958,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     color: #007586; } }
 
 .is-child-theme {
+  /* Text rendering - dont set on div or html element - sticky nav will crash with 3d translate*/
   /* Structure fix */
   /* Move later */ }
   .is-child-theme * {
@@ -7059,6 +7056,15 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       font-weight: 400 !important; }
     .is-child-theme .theme-green .breadcrumbs li:nth-last-child(2) a:before {
       color: #dddddd; }
+  .is-child-theme a, .is-child-theme p, .is-child-theme label, .is-child-theme input,
+  .is-child-theme h1, .is-child-theme h2, .is-child-theme h3, .is-child-theme h4, .is-child-theme h5, .is-child-theme li, .is-child-theme span {
+    text-rendering: geometricPrecision;
+    -webkit-font-feature-settings: "kern" 1;
+       -moz-font-feature-settings: "kern" 1;
+            font-feature-settings: "kern" 1;
+    font-smoothing: antialiased;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
   .is-child-theme .site-header {
     background-color: #f6f6f6;
     border-bottom: 1px solid #dddddd; }
@@ -7344,6 +7350,14 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme input[type="time"],
   .is-child-theme input[type="week"] {
     background-color: #e6e6e6 !important; }
+  .is-child-theme .forceWhiteLinkColor a,
+  .is-child-theme .forceWhiteLinkColor a:hover,
+  .is-child-theme .forceWhiteLinkColor a:visited,
+  .is-child-theme .forceWhiteLinkColor h1,
+  .is-child-theme forceWhiteLinkColor h2,
+  .is-child-theme forceWhiteLinkColor h3,
+  .is-child-theme forceWhiteLinkColor p {
+    color: #fff !important; }
 
 .is-child-theme.home header {
   background-color: #fff; }

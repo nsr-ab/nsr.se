@@ -180,7 +180,7 @@ class Puff
         if($params->vc_bg_colors) {
             $vc_bg_colors = "background-color:" . $params->vc_bg_colors . " !important; color:#fff !important; ";
             $vc_icon_colors = "style=\"color:#fff;\" ";
-            $vc_txt_colors = "style=\"color:#fff !important;\" ";
+            $vc_txt_colors = "forceWhiteLinkColor";
         }else {
             $vc_icon_colors = isset($params->vc_icon_colors) ? " style=\"color:" . $params->vc_icon_colors . ";\" " : null;
         }
@@ -191,11 +191,11 @@ class Puff
         else {
             $icon = false;
         }
-        $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"".$vc_bg_colors." border-top:3px solid ". $params->vc_border_colors .";\" " : null;
+        $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"".$vc_bg_colors." border-top:3px solid ". $params->vc_border_colors .";\" " : "style=\"".$vc_bg_colors." \"";
 
-        $output = "<div hoze=ei!, id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" ". $vc_border_colors ." class=\"card hoverable small\" >";
-        $output .= "<div class=\"card-content\">";
-        $output .= "<h4 class=\"faq\" ".$vc_txt_colors.">".$icon." ".$params->vc_title."</h4>";
+        $output = "<div hoze=ei!, id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" ". $vc_border_colors ." class=\"".$vc_txt_colors." card hoverable small\" >";
+        $output .= "<div class=\"card-content ".$vc_txt_colors." \">";
+        $output .= "<h4 class=\"faq ".$vc_txt_colors." \">".$icon." ".$params->vc_title."</h4>";
         $output .= $params->content;
         $output .= "</div></div> ";
 

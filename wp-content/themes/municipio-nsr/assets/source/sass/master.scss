@@ -1,6 +1,10 @@
-html {
+html  {
     /*background: $black; //Fixes issues of color in footer, when page is to "short".*/
-    @include textRendering();
+
+}
+.sticky {
+    top: 0;
+
 }
 
 html.video-is-playing {
@@ -22,6 +26,7 @@ html.video-is-playing {
 html.translated-ltr #site-header {
     top: 39px;
 }
+
 .error404 {
     color:#000;
     position: relative !important;
