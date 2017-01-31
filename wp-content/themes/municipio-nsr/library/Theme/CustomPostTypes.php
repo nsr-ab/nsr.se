@@ -541,7 +541,7 @@ class CustomPostTypes
                         'key' => 'field_586e2225ccf51',
                         'label' => 'Länk till sida',
                         'name' => 'tax_pageurl',
-                        'type' => 'post_object',
+                        'type' => 'page_link',
                         'instructions' => '',
                         'required' => 0,
                         'conditional_logic' => 0,
