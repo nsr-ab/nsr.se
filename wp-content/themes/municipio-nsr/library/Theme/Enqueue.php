@@ -17,7 +17,7 @@ class Enqueue
         add_action( 'login_enqueue_scripts', array($this,'style' ) );
         add_action('init', array($this,'jquery_init'));
 
-
+        add_action('wp_enqueue_scripts', array($this, 'add_Captcha'));
 
     }
 
@@ -48,7 +48,10 @@ class Enqueue
 
     }
 
-
+    /**
+     * Temp solution jquery
+     * @return void
+     */
     public function jquery_init()
     {
         if (!is_admin())
@@ -57,6 +60,16 @@ class Enqueue
             wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js', FALSE, '3.1.0', TRUE);
             wp_enqueue_script('jquery');
         }
+    }
+
+
+    /**
+     * Google Recaptcha
+     * @return void
+     */
+    public function add_Captcha(){
+        wp_register_script('recaptcha', 'https://www.google.com/recaptcha/api.js', FALSE, '1.0.0', TRUE);
+        wp_enqueue_script('recaptcha');
     }
 
 
