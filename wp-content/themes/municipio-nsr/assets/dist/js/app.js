@@ -33,10 +33,10 @@ Nsr.App.AppDefault = (function ($) {
      */
     AppDefault.prototype.removeActiveOnAccordions = function () {
         $(document).ready(function() {
-           if($('.wpforms-form div').hasClass('wpforms-error-container'))
-               alert(1);
-                //.
-            $('.vc_tta-accordion .vc_tta-panel').removeClass('vc_active');
+           if(!$('.wpforms-form div').hasClass('wpforms-error-container')) {
+               $('.vc_tta-accordion .vc_tta-panel').removeClass('vc_active');
+           }
+
         });
 
     };
