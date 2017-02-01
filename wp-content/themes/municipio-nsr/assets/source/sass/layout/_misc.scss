@@ -66,6 +66,29 @@
     text-align:center;
     margin:20px 0;
 }
+.searchSubmit {
+    position:absolute;
+    right:1%;
+    margin-right:30px;
+    top:20px;
+    background:$palette-primary-green;
+}
+@media (min-width: 991px) {
+    .searchSubmit {
+        right:3%;
+    }
+}
+@media (max-width: 991px) {
+    .searchSubmit {
+        right:1%;
+    }
+}
+@media (max-width: 768px) {
+    .searchSubmit {
+        display:none;
+    }
+}
+
 
 .notice {
 

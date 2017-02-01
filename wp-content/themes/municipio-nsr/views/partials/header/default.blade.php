@@ -1,13 +1,3 @@
-<!-- <div class="search-top {!! apply_filters('Municipio/desktop_menu_breakpoint','hidden-sm'); !!} hidden-print" id="search">
-    <div class="container">
-        <div class="grid">
-            <div class="grid-sm-12">
-                {{ get_search_form() }}
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <!-- Mobile -->
 <div class="mob grid-xs-12 grid-sm-12">
     <div class="mobile-logo center grid-xs-12 grid-sm-12 grid-md-12 text-center-sm text-center-xs hide">
@@ -56,6 +46,7 @@
                 <input class="form-control form-control-lg validated input-field s12" itemprop="query-input" required="" id="search-nsr" autocomplete="off" type="search" name="q" value="" aria-invalid="true">
                 <label for="search-input">Vad letar du efter?</label>
                 <input type="hidden" id="post_type" value="">
+                <button class="searchSubmit btn waves-effect waves-light left" type="submit">SÖK</button>
             </div>
 
         </form>

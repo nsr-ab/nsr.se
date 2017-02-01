@@ -7297,6 +7297,21 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin: 0 auto;
     text-align: center;
     margin: 20px 0; }
+  .is-child-theme .searchSubmit {
+    position: absolute;
+    right: 1%;
+    margin-right: 30px;
+    top: 20px;
+    background: #007586; }
+  @media (min-width: 991px) {
+    .is-child-theme .searchSubmit {
+      right: 3%; } }
+  @media (max-width: 991px) {
+    .is-child-theme .searchSubmit {
+      right: 1%; } }
+  @media (max-width: 768px) {
+    .is-child-theme .searchSubmit {
+      display: none; } }
   .is-child-theme .notice {
     margin-top: 70px; }
   .is-child-theme .card.large .card-image + .card-content,
