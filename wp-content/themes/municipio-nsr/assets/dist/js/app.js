@@ -12,6 +12,8 @@ Nsr.App.AppDefault = (function ($) {
     function AppDefault() {
         this.init();
 
+
+
     };
 
 
@@ -21,8 +23,21 @@ Nsr.App.AppDefault = (function ($) {
      */
     AppDefault.prototype.init = function () {
         this.chngColor();
+        window.setTimeout(this.removeActiveOnAccordions, 50);
+    };
+
+
+    /**
+     *  init
+     *  Initializes all the necessary methods
+     */
+    AppDefault.prototype.removeActiveOnAccordions = function () {
+        $(document).ready(function() {
+            $('.vc_tta-accordion .vc_tta-panel').removeClass('vc_active');
+        });
 
     };
+
 
 
     /**

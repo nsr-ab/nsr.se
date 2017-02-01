@@ -7433,3 +7433,35 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 @media only screen and (max-width: 768px) {
   .is-child-theme.home .page-footer {
     display: none; } }
+
+.vc_tta-accordion .vc_tta-panel-heading,
+.vc_tta-accordion .vc_tta-panel-heading a,
+.vc_tta-accordion .vc_tta-panel-heading i {
+  background-color: #007586 !important;
+  color: #fff !important; }
+
+.vc_tta-accordion .vc_tta-panel-heading .vc_tta-controls-icon::after,
+.vc_tta-accordion .vc_tta-panel-heading .vc_tta-controls-icon::before,
+.vc_tta-accordion .vc_tta-controls-icon::after,
+.vc_tta-accordion .vc_tta-controls-icon::before {
+  border-color: #fff !important; }
+
+.vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left .vc_tta-controls-icon {
+  left: auto !important;
+  right: 40px !important; }
+
+.vc_tta-accordion .vc_tta-panel-body {
+  background-color: #f6f6f6; }
+
+.vc_tta-accordion h4 {
+  font-size: 1.3rem !important; }
+
+.vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left.vc_tta-panel-title > a {
+  padding-left: 15px !important; }
+
+.vc_tta-accordion {
+  border-top: 1px solid #ddd !important;
+  border-right: 1px solid #ddd !important;
+  border-left: 1px solid #ddd !important;
+  margin: .5rem 0 1rem 0 !important;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) !important; }

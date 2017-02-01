@@ -262,11 +262,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         $('.searchNSR input').focus();
         $('.searchNSR').addClass('fullscreen');
-        $('.closeSearch').removeClass('hide');
+
 
         event.stopPropagation();
 
         if(!$('.searchNSR').hasClass('position-relative')) {
+
+            $('.closeSearch').removeClass('hide');
 
             $('html, body').animate({ scrollTop: 0 }, 'slow');
 
