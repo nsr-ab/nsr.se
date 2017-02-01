@@ -39,7 +39,7 @@ html.translated-ltr #site-header {
     vertical-align: middle;
     padding: 0px; }
   .error404 .sticky {
-    margin-left: -30px; }
+    margin-left: 0px; }
   .error404 .right {
     float: right; }
   .error404 .searchNSR .section {
@@ -7288,7 +7288,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-left: 10px; }
   .is-child-theme .modal-close {
     margin-right: 20px;
-    margin-top: 10px; }
+    margin-top: 10px;
+    color: #007586; }
   .is-child-theme .creamy {
     background-color: #f6f6f6;
     border: none; }

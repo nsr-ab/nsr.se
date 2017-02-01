@@ -101,9 +101,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if(query) {
             $('#searchkeyword-nsr').focus();
-            $('#searchkeyword-nsr').val(query);
+            $('#searchkeyword-nsr').val(query.replace(/\+/g, ' '));
             Extended.prototype.doneTyping();
-
         }
     }
 

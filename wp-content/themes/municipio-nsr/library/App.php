@@ -215,7 +215,7 @@ class App
      */
     function create_pages() {
 
-        $pages = array('404','Search');
+        $pages = array('404','Sok');
 
         foreach($pages as $newPage) {
 

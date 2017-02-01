@@ -32,6 +32,11 @@ Nsr.Sticky.StickyNav = (function ($) {
     };
 
 
+
+    /**
+     *  Modal quicksearch
+     *  Activates a modal view with searchField down at the bottom of the page
+     */
     StickyNav.prototype.quickSearch = function (){
 
         $('#searchModal').modal({
@@ -43,17 +48,15 @@ Nsr.Sticky.StickyNav = (function ($) {
                 endingTop: '10%',
                 ready: function(modal, trigger) {
                     $('#searchModal input').focus();
-                    console.log(modal, trigger);
                 },
                 complete: function() {
-
-
                 }
             }
         );
-
-
     };
+
+
+
 
     /**
      *  setItemAsActive

@@ -46,7 +46,7 @@ html.translated-ltr #site-header {
     }
 
     .sticky {
-        margin-left: -30px;
+        margin-left: 0px;
     }
     .right {
         float: right;
@@ -63,6 +63,10 @@ html.translated-ltr #site-header {
     td {
         padding: 10px 15px !important;
         vertical-align: middle !important;
+    }
+    .quickSearch {
+
+
     }
 }
 .error404.theme-green {

@@ -50,7 +50,7 @@
 <div id="searchModal" class="modal bottom-sheet">
     <i class="material-icons modal-action modal-close waves-effect waves-green right">cancel</i>
     <div class="modal-content">
-        <form itemprop="potentialAction" itemscope="" action=/search/ itemtype="http://schema.org/SearchAction">
+        <form itemprop="potentialAction" itemscope="" action=/sok/ itemtype="http://schema.org/SearchAction">
             <div class="input-field col s12">
                 <i class="material-icons prefix">search</i>
                 <input class="form-control form-control-lg validated input-field s12" itemprop="query-input" required="" id="search-nsr" autocomplete="off" type="search" name="q" value="" aria-invalid="true">
