@@ -209,22 +209,18 @@ class App
 
 
     /**
-     * create_404_page
-     * Insert a privately published page we can query for our 404 page
+     * create_404_page / saerch_page
+     * Insert a privately published page we can query for our 404/Search page
      * @return location
      */
     function create_pages() {
 
-        // Check if the 404 page exists
         $pages = array('404','Search');
 
         foreach($pages as $newPage) {
 
             $page_exists = get_page_by_title($newPage);
-
             if (!isset($page_exists->ID)) {
-
-                // Page array
                 $page = array(
                     'post_author' => 1,
                     'post_content' => '',
@@ -247,7 +243,6 @@ class App
                 }
             }
         }
-
     }
 
 
