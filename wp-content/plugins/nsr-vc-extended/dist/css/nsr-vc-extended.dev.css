@@ -421,7 +421,7 @@ input[type=text]:focus.invalid {
     .searchNSR .closeSearch:hover {
       color: #54cbd9; }
   .searchNSR .position-relative .closeSearch {
-    display: none; }
+    display: none !important; }
   .searchNSR .sortAs {
     margin-bottom: 10px; }
   .searchNSR .extNfo {

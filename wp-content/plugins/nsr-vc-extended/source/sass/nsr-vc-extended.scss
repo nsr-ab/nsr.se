@@ -655,7 +655,7 @@ input[type=text]:focus.invalid {
     }
   }
   .position-relative .closeSearch {
-    display:none;
+    display:none !important;
   }
   .sortAs {
     margin-bottom:10px;
