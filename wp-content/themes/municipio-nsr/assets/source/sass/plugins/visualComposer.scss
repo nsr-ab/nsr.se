@@ -3,7 +3,10 @@
 .vc_tta-accordion .vc_tta-panel-heading i {
   background-color: $palette-primary-green !important;
   color: $palette-primary-white !important;
+}
 
+.vc_tta-accordion .vc_tta-panel-heading a {
+  display:table-row;
 }
 
 .vc_tta-accordion .vc_tta-panel-heading .vc_tta-controls-icon::after,
@@ -22,6 +25,7 @@
 }
 .vc_tta-accordion h4 {
   font-size: 1.3rem !important;
+  max-width:100% !important;
 }
 .vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left.vc_tta-panel-title>a {
   padding-left:15px !important;
