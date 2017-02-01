@@ -22,7 +22,6 @@ Nsr.App.AppDefault = (function ($) {
     AppDefault.prototype.init = function () {
         this.chngColor();
 
-
     };
 
 
@@ -8068,6 +8067,34 @@ Nsr.Sticky.StickyNav = (function ($) {
         this.winScroll();
         this.winResize();
         this.setItemAsActive();
+
+        $('body').on('click', '.quickSearch', function (e) {
+            StickyNav.prototype.quickSearch();
+        }).bind(this);
+    };
+
+
+    StickyNav.prototype.quickSearch = function (){
+
+        $('#searchModal').modal({
+                dismissible: true,
+                opacity: .5,
+                inDuration: 300,
+                outDuration: 200,
+                startingTop: '1%',
+                endingTop: '10%',
+                ready: function(modal, trigger) {
+                    $('#searchModal input').focus();
+                    console.log(modal, trigger);
+                },
+                complete: function() {
+
+
+                }
+            }
+        );
+
+
     };
 
     /**

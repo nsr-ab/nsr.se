@@ -32,6 +32,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.init = function () {
 
+        /* Default search */
+        Extended.prototype.DefaultSiteSearch();
 
         if(!$('body').hasClass('wp-admin'))
             $('.card-content').matchHeight();
@@ -89,7 +91,21 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     };
 
+    /**
+     *  DefaultSiteSearch
+     *  Search via searchModal window
+     */
+    Extended.prototype.DefaultSiteSearch = function () {
 
+        var query = Extended.prototype.getUrlParameter('q');
+
+        if(query) {
+            $('#searchkeyword-nsr').focus();
+            $('#searchkeyword-nsr').val(query);
+            Extended.prototype.doneTyping();
+
+        }
+    }
 
     /**
      *  eventHandler
@@ -740,6 +756,22 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.preloader-wrapper').fadeOut("slow");;
         return cities[closest];
     }
+
+
+    Extended.prototype.getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
 
 
     return new Extended;

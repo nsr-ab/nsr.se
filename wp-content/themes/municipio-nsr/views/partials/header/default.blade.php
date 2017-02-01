@@ -13,14 +13,15 @@
     <div class="mobile-logo center grid-xs-12 grid-sm-12 grid-md-12 text-center-sm text-center-xs hide">
         {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option'), true, get_field('header_tagline_enable', 'option')) !!}
     </div>
-    <div class="mobile-search "><i class="material-icons search">search</i></div>
+    <div class="mobile-search "><a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
+    </div>
     <div class="mobile-nav hidden-lg hidden-md ">
         <a href="javascript:void(0)" data-activates="mobileNav" class="button-collapse "><i class="material-icons">menu</i></a>
     </div>
 
     <div class="side-nav " id="mobileNav">
        <div class="topnav">
-            <i class="material-icons left search">search</i>
+            <i class="material-icons left search quickSearch">search</i>
             <i class="material-icons right close">close</i>
         </div>
 
@@ -44,6 +45,23 @@
         ); ?>
     </div>
 </div>
+
+<!-- Modal Structure -->
+<div id="searchModal" class="modal bottom-sheet">
+    <i class="material-icons modal-action modal-close waves-effect waves-green right">cancel</i>
+    <div class="modal-content">
+        <form itemprop="potentialAction" itemscope="" action=/search/ itemtype="http://schema.org/SearchAction">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">search</i>
+                <input class="form-control form-control-lg validated input-field s12" itemprop="query-input" required="" id="search-nsr" autocomplete="off" type="search" name="q" value="" aria-invalid="true">
+                <label for="search-input">Vad letar du efter?</label>
+                <input type="hidden" id="post_type" value="">
+            </div>
+
+        </form>
+    </div>
+</div>
+
 
 <!-- Main menu -->
 <div class="container hidden-print desk">

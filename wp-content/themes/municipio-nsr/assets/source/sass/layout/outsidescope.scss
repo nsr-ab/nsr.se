@@ -12,3 +12,7 @@ forceWhiteLinkColor p {
 .mce-item-table td, .modularity-table td, .table td, article table td {
   vertical-align: top !important;
 }
+#searchModal label.active {
+  transform: translateY(-10px) !important;
+  //transform: translateX(80%) !important;
+}

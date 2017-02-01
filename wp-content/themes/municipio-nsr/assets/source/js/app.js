@@ -22,7 +22,6 @@ Nsr.App.AppDefault = (function ($) {
     AppDefault.prototype.init = function () {
         this.chngColor();
 
-
     };
 
 

@@ -33,7 +33,7 @@ class App
         }
 
         add_filter( 'image_size_names_choose', array($this,'nsr_image_sizes') );
-        add_action('after_setup_theme', array( $this,'create_404_page') );
+        add_action('after_setup_theme', array( $this,'create_pages') );
 
         if ( is_admin() ) {
             define('ALLOW_UNFILTERED_UPLOADS', true);
@@ -213,33 +213,38 @@ class App
      * Insert a privately published page we can query for our 404 page
      * @return location
      */
-    function create_404_page() {
+    function create_pages() {
 
         // Check if the 404 page exists
-        $page_exists = get_page_by_title( '404' );
+        $pages = array('404','Search');
 
-        if (!isset($page_exists->ID)) {
+        foreach($pages as $newPage) {
 
-            // Page array
-            $page = array(
-                'post_author' => 1,
-                'post_content' => '',
-                'post_name' =>  '404',
-                'post_status' => 'private',
-                'post_title' => '404',
-                'post_type' => 'page',
-                'post_parent' => 0,
-                'menu_order' => 0,
-                'to_ping' =>  '',
-                'pinged' => '',
-            );
+            $page_exists = get_page_by_title($newPage);
 
-            $insert = wp_insert_post($page);
+            if (!isset($page_exists->ID)) {
 
-            // The insert was successful
-            if ($insert) {
-                // Store the value of our 404 page
-                update_option( '404pageid', (int) $insert );
+                // Page array
+                $page = array(
+                    'post_author' => 1,
+                    'post_content' => '',
+                    'post_name' => $newPage,
+                    'post_status' => 'private',
+                    'post_title' => $newPage,
+                    'post_type' => 'page',
+                    'post_parent' => 0,
+                    'menu_order' => 0,
+                    'to_ping' => '',
+                    'pinged' => '',
+                );
+
+                $insert = wp_insert_post($page);
+
+                // The insert was successful
+                if ($insert) {
+                    // Store the value of our 404/Search page
+                    update_option($newPage.'pageid', (int)$insert);
+                }
             }
         }
 

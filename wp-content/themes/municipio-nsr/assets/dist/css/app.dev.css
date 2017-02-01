@@ -7259,7 +7259,36 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme .container {
       width: 100%; } }
   .is-child-theme .mobile-search {
-    display: none; }
+    cursor: pointer; }
+  .is-child-theme .mobile-search i {
+    z-index: 10; }
+  .is-child-theme .mobile-search .quickSearchInput {
+    position: relative; }
+  .is-child-theme .modal {
+    overflow: hidden; }
+  .is-child-theme .modal.bottom-sheet {
+    max-height: 23%; }
+  .is-child-theme .modal-content {
+    padding-top: 5px; }
+  @media only screen and (max-width: 768px) {
+    .is-child-theme .modal-content {
+      padding-top: 25px; } }
+  .is-child-theme #search-nsr {
+    background-color: #e6e6e6;
+    width: 90%;
+    margin-top: -20px;
+    margin-left: 0px;
+    z-index: 1;
+    padding-left: 70px; }
+  .is-child-theme .modal-content label, .is-child-theme .modal-content i {
+    z-index: 2; }
+  .is-child-theme .modal-content i {
+    font-size: 3.8rem;
+    margin-top: 12px;
+    margin-left: 10px; }
+  .is-child-theme .modal-close {
+    margin-right: 20px;
+    margin-top: 10px; }
   .is-child-theme .creamy {
     background-color: #f6f6f6;
     border: none; }
@@ -7372,6 +7401,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     color: #fff !important; }
   .is-child-theme .mce-item-table td, .is-child-theme .modularity-table td, .is-child-theme .table td, .is-child-theme article table td {
     vertical-align: top !important; }
+  .is-child-theme #searchModal label.active {
+    -webkit-transform: translateY(-10px) !important;
+            transform: translateY(-10px) !important; }
 
 .is-child-theme.home header {
   background-color: #fff; }
