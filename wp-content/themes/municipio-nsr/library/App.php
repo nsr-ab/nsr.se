@@ -225,7 +225,7 @@ class App
                     'post_author' => 1,
                     'post_content' => '',
                     'post_name' => $newPage,
-                    'post_status' => 'private',
+                    'post_status' => 'public',
                     'post_title' => $newPage,
                     'post_type' => 'page',
                     'post_parent' => 0,

@@ -654,6 +654,9 @@ input[type=text]:focus.invalid {
       color: lighten(#2dbccd, 10%);
     }
   }
+  .position-relative .closeSearch {
+    display:none;
+  }
   .sortAs {
     margin-bottom:10px;
   }
