@@ -16,6 +16,9 @@ class Enqueue
 
         add_action( 'login_enqueue_scripts', array($this,'style' ) );
         add_action('init', array($this,'jquery_init'));
+
+        add_action('wp_enqueue_scripts', array($this, 'add_Captcha'));
+
     }
 
     /**
@@ -55,6 +58,12 @@ class Enqueue
             wp_enqueue_script('jquery');
         }
     }
+
+    public function add_Captcha(){
+        wp_register_script('recaptcha', 'https://www.google.com/recaptcha/api.js', FALSE, '1.0.0', TRUE);
+        wp_enqueue_script('recaptcha');
+    }
+
 
 
 }
