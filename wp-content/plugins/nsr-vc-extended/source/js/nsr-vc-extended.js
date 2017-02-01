@@ -120,7 +120,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             if($(this).find("a").length === 0) {
                 $($id).find('.materialIconState').text('add');
                 if($(this).hasClass('active')) {
-                    $(this).find('.materialIconState').text('clear');
+                    $(this).find('.materialIconState').text('remove');
                 }
                 else {
                     $(this).find('.materialIconState').text('add');
