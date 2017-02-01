@@ -19,12 +19,13 @@
 .vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left .vc_tta-controls-icon {
   left:auto !important;
   right:40px !important;
+  font-size: 1.6rem !important;
 }
 .vc_tta-accordion .vc_tta-panel-body {
   background-color:$palette-primary-grey;
 }
 .vc_tta-accordion h4 {
-  font-size: 1.3rem !important;
+  font-size: 100% !important;
   max-width:100% !important;
 }
 .vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left.vc_tta-panel-title>a {
