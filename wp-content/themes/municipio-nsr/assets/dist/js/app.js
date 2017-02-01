@@ -28,12 +28,14 @@ Nsr.App.AppDefault = (function ($) {
 
 
     /**
-     *  init
-     *  Initializes all the necessary methods
+     *  removeActiveOnAccordions
+     *  Closing all accordions on load (and a wpforms error hack, not a stabile on.... :-/ ).
      */
     AppDefault.prototype.removeActiveOnAccordions = function () {
         $(document).ready(function() {
-           var error = false;
+
+            var error = false;
+
             if($('.wpforms-form div').hasClass('wpforms-error-container'))
                error = true;
             if($('.vc_tta-panel-body div').hasClass('wpforms-confirmation-container-full'))
@@ -41,10 +43,18 @@ Nsr.App.AppDefault = (function ($) {
             if(error === false)
                 $('.vc_tta-accordion .vc_tta-panel').removeClass('vc_active');
         });
-
     };
 
-
+    function validateRecaptcha() {
+        var response = grecaptcha.getResponse();
+        if (response.length === 0) {
+            alert("not validated");
+            return false;
+        } else {
+            alert("validated");
+            return true;
+        }
+    }
 
     /**
      *  Bypasing !important on parent css
