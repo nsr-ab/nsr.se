@@ -33,9 +33,10 @@ Nsr.App.AppDefault = (function ($) {
      */
     AppDefault.prototype.removeActiveOnAccordions = function () {
         $(document).ready(function() {
-           if(!$('.wpforms-form div').hasClass('wpforms-error-container')) {
+           if(!$('.wpforms-form div').hasClass('wpforms-error-container') || !$('.vc_tta-panel-body div').hasClass('wpforms-confirmation-container-full')) {
                $('.vc_tta-accordion .vc_tta-panel').removeClass('vc_active');
            }
+
 
         });
 
