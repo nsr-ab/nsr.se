@@ -24,6 +24,10 @@
             vertical-align: middle;
             display: table-cell;
             text-decoration: underline;
+            transform: none !important;
+        }
+        .nav-help li {
+            transform: none !important;
         }
         .nav-help i {
             font-size:2.0rem;
