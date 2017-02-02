@@ -4,7 +4,7 @@
         position:relative;
         margin-bottom:30px;
 
-        :after {
+        h1:after {
             content:"";
             background: alpha-color($palette-primary-grey, 25%, $type:'dark');
             position: absolute;
