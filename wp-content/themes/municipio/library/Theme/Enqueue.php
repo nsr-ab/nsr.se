@@ -4,7 +4,6 @@ namespace Municipio\Theme;
 
 class Enqueue
 {
-
     public $defaultPrimeName = 'hbg-prime';
 
     public function __construct()
@@ -31,6 +30,32 @@ class Enqueue
 
         //Enable defered loading
         add_action('clean_url', array($this, 'deferedLoadingJavascript'));
+
+        // Plugin filters (script/style related)
+        add_filter('gform_init_scripts_footer', '__return_true');
+        add_filter('gform_cdata_open', array($this, 'wrapGformCdataOpen'));
+        add_filter('gform_cdata_close', array($this, 'wrapGformCdataClose'));
+    }
+
+    /**
+     * Set current theme from db.
+     * @return bool
+     */
+    public static function getStyleguideTheme()
+    {
+        return apply_filters('Municipio/theme/key', get_field('color_scheme', 'option'));
+    }
+
+    public function wrapGformCdataOpen($content)
+    {
+        $content = 'document.addEventListener( "DOMContentLoaded", function() { ';
+        return $content;
+    }
+
+    public function wrapGformCdataClose($content)
+    {
+        $content = ' }, false );';
+        return $content;
     }
 
     /**
@@ -52,17 +77,23 @@ class Enqueue
      */
     public function style()
     {
-        $loadWpJquery = apply_filters('Municipio/load-wp-jquery', false);
 
-        if (!$loadWpJquery) {
+        // Tell jquery dependents to wait for prime instead.
+        if (!apply_filters('Municipio/load-wp-jquery', false)) {
             wp_deregister_script('jquery');
             add_action('wp_enqueue_scripts', array($this, 'waitForPrime'));
         }
 
+        //Load from local developement enviroment
         if ((defined('DEV_MODE') && DEV_MODE === true) || (isset($_GET['DEV_MODE']) && $_GET['DEV_MODE'] === 'true')) {
-            wp_register_style($this->defaultPrimeName, '//hbgprime.dev/dist/css/hbg-prime.min.css', '', '1.0.0');
+            wp_register_style($this->defaultPrimeName, '//hbgprime.dev/dist/css/hbg-prime-' . self::getStyleguideTheme() . '.dev.css', '', '1.0.0');
         } else {
-            wp_register_style($this->defaultPrimeName, '//helsingborg-stad.github.io/styleguide-web-cdn/styleguide.dev/dist/css/hbg-prime.min.css', '', '1.0.0');
+            //Check for version number lock files.
+            if (defined('STYLEGUIDE_VERSION') && STYLEGUIDE_VERSION != "") {
+                wp_register_style($this->defaultPrimeName, '//helsingborg-stad.github.io/styleguide-web/dist/' . STYLEGUIDE_VERSION . '/css/hbg-prime-' . self::getStyleguideTheme() . '.min.css', '', STYLEGUIDE_VERSION);
+            } else {
+                wp_register_style($this->defaultPrimeName, '//helsingborg-stad.github.io/styleguide-web/dist/css/hbg-prime-' . self::getStyleguideTheme() . '.min.css', '', 'latest');
+            }
         }
 
         wp_enqueue_style($this->defaultPrimeName);
@@ -82,16 +113,17 @@ class Enqueue
      */
     public function script()
     {
-        //Remove jQuery
-        if (!is_admin()) {
-            wp_dequeue_script('jquery');
-        }
-
-        //Custom
+        //Load from local developement enviroment
         if ((defined('DEV_MODE') && DEV_MODE === true) || (isset($_GET['DEV_MODE']) && $_GET['DEV_MODE'] === 'true')) {
             wp_register_script($this->defaultPrimeName, '//hbgprime.dev/dist/js/hbg-prime.min.js', '', '1.0.0', true);
         } else {
-            wp_register_script($this->defaultPrimeName, '//helsingborg-stad.github.io/styleguide-web-cdn/styleguide.dev/dist/js/hbg-prime.min.js', '', '1.0.0', true);
+
+            //Check for version number lock files.
+            if (defined('STYLEGUIDE_VERSION') && STYLEGUIDE_VERSION != "") {
+                wp_register_script($this->defaultPrimeName, '//helsingborg-stad.github.io/styleguide-web/dist/' . STYLEGUIDE_VERSION . '/js/hbg-prime.min.js', '', STYLEGUIDE_VERSION);
+            } else {
+                wp_register_script($this->defaultPrimeName, '//helsingborg-stad.github.io/styleguide-web/dist/js/hbg-prime.min.js', '', 'latest');
+            }
         }
 
         //Localization
@@ -110,6 +142,9 @@ class Enqueue
                 'cta' => get_field('scroll_elevator_text', 'option'),
                 'tooltip' => get_field('scroll_elevator_tooltio', 'option'),
                 'tooltipPosition' => get_field('scroll_elevator_tooltio_position', 'option')
+            ),
+            'tableFilter' => array(
+                'empty' => apply_filters('municipio/tablefilter/empty', __('No matching content found…', 'municipio'))
             )
         ));
         wp_enqueue_script($this->defaultPrimeName);
@@ -210,17 +245,26 @@ class Enqueue
             return $url;
         }
 
+        if (isset($_GET['gf_page']) && $_GET['gf_page'] == 'preview') {
+            return $url;
+        }
+
         return $url . "' defer='defer";
     }
 
+    /**
+     * Change jquery deps to hbgprime deps
+     * @return void
+     */
     public function waitForPrime()
     {
         $wp_scripts = wp_scripts();
+
         if (!is_admin() && isset($wp_scripts->registered)) {
             foreach ($wp_scripts->registered as $key => $item) {
                 if (is_array($item->deps) && !empty($item->deps)) {
                     foreach ($item->deps as $depkey => $depencency) {
-                        $item->deps[$depkey] = str_replace("jquery", $this->defaultPrimeName, $depencency);
+                        $item->deps[$depkey] = str_replace("jquery", $this->defaultPrimeName, strtolower($depencency));
                     }
                 }
             }

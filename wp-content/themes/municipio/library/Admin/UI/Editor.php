@@ -16,7 +16,7 @@ class Editor
         //$this->printBreak();
 
         // Filters
-        add_filter('oembed_result', array($this, 'oembed'), 10, 3);
+        add_filter('embed_oembed_html', array($this, 'oembed'), 10, 4);
 
         add_filter('the_content', function ($content) {
             $content = str_replace('<!--printbreak-->', '<div style="page-break-before:always;" class="clearfix print-only"></div>', $content);
@@ -34,24 +34,47 @@ class Editor
     public function editorStyle()
     {
         if ((defined('DEV_MODE') && DEV_MODE === true) || (isset($_GET['DEV_MODE']) && $_GET['DEV_MODE'] === 'true')) {
-            add_editor_style(apply_filters('Municipio/admin/editor_stylesheet', '//hbgprime.dev/dist/css/hbg-prime.min.css'));
+            add_editor_style(apply_filters('Municipio/admin/editor_stylesheet', '//hbgprime.dev/dist/css/hbg-prime-' . \Municipio\Theme\Enqueue::getStyleguideTheme() . '.dev.css'));
             return;
         }
 
-        add_editor_style(apply_filters('Municipio/admin/editor_stylesheet', '//helsingborg-stad.github.io/styleguide-web-cdn/styleguide.dev/dist/css/hbg-prime.min.css'));
+        if (defined('STYLEGUIDE_VERSION') && STYLEGUIDE_VERSION != "") {
+            add_editor_style(apply_filters('Municipio/admin/editor_stylesheet', '//helsingborg-stad.github.io/styleguide-web/dist/' . STYLEGUIDE_VERSION . '/css/hbg-prime-' . self::getStyleguideTheme() . '.min.css'));
+        } else {
+            add_editor_style(apply_filters('Municipio/admin/editor_stylesheet', '//helsingborg-stad.github.io/styleguide-web/dist/css/hbg-prime-' . \Municipio\Theme\Enqueue::getStyleguideTheme() . '.min.css'));
+        }
+
         return;
     }
 
     /**
-     * Wrap oembed in 16:9 ratio wrapper
+     * Filters oembed output
      * @param  string $data Markup
      * @param  string $url  Embedded url
      * @param  array $args  Args
      * @return string       Markup
      */
-    public function oembed($data, $url, $args)
+    public function oembed($html, $url, $attr, $postId)
     {
-        return '<div class="ratio-16-9">' . $data . '</div>';
+        $provider = false;
+
+        if (strpos($url, 'youtube') !== false) {
+            $provider = 'youtube';
+        } elseif (strpos($url, 'vimeo') !== false) {
+            $provider = 'vimeo';
+        }
+
+        $shouldFilter = apply_filters('Municipio/oembed/should_filter_markup', true, $provider, $url, $postId);
+
+        // Check if there's a oembed class for the provider
+        if (!class_exists('\Municipio\Oembed\\' . $provider) || !$shouldFilter) {
+            return '<div class="ratio-16-9">' . $html . '</div>';
+        }
+
+        $class = '\Municipio\Oembed\\' . $provider;
+        $oembed = new $class($url);
+
+        return $oembed->output();
     }
 
     /**

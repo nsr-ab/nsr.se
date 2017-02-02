@@ -26,7 +26,7 @@ class BaseController
     {
         $this->data = array_merge(
             $this->data,
-            apply_filters('Municipio/controller/base/view_data', array())
+            apply_filters('Municipio/controller/base/view_data', $this->data)
         );
     }
 
@@ -55,6 +55,40 @@ class BaseController
         $this->data['navigation']['mainMenu'] = $navigation->mainMenu();
         $this->data['navigation']['mobileMenu'] = $navigation->mobileMenu();
         $this->data['navigation']['sidebarMenu'] = $navigation->sidebarMenu();
+
+        $this->data['navigation']['headerTabsMenu'] = wp_nav_menu(array(
+            'theme_location' => 'header-tabs-menu',
+            'container' => 'nav',
+            'container_class' => 'menu-header-tabs',
+            'container_id' => '',
+            'menu_class' => 'nav nav-tabs',
+            'menu_id' => 'help-menu-top',
+            'echo' => false,
+            'before' => '',
+            'after' => '',
+            'link_before' => '',
+            'link_after' => '',
+            'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+            'depth' => 1,
+            'fallback_cb' => '__return_false'
+        ));
+
+        $this->data['navigation']['headerHelpMenu'] = wp_nav_menu(array(
+            'theme_location' => 'help-menu',
+            'container' => 'nav',
+            'container_class' => 'menu-help',
+            'container_id' => '',
+            'menu_class' => 'nav nav-help nav-horizontal',
+            'menu_id' => 'help-menu-top',
+            'echo' => false,
+            'before' => '',
+            'after' => '',
+            'link_before' => '',
+            'link_after' => '',
+            'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+            'depth' => 1,
+            'fallback_cb' => '__return_false'
+        ));
     }
 
     public function getLogotype()
@@ -67,12 +101,33 @@ class BaseController
 
     public function getHeaderLayout()
     {
-
         $headerLayoutSetting = get_field('header_layout', 'option');
+
+        $classes = array();
+        $classes[] = 'header-' . $headerLayoutSetting;
+
+        if (is_front_page() && get_field('header_transparent', 'option')) {
+            $classes[] = 'header-transparent';
+        }
+
+        if (get_field('header_centered', 'option')) {
+            $classes[] = 'header-center';
+        }
+
+        switch (get_field('header_content_color', 'option')) {
+            case 'light':
+                $classes[] = 'header-light';
+                break;
+
+            case 'dark':
+                $classes[] = 'header-dark';
+                break;
+        }
+
 
         if (empty($headerLayoutSetting) || in_array($headerLayoutSetting, array('business', 'casual', 'contrasted-nav'))) {
             $this->data['headerLayout'] = array(
-                'class'    => 'header-'.$headerLayoutSetting,
+                'classes'    => implode(' ', $classes),
                 'template' => 'default'
             );
 
@@ -80,7 +135,7 @@ class BaseController
         }
 
         $this->data['headerLayout'] = array(
-            'class'    => 'header-' . $headerLayoutSetting,
+            'classes'    => implode(' ', $classes),
             'template' => $headerLayoutSetting
         );
 

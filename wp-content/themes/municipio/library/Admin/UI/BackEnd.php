@@ -7,6 +7,31 @@ class BackEnd
     public function __construct()
     {
         add_action('admin_footer', array($this, 'hostingEnviroment'));
+        add_action('admin_title', array($this, 'prefixTitle'));
+        add_action('wp_title', array($this, 'prefixTitle'));
+    }
+
+    public function prefixTitle($title)
+    {
+        if (!$this->isLocal() && !$this->isTest() && !$this->isBeta()) {
+            return $title;
+        }
+
+        $prefix = null;
+
+        if ($this->isLocal()) {
+            $prefix = __('Local', 'municipio');
+        }
+
+        if ($this->isTest()) {
+            $prefix = __('Test', 'municipio');
+        }
+
+        if ($this->isBeta()) {
+            $prefix = __('Beta', 'municipio');
+        }
+
+        return '(' . $prefix . ') ' . $title;
     }
 
     public function hostingEnviroment()

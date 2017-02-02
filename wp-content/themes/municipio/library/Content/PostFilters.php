@@ -10,9 +10,9 @@ class PostFilters
 
         add_filter('template_include', array($this, 'enablePostTypeArchiveSearch'), 1);
 
-        add_filter('posts_where', array($this, 'doPostDateFiltering'));
-        add_filter('pre_get_posts', array($this, 'doPostTaxonomyFiltering'));
-        add_filter('pre_get_posts', array($this, 'doPostOrdering'));
+        add_action('posts_where', array($this, 'doPostDateFiltering'));
+        add_action('pre_get_posts', array($this, 'doPostTaxonomyFiltering'));
+        add_action('pre_get_posts', array($this, 'doPostOrdering'));
 
         remove_filter('content_save_pre', 'wp_filter_post_kses');
         remove_filter('excerpt_save_pre', 'wp_filter_post_kses');
@@ -46,9 +46,11 @@ class PostFilters
         $taxonomies = $this->getEnabledTaxonomies();
 
         add_action('HbgBlade/data', function ($data) use ($taxonomies) {
-            $data['postType'] = get_post_type();
+            if (!isset($data['postType'])) {
+                $data['postType'] = get_post_type();
+            }
 
-            $data['enabledHeaderFilters'] = get_field('archive_' . get_post_type() . '_post_filters_header', 'option');
+            $data['enabledHeaderFilters'] = get_field('archive_' . $data['postType'] . '_post_filters_header', 'option');
             $data['enabledTaxonomyFilters'] = $taxonomies;
 
             return $data;
@@ -73,8 +75,16 @@ class PostFilters
                 'hide_empty' => false
             ));
 
-            $tax[$item] = array(
-                'label' => get_taxonomy($item)->labels->name,
+            $placement = get_field('archive_' . sanitize_title(get_post_type()) . '_filter_' . sanitize_title($item) . '_placement', 'option');
+            if (is_null($placement)) {
+                $placement = 'secondary';
+            }
+
+            $type = get_field('archive_' . sanitize_title(get_post_type()) . '_filter_' . sanitize_title($item) . '_type', 'option');
+
+            $tax[$placement][$item] = array(
+                'label' => get_taxonomy($item)->label,
+                'type' => $type,
                 'values' => $terms
             );
         }
@@ -129,6 +139,10 @@ class PostFilters
 
         $taxQuery = array('relation' => 'OR');
         foreach ($terms as $key => $term) {
+            if (!isset($term[0]) || !isset($term[1])) {
+                continue;
+            }
+
             $taxQuery[] = array(
                 'taxonomy' => $term[0],
                 'field' => 'slug',
@@ -226,22 +240,7 @@ class PostFilters
 
         // Continue if meta query
         $query->set('meta_key', $orderby);
-        $query->set(
-            'meta_query',
-            array(
-                'relation' => 'OR',
-                array(
-                    'key' => $orderby,
-                    'compare' => 'EXISTS'
-                ),
-                array(
-                    'key' => $orderby,
-                    'compare' => 'NOT EXISTS'
-                )
-            )
-        );
-
-        $query->set('orderby', 'meta_key');
+        $query->set('orderby', 'meta_value');
 
         return $query;
     }

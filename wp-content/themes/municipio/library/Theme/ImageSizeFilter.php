@@ -8,35 +8,11 @@ class ImageSizeFilter
     {
         add_filter('jpeg_quality', array($this, 'setImageQuality'));
         add_filter('wp_editor_set_quality', array($this, 'setImageQuality'));
-
-        add_filter('Modularity/slider/image', array($this, 'filterHeroImageSize'), 100, 2);
-        add_filter('Modularity/Module/Classes', array($this, 'addVideoSizeClass'), 100, 3);
     }
 
     public function setImageQuality($quaility)
     {
-        return 100;
-    }
-
-    public function addVideoSizeClass($default_class, $post_type, $args)
-    {
-        if ($post_type == "mod-slider" && isset($args['id']) && $args['id'] != "slider-area" && is_array($default_class)) {
-            $default_class[] = "ratio-16-9";
-        }
-
-        return $default_class;
-    }
-
-    public function filterHeroImageSize($orginal_size, $args)
-    {
-
-        //If slider is shown in top area
-        if ($args['id'] == "slider-area") {
-            return array(1800,350);
-        }
-
-        //Default value
-        return $orginal_size;
+        return 95;
     }
 
     public static function removeFilter($hook_name = '', $method_name = '', $priority = 0)

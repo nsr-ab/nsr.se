@@ -77,8 +77,10 @@ class NavigationTree
         if ($this->args['include_top_level']) {
             $this->walk($this->topLevelPages);
         } else {
-            $page = isset($this->ancestors[0]) ? array($this->ancestors[0]) : array($this->currentPage);
-            $this->walk($page);
+            $page = isset($this->ancestors[0]) ? $this->ancestors[0] : $this->currentPage;
+            if ($page) {
+                $this->walk(array($page));
+            }
         }
     }
 
@@ -373,16 +375,21 @@ class NavigationTree
 
     /**
      * Datermines if page should be included in the menu or not
-     * @param  integer $id The page ID
+     * @param  object $item The menu item
      * @return boolean
      */
     public function shouldBeIncluded($item)
     {
-        $pageId = $this->getPageId($item);
-        $hide = get_field('hide_in_menu', $pageId) ? get_field('hide_in_menu', $pageId) : false;
+        if (!is_object($item)) {
+            return false;
+        }
 
-        return !($item->post_type === 'page' && isset($item->post_parent) && !$this->args['include_top_level'] && $item->post_parent === 0)
-               || $hide;
+        $pageId = $this->getPageId($item);
+        $showInMenu = get_field('hide_in_menu', $pageId) ? !get_field('hide_in_menu', $pageId) : true;
+        $isNotTopLevelItem = !($item->post_type === 'page' && isset($item->post_parent) && $item->post_parent === 0);
+        $showTopLevel = $this->args['include_top_level'];
+
+        return ($showTopLevel || $isNotTopLevelItem) && $showInMenu;
     }
 
 

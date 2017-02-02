@@ -1,4 +1,4 @@
-<header id="site-header" class="site-header {{ $headerLayout['class'] }}">
+<header id="site-header" class="site-header {{ $headerLayout['classes'] }}">
     <div class="print-only container">
         <div class="grid">
             <div class="grid-sm-12">

@@ -23,6 +23,19 @@
 
         <div class="{{ $cols }}">
 
+            @if (is_category() || is_date())
+            <div class="grid">
+                <div class="grid-xs-12">
+                    @if (is_category())
+                    <h1>{{ single_cat_title() }}</h1>
+                    {!! category_description() !!}
+                    @elseif (is_date())
+                    <h1>{{ the_archive_title() }}</h1>
+                    @endif
+                </div>
+            </div>
+            @endif
+
             @if (is_active_sidebar('content-area-top'))
                 <div class="grid sidebar-content-area sidebar-content-area-top">
                     <?php dynamic_sidebar('content-area-top'); ?>
@@ -31,6 +44,7 @@
 
             <div class="grid">
                 @if (have_posts())
+                    <?php $postNum = 0; ?>
                     @while(have_posts())
                         {!! the_post() !!}
 
@@ -41,6 +55,8 @@
                         @else
                             @include('partials.blog.type.post-' . $template)
                         @endif
+
+                        <?php $postNum++; ?>
                     @endwhile
                 @else
                     <div class="grid-xs-12">

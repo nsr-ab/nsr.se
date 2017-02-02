@@ -31,6 +31,7 @@ class App
         new \Municipio\Theme\Blog();
         new \Municipio\Theme\FileUploads();
         new \Municipio\Theme\Archive();
+        new \Municipio\Theme\CustomTemplates();
 
         new \Municipio\Search\General();
 
@@ -41,6 +42,7 @@ class App
         new \Municipio\Content\CustomTaxonomy();
         new \Municipio\Content\PostFilters();
         new \Municipio\Content\ShortCode();
+        new \Municipio\Content\Cache();
 
         /**
          * Widget
