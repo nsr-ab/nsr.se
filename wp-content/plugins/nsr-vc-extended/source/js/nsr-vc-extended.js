@@ -88,7 +88,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
             window.open($(this).data('url'), '_blank');
         }).bind(this);
 
+        /* focus */
+        $('body').on('click', '#searchkeyword-nsr', function () {
+            $('#searchkeyword-nsr').focus();
+        }).bind(this);
 
+        
     };
 
     /**
