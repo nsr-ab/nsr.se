@@ -2,6 +2,9 @@
 .main-footer nav {
     background:none !important;
 }
+.main-footer  {
+    background-color:$palette-primary-grey !important;
+}
 
 .main-footer, .main-footer *, .page-footer {
     box-shadow: none !important;
@@ -19,4 +22,5 @@
     margin-top: 0;
     color:$palette-secondary-green;
 }
+
 

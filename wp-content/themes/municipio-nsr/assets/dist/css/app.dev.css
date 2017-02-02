@@ -7076,6 +7076,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     background-color: #fff; }
   .is-child-theme .main-footer nav {
     background: none !important; }
+  .is-child-theme .main-footer {
+    background-color: #f6f6f6 !important; }
   .is-child-theme .main-footer, .is-child-theme .main-footer *, .is-child-theme .page-footer {
     box-shadow: none !important; }
   .is-child-theme.nsr-background-white .main-footer {
