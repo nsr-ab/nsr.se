@@ -7129,7 +7129,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme #main-content .page-title {
     position: relative;
     margin-bottom: 30px; }
-    .is-child-theme #main-content .page-title :after {
+    .is-child-theme #main-content .page-title h1:after {
       content: "";
       background: #b6b6b6;
       position: absolute;
@@ -7139,16 +7139,26 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       height: 1px;
       width: 98%; }
     .is-child-theme #main-content .page-title .nav-help {
-      margin-bottom: 30px; }
+      margin-bottom: 30px;
+      -webkit-transform: none !important;
+              transform: none !important; }
     .is-child-theme #main-content .page-title .nav-help a {
       font-size: 1.3rem;
       vertical-align: middle;
       display: table-cell;
-      text-decoration: underline; }
+      text-decoration: underline;
+      -webkit-transform: none !important;
+              transform: none !important; }
+    .is-child-theme #main-content .page-title .nav-help li {
+      -webkit-transform: none !important;
+              transform: none !important; }
     .is-child-theme #main-content .page-title .nav-help i {
       font-size: 2.0rem;
       vertical-align: middle;
       margin: 5px; }
+    .is-child-theme #main-content .page-title :after {
+      content: "";
+      background: #fff; }
   .is-child-theme #main-content .page-content {
     padding-top: 0;
     margin-top: -20px; }
@@ -7422,6 +7432,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme #searchModal label.active {
     -webkit-transform: translateY(-10px) !important;
             transform: translateY(-10px) !important; }
+  .is-child-theme .nav-help a, .is-child-theme .nav-help li {
+    background: #fff !important; }
 
 .is-child-theme.home header {
   background-color: #fff; }

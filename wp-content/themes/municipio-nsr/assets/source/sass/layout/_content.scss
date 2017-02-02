@@ -13,6 +13,7 @@
             right:1%;
             height: 1px;
             width: 98%;
+
         }
 
         .nav-help {
@@ -33,6 +34,10 @@
             font-size:2.0rem;
             vertical-align: middle;
             margin:5px;
+        }
+        :after {
+            content:"";
+            background: $palette-primary-white;
         }
 
     }
