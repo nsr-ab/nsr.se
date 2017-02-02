@@ -39,7 +39,7 @@ class App
             define('ALLOW_UNFILTERED_UPLOADS', true);
         }
 
-        add_action( 'login_enqueue_scripts', array( $this, 'admin_login_logo') );
+ 
         add_filter( 'login_headerurl', array( $this,'login_logo_url') );
 
 
@@ -253,6 +253,7 @@ class App
      * @return home address
      */
     function login_logo_url() {
+
         return home_url();
     }
 
