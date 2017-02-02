@@ -39,7 +39,7 @@ class App
             define('ALLOW_UNFILTERED_UPLOADS', true);
         }
 
- 
+
         add_filter( 'login_headerurl', array( $this,'login_logo_url') );
 
 

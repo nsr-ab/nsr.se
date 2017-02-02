@@ -497,7 +497,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                     if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion != '' && spost.post_meta.avfall_fraktion.length) {
                         if(spost.post_meta.avfall_fraktion != '') {
-                            sortHTML += '<li><b>ÅVC:</b><ul class="sortAs meta-fraktion">';
+                            sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
                             tabMobile_frak += '<li><b>ÅVC:</b><ul>';
 
                             for (int = 0; int < spost.post_meta.avfall_fraktion.length; int++) {
