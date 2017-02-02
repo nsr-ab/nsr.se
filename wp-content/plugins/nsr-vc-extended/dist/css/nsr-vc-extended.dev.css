@@ -154,7 +154,8 @@ input[type=text]:focus.invalid {
   margin-right: 0rem !important;
   position: relative; }
   .searchNSR h4 {
-    line-height: 14px !important; }
+    line-height: 14px !important;
+    max-height: 20px !important; }
   .searchNSR .input-field input[type=search] {
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
