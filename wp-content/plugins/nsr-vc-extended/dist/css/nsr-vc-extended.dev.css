@@ -223,6 +223,8 @@ input[type=text]:focus.invalid {
     box-sizing: border-box;
     display: table;
     transition: 300ms ease; }
+  .searchNSR h4 {
+    line-height: 14px; }
   .searchNSR td, .searchNSR tr {
     vertical-align: top !important; }
   .searchNSR.position-relative {

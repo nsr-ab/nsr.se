@@ -93,7 +93,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('#searchkeyword-nsr').focus();
         }).bind(this);
 
-        
+
     };
 
     /**
