@@ -37,6 +37,8 @@ class NSRTemplates
     function my_body_class( $color ) {
 
         global $post;
+        if( !is_object($post) )
+            return;
         $selectBackground = get_post_meta($post->ID, 'post_backgroundcolor', true);
         switch($selectBackground){
             case 0:
