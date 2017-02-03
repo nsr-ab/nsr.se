@@ -191,6 +191,9 @@ class Puff
         else {
             $icon = false;
         }
+
+        $vc_bg_colors = isset($vc_bg_colors) ? $vc_bg_colors : null;
+        $vc_txt_colors = isset($vc_txt_colors) ? $vc_txt_colors : null;
         $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"".$vc_bg_colors." border-top:3px solid ". $params->vc_border_colors .";\" " : "style=\"".$vc_bg_colors." \"";
 
         $output = "<div hoze=ei!, id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" ". $vc_border_colors ." class=\"".$vc_txt_colors." card hoverable small\" >";

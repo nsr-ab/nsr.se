@@ -217,9 +217,19 @@ input[type=text]:focus.invalid {
 
   h4 {
     line-height:14px !important;
-    max-height: 20px !important;
-  }
 
+  }
+  @media (max-width: 540px) {
+    .badgeInfo {
+      float:right !important;
+      margin-bottom:0px !important;
+    }
+
+    h4 {
+      line-height:25px !important;
+      display:table;
+    }
+  }
   .input-field input[type=search] {
     background-color: rgba(255, 255, 255, 0.1);
     color: $white;
@@ -231,6 +241,7 @@ input[type=text]:focus.invalid {
   .input-field input[type=search]:focus {
     background-color: rgba(0, 0, 0, 0.2);
     color: $white;
+
   }
 
   .prefix {

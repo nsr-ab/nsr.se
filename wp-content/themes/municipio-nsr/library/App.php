@@ -266,7 +266,7 @@ class App
      */
     function setBackgroundClass(){
         $nsrCss = new \Nsr\Theme\NSRTemplates();
-        $bodyClasses = $nsrCss->setBackgroundColor();
+        $nsrCss->setBackgroundColor();
     }
 
 

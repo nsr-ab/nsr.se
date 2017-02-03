@@ -178,7 +178,7 @@ class ListLinksWithThumbnail extends MasterVCExtended
         if(isset($params->vc_pagelink))
             $link =  $params->vc_pagelink;
 
-        if($link) {
+        if(isset($link)) {
             $href = vc_build_link($params->vc_pagelink);
         }
         else {

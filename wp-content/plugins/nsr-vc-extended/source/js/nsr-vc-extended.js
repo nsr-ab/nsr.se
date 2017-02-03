@@ -88,10 +88,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
             window.open($(this).data('url'), '_blank');
         }).bind(this);
 
-        /* focus */
+        /* Puff med länkar - Visa fler nyheter */
         $('body').on('click', '#searchkeyword-nsr', function () {
             $('#searchkeyword-nsr').focus();
         }).bind(this);
+
+
 
 
     };
@@ -469,7 +471,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $element = $(element);
         var $autocomplete = $('<div class="search-autocomplete"></div>');
         var $content = $('<ul class="search-autocomplete-content"></ul>');
-        var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4><div class="left badgeInfo"><span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div></div>');
+        var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4><div class="left badgeInfo"><span class="badge">P</span> <span class="kundtxt">Privat</span> <span class="badge">F</span> <span class="kundtxt">Företag<br /></div></div>');
         var spinner = '<div class="preloader-wrapper small active" style="display:none;"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
         var $sortMarkupTable = $('<table class="sorterings-guide-table"><tr class="tabDesk"><th></th><th>Sorteras som</th><th class="exnfodispl">Bra att veta</th><th class="relative">Lämnas nära dig</th></tr></table>');
         var nosortGuidedata = false;
