@@ -699,7 +699,10 @@ input[type=text]:focus.invalid {
     content: 'description' !important;
   }
   .fraktion-icon {
-    padding-left:0px;
+    padding-left:15px;
+  }
+  .fraktion-icon a {
+    margin-left:-15px;
   }
   .locationmap {
     padding-left:15px;

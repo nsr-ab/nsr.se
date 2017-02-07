@@ -458,6 +458,19 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
+    /**
+     * hash strings
+     * @return {int}
+     */
+    Extended.prototype.hashCode = function(str) {
+        var hash = 0;
+        for (var i = 0; i < str.length; i++) {
+            hash = ~~(((hash << 5) - hash) + str.charCodeAt(i));
+        }
+        return hash;
+    };
+
+
 
 
     /**
@@ -471,14 +484,15 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $element = $(element);
         var $autocomplete = $('<div class="search-autocomplete"></div>');
         var $content = $('<ul class="search-autocomplete-content"></ul>');
-        var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4><div class="left badgeInfo"><span class="badge">P</span> <span class="kundtxt">Privat</span> <span class="badge">F</span> <span class="kundtxt">Företag<br /></div></div>');
+        var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4><div class="left badgeInfo"><span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div></div>');
         var spinner = '<div class="preloader-wrapper small active" style="display:none;"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
         var $sortMarkupTable = $('<table class="sorterings-guide-table"><tr class="tabDesk"><th></th><th>Sorteras som</th><th class="exnfodispl">Bra att veta</th><th class="relative">Lämnas nära dig</th></tr></table>');
         var nosortGuidedata = false;
         var noContent = false;
 
-        if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
+        if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
+            console.log(res.sortguide );
             var sortHTML;
             var tabMobile_frak = '';
             var tabMobile_inl = '';
@@ -502,33 +516,36 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 if(spost.terms) {
 
-                    if(spost.post_meta.avfall_fraktion && spost.post_meta.avfall_fraktion != '' && spost.post_meta.avfall_fraktion.length) {
-                        if(spost.post_meta.avfall_fraktion != '') {
-                            sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
-                            tabMobile_frak += '<li><b>ÅVC:</b><ul>';
 
-                            for (int = 0; int < spost.post_meta.avfall_fraktion.length; int++) {
-
-                                sortHTML += '<li class="fraktion-icon">' + spost.post_meta.avfall_fraktion[int] + '</li>';
-                                tabMobile_frak += '<li class="fraktion-icon">' + spost.post_meta.avfall_fraktion[int] + "<li>";
-                            }
-                            sortHTML += '</ul></li>';
-                            tabMobile_frak += '</ul></li>';
+                    if (spost.terms.fraktion_avc.name != '' && spost.terms.fraktion_avc.name != null) {
+                        sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
+                        tabMobile_frak += '<li><b>ÅVC:</b><ul>';
+                        if(spost.terms.fraktion_avc.link != '') {
+                            var fraktion_avc = '<a href="'+spost.terms.fraktion_avc.link+'">'+spost.terms.fraktion_avc.name+'</a>';
                         }
+                        else {
+                            var fraktion_avc = spost.terms.fraktion_avc.name;
+                        }
+                        sortHTML += '<li class="fraktion-icon">' + fraktion_avc + '</li>';
+                        tabMobile_frak += '<li class="fraktion-icon">' + fraktion_avc + "<li>";
+                        sortHTML += '</ul></li>';
+                        tabMobile_frak += '</ul></li>';
+
                     }
-                    if(spost.post_meta.avfall_fraktion_hemma && spost.post_meta.avfall_fraktion_hemma != '' && spost.post_meta.avfall_fraktion_hemma.length) {
-                        if(spost.post_meta.avfall_fraktion_hemma != '') {
-                            sortHTML += '<li><b>Hemma:</b><ul class="meta-fraktion">';
-                            tabMobile_frak += '<li><b class="sortAs">Hemma:</b><ul>';
 
-                            for (int = 0; int < spost.post_meta.avfall_fraktion_hemma.length; int++) {
-                                sortHTML += '<li class="fraktion-icon">' + spost.post_meta.avfall_fraktion_hemma[int] + '</li>';
-                                tabMobile_frak += '<li class="fraktion-icon">' + spost.post_meta.avfall_fraktion_hemma[int] + "<li>";
-                            }
-
-                            sortHTML += '</ul></li>';
-                            tabMobile_frak += '</ul></li>';
+                    if (spost.terms.fraktion_hemma.name != '' && spost.terms.fraktion_hemma.name != null) {
+                        sortHTML += '<li><b>Hemma:</b><ul class="meta-fraktion">';
+                        tabMobile_frak += '<li><b class="sortAs">Hemma:</b><ul>';
+                        if(spost.terms.fraktion_hemma.link != '') {
+                            var fraktion_hemma = '<a href="'+spost.terms.fraktion_hemma.link+'">'+spost.terms.fraktion_hemma.name+'</a>';
                         }
+                        else {
+                            var fraktion_hemma = spost.terms.fraktion_hemma.name;
+                        }
+                        sortHTML += '<li class="fraktion-icon">' + fraktion_hemma + '</li>';
+                        tabMobile_frak += '<li class="fraktion-icon">' + fraktion_hemma + "<li>";
+                        sortHTML += '</ul></li>';
+                        tabMobile_frak += '</ul></li>';
                     }
                 }
 
@@ -541,32 +558,43 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '<td valign="top">'+spinner+'<ul class="inlstallen">';
                 var hideStuff = '';
                 if(spost.terms) {
+
                     if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
+
                         CityItem = [];
-                        for (int = 0; int < spost.terms.inlamningsstallen.length; int++) {
-                            var cssClass = spost.terms.inlamningsstallen[int].term_id + "-" + int;
+
+                        for (var int = 0; int < spost.terms.inlamningsstallen.length; int++) {
+
+                            var lint;
                             var inlineClick = '';
                             var inlLink = '';
                             var inLinkClose = '';
-                            if(spost.terms.inlamningsstallen[int].pageurl) {
 
-                                if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int].pageurl, '?page_id=') === 0) {
-                                    inlLink = '<a href="'+spost.terms.inlamningsstallen[int].pageurl + '">';
-                                    inLinkClose = '</a>';
-                                }
-                                else {
-                                    if(spost.terms.inlamningsstallen[int].lat && spost.terms.inlamningsstallen[int].long) {
-                                        inlineClick = ' data-url="http://maps.google.com?q=' + spost.terms.inlamningsstallen[int].lat + ',' + spost.terms.inlamningsstallen[int].long + '" ';
+                            for (lint = 0; lint < spost.terms.inlamningsstallen[int].length; lint++) {
+
+                                var cssClass = 'nsr'+Extended.prototype.hashCode(spost.terms.inlamningsstallen[int][lint]['city'])+ "-" + int;
+
+
+                                if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
+
+                                    if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int][lint]['pageurl'], '?page_id=') === 0) {
+                                        inlLink = '<a href="' + spost.terms.inlamningsstallen[int][lint]['pageurl'] + '">';
+                                        inLinkClose = '</a>';
+                                    }
+                                    else {
+                                        if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
+                                            inlineClick = ' data-url="http://maps.google.com?q=' + spost.terms.inlamningsstallen[int][lint]['lat'] + ',' + spost.terms.inlamningsstallen[int][lint]['long'] + '" ';
+                                        }
                                     }
                                 }
-                            }
 
-                            CityItem[int] = [spost.terms.inlamningsstallen[int].city, spost.terms.inlamningsstallen[int].lat, spost.terms.inlamningsstallen[int].long, spost.terms.inlamningsstallen[int].name, cssClass];
-                            if(int > 5)
-                                hideStuff = 'hide';
-                            sortHTML += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'> ' + inlLink + spost.terms.inlamningsstallen[int].name + inLinkClose + '</li>';
-                            tabMobile_inl += '<li class="cord-'+cssClass+' locationmap '+hideStuff+'" '+inlineClick+'> ' + inlLink + spost.terms.inlamningsstallen[int].name + inLinkClose +  '</li>';
-                            hideStuff = '';
+                                CityItem[int] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], cssClass];
+                                if (lint > 5)
+                                    hideStuff = 'hide';
+                                sortHTML += '<li class="cord-' + cssClass + ' locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                tabMobile_inl += '<li class="cord-' + cssClass + ' locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                hideStuff = '';
+                            }
                         }
 
                         cities[cityInt] = CityItem;

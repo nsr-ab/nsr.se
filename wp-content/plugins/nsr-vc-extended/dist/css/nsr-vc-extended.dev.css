@@ -448,7 +448,9 @@ input[type=text]:focus.invalid {
   .searchNSR .fraktion-icon:before {
     content: 'description' !important; }
   .searchNSR .fraktion-icon {
-    padding-left: 0px; }
+    padding-left: 15px; }
+  .searchNSR .fraktion-icon a {
+    margin-left: -15px; }
   .searchNSR .locationmap {
     padding-left: 15px;
     padding-bottom: 5px; }
