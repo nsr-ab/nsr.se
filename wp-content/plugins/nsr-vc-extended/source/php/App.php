@@ -236,8 +236,11 @@ class App
                     $fraktionsInt++;
                 }
 
+                $result['sortguide'][$metaInt]->terms['inlamningsstallen'] = array_unique ( $result['sortguide'][$metaInt]->terms['inlamningsstallen'] );
+
 
             }
+
 
         }
 

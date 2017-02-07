@@ -464,7 +464,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.hashCode = function(str) {
         var hash = 0;
-        if (str.length == 0) return hash;
+        if (str === null)
+            return hash;
+
         for (i = 0; i < str.length; i++) {
             char = str.charCodeAt(i);
             hash = ((hash<<5)-hash)+char;
@@ -594,8 +596,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 CityItem[int] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], cssClass];
                                 if (lint > 5)
                                     hideStuff = 'hide';
-                                sortHTML += '<li class="cord-' + cssClass + ' locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                tabMobile_inl += '<li class="cord-' + cssClass + ' locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                if(spost.terms.inlamningsstallen[int][lint]['city'] != null) {
+                                    sortHTML += '<li class="cord-' + cssClass + ' locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    tabMobile_inl += '<li class="cord-' + cssClass + ' locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                }
                                 hideStuff = '';
                             }
                         }
@@ -770,6 +774,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         mindif = dif;
                         var cordClass = 'cord-' + cities[ind][index][4];
                     }
+                    //console.log(cities[ind][index][1]+ " : " + cities[ind][index][2]);
                 }
 
                 $('.'+cordClass).addClass('geoLink');
