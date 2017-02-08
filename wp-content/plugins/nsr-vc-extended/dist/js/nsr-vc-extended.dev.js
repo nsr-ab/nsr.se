@@ -460,7 +460,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     /**
      * hash strings
-     * @return {int}
+     * @return {string}
      */
     Extended.prototype.hashCode = function(str) {
         var hash = 0;
@@ -474,7 +474,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
         return hash;
     };
-
 
 
 
@@ -567,7 +566,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
 
                         CityItem = [];
-
                         for (var int = 0; int < spost.terms.inlamningsstallen.length; int++) {
 
                             var lint;
@@ -577,8 +575,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                             for (lint = 0; lint < spost.terms.inlamningsstallen[int].length; lint++) {
 
-                                var cssClass = 'n'+Extended.prototype.hashCode(spost.terms.inlamningsstallen[int][lint]['city'])+ "-" + int;
-
+                                var cssClass = 'n' + Extended.prototype.hashCode(spost.terms.inlamningsstallen[int][lint]['city']) + "-" + int;
 
                                 if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
 
@@ -596,7 +593,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 CityItem[int] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], cssClass];
                                 if (lint > 5)
                                     hideStuff = 'hide';
-                                if(spost.terms.inlamningsstallen[int][lint]['city'] != null) {
+                                if (spost.terms.inlamningsstallen[int][lint]['city'] != null) {
                                     sortHTML += '<li class="cord-' + cssClass + ' locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                     tabMobile_inl += '<li class="cord-' + cssClass + ' locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }

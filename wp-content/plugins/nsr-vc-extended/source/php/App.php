@@ -139,6 +139,32 @@ class App
 
 
     /**
+     * Unique result
+     * @return string
+     */
+    public function citiesUnique($array,$key)
+    {
+
+        $temp_array = array();
+
+        foreach ($array as &$v) {
+
+            if (!isset($temp_array[$v[$key]]))
+
+                $temp_array[$v[$key]] =& $v;
+
+        }
+
+        $array = array_values($temp_array);
+
+        return $array;
+
+
+
+    }
+
+
+    /**
      *  fetch_data
      *  Get data from Elastic Search
      */
@@ -213,7 +239,7 @@ class App
 
 
                 $fraktionsInt = 0;
-
+                $checkDupes = array();
                 foreach($result['sortguide'][$metaInt]->terms['fraktioner'] as $termsFraktion){
 
                     $fraktId = $termsFraktion['term_id'];
@@ -226,19 +252,19 @@ class App
                         $getTerm = get_term_meta($termLocID);
                         $termPageLink = get_page_link(intval($getTerm['fraktion_page_link'][0]));
 
-                        $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['city'] = $termInlamningsstalle->name;
-                        $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['lat'] = $getTerm['inlamningsstalle_latitude'][0];
-                        $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['long'] = $getTerm['inlamningsstalle_longitude'][0];
-                        $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['pageurl'] = $termPageLink;
-                        $lint++;
+                        if(!in_array($termInlamningsstalle->term_id, $checkDupes)){
+                            $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['termId'] = $termInlamningsstalle->term_id;
+                            $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['city'] = $termInlamningsstalle->name;
+                            $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['lat'] = $getTerm['inlamningsstalle_latitude'][0];
+                            $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['long'] = $getTerm['inlamningsstalle_longitude'][0];
+                            $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['pageurl'] = $termPageLink;
+                            $lint++;
+                            array_push($checkDupes, $termInlamningsstalle->term_id);
+                        }
                     }
 
                     $fraktionsInt++;
                 }
-
-                $result['sortguide'][$metaInt]->terms['inlamningsstallen'] = array_unique ( $result['sortguide'][$metaInt]->terms['inlamningsstallen'] );
-
-
             }
 
 
