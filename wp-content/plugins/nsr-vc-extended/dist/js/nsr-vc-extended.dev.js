@@ -496,7 +496,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
-            console.log(res.sortguide );
+
             var sortHTML;
             var tabMobile_frak = '';
             var tabMobile_inl = '';
@@ -611,8 +611,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul class="meta-fraktion">'+tabMobile_frak+'</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile"><th>Lämnas:</th><td>'+spinner+'<ul>'+tabMobile_inl+'</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile lastchild"><td class="lastchild" colspan="2"> </td></tr>';
-
-
+                
                 tabMobile_frak = "";
                 tabMobile_inl = "";
 
@@ -771,7 +770,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         mindif = dif;
                         var cordClass = 'cord-' + cities[ind][index][4];
                     }
-                    //console.log(cities[ind][index][1]+ " : " + cities[ind][index][2]);
                 }
 
                 $('.'+cordClass).addClass('geoLink');
