@@ -149,8 +149,8 @@ class App
             if (!isset($temp_array[$v[$key]]))
                 $temp_array[$v[$key]] =& $v;
         }
-        $array = array_values($temp_array);
-        return $array;
+
+        return array_values($temp_array);
     }
 
 
@@ -180,9 +180,9 @@ class App
         ));
 
         $response = curl_exec($fetchplanner_curl);
-        $data = json_decode($response);
         curl_close($fetchplanner_curl);
-        return  $data;
+
+        return json_decode($response);
     }
 
 
@@ -196,8 +196,8 @@ class App
     {
         $date = str_replace(")/","",str_replace("/Date(","", $fpdate));
         $date = ( $date / 1000 );
-        $date = substr(strtok(date("Y-m-d H:m", $date),":"), 0, -2);
-        return $date;
+
+        return substr(strtok(date("Y-m-d H:m", $date),":"), 0, -2);
     }
 
 
