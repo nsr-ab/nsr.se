@@ -129,7 +129,6 @@ class App
      */
     public function showVcVersionNotice()
     {
-
         echo '
         <div class="notice notice-error is-dismissible">
           <p>' . __('<strong>NSR Visual Composer Extended</strong> requires <strong><a href="http://bit.ly/vcomposer" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', 'nsr-vc-extended') . '</p>
@@ -149,7 +148,6 @@ class App
         foreach ($array as &$v) {
             if (!isset($temp_array[$v[$key]]))
                 $temp_array[$v[$key]] =& $v;
-
         }
         $array = array_values($temp_array);
         return $array;
@@ -161,9 +159,47 @@ class App
      * @param int
      * @return string
      */
-    private static function gen_uid($l=10){
+    private static function gen_uid($l=10)
+    {
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyz"), 0, $l);
     }
+
+
+
+    /**
+     * Get data from fetchplanner
+     * @param string
+     * @return array
+     */
+    private static function fetchPlansByCurl($curl)
+    {
+        $fetchplanner_curl = curl_init();
+        curl_setopt_array($fetchplanner_curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => NSR_FetchPlanner.$curl
+        ));
+
+        $response = curl_exec($fetchplanner_curl);
+        $data = json_decode($response);
+        curl_close($fetchplanner_curl);
+        return  $data;
+    }
+
+
+
+    /**
+     * Set correct date format
+     * @param string
+     * @return array
+     */
+    public static function setDateFormat($fpdate)
+    {
+        $date = str_replace(")/","",str_replace("/Date(","", $fpdate));
+        $date = ( $date / 1000 );
+        $date = substr(strtok(date("Y-m-d H:m", $date),":"), 0, -2);
+        return $date;
+    }
+
 
 
     /**
@@ -173,16 +209,7 @@ class App
     public function fetchDataFromFetchPlanner($query)
     {
 
-        $fetchplanner_curl = curl_init();
-        curl_setopt_array($fetchplanner_curl, array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => NSR_FetchPlanner.'/GetPickupDataByAddress?pickupAddress='.$query.'&maxCount=5'
-        ));
-
-        $response = curl_exec($fetchplanner_curl);
-        $data = json_decode($response);
-        curl_close($data);
-
+        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.$query.'&maxCount=5');
         $executeDates = array();
         $int = 0;
         $todaysDate = date('Y-m-d');
@@ -190,17 +217,7 @@ class App
 
         foreach($data->d as $item) {
 
-            $fetchplanner_curl = curl_init();
-
-            curl_setopt_array($fetchplanner_curl, array(
-                CURLOPT_RETURNTRANSFER => 1,
-                CURLOPT_URL => NSR_FetchPlanner.'/GetCalendarData?pickupId='.$item->PickupId.'&maxCount=7&DateEnd='.$stopDate
-            ));
-
-            $response = curl_exec($fetchplanner_curl);
-            $fpData = json_decode($response);
-            curl_close($fetchplanner_curl);
-
+            $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId='.$item->PickupId.'&maxCount=7&DateEnd='.$stopDate);
             $executeDates[$int]['id'] = self::gen_uid($item->PickupId);
             $executeDates[$int]['Address'] = $item->PickupAddress;
             $fInt=0;
@@ -208,12 +225,10 @@ class App
 
             foreach($fpData->d as $fpItem) {
 
-                $date = str_replace(")/","",str_replace("/Date(","", $fpItem->ExecutionDate));
-                $date = ( $date / 1000 );
-                $date = substr(strtok(date("Y-m-d H:m", $date),":"), 0, -2);
-
+                $date = self::setDateFormat($fpItem->ExecutionDate);
                 if (!in_array($date, $checkDupes))
                     $executeDates[$int]['Days'][$fInt] = ucfirst(date_i18n($date));
+
                 array_push($checkDupes, $date);
                 $fInt++;
             }
@@ -222,6 +237,7 @@ class App
 
         return $executeDates;
     }
+
 
 
     /**
