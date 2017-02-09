@@ -16,6 +16,7 @@ $lightCyan: #90f3ff;
 
 .main-content * {
   overflow-wrap: break-word;
+  transition: all 500ms ease;
 }
 
 .mce-content-body ul,
@@ -214,7 +215,10 @@ input[type=text]:focus.invalid {
   margin-left: 0rem !important;
   margin-right: 0rem !important;
   position:relative;
-
+  transition: all 500ms ease;
+  h4.search-title  {
+    line-height:22px !important;
+  }
   h4 {
     line-height:14px !important;
 
@@ -328,7 +332,7 @@ input[type=text]:focus.invalid {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transition: all 500ms ease;
+    //transition: all 500ms ease;
     transform: translateY(-2%);
     margin-left: 0rem !important;
     margin-right: 0rem !important;
@@ -339,7 +343,7 @@ input[type=text]:focus.invalid {
     margin: 0;
     box-sizing: border-box;
     display: table;
-    transition:300ms ease;
+    transition: all 500ms ease;
 
   }
 

@@ -149,7 +149,7 @@ class NSRSearch
                         <div class=\"col s12\">
                           <div class=\"row\">
                         <form itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/SearchAction\">
-                            <h4>".$params->vc_designation."</h4>
+                            <h4 class=\"search-title\">".$params->vc_designation."</h4>
                             <div class=\"input-field col s12 searchArea\">
                                 <i class=\"material-icons prefix\">search</i>
                                 <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\" required=\"\" id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">

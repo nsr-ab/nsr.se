@@ -1,6 +1,7 @@
 .box, .box * {
     box-shadow: none !important;
     border:none !important;
+    transition: all 500ms ease;
 }
 
 .box {

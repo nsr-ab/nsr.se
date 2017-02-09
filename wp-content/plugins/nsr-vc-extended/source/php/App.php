@@ -18,6 +18,7 @@ class App
     public function __construct()
     {
 
+
         /**
          * Check if Visual composer is activated
          */
@@ -29,7 +30,7 @@ class App
         /**
          * Master methods
          */
-        if ( !class_exists( 'MasterVCExtended' ) ) {
+        if (!class_exists('MasterVCExtended')) {
             new \VcExtended\Library\Addons\MasterVCExtended();
         }
 
@@ -37,35 +38,35 @@ class App
         /**
          * Ad-dons Collapsible menus
          */
-        if ( !class_exists( 'MenuCollapsible' ) ) {
+        if (!class_exists('MenuCollapsible')) {
             new \VcExtended\Library\Addons\MenuCollapsible();
         }
 
         /**
          * Ad-dons List News & Posts
          */
-        if ( !class_exists( 'ListNewsAndPosts' ) ) {
+        if (!class_exists('ListNewsAndPosts')) {
             new \VcExtended\Library\Addons\ListNewsAndPosts();
         }
 
         /**
          * Ad-dons List links with a thumbnail
          */
-        if ( !class_exists( 'ListLinksWithThumbnail' ) ) {
+        if (!class_exists('ListLinksWithThumbnail')) {
             new \VcExtended\Library\Addons\ListLinksWithThumbnail();
         }
 
         /**
          * Ad-dons Thumbnail, link heading and description
          */
-        if ( !class_exists( 'ThumbnailAndTextarea' ) ) {
+        if (!class_exists('ThumbnailAndTextarea')) {
             new \VcExtended\Library\Addons\ThumbnailAndTextarea();
         }
 
         /**
          * Ad-dons Thumbnail, link heading and description
          */
-        if ( !class_exists( 'Puff' ) ) {
+        if (!class_exists('Puff')) {
             new \VcExtended\Library\Addons\Puff();
         }
 
@@ -73,7 +74,7 @@ class App
         /**
          * Ad-dons NSR openHour
          */
-        if ( !class_exists( 'OpenHours' ) ) {
+        if (!class_exists('OpenHours')) {
             new \VcExtended\Library\Addons\OpenHours();
         }
 
@@ -81,14 +82,14 @@ class App
         /**
          * Ad-dons Elastic Site Search
          */
-        if ( !class_exists( 'NSRSearch' ) ) {
+        if (!class_exists('NSRSearch')) {
             new \VcExtended\Library\Addons\NSRSearch();
         }
 
         /**
          *  Helper - PostType
          */
-        if ( !class_exists( 'PostType' ) ) {
+        if (!class_exists('PostType')) {
             new \VcExtended\Library\Helper\PostType();
         }
 
@@ -96,7 +97,7 @@ class App
         /**
          * Elastic
          */
-        if ( !class_exists( 'Elasticsearch' ) ) {
+        if (!class_exists('Elasticsearch')) {
             new \VcExtended\Library\Search\ElasticSearch();
         }
 
@@ -104,7 +105,7 @@ class App
         /**
          * Elastic search Query
          */
-        if ( !class_exists( 'QueryElastic' ) ) {
+        if (!class_exists('QueryElastic')) {
             new \VcExtended\Library\Search\QueryElastic();
         }
 
@@ -112,15 +113,14 @@ class App
         /**
          * Enqueue Scripts
          */
-        if ( !class_exists( 'Enqueue' ) ) {
+        if (!class_exists('Enqueue')) {
             new \VcExtended\Library\Enqueue();
         }
 
-        add_action( 'wp_ajax_nopriv_fetch_data', array( $this, 'fetch_data' ) );
-        add_action( 'wp_ajax_fetch_data', array( $this, 'fetch_data' ) );
+        add_action('wp_ajax_nopriv_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
+        add_action('wp_ajax_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
 
     }
-
 
 
     /**
@@ -137,30 +137,90 @@ class App
     }
 
 
-
     /**
      * Unique result
+     * @param array
+     * @param string
      * @return string
      */
-    public function citiesUnique($array,$key)
+    public function citiesUnique($array, $key)
     {
-
         $temp_array = array();
-
         foreach ($array as &$v) {
-
             if (!isset($temp_array[$v[$key]]))
-
                 $temp_array[$v[$key]] =& $v;
 
         }
-
         $array = array_values($temp_array);
-
         return $array;
+    }
 
 
+    /**
+     * Unique id
+     * @param int
+     * @return string
+     */
+    private static function gen_uid($l=10){
+        return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyz"), 0, $l);
+    }
 
+
+    /**
+     *  fetchDataFromFetchPlanner
+     *  Get data from Fetchplanners API
+     */
+    public function fetchDataFromFetchPlanner($query)
+    {
+
+        $fetchplanner_curl = curl_init();
+        curl_setopt_array($fetchplanner_curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => NSR_FP_HOST.'/GetPickupDataByAddress?pickupAddress='.$query.'&maxCount=5'
+        ));
+
+        $response = curl_exec($fetchplanner_curl);
+        $data = json_decode($response);
+        curl_close($data);
+
+        $executeDates = array();
+        $int = 0;
+        $todaysDate = date('Y-m-d');
+        $stopDate = date( "Y-m-d", strtotime( "$todaysDate +14 day" ) );
+
+        foreach($data->d as $item) {
+
+            $fetchplanner_curl = curl_init();
+
+            curl_setopt_array($fetchplanner_curl, array(
+                CURLOPT_RETURNTRANSFER => 1,
+                CURLOPT_URL => NSR_FP_HOST.'/GetCalendarData?pickupId='.$item->PickupId.'&maxCount=7&DateEnd='.$stopDate
+            ));
+
+            $response = curl_exec($fetchplanner_curl);
+            $fpData = json_decode($response);
+            curl_close($fetchplanner_curl);
+
+            $executeDates[$int]['id'] = self::gen_uid($item->PickupId);
+            $executeDates[$int]['Address'] = $item->PickupAddress;
+            $fInt=0;
+            $checkDupes = array();
+
+            foreach($fpData->d as $fpItem) {
+
+                $date = str_replace(")/","",str_replace("/Date(","", $fpItem->ExecutionDate));
+                $date = ( $date / 1000 );
+                $date = substr(strtok(date("Y-m-d H:m", $date),":"), 0, -2);
+
+                if (!in_array($date, $checkDupes))
+                    $executeDates[$int]['Days'][$fInt] = ucfirst(date_i18n($date));
+                array_push($checkDupes, $date);
+                $fInt++;
+            }
+            $int++;
+        }
+
+        return $executeDates;
     }
 
 
@@ -168,13 +228,13 @@ class App
      *  fetch_data
      *  Get data from Elastic Search
      */
-    public function fetch_data()
+    public function fetchDataFromElasticSearch()
     {
 
-        $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array( 'query' => $_GET['query'],'limit'=>$_GET['limit'], 'post_type' => $_GET['post_type'], 'section' => $_GET['post_section'] ));
+        $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array('query' => $_GET['query'], 'limit' => $_GET['limit'], 'post_type' => $_GET['post_type'], 'section' => $_GET['post_section']));
         $int = 0;
 
-        if ($result['content']){
+        if ($result['content']) {
             foreach ($result['content'] as $property) {
                 $result['content'][$int]->guid = str_replace(get_site_url(), "", get_permalink($property->ID));
                 $int++;
@@ -183,7 +243,7 @@ class App
 
         if ($result['sortguide']) {
 
-            for($metaInt=0;$metaInt < count($result['sortguide']); $metaInt++) {
+            for ($metaInt = 0; $metaInt < count($result['sortguide']); $metaInt++) {
                 for ($int1 = 0; $int1 < count($result['sortguide'][$metaInt]->post_meta['avfall_fraktion']); $int1++) {
                     $termId = maybe_unserialize($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][$int1]);
                     $getTerm = get_term(intval($termId[$int1]));
@@ -195,7 +255,7 @@ class App
                         if ($termPageLink) {
                             $termName = "<a href='" . $termPageLink . "'>" . $getTerm->name . "</a>";
                         } else {
-                            $termName = "<span class='nofraktionlink'>".$getTerm->name."</span>";
+                            $termName = "<span class='nofraktionlink'>" . $getTerm->name . "</span>";
                         }
                         $result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][$int1] = $termName;
                     }
@@ -204,7 +264,7 @@ class App
                 }
             }
 
-            for($metaInt=0;$metaInt < count($result['sortguide']); $metaInt++) {
+            for ($metaInt = 0; $metaInt < count($result['sortguide']); $metaInt++) {
 
                 $frakt = array(array('avc', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_avc'][0]), array('hemma', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]));
 
@@ -219,8 +279,7 @@ class App
 
                     if ($fraktionTermPageLink) {
                         $termName = "<a href='" . $fraktionTermlink . "'>" . $getFraktionTerm->name . "</a>";
-                    }
-                    else {
+                    } else {
                         $termName = "<span class='nofraktionlink'>" . $getFraktionTerm->name . "</span>";
                     }
                     if ($fraktion[0] === 'avc')
@@ -240,19 +299,19 @@ class App
 
                 $fraktionsInt = 0;
                 $checkDupes = array();
-                foreach($result['sortguide'][$metaInt]->terms['fraktioner'] as $termsFraktion){
+                foreach ($result['sortguide'][$metaInt]->terms['fraktioner'] as $termsFraktion) {
 
                     $fraktId = $termsFraktion['term_id'];
                     $termObject = get_field('fraktion_inlamningsstallen', 'fraktioner_' . $fraktId);
-                    $lint=0;
+                    $lint = 0;
 
-                    foreach($termObject as $termLocID) {
+                    foreach ($termObject as $termLocID) {
 
-                        $termInlamningsstalle = get_term( $termLocID ,'inlamningsstallen');
+                        $termInlamningsstalle = get_term($termLocID, 'inlamningsstallen');
                         $getTerm = get_term_meta($termLocID);
                         $termPageLink = get_page_link(intval($getTerm['fraktion_page_link'][0]));
 
-                        if(!in_array($termInlamningsstalle->term_id, $checkDupes)){
+                        if (!in_array($termInlamningsstalle->term_id, $checkDupes)) {
                             $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['termId'] = $termInlamningsstalle->term_id;
                             $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['city'] = $termInlamningsstalle->name;
                             $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['lat'] = $getTerm['inlamningsstalle_latitude'][0];
@@ -268,12 +327,13 @@ class App
             }
 
 
+
         }
+        // OBS! Flytta anrop, fetchplanner laggar ner returen av data
+        $result['sortguide']['fetchplanner'] = $this->fetchDataFromFetchPlanner(urlencode($_GET['query']));
 
         wp_send_json($result);
         exit;
     }
 
 }
-
-

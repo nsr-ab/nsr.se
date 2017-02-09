@@ -364,7 +364,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $post_type = $('#post_type').val();
 
         var data = {
-            action: 'fetch_data',
+            action: 'fetchDataFromElasticSearch',
             query: $input,
             post_type: $post_type,
             level: 'ajax',
@@ -502,6 +502,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var tabMobile_inl = '';
             var CityItem;
             var cityInt = 0;
+
+            console.log(res.sortguide);
+
             $.each(res.sortguide, function (index, spost) {
 
                 var customerCatIcons = '';
@@ -611,7 +614,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul class="meta-fraktion">'+tabMobile_frak+'</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile"><th>Lämnas:</th><td>'+spinner+'<ul>'+tabMobile_inl+'</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile lastchild"><td class="lastchild" colspan="2"> </td></tr>';
-                
+
                 tabMobile_frak = "";
                 tabMobile_inl = "";
 
