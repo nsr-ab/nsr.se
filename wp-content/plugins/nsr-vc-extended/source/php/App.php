@@ -176,7 +176,7 @@ class App
         $fetchplanner_curl = curl_init();
         curl_setopt_array($fetchplanner_curl, array(
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => NSR_FP_HOST.'/GetPickupDataByAddress?pickupAddress='.$query.'&maxCount=5'
+            CURLOPT_URL => NSR_FetchPlanner.'/GetPickupDataByAddress?pickupAddress='.$query.'&maxCount=5'
         ));
 
         $response = curl_exec($fetchplanner_curl);
@@ -194,7 +194,7 @@ class App
 
             curl_setopt_array($fetchplanner_curl, array(
                 CURLOPT_RETURNTRANSFER => 1,
-                CURLOPT_URL => NSR_FP_HOST.'/GetCalendarData?pickupId='.$item->PickupId.'&maxCount=7&DateEnd='.$stopDate
+                CURLOPT_URL => NSR_FetchPlanner.'/GetCalendarData?pickupId='.$item->PickupId.'&maxCount=7&DateEnd='.$stopDate
             ));
 
             $response = curl_exec($fetchplanner_curl);
