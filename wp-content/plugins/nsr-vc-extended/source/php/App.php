@@ -264,12 +264,9 @@ class App
 
             default:
                 $type = $retVal[5];
-
-
         }
 
         return $type;
-
     }
 
 
@@ -281,7 +278,7 @@ class App
     public function fetchDataFromFetchPlanner()
     {
 
-        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.urlencode($_GET['query']).'&maxCount=25');
+        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.trim(urlencode($_GET['query'])).'&maxCount=25');
 
         $executeDates['fp'] = array();
         $int = 0;
@@ -299,6 +296,7 @@ class App
         }
 
         foreach($data->d as $item) {
+
             if (in_array($item->PickupCity, $checkCityDupes)) {
 
                 $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=10&DateEnd=' . $stopDate);
@@ -327,7 +325,6 @@ class App
                             else {
                                 $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Jämna veckor";
                             }
-
 
                             foreach($containerData->d as $contInfo){
                                 if($contInfo->ContainerId === $fpItem->ContainerId) {
@@ -454,16 +451,7 @@ class App
                 }
             }
         }
-
-
-        // OBS! Flytta anrop, fetchplanner laggar ner returen av data
-        //$result['sortguide']['fetchplanner'] = $this->fetchDataFromFetchPlanner(urlencode($_GET['query']));
-
-        /*ini_set('xdebug.var_display_max_depth', 5);
-        ini_set('xdebug.var_display_max_children', 256);
-        ini_set('xdebug.var_display_max_data', 1024);
-
-        var_dump($result['sortguide']['fetchplanner']);*/
+        
         wp_send_json($result);
         exit;
     }
