@@ -202,7 +202,7 @@ class App
         $date = str_replace(")/","",str_replace("/Date(","", $fpdate));
         $date = ( $date / 1000 );
 
-        return substr(strtok(date("Y-m-d H:m", $date),":"), 0, -2);
+        return date( "Y-m-d", strtotime( substr(strtok(date("Y-m-d H:m", $date),":"), 0, -2).'+1 day' ) );
     }
 
     /**
@@ -286,7 +286,7 @@ class App
         $executeDates['fp'] = array();
         $int = 0;
         $todaysDate = date('Y-m-d');
-        $stopDate = date( "Y-m-d", strtotime( "$todaysDate +14 day" ) );
+        $stopDate = date( "Y-m-d", strtotime( "$todaysDate +30 day" ) );
 
         $countCities = 0;
         $checkCityDupes = array();
@@ -319,12 +319,15 @@ class App
                             $datetime = new \DateTime($date);
                             $executeDates['fp'][$int]['Exec']['Datum'][$fInt] = $date;
                             $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fInt] = ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y'))));
+                            $executeDates['fp'][$int]['Exec']['DatumKontroll'][$fInt] = $fpItem->ExecutionDate;
+
                             if ($datetime->format("W")%2==1) {
                                 $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Udda veckor";
                             }
                             else {
                                 $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Jämna veckor";
                             }
+
 
                             foreach($containerData->d as $contInfo){
                                 if($contInfo->ContainerId === $fpItem->ContainerId) {

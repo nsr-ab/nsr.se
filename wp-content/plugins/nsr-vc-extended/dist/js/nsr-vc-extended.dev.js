@@ -442,10 +442,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
             dataType: 'json',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-                $('.search-fetchPlanner').html(spinner);
-                $('h4').html(spinner);
+                if(data.action === 'fetchDataFromElasticSearch') {
+                    $('.search-fetchPlanner').html(spinner);
+                    $('.'+Extended.prototype.hashCode(data.action)).show();
+                }
+                $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
+
             }
         }).done(function (result) {
+            if($('#searchkeyword-nsr').hasClass('valid'))
+                $('#searchkeyword-nsr').addClass('valid');
             if(data.action === 'fetchDataFromElasticSearch') {
                 $('.searchNSR').addClass('searchResult');
                 $element.find('.sorteringsguiden').remove();
@@ -564,10 +570,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
 
-            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr><th>Adress</th><th>Udda/Jämn</th><th>Nästa tömningsdag </th></tr>';
+            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr><th colspan="2">Adress</th><th>Udda/Jämn</th><th>Nästa tömningsdag</th></tr>';
             var int = 0;
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
+
+            console.log(result.fp);
 
             $.each(result.fp, function (index, post) {
 
@@ -578,40 +586,50 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                         $fprow += '<tr id="' + post.id + '">';
                         $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
-
+                        $fprow += '<div><b class="">' + post.Ort + '</b></div>';
+                        $fprow += '</td><td>';
                         if (post.Exec.Datum[0] >= jsdate) {
                             if (post.Exec.AvfallsTyp[0])
-                                $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[0] + '</span> ';
-                            dateExp = true;
+                                $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[0] + '</span><br /> ';
                         }
-
-                        if (!dateExp) {
+                        if (post.Exec.Datum[1] >= jsdate) {
                             if (post.Exec.AvfallsTyp[1])
-                                $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[1] + '</span> ';
+                                $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[1] + '</span><br />';
+                        }
+                        if (post.Exec.Datum[2] >= jsdate) {
+                            if (post.Exec.AvfallsTyp[2])
+                                $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[2] + '</span><br /> ';
                         }
 
-                        $fprow += '<div><b class="">' + post.Ort + '</b></div></td>';
+                        $fprow += '</td>';
+                        $fprow += '</td>';
+                        $fprow += '<td>';
+                        if (post.Exec.Datum[0] >= jsdate) {
+                                $fprow += post.Exec.DatumWeek[0] + '<br />';
+                        }
+                        if (post.Exec.Datum[1] >= jsdate) {
+                                $fprow += post.Exec.DatumWeek[1] + '<br />';
+                        }
+                        if (post.Exec.Datum[2] >= jsdate) {
+                            $fprow += post.Exec.DatumWeek[2] + '<br />';
+                        }
+
+                        $fprow += '</td>';
+                        $fprow += '<td>';
 
                         if (post.Exec.Datum[0] >= jsdate) {
-
-                            $fprow += '<td>';
-                            $fprow += post.Exec.DatumWeek[0];
-                            $fprow += '</td>';
-                            $fprow += '<td>';
-                            $fprow += post.Exec.DatumFormaterat[0];
-
+                            if(post.Exec.DatumFormaterat[0])
+                                $fprow += post.Exec.DatumFormaterat[0] + '<br />';
                         }
-                        if (!dateExp) {
-
-                            if (post.Exec.Datum[1]) {
-
-                                $fprow += '<td>';
-                                $fprow += post.Exec.DatumWeek[1];
-                                $fprow += '</td>';
-                                $fprow += '<td>';
-                                $fprow += post.Exec.DatumFormaterat[1];
-                            }
+                        if (post.Exec.Datum[1] >= jsdate) {
+                            if(post.Exec.DatumFormaterat[1])
+                                $fprow += post.Exec.DatumFormaterat[1] + '<br />';
                         }
+                        if (post.Exec.Datum[2] >= jsdate) {
+                            if(post.Exec.DatumFormaterat[2])
+                                $fprow += post.Exec.DatumFormaterat[2] + '<br />';
+                        }
+
                     }
                     $fprow += '</td>';
                     $fprow += '</tr>';
