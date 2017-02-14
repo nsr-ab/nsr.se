@@ -120,6 +120,11 @@ class App
         add_action('wp_ajax_nopriv_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
         add_action('wp_ajax_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
 
+        add_action('wp_ajax_nopriv_fetchDataFromFetchPlanner', array($this, 'fetchDataFromFetchPlanner'));
+        add_action('wp_ajax_fetchDataFromFetchPlanner', array($this, 'fetchDataFromFetchPlanner'));
+
+
+
     }
 
 
@@ -200,42 +205,137 @@ class App
         return substr(strtok(date("Y-m-d H:m", $date),":"), 0, -2);
     }
 
+    /**
+     * Set correct date format
+     * @param string
+     * @return string
+     */
+    public static function getFpDefenitions($defenition)
+    {
+        $retVal = array('KÄRL 1','KÄRL 2','TVÅDELAT KÄRL', 'TRÄDGÅRDSAVFALL');
+        switch ($defenition) {
+
+            // Bjuv/Åstorp
+            case 'Mat+Rest+Hp+Fg':
+                //(Töms normalt varannan vecka)
+                $type = $retVal[0];
+                break;
+
+            case 'Ti+Pf+Me+Og':
+                //(Töms normalt var fjärde vecka)
+                $type = $retVal[1];
+                break;
+
+            // Båstad/Ängelholm
+            case 'Mat+Rest+Me+Hp':
+                //(Töms normalt varannan vecka)
+                $type = $retVal[0];
+                break;
+
+            case 'Ti+Pf+Fg+Og':
+                //(Töms normalt var fjärde vecka)
+                $type = $retVal[1];
+                break;
+
+            // Helsingborg
+            case 'Mat+Rest+Pf+Fg':
+                //(Töms normalt varannan vecka)
+                $type = $retVal[0];
+                break;
+
+            case 'Me+Og+Ti+Plast':
+                //(Töms normalt var fjärde vecka)
+                $type = $retVal[1];
+                break;
+
+            case 'Mat+Rest':
+                //(Töms normalt varannan vecka)
+                $type = $retVal[2];
+                break;
+
+            case 'Trädgårdsavfall':
+                //(Töms normalt varannan vecka)
+                $type = $retVal[3];
+                break;
+
+        }
+
+        return $type;
+
+    }
+
 
 
     /**
      *  fetchDataFromFetchPlanner
      *  Get data from Fetchplanners API
      */
-    public function fetchDataFromFetchPlanner($query)
+    public function fetchDataFromFetchPlanner()
     {
 
-        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.$query.'&maxCount=5');
-        $executeDates = array();
+        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.urlencode($_GET['query']).'&maxCount=15');
+
+        $executeDates['fp'] = array();
         $int = 0;
         $todaysDate = date('Y-m-d');
         $stopDate = date( "Y-m-d", strtotime( "$todaysDate +14 day" ) );
 
+        $countCities = 0;
+        $checkCityDupes = array();
+
         foreach($data->d as $item) {
 
-            $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId='.$item->PickupId.'&maxCount=7&DateEnd='.$stopDate);
-            $executeDates[$int]['id'] = self::gen_uid($item->PickupId);
-            $executeDates[$int]['Address'] = $item->PickupAddress;
-            $fInt=0;
-            $checkDupes = array();
-
-            foreach($fpData->d as $fpItem) {
-
-                $date = self::setDateFormat($fpItem->ExecutionDate);
-                if (!in_array($date, $checkDupes))
-                    $executeDates[$int]['Days'][$fInt] = ucfirst(date_i18n($date));
-
-                array_push($checkDupes, $date);
-                $fInt++;
-            }
-            $int++;
+            if (!in_array($item->PickupCity, $checkCityDupes))
+                array_push($checkCityDupes, $item->PickupCity);
+            $countCities++;
         }
 
-        return $executeDates;
+        foreach($data->d as $item) {
+            if (in_array($item->PickupCity, $checkCityDupes)) {
+
+                $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=10&DateEnd=' . $stopDate);
+                $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
+
+                $executeDates['fp'][$int]['id'] = self::gen_uid($item->PickupId);
+                $executeDates['fp'][$int]['Adress'] = $item->PickupAddress;
+                $executeDates['fp'][$int]['Ort'] = ucfirst ( strtolower($item->PickupCity) );
+
+                $fInt = 0;
+                $checkDupes = array();
+
+                foreach ($fpData->d as $fpItem) {
+
+                    $date = self::setDateFormat($fpItem->ExecutionDate);
+                    if (!in_array($date, $checkDupes)) {
+                        $datetime = new \DateTime($date);
+                        //$datetime->add(new \DateInterval('P1D'));
+                        $executeDates['fp'][$int]['Exec']['Datum'][$fInt] = $date;
+                        $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fInt] = ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y'))));
+                        if ($datetime->format("W")%2==1) {
+                            $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Udda veckor";
+                        }
+                        else {
+                            $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Jämna veckor";
+                        }
+
+                        foreach($containerData->d as $contInfo){
+                            if($contInfo->ContainerId === $fpItem->ContainerId) {
+                                $executeDates['fp'][$int]['Exec']['AvfallsTyp'][$fInt] = self::getFpDefenitions($contInfo->ContentTypeCode);
+                                $executeDates['fp'][$int]['Exec']['AvfallsTypFormaterat'][$fInt] = $contInfo->ContentTypeCode;
+                            }
+                        }
+                    }
+                    array_push($checkDupes, $date);
+                    $fInt++;
+                }
+                $int++;
+                $cityRemove = array_search($item->PickupCity, $checkCityDupes);
+                unset($checkCityDupes[$cityRemove]);
+            }
+        }
+
+        wp_send_json($executeDates);
+        exit;
     }
 
 
@@ -341,13 +441,17 @@ class App
                     $fraktionsInt++;
                 }
             }
-
-
-
         }
-        // OBS! Flytta anrop, fetchplanner laggar ner returen av data
-        $result['sortguide']['fetchplanner'] = $this->fetchDataFromFetchPlanner(urlencode($_GET['query']));
 
+
+        // OBS! Flytta anrop, fetchplanner laggar ner returen av data
+        //$result['sortguide']['fetchplanner'] = $this->fetchDataFromFetchPlanner(urlencode($_GET['query']));
+
+        /*ini_set('xdebug.var_display_max_depth', 5);
+        ini_set('xdebug.var_display_max_children', 256);
+        ini_set('xdebug.var_display_max_data', 1024);
+
+        var_dump($result['sortguide']['fetchplanner']);*/
         wp_send_json($result);
         exit;
     }

@@ -383,10 +383,10 @@ input[type=text]:focus.invalid {
     font-style: italic;
   }
 
-  .sorteringsguiden h4, .search-autocomplete h4 {
+  .sorteringsguiden h4, .search-autocomplete h4, .search-fetchPlanner h4 {
     font-size: 1.40rem;
   }
-  .search-autocomplete, .search-content, .sorterings-guide-table {
+  .search-autocomplete, .search-content, .sorterings-guide-table, .fp-table {
     display: none;
     margin-top:20px;
     z-index: 99;
@@ -448,11 +448,10 @@ input[type=text]:focus.invalid {
     }
 
 
-
     .meta-fraktion a {
       color: lighten($lightGreen, 10%) !important;
     }
-    td li b {
+    td li b, td b {
       color: $signalGreenNeo !important;
     }
 
@@ -479,7 +478,9 @@ input[type=text]:focus.invalid {
     }
 
   }
-
+  .streetCiy div{
+    margin-top:-6px;
+  }
   .geoLink {
     color:#fff;
     text-decoration:underline;
@@ -520,7 +521,7 @@ input[type=text]:focus.invalid {
   .preSortCell {
     min-width:200px;
   }
-  .sorterings-guide-table .badge, .sorteringsguiden .badge  {
+  .sorterings-guide-table .badge, .sorteringsguiden .badge, .fp-table .badge  {
     border-radius:16px !important;
     font-size: 0.7rem;
     background: darken($darkerGreen, 10%) !important;
@@ -536,6 +537,11 @@ input[type=text]:focus.invalid {
     font-size:0.9rem;
     margin-bottom:10px;
   }
+  .fp-table .badge {
+    //float:left;
+  }
+
+
   @media (max-width: 450px) {
     .badgeInfo {
       margin-top:10px;
@@ -617,7 +623,7 @@ input[type=text]:focus.invalid {
     max-width: 300px;
 
   }
-  .preSortCell, .exnfodispl {
+  .preSortCell, .exnfodispl, .fp-table td {
     font-size:1.0rem;
   }
 
@@ -627,8 +633,13 @@ input[type=text]:focus.invalid {
     }
   }
 
-
-  .search-autocomplete-content li, .sorterings-guide-table  {
+  .fp-table {
+    margin-bottom:20px;
+  }
+  .fp-table i {
+    padding-right:10px;
+  }
+  .search-autocomplete-content li, .sorterings-guide-table, .fp-table   {
     background-color:$darkerGreen;
     font-size:1.1rem;
   }

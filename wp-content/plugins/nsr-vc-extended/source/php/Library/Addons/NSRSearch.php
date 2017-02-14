@@ -162,7 +162,13 @@ class NSRSearch
                      <i class=\"hide closeSearch material-icons\">cancel</i>
                      
                      <div id=\"searchResult\"></div>
-                     </div>";
+                     <div class=\"search-fetchPlanner\"></div>
+                     
+                     </div>
+                     
+                     
+                     
+                     ";
 
             return $output;
 
