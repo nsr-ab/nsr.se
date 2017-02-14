@@ -4,8 +4,7 @@
         <div class="grid">
             <div class="{{ get_field('footer_signature_show', 'option') ? 'grid-md-10' : 'grid-md-12' }}">
 
-
-
+                
                 {{-- ## Footer widget area begin ## --}}
                 <div class="grid sidebar-footer-area">
                     @if (is_active_sidebar('footer-area'))

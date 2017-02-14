@@ -255,7 +255,9 @@ input[type=text]:focus.invalid {
     padding: 7.5px 10px;
     font-style: italic; }
   .searchNSR .sorteringsguiden h4, .searchNSR .search-autocomplete h4, .searchNSR .search-fetchPlanner h4 {
-    font-size: 1.40rem; }
+    font-size: 1.40rem;
+    line-height: 25px !important;
+    display: table; }
   .searchNSR .search-autocomplete, .searchNSR .search-content, .searchNSR .sorterings-guide-table, .searchNSR .fp-table {
     display: none;
     margin-top: 20px;

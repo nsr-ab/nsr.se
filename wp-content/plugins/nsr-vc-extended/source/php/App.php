@@ -212,7 +212,7 @@ class App
      */
     public static function getFpDefenitions($defenition)
     {
-        $retVal = array('KÄRL 1','KÄRL 2','TVÅDELAT KÄRL', 'TRÄDGÅRDSAVFALL');
+        $retVal = array('KÄRL 1','KÄRL 2','TVÅDELAT KÄRL', 'TRÄDGÅRDSAVFALL', 'RESTAVFALL', 'NOACCESS');
         switch ($defenition) {
 
             // Bjuv/Åstorp
@@ -258,6 +258,14 @@ class App
                 $type = $retVal[3];
                 break;
 
+            case "Restavfall":
+                $type = $retVal[4];
+                break;
+
+            default:
+                $type = $retVal[5];
+
+
         }
 
         return $type;
@@ -273,7 +281,7 @@ class App
     public function fetchDataFromFetchPlanner()
     {
 
-        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.urlencode($_GET['query']).'&maxCount=15');
+        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.urlencode($_GET['query']).'&maxCount=25');
 
         $executeDates['fp'] = array();
         $int = 0;
@@ -304,29 +312,30 @@ class App
                 $checkDupes = array();
 
                 foreach ($fpData->d as $fpItem) {
+                    if($containerData->d[$fInt]->ContainerId === $fpItem->ContainerId) {
 
-                    $date = self::setDateFormat($fpItem->ExecutionDate);
-                    if (!in_array($date, $checkDupes)) {
-                        $datetime = new \DateTime($date);
-                        //$datetime->add(new \DateInterval('P1D'));
-                        $executeDates['fp'][$int]['Exec']['Datum'][$fInt] = $date;
-                        $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fInt] = ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y'))));
-                        if ($datetime->format("W")%2==1) {
-                            $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Udda veckor";
-                        }
-                        else {
-                            $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Jämna veckor";
-                        }
+                        $date = self::setDateFormat($fpItem->ExecutionDate);
+                        if (!in_array($date, $checkDupes)) {
+                            $datetime = new \DateTime($date);
+                            $executeDates['fp'][$int]['Exec']['Datum'][$fInt] = $date;
+                            $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fInt] = ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y'))));
+                            if ($datetime->format("W")%2==1) {
+                                $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Udda veckor";
+                            }
+                            else {
+                                $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Jämna veckor";
+                            }
 
-                        foreach($containerData->d as $contInfo){
-                            if($contInfo->ContainerId === $fpItem->ContainerId) {
-                                $executeDates['fp'][$int]['Exec']['AvfallsTyp'][$fInt] = self::getFpDefenitions($contInfo->ContentTypeCode);
-                                $executeDates['fp'][$int]['Exec']['AvfallsTypFormaterat'][$fInt] = $contInfo->ContentTypeCode;
+                            foreach($containerData->d as $contInfo){
+                                if($contInfo->ContainerId === $fpItem->ContainerId) {
+                                    $executeDates['fp'][$int]['Exec']['AvfallsTyp'][$fInt] = self::getFpDefenitions($contInfo->ContentTypeCode);
+                                    $executeDates['fp'][$int]['Exec']['AvfallsTypFormaterat'][$fInt] = $contInfo->ContentTypeCode;
+                                }
                             }
                         }
+                        array_push($checkDupes, $date);
+                        $fInt++;
                     }
-                    array_push($checkDupes, $date);
-                    $fInt++;
                 }
                 $int++;
                 $cityRemove = array_search($item->PickupCity, $checkCityDupes);

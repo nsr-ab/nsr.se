@@ -385,6 +385,8 @@ input[type=text]:focus.invalid {
 
   .sorteringsguiden h4, .search-autocomplete h4, .search-fetchPlanner h4 {
     font-size: 1.40rem;
+    line-height:25px !important;
+    display:table;
   }
   .search-autocomplete, .search-content, .sorterings-guide-table, .fp-table {
     display: none;

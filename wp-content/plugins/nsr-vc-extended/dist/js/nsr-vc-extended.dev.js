@@ -421,9 +421,19 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} element Autocomplete element
      * @return {void}
      */
+    Extended.prototype.spinner = function(id) {
+        return '<div class=""'+id+'" preloader-wrapper small active" style="display:none;"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
+    };
+
+    /**
+     * Query for autocomplete suggestions and fetchplanner
+     * @param  {object} element Autocomplete element
+     * @return {void}
+     */
     Extended.prototype.getJsonData = function($element, data, $post_type) {
 
         var doFetchPlanner = false;
+        var spinner = Extended.prototype.spinner(Extended.prototype.hashCode(data.action));
 
         $.ajax({
             url: ajax_object.ajax_url,
@@ -432,6 +442,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
             dataType: 'json',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
+                $('.search-fetchPlanner').html(spinner);
+                $('h4').html(spinner);
             }
         }).done(function (result) {
             if(data.action === 'fetchDataFromElasticSearch') {
@@ -551,44 +563,63 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $fprow = '';
 
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
-            var $fprow = '<h4>Tömningsdagar</h4><table class="fp-table"><tr><th>Adress</th><th>Udda/Jämn</th><th>Nästa tömningsdag </th></tr>';
+
+            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr><th>Adress</th><th>Udda/Jämn</th><th>Nästa tömningsdag </th></tr>';
             var int = 0;
             var jsdate = new Date().toISOString().slice(0, 10);
+            var dateExp = false;
+
             $.each(result.fp, function (index, post) {
+
                 $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('valid');
-                $fprow += '<tr id="' + post.id + '">';
-                $fprow += '<td class="streetCiy"><i class="material-icons">local_shipping</i> <strong>' + post.Adress + '</strong><div><b class="">' + post.Ort + '</b></div></td>';
+                if(post.Exec) {
 
-                if (post.Exec.Datum[0] >= jsdate) {
+                    if (post.Exec.AvfallsTyp.indexOf('NOACCESS')) {
 
-                    $fprow += '<td>';
-                    $fprow += post.Exec.DatumWeek[0];
-                    $fprow += '</td>';
-                    $fprow += '<td>';
+                        $fprow += '<tr id="' + post.id + '">';
+                        $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
 
-                    if (post.Exec.AvfallsTyp[0])
-                        $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[0] + '</span> ';
+                        if (post.Exec.Datum[0] >= jsdate) {
+                            if (post.Exec.AvfallsTyp[0])
+                                $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[0] + '</span> ';
+                            dateExp = true;
+                        }
 
-                    $fprow += post.Exec.DatumFormaterat[0];
-                }
-                else {
+                        if (!dateExp) {
+                            if (post.Exec.AvfallsTyp[1])
+                                $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[1] + '</span> ';
+                        }
 
-                    if (post.Exec.Datum[1]) {
+                        $fprow += '<div><b class="">' + post.Ort + '</b></div></td>';
 
-                        $fprow += '<td>';
-                        $fprow += post.Exec.DatumWeek[1];
-                        $fprow += '</td>';
-                        $fprow += '<td>';
+                        if (post.Exec.Datum[0] >= jsdate) {
 
-                        if (post.Exec.AvfallsTyp[1])
-                            $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[1] + '</span> ';
+                            $fprow += '<td>';
+                            $fprow += post.Exec.DatumWeek[0];
+                            $fprow += '</td>';
+                            $fprow += '<td>';
+                            $fprow += post.Exec.DatumFormaterat[0];
 
-                        $fprow += post.Exec.DatumFormaterat[1];
+                        }
+                        if (!dateExp) {
+
+                            if (post.Exec.Datum[1]) {
+
+                                $fprow += '<td>';
+                                $fprow += post.Exec.DatumWeek[1];
+                                $fprow += '</td>';
+                                $fprow += '<td>';
+                                $fprow += post.Exec.DatumFormaterat[1];
+                            }
+                        }
                     }
+                    $fprow += '</td>';
+                    $fprow += '</tr>';
                 }
 
-                $fprow += '</td>';
-                $fprow += '</tr>';
+
+                dateExp = false;
+
             });
             $fprow += '</table>';
         }
@@ -610,7 +641,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $autocomplete = $('<div class="search-autocomplete"></div>');
         var $content = $('<ul class="search-autocomplete-content"></ul>');
         var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4><div class="left badgeInfo"><span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div></div>');
-        var spinner = '<div class="preloader-wrapper small active" style="display:none;"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
+        var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
         var $sortMarkupTable = $('<table class="sorterings-guide-table"><tr class="tabDesk"><th></th><th>Sorteras som</th><th class="exnfodispl">Bra att veta</th><th class="relative">Lämnas nära dig</th></tr></table>');
         var nosortGuidedata = false;
         var noContent = false;
@@ -915,11 +946,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
     Extended.prototype.getUrlParameter = function getUrlParameter(sParam) {
-        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-            sURLVariables = sPageURL.split('&'),
-            sParameterName,
-            i;
-
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)), sURLVariables = sPageURL.split('&'), sParameterName, i;
         for (i = 0; i < sURLVariables.length; i++) {
             sParameterName = sURLVariables[i].split('=');
 
