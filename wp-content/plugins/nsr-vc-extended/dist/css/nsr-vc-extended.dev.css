@@ -492,8 +492,6 @@ td, tr {
   vertical-align: top !important; }
 
 .waitingForConnection {
-  -webkit-animation-name: pulseBorder;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease;
-  -webkit-animation-direction: alternate;
-  -webkit-animation-duration: 0.5s; }
+  -webkit-animation: borderPulse 1s infinite alternate;
+  -moz-animation: borderPulse 1s infinite alternate;
+  -animation: borderPulse 1s infinite alternate; }

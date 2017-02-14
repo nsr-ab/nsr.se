@@ -14,6 +14,12 @@ html.video-is-playing {
     }
 }
 
+@media screen and (min-width: 769px) {
+    .site-header>.container>.grid {
+        display: flex !important;
+    }
+}
+
 .admin-bar #site-header {
     @media screen and (max-width: 782px) {
         margin-top: 46px;

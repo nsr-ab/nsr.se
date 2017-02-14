@@ -451,7 +451,7 @@ class App
                 }
             }
         }
-        
+
         wp_send_json($result);
         exit;
     }

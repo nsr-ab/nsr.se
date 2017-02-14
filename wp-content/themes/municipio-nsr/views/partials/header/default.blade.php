@@ -3,37 +3,35 @@
     <div class="mobile-logo center grid-xs-12 grid-sm-12 grid-md-12 text-center-sm text-center-xs hide">
         {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option'), true, get_field('header_tagline_enable', 'option')) !!}
     </div>
-    <div class="mobile-search ">
-        <!-- <a href="#translate" class="translate-icon-btn" aria-label="translate"><span data-tooltip="Translate"><i class="pricon pricon-globe"></i></span> Other languages</a> -->
-        <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
+    <div class="mobile-search "><a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
     </div>
     <div class="mobile-nav hidden-lg hidden-md ">
         <a href="javascript:void(0)" data-activates="mobileNav" class="button-collapse "><i class="material-icons">menu</i></a>
     </div>
 
     <div class="side-nav " id="mobileNav">
-       <div class="topnav">
+        <div class="topnav">
             <i class="material-icons left search quickSearch">search</i>
             <i class="material-icons right close">close</i>
         </div>
 
         <h6><?php _e('What customer are you today?', 'nsr') ?></h6>
         <?php wp_nav_menu(
-                array('theme_location' => 'header-tabs-menu',
-                        'container' => 'nav',
-                        'container_class' => 'nav-wrapper center-align ',
-                        'container_id' => '',
-                        'menu_class' => 'nav ',
-                        'menu_id' => '',
-                        'echo' => 'echo',
-                        'before' => '',
-                        'after' => '',
-                        'link_before' => '',
-                        'link_after' => '',
-                        'items_wrap' => '<ul class="%2$s center">%3$s</ul>',
-                        'depth' => 2,
-                        'fallback_cb' => '__return_false'
-                )
+            array('theme_location' => 'header-tabs-menu',
+                'container' => 'nav',
+                'container_class' => 'nav-wrapper center-align ',
+                'container_id' => '',
+                'menu_class' => 'nav ',
+                'menu_id' => '',
+                'echo' => 'echo',
+                'before' => '',
+                'after' => '',
+                'link_before' => '',
+                'link_after' => '',
+                'items_wrap' => '<ul class="%2$s center">%3$s</ul>',
+                'depth' => 2,
+                'fallback_cb' => '__return_false'
+            )
         ); ?>
     </div>
 </div>
@@ -88,7 +86,6 @@
                             'fallback_cb' => '__return_false'
                         )
                     );
-
                 !!}
 
                 @if ( (is_array(get_field('search_display', 'option')) && in_array('header', get_field('search_display', 'option'))) || (!is_front_page() && is_array(get_field('search_display', 'option')) && in_array('header_sub', get_field('search_display', 'option'))) )
@@ -136,5 +133,3 @@
         </nav>
     @endif
 @endif
-
-

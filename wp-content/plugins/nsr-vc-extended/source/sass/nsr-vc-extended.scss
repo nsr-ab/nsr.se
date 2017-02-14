@@ -764,18 +764,21 @@ td, tr {
 }
 
 .waitingForConnection {
-  -webkit-animation-name: pulseBorder;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease;
-  -webkit-animation-direction: alternate;
-  -webkit-animation-duration: 0.5s;
+  -webkit-animation: borderPulse 1s infinite alternate;
+  -moz-animation: borderPulse 1s infinite alternate;
+  -animation: borderPulse 1s infinite alternate;
 }
-@-webkit-keyframes pulseBorder {
-  from {
-    border-bottom-color:$darkGrey;
+
+@-webkit-keyframes borderPulse {
+  0% {
+    background-color:$signalGreen !important;
+    border-bottom:$signalGreen !important;
+    box-shadow: 0 1px 0 0 $signalGreen !important;
 
   }
-  to {
-    border-bottom-color:$signalGreen;
+  100% {
+    background-color:black !important;
+    border-bottom:#fff !important;
+    box-shadow: 0 1px 0 0 #fff !important;
   }
 }

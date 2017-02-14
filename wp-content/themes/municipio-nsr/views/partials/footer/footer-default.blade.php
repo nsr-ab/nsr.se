@@ -4,7 +4,8 @@
         <div class="grid">
             <div class="{{ get_field('footer_signature_show', 'option') ? 'grid-md-10' : 'grid-md-12' }}">
 
-                
+
+
                 {{-- ## Footer widget area begin ## --}}
                 <div class="grid sidebar-footer-area">
                     @if (is_active_sidebar('footer-area'))
@@ -15,28 +16,28 @@
 
                 {{-- ## Footer header begin ## --}}
                 @if (get_field('footer_logotype_vertical_position', 'option') == 'bottom' && get_field('footer_logotype', 'option') != 'hide')
-                <div class="grid no-margin-top">
-                    <div class="grid-md-6">
-                        {!! municipio_get_logotype(get_field('footer_logotype', 'option')) !!}
-                    </div>
-                    <div class="grid-md-6">
-                        @if(have_rows('footer_icons_repeater', 'option'))
-                            <ul class="icons-list">
-                                @foreach(get_field('footer_icons_repeater', 'option') as $link)
-                                    <li>
-                                        <a href="{{ $link['link_url'] }}" target="_blank" class="link-item-light">
-                                            {!! $link['link_icon'] !!}
+                    <div class="grid no-margin-top">
+                        <div class="grid-md-6">
+                            {!! municipio_get_logotype(get_field('footer_logotype', 'option')) !!}
+                        </div>
+                        <div class="grid-md-6">
+                            @if(have_rows('footer_icons_repeater', 'option'))
+                                <ul class="icons-list">
+                                    @foreach(get_field('footer_icons_repeater', 'option') as $link)
+                                        <li>
+                                            <a href="{{ $link['link_url'] }}" target="_blank" class="link-item-light">
+                                                {!! $link['link_icon'] !!}
 
-                                            @if (isset($link['link_title']))
-                                            <span class="sr-only">{{ $link['link_title'] }}</span>
-                                            @endif
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
+                                                @if (isset($link['link_title']))
+                                                    <span class="sr-only">{{ $link['link_title'] }}</span>
+                                                @endif
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
                     </div>
-                </div>
                 @endif
                 {{-- ## Footer header end ## --}}
 
@@ -50,7 +51,7 @@
                                             {!! $link['link_icon'] !!}
 
                                             @if (isset($link['link_title']))
-                                            <span class="sr-only">{{ $link['link_title'] }}</span>
+                                                <span class="sr-only">{{ $link['link_title'] }}</span>
                                             @endif
                                         </a>
                                     </li>
