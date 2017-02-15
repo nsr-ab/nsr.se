@@ -83,7 +83,7 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   margin-top: 0px; }
 
 .collapsible {
-  margin-top: 0px; }
+  margin-top: 0px !important; }
 
 .materialize-red {
   background-color: #e51c23 !important; }
