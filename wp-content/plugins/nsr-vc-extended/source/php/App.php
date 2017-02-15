@@ -212,7 +212,7 @@ class App
      */
     public static function getFpDefenitions($defenition)
     {
-        $retVal = array('KÄRL 1','KÄRL 2','TVÅDELAT KÄRL', 'TRÄDGÅRDSAVFALL', 'RESTAVFALL', 'NOACCESS');
+        $retVal = array('KÄRL 1','KÄRL 2','TVÅDELAT KÄRL', 'TRÄDGÅRDSAVFALL', 'RESTAVFALL', false);
         switch ($defenition) {
 
             // Bjuv/Åstorp

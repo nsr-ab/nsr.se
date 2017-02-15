@@ -110,8 +110,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var query = Extended.prototype.getUrlParameter('q');
 
         if(query) {
-            $('#searchkeyword-nsr').focus();
-            $('#searchkeyword-nsr').val(query.replace(/\+/g, ' '));
+            $('#searchkeyword-nsr').focus(), $('#searchkeyword-nsr').val(query.replace(/\+/g, ' '));
             Extended.prototype.doneTyping();
         }
     }
@@ -168,14 +167,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
         event.preventDefault();
 
         if ($(element).closest("ul").find('li').hasClass('hide')) {
-            $(element).closest("ul").find('.hide').addClass('show');
-            $(element).closest("ul").find('li').removeClass('hide');
+            $(element).closest("ul").find('.hide').addClass('show'), $(element).closest("ul").find('li').removeClass('hide');
             var countItemsHide = $(element).closest("ul").find('li').length - 6;
             $(element).closest("ul").find('.showPosts').text('Dölj (' + countItemsHide + ')');
         }
         else {
-            $(element).closest("ul").find('.show').addClass('hide');
-            $(element).closest("ul").find('li').removeClass('show');
+            $(element).closest("ul").find('.show').addClass('hide'), $(element).closest("ul").find('li').removeClass('show');
             var countItemsShow = $(element).closest("ul").find('li').length - 1;
             $(element).closest("ul").find('.showPosts').text('Visa alla (' + countItemsShow + ')');
         }
@@ -196,8 +193,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $(element).keypress(function (ev) {
                 var keycode = (ev.keyCode ? ev.keyCode : ev.which);
                 if (keycode == '13') {
-                    $('.search-autocomplete').remove();
-                    $('.sorteringsguiden').remove();
+                    $('.search-autocomplete').remove(), $('.sorteringsguiden').remove();
                     fnc.call(element, ev);
                     event.preventDefault();
                     return false;
@@ -238,18 +234,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.closeScreen = function (element) {
 
         event.stopPropagation();
-        $('.searchNSR').removeClass('fullscreen');
-        $('.searchNSR').removeClass('searchResult');
-
-        $(element).addClass('hide');
-
-        $('#searchkeyword-nsr').val('');
-        $('.search-autocomplete').remove();
-        $('.sorteringsguiden').remove();
-        $('.vc_row').show();
-        $('.page-footer').show();
-        $('.main-container').removeAttr('style');
-        $('.search-fetchPlanner').html('');
+        $('.searchNSR').removeClass('fullscreen'), $('.searchNSR').removeClass('searchResult');
+        $(element).addClass('hide'),$('#searchkeyword-nsr').val(''),$('.search-autocomplete').remove(),$('.sorteringsguiden').remove();
+        $('.vc_row').show(),$('.page-footer').show(),$('.main-container').removeAttr('style'),$('.search-fetchPlanner').html('');
 
         if($('body').hasClass('error404'))
             $('.sidebar-footer-area').css('margin-top','0px');
@@ -271,22 +258,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
             return;
         }
 
-        $('.searchNSR input').focus();
-        $('.searchNSR').addClass('fullscreen');
-
-
+        $('.searchNSR input').focus(), $('.searchNSR').addClass('fullscreen');
         event.stopPropagation();
 
         if(!$('.searchNSR').hasClass('position-relative')) {
 
-            $('.closeSearch').removeClass('hide');
-
-            $('html, body').animate({ scrollTop: 0 }, 'slow');
-
-            $('.vc_row').hide();
-            $('.page-footer').hide();
-            $('.searchNSR').closest('.vc_row').show();
-            $('.main-container').height(317);
+            $('.closeSearch').removeClass('hide'), $('html, body').animate({ scrollTop: 0 }, 'slow');
+            $('.vc_row').hide(), $('.page-footer').hide(), $('.searchNSR').closest('.vc_row').show(), $('.main-container').height(317);
 
             if ($(window).width() < 540)
                 $('.main-container').height(237);
@@ -330,8 +308,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.doneTyping = function () {
 
         $('.searchNSR').each(function (index, element) {
-            clearTimeout(timerElastic);
-            clearTimeout(timerFetchplanner);
+            clearTimeout(timerElastic), clearTimeout(timerFetchplanner);
             timerElastic = setTimeout(function() {
                 Extended.prototype.ElasticTimer(element);
             },300);
@@ -409,6 +386,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
+
+
     /**
      * Query for fetchplanner
      * @param  {object} element fetchplanner element
@@ -431,6 +410,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
 
+
     /**
      * Query for autocomplete suggestions and fetchplanner
      * @param  {object} element Autocomplete element
@@ -440,13 +420,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var id =  arguments[0];
         var size = arguments[1];
-
         var display = (!arguments[2]) ? 'none' : 'block';
 
         if(!size)
             size = 'small';
         return '<div class="'+id+' preloader-wrapper '+size+' active" style="display:'+display+';"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
     };
+
+
 
 
     /**
@@ -456,7 +437,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.getJsonData = function($element, data, $post_type) {
 
-        var doFetchPlanner = false;
         var progressbar = Extended.prototype.spinner(Extended.prototype.hashCode(data.action),'big',true);
 
         $.ajax({
@@ -472,16 +452,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
 
                 $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
-
             }
 
         }).done(function (result) {
 
             if(data.action === 'fetchDataFromElasticSearch') {
 
-                $('.searchNSR').addClass('searchResult');
-                $element.find('.sorteringsguiden').remove();
-                $element.find('.search-autocomplete').remove();
+                $('.searchNSR').addClass('searchResult'), $element.find('.sorteringsguiden').remove(), $element.find('.search-autocomplete').remove();
                 this.outputAutocomplete($element, result, $post_type);
             }
             else {
@@ -598,7 +575,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
 
             $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr><th colspan="2">Adress</th><th>Udda/Jämn</th><th>Nästa tömningsdag</th></tr>';
-            var int = 0;
+
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
 
@@ -608,61 +585,64 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('valid');
 
-                if(post.Exec) {
-                    if (! $.inArray('NOACCESS', post.Exec.AvfallsTyp) > -1 ) {
+                if(post.Exec.AvfallsTyp[0] || post.Exec.AvfallsTyp[1]) {
+                    if (post.Exec) {
+                        if (!post.Exec.AvfallsTyp);
 
+                        if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
 
-                        $fprow += '<tr id="' + post.id + '">';
-                        $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
-                        $fprow += '<div><b class="">' + post.Ort + '</b></div>';
-                        $fprow += '</td><td>';
-                        if (post.Exec.Datum[0] >= jsdate) {
-                            if (post.Exec.AvfallsTyp[0])
-                                $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[0] + '</span><br /> ';
-                        }
-                        if (post.Exec.Datum[1] >= jsdate) {
-                            if (post.Exec.AvfallsTyp[1])
-                                $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[1] + '</span><br />';
-                        }
-                        if (post.Exec.Datum[2] >= jsdate) {
-                            if (post.Exec.AvfallsTyp[2])
-                                $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[2] + '</span><br /> ';
-                        }
+                            $fprow += '<tr id="' + post.id + '">';
+                            $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
+                            $fprow += '<div><b class="">' + post.Ort + '</b></div>';
+                            $fprow += '</td><td>';
+                            if (post.Exec.Datum[0] >= jsdate) {
+                                if (post.Exec.AvfallsTyp[0])
+                                    $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[0] + '</span><br /> ';
 
-                        $fprow += '</td>';
-                        $fprow += '</td>';
-                        $fprow += '<td>';
-                        if (post.Exec.Datum[0] >= jsdate) {
+                            }
+                            if (post.Exec.Datum[1] >= jsdate) {
+                                if (post.Exec.AvfallsTyp[1])
+                                    $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[1] + '</span><br />';
+                            }
+                            if (post.Exec.Datum[2] >= jsdate) {
+                                if (post.Exec.AvfallsTyp[2])
+                                    $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[2] + '</span><br /> ';
+                            }
+
+                            $fprow += '</td>';
+                            $fprow += '</td>';
+                            $fprow += '<td>';
+                            if (post.Exec.Datum[0] >= jsdate) {
                                 $fprow += post.Exec.DatumWeek[0] + '<br />';
-                        }
-                        if (post.Exec.Datum[1] >= jsdate) {
+                            }
+                            if (post.Exec.Datum[1] >= jsdate) {
                                 $fprow += post.Exec.DatumWeek[1] + '<br />';
-                        }
-                        if (post.Exec.Datum[2] >= jsdate) {
-                            $fprow += post.Exec.DatumWeek[2] + '<br />';
+                            }
+                            if (post.Exec.Datum[2] >= jsdate) {
+                                $fprow += post.Exec.DatumWeek[2] + '<br />';
+                            }
+
+                            $fprow += '</td>';
+                            $fprow += '<td>';
+
+                            if (post.Exec.Datum[0] >= jsdate) {
+                                if (post.Exec.DatumFormaterat[0])
+                                    $fprow += post.Exec.DatumFormaterat[0] + '<br />';
+                            }
+                            if (post.Exec.Datum[1] >= jsdate) {
+                                if (post.Exec.DatumFormaterat[1])
+                                    $fprow += post.Exec.DatumFormaterat[1] + '<br />';
+                            }
+                            if (post.Exec.Datum[2] >= jsdate) {
+                                if (post.Exec.DatumFormaterat[2])
+                                    $fprow += post.Exec.DatumFormaterat[2] + '<br />';
+                            }
                         }
 
                         $fprow += '</td>';
-                        $fprow += '<td>';
-
-                        if (post.Exec.Datum[0] >= jsdate) {
-                            if(post.Exec.DatumFormaterat[0])
-                                $fprow += post.Exec.DatumFormaterat[0] + '<br />';
-                        }
-                        if (post.Exec.Datum[1] >= jsdate) {
-                            if(post.Exec.DatumFormaterat[1])
-                                $fprow += post.Exec.DatumFormaterat[1] + '<br />';
-                        }
-                        if (post.Exec.Datum[2] >= jsdate) {
-                            if(post.Exec.DatumFormaterat[2])
-                                $fprow += post.Exec.DatumFormaterat[2] + '<br />';
-                        }
-
+                        $fprow += '</tr>';
                     }
-                    $fprow += '</td>';
-                    $fprow += '</tr>';
                 }
-
 
                 dateExp = false;
 
