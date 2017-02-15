@@ -95,6 +95,12 @@ html.translated-ltr #site-header {
     background-color:#e6e6e6 !important;
 }
 
+.mce-content-body ul li+li,
+.modularity-mod-text .box-content ul li+li,
+.unordered-list li+li,
+article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist) li+li {
+    margin-top:0px;
+}
 
 
 

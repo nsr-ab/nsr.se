@@ -347,7 +347,10 @@ input[type=text]:focus.invalid {
 
   }
 
+  table tbody{
+    background-color:$defaultGreen;
 
+  }
 
   td, tr {
     vertical-align: top !important;
@@ -530,6 +533,10 @@ input[type=text]:focus.invalid {
     min-width:0.9rem !important;
     margin-left:5px;
   }
+  .fp-table .badge  {
+    margin-top:5px;
+  }
+
   .badgeInfo .badge {
     float:none;
     padding:3px 6px;

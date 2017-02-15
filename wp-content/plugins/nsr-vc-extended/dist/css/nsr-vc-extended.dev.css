@@ -235,6 +235,8 @@ input[type=text]:focus.invalid {
     box-sizing: border-box;
     display: table;
     transition: all 500ms ease; }
+  .searchNSR table tbody {
+    background-color: #007586; }
   .searchNSR td, .searchNSR tr {
     vertical-align: top !important; }
   .searchNSR.position-relative {
@@ -348,6 +350,8 @@ input[type=text]:focus.invalid {
     background: #013d44 !important;
     min-width: 0.9rem !important;
     margin-left: 5px; }
+  .searchNSR .fp-table .badge {
+    margin-top: 5px; }
   .searchNSR .badgeInfo .badge {
     float: none;
     padding: 3px 6px; }
