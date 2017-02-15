@@ -305,7 +305,7 @@ class App
                 $executeDates['fp'][$int]['id'] = self::gen_uid($item->PickupId);
                 $executeDates['fp'][$int]['Adress'] = $item->PickupAddress;
                 $executeDates['fp'][$int]['Ort'] = ucfirst ( strtolower($item->PickupCity) );
-
+                $executeDates['fp'][$int]['checkDataloss'] = $data->d;
                 $fInt = 0;
                 $checkDupes = array();
 
