@@ -278,9 +278,10 @@ class App
     public function fetchDataFromFetchPlanner()
     {
 
-        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.trim(urlencode($_GET['query'])).'&maxCount=25');
+        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.trim(urlencode($_GET['query'])).'&maxCount=32');
 
         $executeDates['fp'] = array();
+
         $int = 0;
         $todaysDate = date('Y-m-d');
         $stopDate = date( "Y-m-d", strtotime( "$todaysDate +30 day" ) );
@@ -296,16 +297,18 @@ class App
         }
 
         foreach($data->d as $item) {
+            //$test = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
+            //$executeDates['fp'][$int]['jobplan'] = $test;
 
             if (in_array($item->PickupCity, $checkCityDupes)) {
 
-                $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=10&DateEnd=' . $stopDate);
+                $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=20&DateEnd=' . $stopDate);
                 $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
 
                 $executeDates['fp'][$int]['id'] = self::gen_uid($item->PickupId);
                 $executeDates['fp'][$int]['Adress'] = $item->PickupAddress;
                 $executeDates['fp'][$int]['Ort'] = ucfirst ( strtolower($item->PickupCity) );
-                $executeDates['fp'][$int]['checkDataloss'] = $data->d;
+
                 $fInt = 0;
                 $checkDupes = array();
 
@@ -314,6 +317,7 @@ class App
 
                         $date = self::setDateFormat($fpItem->ExecutionDate);
                         if (!in_array($date, $checkDupes)) {
+
                             $datetime = new \DateTime($date);
                             $executeDates['fp'][$int]['Exec']['Datum'][$fInt] = $date;
                             $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fInt] = ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y'))));
@@ -332,7 +336,7 @@ class App
                                     $executeDates['fp'][$int]['Exec']['AvfallsTypFormaterat'][$fInt] = $contInfo->ContentTypeCode;
                                 }
                             }
-                            $executeDates['fp'][$int]['Exec']['checkDataloss'] = $fpData->d;
+
                         }
                         array_push($checkDupes, $date);
                         $fInt++;

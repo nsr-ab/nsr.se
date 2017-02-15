@@ -586,11 +586,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('valid');
 
-                if(post.Exec.AvfallsTyp[0] || post.Exec.AvfallsTyp[1]) {
-                    if (post.Exec) {
-                        if (!post.Exec.AvfallsTyp);
+                if(post.hasOwnProperty('Exec')) {
 
-                        //if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
+                    if(post.Exec.AvfallsTyp[0] || post.Exec.AvfallsTyp[1]) {
+
+                        if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
 
                             $fprow += '<tr id="' + post.id + '">';
                             $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
@@ -638,11 +638,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 if (post.Exec.DatumFormaterat[2])
                                     $fprow += post.Exec.DatumFormaterat[2] + '<br />';
                             }
-                        //}
+                        }
 
                         $fprow += '</td>';
                         $fprow += '</tr>';
-                    }
+
+                }
                 }
 
                 dateExp = false;
