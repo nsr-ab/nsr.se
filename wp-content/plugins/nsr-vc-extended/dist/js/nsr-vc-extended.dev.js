@@ -15,6 +15,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     var typingTimer = null;
     var timerFetchplanner;
+    var timerElastic;
     var doneTypingInterval = 200;
     var cities = [];
 
@@ -298,7 +299,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
     /**
-     *  timer
+     *  timer FetchPlanner
      *  fires a call to fetchplannerQuery
      *  @return {void}
      */
@@ -308,20 +309,33 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
+    
+    /**
+     *  timer FetchPlanner
+     *  fires a call to fetchplannerQuery
+     *  @return {void}
+     */
+    Extended.prototype.ElasticTimer = function (element)  {
+        Extended.prototype.autocomplete(element);
+    };
+
 
 
     /**
      *  doneTyping
-     *  fires a call to autocomples
+     *  fires a call to autocomples and fetchplanner
      *  @return {void}
      */
     Extended.prototype.doneTyping = function () {
 
         $('.searchNSR').each(function (index, element) {
-            Extended.prototype.autocomplete(element);
+            clearTimeout(timerElastic);
             clearTimeout(timerFetchplanner);
+            timerElastic = setTimeout(function() {
+                Extended.prototype.ElasticTimer(element);
+            },300);
         });
-        timerFetchplanner = setTimeout(Extended.prototype.fpTimer,1500);
+        timerFetchplanner = setTimeout(Extended.prototype.fpTimer,600);
     };
 
 
@@ -348,7 +362,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
     /**
-     * Submit autocomplete
+     * Submit autocompleteSubmit
      * @param  {object} element Autocomplete
      * @return {bool}
      */
