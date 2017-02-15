@@ -16,6 +16,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var typingTimer = null;
     var timerFetchplanner;
     var timerElastic;
+    var hxrLoader = 0;
     var doneTypingInterval = 200;
     var cities = [];
 
@@ -309,7 +310,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
-    
+
     /**
      *  timer FetchPlanner
      *  fires a call to fetchplannerQuery
@@ -335,7 +336,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 Extended.prototype.ElasticTimer(element);
             },300);
         });
-        timerFetchplanner = setTimeout(Extended.prototype.fpTimer,600);
+        timerFetchplanner = setTimeout(Extended.prototype.fpTimer,1100);
     };
 
 
@@ -435,9 +436,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} element Autocomplete element
      * @return {void}
      */
-    Extended.prototype.spinner = function(id) {
-        return '<div class="'+id+' preloader-wrapper small active" style="display:none;"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
+    Extended.prototype.spinner = function() {
+
+        var id =  arguments[0];
+        var size = arguments[1];
+
+        var display = (!arguments[2]) ? 'none' : 'block';
+
+        if(!size)
+            size = 'small';
+        return '<div class="'+id+' preloader-wrapper '+size+' active" style="display:'+display+';"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
     };
+
 
     /**
      * Query for autocomplete suggestions and fetchplanner
@@ -447,7 +457,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.getJsonData = function($element, data, $post_type) {
 
         var doFetchPlanner = false;
-        var spinner = Extended.prototype.spinner(Extended.prototype.hashCode(data.action));
+        var progressbar = Extended.prototype.spinner(Extended.prototype.hashCode(data.action),'big',true);
 
         $.ajax({
             url: ajax_object.ajax_url,
@@ -455,33 +465,35 @@ VcExtended.NSRExtend.Extended = (function ($) {
             method: 'GET',
             dataType: 'json',
             beforeSend: function (xhr) {
+
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-                if(data.action === 'fetchDataFromElasticSearch') {
-                    $('.search-fetchPlanner').html(spinner);
-                    $('.'+Extended.prototype.hashCode(data.action)).show();
+                if($('.searchNSR form .preloader-wrapper').length < 1){
+                    $('.searchNSR .searchArea').append(progressbar);
                 }
+
                 $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
 
             }
+
         }).done(function (result) {
-            if($('#searchkeyword-nsr').hasClass('valid'))
-                $('#searchkeyword-nsr').addClass('valid');
+
             if(data.action === 'fetchDataFromElasticSearch') {
+
                 $('.searchNSR').addClass('searchResult');
                 $element.find('.sorteringsguiden').remove();
                 $element.find('.search-autocomplete').remove();
                 this.outputAutocomplete($element, result, $post_type);
-                $('#searchkeyword-nsr').removeClass('waitingForConnection')
             }
             else {
 
                 $('.search-fetchPlanner').html('');
                 this.outputFetchPlanner($element, result, false);
+                $('.searchArea .preloader-wrapper').remove();
+                if($('#searchkeyword-nsr').hasClass('valid'))
+                    $('#searchkeyword-nsr').addClass('valid');
+
             }
         }.bind(this));
-
-
-
     };
 
 
@@ -595,9 +607,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $.each(result.fp, function (index, post) {
 
                 $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('valid');
-                if(post.Exec) {
 
-                    if (post.Exec.AvfallsTyp.indexOf('NOACCESS')) {
+                if(post.Exec) {
+                    if (! $.inArray('NOACCESS', post.Exec.AvfallsTyp) > -1 ) {
+
 
                         $fprow += '<tr id="' + post.id + '">';
                         $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
@@ -867,22 +880,22 @@ VcExtended.NSRExtend.Extended = (function ($) {
         switch(error.code) {
             case error.PERMISSION_DENIED:
                 constant = "PERMISSION_DENIED";
-                $('.spinner-layer').hide();
+                $('.search-autocomplete .preloader-wrapper').hide();
                 console.log('geoLocation: '+constant);
                 break;
             case error.POSITION_UNAVAILABLE:
                 constant = "POSITION_UNAVAILABLE";
-                $('.spinner-layer').hide();
+                $('.search-autocomplete .preloader-wrapper').hide();
                 console.log('geoLocation: '+constant);
                 break;
             case error.TIMEOUT:
                 constant = "TIMEOUT";
-                $('.spinner-layer').hide();
+                $('.search-autocomplete .preloader-wrapper').hide();
                 console.log('geoLocation: '+constant);
                 break;
             default:
                 constant = "Unrecognized error";
-                $('.spinner-layer').hide();
+                $('.search-autocomplete .preloader-wrapper').hide();
                 console.log('geoLocation: '+constant);
                 break;
         }
