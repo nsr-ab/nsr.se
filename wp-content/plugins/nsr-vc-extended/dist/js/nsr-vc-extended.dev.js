@@ -571,11 +571,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var $element = $(element);
         var $fprow = '';
+        var $fprowMobile = '';
 
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
 
             $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr><th colspan="2">Adress</th><th>Udda/Jämn</th><th>Nästa tömningsdag</th></tr>';
-
+            $fprowMobile += '<h4>Tömningsdagar</h4><table class="fp-table-mobile">';
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
 
@@ -589,7 +590,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (post.Exec) {
                         if (!post.Exec.AvfallsTyp);
 
-                        if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
+                        //if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
 
                             $fprow += '<tr id="' + post.id + '">';
                             $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
@@ -637,7 +638,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 if (post.Exec.DatumFormaterat[2])
                                     $fprow += post.Exec.DatumFormaterat[2] + '<br />';
                             }
-                        }
+                        //}
 
                         $fprow += '</td>';
                         $fprow += '</tr>';
