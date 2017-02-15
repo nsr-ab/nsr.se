@@ -332,6 +332,7 @@ class App
                                     $executeDates['fp'][$int]['Exec']['AvfallsTypFormaterat'][$fInt] = $contInfo->ContentTypeCode;
                                 }
                             }
+                            $executeDates['fp'][$int]['Exec']['checkDataloss'] = $fpData->d;
                         }
                         array_push($checkDupes, $date);
                         $fInt++;
