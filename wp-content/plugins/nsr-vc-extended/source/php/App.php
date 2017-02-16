@@ -313,25 +313,39 @@ class App
                 $checkDupes = array();
 
                 foreach ($fpData->d as $fpItem) {
+                    //$testDate = self::setDateFormat($fpItem->ExecutionDate);
+                    //$executeDates['fp'][$int]['Exec']['test'][$fInt] = $testDate;
+                    //$executeDates['fp'][$int]['Exec']['test-container'] = $containerData;
+
+                }
+
+                foreach ($fpData->d as $fpItem) {
                     if($containerData->d[$fInt]->ContainerId === $fpItem->ContainerId) {
 
                         $date = self::setDateFormat($fpItem->ExecutionDate);
                         if (!in_array($date, $checkDupes)) {
 
-                            $datetime = new \DateTime($date);
-                            $executeDates['fp'][$int]['Exec']['Datum'][$fInt] = $date;
-                            $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fInt] = ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y'))));
-                            $executeDates['fp'][$int]['Exec']['DatumKontroll'][$fInt] = $fpItem->ExecutionDate;
 
-                            if ($datetime->format("W")%2==1) {
-                                $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Udda veckor";
-                            }
-                            else {
-                                $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Jämna veckor";
-                            }
 
                             foreach($containerData->d as $contInfo){
+
+
+
                                 if($contInfo->ContainerId === $fpItem->ContainerId) {
+
+                                    $datetime = new \DateTime($date);
+                                    $executeDates['fp'][$int]['Exec']['Datum'][$fInt] = $date;
+                                    $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fInt] = ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y'))));
+                                    $executeDates['fp'][$int]['Exec']['DatumKontroll'][$fInt] = $fpItem->ExecutionDate;
+
+                                    if ($datetime->format("W")%2==1) {
+                                        $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Udda veckor";
+                                    }
+                                    else {
+                                        $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Jämna veckor";
+                                    }
+
+
                                     $executeDates['fp'][$int]['Exec']['AvfallsTyp'][$fInt] = self::getFpDefenitions($contInfo->ContentTypeCode);
                                     $executeDates['fp'][$int]['Exec']['AvfallsTypFormaterat'][$fInt] = $contInfo->ContentTypeCode;
                                 }
