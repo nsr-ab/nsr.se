@@ -286,10 +286,10 @@ class App
     public function fetchDataFromFetchPlanner()
     {
 
-        ini_set('error_log', __DIR__.'/php_error.log');
-        ini_set('xdebug.var_display_max_depth', 5);
-        ini_set('xdebug.var_display_max_children', 256);
-        ini_set('xdebug.var_display_max_data', 1024);
+        //ini_set('error_log', __DIR__.'/php_error.log');
+        //ini_set('xdebug.var_display_max_depth', 5);
+        //ini_set('xdebug.var_display_max_children', 256);
+        //ini_set('xdebug.var_display_max_data', 1024);
 
         $collection = new \VcExtended\Library\Helper\Collection();
         $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.trim(urlencode($_GET['query'])).'&maxCount=100');
@@ -326,7 +326,7 @@ class App
                     $colData['fp'][$int]['Ort'] = ucfirst ( strtolower($item->PickupCity) );
 
                     $fInt = 0;
-                    $checkDupes = array();
+                    //$checkDupes = array();
 
                     foreach ($fpData->d as $fpItem) {
 
