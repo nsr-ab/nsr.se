@@ -15,6 +15,8 @@ namespace VcExtended;
 class App
 {
 
+    public $collection;
+
     public function __construct()
     {
 
@@ -117,6 +119,7 @@ class App
             new \VcExtended\Library\Enqueue();
         }
 
+
         add_action('wp_ajax_nopriv_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
         add_action('wp_ajax_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
 
@@ -124,8 +127,8 @@ class App
         add_action('wp_ajax_fetchDataFromFetchPlanner', array($this, 'fetchDataFromFetchPlanner'));
 
 
-
     }
+
 
 
     /**
@@ -139,6 +142,7 @@ class App
           <p>' . __('<strong>NSR Visual Composer Extended</strong> requires <strong><a href="http://bit.ly/vcomposer" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', 'nsr-vc-extended') . '</p>
         </div>';
     }
+
 
 
     /**
@@ -157,6 +161,7 @@ class App
 
         return array_values($temp_array);
     }
+
 
 
     /**
@@ -204,6 +209,8 @@ class App
 
         return date( "Y-m-d", strtotime( substr(strtok(date("Y-m-d H:m", $date),":"), 0, -2).'+1 day' ) );
     }
+
+
 
     /**
      * Set correct date format
@@ -271,6 +278,7 @@ class App
 
 
 
+
     /**
      *  fetchDataFromFetchPlanner
      *  Get data from Fetchplanners API
@@ -278,87 +286,96 @@ class App
     public function fetchDataFromFetchPlanner()
     {
 
-        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.trim(urlencode($_GET['query'])).'&maxCount=32');
+        ini_set('error_log', __DIR__.'/php_error.log');
+        ini_set('xdebug.var_display_max_depth', 5);
+        ini_set('xdebug.var_display_max_children', 256);
+        ini_set('xdebug.var_display_max_data', 1024);
+
+        $collection = new \VcExtended\Library\Helper\Collection();
+        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.trim(urlencode($_GET['query'])).'&maxCount=100');
 
         $executeDates['fp'] = array();
+        $colData['fp'] = array();
 
         $int = 0;
         $todaysDate = date('Y-m-d');
-        $stopDate = date( "Y-m-d", strtotime( "$todaysDate +30 day" ) );
+        $stopDate = date( "Y-m-d", strtotime( "$todaysDate +26 days" ) );
 
         $countCities = 0;
         $checkCityDupes = array();
 
         foreach($data->d as $item) {
-
             if (!in_array($item->PickupCity, $checkCityDupes))
                 array_push($checkCityDupes, $item->PickupCity);
             $countCities++;
         }
 
         foreach($data->d as $item) {
-            //$test = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
-            //$executeDates['fp'][$int]['jobplan'] = $test;
 
             if (in_array($item->PickupCity, $checkCityDupes)) {
 
-                $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=20&DateEnd=' . $stopDate);
-                $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
+                $fpId = self::gen_uid($item->PickupId);
+                $collect = $collection->getItem($fpId);
 
-                $executeDates['fp'][$int]['id'] = self::gen_uid($item->PickupId);
-                $executeDates['fp'][$int]['Adress'] = $item->PickupAddress;
-                $executeDates['fp'][$int]['Ort'] = ucfirst ( strtolower($item->PickupCity) );
+                if($collect === 0) {
 
-                $fInt = 0;
-                $checkDupes = array();
+                    $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=26&DateEnd=' . $stopDate);
+                    $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
+                    $colData['fp'][$int]['id'] = $fpId;
+                    $colData['fp'][$int]['Adress'] = $item->PickupAddress;
+                    $colData['fp'][$int]['Ort'] = ucfirst ( strtolower($item->PickupCity) );
 
-                foreach ($fpData->d as $fpItem) {
-                    //$testDate = self::setDateFormat($fpItem->ExecutionDate);
-                    //$executeDates['fp'][$int]['Exec']['test'][$fInt] = $testDate;
-                    //$executeDates['fp'][$int]['Exec']['test-container'] = $containerData;
+                    $fInt = 0;
+                    $checkDupes = array();
 
-                }
+                    foreach ($fpData->d as $fpItem) {
 
-                foreach ($fpData->d as $fpItem) {
-                    if($containerData->d[$fInt]->ContainerId === $fpItem->ContainerId) {
+                            //if (!in_array($date, $checkDupes)) {
+                                foreach ($containerData->d as $contInfo) {
+                                    if ($contInfo->ContainerId === $fpItem->ContainerId) {
+                                        $date = self::setDateFormat($fpItem->ExecutionDate);
+                                        $datetime = new \DateTime($date);
+                                        $colData['fp'][$int]['Exec']['Datum'][$fInt] = $date;
+                                        $colData['fp'][$int]['Exec']['DatumFormaterat'][$fInt] = ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y'))));
+                                        $colData['fp'][$int]['Exec']['DatumKontroll'][$fInt] = $fpItem->ExecutionDate;
 
-                        $date = self::setDateFormat($fpItem->ExecutionDate);
-                        if (!in_array($date, $checkDupes)) {
+                                        if ($datetime->format("W") % 2 == 1) {
+                                            $colData['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Udda veckor";
+                                        } else {
+                                            $colData['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Jämna veckor";
+                                        }
 
-
-
-                            foreach($containerData->d as $contInfo){
-
-
-
-                                if($contInfo->ContainerId === $fpItem->ContainerId) {
-
-                                    $datetime = new \DateTime($date);
-                                    $executeDates['fp'][$int]['Exec']['Datum'][$fInt] = $date;
-                                    $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fInt] = ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y'))));
-                                    $executeDates['fp'][$int]['Exec']['DatumKontroll'][$fInt] = $fpItem->ExecutionDate;
-
-                                    if ($datetime->format("W")%2==1) {
-                                        $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Udda veckor";
+                                        $colData['fp'][$int]['Exec']['AvfallsTyp'][$fInt] = self::getFpDefenitions($contInfo->ContentTypeCode);
+                                        $colData['fp'][$int]['Exec']['AvfallsTypFormaterat'][$fInt] = $contInfo->ContentTypeCode;
                                     }
-                                    else {
-                                        $executeDates['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Jämna veckor";
-                                    }
-
-
-                                    $executeDates['fp'][$int]['Exec']['AvfallsTyp'][$fInt] = self::getFpDefenitions($contInfo->ContentTypeCode);
-                                    $executeDates['fp'][$int]['Exec']['AvfallsTypFormaterat'][$fInt] = $contInfo->ContentTypeCode;
                                 }
-                            }
+                                //array_push($checkDupes, $date);
+                            //}
 
-                        }
-                        array_push($checkDupes, $date);
-                        $fInt++;
+                            $fInt++;
                     }
+
+                    $collection->addItem(json_decode(json_encode($colData), FALSE), $fpId);
+                    $cityRemove = array_search($item->PickupCity, $checkCityDupes);
+                    unset($checkCityDupes[$cityRemove]);
                 }
+
+                $collect = $collection->getItem($fpId);
+
+                $executeDates['fp'][$int]['id'] = $collect->fp[$int]->id;
+                $executeDates['fp'][$int]['Adress'] = $collect->fp[$int]->Adress;
+                $executeDates['fp'][$int]['Ort'] = $collect->fp[$int]->Ort;
+
+                for ($fpInt = 0; $fpInt< count($collect->fp[$int]->Exec->Datum); $fpInt++) {
+                    $executeDates['fp'][$int]['Exec']['Datum'][$fpInt] = $collect->fp[$int]->Exec->Datum[$fpInt];
+                    $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fpInt] = $collect->fp[$int]->Exec->DatumFormaterat[$fpInt];
+                    $executeDates['fp'][$int]['Exec']['DatumKontroll'][$fpInt] = $collect->fp[$int]->Exec->DatumKontroll[$fpInt];
+                    $executeDates['fp'][$int]['Exec']['DatumWeek'][$fpInt] = $collect->fp[$int]->Exec->DatumWeek[$fpInt];
+                    $executeDates['fp'][$int]['Exec']['AvfallsTyp'][$fpInt] = $collect->fp[$int]->Exec->AvfallsTyp[$fpInt];
+                    $executeDates['fp'][$int]['Exec']['AvfallsTypFormaterat'][$fpInt] = $collect->fp[$int]->Exec->AvfallsTypFormaterat[$fpInt];
+                }
+
                 $int++;
-                $cityRemove = array_search($item->PickupCity, $checkCityDupes);
-                unset($checkCityDupes[$cityRemove]);
             }
         }
 
