@@ -323,7 +323,7 @@ class App
                     $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
                     $colData['fp'][$int]['id'] = $fpId;
                     $colData['fp'][$int]['Adress'] = $item->PickupAddress;
-                    $colData['fp'][$int]['Ort'] = ucfirst ( strtolower($item->PickupCity) );
+                    $colData['fp'][$int]['Ort'] = ucfirst(mb_strtolower($item->PickupCity));
 
                     $fInt = 0;
                     //$checkDupes = array();
