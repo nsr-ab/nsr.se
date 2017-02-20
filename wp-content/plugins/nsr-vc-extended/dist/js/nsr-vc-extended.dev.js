@@ -571,16 +571,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var $element = $(element);
         var $fprow = '';
-        var $fprowMobile = '';
+        var $fpMobRow = '';
 
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
 
-            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr><th colspan="2">Adress</th><th>Udda/Jämn</th><th>Nästa tömningsdag</th></tr>';
-            $fprowMobile += '<h4>Tömningsdagar</h4><table class="fp-table-mobile">';
+            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Udda/Jämn</th><th>Nästa tömningsdag</th></tr>';
+            $fpMobRow += '<table class="fp-table-mobile">';
+
+
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
 
-            console.log(result.fp);
+            //console.log(result.fp);
 
             $.each(result.fp, function (index, post) {
 
@@ -592,7 +594,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                         if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
 
-                            $fprow += '<tr id="' + post.id + '">';
+                            $fprow += '<tr id="' + post.id + '" class="tabDesk">';
                             $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
                             $fprow += '<div><b class="">' + post.Ort + '</b></div>';
                             $fprow += '</td><td>';
@@ -643,6 +645,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $fprow += '</td>';
                         $fprow += '</tr>';
 
+                        $fpMobRow += '<tr class="tabMobile"><th></th></tr>';
+                        $fpMobRow += '<td class="preSortCell"><strong>' + post.Adress + '</strong></td>';
+
+
                 }
                 }
 
@@ -650,10 +656,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             });
             $fprow += '</table>';
+            $fpMobRow += '</table>';
         }
         $('.search-fetchPlanner').append($fprow);
 
-        console.log(result);
+        //console.log(result);
     };
 
 
