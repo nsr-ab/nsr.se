@@ -561,6 +561,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
+
+
     /**
      * Outputs Fetchplanner
      * @param  {object} element fetchplanner element
@@ -581,8 +583,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
+            var $avfall ='';
+            var $weeks = '';
+            var $nextDate = ''
+            var $dub = [];
 
-            //console.log(result.fp);
 
             $.each(result.fp, function (index, post) {
 
@@ -598,58 +603,33 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
                             $fprow += '<div><b class="">' + post.Ort + '</b></div>';
                             $fprow += '</td><td>';
-                            if (post.Exec.Datum[0] >= jsdate) {
-                                if (post.Exec.AvfallsTyp[0])
-                                    $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[0] + '</span><br /> ';
 
-                            }
-                            if (post.Exec.Datum[1] >= jsdate) {
-                                if (post.Exec.AvfallsTyp[1])
-                                    $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[1] + '</span><br />';
-                            }
-                            if (post.Exec.Datum[2] >= jsdate) {
-                                if (post.Exec.AvfallsTyp[2])
-                                    $fprow += '<span class="badge">' + post.Exec.AvfallsTyp[2] + '</span><br /> ';
-                            }
+                            for(var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++){
 
-                            $fprow += '</td>';
-                            $fprow += '</td>';
-                            $fprow += '<td>';
-                            if (post.Exec.Datum[0] >= jsdate) {
-                                $fprow += post.Exec.DatumWeek[0] + '<br />';
-                            }
-                            if (post.Exec.Datum[1] >= jsdate) {
-                                $fprow += post.Exec.DatumWeek[1] + '<br />';
-                            }
-                            if (post.Exec.Datum[2] >= jsdate) {
-                                $fprow += post.Exec.DatumWeek[2] + '<br />';
+                                if (post.Exec.Datum[avint] >= jsdate) {
+
+                                    if (!$dub.includes(post.Exec.AvfallsTyp[avint] + ' ' +post.Exec.Datum[avint])) {
+
+                                        $dub['avfall'] = post.Exec.AvfallsTyp[avint];
+                                        $avfall += '<span class="badge">' + post.Exec.AvfallsTyp[avint] + '</span><br /> ';
+                                        $weeks += post.Exec.DatumWeek[avint] + '<br />';
+                                        $dub['nDate'] = post.Exec.AvfallsTyp[avint];
+                                        $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
+                                        $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' +post.Exec.Datum[avint];
+                                    }
+                                }
                             }
 
-                            $fprow += '</td>';
-                            $fprow += '<td>';
-
-                            if (post.Exec.Datum[0] >= jsdate) {
-                                if (post.Exec.DatumFormaterat[0])
-                                    $fprow += post.Exec.DatumFormaterat[0] + '<br />';
-                            }
-                            if (post.Exec.Datum[1] >= jsdate) {
-                                if (post.Exec.DatumFormaterat[1])
-                                    $fprow += post.Exec.DatumFormaterat[1] + '<br />';
-                            }
-                            if (post.Exec.Datum[2] >= jsdate) {
-                                if (post.Exec.DatumFormaterat[2])
-                                    $fprow += post.Exec.DatumFormaterat[2] + '<br />';
-                            }
+                            $fprow += $avfall+'</td><td>'+$weeks+'</td><td>'+$nextDate;
                         }
 
-                        $fprow += '</td>';
-                        $fprow += '</tr>';
+                        $fprow += '</td></tr>';
 
                         $fpMobRow += '<tr class="tabMobile"><th></th></tr>';
                         $fpMobRow += '<td class="preSortCell"><strong>' + post.Adress + '</strong></td>';
 
 
-                }
+                    }
                 }
 
                 dateExp = false;

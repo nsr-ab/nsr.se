@@ -292,7 +292,7 @@ class App
         //ini_set('xdebug.var_display_max_data', 1024);
 
         $collection = new \VcExtended\Library\Helper\Collection();
-        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.trim(urlencode($_GET['query'])).'&maxCount=100');
+        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.trim(urlencode($_GET['query'])).'&maxCount=5');
 
         $executeDates['fp'] = array();
         $colData['fp'] = array();
@@ -319,7 +319,7 @@ class App
 
                 if($collect === 0) {
 
-                    $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=26&DateEnd=' . $stopDate);
+                    $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=20&DateEnd=' . $stopDate);
                     $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
                     $colData['fp'][$int]['id'] = $fpId;
                     $colData['fp'][$int]['Adress'] = $item->PickupAddress;
@@ -331,6 +331,7 @@ class App
                     foreach ($fpData->d as $fpItem) {
 
                             //if (!in_array($date, $checkDupes)) {
+                        //var_dump($containerData->d);
                                 foreach ($containerData->d as $contInfo) {
                                     if ($contInfo->ContainerId === $fpItem->ContainerId) {
                                         $date = self::setDateFormat($fpItem->ExecutionDate);
