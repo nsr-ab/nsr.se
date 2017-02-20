@@ -130,7 +130,6 @@ class App
     }
 
 
-
     /**
      * Show Notice if Visual Composer is activated or not.
      * @return string
@@ -142,7 +141,6 @@ class App
           <p>' . __('<strong>NSR Visual Composer Extended</strong> requires <strong><a href="http://bit.ly/vcomposer" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', 'nsr-vc-extended') . '</p>
         </div>';
     }
-
 
 
     /**
@@ -163,17 +161,15 @@ class App
     }
 
 
-
     /**
      * Unique id
      * @param int
      * @return string
      */
-    private static function gen_uid($l=10)
+    private static function gen_uid($l = 10)
     {
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyz"), 0, $l);
     }
-
 
 
     /**
@@ -186,7 +182,7 @@ class App
         $fetchplanner_curl = curl_init();
         curl_setopt_array($fetchplanner_curl, array(
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => NSR_FetchPlanner.$curl
+            CURLOPT_URL => NSR_FetchPlanner . $curl
         ));
 
         $response = curl_exec($fetchplanner_curl);
@@ -196,7 +192,6 @@ class App
     }
 
 
-
     /**
      * Set correct date format
      * @param string
@@ -204,12 +199,11 @@ class App
      */
     public static function setDateFormat($fpdate)
     {
-        $date = str_replace(")/","",str_replace("/Date(","", $fpdate));
-        $date = ( $date / 1000 );
+        $date = str_replace(")/", "", str_replace("/Date(", "", $fpdate));
+        $date = ($date / 1000);
 
-        return date( "Y-m-d", strtotime( substr(strtok(date("Y-m-d H:m", $date),":"), 0, -2).'+1 day' ) );
+        return date("Y-m-d", strtotime(substr(strtok(date("Y-m-d H:m", $date), ":"), 0, -2) . '+1 day'));
     }
-
 
 
     /**
@@ -219,7 +213,7 @@ class App
      */
     public static function getFpDefenitions($defenition)
     {
-        $retVal = array('KÄRL 1','KÄRL 2','TVÅDELAT KÄRL', 'TRÄDGÅRDSAVFALL', 'RESTAVFALL', false);
+        $retVal = array('KÄRL 1', 'KÄRL 2', 'TVÅDELAT KÄRL', 'TRÄDGÅRDSAVFALL', 'RESTAVFALL', false);
         switch ($defenition) {
 
             // Bjuv/Åstorp
@@ -277,8 +271,6 @@ class App
     }
 
 
-
-
     /**
      *  fetchDataFromFetchPlanner
      *  Get data from Fetchplanners API
@@ -292,32 +284,32 @@ class App
         //ini_set('xdebug.var_display_max_data', 1024);
 
         $collection = new \VcExtended\Library\Helper\Collection();
-        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress='.trim(urlencode($_GET['query'])).'&maxCount=5');
+        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress=' . trim(urlencode($_GET['query'])) . '&maxCount=5');
 
         $executeDates['fp'] = array();
         $colData['fp'] = array();
 
         $int = 0;
         $todaysDate = date('Y-m-d');
-        $stopDate = date( "Y-m-d", strtotime( "$todaysDate +26 days" ) );
+        $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
 
         $countCities = 0;
         $checkCityDupes = array();
 
-        foreach($data->d as $item) {
+        foreach ($data->d as $item) {
             if (!in_array($item->PickupCity, $checkCityDupes))
                 array_push($checkCityDupes, $item->PickupCity);
             $countCities++;
         }
 
-        foreach($data->d as $item) {
+        foreach ($data->d as $item) {
 
             if (in_array($item->PickupCity, $checkCityDupes)) {
 
                 $fpId = self::gen_uid($item->PickupId);
                 $collect = $collection->getItem($fpId);
 
-                if($collect === 0) {
+                if ($collect === 0) {
 
                     $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=20&DateEnd=' . $stopDate);
                     $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
@@ -326,34 +318,29 @@ class App
                     $colData['fp'][$int]['Ort'] = ucfirst(mb_strtolower($item->PickupCity));
 
                     $fInt = 0;
-                    //$checkDupes = array();
 
                     foreach ($fpData->d as $fpItem) {
 
-                            //if (!in_array($date, $checkDupes)) {
-                        //var_dump($containerData->d);
-                                foreach ($containerData->d as $contInfo) {
-                                    if ($contInfo->ContainerId === $fpItem->ContainerId) {
-                                        $date = self::setDateFormat($fpItem->ExecutionDate);
-                                        $datetime = new \DateTime($date);
-                                        $colData['fp'][$int]['Exec']['Datum'][$fInt] = $date;
-                                        $colData['fp'][$int]['Exec']['DatumFormaterat'][$fInt] = ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y'))));
-                                        $colData['fp'][$int]['Exec']['DatumKontroll'][$fInt] = $fpItem->ExecutionDate;
+                        foreach ($containerData->d as $contInfo) {
+                            if ($contInfo->ContainerId === $fpItem->ContainerId) {
+                                $date = self::setDateFormat($fpItem->ExecutionDate);
+                                $datetime = new \DateTime($date);
+                                $colData['fp'][$int]['Exec']['Datum'][$fInt] = $date;
+                                $colData['fp'][$int]['Exec']['DatumFormaterat'][$fInt] = ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y'))));
+                                $colData['fp'][$int]['Exec']['DatumKontroll'][$fInt] = $fpItem->ExecutionDate;
 
-                                        if ($datetime->format("W") % 2 == 1) {
-                                            $colData['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Udda veckor";
-                                        } else {
-                                            $colData['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Jämna veckor";
-                                        }
-
-                                        $colData['fp'][$int]['Exec']['AvfallsTyp'][$fInt] = self::getFpDefenitions($contInfo->ContentTypeCode);
-                                        $colData['fp'][$int]['Exec']['AvfallsTypFormaterat'][$fInt] = $contInfo->ContentTypeCode;
-                                    }
+                                if ($datetime->format("W") % 2 == 1) {
+                                    $colData['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Udda veckor";
+                                } else {
+                                    $colData['fp'][$int]['Exec']['DatumWeek'][$fInt] = "Jämna veckor";
                                 }
-                                //array_push($checkDupes, $date);
-                            //}
 
-                            $fInt++;
+                                $colData['fp'][$int]['Exec']['AvfallsTyp'][$fInt] = self::getFpDefenitions($contInfo->ContentTypeCode);
+                                $colData['fp'][$int]['Exec']['AvfallsTypFormaterat'][$fInt] = $contInfo->ContentTypeCode;
+                            }
+                        }
+
+                        $fInt++;
                     }
 
                     $collection->addItem(json_decode(json_encode($colData), FALSE), $fpId);
@@ -367,7 +354,7 @@ class App
                 $executeDates['fp'][$int]['Adress'] = $collect->fp[$int]->Adress;
                 $executeDates['fp'][$int]['Ort'] = $collect->fp[$int]->Ort;
 
-                for ($fpInt = 0; $fpInt< count($collect->fp[$int]->Exec->Datum); $fpInt++) {
+                for ($fpInt = 0; $fpInt < count($collect->fp[$int]->Exec->Datum); $fpInt++) {
                     $executeDates['fp'][$int]['Exec']['Datum'][$fpInt] = $collect->fp[$int]->Exec->Datum[$fpInt];
                     $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fpInt] = $collect->fp[$int]->Exec->DatumFormaterat[$fpInt];
                     $executeDates['fp'][$int]['Exec']['DatumKontroll'][$fpInt] = $collect->fp[$int]->Exec->DatumKontroll[$fpInt];

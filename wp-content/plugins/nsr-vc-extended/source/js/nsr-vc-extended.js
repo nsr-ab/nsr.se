@@ -38,10 +38,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
         /* Default search */
         Extended.prototype.DefaultSiteSearch();
 
-        if(!$('body').hasClass('wp-admin'))
+        if (!$('body').hasClass('wp-admin'))
             $('.card-content').matchHeight();
 
-        $(function() {
+        $(function () {
             this.CollapsibleHeaders();
         }.bind(this));
 
@@ -97,8 +97,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }).bind(this);
 
 
-
-
     };
 
     /**
@@ -109,7 +107,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var query = Extended.prototype.getUrlParameter('q');
 
-        if(query) {
+        if (query) {
             $('#searchkeyword-nsr').focus(), $('#searchkeyword-nsr').val(query.replace(/\+/g, ' '));
             Extended.prototype.doneTyping();
         }
@@ -126,9 +124,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $id = $(this).parents('ul').attr('id');
 
-            if($(this).find("a").length === 0) {
+            if ($(this).find("a").length === 0) {
                 $($id).find('.materialIconState').text('add');
-                if($(this).hasClass('active')) {
+                if ($(this).hasClass('active')) {
                     $(this).find('.materialIconState').text('remove');
                 }
                 else {
@@ -144,7 +142,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
-
     /**
      *  displayMore
      *  Show more or less posts
@@ -152,9 +149,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @return {void}
      */
     Extended.prototype.encodeStr = function (str) {
-        return str.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+        return str.split("").reduce(function (a, b) {
+            a = ((a << 5) - a) + b.charCodeAt(0);
+            return a & a
+        }, 0);
     }
-
 
 
     /**
@@ -180,7 +179,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
-
     /**
      *  enterTrigger
      *  on enter
@@ -203,8 +201,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
-
-
     /**
      *  haltTimer
      *  Space / Backspace - stops timer etc.
@@ -225,7 +221,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
-
     /**
      *  closeScreen
      *  Close search screen
@@ -235,14 +230,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         event.stopPropagation();
         $('.searchNSR').removeClass('fullscreen'), $('.searchNSR').removeClass('searchResult');
-        $(element).addClass('hide'),$('#searchkeyword-nsr').val(''),$('.search-autocomplete').remove(),$('.sorteringsguiden').remove();
-        $('.vc_row').show(),$('.page-footer').show(),$('.main-container').removeAttr('style'),$('.search-fetchPlanner').html('');
+        $(element).addClass('hide'), $('#searchkeyword-nsr').val(''), $('.search-autocomplete').remove(), $('.sorteringsguiden').remove();
+        $('.vc_row').show(), $('.page-footer').show(), $('.main-container').removeAttr('style'), $('.search-fetchPlanner').html('');
 
-        if($('body').hasClass('error404'))
-            $('.sidebar-footer-area').css('margin-top','0px');
+        if ($('body').hasClass('error404'))
+            $('.sidebar-footer-area').css('margin-top', '0px');
     };
-
-
 
 
     /**
@@ -261,20 +254,19 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.searchNSR input').focus(), $('.searchNSR').addClass('fullscreen');
         event.stopPropagation();
 
-        if(!$('.searchNSR').hasClass('position-relative')) {
+        if (!$('.searchNSR').hasClass('position-relative')) {
 
-            $('.closeSearch').removeClass('hide'), $('html, body').animate({ scrollTop: 0 }, 'slow');
+            $('.closeSearch').removeClass('hide'), $('html, body').animate({scrollTop: 0}, 'slow');
             $('.vc_row').hide(), $('.page-footer').hide(), $('.searchNSR').closest('.vc_row').show(), $('.main-container').height(317);
 
             if ($(window).width() < 540)
                 $('.main-container').height(237);
         }
 
-        if($('body').hasClass('error404'))
-            $('.sidebar-footer-area').css('margin-top','200px');
+        if ($('body').hasClass('error404'))
+            $('.sidebar-footer-area').css('margin-top', '200px');
 
     };
-
 
 
     /**
@@ -283,21 +275,19 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @return {void}
      */
 
-    Extended.prototype.fpTimer = function ()  {
+    Extended.prototype.fpTimer = function () {
         Extended.prototype.fetchPlannerQuery($('.searchNSR'))
     };
 
 
-
     /**
      *  timer FetchPlanner
      *  fires a call to fetchplannerQuery
      *  @return {void}
      */
-    Extended.prototype.ElasticTimer = function (element)  {
+    Extended.prototype.ElasticTimer = function (element) {
         Extended.prototype.autocomplete(element);
     };
-
 
 
     /**
@@ -309,14 +299,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         $('.searchNSR').each(function (index, element) {
             clearTimeout(timerElastic), clearTimeout(timerFetchplanner);
-            timerElastic = setTimeout(function() {
+            timerElastic = setTimeout(function () {
                 Extended.prototype.ElasticTimer(element);
-            },300);
+            }, 300);
         });
-        timerFetchplanner = setTimeout(Extended.prototype.fpTimer,1100);
+        timerFetchplanner = setTimeout(Extended.prototype.fpTimer, 1100);
     };
-
-
 
 
     /**
@@ -324,7 +312,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} element
      * @return {void}
      */
-    Extended.prototype.autocomplete = function(element) {
+    Extended.prototype.autocomplete = function (element) {
 
         var $element = $(element);
         var $input = $element.find('input[type="search"]');
@@ -337,14 +325,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
-
-
     /**
      * Submit autocompleteSubmit
      * @param  {object} element Autocomplete
      * @return {bool}
      */
-    Extended.prototype.autocompleteSubmit = function(element) {
+    Extended.prototype.autocompleteSubmit = function (element) {
 
         var $element = $(element);
         var $autocomplete = $element.find('.search-autocomplete');
@@ -359,14 +345,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
-
-
     /**
      * Query for autocomplete suggestions
      * @param  {object} element Autocomplete element
      * @return {void}
      */
-    Extended.prototype.autocompleteQuery = function(element) {
+    Extended.prototype.autocompleteQuery = function (element) {
 
         var $element = $(element);
         var $input = $element.find('input[type="search"]').val();
@@ -386,14 +370,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
-
-
     /**
      * Query for fetchplanner
      * @param  {object} element fetchplanner element
      * @return {void}
      */
-    Extended.prototype.fetchPlannerQuery = function(element) {
+    Extended.prototype.fetchPlannerQuery = function (element) {
 
 
         var $element = $(element);
@@ -409,25 +391,21 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
-
-
     /**
      * Query for autocomplete suggestions and fetchplanner
      * @param  {object} element Autocomplete element
      * @return {void}
      */
-    Extended.prototype.spinner = function() {
+    Extended.prototype.spinner = function () {
 
-        var id =  arguments[0];
+        var id = arguments[0];
         var size = arguments[1];
         var display = (!arguments[2]) ? 'none' : 'block';
 
-        if(!size)
+        if (!size)
             size = 'small';
-        return '<div class="'+id+' preloader-wrapper '+size+' active" style="display:'+display+';"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
+        return '<div class="' + id + ' preloader-wrapper ' + size + ' active" style="display:' + display + ';"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
     };
-
-
 
 
     /**
@@ -435,9 +413,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} element Autocomplete element
      * @return {void}
      */
-    Extended.prototype.getJsonData = function($element, data, $post_type) {
+    Extended.prototype.getJsonData = function ($element, data, $post_type) {
 
-        var progressbar = Extended.prototype.spinner(Extended.prototype.hashCode(data.action),'big',true);
+        var progressbar = Extended.prototype.spinner(Extended.prototype.hashCode(data.action), 'big', true);
 
         $.ajax({
             url: ajax_object.ajax_url,
@@ -447,7 +425,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             beforeSend: function (xhr) {
 
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-                if($('.searchNSR form .preloader-wrapper').length < 1){
+                if ($('.searchNSR form .preloader-wrapper').length < 1) {
                     $('.searchNSR .searchArea').append(progressbar);
                 }
 
@@ -456,7 +434,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }).done(function (result) {
 
-            if(data.action === 'fetchDataFromElasticSearch') {
+            if (data.action === 'fetchDataFromElasticSearch') {
 
                 $('.searchNSR').addClass('searchResult'), $element.find('.sorteringsguiden').remove(), $element.find('.search-autocomplete').remove();
                 this.outputAutocomplete($element, result, $post_type);
@@ -464,16 +442,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
             else {
 
                 $('.search-fetchPlanner').html('');
-                this.outputFetchPlanner($element, result, false);
+                this.outputFetchPlanner(result, false);
                 $('.searchArea .preloader-wrapper').remove();
-                if($('#searchkeyword-nsr').hasClass('valid'))
+                if ($('#searchkeyword-nsr').hasClass('valid'))
                     $('#searchkeyword-nsr').addClass('valid');
 
             }
         }.bind(this));
     };
-
-
 
 
     /**
@@ -522,12 +498,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $res['icon'] = 'delete';
                 break;
         }
-        if($res['icon'] === '')
+        if ($res['icon'] === '')
             $res['icon'] = "find_in_page";
         return $res;
     };
-
-
 
 
     /**
@@ -537,8 +511,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {int}  offset
      * @return {int}
      */
-    Extended.prototype.Strpos = function strpos (haystack, needle, offset) {
-        var i = (haystack+'').indexOf(needle, (offset || 0));
+    Extended.prototype.Strpos = function strpos(haystack, needle, offset) {
+        var i = (haystack + '').indexOf(needle, (offset || 0));
         return i === -1 ? 0 : i;
     };
 
@@ -547,19 +521,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * hash strings
      * @return {string}
      */
-    Extended.prototype.hashCode = function(str) {
+    Extended.prototype.hashCode = function (str) {
         var hash = 0;
         if (str === null)
             return hash;
 
         for (i = 0; i < str.length; i++) {
             char = str.charCodeAt(i);
-            hash = ((hash<<5)-hash)+char;
+            hash = ((hash << 5) - hash) + char;
             hash = hash & hash; // Convert to 32bit integer
         }
         return hash;
     };
-
 
 
     /**
@@ -568,15 +541,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {array}  result  fetchplanner query result
      * @return {void}
      */
-    Extended.prototype.outputFetchPlanner = function(element, result) {
+    Extended.prototype.outputFetchPlanner = function (result) {
 
-        var $element = $(element);
         var $fprow = '';
         var $fpMobRow = '';
 
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
-
-            console.log(result.fp);
 
             $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Nästa tömningsdag</th></tr>';
             $fpMobRow += '<table class="fp-table-mobile">';
@@ -587,15 +557,15 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $.each(result.fp, function (index, post) {
 
                 var $dub = [];
-                var $avfall ='';
+                var $avfall = '';
                 var $weeks = '';
                 var $nextDate = '';
 
                 $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('valid');
 
-                if(post.hasOwnProperty('Exec')) {
+                if (post.hasOwnProperty('Exec')) {
 
-                    if(post.Exec.AvfallsTyp[0] || post.Exec.AvfallsTyp[1]) {
+                    if (post.Exec.AvfallsTyp[0] || post.Exec.AvfallsTyp[1]) {
 
                         if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
 
@@ -604,26 +574,26 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             $fprow += '<div><b class="">' + post.Ort + '</b></div>';
                             $fprow += '</td><td>';
 
-                            for(var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++){
+                            for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
 
                                 if (post.Exec.Datum[avint] >= jsdate) {
 
-                                    if (!$dub.includes(post.Exec.AvfallsTyp[avint] + ' ' +post.Exec.Datum[avint])) {
+                                    if (!$dub.includes(post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint])) {
 
                                         $dub['avfall'] = post.Exec.AvfallsTyp[avint];
                                         $avfall += '<span class="badge">' + post.Exec.AvfallsTyp[avint] + '</span><br /> ';
                                         //$weeks += post.Exec.DatumWeek[avint] + '<br />';
                                         $dub['nDate'] = post.Exec.AvfallsTyp[avint];
                                         $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
-                                        $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' +post.Exec.Datum[avint];
+                                        $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
                                     }
                                 }
                             }
 
-                            $fprow += $avfall+'</td><td>'+$nextDate;
-                            $fpMobRow += '<tr class="fpthmob"><th colspan="2"><span><strong>' + post.Adress + '</span>, <span>' + post.Ort  + '</span></strong></th></tr>';
+                            $fprow += $avfall + '</td><td>' + $nextDate;
+                            $fpMobRow += '<tr class="fpthmob"><th colspan="2"><span><strong>' + post.Adress + '</span>, <span>' + post.Ort + '</span></strong></th></tr>';
                             $fpMobRow += '<tr><th>Kärl</th><th>Nästa tömning</th></tr>';
-                            $fpMobRow += '<tr><td>'+$avfall+'</td><td>' + $nextDate+ '</td></tr>';
+                            $fpMobRow += '<tr><td>' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
                         }
 
                         $fprow += '</td></tr>';
@@ -638,7 +608,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
         $('.search-fetchPlanner').append($fprow);
         $('.search-fetchPlanner').append($fpMobRow);
-        //console.log(result);
+
     };
 
 
@@ -648,7 +618,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {array}  res     Autocomplete query result
      * @return {void}
      */
-    Extended.prototype.outputAutocomplete = function(element, res, searchSection) {
+    Extended.prototype.outputAutocomplete = function (element, res, searchSection) {
 
         var $element = $(element);
         var $autocomplete = $('<div class="search-autocomplete"></div>');
@@ -670,27 +640,27 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $.each(res.sortguide, function (index, spost) {
 
                 var customerCatIcons = '';
-                if(spost.post_meta) {
+                if (spost.post_meta) {
 
-                    if(spost.post_meta.avfall_kundkategori[0].indexOf('foretag') >= 0) {
+                    if (spost.post_meta.avfall_kundkategori[0].indexOf('foretag') >= 0) {
                         customerCatIcons += '<span class="badge sortSectionIcon company">F</span>';
                     }
-                    if(spost.post_meta.avfall_kundkategori[0].indexOf('villa') >= 0) {
+                    if (spost.post_meta.avfall_kundkategori[0].indexOf('villa') >= 0) {
                         customerCatIcons += '<span class="badge sortSectionIcon private">P</span> ';
                     }
                 }
 
-                sortHTML += '<tr class="tabMobile"><th>Avfall:</th><td valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td></tr>';
-                sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">'+spost.post_title+' <div class="badgecontainer">'+customerCatIcons+'</div></td><td valign="top">';
+                sortHTML += '<tr class="tabMobile"><th>Avfall:</th><td valign="top">' + spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td></tr>';
+                sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">' + spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td><td valign="top">';
 
-                if(spost.terms) {
+                if (spost.terms) {
 
 
                     if (spost.terms.fraktion_avc.name != '' && spost.terms.fraktion_avc.name != null) {
                         sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
                         tabMobile_frak += '<li><b>ÅVC:</b><ul>';
-                        if(spost.terms.fraktion_avc.link != '') {
-                            var fraktion_avc = '<a href="'+spost.terms.fraktion_avc.link+'">'+spost.terms.fraktion_avc.name+'</a>';
+                        if (spost.terms.fraktion_avc.link != '') {
+                            var fraktion_avc = '<a href="' + spost.terms.fraktion_avc.link + '">' + spost.terms.fraktion_avc.name + '</a>';
                         }
                         else {
                             var fraktion_avc = spost.terms.fraktion_avc.name;
@@ -704,8 +674,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (spost.terms.fraktion_hemma.name != '' && spost.terms.fraktion_hemma.name != null) {
                         sortHTML += '<li><b>Hemma:</b><ul class="meta-fraktion">';
                         tabMobile_frak += '<li><b class="sortAs">Hemma:</b><ul>';
-                        if(spost.terms.fraktion_hemma.link != '') {
-                            var fraktion_hemma = '<a href="'+spost.terms.fraktion_hemma.link+'">'+spost.terms.fraktion_hemma.name+'</a>';
+                        if (spost.terms.fraktion_hemma.link != '') {
+                            var fraktion_hemma = '<a href="' + spost.terms.fraktion_hemma.link + '">' + spost.terms.fraktion_hemma.name + '</a>';
                         }
                         else {
                             var fraktion_hemma = spost.terms.fraktion_hemma.name;
@@ -719,15 +689,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '</td>';
                 var braAttVeta;
-                if(spost.post_meta)
-                    braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'), '<br />');;
-                sortHTML += '<td class="exnfodispl">'+braAttVeta+'</td>';
+                if (spost.post_meta)
+                    braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'), '<br />');
+                ;
+                sortHTML += '<td class="exnfodispl">' + braAttVeta + '</td>';
 
-                sortHTML += '<td valign="top">'+spinner+'<ul class="inlstallen">';
+                sortHTML += '<td valign="top">' + spinner + '<ul class="inlstallen">';
                 var hideStuff = '';
-                if(spost.terms) {
+                if (spost.terms) {
 
-                    if(spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
+                    if (spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
 
                         CityItem = [];
                         for (var int = 0; int < spost.terms.inlamningsstallen.length; int++) {
@@ -772,14 +743,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '</ul></td>';
                 sortHTML += '</tr>';
-                sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul class="meta-fraktion">'+tabMobile_frak+'</ul></td></tr>';
-                sortHTML += '<tr class="tabMobile"><th>Lämnas:</th><td>'+spinner+'<ul>'+tabMobile_inl+'</ul></td></tr>';
+                sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
+                sortHTML += '<tr class="tabMobile"><th>Lämnas:</th><td>' + spinner + '<ul>' + tabMobile_inl + '</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile lastchild"><td class="lastchild" colspan="2"> </td></tr>';
 
                 tabMobile_frak = "";
                 tabMobile_inl = "";
 
-                if(spost.post_title.length > 0)
+                if (spost.post_title.length > 0)
                     nosortGuidedata = true;
 
             });
@@ -792,16 +763,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
             $.each(res.content, function (index, post) {
                 var $excerpt = post.post_excerpt.replace(/^(.{180}[^\s]*).*/, "$1");
-                if($excerpt)
-                    $excerpt = $excerpt+"...";
+                if ($excerpt)
+                    $excerpt = $excerpt + "...";
                 var $metaDataStr = Extended.prototype.metaDataStr(post.post_type);
 
-                if(!$metaDataStr['icon'])
+                if (!$metaDataStr['icon'])
                     $metaDataStr['icon'] = "find_in_page";
 
-                var pageHTML = '<li class="collapsible-header col s12 m12 l12"> <i class="material-icons"> '+$metaDataStr['icon']+'</i><a href="'+post.guid+'">'+post.post_title+'<span class="section right">'+$metaDataStr['postSection']+'</span>';
-                if($excerpt)
-                    pageHTML += '<div class="moreinfo">'+$excerpt+'</div>';
+                var pageHTML = '<li class="collapsible-header col s12 m12 l12"> <i class="material-icons"> ' + $metaDataStr['icon'] + '</i><a href="' + post.guid + '">' + post.post_title + '<span class="section right">' + $metaDataStr['postSection'] + '</span>';
+                if ($excerpt)
+                    pageHTML += '<div class="moreinfo">' + $excerpt + '</div>';
                 pageHTML += '</a></li>';
                 $content.append(pageHTML);
                 noContent = true;
@@ -809,23 +780,23 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.search-autocomplete').prepend('<h4>Sidor på nsr.se</h4>');
         }
 
-        if(nosortGuidedata) {
+        if (nosortGuidedata) {
             $sortMarkupTable.appendTo($sorteringsguiden);
             $sorteringsguiden.appendTo($element);
         }
-        if(noContent)
+        if (noContent)
             $content.appendTo($autocomplete);
         $autocomplete.appendTo($element).show();
 
         $('.fraktion-icon').each(function () {
-            if($(this).find('span').hasClass('nofraktionlink'))
+            if ($(this).find('span').hasClass('nofraktionlink'))
                 $(this).removeClass('fraktion-icon');
         });
 
-        if(noContent)
+        if (noContent)
             $('.search-autocomplete').prepend('<h4>Sidor på nsr.se</h4>');
 
-        if(!noContent && !nosortGuidedata){
+        if (!noContent && !nosortGuidedata) {
             $('#searchkeyword-nsr').addClass('invalid');
             $('#searchkeyword-nsr').removeClass('valid');
         }
@@ -837,38 +808,36 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
-
     /**
      * GEo Error
      * @param  {object} error
      * @return {void}
      */
-    Extended.prototype.GeoError = function(error) {
-        switch(error.code) {
+    Extended.prototype.GeoError = function (error) {
+        switch (error.code) {
             case error.PERMISSION_DENIED:
                 constant = "PERMISSION_DENIED";
                 $('.search-autocomplete .preloader-wrapper').hide();
-                console.log('geoLocation: '+constant);
+                console.log('geoLocation: ' + constant);
                 break;
             case error.POSITION_UNAVAILABLE:
                 constant = "POSITION_UNAVAILABLE";
                 $('.search-autocomplete .preloader-wrapper').hide();
-                console.log('geoLocation: '+constant);
+                console.log('geoLocation: ' + constant);
                 break;
             case error.TIMEOUT:
                 constant = "TIMEOUT";
                 $('.search-autocomplete .preloader-wrapper').hide();
-                console.log('geoLocation: '+constant);
+                console.log('geoLocation: ' + constant);
                 break;
             default:
                 constant = "Unrecognized error";
                 $('.search-autocomplete .preloader-wrapper').hide();
-                console.log('geoLocation: '+constant);
+                console.log('geoLocation: ' + constant);
                 break;
         }
 
     }
-
 
 
     /**
@@ -876,10 +845,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} position
      * @return {void}
      */
-    Extended.prototype.UserLocation = function(position) {
+    Extended.prototype.UserLocation = function (position) {
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
     }
-
 
 
     /**
@@ -887,10 +855,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {int} deg
      * @return degree
      */
-    Extended.prototype.Deg2Rad = function(deg) {
+    Extended.prototype.Deg2Rad = function (deg) {
         return deg * Math.PI / 180;
     }
-
 
 
     /**
@@ -898,7 +865,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {int} lat long
      * @return degree
      */
-    Extended.prototype.PythagorasEquirectangular = function(lat1, lon1, lat2, lon2) {
+    Extended.prototype.PythagorasEquirectangular = function (lat1, lon1, lat2, lon2) {
         lat1 = Extended.prototype.Deg2Rad(lat1);
         lat2 = Extended.prototype.Deg2Rad(lat2);
         lon1 = Extended.prototype.Deg2Rad(lon1);
@@ -916,12 +883,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {int} lat long
      * @return {array} cities
      */
-    Extended.prototype.NearestCity = function(latitude, longitude) {
+    Extended.prototype.NearestCity = function (latitude, longitude) {
 
         var icon = 0;
         for (ind = 0; ind < cities.length; ++ind) {
-            if(ind < cities.length+1) {
-                $(cordClass).closest('ul').addClass('parent-'+ind);
+            if (ind < cities.length + 1) {
+                $(cordClass).closest('ul').addClass('parent-' + ind);
                 var mindif = 99999;
                 var closest;
                 for (index = 0; index < cities[ind].length; ++index) {
@@ -933,14 +900,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
 
-                $('.'+cordClass).addClass('geoLink');
-                $('.'+cordClass).removeClass('hide');
+                $('.' + cordClass).addClass('geoLink');
+                $('.' + cordClass).removeClass('hide');
 
                 var int = 0;
-                $('.inlstallen li ').each(function() {
-                    if(int > 4)
+                $('.inlstallen li ').each(function () {
+                    if (int > 4)
                         $(this).addClass('hide');
-                    if($(this).hasClass(cordClass)) {
+                    if ($(this).hasClass(cordClass)) {
                         var putMeInTheTopOfTheList = $(this).clone();
                         $(this).parent().prepend(putMeInTheTopOfTheList);
                         $(this).remove();
@@ -949,11 +916,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 icn = false;
                 cordClass = false;
-                $(cordClass).parent().css('background','red');
+                $(cordClass).parent().css('background', 'red');
             }
         }
 
-        $('.preloader-wrapper').fadeOut("slow");;
+        $('.preloader-wrapper').fadeOut("slow");
+        ;
         return cities[closest];
     }
 
