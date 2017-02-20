@@ -4,7 +4,7 @@ $white: #fff;
 //#6f6f6f;
 $darkGrey: darken($lighGrey, 55%);
 $defaultGreen: #007586;
-$defaultDarkGreen: darken($defaultGreen, 5%);
+$defaultDarkGreen: darken($defaultGreen, 2%);
 $signalGreen : #2dbccd;
 $signalGreenNeo : #8ef3ff;
 //$lightGreen : #aaeaf2; // Snyggare men...
@@ -391,7 +391,7 @@ input[type=text]:focus.invalid {
     line-height:25px !important;
     display:table;
   }
-  .search-autocomplete, .search-content, .sorterings-guide-table, .fp-table {
+  .search-autocomplete, .search-content, .sorterings-guide-table, .fp-table, .fp-table-mobile {
     display: none;
     margin-top:20px;
     z-index: 99;
@@ -526,14 +526,14 @@ input[type=text]:focus.invalid {
   .preSortCell {
     min-width:200px;
   }
-  .sorterings-guide-table .badge, .sorteringsguiden .badge, .fp-table .badge  {
+  .sorterings-guide-table .badge, .sorteringsguiden .badge, .fp-table .badge, .fp-table-mobile .badge  {
     border-radius:16px !important;
     font-size: 0.7rem;
     background: darken($darkerGreen, 10%) !important;
     min-width:0.9rem !important;
     margin-left:5px;
   }
-  .fp-table .badge  {
+  .fp-table .badge, .fp-table-mobile .badge   {
     margin-top:5px;
   }
 
@@ -549,7 +549,15 @@ input[type=text]:focus.invalid {
   .fp-table .badge {
     //float:left;
   }
-
+  .fp-table-mobile .badge {
+    float:left;
+  }
+  .fpthmob th {
+    background-color:$defaultDarkGreen;
+  }
+  .fpthmob span, .streetCiy{
+    text-transform: capitalize !important;
+  }
 
   @media (max-width: 450px) {
     .badgeInfo {
@@ -566,8 +574,19 @@ input[type=text]:focus.invalid {
   .preSortCellMobile, .tabMobile   {
     display:none;
   }
+  @media (min-width: 541px) {
+    .fp-table-mobile {
+      display: none;
+    }
+  }
 
   @media (max-width: 540px) {
+    .fp-table-mobile {
+      display:table;
+      border: none !important;
+      width:100%;
+      max-width:100%;
+    }
     .tabDesk {
       display:none;
     }
@@ -588,6 +607,8 @@ input[type=text]:focus.invalid {
         min-width:92px;
         background-color:$darkerGreen;
       }
+
+
       td {
         width:100%;
         background-color:lighten($darkerGreen, 3%);
@@ -632,7 +653,7 @@ input[type=text]:focus.invalid {
     max-width: 300px;
 
   }
-  .preSortCell, .exnfodispl, .fp-table td {
+  .preSortCell, .exnfodispl, .fp-table td, .fp-table-mobile td {
     font-size:1.0rem;
   }
 
@@ -648,7 +669,7 @@ input[type=text]:focus.invalid {
   .fp-table i {
     padding-right:10px;
   }
-  .search-autocomplete-content li, .sorterings-guide-table, .fp-table   {
+  .search-autocomplete-content li, .sorterings-guide-table, .fp-table, .fp-table-mobile   {
     background-color:$darkerGreen;
     font-size:1.1rem;
   }
@@ -769,6 +790,8 @@ td, tr {
   vertical-align: top !important;
 
 }
+
+
 
 .waitingForConnection {
   /*-webkit-animation: borderPulse 1s infinite alternate;

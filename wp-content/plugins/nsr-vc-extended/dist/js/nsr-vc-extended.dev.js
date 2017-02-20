@@ -562,7 +562,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
 
-
     /**
      * Outputs Fetchplanner
      * @param  {object} element fetchplanner element
@@ -577,19 +576,20 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
 
-            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Udda/Jämn</th><th>Nästa tömningsdag</th></tr>';
-            $fpMobRow += '<table class="fp-table-mobile">';
+            console.log(result.fp);
 
+            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Nästa tömningsdag</th></tr>';
+            $fpMobRow += '<table class="fp-table-mobile">';
 
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
-            var $avfall ='';
-            var $weeks = '';
-            var $nextDate = ''
-            var $dub = [];
-
 
             $.each(result.fp, function (index, post) {
+
+                var $dub = [];
+                var $avfall ='';
+                var $weeks = '';
+                var $nextDate = '';
 
                 $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('valid');
 
@@ -612,7 +612,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                                         $dub['avfall'] = post.Exec.AvfallsTyp[avint];
                                         $avfall += '<span class="badge">' + post.Exec.AvfallsTyp[avint] + '</span><br /> ';
-                                        $weeks += post.Exec.DatumWeek[avint] + '<br />';
+                                        //$weeks += post.Exec.DatumWeek[avint] + '<br />';
                                         $dub['nDate'] = post.Exec.AvfallsTyp[avint];
                                         $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
                                         $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' +post.Exec.Datum[avint];
@@ -620,15 +620,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 }
                             }
 
-                            $fprow += $avfall+'</td><td>'+$weeks+'</td><td>'+$nextDate;
+                            $fprow += $avfall+'</td><td>'+$nextDate;
+                            $fpMobRow += '<tr class="fpthmob"><th colspan="2"><span><strong>' + post.Adress + '</span>, <span>' + post.Ort  + '</span></strong></th></tr>';
+                            $fpMobRow += '<tr><th>Kärl</th><th>Nästa tömning</th></tr>';
+                            $fpMobRow += '<tr><td>'+$avfall+'</td><td>' + $nextDate+ '</td></tr>';
                         }
 
                         $fprow += '</td></tr>';
-
-                        $fpMobRow += '<tr class="tabMobile"><th></th></tr>';
-                        $fpMobRow += '<td class="preSortCell"><strong>' + post.Adress + '</strong></td>';
-
-
                     }
                 }
 
@@ -639,7 +637,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $fpMobRow += '</table>';
         }
         $('.search-fetchPlanner').append($fprow);
-
+        $('.search-fetchPlanner').append($fpMobRow);
         //console.log(result);
     };
 

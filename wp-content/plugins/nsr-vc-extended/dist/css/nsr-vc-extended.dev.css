@@ -149,7 +149,7 @@ input[type=text]:focus.invalid {
 
 .searchNSR {
   padding: 20px;
-  background-color: #005f6d !important;
+  background-color: #006c7c !important;
   transition: 300ms ease;
   margin-left: 0rem !important;
   margin-right: 0rem !important;
@@ -260,7 +260,7 @@ input[type=text]:focus.invalid {
     font-size: 1.40rem;
     line-height: 25px !important;
     display: table; }
-  .searchNSR .search-autocomplete, .searchNSR .search-content, .searchNSR .sorterings-guide-table, .searchNSR .fp-table {
+  .searchNSR .search-autocomplete, .searchNSR .search-content, .searchNSR .sorterings-guide-table, .searchNSR .fp-table, .searchNSR .fp-table-mobile {
     display: none;
     margin-top: 20px;
     z-index: 99;
@@ -270,54 +270,54 @@ input[type=text]:focus.invalid {
     display: table;
     width: 100%;
     transition: 300ms ease; }
-    .searchNSR .search-autocomplete tr, .searchNSR .search-autocomplete td, .searchNSR .search-autocomplete tbody, .searchNSR .search-autocomplete table, .searchNSR .search-content tr, .searchNSR .search-content td, .searchNSR .search-content tbody, .searchNSR .search-content table, .searchNSR .sorterings-guide-table tr, .searchNSR .sorterings-guide-table td, .searchNSR .sorterings-guide-table tbody, .searchNSR .sorterings-guide-table table, .searchNSR .fp-table tr, .searchNSR .fp-table td, .searchNSR .fp-table tbody, .searchNSR .fp-table table {
+    .searchNSR .search-autocomplete tr, .searchNSR .search-autocomplete td, .searchNSR .search-autocomplete tbody, .searchNSR .search-autocomplete table, .searchNSR .search-content tr, .searchNSR .search-content td, .searchNSR .search-content tbody, .searchNSR .search-content table, .searchNSR .sorterings-guide-table tr, .searchNSR .sorterings-guide-table td, .searchNSR .sorterings-guide-table tbody, .searchNSR .sorterings-guide-table table, .searchNSR .fp-table tr, .searchNSR .fp-table td, .searchNSR .fp-table tbody, .searchNSR .fp-table table, .searchNSR .fp-table-mobile tr, .searchNSR .fp-table-mobile td, .searchNSR .fp-table-mobile tbody, .searchNSR .fp-table-mobile table {
       border-color: #016a77;
       border-bottom: none; }
-    .searchNSR .search-autocomplete th, .searchNSR .search-content th, .searchNSR .sorterings-guide-table th, .searchNSR .fp-table th {
+    .searchNSR .search-autocomplete th, .searchNSR .search-content th, .searchNSR .sorterings-guide-table th, .searchNSR .fp-table th, .searchNSR .fp-table-mobile th {
       font-weight: 600;
       background-color: #016a77; }
-    .searchNSR .search-autocomplete tr:nth-child(even), .searchNSR .search-content tr:nth-child(even), .searchNSR .sorterings-guide-table tr:nth-child(even), .searchNSR .fp-table tr:nth-child(even) {
+    .searchNSR .search-autocomplete tr:nth-child(even), .searchNSR .search-content tr:nth-child(even), .searchNSR .sorterings-guide-table tr:nth-child(even), .searchNSR .fp-table tr:nth-child(even), .searchNSR .fp-table-mobile tr:nth-child(even) {
       background-color: #017886;
       color: #fff !important; }
-    .searchNSR .search-autocomplete tr:nth-child(odd), .searchNSR .search-content tr:nth-child(odd), .searchNSR .sorterings-guide-table tr:nth-child(odd), .searchNSR .fp-table tr:nth-child(odd) {
+    .searchNSR .search-autocomplete tr:nth-child(odd), .searchNSR .search-content tr:nth-child(odd), .searchNSR .sorterings-guide-table tr:nth-child(odd), .searchNSR .fp-table tr:nth-child(odd), .searchNSR .fp-table-mobile tr:nth-child(odd) {
       color: #fff !important;
       background-color: #017886; }
-    .searchNSR .search-autocomplete li, .searchNSR .search-content li, .searchNSR .sorterings-guide-table li, .searchNSR .fp-table li {
+    .searchNSR .search-autocomplete li, .searchNSR .search-content li, .searchNSR .sorterings-guide-table li, .searchNSR .fp-table li, .searchNSR .fp-table-mobile li {
       font-size: .9em;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       display: table-cell; }
-      .searchNSR .search-autocomplete li:hover, .searchNSR .search-content li:hover, .searchNSR .sorterings-guide-table li:hover, .searchNSR .fp-table li:hover {
+      .searchNSR .search-autocomplete li:hover, .searchNSR .search-content li:hover, .searchNSR .sorterings-guide-table li:hover, .searchNSR .fp-table li:hover, .searchNSR .fp-table-mobile li:hover {
         background-color: rgba(0, 0, 0, 0.2);
         box-shadow: none;
         text-decoration: none;
         color: #fff !important; }
-    .searchNSR .search-autocomplete li a, .searchNSR .search-content li a, .searchNSR .sorterings-guide-table li a, .searchNSR .fp-table li a {
+    .searchNSR .search-autocomplete li a, .searchNSR .search-content li a, .searchNSR .sorterings-guide-table li a, .searchNSR .fp-table li a, .searchNSR .fp-table-mobile li a {
       display: block;
       padding: 0px 0px;
       text-decoration: none !important;
       color: #fff !important; }
-      .searchNSR .search-autocomplete li a:hover, .searchNSR .search-content li a:hover, .searchNSR .sorterings-guide-table li a:hover, .searchNSR .fp-table li a:hover {
+      .searchNSR .search-autocomplete li a:hover, .searchNSR .search-content li a:hover, .searchNSR .sorterings-guide-table li a:hover, .searchNSR .fp-table li a:hover, .searchNSR .fp-table-mobile li a:hover {
         color: #90f3ff !important; }
-    .searchNSR .search-autocomplete .meta-fraktion li a, .searchNSR .search-content .meta-fraktion li a, .searchNSR .sorterings-guide-table .meta-fraktion li a, .searchNSR .fp-table .meta-fraktion li a {
+    .searchNSR .search-autocomplete .meta-fraktion li a, .searchNSR .search-content .meta-fraktion li a, .searchNSR .sorterings-guide-table .meta-fraktion li a, .searchNSR .fp-table .meta-fraktion li a, .searchNSR .fp-table-mobile .meta-fraktion li a {
       padding: 0px 15px; }
-    .searchNSR .search-autocomplete .meta-fraktion i, .searchNSR .search-content .meta-fraktion i, .searchNSR .sorterings-guide-table .meta-fraktion i, .searchNSR .fp-table .meta-fraktion i {
+    .searchNSR .search-autocomplete .meta-fraktion i, .searchNSR .search-content .meta-fraktion i, .searchNSR .sorterings-guide-table .meta-fraktion i, .searchNSR .fp-table .meta-fraktion i, .searchNSR .fp-table-mobile .meta-fraktion i {
       font-size: 1.0rem !important;
       margin-top: 2px; }
-    .searchNSR .search-autocomplete .meta-fraktion a, .searchNSR .search-content .meta-fraktion a, .searchNSR .sorterings-guide-table .meta-fraktion a, .searchNSR .fp-table .meta-fraktion a {
+    .searchNSR .search-autocomplete .meta-fraktion a, .searchNSR .search-content .meta-fraktion a, .searchNSR .sorterings-guide-table .meta-fraktion a, .searchNSR .fp-table .meta-fraktion a, .searchNSR .fp-table-mobile .meta-fraktion a {
       color: white !important; }
-    .searchNSR .search-autocomplete td li b, .searchNSR .search-autocomplete td b, .searchNSR .search-content td li b, .searchNSR .search-content td b, .searchNSR .sorterings-guide-table td li b, .searchNSR .sorterings-guide-table td b, .searchNSR .fp-table td li b, .searchNSR .fp-table td b {
+    .searchNSR .search-autocomplete td li b, .searchNSR .search-autocomplete td b, .searchNSR .search-content td li b, .searchNSR .search-content td b, .searchNSR .sorterings-guide-table td li b, .searchNSR .sorterings-guide-table td b, .searchNSR .fp-table td li b, .searchNSR .fp-table td b, .searchNSR .fp-table-mobile td li b, .searchNSR .fp-table-mobile td b {
       color: #8ef3ff !important; }
-    .searchNSR .search-autocomplete li.selected a, .searchNSR .search-content li.selected a, .searchNSR .sorterings-guide-table li.selected a, .searchNSR .fp-table li.selected a {
+    .searchNSR .search-autocomplete li.selected a, .searchNSR .search-content li.selected a, .searchNSR .sorterings-guide-table li.selected a, .searchNSR .fp-table li.selected a, .searchNSR .fp-table-mobile li.selected a {
       background-color: rgba(0, 0, 0, 0.1); }
-    .searchNSR .search-autocomplete i, .searchNSR .search-content i, .searchNSR .sorterings-guide-table i, .searchNSR .fp-table i {
+    .searchNSR .search-autocomplete i, .searchNSR .search-content i, .searchNSR .sorterings-guide-table i, .searchNSR .fp-table i, .searchNSR .fp-table-mobile i {
       float: left;
       color: #039db0; }
-    .searchNSR .search-autocomplete .isize, .searchNSR .search-content .isize, .searchNSR .sorterings-guide-table .isize, .searchNSR .fp-table .isize {
+    .searchNSR .search-autocomplete .isize, .searchNSR .search-content .isize, .searchNSR .sorterings-guide-table .isize, .searchNSR .fp-table .isize, .searchNSR .fp-table-mobile .isize {
       font-size: 1.2rem;
       margin-top: 1px; }
-    .searchNSR .search-autocomplete .locationmap, .searchNSR .search-content .locationmap, .searchNSR .sorterings-guide-table .locationmap, .searchNSR .fp-table .locationmap {
+    .searchNSR .search-autocomplete .locationmap, .searchNSR .search-content .locationmap, .searchNSR .sorterings-guide-table .locationmap, .searchNSR .fp-table .locationmap, .searchNSR .fp-table-mobile .locationmap {
       cursor: pointer; }
-      .searchNSR .search-autocomplete .locationmap:hover, .searchNSR .search-content .locationmap:hover, .searchNSR .sorterings-guide-table .locationmap:hover, .searchNSR .fp-table .locationmap:hover {
+      .searchNSR .search-autocomplete .locationmap:hover, .searchNSR .search-content .locationmap:hover, .searchNSR .sorterings-guide-table .locationmap:hover, .searchNSR .fp-table .locationmap:hover, .searchNSR .fp-table-mobile .locationmap:hover {
         color: #90f3ff !important; }
   .searchNSR .streetCiy div {
     margin-top: -6px; }
@@ -344,13 +344,13 @@ input[type=text]:focus.invalid {
     position: relative; }
   .searchNSR .preSortCell {
     min-width: 200px; }
-  .searchNSR .sorterings-guide-table .badge, .searchNSR .sorteringsguiden .badge, .searchNSR .fp-table .badge {
+  .searchNSR .sorterings-guide-table .badge, .searchNSR .sorteringsguiden .badge, .searchNSR .fp-table .badge, .searchNSR .fp-table-mobile .badge {
     border-radius: 16px !important;
     font-size: 0.7rem;
     background: #013d44 !important;
     min-width: 0.9rem !important;
     margin-left: 5px; }
-  .searchNSR .fp-table .badge {
+  .searchNSR .fp-table .badge, .searchNSR .fp-table-mobile .badge {
     margin-top: 5px; }
   .searchNSR .badgeInfo .badge {
     float: none;
@@ -359,6 +359,12 @@ input[type=text]:focus.invalid {
     color: #fff;
     font-size: 0.9rem;
     margin-bottom: 10px; }
+  .searchNSR .fp-table-mobile .badge {
+    float: left; }
+  .searchNSR .fpthmob th {
+    background-color: #006c7c; }
+  .searchNSR .fpthmob span, .searchNSR .streetCiy {
+    text-transform: capitalize !important; }
   @media (max-width: 450px) {
     .searchNSR .badgeInfo {
       margin-top: 10px; } }
@@ -368,7 +374,15 @@ input[type=text]:focus.invalid {
     right: 5px; }
   .searchNSR .preSortCellMobile, .searchNSR .tabMobile {
     display: none; }
+  @media (min-width: 541px) {
+    .searchNSR .fp-table-mobile {
+      display: none; } }
   @media (max-width: 540px) {
+    .searchNSR .fp-table-mobile {
+      display: table;
+      border: none !important;
+      width: 100%;
+      max-width: 100%; }
     .searchNSR .tabDesk {
       display: none; }
     .searchNSR .preSortCellMobile {
@@ -406,7 +420,7 @@ input[type=text]:focus.invalid {
     background: none !important; }
   .searchNSR .exnfodispl {
     max-width: 300px; }
-  .searchNSR .preSortCell, .searchNSR .exnfodispl, .searchNSR .fp-table td {
+  .searchNSR .preSortCell, .searchNSR .exnfodispl, .searchNSR .fp-table td, .searchNSR .fp-table-mobile td {
     font-size: 1.0rem; }
   @media (max-width: 700px) {
     .searchNSR .exnfodispl {
@@ -415,7 +429,7 @@ input[type=text]:focus.invalid {
     margin-bottom: 20px; }
   .searchNSR .fp-table i {
     padding-right: 10px; }
-  .searchNSR .search-autocomplete-content li, .searchNSR .sorterings-guide-table, .searchNSR .fp-table {
+  .searchNSR .search-autocomplete-content li, .searchNSR .sorterings-guide-table, .searchNSR .fp-table, .searchNSR .fp-table-mobile {
     background-color: #016a77;
     font-size: 1.1rem; }
   .searchNSR .search-autocomplete-image {

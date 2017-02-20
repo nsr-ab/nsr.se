@@ -378,13 +378,19 @@ class App
 
                 $int++;
             }
+
         }
 
         wp_send_json($executeDates);
         exit;
     }
 
-
+    public function date_compare($a, $b)
+    {
+        $t1 = strtotime($a['fp'][$int]['Exec']['Datum']['datetime']);
+        $t2 = strtotime($b['datetime']);
+        return $t1 - $t2;
+    }
 
     /**
      *  fetch_data
