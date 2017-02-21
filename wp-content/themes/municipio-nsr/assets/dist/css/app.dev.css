@@ -7457,7 +7457,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme div.wpforms-container-full .wpforms-form input[type=text], .is-child-theme div.wpforms-container-full .wpforms-form input[type=time],
   .is-child-theme div.wpforms-container-full .wpforms-form input[type=url], .is-child-theme div.wpforms-container-full .wpforms-form input[type=week],
   .is-child-theme div.wpforms-container-full .wpforms-form select, .is-child-theme div.wpforms-container-full .wpforms-form textarea {
-    background-color: #fff !important; }
+    background-color: #e6e6e6 !important; }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
