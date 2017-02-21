@@ -40,14 +40,15 @@
 <div id="searchModal" class="modal bottom-sheet">
     <i class="material-icons modal-action modal-close waves-effect waves-green right">cancel</i>
     <div class="modal-content">
-        <form itemprop="potentialAction" itemscope="" action=/sok/ itemtype="http://schema.org/SearchAction">
-            <div class="input-field col s12">
+        <form itemprop="potentialAction" class="row" itemscope="" action=/sok/ itemtype="http://schema.org/SearchAction">
+            <div class="searchForm input-field col s10">
                 <i class="material-icons prefix">search</i>
                 <input class="form-control form-control-lg validated input-field s12" itemprop="query-input" required="" id="search-nsr" autocomplete="off" type="search" name="q" value="" aria-invalid="true">
                 <label for="search-input">Vad letar du efter?</label>
                 <input type="hidden" id="post_type" value="">
-                <button class="searchSubmit btn waves-effect waves-light left" type="submit">SÖK</button>
             </div>
+
+            <div class="searchBtnSubmit col s2 hidden-xs"><button class="searchSubmit btn btn-large waves-effect waves-light left" type="submit">SÖK</button></div>
 
         </form>
     </div>

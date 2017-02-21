@@ -21,6 +21,7 @@
 }
 .modal {
     overflow: hidden;
+    background-color:#fff;
 }
 .modal.bottom-sheet {
     max-height:23%;
@@ -36,18 +37,22 @@
 }
 #search-nsr {
     background-color: $palette-primary-grey-input;
-    width:90%;
+
     margin-top:-20px;
     margin-left:0px;
     z-index:1;
-    padding-left:70px;
+
 }
 .modal-content label, .modal-content i {
     z-index:2;
 }
+.modal-content label {
+    margin-top:-18px;
+    left:1.8rem !important;
+}
 .modal-content i {
     font-size:3.8rem;
-    margin-top:12px;
+    margin-top:-8px;
     margin-left:10px;
 }
 .modal-close {
@@ -66,29 +71,20 @@
     text-align:center;
     margin:20px 0;
 }
+
 .searchSubmit {
-    position:absolute;
-    right:1%;
-    margin-right:30px;
-    top:20px;
-    background:$palette-primary-green;
-}
-@media (min-width: 991px) {
-    .searchSubmit {
-        right:3%;
-    }
-}
-@media (max-width: 991px) {
-    .searchSubmit {
-        right:1%;
-    }
+    background: $palette-primary-green;
+
 }
 @media (max-width: 768px) {
-    .searchSubmit {
+    .searchBtnSubmit {
         display:none;
+        width:0px !important;
+    }
+    .searchForm {
+        width:100% !important;
     }
 }
-
 
 .notice {
 

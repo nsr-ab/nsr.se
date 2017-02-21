@@ -85,6 +85,9 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 .collapsible {
   margin-top: 0px !important; }
 
+.modal {
+  background-color: #fff; }
+
 .materialize-red {
   background-color: #e51c23 !important; }
 
@@ -7309,7 +7312,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .mobile-search .quickSearchInput {
     position: relative; }
   .is-child-theme .modal {
-    overflow: hidden; }
+    overflow: hidden;
+    background-color: #fff; }
   .is-child-theme .modal.bottom-sheet {
     max-height: 23%; }
   .is-child-theme .modal-content {
@@ -7319,16 +7323,17 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       padding-top: 25px; } }
   .is-child-theme #search-nsr {
     background-color: #e6e6e6;
-    width: 90%;
     margin-top: -20px;
     margin-left: 0px;
-    z-index: 1;
-    padding-left: 70px; }
+    z-index: 1; }
   .is-child-theme .modal-content label, .is-child-theme .modal-content i {
     z-index: 2; }
+  .is-child-theme .modal-content label {
+    margin-top: -18px;
+    left: 1.8rem !important; }
   .is-child-theme .modal-content i {
     font-size: 3.8rem;
-    margin-top: 12px;
+    margin-top: -8px;
     margin-left: 10px; }
   .is-child-theme .modal-close {
     margin-right: 20px;
@@ -7342,20 +7347,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     text-align: center;
     margin: 20px 0; }
   .is-child-theme .searchSubmit {
-    position: absolute;
-    right: 1%;
-    margin-right: 30px;
-    top: 20px;
     background: #007586; }
-  @media (min-width: 991px) {
-    .is-child-theme .searchSubmit {
-      right: 3%; } }
-  @media (max-width: 991px) {
-    .is-child-theme .searchSubmit {
-      right: 1%; } }
   @media (max-width: 768px) {
-    .is-child-theme .searchSubmit {
-      display: none; } }
+    .is-child-theme .searchBtnSubmit {
+      display: none;
+      width: 0px !important; }
+    .is-child-theme .searchForm {
+      width: 100% !important; } }
   .is-child-theme .notice {
     margin-top: 70px; }
   .is-child-theme .card.large .card-image + .card-content,
