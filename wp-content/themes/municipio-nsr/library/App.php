@@ -57,6 +57,10 @@ class App
     public function image_size()
     {
         add_image_size( 'Bild-till-puff', 757, 267, true );
+        add_image_size( 'Header 2 col', 821, 201, true );
+        add_image_size( 'Header full', 1250, 201, true );
+        add_image_size( 'Puff med länk', 620, 300, true );
+        add_image_size( 'Puff med meny', 991, 264, true );
     }
 
 
