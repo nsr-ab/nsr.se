@@ -14,7 +14,7 @@
         max-width:530px;
         min-width:530px;
         width:100%;
-
+        padding-top: 8px;
 
         nav {
             background-color: $palette-primary-white;
@@ -62,7 +62,6 @@
 
         padding:10px 0;
         display: table-cell;
-
 
         &:hover {
             background: none;
@@ -166,6 +165,7 @@
         min-height: 100%;
         display: flex;
         flex-direction: column;
+
 
         & a:hover, &.active {
             background:none;
