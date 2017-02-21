@@ -270,7 +270,7 @@ div.wpforms-container-full .wpforms-form input[type=url], div.wpforms-container-
 div.wpforms-container-full .wpforms-form select, div.wpforms-container-full .wpforms-form textarea {
   background-color:$palette-primary-grey !important;
 }
-.wpforms-form:after {
+.wpforms-form select:after {
   font-family: 'Material Icons';
   content: 'arrow_drop_down';
 }
