@@ -278,11 +278,6 @@ class App
     public function fetchDataFromFetchPlanner()
     {
 
-        //ini_set('error_log', __DIR__.'/php_error.log');
-        //ini_set('xdebug.var_display_max_depth', 5);
-        //ini_set('xdebug.var_display_max_children', 256);
-        //ini_set('xdebug.var_display_max_data', 1024);
-
         $collection = new \VcExtended\Library\Helper\Collection();
         $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress=' . trim(urlencode($_GET['query'])) . '&maxCount=5');
 
@@ -372,12 +367,6 @@ class App
         exit;
     }
 
-    public function date_compare($a, $b)
-    {
-        $t1 = strtotime($a['fp'][$int]['Exec']['Datum']['datetime']);
-        $t2 = strtotime($b['datetime']);
-        return $t1 - $t2;
-    }
 
     /**
      *  fetch_data
