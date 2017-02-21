@@ -591,7 +591,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             }
 
                             $fprow += $avfall + '</td><td>' + $nextDate;
-                            $fpMobRow += '<tr class="fpthmob"><th colspan="2"><span><strong>' + post.Adress + '</span>, <span>' + post.Ort + '</span></strong></th></tr>';
+                            $fpMobRow += '<tr class="fpthmob"><th colspan="2"><i class="material-icons">date_range</i> <span><strong> ' + post.Adress + '</span>, <span>' + post.Ort + '</span></strong></th></tr>';
                             $fpMobRow += '<tr><th>Kärl</th><th>Nästa tömning</th></tr>';
                             $fpMobRow += '<tr><td>' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
                         }
