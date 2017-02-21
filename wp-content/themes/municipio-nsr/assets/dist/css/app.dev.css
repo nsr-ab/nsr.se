@@ -7448,6 +7448,16 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme input[type="time"],
   .is-child-theme input[type="week"] {
     background-color: #e6e6e6 !important; }
+  .is-child-theme div.wpforms-container-full .wpforms-form input[type=date],
+  .is-child-theme div.wpforms-container-full .wpforms-form input[type=datetime],
+  .is-child-theme div.wpforms-container-full .wpforms-form input[type=datetime-local],
+  .is-child-theme div.wpforms-container-full .wpforms-form input[type=email], .is-child-theme div.wpforms-container-full .wpforms-form input[type=month], .is-child-theme div.wpforms-container-full .wpforms-form input[type=number],
+  .is-child-theme div.wpforms-container-full .wpforms-form input[type=password], .is-child-theme div.wpforms-container-full .wpforms-form input[type=range],
+  .is-child-theme div.wpforms-container-full .wpforms-form input[type=search], .is-child-theme div.wpforms-container-full .wpforms-form input[type=tel],
+  .is-child-theme div.wpforms-container-full .wpforms-form input[type=text], .is-child-theme div.wpforms-container-full .wpforms-form input[type=time],
+  .is-child-theme div.wpforms-container-full .wpforms-form input[type=url], .is-child-theme div.wpforms-container-full .wpforms-form input[type=week],
+  .is-child-theme div.wpforms-container-full .wpforms-form select, .is-child-theme div.wpforms-container-full .wpforms-form textarea {
+    background-color: #fff !important; }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
