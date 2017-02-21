@@ -49,10 +49,11 @@ VcExtended.NSRExtendAdmin.ExtendedAdmin = (function ($) {
 
             if( typeof $.wp === 'object' && typeof $.wp.wpColorPicker === 'function' )
             $.wp.wpColorPicker.prototype.options = {
-                palettes: ['#75a3eb','#6d7dcc','#a27ac3', '#fe0e35', '#00aaff', '#00f2d3'],
+                palettes: ['#007685','#d1d2d0','#c0b939', '#7a409c', '#52439f', '#186cb6', '#0195af', '#01ab98', '#69c1bd','#186cb6','#aad54f', '#d4cc46'],
                 hide: true
             };
         });
+
     }
 
 

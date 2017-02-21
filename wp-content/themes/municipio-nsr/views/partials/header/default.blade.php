@@ -58,7 +58,7 @@
 <div class="container hidden-print desk">
     <div class="grid">
 
-        <div class="grid-md-6 text-center-xs text-center-sm">
+        <div class="grid-md-5 text-center-xs text-center-sm" id="nsr-logo">
             <div class="desk-logo grid-xs-12 grid-sm-12 grid-md-12 text-center-sm text-center-xs">
                 {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option'), true, get_field('header_tagline_enable', 'option')) !!}
             </div>

@@ -12,6 +12,7 @@
         }
 
         max-width:530px;
+        min-width:530px;
         width:100%;
 
 
@@ -61,7 +62,7 @@
 
         padding:10px 0;
         display: table-cell;
-        min-width: 90px;
+
 
         &:hover {
             background: none;
@@ -232,7 +233,28 @@
 
 
     }
+    @media (max-width: 1060px) {
+        #nsr-logo{
+            max-width:30%;
+        }
+        .sites-nav {
+            max-width:70%;
+        }
+    }
 
+    @media (max-width: 860px) {
+        .mobile-search i{
+            display:none;
+        }
+    }
+    @media (max-width: 768px) {
+        #nsr-logo{
+            max-width:100%;
+        }
+        .mobile-search i{
+            display:block;
+        }
+    }
 
     .admin-bar #site-header {
         margin-top: 0;

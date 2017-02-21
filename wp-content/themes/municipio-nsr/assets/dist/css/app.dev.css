@@ -6689,6 +6689,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 /* Main top Navigation */
 .sites-nav {
   max-width: 530px;
+  min-width: 530px;
   width: 100%; }
   .sites-nav nav {
     background-color: #fff;
@@ -6718,8 +6719,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 /* Navigation li item,  Mobile & Desktop */
 .sites-nav li, .side-nav li {
   padding: 10px 0;
-  display: table-cell;
-  min-width: 90px; }
+  display: table-cell; }
   .sites-nav li:hover, .side-nav li:hover {
     background: none;
     color: #004853; }
@@ -6731,25 +6731,25 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     -webkit-transition: 0.8s;
             transition: 0.8s; }
   .sites-nav li:nth-child(6n+1), .side-nav li:nth-child(6n+1) {
-    border-left: 12px solid #ffd9df; }
+    border-left: 12px solid #d9c2e6; }
   .sites-nav li:nth-child(6n+1):hover, .sites-nav li:nth-child(6n+1).active, .side-nav li:nth-child(6n+1):hover, .side-nav li:nth-child(6n+1).active {
-    border-left: 12px solid #fe0e35;
+    border-left: 12px solid #7a409c;
     -webkit-transition-timing-function: ease;
             transition-timing-function: ease;
     -webkit-transition: 0.18s;
             transition: 0.18s; }
   .sites-nav li:nth-child(6n+2), .side-nav li:nth-child(6n+2) {
-    border-left: 12px solid #cceeff; }
+    border-left: 12px solid #7eebfe; }
   .sites-nav li:nth-child(6n+2):hover, .sites-nav li:nth-child(6n+2).active, .side-nav li:nth-child(6n+2):hover, .side-nav li:nth-child(6n+2).active {
-    border-left: 12px solid #00aaff;
+    border-left: 12px solid #0195af;
     -webkit-transition-timing-function: ease;
             transition-timing-function: ease;
     -webkit-transition: 0.18s;
             transition: 0.18s; }
   .sites-nav li:nth-child(6n+3), .side-nav li:nth-child(6n+3) {
-    border-left: 12px solid #bffff7; }
+    border-left: 12px solid #7afeef; }
   .sites-nav li:nth-child(6n+3):hover, .sites-nav li:nth-child(6n+3).active, .side-nav li:nth-child(6n+3):hover, .side-nav li:nth-child(6n+3).active {
-    border-left: 12px solid #00f2d3;
+    border-left: 12px solid #01ab98;
     -webkit-transition-timing-function: ease;
             transition-timing-function: ease;
     -webkit-transition: 0.18s;
@@ -6883,6 +6883,22 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
               transition: background-color 3s !important;
       -webkit-transition: border 2s !important;
               transition: border 2s !important; }
+
+@media (max-width: 1060px) {
+  #nsr-logo {
+    max-width: 30%; }
+  .sites-nav {
+    max-width: 70%; } }
+
+@media (max-width: 860px) {
+  .mobile-search i {
+    display: none; } }
+
+@media (max-width: 768px) {
+  #nsr-logo {
+    max-width: 100%; }
+  .mobile-search i {
+    display: block; } }
 
 .admin-bar #site-header {
   margin-top: 0; }
@@ -7205,7 +7221,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       max-width: 700px;
       box-shadow: 0 1px 8px rgba(0, 0, 0, 0.09), 0 2px 3px rgba(0, 0, 0, 0.12) !important;
       padding: 35px 18px 40px 90px;
-      border-top: 5px solid #fe5f79;
+      border-top: 5px solid #a26bc2;
       border-left: none;
       display: inline-block;
       vertical-align: top;

@@ -293,7 +293,7 @@ class CustomPostTypes
             "query_var" => true,
             "menu_position" => 21,
             "menu_icon" => "dashicons-trash",
-            "supports" => array( "title", "editor"),
+            "supports" => array( "title"),
             "taxonomies" => array("fraktioner", "inlamningsstallen")
         );
         register_post_type( "sorteringsguide", $args );
