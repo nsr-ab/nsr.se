@@ -46,7 +46,7 @@ class Enqueue
 
         if (!apply_filters('Municipio/load-wp-jquery', false)) {
             wp_deregister_script('jquery');
-            wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+            wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array('jquery'), null, true);
         }
     }
 
