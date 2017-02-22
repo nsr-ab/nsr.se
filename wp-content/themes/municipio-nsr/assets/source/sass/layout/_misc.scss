@@ -275,3 +275,7 @@ div.wpforms-container-full .wpforms-form select:after {
   font-family: 'Material Icons';
   content: 'arrow_drop_down';
 }
+div.wpforms-container-full .wpforms-form .wpforms-field-label {
+  color:$palette-primary-darkgrey;
+}
+

@@ -7044,7 +7044,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-family: "Lato";
     font-weight: 900;
     font-style: normal;
-    color: #007586; }
+    color: #393939; }
   .is-child-theme h1 {
     font-size: 3.75rem;
     letter-spacing: 1.6px;
@@ -7457,7 +7457,12 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme div.wpforms-container-full .wpforms-form input[type=text], .is-child-theme div.wpforms-container-full .wpforms-form input[type=time],
   .is-child-theme div.wpforms-container-full .wpforms-form input[type=url], .is-child-theme div.wpforms-container-full .wpforms-form input[type=week],
   .is-child-theme div.wpforms-container-full .wpforms-form select, .is-child-theme div.wpforms-container-full .wpforms-form textarea {
-    background-color: #f6f6f6 !important; }
+    background-color: #e6e6e6 !important; }
+  .is-child-theme div.wpforms-container-full .wpforms-form select:after {
+    font-family: 'Material Icons';
+    content: 'arrow_drop_down'; }
+  .is-child-theme div.wpforms-container-full .wpforms-form .wpforms-field-label {
+    color: #393939; }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
