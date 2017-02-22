@@ -7306,7 +7306,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     border-collapse: collapse;
     border-spacing: 0; }
   .is-child-theme article table tbody tr + tr:nth-child(even) {
-    background-color: #f2f2f2 !important; }
+    background-color: #f6f6f6 !important; }
   .is-child-theme article table tbody tr + tr {
     border: none !important; }
   .is-child-theme aside h2 {
