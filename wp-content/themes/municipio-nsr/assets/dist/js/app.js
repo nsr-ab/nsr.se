@@ -69,9 +69,9 @@ Nsr.App.AppDefault = (function ($) {
         $('.openhours .collection-item').each(function( index ) {
             if (int > 5) {
                 $(this).addClass('hide');
-                if (int === 6) {
-                        if(!bool)
-                            $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');
+                if (int === 12) {
+                    if(!bool)
+                        $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');
                 }
             }
             int++;
