@@ -40,21 +40,26 @@ b, strong {
 h1, h2, h3, h4, h5 {
     @include font('Lato', 900);
     color:$palette-primary-darkgrey;
-
+    margin:0px;
 }
 
 h1 {
     font-size: 3.75rem;
-    letter-spacing:1.6px;
+    letter-spacing:0px;
     color: alpha-color($palette-primary-grey, 74%, $type:'dark') !important;
     /*min-height:80px;*/
     max-width:990px !important;
-    line-height:93%;
+    line-height:115%;
     padding:0px;
 }
 h2 {
-    font-size: 1.5em;
+    font-size: 2.92rem;
 }
+
+h3 {
+    font-size:1.7rem;
+}
+
 @media only screen and (max-width: 600px) {
     h1 {
         font-size: 3.2rem;
