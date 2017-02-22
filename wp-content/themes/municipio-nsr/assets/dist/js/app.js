@@ -12,8 +12,7 @@ Nsr.App.AppDefault = (function ($) {
     function AppDefault() {
         this.init();
 
-
-
+        AppDefault.prototype.limitException();
     };
 
 
@@ -45,16 +44,7 @@ Nsr.App.AppDefault = (function ($) {
         });
     };
 
-    function validateRecaptcha() {
-        var response = grecaptcha.getResponse();
-        if (response.length === 0) {
-            alert("not validated");
-            return false;
-        } else {
-            alert("validated");
-            return true;
-        }
-    }
+
 
     /**
      *  Bypasing !important on parent css
@@ -63,6 +53,29 @@ Nsr.App.AppDefault = (function ($) {
     AppDefault.prototype.chngColor = function () {
         $('.main-footer .footer-title').attr('style','color:#007586 !important;');
     };
+
+
+    /**
+     * Limit exceptions
+     * @return void
+     */
+    AppDefault.prototype.limitException = function () {
+        var int = 0;
+        $('.openhours .collection-item').each(function( index ) {
+            if (int > 5) {
+                $(this).addClass('hide');
+                if (int === 6) {
+                    $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');
+                }
+            }
+            int++;
+
+        });
+
+
+    };
+
+
 
     return new AppDefault();
 

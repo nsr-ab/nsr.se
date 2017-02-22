@@ -43,7 +43,9 @@ NSROpenHours.op.OpenHours = (function ($) {
             $('body').on('change', '#acf-field_select', function (e) {
                 OpenHours.prototype.showSection($(this).val());
             }).bind(this);
+
         });
+
 
     };
 

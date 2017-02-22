@@ -6995,7 +6995,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .is-child-theme {
   /* Text rendering - dont set on div or html element - sticky nav will crash with 3d translate*/
   /* Structure fix */
-  /* Move later */ }
+  /* Move later */
+  /* Firefox < 16 */
+  /* Safari, Chrome and Opera > 12.1 */
+  /* Internet Explorer */
+  /* Opera < 12.1 */ }
   .is-child-theme * {
     font-family: "Lato";
     font-weight: 400;
@@ -7493,6 +7497,33 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     content: 'arrow_drop_down'; }
   .is-child-theme div.wpforms-container-full .wpforms-form .wpforms-field-label {
     color: #393939; }
+  .is-child-theme .showmoreExceptions {
+    font-weight: 600;
+    color: #007586;
+    text-align: Center;
+    cursor: pointer;
+    padding: 10px 0; }
+  .is-child-theme .showmoreExceptions:hover {
+    color: #004853; }
+  .is-child-theme .vc_row {
+    -webkit-animation: fadein 3s;
+    /* Safari, Chrome and Opera > 12.1 */
+    /* Firefox < 16 */
+    /* Internet Explorer */
+    /* Opera < 12.1 */
+    animation: fadein 3s; }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
