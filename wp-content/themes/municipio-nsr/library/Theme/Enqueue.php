@@ -44,10 +44,10 @@ class Enqueue
         apply_filters('Municipio/load-wp-jquery', true, 10, 2);
         wp_enqueue_script('Nsr-js', get_stylesheet_directory_uri() . '/assets/dist/js/app.min.js', '', filemtime(get_stylesheet_directory() . '/assets/dist/js/app.min.js'), true);
 
-        if (!apply_filters('Municipio/load-wp-jquery', false)) {
+        /*if (!apply_filters('Municipio/load-wp-jquery', false)) {
             wp_deregister_script('jquery');
             wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array('jquery'), null, true);
-        }
+        }*/
     }
 
 
