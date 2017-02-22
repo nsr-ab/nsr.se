@@ -198,10 +198,10 @@ article {
         border-collapse: collapse;
         border-spacing: 0;
     }
-    article table tbody tr+tr:nth-child(odd) {
+    table tbody tr+tr:nth-child(odd) {
         background-color: #f2f2f2 !important;
     }
-    article table tbody tr+tr {
-        border:none;
+    table tbody tr+tr {
+        border:none !important;
     }
 }
