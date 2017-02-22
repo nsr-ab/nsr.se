@@ -67,8 +67,11 @@ Nsr.App.AppDefault = (function ($) {
     AppDefault.prototype.limitException = function (bool) {
         var int = 0;
         $('.openhours .collection-item').each(function( index ) {
+            //var num = $(this).children("li").length;
+            //console.log(num);
             if (int > 12) {
-                $(this).addClass('hide');
+                //if(num > int)
+                    $(this).addClass('hide');
                 if (int === 13) {
                     if(!bool)
                         $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');

@@ -204,7 +204,7 @@ article {
         border-spacing: 0;
     }
     table tbody tr+tr:nth-child(even) {
-        background-color: $palette-primary-grey !important;
+        background-color: $palette-primary-grey;
     }
     table tbody tr+tr {
         border:none !important;

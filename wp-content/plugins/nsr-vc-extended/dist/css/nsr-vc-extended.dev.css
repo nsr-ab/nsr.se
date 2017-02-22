@@ -238,7 +238,8 @@ input[type=text]:focus.invalid {
   .searchNSR table tbody {
     background-color: #007586; }
   .searchNSR td, .searchNSR tr {
-    vertical-align: top !important; }
+    vertical-align: top !important;
+    background: none !important; }
   .searchNSR.position-relative {
     position: relative !important; }
   .searchNSR.position-relative.fullscreen {
