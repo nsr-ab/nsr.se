@@ -7068,12 +7068,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-weight: 700;
     text-transform: uppercase; }
   .is-child-theme h5.page-excertpt, .is-child-theme .ingress, .is-child-theme article h5 {
-    font-size: 1.4666rem;
-    font-weight: normal;
+    font-size: 1.3rem;
+    font-weight: 600;
     color: #444444;
-    line-height: 129%;
-    margin-bottom: 37px;
-    margin-top: 8px; }
+    line-height: 129%; }
   .is-child-theme p {
     font-size: 102%;
     line-height: 145%; }

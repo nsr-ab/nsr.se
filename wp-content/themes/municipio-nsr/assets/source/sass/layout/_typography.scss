@@ -76,12 +76,11 @@ h6 {
 }
 
 h5.page-excertpt, .ingress, article h5 {
-    font-size: 1.4666rem;
-    font-weight:normal;
+    font-size: 1.3rem;
+    font-weight:600;
     color: alpha-color($palette-primary-grey, 70%, $type:'dark');
     line-height: 129%;
-    margin-bottom:37px;
-    margin-top:8px;
+
 }
 
 
