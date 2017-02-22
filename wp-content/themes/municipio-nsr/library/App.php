@@ -277,9 +277,9 @@ class App
 
 
     function nsrFormatTinyMCE( $in ) {
-
-        //$in['content_css'] = get_template_directory_uri() . "/editor-style.css";
-        $in['block_formats'] = "Stycke=p; Rubrik 1=h2; Rubrik 2=h3; Rubrik 3=h4; Ingress=h5;";
+        echo "JOHAN 123412341234".get_stylesheet_directory_uri();
+        $in['content_css'] = get_stylesheet_directory_uri() . "/editor-style.css";
+        $in['block_formats'] = "Stycke=p; Rubrik 1=h2; Rubrik 2=h3; Ingress=h5;";
 
         return $in;
     }

@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,600,700,900|Material+Icons:400");
+p, h5, h2, h3, h4  {
+    font-family: Lato;
+    font-feature-settings: "kern" 1;
+    text-rendering: geometricPrecision;
+    font-smoothing: antialiased;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    color: #393939;
+
+}
+
+p {
+    font-size: 17px;
+    line-height: 145%;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+blockquote {
+    font-family: Lato;
+    font-weight: 600;
+    font-style: normal;
+    max-width: 700px;
+    box-shadow: 0 1px 8px rgba(0,0,0,.09),0 2px 3px rgba(0,0,0,.12)!important;
+    padding: 35px 18px 40px 90px;
+    border-top: 5px solid #a26bc2;
+    border-left: none;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+blockquote p {
+    font-size: 102%;
+    line-height: 145%;
+    font-family: Lato;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h2 {
+    font-weight: 900;
+    font-style: normal;
+    font-size: 2.50rem;
+    margin-bottom:0px;
+}
+h3 {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1.7rem;
+    margin-bottom:0px;
+}
+
+
+
+h5 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 129%;
+    margin-bottom:0px;
+}
