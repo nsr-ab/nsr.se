@@ -194,6 +194,8 @@ article {
     table {
         width: 100%;
         display: table;
+        box-shadow: none !important;
+        border:none !important;
     }
     table {
         width: 100%;
@@ -201,7 +203,7 @@ article {
         border-collapse: collapse;
         border-spacing: 0;
     }
-    table tbody tr+tr:nth-child(odd) {
+    table tbody tr+tr:nth-child(even) {
         background-color: #f2f2f2 !important;
     }
     table tbody tr+tr {
