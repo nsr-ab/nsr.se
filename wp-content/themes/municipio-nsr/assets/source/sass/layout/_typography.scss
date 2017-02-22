@@ -40,7 +40,8 @@ b, strong {
 h1, h2, h3, h4, h5 {
     @include font('Lato', 900);
     color:$palette-primary-darkgrey;
-    margin:0px;
+    margin-bottom:0px;
+    margin-top:1.3em !important
 }
 
 h1 {
