@@ -7289,8 +7289,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     display: table-cell;
     text-align: left;
     vertical-align: middle;
-    border-radius: 2px;
-    border-bottom: 1px solid #d0d0d0; }
+    border-radius: 2px; }
   .is-child-theme article thead {
     border-bottom: 1px solid #d0d0d0; }
   .is-child-theme article table {
