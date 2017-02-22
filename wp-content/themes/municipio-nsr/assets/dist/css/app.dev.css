@@ -7285,14 +7285,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme.nsr-background-grey .page-footer {
     display: none; }
   .is-child-theme article td, .is-child-theme article th {
-    padding: 15px 5px;
+    padding: 15px 10px;
     display: table-cell;
     text-align: left;
     vertical-align: middle;
     border-radius: 2px; }
   .is-child-theme article td {
-    border: none !important;
-    padding-left: 10px; }
+    border: none !important; }
   .is-child-theme article th {
     border-bottom: 1px solid #d0d0d0;
     font-weight: 600; }
