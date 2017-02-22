@@ -7295,8 +7295,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     padding-left: 10px; }
   .is-child-theme article th {
     border-bottom: 1px solid #d0d0d0;
-    font-weight: 600;
-    text-align: center; }
+    font-weight: 600; }
   .is-child-theme article table {
     width: 100%;
     display: table;
