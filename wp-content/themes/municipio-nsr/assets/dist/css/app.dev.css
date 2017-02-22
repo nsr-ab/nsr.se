@@ -7044,7 +7044,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-family: "Lato";
     font-weight: 900;
     font-style: normal;
-    color: #393939;
+    color: #393939; }
+  .is-child-theme h1, .is-child-theme h2, .is-child-theme h3 {
     margin-bottom: 0px;
     margin-top: 1.3em !important; }
   .is-child-theme h1 {
