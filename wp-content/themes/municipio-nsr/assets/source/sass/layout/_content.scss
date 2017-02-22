@@ -184,9 +184,12 @@ article {
     }
     td {
         border:none !important;
+        padding-left:10px;
     }
     th  {
         border-bottom: 1px solid #d0d0d0;
+        font-weight:600;
+        text-align: center;
     }
     table {
         width: 100%;
