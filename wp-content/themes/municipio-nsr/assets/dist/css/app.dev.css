@@ -7292,7 +7292,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     border-radius: 2px; }
   .is-child-theme article td {
     border: none !important; }
-  .is-child-theme article thead {
+  .is-child-theme article th {
     border-bottom: 1px solid #d0d0d0; }
   .is-child-theme article table {
     width: 100%;
