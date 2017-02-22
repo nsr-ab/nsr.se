@@ -198,7 +198,10 @@ article {
         border-collapse: collapse;
         border-spacing: 0;
     }
-    table.striped>tbody>tr:nth-child(odd) {
+    article table tbody tr+tr:nth-child(odd) {
         background-color: #f2f2f2 !important;
+    }
+    article table tbody tr+tr {
+        border:none;
     }
 }
