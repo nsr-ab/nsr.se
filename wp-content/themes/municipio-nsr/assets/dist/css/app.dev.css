@@ -7104,6 +7104,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-smoothing: antialiased;
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0); }
+  .is-child-theme blockquote {
+    color: #393939; }
   .is-child-theme .site-header {
     background-color: #f6f6f6;
     border-bottom: 1px solid #dddddd; }
