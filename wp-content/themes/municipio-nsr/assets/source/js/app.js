@@ -16,7 +16,7 @@ Nsr.App.AppDefault = (function ($) {
 
         /* searchNSR - Close full screen */
         $('body').on('click', '.showmoreExceptions', function (e) {
-            AppDefault.prototype.showMoreExceptions();
+            AppDefault.prototype.showMoreExceptions($(this).closest('ul'));
         }).bind(this);
     };
 
@@ -83,9 +83,10 @@ Nsr.App.AppDefault = (function ($) {
      * show hidden openhours
      * @return void
      */
-    AppDefault.prototype.showMoreExceptions = function () {
-        if($('.openhours .collection-item').hasClass('hide')) {
-            $('.openhours .collection-item').removeClass('hide');
+    AppDefault.prototype.showMoreExceptions = function (thisul) {
+
+        if(thisul.find('.collection-item').hasClass('hide')) {
+            thisul.find('.collection-item').removeClass('hide');
             $('.showmoreExceptions').text('Visa färre');
         }
         else {
