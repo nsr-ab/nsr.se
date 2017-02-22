@@ -7505,7 +7505,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     padding: 10px 0; }
   .is-child-theme .showmoreExceptions:hover {
     color: #004853; }
-  .is-child-theme .vc_row {
+  .is-child-theme .openhours {
     -webkit-animation: fadein 3s;
     /* Safari, Chrome and Opera > 12.1 */
     /* Firefox < 16 */

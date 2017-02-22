@@ -13,6 +13,11 @@ Nsr.App.AppDefault = (function ($) {
         this.init();
 
         AppDefault.prototype.limitException();
+
+        /* searchNSR - Close full screen */
+        $('body').on('click', '.showmoreExceptions', function (e) {
+            AppDefault.prototype.showMoreExceptions();
+        }).bind(this);
     };
 
 
@@ -59,20 +64,33 @@ Nsr.App.AppDefault = (function ($) {
      * Limit exceptions
      * @return void
      */
-    AppDefault.prototype.limitException = function () {
+    AppDefault.prototype.limitException = function (bool) {
         var int = 0;
         $('.openhours .collection-item').each(function( index ) {
             if (int > 5) {
                 $(this).addClass('hide');
                 if (int === 6) {
-                    $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');
+                        if(!bool)
+                            $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');
                 }
             }
             int++;
-
         });
+    };
 
 
+    /**
+     * show hidden openhours
+     * @return void
+     */
+    AppDefault.prototype.showMoreExceptions = function () {
+        if($('.openhours .collection-item').hasClass('hide')) {
+            $('.openhours .collection-item').removeClass('hide');
+            $('.showmoreExceptions').text('Visa färre');
+        }
+        else {
+            AppDefault.prototype.limitException(showmoreExceptions = true);
+        }
     };
 
 
