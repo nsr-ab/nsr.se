@@ -75,7 +75,7 @@ h6 {
     text-transform: uppercase;
 }
 
-h5.page-excertpt, .ingress {
+h5.page-excertpt, .ingress, .article h5 {
     font-size: 1.4666rem;
     font-weight:normal;
     color: alpha-color($palette-primary-grey, 70%, $type:'dark');

@@ -21,6 +21,8 @@ class App
         new \Nsr\Theme\CustomPostTypesMetaSidebar();
         new \Nsr\Theme\MetaboxBackgroundColor();
 
+        add_filter( 'tiny_mce_before_init', array( $this,'nsrFormatTinyMCE' ) );
+
         add_action( 'after_setup_theme', array( $this, 'nsr_theme_setup' ) );
         add_action( 'init', array( $this,'add_excerpts_to_pages' ) );
 
@@ -271,6 +273,15 @@ class App
     function setBackgroundClass(){
         $nsrCss = new \Nsr\Theme\NSRTemplates();
         $nsrCss->setBackgroundColor();
+    }
+
+
+    function nsrFormatTinyMCE( $in ) {
+
+        //$in['content_css'] = get_template_directory_uri() . "/editor-style.css";
+        $in['block_formats'] = "Stycke=p; Rubrik 1=h2; Rubrik 2=h3; Rubrik 3=h4; Ingress=h5;";
+
+        return $in;
     }
 
 
