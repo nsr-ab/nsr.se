@@ -7575,9 +7575,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     display: block !important; } }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .is-child-theme .wpforms-field-label-inline {
-      padding-left: 0px; }
+      padding-left: 0px;
+      padding-left: 18px; }
     .is-child-theme .wpforms-field-label-inline:before {
-      padding-left: 18px;
       margin-left: 0px;
       position: absolute;
       left: -25px !important; } }
