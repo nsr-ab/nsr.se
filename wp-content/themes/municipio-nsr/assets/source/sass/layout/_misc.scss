@@ -393,15 +393,15 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
     }
 
   }
+  .wpforms-field-label-inline {
+    padding-left:0px;
+  }
+  .wpforms-field-label-inline:before {
+    padding-left:0px;
+    margin-left:0px;
+    position:absolute;
+    left:-25px !important;
+  }
 
 
-}
-.wpforms-field-label-inline {
-  padding-left:0px;
-}
-.wpforms-field-label-inline:before {
-  padding-left:0px;
-  margin-left:0px;
-  position:absolute;
-  left:-25px;
 }
