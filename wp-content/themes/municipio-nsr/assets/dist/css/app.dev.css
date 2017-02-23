@@ -7534,7 +7534,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
             transform: none !important;
     -webkit-transition: none !important;
             transition: none !important;
-    font-size: .9 !important; }
+    font-size: 0.9rem !important; }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
