@@ -7573,10 +7573,14 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     display: none !important; }
   .is-child-theme .mob, .is-child-theme .mobile-nav {
     display: block !important; } }
+  .is-child-theme .wpforms-field-label-inline {
+    padding-left: 0px; }
   .is-child-theme .wpforms-field-label-inline:before {
     padding-left: 0px;
     margin-left: 0px;
-    border: 1px solid red; }
+    border: 1px solid red;
+    position: absolute;
+    left: 0px; }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
