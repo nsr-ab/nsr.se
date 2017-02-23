@@ -7569,7 +7569,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       min-width: 70px !important; } }
 
 @media screen and (-ms-high-contrast: active) and (max-width: 800px), (-ms-high-contrast: none) and (max-width: 800px) {
-  .is-child-theme .nav-wrapper {
+  .is-child-theme .sites-nav {
     display: none !important; }
   .is-child-theme .mob, .is-child-theme .mobile-nav {
     display: block !important; } }
