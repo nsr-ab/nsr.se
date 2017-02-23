@@ -7526,15 +7526,15 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .wpb_wrapper ul {
     margin-top: 0.5rem !important; }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .is-child-theme .searchNSR .input-field input[type=search] + label {
-      top: 1.3rem !important; } }
-  .is-child-theme .searchNSR .input-field input[type=search] + label {
-    top: 1.3rem !important;
-    -webkit-transform: none !important;
-            transform: none !important;
-    -webkit-transition: none !important;
-            transition: none !important;
-    font-size: 0.9rem !important; }
+    .is-child-theme .searchNSR .input-field input[type=search] + label,
+    .is-child-theme .searchNSR .input-field input[type=search] + label.active {
+      top: 1.1rem !important;
+      -webkit-transform: none !important;
+              transform: none !important;
+      -webkit-transition: none !important;
+              transition: none !important;
+      font-size: 0.9rem !important;
+      margin-top: 0px !important; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
