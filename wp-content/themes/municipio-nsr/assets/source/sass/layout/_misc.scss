@@ -330,10 +330,6 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
   margin-top: 0.5rem !important;
 }
 
-.print-doc {
-  display:none;
-}
-
 /* Ie fixes */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .searchNSR .input-field input[type=search]+label,
@@ -362,8 +358,6 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
   .searchNSR .fraktion-icon {
     padding-left:0px !important;
   }
-  .print-only {
-    display:block !important;
-  }
+
 
 }
