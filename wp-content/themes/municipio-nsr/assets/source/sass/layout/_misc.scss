@@ -362,6 +362,7 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
     margin-top:-32px;
   }
 
+
   .collection-item, .collapsible-header {
     text-rendering: optimizeLegibility !important;
     -ms-font-feature-settings: "dlig" 1, "kern" 1, "frac" 1 !important;
@@ -392,7 +393,7 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
     }
 
   }
-  .wpforms-field [type=checkbox]+label:before {
+  div.wpforms-container-full .wpforms-form .wpforms-field-label-inline:before {
       padding-left:0px;
       margin-left:0px;
   }

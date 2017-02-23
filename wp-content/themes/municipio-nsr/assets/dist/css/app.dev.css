@@ -7573,6 +7573,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     display: none !important; }
   .is-child-theme .mob, .is-child-theme .mobile-nav {
     display: block !important; } }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .is-child-theme div.wpforms-container-full .wpforms-form .wpforms-field-label-inline:before {
+      padding-left: 0px;
+      margin-left: 0px; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
