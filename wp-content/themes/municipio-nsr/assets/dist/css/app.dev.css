@@ -7545,7 +7545,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme .searchNSR .search-autocomplete .meta-fraktion li a,
     .is-child-theme .searchNSR .search-content .meta-fraktion li a,
     .is-child-theme .searchNSR .sorterings-guide-table .meta-fraktion li a {
-      padding: 0px !important; } }
+      padding: 0px 0px !important; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
