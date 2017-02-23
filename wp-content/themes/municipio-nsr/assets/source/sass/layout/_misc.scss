@@ -333,7 +333,7 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
 /* Ie fixes */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .searchNSR .input-field input[type=search]+label {
-    margin-top:12px;
+    display:none;
   }
 
 
