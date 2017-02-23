@@ -329,3 +329,15 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
 .wpb_wrapper ul {
   margin-top: 0.5rem !important;
 }
+
+/* Ie fixes */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+  body {
+    background:red !important;
+  }
+  div {
+    display:none;
+  }
+
+}

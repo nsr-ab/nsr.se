@@ -6999,7 +6999,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   /* Firefox < 16 */
   /* Safari, Chrome and Opera > 12.1 */
   /* Internet Explorer */
-  /* Opera < 12.1 */ }
+  /* Opera < 12.1 */
+  /* Ie fixes */ }
   .is-child-theme * {
     font-family: "Lato";
     font-weight: 400;
@@ -7524,6 +7525,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     opacity: 1; } }
   .is-child-theme .wpb_wrapper ul {
     margin-top: 0.5rem !important; }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .is-child-theme body {
+      background: red !important; }
+    .is-child-theme div {
+      display: none; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
