@@ -342,6 +342,9 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
   }
   .searchNSR .sorterings-guide-table li:before {
     content: '';
-    padding-left:0px;
+    padding-left:0px !important;
+  }
+  .locationmap {
+    text-decoration: none !important;
   }
 }

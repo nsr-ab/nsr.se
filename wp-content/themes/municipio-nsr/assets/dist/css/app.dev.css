@@ -7537,7 +7537,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       margin-top: 0px !important; }
     .is-child-theme .searchNSR .sorterings-guide-table li:before {
       content: '';
-      padding-left: 0px; } }
+      padding-left: 0px !important; }
+    .is-child-theme .locationmap {
+      text-decoration: none !important; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
