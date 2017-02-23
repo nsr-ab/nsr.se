@@ -173,8 +173,10 @@
 &.nsr-background-grey .page-footer {
     display:none;
 }
+
+
 article {
-    td, th {
+    .wpb_content_element td, .wpb_content_element th {
         padding: 15px 10px;
         display: table-cell;
         text-align: left;
@@ -182,31 +184,27 @@ article {
         border-radius: 2px;
 
     }
-    td {
+    .wpb_content_element td {
         border:none !important;
 
     }
-    th  {
+    .wpb_content_element th  {
         border-bottom: 1px solid #d0d0d0;
         font-weight:600;
 
     }
-    table {
+    .wpb_content_element table {
         width: 100%;
         display: table;
         box-shadow: none !important;
         border:none !important;
-    }
-    table {
-        width: 100%;
-        display: table;
         border-collapse: collapse;
         border-spacing: 0;
     }
-    table tbody tr+tr:nth-child(even) {
+    .wpb_content_element table tbody tr+tr:nth-child(even) {
         background-color: $palette-primary-grey;
     }
-    table tbody tr+tr {
+    .wpb_content_element table tbody tr+tr {
         border:none !important;
     }
 }

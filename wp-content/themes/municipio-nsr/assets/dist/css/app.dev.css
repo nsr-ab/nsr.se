@@ -7289,30 +7289,27 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     background-color: #f6f6f6 !important; }
   .is-child-theme.nsr-background-grey .page-footer {
     display: none; }
-  .is-child-theme article td, .is-child-theme article th {
+  .is-child-theme article .wpb_content_element td, .is-child-theme article .wpb_content_element th {
     padding: 15px 10px;
     display: table-cell;
     text-align: left;
     vertical-align: middle;
     border-radius: 2px; }
-  .is-child-theme article td {
+  .is-child-theme article .wpb_content_element td {
     border: none !important; }
-  .is-child-theme article th {
+  .is-child-theme article .wpb_content_element th {
     border-bottom: 1px solid #d0d0d0;
     font-weight: 600; }
-  .is-child-theme article table {
+  .is-child-theme article .wpb_content_element table {
     width: 100%;
     display: table;
     box-shadow: none !important;
-    border: none !important; }
-  .is-child-theme article table {
-    width: 100%;
-    display: table;
+    border: none !important;
     border-collapse: collapse;
     border-spacing: 0; }
-  .is-child-theme article table tbody tr + tr:nth-child(even) {
+  .is-child-theme article .wpb_content_element table tbody tr + tr:nth-child(even) {
     background-color: #f6f6f6; }
-  .is-child-theme article table tbody tr + tr {
+  .is-child-theme article .wpb_content_element table tbody tr + tr {
     border: none !important; }
   .is-child-theme aside h2 {
     font-size: 2.2rem;
