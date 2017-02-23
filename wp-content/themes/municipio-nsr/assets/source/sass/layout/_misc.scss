@@ -362,5 +362,12 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
     margin-top:-32px;
   }
 
+  h1, h2, h3, h4, h5, p{
+    text-rendering: optimizeLegibility !important;
+    -ms-font-feature-settings: "dlig" 1, "kern" 1, "frac" 1 !important;
+    font-kerning: normal !important;
+    font-smoothing: antialiased !important;
+    transform: none !important;
+  }
 
 }
