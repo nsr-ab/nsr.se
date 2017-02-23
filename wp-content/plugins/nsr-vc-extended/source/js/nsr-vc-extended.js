@@ -896,6 +896,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (dif < mindif) {
                         closest = ind;
                         mindif = dif;
+                        console.log(dif);
                         var cordClass = 'cord-' + cities[ind][index][4];
                     }
                 }
