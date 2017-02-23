@@ -348,7 +348,7 @@ input[type=text]:focus.invalid {
   }
 
   table tbody{
-    background-color:$defaultGreen;
+    background-color:$darkerGreen;
 
   }
 
@@ -404,21 +404,21 @@ input[type=text]:focus.invalid {
     transition:300ms ease;
 
     tr, td, tbody, table {
-      border-color:$darkerGreen;
+      border-color:$darkerGreen !important;
       border-bottom:none;
     }
     th {
       font-weight:600;
-      background-color:$darkerGreen;
+      background-color:$darkerGreen !important;
     }
     tr:nth-child(even) {
-      background-color:lighten($darkerGreen, 3%);
+      background-color:lighten($darkerGreen, 5%) !important;
       color:$lightGreen !important;
     }
     tr:nth-child(odd) {
       color:$lightGreen !important;
       //background-color:$darkerGreen;
-      background-color:lighten($darkerGreen, 3%);
+      background-color:lighten($darkerGreen, 3%) !important;
     }
 
     li {

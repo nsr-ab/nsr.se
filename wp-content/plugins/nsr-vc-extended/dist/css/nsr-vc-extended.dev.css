@@ -236,7 +236,7 @@ input[type=text]:focus.invalid {
     display: table;
     transition: all 500ms ease; }
   .searchNSR table tbody {
-    background-color: #007586; }
+    background-color: #016a77; }
   .searchNSR td, .searchNSR tr {
     vertical-align: top !important;
     background: none !important; }
@@ -272,17 +272,17 @@ input[type=text]:focus.invalid {
     width: 100%;
     transition: 300ms ease; }
     .searchNSR .search-autocomplete tr, .searchNSR .search-autocomplete td, .searchNSR .search-autocomplete tbody, .searchNSR .search-autocomplete table, .searchNSR .search-content tr, .searchNSR .search-content td, .searchNSR .search-content tbody, .searchNSR .search-content table, .searchNSR .sorterings-guide-table tr, .searchNSR .sorterings-guide-table td, .searchNSR .sorterings-guide-table tbody, .searchNSR .sorterings-guide-table table, .searchNSR .fp-table tr, .searchNSR .fp-table td, .searchNSR .fp-table tbody, .searchNSR .fp-table table, .searchNSR .fp-table-mobile tr, .searchNSR .fp-table-mobile td, .searchNSR .fp-table-mobile tbody, .searchNSR .fp-table-mobile table {
-      border-color: #016a77;
+      border-color: #016a77 !important;
       border-bottom: none; }
     .searchNSR .search-autocomplete th, .searchNSR .search-content th, .searchNSR .sorterings-guide-table th, .searchNSR .fp-table th, .searchNSR .fp-table-mobile th {
       font-weight: 600;
-      background-color: #016a77; }
+      background-color: #016a77 !important; }
     .searchNSR .search-autocomplete tr:nth-child(even), .searchNSR .search-content tr:nth-child(even), .searchNSR .sorterings-guide-table tr:nth-child(even), .searchNSR .fp-table tr:nth-child(even), .searchNSR .fp-table-mobile tr:nth-child(even) {
-      background-color: #017886;
+      background-color: #018190 !important;
       color: #fff !important; }
     .searchNSR .search-autocomplete tr:nth-child(odd), .searchNSR .search-content tr:nth-child(odd), .searchNSR .sorterings-guide-table tr:nth-child(odd), .searchNSR .fp-table tr:nth-child(odd), .searchNSR .fp-table-mobile tr:nth-child(odd) {
       color: #fff !important;
-      background-color: #017886; }
+      background-color: #017886 !important; }
     .searchNSR .search-autocomplete li, .searchNSR .search-content li, .searchNSR .sorterings-guide-table li, .searchNSR .fp-table li, .searchNSR .fp-table-mobile li {
       font-size: .9em;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
