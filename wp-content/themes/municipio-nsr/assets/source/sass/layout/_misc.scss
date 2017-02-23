@@ -347,7 +347,13 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
   .locationmap {
     text-decoration: none !important;
   }
-  .searchNSR .fp-table-mobile .meta-fraktion li a, .searchNSR .fp-table .meta-fraktion li a, .searchNSR .search-autocomplete .meta-fraktion li a, .searchNSR .search-content .meta-fraktion li a, .searchNSR .sorterings-guide-table .meta-fraktion li a {
-    padding-left:0px !important;
+  .searchNSR .fp-table-mobile .meta-fraktion li a,
+  .searchNSR .fp-table .meta-fraktion li a,
+  .searchNSR .search-autocomplete .meta-fraktion li a,
+  .searchNSR .search-content .meta-fraktion li a,
+  .searchNSR .sorterings-guide-table .meta-fraktion li a {
+    padding-left:0 !important;
   }
+
 }
+

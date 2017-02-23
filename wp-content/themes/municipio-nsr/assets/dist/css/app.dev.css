@@ -7539,7 +7539,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       content: '';
       padding-left: 0px !important; }
     .is-child-theme .locationmap {
-      text-decoration: none !important; } }
+      text-decoration: none !important; }
+    .is-child-theme .searchNSR .fp-table-mobile .meta-fraktion li a,
+    .is-child-theme .searchNSR .fp-table .meta-fraktion li a,
+    .is-child-theme .searchNSR .search-autocomplete .meta-fraktion li a,
+    .is-child-theme .searchNSR .search-content .meta-fraktion li a,
+    .is-child-theme .searchNSR .sorterings-guide-table .meta-fraktion li a {
+      padding-left: 0 !important; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
