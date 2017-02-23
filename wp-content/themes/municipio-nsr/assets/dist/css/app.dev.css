@@ -7527,7 +7527,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-top: 0.5rem !important; }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .is-child-theme .searchNSR .input-field input[type=search] + label {
-      display: none; } }
+      top: 1.3rem; } }
+  .is-child-theme .searchNSR .input-field input[type=search] + label:hover {
+    display: none; }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
