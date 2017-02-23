@@ -7562,10 +7562,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
               transform: none !important;
       letter-spacing: 1px; }
     .is-child-theme .sites-nav .nav .menu-item a {
-      min-width: 80px !important;
-      border: 1px solid red; }
+      min-width: 80px !important; }
     .is-child-theme .nav-wrapper {
-      min-width: 490px; }
+      min-width: 470px; }
     .is-child-theme .sites-nav .nav .menu-item a {
       min-width: 70px !important; } }
 
