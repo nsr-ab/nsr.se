@@ -904,7 +904,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('.' + cordClass).removeClass('hide');
 
                 var int = 0;
-                $('.inlstallen li ').each(function () {
+                /*$('.inlstallen li ').each(function () {
                     if (int > 4)
                         $(this).addClass('hide');
                     if ($(this).hasClass(cordClass)) {
@@ -913,7 +913,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $(this).remove();
                     }
                     console.log(cordClass);
-                });
+
+                    
+                });*/
 
                 icn = false;
                 cordClass = false;
