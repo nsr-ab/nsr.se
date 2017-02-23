@@ -373,7 +373,7 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
   }
 
   .sites-nav .nav .menu-item {
-    min-width: 126px;
+    min-width: 58px;
   }
   .nav-wrapper {
     min-width:460px;
@@ -382,9 +382,10 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
     .nav-wrapper {
       display:none !important;
     }
-    .mob {
+    .mob, .mobile-nav {
       display:block !important;
     }
+
   }
 
 }
