@@ -7526,7 +7526,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   to {
     opacity: 1; } }
   .is-child-theme .wpb_wrapper ul {
-    margin-top: 0.5em; }
+    margin-top: 0.5rem !important; }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
