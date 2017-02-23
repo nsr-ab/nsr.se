@@ -7527,9 +7527,14 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-top: 0.5rem !important; }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .is-child-theme .searchNSR .input-field input[type=search] + label {
-      top: 1.3rem; } }
-  .is-child-theme .searchNSR .input-field input[type=search] + label:hover {
-    display: none; }
+      top: 1.3rem !important; } }
+  .is-child-theme .searchNSR .input-field input[type=search] + label {
+    top: 1.3rem !important;
+    -webkit-transform: none !important;
+            transform: none !important;
+    -webkit-transition: none !important;
+            transition: none !important;
+    font-size: .9 !important; }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,

@@ -333,11 +333,14 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
 /* Ie fixes */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .searchNSR .input-field input[type=search]+label {
-    top:1.3rem;
+    top:1.3rem !important;
   }
 
 
 }
-.searchNSR .input-field input[type=search]+label:hover {
-  display:none;
+.searchNSR .input-field input[type=search]+label{
+  top:1.3rem !important;
+  transform: none !important;
+  transition:none !important;
+  font-size:.9 !important;
 }
