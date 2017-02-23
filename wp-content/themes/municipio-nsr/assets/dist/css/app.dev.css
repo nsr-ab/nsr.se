@@ -7560,7 +7560,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       font-smoothing: antialiased !important;
       -webkit-transform: none !important;
               transform: none !important;
-      letter-spacing: 2px; } }
+      letter-spacing: 0.5px; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
