@@ -392,5 +392,9 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
     }
 
   }
+  .wpforms-field [type=checkbox]+label:before {
+      padding-left:0px;
+      margin-left:0px;
+  }
 
 }
