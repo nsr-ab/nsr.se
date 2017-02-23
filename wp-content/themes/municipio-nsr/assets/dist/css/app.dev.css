@@ -7526,10 +7526,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .wpb_wrapper ul {
     margin-top: 0.5rem !important; }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .is-child-theme body {
-      background: red !important; }
-    .is-child-theme div {
-      display: none; } }
+    .is-child-theme .searchNSR .input-field input[type=search] + label {
+      margin-top: 12px; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
