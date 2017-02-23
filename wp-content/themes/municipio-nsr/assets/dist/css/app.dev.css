@@ -7059,7 +7059,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     /*min-height:80px;*/
     max-width: 990px !important;
     line-height: 115%;
-    padding: 0px; }
+    padding: 0px;
+    padding-bottom: 20px; }
   .is-child-theme h2 {
     font-size: 2.92rem; }
   .is-child-theme h3 {
@@ -7524,6 +7525,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     opacity: 0; }
   to {
     opacity: 1; } }
+  .is-child-theme .wpb_wrapper ul {
+    margin-top: 0.5em; }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
