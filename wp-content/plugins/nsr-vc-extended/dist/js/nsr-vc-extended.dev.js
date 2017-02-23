@@ -884,7 +884,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {array} cities
      */
     Extended.prototype.NearestCity = function (latitude, longitude) {
-
+        console.log(latitude+" : "+longitude);
         var icon = 0;
         for (ind = 0; ind < cities.length; ++ind) {
             if (ind < cities.length + 1) {
@@ -904,7 +904,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('.' + cordClass).removeClass('hide');
 
                 var int = 0;
-                /*$('.inlstallen li ').each(function () {
+                $('.inlstallen li ').each(function () {
                     if (int > 4)
                         $(this).addClass('hide');
                     if ($(this).hasClass(cordClass)) {
@@ -912,14 +912,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $(this).parent().prepend(putMeInTheTopOfTheList);
                         $(this).remove();
                     }
-                    console.log(cordClass);
-
-                    
-                });*/
+                });
 
                 icn = false;
                 cordClass = false;
-                //$(cordClass).parent().css('background', 'red');
             }
         }
 
@@ -929,6 +925,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
     }
 
 
+
+    /**
+     * Get URL param
+     * @param  {string} sparam
+     * @return {array} param value
+     */
     Extended.prototype.getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)), sURLVariables = sPageURL.split('&'), sParameterName, i;
         for (i = 0; i < sURLVariables.length; i++) {
