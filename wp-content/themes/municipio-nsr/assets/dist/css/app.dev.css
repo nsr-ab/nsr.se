@@ -7551,7 +7551,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       padding-left: 0px !important; }
     .is-child-theme .mobile-logo {
       margin-top: -32px; }
-    .is-child-theme h1, .is-child-theme h2, .is-child-theme h3, .is-child-theme h4, .is-child-theme h5, .is-child-theme p, .is-child-theme li, .is-child-theme span {
+    .is-child-theme .collection-item, .is-child-theme .collapsible-header {
       text-rendering: optimizeLegibility !important;
       -ms-font-feature-settings: "dlig" 1, "kern" 1, "frac" 1 !important;
       -webkit-font-kerning: normal !important;
