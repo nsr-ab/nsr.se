@@ -332,6 +332,11 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
 
 /* Ie fixes */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+  h1 {
+    font-weight:900 !important;
+  }
+
   .searchNSR .input-field input[type=search]+label,
   .searchNSR .input-field input[type=search]+label.active{
     top:1.1rem !important;
@@ -370,7 +375,6 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
     font-smoothing: antialiased !important;
     transform: none !important;
     letter-spacing: 1px;
-
   }
 
   .sites-nav .nav .menu-item a {

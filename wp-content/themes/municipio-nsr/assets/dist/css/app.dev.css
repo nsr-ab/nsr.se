@@ -7527,6 +7527,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .wpb_wrapper ul {
     margin-top: 0.5rem !important; }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .is-child-theme h1 {
+      font-weight: 900 !important; }
     .is-child-theme .searchNSR .input-field input[type=search] + label,
     .is-child-theme .searchNSR .input-field input[type=search] + label.active {
       top: 1.1rem !important;

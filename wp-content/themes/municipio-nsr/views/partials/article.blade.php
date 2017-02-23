@@ -1,5 +1,5 @@
 <?php global $post; ?>
-<article class="clearfix">
+<article class="clearfix" id="nsr-article">
 
 
     @if (isset(get_extended($post->post_content)['main']) && strlen(get_extended($post->post_content)['main']) > 0 && isset(get_extended($post->post_content)['extended']) && strlen(get_extended($post->post_content)['extended']) > 0)

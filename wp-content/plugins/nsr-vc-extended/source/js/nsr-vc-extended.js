@@ -912,16 +912,17 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $(this).parent().prepend(putMeInTheTopOfTheList);
                         $(this).remove();
                     }
+                    console.log(cordClass);
                 });
 
                 icn = false;
                 cordClass = false;
-                $(cordClass).parent().css('background', 'red');
+                //$(cordClass).parent().css('background', 'red');
             }
         }
 
         $('.preloader-wrapper').fadeOut("slow");
-        ;
+
         return cities[closest];
     }
 

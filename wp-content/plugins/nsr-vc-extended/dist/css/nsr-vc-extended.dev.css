@@ -359,7 +359,7 @@ input[type=text]:focus.invalid {
   .searchNSR .badgeInfo {
     color: #fff;
     font-size: 0.9rem;
-    margin-bottom: 10px; }
+    margin-bottom: 10px !important; }
   .searchNSR .fp-table-mobile .badge {
     float: left; }
   .searchNSR .fpthmob th {
