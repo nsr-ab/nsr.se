@@ -6846,7 +6846,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
-          flex-direction: column; }
+          flex-direction: column;
+  margin-top: 15px; }
   .side-nav a:hover, .side-nav.active {
     background: none; }
   .side-nav .topnav {
@@ -7547,7 +7548,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme .searchNSR .sorterings-guide-table .meta-fraktion li a {
       padding: 0px 0px !important; }
     .is-child-theme .searchNSR .fraktion-icon {
-      padding-left: 0px !important; } }
+      padding-left: 0px !important; }
+    .is-child-theme .mobile-logo {
+      margin-top: -25px; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
