@@ -7564,7 +7564,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme .sites-nav .nav .menu-item {
       min-width: 58px; }
     .is-child-theme .nav-wrapper {
-      min-width: 460px; } }
+      min-width: 440px; } }
 
 @media screen and (-ms-high-contrast: active) and (max-width: 800px), (-ms-high-contrast: none) and (max-width: 800px) {
   .is-child-theme .nav-wrapper {
