@@ -893,10 +893,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var closest;
                 for (index = 0; index < cities[ind].length; ++index) {
                     var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
+                    console.log(dif);
                     if (dif < mindif) {
                         closest = ind;
                         mindif = dif;
-                        console.log(dif);
+                        console.log('Winner: '+dif);
                         var cordClass = 'cord-' + cities[ind][index][4];
                     }
                 }
