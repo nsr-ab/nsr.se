@@ -377,6 +377,14 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
   }
   .nav-wrapper {
     min-width:460px;
-    margin-left:30px;
   }
+  @media (max-width: 780px) {
+    .nav-wrapper {
+      display:none !important;
+    }
+    .mob {
+      display:block !important;
+    }
+  }
+
 }

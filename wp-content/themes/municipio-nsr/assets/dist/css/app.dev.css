@@ -7564,8 +7564,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme .sites-nav .nav .menu-item {
       min-width: 126px; }
     .is-child-theme .nav-wrapper {
-      min-width: 460px;
-      margin-left: 30px; } }
+      min-width: 460px; } }
+
+@media screen and (-ms-high-contrast: active) and (max-width: 780px), (-ms-high-contrast: none) and (max-width: 780px) {
+  .is-child-theme .nav-wrapper {
+    display: none !important; }
+  .is-child-theme .mob {
+    display: block !important; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
