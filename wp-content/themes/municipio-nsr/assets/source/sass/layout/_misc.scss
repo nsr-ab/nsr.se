@@ -340,4 +340,8 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
     font-size: 0.9rem !important;
     margin-top:0px !important;
   }
+  .searchNSR .sorterings-guide-table li:before {
+    content: '';
+    padding-left:0px;
+  }
 }

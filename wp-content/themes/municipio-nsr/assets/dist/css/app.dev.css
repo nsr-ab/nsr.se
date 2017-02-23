@@ -7534,7 +7534,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       -webkit-transition: none !important;
               transition: none !important;
       font-size: 0.9rem !important;
-      margin-top: 0px !important; } }
+      margin-top: 0px !important; }
+    .is-child-theme .searchNSR .sorterings-guide-table li:before {
+      content: '';
+      padding-left: 0px; } }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
