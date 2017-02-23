@@ -393,9 +393,12 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
     }
 
   }
-  div.wpforms-container-full .wpforms-form .wpforms-field-label-inline:before {
-      padding-left:0px;
-      margin-left:0px;
-  }
 
+
+}
+
+.wpforms-field-label-inline:before {
+  padding-left:0px;
+  margin-left:0px;
+  border:1px solid red;
 }
