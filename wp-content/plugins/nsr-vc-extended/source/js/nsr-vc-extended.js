@@ -884,7 +884,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {array} cities
      */
     Extended.prototype.NearestCity = function (latitude, longitude) {
-        console.log(latitude+" : "+longitude);
+
         var icon = 0;
         for (ind = 0; ind < cities.length; ++ind) {
             if (ind < cities.length + 1) {
@@ -897,9 +897,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (dif < mindif) {
                         closest = ind;
                         mindif = dif;
-                        console.log('mindif:'+mindif+' closest: '+ind);
+
                         var cordClass = 'cord-' + cities[ind][index][4];
-                        console.log('Winner: '+dif+' cords'+cordClass);
+
                     }
                 }
 
