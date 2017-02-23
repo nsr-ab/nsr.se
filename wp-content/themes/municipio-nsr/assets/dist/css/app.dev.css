@@ -7576,7 +7576,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .is-child-theme .wpforms-field-label-inline {
       padding-left: 0px;
-      padding-left: 26px !important; }
+      padding-left: 15px !important; }
     .is-child-theme .wpforms-field-label-inline:before {
       margin-left: 0px;
       position: absolute;
