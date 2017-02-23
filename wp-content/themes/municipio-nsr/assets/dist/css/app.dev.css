@@ -7561,10 +7561,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       -webkit-transform: none !important;
               transform: none !important;
       letter-spacing: 1px; }
-    .is-child-theme .sites-nav .nav .menu-item {
-      min-width: 63px; }
+    .is-child-theme .sites-nav .nav .menu-item a {
+      min-width: 80px !important;
+      border: 1px solid red; }
     .is-child-theme .nav-wrapper {
-      min-width: 440px; } }
+      min-width: 490px; }
+    .is-child-theme .sites-nav .nav .menu-item a {
+      min-width: 70px !important; } }
 
 @media screen and (-ms-high-contrast: active) and (max-width: 800px), (-ms-high-contrast: none) and (max-width: 800px) {
   .is-child-theme .nav-wrapper {

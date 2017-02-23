@@ -371,12 +371,19 @@ div.wpforms-container-full .wpforms-form .wpforms-field-label {
     letter-spacing: 1px;
 
   }
+  
+  .sites-nav .nav .menu-item a {
+    min-width: 80px !important;
+    border:1px solid red;
 
-  .sites-nav .nav .menu-item {
-    min-width: 63px;
   }
   .nav-wrapper {
-    min-width:440px;
+    min-width:490px;
+  }
+
+  .sites-nav .nav .menu-item a {
+    min-width: 70px !important;
+
   }
   @media (max-width: 800px) {
     .nav-wrapper {
