@@ -896,9 +896,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     var test = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
                     console.log(dif);
                     console.log("test new:"+test);
-                    if (dif < mindif) {
+                    if (test < mindif) {
                         closest = ind;
-                        mindif = dif;
+                        mindif = test;
 
                         var cordClass = 'cord-' + cities[ind][index][4];
 
