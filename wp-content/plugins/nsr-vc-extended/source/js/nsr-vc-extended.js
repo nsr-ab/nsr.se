@@ -925,17 +925,17 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var closest;
 
                 for (index = 0; index < cities[ind].length; ++index) {
-                    //var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
-                    var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
+                    var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
+                    //var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
 
                     if (dif < mindif) {
                         closest = ind;
                         mindif = dif;
                         var cordID = cities[ind][index][4];
-
+                        var cordCity = cities[ind][index][3];
                     }
                 }
-                console.log(cordID);
+                console.log(cordID +' ->'+ cordCity);
                 $('#' + cordID).addClass('geoLink');
                 $('#' + cordID).removeClass('hide');
 
