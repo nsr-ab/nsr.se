@@ -907,13 +907,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {array} cities
      */
     Extended.prototype.NearestCity = function (latitude, longitude) {
-        console.log(latitude + ''+longitude);
+        console.log(latitude + ' : '+longitude);
         var icon = 0;
         for (ind = 0; ind < cities.length; ++ind) {
             if (ind < cities.length + 1) {
+
                 $(cordClass).closest('ul').addClass('parent-' + ind);
+
                 var mindif = 99999;
                 var closest;
+
                 for (index = 0; index < cities[ind].length; ++index) {
                     //var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
                     var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
@@ -929,6 +932,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('.' + cordClass).addClass('geoLink');
                 $('.' + cordClass).removeClass('hide');
 
+                /*
                 var int = 0;
                 $('.inlstallen li ').each(function () {
                     if (int > 4)
@@ -939,6 +943,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $(this).remove();
                     }
                 });
+
+                */
 
                 icn = false;
                 cordClass = false;
