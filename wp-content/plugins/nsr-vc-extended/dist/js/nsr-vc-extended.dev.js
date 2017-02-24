@@ -729,16 +729,15 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 }
                                 if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
                                     latlong = 'data-lat="'+spost.terms.inlamningsstallen[int][lint]['lat']+'" data-long="'+spost.terms.inlamningsstallen[int][lint]['long']+'"';
-                                    latlongID = Extended.prototype.hashCode(spost.terms.inlamningsstallen[int][lint]['lat']+spost.terms.inlamningsstallen[int][lint]['long']);
+                                    latlongID = 'id_'+int+lint+'_'+Extended.prototype.hashCode(spost.terms.inlamningsstallen[int][lint]['lat'] + spost.terms.inlamningsstallen[int][lint]['long']);
+                                    CityItem[int] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID];
                                 }
-
-                                CityItem[int] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID];
 
                                 if (lint > 5)
                                     hideStuff = 'hide';
                                 if (spost.terms.inlamningsstallen[int][lint]['city'] != null) {
-                                    sortHTML += '<li id="'+latlongID+'" '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                    tabMobile_inl += '<li id="'+latlongID+'" '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    sortHTML += '<li '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    tabMobile_inl += '<li '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
 
                                 hideStuff = '';
@@ -931,13 +930,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (dif < mindif) {
                         closest = ind;
                         mindif = dif;
-                        var cordClass = cities[ind][index][4];
+                        var cordClass = 'cord-' + cities[ind][index][4];
 
                     }
                 }
 
-                $('#' + cordClass).addClass('geoLink');
-                $('#' + cordClass).removeClass('hide');
+                $('.' + cordClass).addClass('geoLink');
+                $('.' + cordClass).removeClass('hide');
 
                 /*
                 var int = 0;
