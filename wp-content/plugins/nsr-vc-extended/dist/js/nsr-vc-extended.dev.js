@@ -915,7 +915,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.NearestCity = function (latitude, longitude) {
         console.log(latitude + ' : '+longitude);
         var icon = 0;
-
+        var cordID = null;
         for (ind = 0; ind < cities.length; ++ind) {
             if (ind < cities.length + 1) {
 
@@ -932,7 +932,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         closest = ind;
                         mindif = dif;
                         var cordID = cities[ind][index][4];
-
+                        console.log(cordID);
                     }
                 }
 
