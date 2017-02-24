@@ -711,10 +711,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var inlLink = '';
                             var inLinkClose = '';
                             var latlong = '';
-
+                            var latlongID = '';
                             for (lint = 0; lint < spost.terms.inlamningsstallen[int].length; lint++) {
 
-                                var cssClass = 'n' + Extended.prototype.hashCode(spost.terms.inlamningsstallen[int][lint]['city']) + "-" + int;
 
                                 if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
 
@@ -730,15 +729,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 }
                                 if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
                                     latlong = 'data-lat="'+spost.terms.inlamningsstallen[int][lint]['lat']+'" data-long="'+spost.terms.inlamningsstallen[int][lint]['long']+'"';
+                                    latlongID = Extended.prototype.hashCode(spost.terms.inlamningsstallen[int][lint]['lat']+spost.terms.inlamningsstallen[int][lint]['long']);
                                 }
 
-                                CityItem[int] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], cssClass];
+                                CityItem[int] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID];
+
                                 if (lint > 5)
                                     hideStuff = 'hide';
                                 if (spost.terms.inlamningsstallen[int][lint]['city'] != null) {
-                                    sortHTML += '<li '+latlong+' class="cord-' + cssClass + ' locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                    tabMobile_inl += '<li '+latlong+' class="cord-' + cssClass + ' locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    sortHTML += '<li id="'+latlongID+'" '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    tabMobile_inl += '<li id="'+latlongID+'" '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
+
                                 hideStuff = '';
                                 inlineClick = '';
                                 latlong = '';
@@ -929,13 +931,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (dif < mindif) {
                         closest = ind;
                         mindif = dif;
-                        var cordClass = 'cord-' + cities[ind][index][4];
+                        var cordClass = cities[ind][index][4];
 
                     }
                 }
 
-                $('.' + cordClass).addClass('geoLink');
-                $('.' + cordClass).removeClass('hide');
+                $('#' + cordClass).addClass('geoLink');
+                $('#' + cordClass).removeClass('hide');
 
                 /*
                 var int = 0;
