@@ -953,7 +953,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 */
 
                 icn = false;
-                cordClass = false;
+                cordID = false;
             }
         }
 
