@@ -925,8 +925,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                     }
                 }
-
-                $('.' + cordClass).addClass('geoLink');
+                if($('.' + cordClass).find('a') || $('.' + cordClass).data('url'))
+                    $('.' + cordClass).addClass('geoLink');
                 $('.' + cordClass).removeClass('hide');
 
                 var int = 0;
