@@ -32,7 +32,7 @@ class QueryElastic
 
             'simple_query_string' => array(
                 'fields' => array('post_title^7', 'post_content^3'),
-                'query' => $q . '~' . \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
+                'query' => $q ,
                 'analyzer' => 'elasticpress_synonyms'
             ),
 

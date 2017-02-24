@@ -870,12 +870,31 @@ VcExtended.NSRExtend.Extended = (function ($) {
         lat2 = Extended.prototype.Deg2Rad(lat2);
         lon1 = Extended.prototype.Deg2Rad(lon1);
         lon2 = Extended.prototype.Deg2Rad(lon2);
-        var R = 6371; // km
+        var R = 6371; // Radius of the earth in km
         var x = (lon2 - lon1) * Math.cos((lat1 + lat2) / 2);
         var y = (lat2 - lat1);
         var d = Math.sqrt(x * x + y * y) * R;
         return d;
     }
+
+
+
+    /**
+     * Calculates with  Haversine formula
+     * Calculates great-circle distances between the two points – that is, the shortest distance over the earth’s surface – using the ‘Haversine’ formula.
+     * @param  {int} lat long
+     * @return degree
+     */
+    Extended.prototype.getDistanceFromLatLonInKm = function(lat1,lon1,lat2,lon2) {
+        var R = 6371; // Radius of the earth in km
+        var dLat = Extended.prototype.Deg2Rad(lat2-lat1);
+        var dLon = Extended.prototype.Deg2Rad(lon2-lon1);
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(Extended.prototype.Deg2Rad(lat1)) * Math.cos(Extended.prototype.Deg2Rad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var d = R * c; // Distance in km
+        return d;
+    }
+
 
 
     /**
@@ -893,13 +912,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var closest;
                 for (index = 0; index < cities[ind].length; ++index) {
                     var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
-                    var test = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
-                    console.log(dif);
-                    console.log("test new:"+test);
-                    if (test < mindif) {
-                        closest = ind;
-                        mindif = test;
+                    //var test = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
 
+                    if (dif < mindif) {
+                        closest = ind;
+                        mindif = dif;
                         var cordClass = 'cord-' + cities[ind][index][4];
 
                     }
@@ -929,23 +946,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return cities[closest];
     }
 
-    Extended.prototype.getDistanceFromLatLonInKm = function(lat1,lon1,lat2,lon2) {
-        var R = 6371; // Radius of the earth in km
-        var dLat = Extended.prototype.deg2rad(lat2-lat1);  // deg2rad below
-        var dLon = Extended.prototype.deg2rad(lon2-lon1);
-        var a =
-                Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(Extended.prototype.deg2rad(lat1)) * Math.cos(Extended.prototype.deg2rad(lat2)) *
-                Math.sin(dLon/2) * Math.sin(dLon/2)
-            ;
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        var d = R * c; // Distance in km
-        return d;
-    }
 
-    Extended.prototype.deg2rad = function(deg) {
-        return deg * (Math.PI/180)
-    }
 
     /**
      * Get URL param
