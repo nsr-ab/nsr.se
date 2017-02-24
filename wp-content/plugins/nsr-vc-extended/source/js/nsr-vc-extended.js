@@ -88,7 +88,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* Puff med länkar - Visa fler nyheter */
         $('body').on('click', '.locationmap', function () {
-            window.open($(this).data('url'), '_blank');
+            if($(this).data('url'))
+                window.open($(this).data('url'), '_blank');
         }).bind(this);
 
         /* Puff med länkar - Visa fler nyheter */
@@ -693,7 +694,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var braAttVeta;
                 if (spost.post_meta)
                     braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'), '<br />');
-                ;
+
                 sortHTML += '<td class="exnfodispl">' + braAttVeta + '</td>';
 
                 sortHTML += '<td valign="top">' + spinner + '<ul class="inlstallen">';
@@ -735,6 +736,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                     tabMobile_inl += '<li class="cord-' + cssClass + ' locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
                                 hideStuff = '';
+                                inlineClick = '';
                             }
                         }
 

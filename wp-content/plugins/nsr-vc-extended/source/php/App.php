@@ -368,6 +368,7 @@ class App
     }
 
 
+
     /**
      *  fetch_data
      *  Get data from Elastic Search
