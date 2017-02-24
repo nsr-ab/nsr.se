@@ -729,7 +729,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 }
                                 if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
                                     latlong = 'data-lat="'+spost.terms.inlamningsstallen[int][lint]['lat']+'" data-long="'+spost.terms.inlamningsstallen[int][lint]['long']+'"';
-                                    latlongID = 'id_'+int+lint+'_'+Extended.prototype.hashCode(spost.terms.inlamningsstallen[int][lint]['lat'] + spost.terms.inlamningsstallen[int][lint]['long']);
+                                    latlongID = 'id_'+int+lint+'_'+spost.terms.inlamningsstallen[int][lint]['lat'] + spost.terms.inlamningsstallen[int][lint]['long'];
                                     CityItem[int] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID];
                                 }
 
@@ -930,13 +930,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (dif < mindif) {
                         closest = ind;
                         mindif = dif;
-                        var cordClass = 'cord-' + cities[ind][index][4];
+                        var cordID = 'cord-' + cities[ind][index][4];
 
                     }
                 }
 
-                $('#' + cordClass).addClass('geoLink');
-                $('#' + cordClass).removeClass('hide');
+                $('#' + cordID).addClass('geoLink');
+                $('#' + cordID).removeClass('hide');
 
                 /*
                 var int = 0;
