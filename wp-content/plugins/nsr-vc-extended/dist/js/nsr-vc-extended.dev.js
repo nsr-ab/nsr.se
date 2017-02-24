@@ -714,7 +714,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var latlongID = '';
                             for (lint = 0; lint < spost.terms.inlamningsstallen[int].length; lint++) {
 
-                                CityItem[int] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID];
+                                CityItem[int][lint] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID];
 
                                 if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
 
