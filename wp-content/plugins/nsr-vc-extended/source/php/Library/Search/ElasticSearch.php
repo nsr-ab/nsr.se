@@ -115,7 +115,7 @@ class Elasticsearch
 
     public function fuzzynessSize($query = '')
     {
-        $max_fuzzyness = 3;
+        $max_fuzzyness = 7;
         $min_fuzzyness = 1;
         $division_by = 2;
 
@@ -144,7 +144,7 @@ class Elasticsearch
 
         if (is_array($q) && !empty($q)) {
             foreach ($q as $key => $value) {
-                if (mb_strlen($value) <= 2) {
+                if (mb_strlen($value) <= 1) {
                     unset($q[$key]);
                 }
             }
