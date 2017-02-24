@@ -907,7 +907,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {array} cities
      */
     Extended.prototype.NearestCity = function (latitude, longitude) {
-
+        console.log(latitude + ''+longitude);
         var icon = 0;
         for (ind = 0; ind < cities.length; ++ind) {
             if (ind < cities.length + 1) {

@@ -324,7 +324,6 @@ input[type=text]:focus.invalid {
     margin-top: -6px; }
   .searchNSR .geoLink {
     color: #fff;
-    text-decoration: underline;
     font-weight: 600; }
   .searchNSR .geoLink:before {
     color: #fff !important; }
