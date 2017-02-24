@@ -913,7 +913,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {array} cities
      */
     Extended.prototype.NearestCity = function (latitude, longitude) {
-        console.log(latitude + ' : '+longitude);
+        console.log(cities);
         var icon = 0;
         var cordID = null;
         for (ind = 0; ind < cities.length; ++ind) {
@@ -925,8 +925,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var closest;
 
                 for (index = 0; index < cities[ind].length; ++index) {
-                    var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
-                    //var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
+                    //var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
+                    var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
 
                     if (dif < mindif) {
                         closest = ind;
