@@ -915,10 +915,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.NearestCity = function (latitude, longitude) {
         console.log(latitude + ' : '+longitude);
         var icon = 0;
+
         for (ind = 0; ind < cities.length; ++ind) {
             if (ind < cities.length + 1) {
 
-                $(cordClass).closest('ul').addClass('parent-' + ind);
+                $(cordID).closest('ul').addClass('parent-' + ind);
 
                 var mindif = 99999;
                 var closest;
@@ -930,7 +931,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (dif < mindif) {
                         closest = ind;
                         mindif = dif;
-                        var cordID = 'cord-' + cities[ind][index][4];
+                        var cordID = cities[ind][index][4];
 
                     }
                 }
