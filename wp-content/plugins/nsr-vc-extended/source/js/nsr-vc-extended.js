@@ -932,10 +932,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         closest = ind;
                         mindif = dif;
                         var cordID = cities[ind][index][4];
-                        console.log(cordID);
+
                     }
                 }
-
+                console.log(cordID);
                 $('#' + cordID).addClass('geoLink');
                 $('#' + cordID).removeClass('hide');
 
