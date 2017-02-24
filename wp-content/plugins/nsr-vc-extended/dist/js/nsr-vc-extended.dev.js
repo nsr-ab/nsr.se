@@ -736,8 +736,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 if (lint > 5)
                                     hideStuff = 'hide';
                                 if (spost.terms.inlamningsstallen[int][lint]['city'] != null) {
-                                    sortHTML += '<li '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                    tabMobile_inl += '<li '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    sortHTML += '<li id="'+latlongID+'" '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    tabMobile_inl += '<li id="'+latlongID+'" '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
 
                                 hideStuff = '';
@@ -935,8 +935,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
 
-                $('.' + cordClass).addClass('geoLink');
-                $('.' + cordClass).removeClass('hide');
+                $('#' + cordClass).addClass('geoLink');
+                $('#' + cordClass).removeClass('hide');
 
                 /*
                 var int = 0;
