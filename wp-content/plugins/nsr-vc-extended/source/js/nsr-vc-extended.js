@@ -727,6 +727,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                         }
                                     }
                                 }
+                                if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
+                                    var latlong = 'data-lat="'+spost.terms.inlamningsstallen[int][lint]['lat']+'" data-long="'+spost.terms.inlamningsstallen[int][lint]['long']+'"';
+                                }
 
                                 CityItem[int] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], cssClass];
                                 if (lint > 5)
