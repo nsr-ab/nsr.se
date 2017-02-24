@@ -915,8 +915,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var mindif = 99999;
                 var closest;
                 for (index = 0; index < cities[ind].length; ++index) {
-                    var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
-                    //var test = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
+                    //var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
+                    var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
 
                     if (dif < mindif) {
                         closest = ind;
@@ -925,13 +925,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                     }
                 }
-                if($('.' + cordClass).find('a'))
-                    console.log('has link');
-                if($('.' + cordClass).data('url'))
-                    console.log('has data');
-                
-                if($('.' + cordClass).find('a') || $('.' + cordClass).data('url'))
-                    $('.' + cordClass).addClass('geoLink');
+
+                $('.' + cordClass).addClass('geoLink');
                 $('.' + cordClass).removeClass('hide');
 
                 var int = 0;
