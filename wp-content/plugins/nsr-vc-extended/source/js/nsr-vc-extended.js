@@ -833,7 +833,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.preloader-wrapper').fadeIn("slow");
             navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
         }
-        console.log("Check city:"+cities);
+
 
     };
 
