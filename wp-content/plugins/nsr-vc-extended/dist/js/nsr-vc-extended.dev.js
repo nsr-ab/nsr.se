@@ -762,11 +762,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 }
 
-                sortHTML += '<li><a class="viewAllInlamning" href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td>';
+                sortHTML += '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td>';
                 sortHTML += '</tr>';
                 sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
-                sortHTML += '<tr class="tabMobile"><th>Lämnas:</th><td>' + spinner + '<ul>' + tabMobile_inl + '</ul></td></tr>';
-                sortHTML += '<tr class="tabMobile lastchild"><td class="lastchild" colspan="2"> </td></tr>';
+                sortHTML += '<tr class="tabMobile lastchild"><th>Lämnas:</th><td>' + spinner + '<ul>' + tabMobile_inl + '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td></tr>';
+                //sortHTML += '<tr class="tabMobile lastchild"><td class="lastchild" colspan="2"> </td></tr>';
 
                 tabMobile_frak = "";
                 tabMobile_inl = "";

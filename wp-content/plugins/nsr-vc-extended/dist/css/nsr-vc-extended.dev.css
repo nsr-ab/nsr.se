@@ -401,14 +401,13 @@ input[type=text]:focus.invalid {
         background-color: #016a77; }
       .searchNSR .tabMobile td {
         width: 100%;
-        background-color: #017886; }
+        background-color: #017886 !important; }
       .searchNSR .tabMobiletr:nth-child(even), .searchNSR .tabMobiletr:nth-child(odd) {
-        background-color: #017886;
+        background-color: #017886 !important;
         color: #fff !important; }
-      .searchNSR .tabMobile.lastchild, .searchNSR .tabMobile td.lastchild {
-        min-width: 100%;
-        width: 100%;
-        background-color: #005f6e !important; }
+      .searchNSR .tabMobile.lastchild {
+        border-bottom: 1px solid black;
+        margin-bottom: 10px; }
       .searchNSR .tabMobile tr:last-child {
         display: none; } }
   .searchNSR .sorterings-guide-table, .searchNSR td, .searchNSR tbody,
@@ -550,4 +549,15 @@ td, tr {
     border-color: #fff !important; } }
 
 .viewAllInlamning {
-  padding-left: 15px !important; }
+  margin-top: 20px; }
+
+.viewAllInlamning:before {
+  font-family: 'Material Icons';
+  color: #2dbccd;
+  top: 0px !important;
+  left: 0px !important;
+  content: 'apps' !important;
+  padding-right: 20px; }
+
+.viewAllInlamning a {
+  margin-left: 17px; }

@@ -620,18 +620,17 @@ input[type=text]:focus.invalid {
 
       td {
         width:100%;
-        background-color:lighten($darkerGreen, 3%);
+        background-color:lighten($darkerGreen, 3%) !important;
       }
 
       &tr:nth-child(even),  &tr:nth-child(odd)  {
-        background-color:lighten($darkerGreen, 3%);
+        background-color:lighten($darkerGreen, 3%) !important;
         color:$lightGreen !important;
       }
 
-      &.lastchild, td.lastchild {
-        min-width:100%;
-        width:100%;
-        background-color:#005f6e !important;
+      &.lastchild {
+        border-bottom: 1px solid darken($darkerGreen, 60%);
+        margin-bottom:10px;
       }
 
       tr:last-child{
@@ -858,5 +857,18 @@ td, tr {
   }
 }
 .viewAllInlamning {
-  padding-left:15px !important;
+  margin-top:20px;
+}
+.viewAllInlamning:before {
+
+  font-family: 'Material Icons';
+  color:$signalGreen;
+  top:0px !important;
+  left:0px !important;
+  content: 'apps' !important;
+  padding-right:20px;
+
+}
+.viewAllInlamning a {
+  margin-left:17px;
 }
