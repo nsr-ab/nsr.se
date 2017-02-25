@@ -950,10 +950,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         closest = ind;
                         mindif = dif;
                         var cordID = cities[ind][index][4];
-                        var cordCity = cities[ind][index][3];
+
                         $('#'+cordID).addClass('closeToHome');
 
-                        var int = 0;
+                        /*var int = 0;
                         $('.inlstallen li ').each(function () {
 
                             if (int > 6)
@@ -970,7 +970,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                             int++;
                         });
-
+                        int = null;*/
 
                     }
                 }
