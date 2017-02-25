@@ -959,6 +959,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     var thewinner = Extended.prototype.findClosest(winners);
                     if(thewinner === cities[ind][index][3]){
                         var cordID = cities[ind][index][4];
+                        console.log(cordID);
                         $('#'+cordID).addClass('closeToHome');
                     }
                     thewinner = null;
