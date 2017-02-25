@@ -548,3 +548,6 @@ td, tr {
     right: auto; }
   .searchArea .spinner-layer {
     border-color: #fff !important; } }
+
+.viewAllInlamning {
+  padding-left: 15px !important; }
