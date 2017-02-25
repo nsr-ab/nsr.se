@@ -953,24 +953,25 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         var cordCity = cities[ind][index][3];
                     }
                 }
-                console.log(cordID +' ->'+ cordCity);
+
+                //console.log(cordID +' ->'+ cordCity);
+
                 $('#' + cordID).addClass('geoLink');
                 $('#' + cordID).removeClass('hide');
 
-                /*
                 var int = 0;
                 $('.inlstallen li ').each(function () {
+
                     if (int > 4)
                         $(this).addClass('hide');
-                    if ($(this).hasClass(cordClass)) {
+
+                    if ($(this).attr(cordID)) {
                         var putMeInTheTopOfTheList = $(this).clone();
                         $(this).parent().prepend(putMeInTheTopOfTheList);
                         $(this).remove();
                     }
                 });
-
-                */
-
+                
                 icn = false;
                 cordID = false;
             }
