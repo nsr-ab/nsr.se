@@ -952,28 +952,32 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         var cordID = cities[ind][index][4];
                         var cordCity = cities[ind][index][3];
                         $('#'+cordID).addClass('closeToHome');
+
+                        var int = 0;
+                        $('.inlstallen li ').each(function () {
+
+                            if (int > 4)
+                                $(this).addClass('hide');
+
+                            if ($(this).hasClass('closeToHome')) {
+                                var putMeInTheTopOfTheList = $(this).clone();
+                                $(this).parent().prepend(putMeInTheTopOfTheList);
+                                $(this).remove();
+                            }
+
+                            $('.closeToHome').addClass('geoLink');
+                            $('.closeToHome').removeClass('hide');
+                        });
+
+
                     }
                 }
 
-                var int = 0;
-                $('.inlstallen li ').each(function () {
 
-                    if (int > 4)
-                        $(this).addClass('hide');
-
-                    if ($(this).hasClass('closeToHome')) {
-                        var putMeInTheTopOfTheList = $(this).clone();
-                        $(this).parent().prepend(putMeInTheTopOfTheList);
-                        $(this).remove();
-                    }
-
-                    $('.closeToHome').addClass('geoLink');
-                    $('.closeToHome').removeClass('hide');
-                });
 
                 //$('#' + cordID).css('color', 'red');
                 icn = false;
-                cordID = false;
+
             }
         }
 
