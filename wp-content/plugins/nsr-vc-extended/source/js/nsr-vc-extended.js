@@ -955,7 +955,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
 
                 //console.log(cordID +' ->'+ cordCity);
-                
+
                 var int = 0;
                 $('.inlstallen li ').each(function () {
 
@@ -971,7 +971,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     $('#' + cordID).addClass('geoLink');
                     $('#' + cordID).removeClass('hide');
                 });
-
+                $('#' + cordID).css('color', 'red');
                 icn = false;
                 cordID = false;
             }
