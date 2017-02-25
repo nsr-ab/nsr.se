@@ -950,20 +950,20 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         closest = ind;
                         mindif = dif;
 
-                        count[index]['lat'] = cities[ind][index][0];
-                        count[index]['long'] = cities[ind][index][1];
-                        count[index]['city'] = cities[ind][index][2];
-                        count[index]['id'] = cities[ind][index][3];
+                        count[ind][index]['lat'] = cities[ind][index][1];
+                        count[ind][index]['long'] = cities[ind][index][2];
+                        count[ind][index]['city'] = cities[ind][index][3];
+                        count[ind][index]['id'] = cities[ind][index][4];
 
                         var cordID = cities[ind][index][4];
                         $('#'+cordID).addClass('closeToHome');
-                        console.log(cordID + ' : ' + cities[ind][index][3]);
+                        //console.log(cordID + ' : ' + cities[ind][index][3]);
 
                     }
                 }
 
                 for (index = 0; index < count[ind].length; ++index) {
-                    console.log(cordID + ' ::::: ' + count[ind][index][3]);
+                    console.log("city:"+count[ind][index][3]+", id:"+cities[ind][index][4]);
                 }
 
 
