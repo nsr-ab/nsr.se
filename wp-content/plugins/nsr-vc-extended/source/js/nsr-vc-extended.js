@@ -736,7 +736,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 }
 
                                 if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long'])
-                                    CityItem[lint] = spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID;
+                                    CityItem[lint] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID];
 
                                 if(latlongID)
                                     latlongID = 'id="'+latlongID+'"';
