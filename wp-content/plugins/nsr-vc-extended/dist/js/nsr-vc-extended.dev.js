@@ -712,7 +712,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var inLinkClose = '';
                             var latlong = '';
                             var latlongID = '';
-
+                            var locationmap;
 
                             for (lint = 0; lint < spost.terms.inlamningsstallen[int].length; lint++) {
 
@@ -723,10 +723,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                     if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int][lint]['pageurl'], '?page_id=') === 0) {
                                         inlLink = '<a href="' + spost.terms.inlamningsstallen[int][lint]['pageurl'] + '">';
                                         inLinkClose = '</a>';
+                                        locationmap = 'locationmap';
                                     }
                                     else {
                                         if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
                                             inlineClick = ' data-url="http://maps.google.com?q=' + spost.terms.inlamningsstallen[int][lint]['lat'] + ',' + spost.terms.inlamningsstallen[int][lint]['long'] + '" ';
+                                            locationmap = 'locationmap';
                                         }
                                     }
                                 }
@@ -744,10 +746,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 if (lint > 5)
                                     hideStuff = 'hide';
                                 if (spost.terms.inlamningsstallen[int][lint]['city'] != null) {
-                                    sortHTML += '<li '+latlongID+' '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                    tabMobile_inl += '<li id="'+latlongID+'" '+latlong+' class=" locationmap ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    sortHTML += '<li '+latlongID+' '+latlong+' class=" '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    tabMobile_inl += '<li id="'+latlongID+'" '+latlong+' class=" '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
-
+                                locationmap = '';
                                 hideStuff = '';
                                 inlineClick = '';
                                 latlong = '';
