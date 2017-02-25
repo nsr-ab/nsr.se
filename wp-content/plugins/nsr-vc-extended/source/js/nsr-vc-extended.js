@@ -962,8 +962,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
 
-                for (index = 0; index < count[ind].length; ++index) {
-                    console.log("city:"+count[ind][index][3]+", id:"+cities[ind][index][4]);
+                for (var cindex = 0; cindex < count[ind].length; ++cindex) {
+                    console.log("city:"+count[ind][cindex][3]+", id:"+cities[ind][cindex][4]);
                 }
 
 
