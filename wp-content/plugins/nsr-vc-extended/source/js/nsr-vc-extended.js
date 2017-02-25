@@ -735,7 +735,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                     latlongID = 'id_'+int+lint+'_'+spost.terms.inlamningsstallen[int][lint]['lat'] + spost.terms.inlamningsstallen[int][lint]['long'];
                                 }
 
-                                if(spost.terms.inlamningsstallen[int][lint]['lat'])
+                                if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long'])
                                     CityItem[lint] = spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID;
 
                                 if(latlongID)
@@ -758,6 +758,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         cities[cityInt] = CityItem;
                         cityInt++;
                     }
+
 
                 }
 
@@ -826,11 +827,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
 
-        console.log("----->"+cities[4]+"<-----");
         if (navigator.geolocation) {
             $('.preloader-wrapper').fadeIn("slow");
             navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
         }
+        console.log("Check city:"+cities);
 
     };
 
