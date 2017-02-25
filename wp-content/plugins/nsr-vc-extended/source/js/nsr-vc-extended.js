@@ -712,9 +712,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var inLinkClose = '';
                             var latlong = '';
                             var latlongID = '';
+
+
                             for (lint = 0; lint < spost.terms.inlamningsstallen[int].length; lint++) {
 
-                                CityItem[int][lint] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID];
+                                if(spost.terms.inlamningsstallen[int][lint]['lat'])
+                                    CityItem[lint] = spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID;
 
                                 if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
 
@@ -749,8 +752,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         cities[cityInt] = CityItem;
                         cityInt++;
                     }
-                }
 
+                }
+                console.log(cities);
                 sortHTML += '</ul></td>';
                 sortHTML += '</tr>';
                 sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
