@@ -73,9 +73,10 @@ Nsr.App.AppDefault = (function ($) {
             if (int > 12) {
                 //if(num > int)
                     $(this).addClass('hide');
-               
+                //if (int === 13) {
+                    if(!bool)
                         $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');
-                }
+
             }
             int++;
         });
