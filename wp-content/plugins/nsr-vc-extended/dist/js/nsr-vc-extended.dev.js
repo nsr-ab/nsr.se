@@ -951,10 +951,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         mindif = dif;
                         var cordID = cities[ind][index][4];
                         var cordCity = cities[ind][index][3];
+                        $('#'+cordID).addClass('closeToHome');
                     }
                 }
-
-                console.log(cordID +' ->'+ cordCity);
 
                 var int = 0;
                 $('.inlstallen li ').each(function () {
@@ -962,16 +961,17 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (int > 4)
                         $(this).addClass('hide');
 
-                    if ($(this).attr('id') === cordID) {
+                    if ($(this).hasClass('closeToHome')) {
                         var putMeInTheTopOfTheList = $(this).clone();
                         $(this).parent().prepend(putMeInTheTopOfTheList);
                         $(this).remove();
                     }
 
-                    $('#' + cordID).addClass('geoLink');
-                    $('#' + cordID).removeClass('hide');
+                    $('.closeToHome').addClass('geoLink');
+                    $('.closeToHome').removeClass('hide');
                 });
-                $('#' + cordID).css('color', 'red');
+
+                //$('#' + cordID).css('color', 'red');
                 icn = false;
                 cordID = false;
             }
