@@ -777,12 +777,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $sortMarkupTable.append(sortHTML);
 
-            console.log("----->"+cities[4]+"<-----");
-            if (navigator.geolocation) {
-                $('.preloader-wrapper').fadeIn("slow");
-                navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
-            }
-            cities = [];
+
+
 
         }
 
@@ -827,6 +823,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
         if (!noContent && !nosortGuidedata) {
             $('#searchkeyword-nsr').addClass('invalid');
             $('#searchkeyword-nsr').removeClass('valid');
+        }
+
+
+        console.log("----->"+cities[4]+"<-----");
+        if (navigator.geolocation) {
+            $('.preloader-wrapper').fadeIn("slow");
+            navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
         }
 
     };
