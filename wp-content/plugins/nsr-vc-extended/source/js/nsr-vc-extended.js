@@ -955,23 +955,23 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
 
                 //console.log(cordID +' ->'+ cordCity);
-
-                $('#' + cordID).addClass('geoLink');
-                $('#' + cordID).removeClass('hide');
-
+                
                 var int = 0;
                 $('.inlstallen li ').each(function () {
 
                     if (int > 4)
                         $(this).addClass('hide');
 
-                    if ($(this).attr(cordID)) {
+                    if ($(this).attr('id') === cordID) {
                         var putMeInTheTopOfTheList = $(this).clone();
                         $(this).parent().prepend(putMeInTheTopOfTheList);
                         $(this).remove();
                     }
+
+                    $('#' + cordID).addClass('geoLink');
+                    $('#' + cordID).removeClass('hide');
                 });
-                
+
                 icn = false;
                 cordID = false;
             }
