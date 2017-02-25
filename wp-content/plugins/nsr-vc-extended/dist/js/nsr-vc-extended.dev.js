@@ -754,7 +754,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
 
                 }
-                console.log(cities);
+
                 sortHTML += '</ul></td>';
                 sortHTML += '</tr>';
                 sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
@@ -770,6 +770,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
 
             $sortMarkupTable.append(sortHTML);
+
+            console.log("----->"+cities);
+            if (navigator.geolocation) {
+                $('.preloader-wrapper').fadeIn("slow");
+                navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
+            }
+            cities = [];
+
         }
 
         var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
@@ -815,10 +823,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('#searchkeyword-nsr').removeClass('valid');
         }
 
-        if (navigator.geolocation) {
-            $('.preloader-wrapper').fadeIn("slow");
-            navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
-        }
     };
 
 
