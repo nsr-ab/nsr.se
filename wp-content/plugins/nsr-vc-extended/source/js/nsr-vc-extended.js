@@ -941,7 +941,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 var mindif = 99999;
                 var closest;
-
+                var count = [];
                 for (index = 0; index < cities[ind].length; ++index) {
                     //var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
                     var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
@@ -949,10 +949,21 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (dif < mindif) {
                         closest = ind;
                         mindif = dif;
+
+                        count[index]['lat'] = cities[ind][index][0];
+                        count[index]['long'] = cities[ind][index][1];
+                        count[index]['city'] = cities[ind][index][2];
+                        count[index]['id'] = cities[ind][index][3];
+
                         var cordID = cities[ind][index][4];
                         $('#'+cordID).addClass('closeToHome');
                         console.log(cordID + ' : ' + cities[ind][index][3]);
+
                     }
+                }
+
+                for (index = 0; index < count[ind].length; ++index) {
+                    console.log(cordID + ' ::::: ' + count[ind][index][3]);
                 }
 
 
