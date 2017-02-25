@@ -954,7 +954,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
 
-                //console.log(cordID +' ->'+ cordCity);
+                console.log(cordID +' ->'+ cordCity);
 
                 var int = 0;
                 $('.inlstallen li ').each(function () {
