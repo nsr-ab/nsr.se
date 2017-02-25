@@ -956,7 +956,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         var int = 0;
                         $('.inlstallen li ').each(function () {
 
-                            if (int > 4)
+                            if (int > 6)
                                 $(this).addClass('hide');
 
                             if ($(this).hasClass('closeToHome')) {
@@ -967,6 +967,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                             $('.closeToHome').addClass('geoLink');
                             $('.closeToHome').removeClass('hide');
+
+                            int++;
                         });
 
 
