@@ -762,7 +762,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 }
 
-                sortHTML += '</ul></td>';
+                sortHTML += '<li><a class="viewAllInlamning" href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td>';
                 sortHTML += '</tr>';
                 sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile"><th>Lämnas:</th><td>' + spinner + '<ul>' + tabMobile_inl + '</ul></td></tr>';
@@ -923,7 +923,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return d;
     }
 
+    Extended.prototype.findClosest = function(){
+        if(arguments[0] instanceof Array)
+            arguments = arguments[0];
 
+        return Math.min.apply( Math, arguments );
+    }
 
     /**
      * Closest location
@@ -931,61 +936,49 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {array} cities
      */
     Extended.prototype.NearestCity = function (latitude, longitude) {
-        console.log(cities);
+
         var icon = 0;
         var cordID = null;
         for (ind = 0; ind < cities.length; ++ind) {
             if (ind < cities.length + 1) {
 
                 $(cordID).closest('ul').addClass('parent-' + ind);
-
                 var mindif = 99999;
                 var closest;
-                var count = [];
+                var winners = [];
                 for (index = 0; index < cities[ind].length; ++index) {
                     //var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
                     var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
+                    winners[index] = dif;
+                    cities[ind][index][3] = dif;
+                    //console.log("Stad: "+cities[ind][index][0] + ", Dif från avstånd (Minsta vinner):"+dif);
+                }
 
-                    if (dif < mindif) {
-                        closest = ind;
-                        mindif = dif;
+                for (index = 0; index < cities[ind].length; ++index) {
 
-                        count[ind][index]['lat'] = cities[ind][index][1];
-                        count[ind][index]['long'] = cities[ind][index][2];
-                        count[ind][index]['city'] = cities[ind][index][3];
-                        count[ind][index]['id'] = cities[ind][index][4];
-
+                    var thewinner = Extended.prototype.findClosest(winners);
+                    if(thewinner === cities[ind][index][3]){
                         var cordID = cities[ind][index][4];
                         $('#'+cordID).addClass('closeToHome');
-                        //console.log(cordID + ' : ' + cities[ind][index][3]);
-
                     }
-                }
-                console.log(cities);
-                for (var cindex = 0; cindex < count.length; ++cindex) {
-                    console.log("city:"+count[ind][cindex][3]+", id:"+cities[ind][cindex][4]);
+                    thewinner = null;
                 }
 
+                var int = 0;
 
+                $('.inlstallen li ').each(function () {
 
-                /*var int = 0;
-                 $('.inlstallen li ').each(function () {
+                    if ($(this).hasClass('closeToHome')) {
+                        var putMeInTheTopOfTheList = $(this).clone();
+                        $(this).parent().prepend(putMeInTheTopOfTheList);
+                        $(this).remove();
+                    }
 
-                 if (int > 6)
-                 $(this).addClass('hide');
-
-                 if ($(this).hasClass('closeToHome')) {
-                 var putMeInTheTopOfTheList = $(this).clone();
-                 $(this).parent().prepend(putMeInTheTopOfTheList);
-                 $(this).remove();
-                 }
-
-                 $('.closeToHome').addClass('geoLink');
-                 $('.closeToHome').removeClass('hide');
-
-                 int++;
-                 });
-                 int = null;*/
+                    $('.closeToHome').addClass('geoLink');
+                    $('.closeToHome').removeClass('hide');
+                    int++;
+                });
+                int = 0;
 
                 icn = false;
 
