@@ -9,13 +9,20 @@
         <div class="grid {{ implode(' ', apply_filters('Municipio/Page/MainGrid/Classes', wp_get_post_parent_id(get_the_id()) != 0 ? array('no-margin-top') : array())) }}">
             @include('partials.sidebar-left')
 
-            <div class="grid-md-12 grid-lg-12 grid-print-12" id="readspeaker-read">
+            <!-- NSR -->
+                <div class="page-title grid-md-12 grid-lg-12 grid-sm-12 grid-xs-12">
+                    <h1>{{ the_title() }}</h1>
+                    @include('partials.accessibility-menu')
+                </div>
+                <!-- /NSR -->
 
-                @if (is_active_sidebar('content-area-top'))
-                    <div class="grid sidebar-content-area sidebar-content-area-top">
-                        <?php dynamic_sidebar('content-area-top'); ?>
-                    </div>
-                @endif
+                <div class="{{ $contentGridSize }} grid-print-12" id="readspeaker-read">
+
+                    @if (is_active_sidebar('content-area-top'))
+                        <div class="grid sidebar-content-area sidebar-content-area-top">
+                            <?php dynamic_sidebar('content-area-top'); ?>
+                        </div>
+                    @endif
 
                 @while(have_posts())
                     {!! the_post() !!}
