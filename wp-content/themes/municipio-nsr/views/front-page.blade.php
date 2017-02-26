@@ -35,11 +35,11 @@
 
         </div>
 
-        <div class="grid hidden-lg hidden-xl">
+        <!-- <div class="grid hidden-lg hidden-xl">
             <div class="grid-sm-12">
                 @include('partials.page-footer')
             </div>
-        </div>
+        </div> -->
     </div>
 
 @stop
