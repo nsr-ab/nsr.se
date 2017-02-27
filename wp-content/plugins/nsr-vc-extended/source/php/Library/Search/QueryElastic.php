@@ -77,30 +77,8 @@ class QueryElastic
         $querySortGuide = new \WP_Query(array(
             'ep_integrate' => true,
             's' => $q,
-            /*
-            'search_fields'  => array(
-                'post_title',
-                'meta' => array(
-                    'avfall_synonymer',
-                    'avfall_synonymer_0',
-                    'avfall_synonymer',
-                    'avfall_synonymer_1',
-                    'avfall_synonymer',
-                    'avfall_synonymer_1',
-                    'avfall_synonymer',
-                    'avfall_synonymer_2',
-                    'avfall_synonymer_0_avfall_synonym',
-                    'avfall_synonymer_1_avfall_synonym',
-                    'avfall_synonymer_2_avfall_synonym',
-                    'avfall_synonymer_3_avfall_synonym',
-                    'avfall_synonymer_4_avfall_synonym',
-                    'avfall_synonymer_5_avfall_synonym',
-                    'avfall_synonymer_6_avfall_synonym',
-                    'avfall_synonymer_7_avfall_synonym',
-                ),
-            ),
-            */
-            /*'bool' => array(
+
+            'bool' => array(
                 // Match keywords
                 'must' => array(
                     array(
@@ -109,8 +87,7 @@ class QueryElastic
                             'fuzziness' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
                             'fields' => array(
                                 'post_title^7',
-                                'terms.post_tag.name^4',
-                                'postmeta.meta_value',
+                                'postmeta.meta_value^5',
 
                             )
                         )
@@ -123,16 +100,16 @@ class QueryElastic
                             'query' => $q,
                             'fields' => array(
                                 'post_title^7',
-                                'postmeta.meta_value',
+                                'postmeta.meta_value^5',
 
                             ),
                             'type' => 'phrase'
                         )
                     ),
                 )
-            ),*/
+            ),
             'simple_query_string' => array(
-             
+                'search_fields' => array('post_title^7','postmeta.meta_value^5' ),
                 'query' => $q . '~' . \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
                 'analyzer' => 'elasticpress_synonyms'
             ),
