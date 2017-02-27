@@ -3,8 +3,16 @@
     <div class="mobile-logo center grid-xs-12 grid-sm-12 grid-md-12 text-center-sm text-center-xs hide">
         {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option'), true, get_field('header_tagline_enable', 'option')) !!}
     </div>
-    <div class="mobile-search "><a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
+
+    <div class="mobile-search ">
+        <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
+        @if (function_exists('ReadSpeakerHelper_playButton'))
+            <li>
+                {!! ReadSpeakerHelper_playButton() !!}
+            </li>
+        @endif
     </div>
+
     <div class="mobile-nav hidden-lg hidden-md ">
         <a href="javascript:void(0)" data-activates="mobileNav" class="button-collapse "><i class="material-icons">menu</i></a>
     </div>
