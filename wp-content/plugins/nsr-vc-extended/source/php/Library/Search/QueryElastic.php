@@ -78,7 +78,7 @@ class QueryElastic
             'ep_integrate' => true,
             's' => $q,
 
-            'bool' => array(
+            /*'bool' => array(
                 // Match keywords
                 'must' => array(
                     array(
@@ -87,9 +87,9 @@ class QueryElastic
                             'fuzziness' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
                             'fields' => array(
                                 'post_title^7',
-                                'postmeta.meta_value^5',
-
-                            )
+                                'postmeta.meta_value^7',
+                                'meta' => array( 'synonym' ),
+                            ),
                         )
                     )
                 ),
@@ -97,20 +97,33 @@ class QueryElastic
                 'should' => array(
                     array(
                         'multi_match' => array(
-                            'query' => $q,
+                            'query' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
                             'fields' => array(
                                 'post_title^7',
-                                'postmeta.meta_value^5',
-
+                                'postmeta.meta_value',
+                                'meta' => array( 'synonym' ),
                             ),
                             'type' => 'phrase'
                         )
                     ),
                 )
-            ),
-            'simple_query_string' => array(
+            ),*/
+            /*'simple_query_string' => array(
                 'search_fields' => array('post_title^7','postmeta.meta_value^5' ),
                 'query' => $q . '~' . \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
+                'analyzer' => 'elasticpress_synonyms'
+            ),
+            'search_fields' => array(
+                'post_title',
+                'postmeta.meta_value' => array( 'synonym' ),
+            ),*/
+
+            'query' => $q,
+            'fuzziness' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q,3),
+            'fields' => array(
+                'post_title^7',
+                'postmeta.meta_value',
+                'meta' => array( 'synonym','_synonym' ),
                 'analyzer' => 'elasticpress_synonyms'
             ),
 

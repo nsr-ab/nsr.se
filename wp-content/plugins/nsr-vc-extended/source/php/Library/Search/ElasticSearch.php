@@ -113,9 +113,15 @@ class Elasticsearch
         return $args;
     }
 
-    public function fuzzynessSize($query = '')
+    public function fuzzynessSize($query = '', $max)
     {
-        $max_fuzzyness = 7;
+        if($max) {
+            $max_fuzzyness = $max;
+        }
+        else {
+            $max_fuzzyness = 4;
+        }
+
         $min_fuzzyness = 1;
         $division_by = 2;
 
