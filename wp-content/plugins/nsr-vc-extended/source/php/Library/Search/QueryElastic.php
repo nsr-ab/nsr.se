@@ -100,9 +100,39 @@ class QueryElastic
                 ),
             ),
             */
+            /*'bool' => array(
+                // Match keywords
+                'must' => array(
+                    array(
+                        'multi_match' => array(
+                            'query' => $q,
+                            'fuzziness' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
+                            'fields' => array(
+                                'post_title^7',
+                                'terms.post_tag.name^4',
+                                'postmeta.meta_value',
 
+                            )
+                        )
+                    )
+                ),
+                // Match full query
+                'should' => array(
+                    array(
+                        'multi_match' => array(
+                            'query' => $q,
+                            'fields' => array(
+                                'post_title^7',
+                                'postmeta.meta_value',
+
+                            ),
+                            'type' => 'phrase'
+                        )
+                    ),
+                )
+            ),*/
             'simple_query_string' => array(
-                'search_fields' => array('post_title^7','post_meta' => array( 'avfall_synonymer','avfall_bra_att_veta') ),
+             
                 'query' => $q . '~' . \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
                 'analyzer' => 'elasticpress_synonyms'
             ),

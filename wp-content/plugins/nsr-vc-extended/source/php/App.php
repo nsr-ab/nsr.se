@@ -304,7 +304,7 @@ class App
                 $fpId = self::gen_uid($item->PickupId);
                 $collect = $collection->getItem($fpId);
 
-                if ($collect === 0) {
+                if ($collect === false) {
 
                     $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=20&DateEnd=' . $stopDate);
                     $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);

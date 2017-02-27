@@ -36,7 +36,7 @@ class Collection
             return $this->items[$key];
         }
         else {
-            return 0;
+            return false;
         }
     }
 
