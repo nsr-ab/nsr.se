@@ -6,7 +6,7 @@
 
     <div class="mobile-search ">
         <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
-        <div id="readspeaker_button2" class="rs_skip rsbtn rs_preserve"></div>
+        <a rel="nofollow" href="//docreader.readspeaker.com/docreader/?cid=bzfqo&amp;lang=sv_se&amp;url=[ENCODED_URL]" onclick="window.open(this.href, 'dcrwin'); return false;" title="Öppna detta dokument med ReadSpeaker docReader" style="text-decoration: none; margin-left: 6px; color: #3333aa; font-weight: bold;"> <img src="[IMAGE_URL]" style="border-style: none; vertical-align: text-bottom;" alt="ReadSpeaker"> Lyssna</a>
     </div>
 
     <div class="mobile-nav hidden-lg hidden-md ">
