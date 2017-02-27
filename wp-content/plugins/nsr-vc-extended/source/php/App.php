@@ -454,7 +454,15 @@ class App
 
                         $termInlamningsstalle = get_term($termLocID, 'inlamningsstallen');
                         $getTerm = get_term_meta($termLocID);
-                        $termPageLink = get_page_link(intval($getTerm['fraktion_page_link'][0]));
+
+                        $externUrl = $getTerm['fraktion_extern_page_link'];
+
+                        if($externUrl) {
+                            $termPageLink = $externUrl;
+                        }
+                        else {
+                            $termPageLink = get_page_link(intval($getTerm['fraktion_page_link'][0]));
+                        }
 
                         if (!in_array($termInlamningsstalle->term_id, $checkDupes)) {
                             $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['termId'] = $termInlamningsstalle->term_id;
