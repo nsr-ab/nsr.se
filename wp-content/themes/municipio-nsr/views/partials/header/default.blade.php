@@ -6,7 +6,7 @@
 
     <div class="mobile-search ">
         <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
-        
+        <div id="readspeaker_button2" class="rs_skip rsbtn rs_preserve"></div>
     </div>
 
     <div class="mobile-nav hidden-lg hidden-md ">
