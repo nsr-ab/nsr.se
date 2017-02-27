@@ -555,6 +555,22 @@ class CustomPostTypes
                             'id' => '',
                         ),
                     ),
+                    array (
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'key' => 'field_58b42d49762bb',
+                        'label' => 'Extern länk',
+                        'name' => 'extern_url',
+                        'type' => 'url',
+                        'instructions' => 'http://www.polisen.se',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                    ),
 
                 ),
                 'location' => array (
@@ -669,25 +685,6 @@ class CustomPostTypes
                         'name' => 'avfall_bra_att_veta',
                         'type' => 'wysiwyg',
                         'instructions' => 'Extra information angående detta avfall',
-                        'required' => 0,
-                        'conditional_logic' => 0,
-                        'wrapper' => array (
-                            'width' => '',
-                            'class' => '',
-                            'id' => '',
-                        ),
-                    ),
-                    array (
-                        'default_value' => '',
-                        'maxlength' => '',
-                        'placeholder' => '',
-                        'prepend' => '',
-                        'append' => '',
-                        'key' => 'field_58b41d780187b',
-                        'label' => 'synonym',
-                        'name' => 'synonym',
-                        'type' => 'text',
-                        'instructions' => 'Skriv in synonymer som en komma-separerad lista. Exempel: ring, vigselring, silver, guld ',
                         'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array (

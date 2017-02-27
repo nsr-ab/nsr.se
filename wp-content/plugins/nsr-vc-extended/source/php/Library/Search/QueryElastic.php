@@ -119,7 +119,7 @@ class QueryElastic
             ),*/
 
             'query' => $q,
-            'fuzziness' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q,3),
+            'fuzziness' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q,12),
             'fields' => array(
                 'post_title^7',
                 'postmeta.meta_value',
@@ -127,7 +127,7 @@ class QueryElastic
                 'analyzer' => 'elasticpress_synonyms'
             ),
 
-            'orderby' => 'relevance',
+
             'posts_per_page' => 15,
             'post_type' => 'sorteringsguide',
             'cache_results' => false
