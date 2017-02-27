@@ -6,11 +6,7 @@
 
     <div class="mobile-search ">
         <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
-        @if (function_exists('ReadSpeakerHelper_playButton'))
-            <li>
-                {!! ReadSpeakerHelper_playButton() !!}
-            </li>
-        @endif
+        
     </div>
 
     <div class="mobile-nav hidden-lg hidden-md ">
