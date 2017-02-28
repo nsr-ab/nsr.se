@@ -11,16 +11,6 @@
 
             <div class="grid-md-12 grid-lg-12 grid-print-12" id="readspeaker-read">
 
-                @if (function_exists('ReadSpeakerHelper_playButton'))
-                    <div class="ReadspeakerPlayer">
-                        <?php
-
-                        ReadSpeakerHelper_player();
-                        ?>
-                    </div>
-                @endif
-
-
                 @if (is_active_sidebar('content-area-top'))
                     <div class="grid sidebar-content-area sidebar-content-area-top">
                         <?php dynamic_sidebar('content-area-top'); ?>

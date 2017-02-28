@@ -116,49 +116,6 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 
 }
 
-.home .ReadspeakerPlayer {
-    position: absolute;
-    top: 180px;
-
-}
-
-@media (max-width: 469px) {
-    .home .ReadspeakerPlayer {
-        position: absolute;
-        top: 120px !important;
-    }
-}
-
-.home .readspeaker-play-button {
-    max-width: 10px;
-    width:10px;
-
-}
-.home .readspeaker-play-button:hover {
-    text-decoration: none !important;
-}
-.home .readspeaker-play-button:before {
-    font-size: 2.1rem;
-    position: absolute;
-    font-weight: 400;
-}
-
-.mobile-search #readspeaker-play-button,
-.mobile-search #readspeaker-play-button:before {
-    //display:none;
-}
-.home .mobile-search #readspeaker-play-button,
-.home .mobile-search #readspeaker-play-button:before {
-    //display:block !important;
-}
-
-.home .mobile-search #readspeaker-play-button {
-    visibility: hidden;
-}
-
-.home .mobile-search #readspeaker-play-button:before {
-    visibility: visible !important;
-}
 .material-icons .sync_sent {
     display:none;
 }
