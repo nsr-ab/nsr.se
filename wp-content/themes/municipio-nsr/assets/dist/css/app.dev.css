@@ -91,10 +91,13 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 .page-template-default .doc-nfo {
   display: block !important; }
 
-.readspeaker-play-button:before {
-  font-family: "Material Icons" !important;
-  content: 'hearing' !important;
-  text-decoration: none; }
+.readspeaker-play-button::before {
+  /*font-family: "Material Icons" !important;
+    content: 'hearing' !important;*/
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  /*Added Line*/ }
 
 .home .ReadspeakerPlayer {
   position: absolute;
