@@ -24,7 +24,7 @@
     </div>
 
     <div class="mobile-nav hidden-lg hidden-md ">
-        <a href="javascript:void(0)" data-activates="mobileNav" class="button-collapse "><i class="material-icons">menu</i></a>
+        <a href="javascript:void(0)" data-activates="mobileNav" class="button-collapse "><i class="material-icons notranslate">menu</i></a>
     </div>
 
     <div class="side-nav " id="mobileNav">

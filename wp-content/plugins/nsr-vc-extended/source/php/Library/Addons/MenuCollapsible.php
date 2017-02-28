@@ -279,7 +279,7 @@ class MenuCollapsible
             else {
                 $href = vc_build_link($vc_extend_text_pagelink);
                 $output .= "<a ".$forceLinkColor." href=\"".$href['url']."\">".$href['title']."</a>";
-                $output .= "<i class=\"right material-icons materialIconState\">chevron_right</i></div>";
+                $output .= "<i class=\"right material-icons materialIconState notranslate\">chevron_right</i></div>";
             }
 
             /** Custom Description */
