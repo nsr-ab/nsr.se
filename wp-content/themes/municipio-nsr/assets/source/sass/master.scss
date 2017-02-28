@@ -160,4 +160,8 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 .material-icons font {
     //display:none;
 }
+.btn btn-primary {
+    background:$palette-primary-green !important;
+    color:#fff !important;
+}
 
