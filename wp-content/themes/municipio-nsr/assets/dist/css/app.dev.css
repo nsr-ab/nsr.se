@@ -7071,6 +7071,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .acc-helper-menu li {
     float: left; } }
 
+@media (max-width: 469px) {
+  #nsr-logo {
+    margin-top: 10px; } }
+
 .is-child-theme {
   /* Text rendering - dont set on div or html element - sticky nav will crash with 3d translate*/
   /* Structure fix */
