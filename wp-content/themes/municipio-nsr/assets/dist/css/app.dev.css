@@ -7050,7 +7050,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .acc-helper-menu {
     position: Absolute;
     left: 10px;
-    top: 15px;
+    top: 10px;
     width: 260px; }
   .acc-helper-menu li {
     float: left; } }
