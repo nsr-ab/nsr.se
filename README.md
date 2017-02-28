@@ -1,12 +1,10 @@
 #NSR Webb.
 ==============
-UTVECKLARE: Johan Silvergrund, HIQ http://hiq.se/ <br>
-SERVERSPRÅK: PHP <br>
-DATABAS: MySQL <br>
-CMS: Wordpress <br><br>
+UTVECKLARE: Johan Silvergrund, <a href="http://hiq.se/">HIQ</a> <br>
+Källkod för NSR Wordpress tema och plugins.
 
 ##Tema: 
---------------
+<br>
 ###Huvudtema: Municipio 
 GIT: https://github.com/helsingborg-stad/Municipio-boilerplate <br>
 Beroenden: <a href="https://www.advancedcustomfields.com/">Advanced Custom Fields Pro</a> <br> 
@@ -35,8 +33,7 @@ $Bash, Composer och lämplig PHP IDE.. <br><br>
 
 
 ##Plugins:
---------------
-
+<br>
 ###NSR VC Extended
 GIT: https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-vc-extended
 <br>
