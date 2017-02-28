@@ -115,18 +115,6 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   position: absolute;
   font-weight: 400; }
 
-.mobile-search #readspeaker-play-button, .mobile-search #readspeaker-play-button:before {
-  display: none; }
-
-.home .mobile-search #readspeaker-play-button, .home .mobile-search #readspeaker-play-button:before {
-  display: block !important; }
-
-.home .mobile-search #readspeaker-play-button {
-  visibility: hidden; }
-
-.home .mobile-search #readspeaker-play-button:before {
-  visibility: visible !important; }
-
 .material-icons .sync_sent {
   display: none; }
 
