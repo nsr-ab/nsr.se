@@ -154,8 +154,12 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 .material-icons .sync_sent {
     display:none;
 }
+.translate-icon-btn {
+    cursor:pointer;
+}
 .translate-icon-btn i {
     font-size: 1.8rem;
     margin-right:5px;
+    margin-top:2px;
 }
 
