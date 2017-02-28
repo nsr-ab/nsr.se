@@ -5,15 +5,22 @@
     </div>
 
     <div class="mobile-search">
+        <ul>
+        <li>
         <a href="#translate" class="translate-icon-btn" aria-label="translate"><i class="pricon pricon-globe"></i></a>
-        <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
+        </li>
+        <li>
+            <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
+        </li>
+        <li>
         @if (function_exists('ReadSpeakerHelper_playButton'))
             <?php
 
                 ReadSpeakerHelper_playButton($classes = array(), 'icon');
             ?>
         @endif
-
+        </li>
+        </ul>
     </div>
 
     <div class="mobile-nav hidden-lg hidden-md ">
