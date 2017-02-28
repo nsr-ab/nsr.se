@@ -153,11 +153,11 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 }
 
 .home .mobile-search #readspeaker-play-button {
-    //visibility: hidden;
+    visibility: hidden;
 }
 
 .home .mobile-search #readspeaker-play-button:before {
-    //visibility: visible !important;
+    visibility: visible !important;
 }
 .material-icons .sync_sent {
     display:none;
