@@ -7205,6 +7205,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     border-top: 4px solid #b3d6da;
     margin-top: 0;
     color: #b3d6da; }
+  .is-child-theme .main-footer .logotype {
+    position: relative;
+    left: 0px;
+    border: 1px solid red; }
   .is-child-theme .box, .is-child-theme .box * {
     box-shadow: none !important;
     border: none !important;
