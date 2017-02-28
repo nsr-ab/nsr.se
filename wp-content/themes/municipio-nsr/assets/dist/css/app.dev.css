@@ -91,12 +91,6 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 .page-template-default .doc-nfo {
   display: block !important; }
 
-.readspeaker-play-button:before {
-  text-decoration: none;
-  display: inline-block;
-  position: relative;
-  /*Added Line*/ }
-
 .home .ReadspeakerPlayer {
   position: absolute;
   top: 180px; }
