@@ -113,7 +113,7 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 .home .readspeaker-play-button:before {
   font-size: 2.1rem;
   position: absolute;
-  top: -33px;
+  top: -34px;
   right: -25px;
   font-weight: 400; }
 
@@ -131,6 +131,9 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 
 .material-icons .sync_sent {
   display: none; }
+
+.language {
+  font-size: 2.1rem; }
 
 .materialize-red {
   background-color: #e51c23 !important; }
