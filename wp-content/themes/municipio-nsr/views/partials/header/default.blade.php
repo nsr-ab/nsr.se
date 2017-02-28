@@ -6,20 +6,20 @@
 
     <div class="mobile-search">
         <ul class="acc-helper-menu">
-        <li>
-        <a href="#translate" class="translate-icon-btn" aria-label="translate"><i class="pricon pricon-globe"></i></a>
-        </li>
-        <li>
-            <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
-        </li>
-        <li>
-        @if (function_exists('ReadSpeakerHelper_playButton'))
-            <?php
+            <li>
+                <a href="#translate" class="translate-icon-btn" aria-label="translate"><i class="pricon pricon-globe"></i></a>
+            </li>
+            <li>
+            @if (function_exists('ReadSpeakerHelper_playButton'))
+                <?php
 
-                ReadSpeakerHelper_playButton($classes = array(), 'icon');
-            ?>
-        @endif
-        </li>
+                    ReadSpeakerHelper_playButton($classes = array(), 'icon');
+                ?>
+            @endif
+            </li>
+            <li>
+                <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
+            </li>
         </ul>
     </div>
 
