@@ -1,16 +1,16 @@
 @extends('templates.master')
 
 @section('content')
-    @if (function_exists('ReadSpeakerHelper_playButton'))
-        <div class="ReadspeakerPlayer">
-        <?php
 
-        ReadSpeakerHelper_player();
-        ?>
-        </div>
-    @endif
     <div class="container main-container">
+        @if (function_exists('ReadSpeakerHelper_playButton'))
+            <div class="ReadspeakerPlayer">
+                <?php
 
+                ReadSpeakerHelper_player();
+                ?>
+            </div>
+        @endif
         @include('partials.breadcrumbs')
 
         <div class="grid {{ implode(' ', apply_filters('Municipio/Page/MainGrid/Classes', wp_get_post_parent_id(get_the_id()) != 0 ? array('no-margin-top') : array())) }}">
