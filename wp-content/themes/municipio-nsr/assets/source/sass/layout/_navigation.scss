@@ -378,6 +378,8 @@
     .acc-helper-menu li {
         float: left;
         width: 36px;
+        display: inline-block;
+        position: relative; /*Added Line*/
     }
     .acc-helper-menu .quickSearch {
         margin-top:-2px;
