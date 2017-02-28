@@ -384,12 +384,17 @@
         margin-left:5px;
     }
     @media (max-width: 469px) {
+        .acc-helper-menu {
+            position:Absolute;
+            left:10px;
+        }
         .acc-helper-menu li {
             float: none;
             width: 36px;
             margin-left:0px;
             padding-left:0px;
             padding-bottom:15px;
+            max-height:40px;
 
         }
     }
