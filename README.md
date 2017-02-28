@@ -1,7 +1,7 @@
 #NSR Webb.
 ==============
 Utvecklare: Johan Silvergrund <a href="http://hiq.se/">HIQ</a>, Nermin Delilovic <a href="http://nsr.se/">NSR</a> <br>
-Källkod för NSR Wordpress tema och plugins.
+Källkod för NSR Wordpress-tema och wordpress-plugins.
 
 ##Tema: 
 ###Huvudtema: Municipio 
@@ -19,7 +19,7 @@ Följ anvisningar på https://github.com/helsingborg-stad/Municipio-boilerplate 
 ###Verktyg för vidarutveckling av Municipio-NSR PHP kod:
 $Bash, Composer och lämplig PHP IDE.. <br><br>
 
-###Verktyg för compilering av JavaScript och CSS
+###Verktyg för kompilering av JavaScript och SASS/CSS
 <a href="https://nodejs.org/en/">NodeJS</a> och moduler från <a href="https://www.npmjs.com/">npm</a>: <br>
 
 •	Gulp <br>
@@ -35,7 +35,7 @@ $Bash, Composer och lämplig PHP IDE.. <br><br>
 ###NSR VC Extended
 GIT: https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-vc-extended
 <br>
-Är en samling ad-dons kopplade till Visual Composer https://vc.wpbakery.com/
+Är en samling Visual Composer ad-dons. https://vc.wpbakery.com/
 <br>
 •	Meny/Dragspel	- Accordion <br>
 •	Senaste nyheter	- Lista Nyheter, Sidor m.m <br>
