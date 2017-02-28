@@ -97,13 +97,13 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   text-decoration: none; }
 
 .home .ReadspeakerPlayer {
-  position: Absolute;
+  position: absolute;
   top: 180px; }
 
 @media (max-width: 469px) {
   .home .ReadspeakerPlayer {
-    position: Absolute;
-    top: 416px; } }
+    position: absolute;
+    top: 120px !important; } }
 
 .home .readspeaker-play-button {
   max-width: 10px;
