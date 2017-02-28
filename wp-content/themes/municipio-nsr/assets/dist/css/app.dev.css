@@ -94,7 +94,10 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 .readspeaker-play-button:before {
   font-family: "Material Icons" !important;
   content: 'hearing' !important;
-  text-decoration: none; }
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  /*Added Line*/ }
 
 .home .ReadspeakerPlayer {
   position: absolute;
