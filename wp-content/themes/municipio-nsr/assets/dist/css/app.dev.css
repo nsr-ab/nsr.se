@@ -129,6 +129,9 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 .home .mobile-search #readspeaker-play-button:before {
   visibility: visible; }
 
+.material-icons .sync_sent {
+  display: none; }
+
 .materialize-red {
   background-color: #e51c23 !important; }
 
