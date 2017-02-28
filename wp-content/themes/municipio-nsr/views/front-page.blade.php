@@ -2,9 +2,12 @@
 
 @section('content')
     @if (function_exists('ReadSpeakerHelper_playButton'))
+        <div class="ReadspeakerPlayer">
         <?php
+
         ReadSpeakerHelper_player();
         ?>
+        </div>
     @endif
     <div class="container main-container">
 

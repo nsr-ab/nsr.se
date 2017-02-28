@@ -114,11 +114,16 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
     font-family: "Material Icons" !important;
     content: 'hearing' !important;
 }
-.home #readspeaker-play-button {
+
+.mobile-search #readspeaker-play-button {
+    display:none;
+}
+
+.home .mobile-search #readspeaker-play-button {
     visibility: hidden;
 }
 
-.home #readspeaker-play-button:before {
+.home .mobile-search #readspeaker-play-button:before {
     visibility: visible;
 }
 

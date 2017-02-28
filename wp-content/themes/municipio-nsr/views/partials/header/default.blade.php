@@ -4,7 +4,7 @@
         {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option'), true, get_field('header_tagline_enable', 'option')) !!}
     </div>
 
-    <div class="mobile-search ">
+    <div class="mobile-search">
         <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
         @if (function_exists('ReadSpeakerHelper_playButton'))
             <?php
