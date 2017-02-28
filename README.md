@@ -1,6 +1,6 @@
 #NSR Webb.
 ==============
-Utvecklare: Johan Silvergrund, <a href="http://hiq.se/">HIQ</a>, Nermin Delilovic <a href="http://nsr.se/">NSR</a> <br>
+Utvecklare: Johan Silvergrund <a href="http://hiq.se/">HIQ</a>, Nermin Delilovic <a href="http://nsr.se/">NSR</a> <br>
 Källkod för NSR Wordpress tema och plugins.
 
 ##Tema: 
