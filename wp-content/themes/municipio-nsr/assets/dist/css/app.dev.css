@@ -99,10 +99,10 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 .home .readspeaker-play-button:hover {
   text-decoration: none !important; }
 
-.home .readspeaker-play-button {
+.home .readspeaker-play-button:before {
   font-size: 2.1rem;
   position: absolute;
-  top: 8px;
+  top: -32px;
   right: -25px;
   font-weight: 400; }
 
