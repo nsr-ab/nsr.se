@@ -117,6 +117,8 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 }
 .home .ReadspeakerPlayer {
     margin-left:15px;
+    position:absolute;
+    left:15px;
 }
 .home .readspeaker-play-button {
     max-width: 10px;
