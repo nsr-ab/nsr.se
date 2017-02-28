@@ -91,6 +91,11 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 .page-template-default .doc-nfo {
   display: block !important; }
 
+.readspeaker-play-button:before {
+  font-family: "Material Icons" !important;
+  content: 'hearing' !important;
+  text-decoration: none; }
+
 .home .ReadspeakerPlayer {
   position: absolute;
   top: 180px; }
@@ -116,13 +121,13 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   display: none; }
 
 .home .mobile-search #readspeaker-play-button, .home .mobile-search #readspeaker-play-button:before {
-  display: block; }
+  display: block !important; }
 
 .home .mobile-search #readspeaker-play-button {
   visibility: hidden; }
 
 .home .mobile-search #readspeaker-play-button:before {
-  visibility: visible; }
+  visibility: visible !important; }
 
 .material-icons .sync_sent {
   display: none; }

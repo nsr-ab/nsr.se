@@ -111,8 +111,10 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
     display:block !important;
 }
 .readspeaker-play-button:before {
+    font-family: "Material Icons" !important;
+    content: 'hearing' !important;
+    text-decoration:none;
 
- 
 }
 
 .home .ReadspeakerPlayer {
@@ -146,7 +148,7 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
     display:none;
 }
 .home .mobile-search #readspeaker-play-button, .home .mobile-search #readspeaker-play-button:before {
-    display:block;
+    display:block !important;
 }
 
 .home .mobile-search #readspeaker-play-button {
@@ -154,7 +156,7 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 }
 
 .home .mobile-search #readspeaker-play-button:before {
-    visibility: visible;
+    visibility: visible !important;
 }
 .material-icons .sync_sent {
     display:none;
