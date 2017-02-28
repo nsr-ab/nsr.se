@@ -133,13 +133,8 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   font-size: 1.7rem;
   font-weight: 400; }
 
-.acc-helper-menu li {
-  float: left;
-  width: 36px; }
-
-.acc-helper-menu .quickSearch {
-  margin-top: -2px;
-  margin-left: 5px; }
+.material-icons font {
+  display: none; }
 
 .materialize-red {
   background-color: #e51c23 !important; }
@@ -7045,6 +7040,14 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-family: "Material Icons";
     content: '\E5D9';
     color: #007586; } }
+
+.acc-helper-menu li {
+  float: left;
+  width: 36px; }
+
+.acc-helper-menu .quickSearch {
+  margin-top: -2px;
+  margin-left: 5px; }
 
 .is-child-theme {
   /* Text rendering - dont set on div or html element - sticky nav will crash with 3d translate*/

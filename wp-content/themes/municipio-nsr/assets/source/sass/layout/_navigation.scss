@@ -375,4 +375,12 @@
             color: $palette-primary-green;
         }
     }
+    .acc-helper-menu li {
+        float: left;
+        width: 36px;
+    }
+    .acc-helper-menu .quickSearch {
+        margin-top:-2px;
+        margin-left:5px;
+    }
 
