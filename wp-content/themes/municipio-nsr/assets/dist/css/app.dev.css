@@ -7046,6 +7046,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   margin-top: -2px;
   margin-left: 5px; }
 
+@media (max-width: 469px) {
+  .acc-helper-menu li {
+    float: none;
+    width: 36px; } }
+
 .is-child-theme {
   /* Text rendering - dont set on div or html element - sticky nav will crash with 3d translate*/
   /* Structure fix */
