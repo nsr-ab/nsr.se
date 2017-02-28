@@ -9,7 +9,7 @@
         @if (function_exists('ReadSpeakerHelper_playButton'))
             <?php
 
-                ReadSpeakerHelper_playButton($classes = array(), $minimal = true);
+                ReadSpeakerHelper_playButton($classes = array(), 'icon');
                 ReadSpeakerHelper_player();
             ?>
         @endif
