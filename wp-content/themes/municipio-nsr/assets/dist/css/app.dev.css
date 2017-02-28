@@ -97,7 +97,8 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   text-decoration: none; }
 
 .home .ReadspeakerPlayer {
-  margin-left: 15px; }
+  position: Absolute;
+  top: 180px; }
 
 .home .readspeaker-play-button {
   max-width: 10px;
@@ -139,7 +140,7 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 
 @media (max-width: 850px) {
   .site-header {
-    height: 150px; } }
+    min-height: 150px; } }
 
 .materialize-red {
   background-color: #e51c23 !important; }
