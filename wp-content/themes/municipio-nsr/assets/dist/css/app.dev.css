@@ -95,6 +95,12 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   font-family: "Material Icons" !important;
   content: 'hearing' !important; }
 
+.home #readspeaker-play-button {
+  visibility: hidden; }
+
+.home #readspeaker-play-button:before {
+  visibility: visible; }
+
 .materialize-red {
   background-color: #e51c23 !important; }
 

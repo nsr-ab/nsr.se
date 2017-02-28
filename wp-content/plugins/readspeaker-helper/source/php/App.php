@@ -99,20 +99,15 @@ class App
      * @param  array  $classes
      * @return string
      */
-    public static function getPlayButton($classes = array(), $minimal)
+    public static function getPlayButton($classes = array())
     {
         $classes = array_merge(array('readspeaker-play-button'), $classes);
         $classes = apply_filters('ReadSpeakerHelper/play_button_class', $classes);
         $classes = implode(' ', $classes);
-        $text = ($minimal === 'icon') ? '' : __('Listen', 'readspeaker-helper');
-        $playButton = '<a id="' . self::$playButtonId . '"  onclick="javascript:readpage(this.href, \'' . self::$playerId . '\'); return false;" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=' . self::$customerId . '&amp;lang=' .get_locale(). '&amp;readid=' . self::$readWrapperId . '&amp;url=' . self::currentUrl() . '" class="' . $classes . '">' . $text . '</a>';
+
+        $playButton = '<a id="' . self::$playButtonId . '"  onclick="javascript:readpage(this.href, \'' . self::$playerId . '\'); return false;" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=' . self::$customerId . '&amp;lang=' .get_locale(). '&amp;readid=' . self::$readWrapperId . '&amp;url=' . self::currentUrl() . '" class="' . $classes . '">' . __('Listen', 'readspeaker-helper') . '</a>';
         return apply_filters('ReadSpeakerPlayer/play_button', $playButton);
     }
-
-
-
-
-
 
     /**
      * Get the player element
