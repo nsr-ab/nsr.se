@@ -93,7 +93,18 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 
 .readspeaker-play-button:before {
   font-family: "Material Icons" !important;
-  content: 'hearing' !important; }
+  content: 'hearing' !important;
+  text-decoration: none; }
+
+.home .readspeaker-play-button:hover {
+  text-decoration: none !important; }
+
+.home .readspeaker-play-button {
+  font-size: 2.1rem;
+  position: absolute;
+  top: 8px;
+  right: -25px;
+  font-weight: 400; }
 
 .mobile-search #readspeaker-play-button, .mobile-search #readspeaker-play-button:before {
   display: none; }
