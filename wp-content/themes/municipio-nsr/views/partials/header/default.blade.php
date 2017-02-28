@@ -6,7 +6,11 @@
 
     <div class="mobile-search ">
         <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
-        <a rel="nofollow" href="//docreader.readspeaker.com/docreader/?cid=bzfqo&amp;lang=sv_se&amp;url=[ENCODED_URL]" onclick="window.open(this.href, 'dcrwin'); return false;" title="Öppna detta dokument med ReadSpeaker docReader" style="text-decoration: none; margin-left: 6px; color: #3333aa; font-weight: bold;"> <img src="[IMAGE_URL]" style="border-style: none; vertical-align: text-bottom;" alt="ReadSpeaker"> Lyssna</a>
+        @if (function_exists('ReadSpeakerHelper_playButton'))
+            <li>
+                <?php ReadSpeakerHelper_playButton($classes = array()); ?>
+            </li>
+        @endif
     </div>
 
     <div class="mobile-nav hidden-lg hidden-md ">
