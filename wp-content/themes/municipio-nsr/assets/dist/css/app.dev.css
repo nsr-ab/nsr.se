@@ -7207,8 +7207,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     color: #b3d6da; }
   .is-child-theme .main-footer .logotype {
     position: relative;
-    left: 0px;
-    border: 1px solid red; }
+    left: 0px; }
   .is-child-theme .box, .is-child-theme .box * {
     box-shadow: none !important;
     border: none !important;
