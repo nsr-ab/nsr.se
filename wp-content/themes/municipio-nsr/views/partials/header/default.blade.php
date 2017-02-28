@@ -5,7 +5,7 @@
     </div>
 
     <div class="mobile-search">
-        <a href="#translate" class="translate-icon-btn" aria-label="translate"><i class="material-icons">language</i></a>
+        <a href="#translate" class="translate-icon-btn" aria-label="translate"><i class="pricon pricon-globe"></i></a>
         <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
         @if (function_exists('ReadSpeakerHelper_playButton'))
             <?php
