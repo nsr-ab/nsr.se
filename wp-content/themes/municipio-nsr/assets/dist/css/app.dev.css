@@ -97,7 +97,25 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   text-decoration: none;
   display: inline-block;
   position: relative;
-  /*Added Line*/ }
+  /*Added Line*/
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  -webkit-font-feature-settings: 'liga';
+     -moz-font-feature-settings: 'liga';
+          font-feature-settings: 'liga'; }
 
 .home .ReadspeakerPlayer {
   position: absolute;
