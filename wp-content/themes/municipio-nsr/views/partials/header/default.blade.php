@@ -29,8 +29,8 @@
 
     <div class="side-nav " id="mobileNav">
         <div class="topnav">
-            <i class="material-icons left search quickSearch">&#xE8B6;</i>
-            <i class="material-icons right close">&#xE5CD;</i>
+            <i class="material-icons left search quickSearch notranslate">&#xE8B6;</i>
+            <i class="material-icons right close notranslate">&#xE5CD;</i>
         </div>
 
         <h6><?php _e('What customer are you today?', 'nsr') ?></h6>
@@ -56,17 +56,17 @@
 
 <!-- Modal Structure -->
 <div id="searchModal" class="modal bottom-sheet">
-    <i class="material-icons modal-action modal-close waves-effect waves-green right">cancel</i>
+    <i class="material-icons modal-action modal-close waves-effect waves-green right notranslate">cancel</i>
     <div class="modal-content">
         <form itemprop="potentialAction" class="row" itemscope="" action=/sok/ itemtype="http://schema.org/SearchAction">
             <div class="searchForm input-field col s10">
-                <i class="material-icons prefix">search</i>
+                <i class="material-icons prefix notranslate">search</i>
                 <input class="form-control form-control-lg validated input-field s12" itemprop="query-input" required="" id="search-nsr" autocomplete="off" type="search" name="q" value="" aria-invalid="true">
                 <label for="search-input">Vad letar du efter?</label>
                 <input type="hidden" id="post_type" value="">
             </div>
 
-            <div class="searchBtnSubmit col s2 hidden-xs"><button class="searchSubmit btn btn-large waves-effect waves-light left" type="submit">SÖK</button></div>
+            <div class="searchBtnSubmit col s2 hidden-xs"><button class="searchSubmit btn btn-large waves-effect waves-light left notranslate" type="submit">SÖK</button></div>
 
         </form>
     </div>

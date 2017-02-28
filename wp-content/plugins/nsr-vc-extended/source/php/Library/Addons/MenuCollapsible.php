@@ -284,7 +284,7 @@ class MenuCollapsible
 
             /** Custom Description */
             if($vc_extend_description)
-                $output .= (!$vc_extend_text_pagelink) ?  " <i class=\"right material-icons materialIconState\">add</i></div>" : "";
+                $output .= (!$vc_extend_text_pagelink) ?  " <i class=\"right material-icons materialIconState notranslate\">add</i></div>" : "";
 
             if($vc_extend_description)
             $output .= (!$vc_extend_text_pagelink) ?  "<div class=\"collapsible-body\"><p>".$vc_extend_description."</p></div>" : "";
