@@ -115,8 +115,8 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
     content: 'hearing' !important;
 }
 
-.mobile-search #readspeaker-play-button {
-    display:none;
+.mobile-search #readspeaker-play-button, .mobile-search #readspeaker-play-button:before {
+    visibility: hidden;
 }
 
 .home .mobile-search #readspeaker-play-button {
