@@ -18,7 +18,7 @@
             @endif
             </li>
             <li>
-                <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
+                <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">&#xE8B6;</i></a>
             </li>
         </ul>
     </div>
@@ -29,8 +29,8 @@
 
     <div class="side-nav " id="mobileNav">
         <div class="topnav">
-            <i class="material-icons left search quickSearch">search</i>
-            <i class="material-icons right close">close</i>
+            <i class="material-icons left search quickSearch">&#xE8B6;</i>
+            <i class="material-icons right close">&#xE5CD;</i>
         </div>
 
         <h6><?php _e('What customer are you today?', 'nsr') ?></h6>

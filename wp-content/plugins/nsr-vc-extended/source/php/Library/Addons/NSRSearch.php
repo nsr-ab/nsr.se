@@ -151,7 +151,7 @@ class NSRSearch
                         <form itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/SearchAction\">
                             <h4 class=\"search-title\">".$params->vc_designation."</h4>
                             <div class=\"input-field col s12 searchArea\">
-                                <i class=\"material-icons prefix\">search</i>
+                                <i class=\"material-icons prefix\">&#xE8B6;</i>
                                 <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\" required=\"\" id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
                                 <label for=\"searchQ-input\">".__('Where do you live? What stuff do you want to sort? Are you looking for something else?', 'nsr-vc-extended')."</label>
                                 <input type=\"hidden\" id=\"post_type\" value=\"".$params->vc_search_sections."\">
