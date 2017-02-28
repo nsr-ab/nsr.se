@@ -7050,7 +7050,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .acc-helper-menu {
     position: Absolute;
     left: 10px;
-    top: 15px; } }
+    top: 15px;
+    width: 260px; }
+  .acc-helper-menu li {
+    float: left; } }
 
 .is-child-theme {
   /* Text rendering - dont set on div or html element - sticky nav will crash with 3d translate*/
