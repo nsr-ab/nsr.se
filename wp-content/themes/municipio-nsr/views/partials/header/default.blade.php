@@ -5,7 +5,7 @@
     </div>
 
     <div class="mobile-search">
-        <ul>
+        <ul class="acc-helper-menu">
         <li>
         <a href="#translate" class="translate-icon-btn" aria-label="translate"><i class="pricon pricon-globe"></i></a>
         </li>
