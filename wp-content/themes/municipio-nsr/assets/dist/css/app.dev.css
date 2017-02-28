@@ -117,6 +117,10 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   right: -20px;
   font-weight: 400; }
 
+.mobile-search i {
+  width: 25px;
+  height: 25px; }
+
 .mobile-search #readspeaker-play-button, .mobile-search #readspeaker-play-button:before {
   display: none; }
 
