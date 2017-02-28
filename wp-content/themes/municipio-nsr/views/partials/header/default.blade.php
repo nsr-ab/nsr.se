@@ -18,7 +18,7 @@
             @endif
             </li>
             <li>
-                <a class="waves-effect waves-light" href="#searchModal"><i translate="no" class="left material-icons search quickSearch">&#xE8B6;</i></a>
+                <a class="waves-effect waves-light" href="#searchModal"><i translate="no" class="notranslate left material-icons search quickSearch">&#xE8B6;</i></a>
             </li>
         </ul>
     </div>
