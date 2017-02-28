@@ -137,6 +137,10 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   background: #006c7c !important;
   color: #fff !important; }
 
+@media (max-width: 850px) {
+  .site-header {
+    height: 150px; } }
+
 .materialize-red {
   background-color: #e51c23 !important; }
 
