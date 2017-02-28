@@ -114,7 +114,7 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   font-size: 2.1rem;
   position: absolute;
   top: -34px;
-  right: -25px;
+  right: -20px;
   font-weight: 400; }
 
 .mobile-search #readspeaker-play-button, .mobile-search #readspeaker-play-button:before {
@@ -137,7 +137,8 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 
 .translate-icon-btn i {
   font-size: 1.6rem;
-  font-weight: 400; }
+  font-weight: 400;
+  margin-right: 3px; }
 
 .materialize-red {
   background-color: #e51c23 !important; }
