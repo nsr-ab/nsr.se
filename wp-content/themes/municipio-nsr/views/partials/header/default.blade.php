@@ -10,7 +10,6 @@
             <?php
 
                 ReadSpeakerHelper_playButton($classes = array(), 'icon');
-                ReadSpeakerHelper_player();
             ?>
         @endif
 

@@ -1,7 +1,11 @@
 @extends('templates.master')
 
 @section('content')
-
+    @if (function_exists('ReadSpeakerHelper_playButton'))
+        <?php
+        ReadSpeakerHelper_player();
+        ?>
+    @endif
     <div class="container main-container">
 
         @include('partials.breadcrumbs')
