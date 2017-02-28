@@ -38,7 +38,7 @@ $Bash, Composer och lämplig PHP IDE.. <br><br>
 --------------
 
 ###NSR VC Extended
-https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-vc-extended
+GIT: https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-vc-extended
 <br>
 Är en samling ad-dons kopplade till Visual Composer https://vc.wpbakery.com/
 <br>
@@ -50,15 +50,15 @@ https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-vc-extended
 •	Sök		- Koppling till Elastic Search, Elastic press och Fetchplanner <br><br>
 
 ####Beroenden:
-Visual Composer, Advanced Custom Fields, Elastic press, Fetchplanner, NSR Open hour.<br><br>
+<a href="https://vc.wpbakery.com/">Visual Composer</a>, <a href="https://www.advancedcustomfields.com/">Advanced Custom Fields Pro</a>, <a href="https://github.com/10up/ElasticPress">Elastic press</a>, <a href="http://www.bmsystem.se/produkter/fetchplanner/">Fetchplanner</a>, <a href="https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-open-hours">NSR Open hour</a>.<br><br>
 
 
 ###NSR Open Hours
-https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-open-hours <br><br>
+GIT: https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-open-hours <br><br>
 
 Lägg till olika städer/orter med länk till intern sida. <br>
 Det går att skapa undantag i öppettider för varje stad. Utvisning sker via NSR VC Extended eller widget.<br>
 
 ####Beroenden: 
-Advanced Custom fields, NSR VC Extended.<br>
+<a href="https://www.advancedcustomfields.com/">Advanced Custom Fields Pro</a>, <a href="https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-vc-extended">NSR VC Extended</a>.<br>
 
