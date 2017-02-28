@@ -7,10 +7,11 @@
     <div class="mobile-search ">
         <a class="waves-effect waves-light" href="#searchModal"><i class="left material-icons search quickSearch">search</i></a>
         @if (function_exists('ReadSpeakerHelper_playButton'))
-            <li>
-                <?php ReadSpeakerHelper_playButton($classes = array()); ?>
-            </li>
+            <?php ReadSpeakerHelper_playButton($classes = array(), true);
+                ReadSpeakerHelper_player()
+            ?>
         @endif
+
     </div>
 
     <div class="mobile-nav hidden-lg hidden-md ">
