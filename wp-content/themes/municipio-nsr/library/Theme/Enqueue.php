@@ -47,6 +47,9 @@ class Enqueue
     public function script()
     {
 
+        wp_deregister_script( 'hbg-prime' );
+        wp_enqueue_script('hbg-prime', get_stylesheet_directory_uri() . '/assets/dist/js/hbg-prime.min.js', '', filemtime(get_stylesheet_directory() . '/assets/dist/js/app.min.js'), true);
+
         apply_filters('Municipio/load-wp-jquery', true, 10, 2);
         wp_enqueue_script('Nsr-js', get_stylesheet_directory_uri() . '/assets/dist/js/app.min.js', '', filemtime(get_stylesheet_directory() . '/assets/dist/js/app.min.js'), true);
 

@@ -15,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="hbg-prime-green.min.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hbg-prime-green.min.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/municipio-nsr/assets/dist/css/hbg-prime-green.min.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="309856" lean-forward="false" selection-start-line="7" selection-start-column="309856" selection-end-line="7" selection-end-column="309856" />
+              <caret line="7" column="309780" lean-forward="false" selection-start-line="7" selection-start-column="309780" selection-end-line="7" selection-end-column="309780" />
               <folding>
                 <element signature="e#244149#245066#2" expanded="true" />
               </folding>
@@ -55,11 +55,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Enqueue.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Enqueue.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/municipio-nsr/library/Theme/Enqueue.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="33" column="129" lean-forward="true" selection-start-line="33" selection-start-column="129" selection-end-line="33" selection-end-column="129" />
+            <state relative-caret-position="283">
+              <caret line="50" column="36" lean-forward="false" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hbg-prime.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/municipio-nsr/assets/dist/js/hbg-prime.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="19785" lean-forward="false" selection-start-line="7" selection-start-column="19785" selection-end-line="7" selection-end-column="19785" />
               <folding />
             </state>
           </provider>
@@ -70,10 +80,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/municipio-nsr/assets/dist/css/hbg-prime-green.min.css" />
         <option value="$PROJECT_DIR$/municipio/library/Theme/Enqueue.php" />
         <option value="$PROJECT_DIR$/municipio-nsr/assets/dist/css/hbg-prime.min.css" />
+        <option value="$PROJECT_DIR$/municipio-nsr/assets/dist/js/hbg-prime.min.js" />
         <option value="$PROJECT_DIR$/municipio-nsr/library/Theme/Enqueue.php" />
+        <option value="$PROJECT_DIR$/municipio-nsr/assets/dist/css/hbg-prime-green.min.css" />
       </list>
     </option>
   </component>
@@ -88,8 +99,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1806" />
-    <option name="y" value="136" />
+    <option name="x" value="1913" />
+    <option name="y" value="82" />
     <option name="width" value="1412" />
     <option name="height" value="877" />
   </component>
@@ -222,6 +233,10 @@
               <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -245,7 +260,33 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app.js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="municipio-nsr" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -278,28 +319,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="municipio" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Theme" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -377,15 +396,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489652091267</updated>
-      <workItem from="1489652092644" duration="551000" />
+      <workItem from="1489652092644" duration="1915000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="551000" />
+    <option name="totallyTimeSpent" value="1915000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1806" y="136" width="1412" height="877" extended-state="0" />
+    <frame x="1913" y="82" width="1412" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -418,16 +437,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/municipio-nsr/assets/dist/css/hbg-prime-green.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="309856" lean-forward="false" selection-start-line="7" selection-start-column="309856" selection-end-line="7" selection-end-column="309856" />
-          <folding>
-            <element signature="e#244149#245066#2" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/municipio/library/Public.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -480,9 +489,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/municipio-nsr/library/Theme/Enqueue.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="33" column="129" lean-forward="true" selection-start-line="33" selection-start-column="129" selection-end-line="33" selection-end-column="129" />
+        <state relative-caret-position="283">
+          <caret line="50" column="36" lean-forward="false" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/municipio-nsr/assets/dist/js/hbg-prime.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="19785" lean-forward="false" selection-start-line="7" selection-start-column="19785" selection-end-line="7" selection-end-column="19785" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/municipio-nsr/assets/dist/css/hbg-prime-green.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="309780" lean-forward="false" selection-start-line="7" selection-start-column="309780" selection-end-line="7" selection-end-column="309780" />
+          <folding>
+            <element signature="e#244149#245066#2" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
