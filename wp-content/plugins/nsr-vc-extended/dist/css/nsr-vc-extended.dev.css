@@ -31,7 +31,7 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers) li:before {
   color: #007586; }
 
 .collapsible-header.wlink i {
-  color: #fff; }
+  color: #ffffff; }
 
 .collapsible .hasMargin {
   margin-bottom: -10px; }
@@ -168,12 +168,12 @@ input[type=text]:focus.invalid {
       display: table; } }
   .searchNSR .input-field input[type=search] {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    color: #ffffff;
     margin-top: 10px;
     padding-left: 4.5rem; }
   .searchNSR .input-field input[type=search]:focus {
     background-color: rgba(0, 0, 0, 0.2);
-    color: #fff; }
+    color: #ffffff; }
   .searchNSR .prefix {
     color: #2dbccd;
     left: 4.6rem;
@@ -212,7 +212,7 @@ input[type=text]:focus.invalid {
     background-color: #006875 !important;
     border: none; }
   .searchNSR span, .searchNSR p, .searchNSR a {
-    color: #fff !important; }
+    color: #ffffff !important; }
   .searchNSR.fullscreen {
     z-index: 9999;
     background-color: rgba(0, 0, 0, 0.5);
@@ -279,9 +279,9 @@ input[type=text]:focus.invalid {
       background-color: #016a77 !important; }
     .searchNSR .search-autocomplete tr:nth-child(even), .searchNSR .search-content tr:nth-child(even), .searchNSR .sorterings-guide-table tr:nth-child(even), .searchNSR .fp-table tr:nth-child(even), .searchNSR .fp-table-mobile tr:nth-child(even) {
       background-color: #018190 !important;
-      color: #fff !important; }
+      color: #ffffff !important; }
     .searchNSR .search-autocomplete tr:nth-child(odd), .searchNSR .search-content tr:nth-child(odd), .searchNSR .sorterings-guide-table tr:nth-child(odd), .searchNSR .fp-table tr:nth-child(odd), .searchNSR .fp-table-mobile tr:nth-child(odd) {
-      color: #fff !important;
+      color: #ffffff !important;
       background-color: #017886 !important; }
     .searchNSR .search-autocomplete li, .searchNSR .search-content li, .searchNSR .sorterings-guide-table li, .searchNSR .fp-table li, .searchNSR .fp-table-mobile li {
       font-size: .9em;
@@ -291,12 +291,12 @@ input[type=text]:focus.invalid {
         background-color: rgba(0, 0, 0, 0.2);
         box-shadow: none;
         text-decoration: none;
-        color: #fff !important; }
+        color: #ffffff !important; }
     .searchNSR .search-autocomplete li a, .searchNSR .search-content li a, .searchNSR .sorterings-guide-table li a, .searchNSR .fp-table li a, .searchNSR .fp-table-mobile li a {
       display: block;
       padding: 0px 0px;
       text-decoration: none !important;
-      color: #fff !important; }
+      color: #ffffff !important; }
       .searchNSR .search-autocomplete li a:hover, .searchNSR .search-content li a:hover, .searchNSR .sorterings-guide-table li a:hover, .searchNSR .fp-table li a:hover, .searchNSR .fp-table-mobile li a:hover {
         color: #90f3ff !important; }
     .searchNSR .search-autocomplete .meta-fraktion li a, .searchNSR .search-content .meta-fraktion li a, .searchNSR .sorterings-guide-table .meta-fraktion li a, .searchNSR .fp-table .meta-fraktion li a, .searchNSR .fp-table-mobile .meta-fraktion li a {
@@ -322,17 +322,26 @@ input[type=text]:focus.invalid {
         color: #90f3ff !important; }
   .searchNSR .streetCiy div {
     margin-top: -6px; }
-  .searchNSR .geoLink {
-    color: #fff;
-    font-weight: 600; }
+  .searchNSR .geoLink, .searchNSR .inlstallen a {
+    color: #ffffff;
+    font-weight: normal !important; }
+  .searchNSR .viewAllInlamning a {
+    font-weight: 600;
+    margin-top: 10px; }
   .searchNSR .geoLink:before {
-    color: #fff !important; }
-  .searchNSR .nofraktionlink.span > li {
-    border: 1px solid red; }
+    color: #ffffff !important; }
+  .searchNSR .nullLink {
+    padding-left: 15px; }
+  .searchNSR .nullLink:before {
+    font-family: Material Icons;
+    content: 'location_on' !important;
+    color: #016a77;
+    top: 0 !important;
+    left: 0 !important; }
   .searchNSR .search-autocomplete-content h5 {
     font-size: 1.64rem;
     margin: 0 0 0 0.8rem;
-    color: #fff !important; }
+    color: #ffffff !important; }
   .searchNSR .search-autocomplete-content .moreinfo {
     padding: 0 2rem 2rem 0;
     max-width: 650px !important;
@@ -356,7 +365,7 @@ input[type=text]:focus.invalid {
     float: none;
     padding: 3px 6px; }
   .searchNSR .badgeInfo {
-    color: #fff;
+    color: #ffffff;
     font-size: 0.9rem;
     margin-bottom: 10px !important; }
   .searchNSR .fp-table-mobile .badge {
@@ -395,16 +404,16 @@ input[type=text]:focus.invalid {
     .searchNSR .preSortCell {
       display: none; }
     .searchNSR .tabMobile {
-      display: block; }
+      display: -ms-grid;
+      display: grid; }
       .searchNSR .tabMobile th {
-        min-width: 92px;
         background-color: #016a77; }
       .searchNSR .tabMobile td {
         width: 100%;
         background-color: #017886 !important; }
       .searchNSR .tabMobiletr:nth-child(even), .searchNSR .tabMobiletr:nth-child(odd) {
         background-color: #017886 !important;
-        color: #fff !important; }
+        color: #ffffff !important; }
       .searchNSR .tabMobile.lastchild {
         border-bottom: 1px solid black;
         margin-bottom: 10px; }
@@ -414,12 +423,20 @@ input[type=text]:focus.invalid {
   .searchNSR .table-bordered tbody tr + tr, .searchNSR article table tbody tr + tr {
     box-shadow: none !important;
     border: none !important; }
-  .searchNSR .sorterings-guide-table ul, .searchNSR .sorterings-guide-table li {
+  .searchNSR .sorterings-guide-table ul, .searchNSR .sorterings-guide-table li, .searchNSR .sorterings-guide-table li a {
     border: none;
     list-style: disc;
     box-shadow: none;
     float: none;
     display: block; }
+  @media (max-width: 450px) {
+    .searchNSR .sorterings-guide-table ul, .searchNSR .sorterings-guide-table li {
+      display: inline-block; }
+    .searchNSR .tabMobile {
+      display: -ms-grid !important;
+      display: grid !important; }
+      .searchNSR .tabMobile ul {
+        margin-top: 0rem !important; } }
   .searchNSR .sorterings-guide-table li:hover {
     background: none !important; }
   .searchNSR .exnfodispl {
@@ -492,16 +509,16 @@ input[type=text]:focus.invalid {
       top: 210px; } }
   .searchNSR ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
-    color: #fff !important; }
+    color: #ffffff !important; }
   .searchNSR ::-moz-placeholder {
     /* Firefox 19+ */
-    color: #fff !important; }
+    color: #ffffff !important; }
   .searchNSR :-ms-input-placeholder {
     /* IE 10+ */
-    color: #fff !important; }
+    color: #ffffff !important; }
   .searchNSR :-moz-placeholder {
     /* Firefox 18- */
-    color: #fff !important; }
+    color: #ffffff !important; }
   .searchNSR .relative {
     position: relative; }
   .searchNSR .preloader-wrapper {
@@ -515,8 +532,8 @@ td, tr {
 
 .waitingForConnection {
   /*-webkit-animation: borderPulse 1s infinite alternate;
-  -moz-animation: borderPulse 1s infinite alternate;
-  -animation: borderPulse 1s infinite alternate;*/ }
+    -moz-animation: borderPulse 1s infinite alternate;
+    -animation: borderPulse 1s infinite alternate;*/ }
 
 .progress {
   height: 1px !important;
@@ -546,10 +563,13 @@ td, tr {
     left: 48px;
     right: auto; }
   .searchArea .spinner-layer {
-    border-color: #fff !important; } }
+    border-color: #ffffff !important; } }
 
 .viewAllInlamning {
   margin-top: 20px; }
+  @media (max-width: 450px) {
+    .viewAllInlamning {
+      display: block !important; } }
 
 .viewAllInlamning:before {
   font-family: 'Material Icons';

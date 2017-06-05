@@ -653,7 +653,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
 
-                sortHTML += '<tr class="tabMobile"><th>Avfall:</th><td valign="top">' + spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td></tr>';
+                sortHTML += '<tr class="tabMobile"><th class="col s12">Avfall:</th><td valign="top col s12">' + spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td></tr>';
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">' + spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td><td valign="top">';
 
                 if (spost.terms) {
@@ -713,7 +713,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var latlong = '';
                             var latlongID = '';
                             var locationmap;
-
+                            var setNonLink = '';
                             for (lint = 0; lint < spost.terms.inlamningsstallen[int].length; lint++) {
 
 
@@ -746,9 +746,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 if (lint > 5)
                                     hideStuff = 'hide';
                                 if (spost.terms.inlamningsstallen[int][lint]['city'] != null) {
-                                    sortHTML += '<li '+latlongID+' '+latlong+' class=" '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                    tabMobile_inl += '<li id="'+latlongID+'" '+latlong+' class=" '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    if(!inlLink)
+                                        setNonLink = 'nullLink';
+                                    sortHTML += '<li '+latlongID+' '+latlong+' class="'+setNonLink+' '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    tabMobile_inl += '<li id="'+latlongID+'" '+latlong+' class="'+setNonLink+' '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
+                                nullLink = '';
                                 locationmap = '';
                                 hideStuff = '';
                                 inlineClick = '';
@@ -766,8 +769,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td>';
                 sortHTML += '</tr>';
-                sortHTML += '<tr class="tabMobile"><th>Sorteras:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
-                sortHTML += '<tr class="tabMobile lastchild"><th>Lämnas:</th><td>' + spinner + '<ul>' + tabMobile_inl + '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td></tr>';
+                sortHTML += '<tr class="tabMobile"><th class="col s12">Sorteras:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
+                sortHTML += '<tr class="tabMobile lastchild"><th class="col s12">Lämnas:</th><td>' + spinner + '<ul>' + tabMobile_inl + '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td></tr>';
 
                 tabMobile_frak = "";
                 tabMobile_inl = "";
@@ -952,7 +955,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
                     winners[index] = dif;
                     cities[ind][index][3] = dif;
-                    //console.log("Stad: "+cities[ind][index][0] + ", Dif från avstånd (Minsta vinner):"+dif);
                 }
 
                 for (index = 0; index < cities[ind].length; ++index) {
@@ -960,7 +962,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     var thewinner = Extended.prototype.findClosest(winners);
                     if(thewinner === cities[ind][index][3]){
                         var cordID = cities[ind][index][4];
-                        console.log(cordID);
                         $('#'+cordID).addClass('closeToHome');
                     }
                     thewinner = null;
