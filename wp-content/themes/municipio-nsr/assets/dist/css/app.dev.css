@@ -6815,7 +6815,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   top: 10px;
   z-index: 999; }
   .mob .material-icons, .mobile-search .material-icons, .mobile-nav .material-icons {
-    font-size: 36px !important; }
+    font-size: 36px; }
+    .mob .material-icons.translate-icon-btn, .mobile-search .material-icons.translate-icon-btn, .mobile-nav .material-icons.translate-icon-btn {
+      font-size: 30px; }
 
 .mob h6 {
   margin-left: 22px; }
@@ -6886,6 +6888,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-size: 36px !important;
     position: absolute;
     top: 13px; }
+    .side-nav .material-icons.translate-icon-btn {
+      font-size: 30px; }
     .side-nav .material-icons.close {
       right: 26px; }
     .side-nav .material-icons.search {
@@ -7045,6 +7049,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 .is-child-theme {
   /* Text rendering - dont set on div or html element - sticky nav will crash with 3d translate*/
+  /* Icon fixes */
   /* Structure fix */
   /* Move later */
   /* Firefox < 16 */
@@ -7162,6 +7167,14 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
             transform: translate3d(0, 0, 0); }
   .is-child-theme blockquote {
     color: #393939; }
+  .is-child-theme .share li {
+    float: left; }
+  .is-child-theme .share .share-horizontal > li {
+    position: relative;
+    bottom: 0px; }
+  .is-child-theme .share .fa {
+    font-size: 22px;
+    margin: 0; }
   .is-child-theme .site-header {
     background-color: #f6f6f6;
     border-bottom: 1px solid #dddddd; }

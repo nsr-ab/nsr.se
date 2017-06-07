@@ -135,3 +135,19 @@ a, p, label, input,
 blockquote {
     color:$palette-primary-darkgrey;
 }
+
+/* Icon fixes */
+.share {
+    li {
+        float:left;
+    }
+    .share-horizontal > li {
+        position: relative;
+        bottom: 0px;
+    }
+    .fa {
+        font-size: 22px;
+        margin: 0;
+
+    }
+}

@@ -7,7 +7,7 @@
     <div class="mobile-search">
         <ul class="acc-helper-menu">
             <li>
-                <a href="#translate" class="translate-icon-btn" aria-label="translate"><i class="pricon pricon-globe"></i></a>
+                <a href="#translate" aria-label="translate"><i class="material-icons translate-icon-btn">language</i></a>
             </li>
             <li>
                 <a class="waves-effect waves-light" href="#searchModal"><i translate="no" class="notranslate left material-icons search quickSearch">&#xE8B6;</i></a>
