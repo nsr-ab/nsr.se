@@ -718,7 +718,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
 
-                                if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
+                                if (spost.terms.inlamningsstallen[int][lint]['pageurl'] && spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
 
                                     if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int][lint]['pageurl'], '?page_id=') === 0) {
                                         inlLink = '<a href="' + spost.terms.inlamningsstallen[int][lint]['pageurl'] + '">';
@@ -732,6 +732,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                         }
                                     }
                                 }
+                                
                                 if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
                                     latlong = 'data-lat="'+spost.terms.inlamningsstallen[int][lint]['lat']+'" data-long="'+spost.terms.inlamningsstallen[int][lint]['long']+'"';
                                     latlongID = Extended.prototype.hashCode('id_'+int+lint+'_'+spost.terms.inlamningsstallen[int][lint]['lat'] + spost.terms.inlamningsstallen[int][lint]['long']);
