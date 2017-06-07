@@ -228,7 +228,7 @@ class App
     public function fetchDataFromFetchPlanner()
     {
         $collection = new \VcExtended\Library\Helper\Collection();
-        $data = self::fetchPlansByCurl('/GetPickupDatabyName?pickupName=' . trim(urlencode($_GET['query'])) . '&maxCount=5');
+        $data = self::fetchPlansByCurl('/GetPickupDatabyName?pickupName=' . trim(urlencode($_GET['query'])) . '&maxCount=50');
 
         $executeDates['fp'] = array();
         $colData['fp'] = array();
@@ -252,7 +252,7 @@ class App
 
                 if ($collect === false) {
 
-                    $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=20&DateEnd=' . $stopDate);
+                    $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=40&DateEnd=' . $stopDate);
                     $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
 
                     $colData['fp'][$int]['id'] = $fpId;

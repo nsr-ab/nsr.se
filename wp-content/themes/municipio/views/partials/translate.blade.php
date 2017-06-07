@@ -7,7 +7,11 @@
                     You can use Google Translate to translate the contents of {{ explode('://', get_site_url())[1] }}. To do that, select the language you would like to translate into in the lost below.
                     <br><small>Please bear in mind, since the Google Translate is an automatically generated translation, we do not take any responsibility for errors in the text.</small>
                 </p>
-                <div id="google-translate-element" class="gutter gutter-vertical"></div>
+                <div id="google_translate_element"></div><script type="text/javascript">
+                    function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({pageLanguage: 'sv', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, gaTrack: true, gaId: 'UA-92267061-1'}, 'google_translate_element');
+                    }
+                </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                 <a href="#" class="btn btn-primary">Close</a>
             </div>
         </div>
