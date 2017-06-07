@@ -721,21 +721,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
 
                                     if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int][lint]['pageurl'], '?page_id=') === 0) {
-                                        inlLink = '<a href="' + spost.terms.inlamningsstallen[int][lint]['pageurl'] + '">';
-                                        inLinkClose = '</a>';
-                                        locationmap = 'locationmap';
-                                    }
-                                    else {
-                                        if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
-                                            inlineClick = ' data-url="http://maps.google.com?q=' + spost.terms.inlamningsstallen[int][lint]['lat'] + ',' + spost.terms.inlamningsstallen[int][lint]['long'] + '" ';
-                                            locationmap = 'locationmap';
-                                        }
-                                    }
-                                }
-
-                                /*if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
-
-                                    if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int][lint]['pageurl'], '?page_id=') === 0) {
                                         if(!spost.terms.inlamningsstallen[int][lint]['lat'] && !spost.terms.inlamningsstallen[int][lint]['long']) {
                                             inlLink = '';
                                             inLinkClose = '';
@@ -753,7 +738,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                             locationmap = 'locationmap';
                                         }
                                     }
-                                }*/
+                                }
 
 
                                 if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
@@ -1039,6 +1024,5 @@ VcExtended.NSRExtend.Extended = (function ($) {
     return new Extended;
 
 })(jQuery);
-
 
 

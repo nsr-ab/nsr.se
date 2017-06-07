@@ -359,7 +359,7 @@ class CustomPostTypes
                             'id' => '',
                         ),
                     ),
-                    /*array (
+                    array (
                         'default_value' => '',
                         'placeholder' => '',
                         'key' => 'field_1234D45',
@@ -374,7 +374,7 @@ class CustomPostTypes
                             'class' => '',
                             'id' => '',
                         ),
-                    ),*/
+                    ),
                 ),
                 'location' => array (
                     array (

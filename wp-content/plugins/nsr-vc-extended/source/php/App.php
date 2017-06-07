@@ -8,10 +8,12 @@
  * Company: HIQ
  *
  */
+
 namespace VcExtended;
 class App
 {
     public $collection;
+
     public function __construct()
     {
         /**
@@ -98,6 +100,7 @@ class App
         add_action('wp_ajax_nopriv_fetchDataFromFetchPlanner', array($this, 'fetchDataFromFetchPlanner'));
         add_action('wp_ajax_fetchDataFromFetchPlanner', array($this, 'fetchDataFromFetchPlanner'));
     }
+
     /**
      * Show Notice if Visual Composer is activated or not.
      * @return string
@@ -109,6 +112,7 @@ class App
           <p>' . __('<strong>NSR Visual Composer Extended</strong> requires <strong><a href="http://bit.ly/vcomposer" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', 'nsr-vc-extended') . '</p>
         </div>';
     }
+
     /**
      * Unique result
      * @param array
@@ -124,6 +128,7 @@ class App
         }
         return array_values($temp_array);
     }
+
     /**
      * Unique id
      * @param int
@@ -133,6 +138,7 @@ class App
     {
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyz"), 0, $l);
     }
+
     /**
      * Get data from fetchplanner
      * @param string
@@ -149,6 +155,7 @@ class App
         curl_close($fetchplanner_curl);
         return json_decode($response);
     }
+
     /**
      * Set correct date format
      * @param string
@@ -160,6 +167,7 @@ class App
         $date = ($date / 1000);
         return date("Y-m-d", strtotime(substr(strtok(date("Y-m-d H:m", $date), ":"), 0, -2) . '+1 day'));
     }
+
     /**
      * Set correct date format
      * @param string
@@ -212,6 +220,7 @@ class App
         }
         return $type;
     }
+
     /**
      *  fetchDataFromFetchPlanner
      *  Get data from Fetchplanners API
@@ -284,6 +293,7 @@ class App
         wp_send_json($executeDates);
         exit;
     }
+
     /**
      *  fetch_data
      *  Get data from Elastic Search
@@ -326,14 +336,14 @@ class App
                     $fraktionTermlink = get_term_meta(intval($fraktion[1]));
 
                     $fraktionTermPageLink = get_page_link($fraktionTermlink['fraktion_page_link'][0]);
-                    /*$extLink = $fraktionTermlink['fraktion_extern_link'][0];
+
+                    $extLink = $fraktionTermlink['fraktion_extern_link'][0];
 
                     if ($extLink) {
                         $fraktionTermPageLink = $extLink;
-
                     } else {
                         $fraktionTermPageLink = get_page_link($fraktionTermlink['fraktion_page_link'][0]);
-                    }*/
+                    }
 
                     if (strpos($fraktionTermPageLink, '?page_id=') !== false)
                         $fraktionTermPageLink = false;
@@ -342,6 +352,7 @@ class App
                     } else {
                         $termName = "<span class='nofraktionlink'>" . $getFraktionTerm->name . "</span>";
                     }
+
                     if ($fraktion[0] === 'avc')
                         $result['sortguide'][$metaInt]->post_meta['fraktion_avc']['name'] = $termName;
                     if ($fraktion[0] === 'hemma')
@@ -365,10 +376,9 @@ class App
                         $termInlamningsstalle = get_term($termLocID, 'inlamningsstallen');
                         $getTerm = get_term_meta($termLocID);
                         $externUrl = $getTerm['fraktion_extern_page_link'];
-                        if($externUrl) {
+                        if ($externUrl) {
                             $termPageLink = $externUrl;
-                        }
-                        else {
+                        } else {
                             $termPageLink = get_page_link(intval($getTerm['fraktion_page_link'][0]));
                         }
                         if (!in_array($termInlamningsstalle->term_id, $checkDupes)) {
