@@ -718,12 +718,19 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
 
-                                if (spost.terms.inlamningsstallen[int][lint]['pageurl'] && spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
+                                if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
 
                                     if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int][lint]['pageurl'], '?page_id=') === 0) {
-                                        inlLink = '<a href="' + spost.terms.inlamningsstallen[int][lint]['pageurl'] + '">';
-                                        inLinkClose = '</a>';
-                                        locationmap = 'locationmap';
+                                        if(!spost.terms.inlamningsstallen[int][lint]['lat'] && !spost.terms.inlamningsstallen[int][lint]['long']) {
+                                            inlLink = '';
+                                            inLinkClose = '';
+                                            locationmap = '';
+                                        }
+                                        else {
+                                            inlLink = '<a href="' + spost.terms.inlamningsstallen[int][lint]['pageurl'] + '">';
+                                            inLinkClose = '</a>';
+                                            locationmap = 'locationmap';
+                                        }
                                     }
                                     else {
                                         if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
