@@ -311,9 +311,6 @@ class CustomPostTypes
             "show_in_quick_edit" => true,
         );
         register_taxonomy( "inlamningsstallen", array( "inlamningsstallen" ), $args );
-
-
-
         if( function_exists('acf_add_local_field_group') ):
             acf_add_local_field_group(array (
                 'key' => 'group_586cd2a01195f',
@@ -362,8 +359,7 @@ class CustomPostTypes
                             'id' => '',
                         ),
                     ),
-
-                    array (
+                    /*array (
                         'default_value' => '',
                         'placeholder' => '',
                         'key' => 'field_1234D45',
@@ -378,8 +374,7 @@ class CustomPostTypes
                             'class' => '',
                             'id' => '',
                         ),
-                    ),
-
+                    ),*/
                 ),
                 'location' => array (
                     array (
@@ -399,9 +394,7 @@ class CustomPostTypes
                 'active' => 1,
                 'description' => '',
             ));
-
-
-        acf_add_local_field_group(array (
+            acf_add_local_field_group(array (
                 'key' => 'group_586ccede33e92',
                 'title' => 'Inlämningsställen - Koppling Fraktioner',
                 'fields' => array (
