@@ -325,14 +325,15 @@ class App
                     $getFraktionTerm = get_term(intval($fraktion[1]));
                     $fraktionTermlink = get_term_meta(intval($fraktion[1]));
 
-                    $extLink = $fraktionTermlink['fraktion_extern_link'][0];
+                    $fraktionTermPageLink = get_page_link($fraktionTermlink['fraktion_page_link'][0]);
+                    /*$extLink = $fraktionTermlink['fraktion_extern_link'][0];
 
                     if ($extLink) {
                         $fraktionTermPageLink = $extLink;
 
                     } else {
                         $fraktionTermPageLink = get_page_link($fraktionTermlink['fraktion_page_link'][0]);
-                    }
+                    }*/
 
                     if (strpos($fraktionTermPageLink, '?page_id=') !== false)
                         $fraktionTermPageLink = false;
