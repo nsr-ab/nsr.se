@@ -228,19 +228,23 @@ class App
     public function fetchDataFromFetchPlanner()
     {
         $collection = new \VcExtended\Library\Helper\Collection();
-        $data = self::fetchPlansByCurl('/GetPickupDataByAddress?pickupAddress=' . trim(urlencode($_GET['query'])) . '&maxCount=5');
+        $data = self::fetchPlansByCurl('/GetPickupDatabyName?pickupName=' . trim(urlencode($_GET['query'])) . '&maxCount=5');
+
         $executeDates['fp'] = array();
         $colData['fp'] = array();
+
         $int = 0;
         $todaysDate = date('Y-m-d');
         $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
         $countCities = 0;
         $checkCityDupes = array();
+
         foreach ($data->d as $item) {
             if (!in_array($item->PickupCity, $checkCityDupes))
                 array_push($checkCityDupes, $item->PickupCity);
             $countCities++;
         }
+
         foreach ($data->d as $item) {
             if (in_array($item->PickupCity, $checkCityDupes)) {
                 $fpId = self::gen_uid($item->PickupId);
@@ -252,6 +256,7 @@ class App
                     $colData['fp'][$int]['Adress'] = $item->PickupAddress;
                     $colData['fp'][$int]['Ort'] = ucfirst(mb_strtolower($item->PickupCity));
                     $fInt = 0;
+
                     foreach ($fpData->d as $fpItem) {
                         foreach ($containerData->d as $contInfo) {
                             if ($contInfo->ContainerId === $fpItem->ContainerId) {

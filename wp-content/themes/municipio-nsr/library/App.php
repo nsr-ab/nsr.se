@@ -1,4 +1,5 @@
 <?php
+
 namespace Nsr;
 
 use Nsr\Theme\NSRTemplates;
@@ -21,32 +22,35 @@ class App
         new \Nsr\Theme\CustomPostTypesMetaSidebar();
         new \Nsr\Theme\MetaboxBackgroundColor();
 
-        add_filter( 'tiny_mce_before_init', array( $this,'nsrFormatTinyMCE' ) );
+        add_filter('tiny_mce_before_init', array($this, 'nsrFormatTinyMCE'));
+        add_filter('tiny_mce_before_init', array($this, 'customTinymceConfig'));
 
-        add_action( 'after_setup_theme', array( $this, 'nsr_theme_setup' ) );
-        add_action( 'init', array( $this,'add_excerpts_to_pages' ) );
+        add_action('after_setup_theme', array($this, 'nsrThemeSetup'));
+        add_action('init', array($this, 'addExcerptsToPages'));
 
-        add_action( 'admin_menu', array( $this,'nsr_change_post_label' ) );
-        add_action( 'init', array( $this,'nsr_change_post_object' ) );
+        add_action('admin_menu', array($this, 'nsrChangePostLabel'));
+        add_action('init', array($this, 'nsrChangePostObject'));
 
-        add_action( 'init', array($this,'add_taxonomies_to_pages') );
-        if ( ! is_admin() ) {
-            add_action( 'pre_get_posts', array($this,'category_and_tag_archives') );
+        add_action('init', array($this, 'addTaxonomiesToPages'));
+
+        if (!is_admin()) {
+            add_action('pre_get_posts', array($this, 'categoryAndTagArchives'));
         }
 
-        add_filter( 'image_size_names_choose', array($this,'nsr_image_sizes') );
-        add_action('after_setup_theme', array( $this,'create_pages') );
 
-        if ( is_admin() ) {
+        add_filter('image_size_names_choose', array($this, 'nsr_image_sizes'));
+        add_action('after_setup_theme', array($this, 'createPages'));
+
+        if (is_admin()) {
             define('ALLOW_UNFILTERED_UPLOADS', true);
         }
 
 
-        add_filter( 'login_headerurl', array( $this,'login_logo_url') );
+        add_filter('login_headerurl', array($this, 'loginLogoUrl'));
 
 
         $this->customRedirects();
-        $this->image_size();
+        $this->imageSize();
         $this->setBackgroundClass();
 
 
@@ -55,20 +59,20 @@ class App
     /**
      *  Image size
      *  Adding sizes
-     *  @return void
+     * @return void
      */
-    public function image_size()
+    public function imageSize()
     {
-        add_image_size( 'Bild-till-puff', 757, 267, true );
-        add_image_size( 'Header 2 col', 821, 201, true );
-        add_image_size( 'Header full', 1250, 201, true );
-        add_image_size( 'Puff med länk', 620, 300, true );
-        add_image_size( 'Puff med meny', 991, 264, true );
+        add_image_size('Bild-till-puff', 757, 267, true);
+        add_image_size('Header 2 col', 821, 201, true);
+        add_image_size('Header full', 1250, 201, true);
+        add_image_size('Puff med länk', 620, 300, true);
+        add_image_size('Puff med meny', 991, 264, true);
     }
 
 
-
-    function fix_svg_thumb_display() {
+    function fix_svg_thumb_display()
+    {
         echo '
             td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail { 
               width: 100% !important; 
@@ -81,34 +85,31 @@ class App
     /**
      *  nsr_theme_setup
      *  Adding language file
-     *  @return void
+     * @return void
      */
-    public function nsr_theme_setup()
+    public function nsrThemeSetup()
     {
-        load_child_theme_textdomain( 'nsr', get_stylesheet_directory() . '/languages' );
+        load_child_theme_textdomain('nsr', get_stylesheet_directory() . '/languages');
     }
 
 
     /**
      *  add_excerpts_to_pages
      *  Adding Excerpts to page
-     *  @return void
+     * @return void
      */
-    public function add_excerpts_to_pages()
+    public function addExcerptsToPages()
     {
-        add_post_type_support( 'page', 'excerpt' );
+        add_post_type_support('page', 'excerpt');
     }
-
-
 
     /**
      *  nsr_change_post_label
      *  Change designation post to news
-     *  @return void
+     * @return void
      */
-    function nsr_change_post_label()
+    function nsrChangePostLabel()
     {
-
         global $menu;
         global $submenu;
 
@@ -122,9 +123,9 @@ class App
     /**
      *  nsr_change_post_object
      *  Change designation post to news
-     *  @return void
+     * @return void
      */
-    function nsr_change_post_object()
+    function nsrChangePostObject()
     {
         global $wp_post_types;
         $labels = &$wp_post_types['post']->labels;
@@ -147,29 +148,29 @@ class App
     /**
      *  add_taxonomies_to_pages
      *  Adding categories and tags to pages
-     *  @return void
+     * @return void
      */
-    function add_taxonomies_to_pages()
+    function addTaxonomiesToPages()
     {
-        register_taxonomy_for_object_type( 'post_tag', 'page' );
-        register_taxonomy_for_object_type( 'category', 'page' );
+        register_taxonomy_for_object_type('post_tag', 'page');
+        register_taxonomy_for_object_type('category', 'page');
     }
 
 
     /**
      *  category_and_tag_archives
      *  Adding categories and tags to pages
-     *  @return void
+     * @return void
      */
-    function category_and_tag_archives( $wp_query )
+    function categoryAndTagArchives($wp_query)
     {
-        $my_post_array = array('post','page');
+        $my_post_array = array('post', 'page');
 
-        if ( $wp_query->get( 'category_name' ) || $wp_query->get( 'cat' ) )
-            $wp_query->set( 'post_type', $my_post_array );
+        if ($wp_query->get('category_name') || $wp_query->get('cat'))
+            $wp_query->set('post_type', $my_post_array);
 
-        if ( $wp_query->get( 'tag' ) )
-            $wp_query->set( 'post_type', $my_post_array );
+        if ($wp_query->get('tag'))
+            $wp_query->set('post_type', $my_post_array);
     }
 
 
@@ -180,32 +181,31 @@ class App
      */
     public function customRedirects()
     {
-
-        add_filter( 'wp_redirect',
-            function( $location ){
+        add_filter('wp_redirect',
+            function ($location) {
                 $args = array(
-                    'public'   => true,
+                    'public' => true,
                     '_builtin' => true
 
                 );
                 $taxonomy = get_taxonomies($args);
-                foreach ($taxonomy  as $mytaxonomy) {
+                foreach ($taxonomy as $mytaxonomy) {
                     $args = array(
-                        'action'   => FILTER_SANITIZE_STRING,
+                        'action' => FILTER_SANITIZE_STRING,
                         'taxonomy' => FILTER_SANITIZE_STRING,
-                        'tag_ID'   => FILTER_SANITIZE_NUMBER_INT,
+                        'tag_ID' => FILTER_SANITIZE_NUMBER_INT,
                     );
-                    $_inputs    = filter_input_array( INPUT_POST, $args );
-                    $_post_type = filter_input( INPUT_GET, 'post_type', FILTER_SANITIZE_STRING );
-                    if( 'editedtag' === $_inputs['action']
+                    $_inputs = filter_input_array(INPUT_POST, $args);
+                    $_post_type = filter_input(INPUT_GET, 'post_type', FILTER_SANITIZE_STRING);
+                    if ('editedtag' === $_inputs['action']
                         or $mytaxonomy === $_inputs['taxonomy']
                         or $_inputs['tag_ID'] > 0
-                    ){
-                        $location = add_query_arg( 'action',   'edit',               $location );
-                        $location = add_query_arg( 'taxonomy', $_inputs['taxonomy'], $location );
-                        $location = add_query_arg( 'tag_ID',   $_inputs['tag_ID'],   $location );
-                        if( $_post_type )
-                            $location = add_query_arg( 'post_type', $_post_type, $location );
+                    ) {
+                        $location = add_query_arg('action', 'edit', $location);
+                        $location = add_query_arg('taxonomy', $_inputs['taxonomy'], $location);
+                        $location = add_query_arg('tag_ID', $_inputs['tag_ID'], $location);
+                        if ($_post_type)
+                            $location = add_query_arg('post_type', $_post_type, $location);
                     }
                     return $location;
                 }
@@ -214,17 +214,16 @@ class App
     }
 
 
-
     /**
      * create_404_page / saerch_page
      * Insert a privately published page we can query for our 404/Search page
      * @return location
      */
-    function create_pages() {
+    function createPages()
+    {
+        $pages = array('404', 'Sok');
 
-        $pages = array('404','Sok');
-
-        foreach($pages as $newPage) {
+        foreach ($pages as $newPage) {
 
             $page_exists = get_page_by_title($newPage);
             if (!isset($page_exists->ID)) {
@@ -246,12 +245,11 @@ class App
                 // The insert was successful
                 if ($insert) {
                     // Store the value of our 404/Search page
-                    update_option($newPage.'pageid', (int)$insert);
+                    update_option($newPage . 'pageid', (int)$insert);
                 }
             }
         }
     }
-
 
 
     /**
@@ -259,11 +257,10 @@ class App
      * changing Login logo url
      * @return home address
      */
-    function login_logo_url() {
-
+    function loginLogoUrl()
+    {
         return home_url();
     }
-
 
 
     /**
@@ -271,13 +268,20 @@ class App
      * Adding css class to body
      * @return location
      */
-    function setBackgroundClass(){
+    function setBackgroundClass()
+    {
         $nsrCss = new \Nsr\Theme\NSRTemplates();
         $nsrCss->setBackgroundColor();
     }
 
 
-    function nsrFormatTinyMCE( $in ) {
+    /**
+     * nsrFormatTinyMCE
+     * Adding special conf to tiny MCE
+     * @return conf
+     */
+    function nsrFormatTinyMCE($in)
+    {
 
         $in['content_css'] = get_stylesheet_directory_uri() . "/editor-style.css";
         $in['block_formats'] = "Stycke=p; Rubrik 1=h2; Rubrik 2=h3; Ingress=h5;";
@@ -285,8 +289,21 @@ class App
         return $in;
     }
 
+    /**
+     * custom_tinymce_config
+     * Adding special conf to tiny MCE
+     * @return conf
+     */
+    public function customTinymceConfig($init)
+    {
 
+        $init['remove_linebreaks'] = false;
+        $init['convert_newlines_to_brs'] = true;
+        $init['remove_redundant_brs'] = false;
 
+        // Pass $init back to WordPress
+        return $init;
+    }
 
 
 }
