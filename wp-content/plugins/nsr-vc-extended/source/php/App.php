@@ -249,9 +249,12 @@ class App
             if (in_array($item->PickupCity, $checkCityDupes)) {
                 $fpId = self::gen_uid($item->PickupId);
                 $collect = $collection->getItem($fpId);
+
                 if ($collect === false) {
+
                     $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=20&DateEnd=' . $stopDate);
                     $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
+
                     $colData['fp'][$int]['id'] = $fpId;
                     $colData['fp'][$int]['Adress'] = $item->PickupAddress;
                     $colData['fp'][$int]['Ort'] = ucfirst(mb_strtolower($item->PickupCity));
@@ -284,6 +287,7 @@ class App
                 $executeDates['fp'][$int]['id'] = $collect->fp[$int]->id;
                 $executeDates['fp'][$int]['Adress'] = $collect->fp[$int]->Adress;
                 $executeDates['fp'][$int]['Ort'] = $collect->fp[$int]->Ort;
+
                 for ($fpInt = 0; $fpInt < count($collect->fp[$int]->Exec->Datum); $fpInt++) {
                     $executeDates['fp'][$int]['Exec']['Datum'][$fpInt] = $collect->fp[$int]->Exec->Datum[$fpInt];
                     $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fpInt] = $collect->fp[$int]->Exec->DatumFormaterat[$fpInt];
@@ -316,10 +320,12 @@ class App
         if ($result['sortguide']) {
             for ($metaInt = 0; $metaInt < count($result['sortguide']); $metaInt++) {
                 for ($int1 = 0; $int1 < count($result['sortguide'][$metaInt]->post_meta['avfall_fraktion']); $int1++) {
+
                     $termId = maybe_unserialize($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][$int1]);
                     $getTerm = get_term(intval($termId[$int1]));
                     $termlink = get_term_meta(intval($termId[$int1]));
                     $termPageLink = get_page_link($termlink['fraktion_page_link'][0]);
+
                     if ($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][0]) {
                         if (strpos($termPageLink, '?page_id=') !== false)
                             $termPageLink = false;
@@ -337,6 +343,7 @@ class App
             for ($metaInt = 0; $metaInt < count($result['sortguide']); $metaInt++) {
                 $frakt = array(array('avc', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_avc'][0]), array('hemma', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]));
                 foreach ($frakt as $fraktion) {
+
                     $getFraktionTerm = get_term(intval($fraktion[1]));
                     $fraktionTermlink = get_term_meta(intval($fraktion[1]));
 
@@ -374,9 +381,11 @@ class App
                 $fraktionsInt = 0;
                 $checkDupes = array();
                 foreach ($result['sortguide'][$metaInt]->terms['fraktioner'] as $termsFraktion) {
+
                     $fraktId = $termsFraktion['term_id'];
                     $termObject = get_field('fraktion_inlamningsstallen', 'fraktioner_' . $fraktId);
                     $lint = 0;
+
                     foreach ($termObject as $termLocID) {
                         $termInlamningsstalle = get_term($termLocID, 'inlamningsstallen');
                         $getTerm = get_term_meta($termLocID);

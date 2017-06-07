@@ -7,7 +7,6 @@
  *
  * Author: Johan Silvergrund
  * Company: HIQ
-
  * -- ThumbnailAndTextarea --
  * A Visual composer ad-don to create content etc.
  *
@@ -22,7 +21,7 @@ class ThumbnailAndTextarea
     {
         add_action('init', array($this, 'integrateWithVC'));
         add_shortcode('nsr_thumb_link_desc', array($this, 'renderExtend'));
-        add_image_size( 'nsr-square-front-size', 620, 300 );
+        add_image_size('nsr-square-front-size', 620, 300);
     }
 
 
@@ -37,7 +36,7 @@ class ThumbnailAndTextarea
             /** @Param Designation parameter */
             array(
                 'admin_label' => true,
-                'type'      => 'textfield',
+                'type' => 'textfield',
                 'heading' => __('Designation', 'nsr-vc-extended'),
                 'param_name' => 'vc_designation',
                 'edit_field_class' => 'vc_col-sm-9 vc_col-md-9',
@@ -49,7 +48,7 @@ class ThumbnailAndTextarea
             array(
 
                 'admin_label' => false,
-                'type'      => 'attach_image',
+                'type' => 'attach_image',
                 'heading' => __('Image', 'nsr-vc-extended'),
                 'param_name' => 'vc_image',
                 'edit_field_class' => 'vc_col-sm-4 vc_col-md-4',
@@ -85,9 +84,9 @@ class ThumbnailAndTextarea
 
             /** @Param Html area */
             array(
-                'type'        => 'textarea_html',
-                'heading'     => __( 'Content', 'nsr-vc-extended' ),
-                'param_name'  => 'content',
+                'type' => 'textarea_html',
+                'heading' => __('Content', 'nsr-vc-extended'),
+                'param_name' => 'content',
                 'description' => 'Lite beskrivande text',
             ),
 
@@ -115,13 +114,12 @@ class ThumbnailAndTextarea
                 'controls' => 'full',
                 'icon' => 'vc_general vc_element-icon icon-wpb-ui-accordion',
                 'category' => __('NSR', 'js_composer'),
-                'icon' => plugins_url( 'nsr-vc-extended/dist/img/icn_puff_link.svg' ),
-                'admin_enqueue_css' => array( plugins_url( 'nsr-vc-extended/dist/css/nsr-vc-extended-admin.min.css' ) ),
+                'icon' => plugins_url('nsr-vc-extended/dist/img/icn_puff_link.svg'),
+                'admin_enqueue_css' => array(plugins_url('nsr-vc-extended/dist/css/nsr-vc-extended-admin.min.css')),
                 'params' => $this->params()
             )
         );
     }
-
 
 
     /**
@@ -138,10 +136,9 @@ class ThumbnailAndTextarea
         $params['vc_border_colors'] = isset($atts['vc_border_colors']) ? $atts['vc_border_colors'] : null;
         $params['content'] = isset($content) ? $content : null;
 
-        return $this->renderMarkup($param = (object) $params);
+        return $this->renderMarkup($param = (object)$params);
 
     }
-
 
 
     /**
@@ -152,24 +149,40 @@ class ThumbnailAndTextarea
      */
     public function renderMarkup($params)
     {
-
-        $vc_border_colors = isset($params->vc_border_colors)  ? " style=\"border-top:3px solid ".$params->vc_border_colors .";\" " : null;
-
-        $output = "<div id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" ". $vc_border_colors ." class=\"card hoverable small\" >";
-        $output .= "<div class=\"card-image\">";
-        if( isset($params->vc_image) )
-            $output .= wp_get_attachment_image( $params->vc_image, $size = 'nsr-rect-front-size', $icon = false, $attr = '' );
-        $output .= "</div>";
-        $output .= "<div class=\"card-content\">";
-
-        if(isset($params->vc_pagelink)) {
+        $output = "";
+        if (isset($params->vc_pagelink))
             $href = vc_build_link($params->vc_pagelink);
-            $output .= "<h4><a  href=\"".$href['url']."\">".$href['title']."</a></h4>";
-        }
+
+        $vc_border_colors = isset($params->vc_border_colors) ? " style=\"border-top:3px solid " . $params->vc_border_colors . ";\" " : null;
+
+        $onclick = (isset($href)) ? " data-link=\"".$href['url']."\" " : '';
+        $clickable = (isset($href)) ? 'clickable' : '';
+
+        $output .= "<div $onclick id=\"vc_id_" . md5(date('YmdHis') . rand(0, 9999999)) . "\" " . $vc_border_colors . " class=\"".$clickable." card hoverable small\" >";
+        $output .= "<div class=\"card-image\">";
+        if (isset($params->vc_image))
+            $output .= wp_get_attachment_image($params->vc_image, $size = 'nsr-rect-front-size', $icon = false, $attr = '');
+        $output .= "</div>";
+
+        $output .= "<div class=\"card-content\">";
+        $output .= "<h4>";
+
+        if (isset($href))
+            $output .= "<a  href=\"" . $href['url'] . "\">";
+
+        $output .= $href['title'];
+
+        if (isset($href))
+            $output .= "</a>";
+
+        $output .= "</h4>";
 
         $output .= $params->content;
         $output .= "</div></div> ";
 
+        if (isset($params->vc_pagelink)) {
+            $output .= "</a>";
+        }
         return $output;
     }
 }

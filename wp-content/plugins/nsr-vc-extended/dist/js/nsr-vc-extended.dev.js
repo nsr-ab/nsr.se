@@ -51,6 +51,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }).bind(this);
 
 
+        /* CardClick */
+        $('body').on('click', '.card', function (e) {
+            if($(this).data('link'))
+                window.location.href = $(this).data('link');
+        }).bind(this);
+
         /* searchNSR - Full screen */
         $('body').on('click', '.searchArea *', function (e) {
             Extended.prototype.fullScreen(e);
