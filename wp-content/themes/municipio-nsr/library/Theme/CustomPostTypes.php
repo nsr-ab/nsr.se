@@ -1,29 +1,20 @@
 <?php
-
 namespace Nsr\Theme;
-
 class CustomPostTypes
 {
     public function __construct()
     {
-
         add_action( 'init', array($this, 'cptui_register_taxes_sorteringsguide') );
         add_action('init', array($this, 'register_custom_post_types'));
     }
-
-
     /**
      * Register custom posttypes for Företag & Restauranger, Fastighetsägare & Bostadsrättsföreningar, FAQ, Sorteringsguide
      * @return void
      */
     function register_custom_post_types()
     {
-
-
         /* Villa & Fritidsboende */
-
         $labels = array(
-
             "name" => __( 'Pages Villa', 'nsr' ),
             "singular_name" => __( 'Pages Villa', 'nsr' ),
             "menu_name" => __( 'Pages Villa', 'nsr' ),
@@ -49,7 +40,6 @@ class CustomPostTypes
             "items_list" => __( 'Items List', 'nsr' ),
             "parent_item_colon" => __( 'Parent', 'nsr' ),
         );
-
         $args = array(
             "label" => __( 'Villa & Fritidsboende', 'nsr' ),
             "labels" => $labels,
@@ -73,13 +63,8 @@ class CustomPostTypes
             "taxonomies" => array( "category", "post_tag" ),
         );
         register_post_type( "villa", $args );
-
-
-
         /* Företag & Restauranger */
-
         $labels = array(
-
             "name" => __( 'Pages Företag', 'nsr' ),
             "singular_name" => __( 'Pages Företag', 'nsr' ),
             "menu_name" => __( 'Pages Företag', 'nsr' ),
@@ -105,7 +90,6 @@ class CustomPostTypes
             "items_list" => __( 'Items List', 'nsr' ),
             "parent_item_colon" => __( 'Parent', 'nsr' ),
         );
-
         $args = array(
             "label" => __( 'Företag & Restauranger', 'nsr' ),
             "labels" => $labels,
@@ -129,12 +113,8 @@ class CustomPostTypes
             "taxonomies" => array( "category", "post_tag" ),
         );
         register_post_type( "foretag", $args );
-
-
         /* Fastighetsägare & Bostadsrättsföreningar */
-
         $labels = array(
-
             "name" => __( 'Pages Fastighet', 'nsr' ),
             "singular_name" => __( 'Pages Fastighet', 'nsr' ),
             "menu_name" => __( 'Pages Fastighet', 'nsr' ),
@@ -160,7 +140,6 @@ class CustomPostTypes
             "items_list" => __( 'Items List', 'nsr' ),
             "parent_item_colon" => __( 'Parent', 'nsr' ),
         );
-
         $args = array(
             "label" => __( 'Fastighetsägare & Bostadsrättsföreningar', 'nsr' ),
             "labels" => $labels,
@@ -184,13 +163,8 @@ class CustomPostTypes
             "taxonomies" => array( "category", "post_tag" ),
         );
         register_post_type( "fastighet", $args );
-
-
-
         /* FAQ */
-
         $labels = array(
-
             "name" => __( 'F.A.Q', 'nsr' ),
             "singular_name" => __( 'Pages F.A.Q', 'nsr' ),
             "menu_name" => __( 'Pages F.A.Q', 'nsr' ),
@@ -216,7 +190,6 @@ class CustomPostTypes
             "items_list" => __( 'Items List', 'nsr' ),
             "parent_item_colon" => __( 'Parent', 'nsr' ),
         );
-
         $args = array(
             "label" => __( 'F.A.Q', 'nsr' ),
             "labels" => $labels,
@@ -240,14 +213,8 @@ class CustomPostTypes
             "taxonomies" => array( "category", "post_tag" ),
         );
         register_post_type( "faq", $args );
-
-
-
-
         /* Sorteringsguiden */
-
         $labels = array(
-
             "name" => __( 'Sorting guide', 'nsr' ),
             "singular_name" => __( 'Sorting guide', 'nsr' ),
             "menu_name" => __( 'Sorting guide', 'nsr' ),
@@ -273,7 +240,6 @@ class CustomPostTypes
             "items_list" => __( 'Waste List', 'nsr' ),
             "parent_item_colon" => __( 'Parent', 'nsr' ),
         );
-
         $args = array(
             "label" => __( 'Sorting guide', 'nsr' ),
             "labels" => $labels,
@@ -297,18 +263,12 @@ class CustomPostTypes
             "taxonomies" => array("fraktioner", "inlamningsstallen")
         );
         register_post_type( "sorteringsguide", $args );
-
-
     }
-
-
-
     /**
      * Register taxonomies.
      * @return void
      */
     public function cptui_register_taxes_sorteringsguide() {
-
         $labels = array(
             "name" => __( 'Fraktioner', 'nsr' ),
             "singular_name" => __( 'Fraktion', 'nsr' ),
@@ -330,7 +290,6 @@ class CustomPostTypes
             "show_in_quick_edit" => true,
         );
         register_taxonomy( "fraktioner", array( "fraktioner" ), $args );
-
         $labels = array(
             "name" => __( 'Inlämningsställen', 'nsr' ),
             "singular_name" => __( 'Inlämingsställe', 'nsr' ),
@@ -356,7 +315,6 @@ class CustomPostTypes
 
 
         if( function_exists('acf_add_local_field_group') ):
-
             acf_add_local_field_group(array (
                 'key' => 'group_586cd2a01195f',
                 'title' => 'Fraktioner - Koppling inlämningsställen',
@@ -404,8 +362,25 @@ class CustomPostTypes
                             'id' => '',
                         ),
                     ),
-                ),
 
+                    array (
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'key' => 'field_1234D45',
+                        'label' => 'Extern länk',
+                        'name' => 'fraktion_extern_link',
+                        'type' => 'url',
+                        'instructions' => 'http://www.domän.se',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array (
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                    ),
+
+                ),
                 'location' => array (
                     array (
                         array (
@@ -415,7 +390,6 @@ class CustomPostTypes
                         ),
                     ),
                 ),
-
                 'menu_order' => 0,
                 'position' => 'normal',
                 'style' => 'default',
@@ -426,7 +400,8 @@ class CustomPostTypes
                 'description' => '',
             ));
 
-            acf_add_local_field_group(array (
+
+        acf_add_local_field_group(array (
                 'key' => 'group_586ccede33e92',
                 'title' => 'Inlämningsställen - Koppling Fraktioner',
                 'fields' => array (
@@ -571,7 +546,6 @@ class CustomPostTypes
                             'id' => '',
                         ),
                     ),
-
                 ),
                 'location' => array (
                     array (
@@ -591,9 +565,7 @@ class CustomPostTypes
                 'active' => 1,
                 'description' => '',
             ));
-
             //Avfall - Extra information
-
             acf_add_local_field_group(array (
                 'key' => 'group_586d03401cd10',
                 'title' => 'Avfall - Extra information',
@@ -624,9 +596,7 @@ class CustomPostTypes
                             'id' => '',
                         ),
                     ),
-
                     //
-
                     array (
                         'taxonomy' => 'fraktioner',
                         'field_type' => 'select',
@@ -671,9 +641,7 @@ class CustomPostTypes
                             'id' => 'avfall_fraktion_hemma',
                         ),
                     ),
-
                     //
-
                     array (
                         'tabs' => 'all',
                         'toolbar' => 'full',
@@ -712,12 +680,6 @@ class CustomPostTypes
                 'active' => 1,
                 'description' => '',
             ));
-
         endif;
-
-
-
     }
-
-
 }

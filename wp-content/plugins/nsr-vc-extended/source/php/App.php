@@ -394,10 +394,11 @@ class App
                     $getTerm = get_term(intval($termId[$int1]));
                     $termlink = get_term_meta(intval($termId[$int1]));
                     $termPageLink = get_page_link($termlink['fraktion_page_link'][0]);
+
                     if ($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][0]) {
                         if (strpos($termPageLink, '?page_id=') !== false)
                             $termPageLink = false;
-                        if ($termPageLink) {
+                        if ($termPageLink ) {
                             $termName = "<a href='" . $termPageLink . "'>" . $getTerm->name . "</a>";
                         } else {
                             $termName = "<span class='nofraktionlink'>" . $getTerm->name . "</span>";
@@ -409,6 +410,8 @@ class App
                 }
             }
 
+
+
             for ($metaInt = 0; $metaInt < count($result['sortguide']); $metaInt++) {
 
                 $frakt = array(array('avc', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_avc'][0]), array('hemma', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]));
@@ -417,7 +420,15 @@ class App
 
                     $getFraktionTerm = get_term(intval($fraktion[1]));
                     $fraktionTermlink = get_term_meta(intval($fraktion[1]));
-                    $fraktionTermPageLink = get_page_link($fraktionTermlink['fraktion_page_link'][0]);
+                    $extLink = $fraktionTermlink['fraktion_extern_link'][0];
+
+                    if ($extLink) {
+                        $fraktionTermPageLink = $extLink;
+
+                    } else {
+                        $fraktionTermPageLink = get_page_link($fraktionTermlink['fraktion_page_link'][0]);
+                    }
+
 
                     if (strpos($fraktionTermPageLink, '?page_id=') !== false)
                         $fraktionTermPageLink = false;
