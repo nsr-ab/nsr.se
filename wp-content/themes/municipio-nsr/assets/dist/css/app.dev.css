@@ -7181,7 +7181,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     content: '\E023'; }
   .is-child-theme .pricon-info-o:before {
     content: '\E85A';
-    font-family: "Material Icons"; }
+    font-family: "Material Icons";
+    margin-right: -20px; }
   .is-child-theme .site-header {
     background-color: #f6f6f6;
     border-bottom: 1px solid #dddddd; }
