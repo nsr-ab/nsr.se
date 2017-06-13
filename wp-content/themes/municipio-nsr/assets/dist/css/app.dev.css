@@ -7763,4 +7763,5 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   background-color: transparent !important; }
   .customer-feedback-container .pricon:before {
     content: '\E8AF';
-    font-family: "Material Icons"; }
+    font-family: "Material Icons";
+    color: #007586; }
