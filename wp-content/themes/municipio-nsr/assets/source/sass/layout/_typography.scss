@@ -154,6 +154,10 @@ blockquote {
 .readspeaker-play-button:before {
     font-family: "Material Icons";
     content: '\E023';
+    font-size: 28px;
+    position: absolute;
+    left: -34px;
+    top: 3px;
 }
 .pricon-info-o {
     margin-right:-20px !important;
