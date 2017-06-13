@@ -1,7 +1,9 @@
 .customer-feedback-container {
-    background-color: none !important;
+    border-top: 1px solid #ededed;
+    padding-left:15px;
+    background-color: transparent !important;
     .pricon:before {
-        content: 'xE8AF';
+        content: '\E8AF';
         font-family: "Material Icons";
     }
 }
