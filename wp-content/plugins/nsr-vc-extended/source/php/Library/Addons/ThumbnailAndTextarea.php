@@ -150,10 +150,8 @@ class ThumbnailAndTextarea
     public function renderMarkup($params)
     {
         $output = "";
-        $href = "";
-        
-        if (isset($params->vc_pagelink))
-            $href = vc_build_link($params->vc_pagelink);
+
+        $href = isset($params->vc_pagelink) ? vc_build_link($params->vc_pagelink) : false;
 
         $vc_border_colors = isset($params->vc_border_colors) ? " style=\"border-top:3px solid " . $params->vc_border_colors . ";\" " : null;
 
