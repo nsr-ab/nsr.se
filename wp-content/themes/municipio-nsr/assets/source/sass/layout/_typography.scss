@@ -155,9 +155,11 @@ blockquote {
     font-family: "Material Icons";
     content: '\E023';
 }
-
+.pricon-info-o {
+    margin-right:-20px !important;
+}
 .pricon-info-o:before {
     content: '\E85A';
     font-family: "Material Icons";
-    margin-right:-20px;
+
 }
