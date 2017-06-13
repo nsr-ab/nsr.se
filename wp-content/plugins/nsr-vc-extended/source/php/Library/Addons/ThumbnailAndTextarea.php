@@ -150,6 +150,8 @@ class ThumbnailAndTextarea
     public function renderMarkup($params)
     {
         $output = "";
+        $href = "";
+        
         if (isset($params->vc_pagelink))
             $href = vc_build_link($params->vc_pagelink);
 
