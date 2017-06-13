@@ -1,5 +1,5 @@
 {
-  "name": "(#plugin_slug#)",
+  "name": "NSR Open Hours",
   "version": "1.0.0",
   "description": "Adds the ability to add opening hours and display them via shortcodes (today, full week)",
   "main": "",
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/Svanmark/Wordpress-Plugin-Boilerplate.git"
   },
-  "author": "Sebastian Thulin",
+  "author": "Sebastian Thulin, Johan Silvergrund",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Svanmark/Wordpress-Plugin-Boilerplate/issues"
