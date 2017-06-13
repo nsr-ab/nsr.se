@@ -31,16 +31,17 @@ class NSRTemplates
      */
     public function setBackgroundColor()
     {
-        add_filter( 'body_class', array($this,'my_body_class' ));
+        add_filter('body_class', array($this, 'my_body_class'));
     }
 
-    function my_body_class( $color ) {
+    function my_body_class($color)
+    {
 
         global $post;
-        if( !is_object($post) )
+        if (!is_object($post))
             return;
         $selectBackground = get_post_meta($post->ID, 'post_backgroundcolor', true);
-        switch($selectBackground){
+        switch ($selectBackground) {
             case 0:
                 $color[] = 'nsr-background-white';
                 break;
@@ -53,7 +54,6 @@ class NSRTemplates
 
         return $color;
     }
-
 
 
     /**
@@ -70,12 +70,12 @@ class NSRTemplates
         echo '<ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">';
 
         if (!is_front_page()) {
-            if (is_single() && !is_singular( array( 'villa', 'fastighet', 'foretag' ) )) {
+            if (is_single() && !is_singular(array('page', 'villa', 'fastighet', 'foretag'))) {
                 $output[] = '<li>' . get_the_title() . '</li>';
             } elseif (is_category()) {
                 $output[] = '<li>' . get_the_category() . '</li>';
             }
-            if (is_page() || is_singular( array( 'villa', 'fastighet', 'foretag' ) ) )  {
+            if (is_page() || is_singular(array('page', 'villa', 'fastighet', 'foretag'))) {
 
                 if ($post->post_parent) {
                     $anc = get_post_ancestors($post->ID);
@@ -90,25 +90,24 @@ class NSRTemplates
                                             </a>
                                        </li>';
 
-                    if( is_singular( array( 'villa', 'fastighet', 'foretag' ) ) ) {
+                    if (is_singular(array('villa', 'fastighet', 'foretag'))) {
 
                         $output[] .= '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">';
                         if (is_singular(array('villa'))) {
-                            $output[] .= '<a itemprop="item" href="'.site_url().'/villa/" title="Start">
+                            $output[] .= '<a itemprop="item" href="' . site_url() . '/villa/" title="Start">
                                                 <span itemprop="name">Villa</span>
                                                 <meta itemprop="position" content="-0" />';
                         }
                         if (is_singular(array('fastighet'))) {
-                            $output[] .= '<a itemprop="item" href="'.site_url().'/fastighet/" title="Start">
+                            $output[] .= '<a itemprop="item" href="' . site_url() . '/fastighet/" title="Start">
                                                 <span itemprop="name">Fastighet</span>
                                                 <meta itemprop="position" content="-0" />';
                         }
                         if (is_singular(array('foretag'))) {
-                            $output[] .= '<a itemprop="item" href="'.site_url().'/foretag/" title="Start">
+                            $output[] .= '<a itemprop="item" href="' . site_url() . '/foretag/" title="Start">
                                                 <span itemprop="name">Företag</span>
                                                 <meta itemprop="position" content="-0" />';
                         }
-                        $output[] .= '<meta itemprop="position" content="-0" /></a></li>';
                     }
 
                     foreach ($anc as $ancestor) {
@@ -125,7 +124,7 @@ class NSRTemplates
 
                     $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                             <span itemprop="name" class="breadcrumbs-current" title="' . $title . '">' . $title . '</span>
-                            <meta itemprop="position" content="' . ($int+1) . '" />
+                            <meta itemprop="position" content="' . ($int + 1) . '" />
                           </li>';
                 } else {
                     $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
@@ -141,8 +140,6 @@ class NSRTemplates
         echo implode("\n", $output);
         echo '</ol>';
     }
-
-
 
 
 }
