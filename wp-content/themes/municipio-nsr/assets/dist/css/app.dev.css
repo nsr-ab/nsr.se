@@ -7197,6 +7197,20 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     background-color: #f6f6f6; }
   .is-child-theme.nsr-background-grey header {
     background-color: #fff; }
+  .is-child-theme .vcmega-main-wrap {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#23aabd+0,1c3533+100 */
+    background: #23aabd;
+    /* Old browsers */
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #23aabd 0%, #1c3533 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: -webkit-linear-gradient(315deg, #23aabd 0%, #1c3533 100%);
+    background: linear-gradient(135deg, #23aabd 0%, #1c3533 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#23aabd', endColorstr='#1c3533', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */ }
+    .is-child-theme .vcmega-main-wrap a {
+      color: #fff !important; }
   .is-child-theme .main-footer nav {
     background: none !important; }
   .is-child-theme .main-footer {
