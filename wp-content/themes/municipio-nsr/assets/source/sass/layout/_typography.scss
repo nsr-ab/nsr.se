@@ -153,5 +153,10 @@ blockquote {
 }
 .readspeaker-play-button:before {
     font-family: "Material Icons";
-    content: '';
+    content: '\E023';
+}
+
+.pricon-info-o:before {
+    content: '\E7E9';
+    font-family: "Material Icons";
 }

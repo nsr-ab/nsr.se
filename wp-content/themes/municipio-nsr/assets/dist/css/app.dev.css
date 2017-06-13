@@ -7178,7 +7178,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin: 0; }
   .is-child-theme .readspeaker-play-button:before {
     font-family: "Material Icons";
-    content: ''; }
+    content: '\E023'; }
+  .is-child-theme .pricon-info-o:before {
+    content: '\E7E9';
+    font-family: "Material Icons"; }
   .is-child-theme .site-header {
     background-color: #f6f6f6;
     border-bottom: 1px solid #dddddd; }
