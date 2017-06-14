@@ -7119,7 +7119,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     line-height: 115%;
     padding: 0px;
     padding-bottom: 20px;
-    margin-top: 0.1em !important; }
+    margin-top: 1.0em !important; }
     .is-child-theme h1.single-nyheter {
       margin-top: 0.3em !important; }
   .is-child-theme h2 {
