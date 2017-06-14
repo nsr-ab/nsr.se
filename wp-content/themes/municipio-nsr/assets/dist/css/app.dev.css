@@ -7288,6 +7288,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       width: 95%; }
     .is-child-theme .customer-feedback-container input {
       padding-left: 15px; }
+  .is-child-theme .home .customer-feedback-container {
+    display: none; }
   .is-child-theme #main-content {
     -webkit-transition: all 500ms ease;
             transition: all 500ms ease; }
