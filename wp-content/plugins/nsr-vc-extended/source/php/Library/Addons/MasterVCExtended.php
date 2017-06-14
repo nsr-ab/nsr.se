@@ -75,7 +75,7 @@ class MasterVCExtended
             $sql .= isset($params['post_type']) ? " AND $wpdb->posts.post_type = '" . $params['post_type'] . "' " : null;
         }
 
-        $sql .= isset($params['order_by']) ? " ORDER BY '$wpdb->posts.post_" . $params['order_by'] . "' " : null;
+        $sql .= isset($params['order_by']) ? " ORDER BY $wpdb->posts.post_" . $params['order_by'] . " " : null;
         $sql .= isset($params['order']) ? " ".$params['order'] : null;
 
 
