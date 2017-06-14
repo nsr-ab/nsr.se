@@ -24,7 +24,7 @@ class App
         add_action('admin_enqueue_scripts', array($this, 'enqueueStylesAdmin'));
         add_action( 'current_screen', array($this, 'setLocalScript') );
 
-        
+
 
     }
 
@@ -87,7 +87,6 @@ class App
      */
     public function getOpeningHours($atts)
     {
-
         $showAllSections = isset($atts['showall']) ? $atts['showall'] : null;
 
         $section = isset($atts['section']) ? $atts['section'] : null;
@@ -99,7 +98,6 @@ class App
         $dsize = isset($atts['datesize']) ? $atts['datesize'] : null;
         $dateformat = ($dsize === 'full') ? 'l' : 'D';
         $fulldateCSS = ($dsize === 'full') ? 'fulldate' : '';
-
 
         if($showAllSections != 'true'){
 
@@ -286,14 +284,12 @@ class App
             }
         }
 
-
         $openUl = isset($atts['markup']) ? $openUl = '<ul class="collection openhours with-header">' : null;
-
         $closeUl = isset($atts['markup']) ? $closeUl = '</ul>' : null;
         $return_value = isset($return_value) ? $return_value : null;
         $filter_is_exception = isset($filter_is_exception) ? $filter_is_exception : null;
 
-        if ($type == "today") {
+        if ($type == "today" && $showAllSections == 'true') {
             $openUl = "";
             $closeUl = "";
         }

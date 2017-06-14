@@ -55,8 +55,6 @@ class OpenHours
     static function params($stack)
     {
         return array(
-
-
             /** @Param Designation parameter */
             array(
                 'admin_label' => true,
@@ -78,7 +76,6 @@ class OpenHours
                     __('Show 1 location', 'nsr-vc-extended')   => 'true',
 
                 )
-
             ),
 
             /** @Param Type parameter*/
@@ -89,6 +86,8 @@ class OpenHours
                 'param_name' => 'vc_location',
                 'edit_field_class' => 'vc_col-sm-4 vc_col-md-4 disable-when-all',
                 'value' => $stack,
+                'std'  => reset($stack),
+                'save_always' => true,
                 'dependency' => array(
                     'element' => 'vc_all_locations',
                     'value' => 'true',
@@ -138,7 +137,6 @@ class OpenHours
                 ),
             ),
         );
-
     }
 
 
@@ -151,6 +149,7 @@ class OpenHours
 
         $stack = "";//array(__('Choose Location...', 'nsr-vc-extended'));
         $oph_sections = get_field('oph_sections', 'option');
+
         if(isset($oph_sections)) {
 
             foreach ($oph_sections as $city) {
@@ -191,7 +190,6 @@ class OpenHours
      */
     public function renderExtend($atts, $content = null)
     {
-
         if(!$this->dependency_error) {
 
             $params['title'] = isset($atts['vc_designation']) ? $atts['vc_designation'] : null;
@@ -201,13 +199,6 @@ class OpenHours
             $params['vc_all_locations'] = isset($atts['vc_all_locations']) ? $atts['vc_all_locations'] : null;
 
             return do_shortcode('[opening-hours  showall="'.$params['vc_all_locations'].'" datesize="'.$params['date_size'].'" city="'.$params['title'].'" type="' . $params['type'] . '"  section="' . $params['section'] . '" markup="true"]');
-
         }
-
     }
-
 }
-
-
-
-
