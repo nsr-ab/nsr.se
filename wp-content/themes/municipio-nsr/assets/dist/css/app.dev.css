@@ -7780,9 +7780,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   left: auto !important; }
 
 @media only screen and (max-width: 450px) {
-  .vc_tta-accordion span {
-    position: relative;
-    max-width: 70% !important; } }
+  .vc_tta-accordion h4 div {
+    position: relative !important;
+    display: inline-block !important;
+    width: 215px !important;
+    font-weight: bold; } }
 
 .gform_body select {
   background-color: #ffffff !important;

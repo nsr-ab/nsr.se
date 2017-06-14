@@ -50,8 +50,10 @@
 }
 
 @media only screen and (max-width: 450px) {
-    .vc_tta-accordion span {
-        position:relative;
-        max-width:70% !important;
+    .vc_tta-accordion h4 div {
+        position: relative !important;
+        display: inline-block !important;
+        width: 215px!important;
+        font-weight:bold;
     }
 }
