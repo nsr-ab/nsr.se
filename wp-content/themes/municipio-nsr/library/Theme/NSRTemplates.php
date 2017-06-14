@@ -77,18 +77,19 @@ class NSRTemplates
             }
             if (is_page() || is_singular(array('page', 'villa', 'fastighet', 'foretag'))) {
 
-                if ($post->post_parent) {
-                    $anc = get_post_ancestors($post->ID);
-                    $title = get_the_title();
-
-                    $int = 1;
-
-                    $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                                             <a itemprop="item" href="/" title="Start">
                                                 <span itemprop="name">Start</span>
                                                 <meta itemprop="position" content="-0" />
                                             </a>
                                        </li>';
+
+                if ($post->post_parent) {
+
+                    $anc = array_reverse(get_post_ancestors($post->ID), true);
+                    $title = get_the_title();
+
+                    $int = 1;
 
                     if (is_singular(array('villa', 'fastighet', 'foretag'))) {
 
