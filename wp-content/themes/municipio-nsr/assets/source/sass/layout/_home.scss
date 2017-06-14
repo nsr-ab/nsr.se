@@ -14,8 +14,10 @@ footer {
     display:none;
   }
 }
-
-.customer-feedback-container, &.page-template-full-width-blade .customer-feedback-container{
+&.page-template-full-width-blade .customer-feedback-container {
+  display:none;
+}
+.customer-feedback-container{
   display:none;
 }
 

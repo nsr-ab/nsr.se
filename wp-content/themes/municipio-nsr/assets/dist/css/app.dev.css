@@ -7731,7 +7731,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme.home .page-footer {
     display: none; } }
 
-.is-child-theme.home .customer-feedback-container, .is-child-theme.home.page-template-full-width-blade .customer-feedback-container {
+.is-child-theme.home.page-template-full-width-blade .customer-feedback-container {
+  display: none; }
+
+.is-child-theme.home .customer-feedback-container {
   display: none; }
 
 .vc_tta-accordion .vc_tta-panel-heading,
