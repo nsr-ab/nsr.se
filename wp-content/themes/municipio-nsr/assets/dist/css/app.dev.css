@@ -7775,6 +7775,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   margin: .5rem 0 1rem 0 !important;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) !important; }
 
+.wpb-js-composer .vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left .vc_tta-controls-icon {
+  right: 20px;
+  left: auto; }
+
 .gform_body select {
   background-color: #ffffff !important;
   box-sizing: border-box !important;
