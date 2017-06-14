@@ -1,5 +1,5 @@
 {
-  "name": "NSR Open Hours",
+  "name": "nsr-open-hours",
   "version": "1.0.0",
   "description": "Adds the ability to add opening hours and display them via shortcodes (today, full week)",
   "main": "",

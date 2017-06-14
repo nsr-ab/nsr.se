@@ -24,6 +24,8 @@ class App
         add_action('admin_enqueue_scripts', array($this, 'enqueueStylesAdmin'));
         add_action( 'current_screen', array($this, 'setLocalScript') );
 
+        
+
     }
 
     /**
