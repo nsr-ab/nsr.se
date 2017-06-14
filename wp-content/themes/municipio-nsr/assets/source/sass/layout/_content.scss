@@ -208,3 +208,11 @@ article {
         border:none !important;
     }
 }
+
+@media only screen and (max-width: 450px) {
+
+    .collapsible-header {
+        font-size: 15px;
+    }
+
+}
