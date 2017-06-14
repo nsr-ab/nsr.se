@@ -15,7 +15,7 @@ footer {
   }
 }
 
-.customer-feedback-container {
+.customer-feedback-container, &.page-template-full-width-blade .customer-feedback-container{
   display:none;
 }
 
