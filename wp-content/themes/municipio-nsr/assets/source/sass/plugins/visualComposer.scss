@@ -1,46 +1,56 @@
 .vc_tta-accordion .vc_tta-panel-heading,
 .vc_tta-accordion .vc_tta-panel-heading a,
 .vc_tta-accordion .vc_tta-panel-heading i {
-  background-color: $palette-primary-green !important;
-  color: $palette-primary-white !important;
+    background-color: $palette-primary-green !important;
+    color: $palette-primary-white !important;
 }
 
 .vc_tta-accordion .vc_tta-panel-heading a {
-  display:table-row;
+    display: table-row;
 }
 
 .vc_tta-accordion .vc_tta-panel-heading .vc_tta-controls-icon::after,
 .vc_tta-accordion .vc_tta-panel-heading .vc_tta-controls-icon::before,
 .vc_tta-accordion .vc_tta-controls-icon::after,
 .vc_tta-accordion .vc_tta-controls-icon::before {
-  border-color: $palette-primary-white !important;
+    border-color: $palette-primary-white !important;
 }
 
 .vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left .vc_tta-controls-icon {
-  left:auto !important;
-  right:40px !important;
-  font-size: 1.7rem !important;
-  font-weight:400;
+    left: auto !important;
+    right: 40px !important;
+    font-size: 1.7rem !important;
+    font-weight: 400;
 }
+
 .vc_tta-accordion .vc_tta-panel-body {
-  background-color:$palette-primary-grey;
+    background-color: $palette-primary-grey;
 }
+
 .vc_tta-accordion h4 {
-  font-size: 100% !important;
-  max-width:100% !important;
+    font-size: 100% !important;
+    max-width: 100% !important;
 }
-.vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left.vc_tta-panel-title>a {
-  padding-left:15px !important;
+
+.vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left.vc_tta-panel-title > a {
+    padding-left: 15px !important;
 }
+
 .vc_tta-accordion {
-  border-top: 1px solid #ddd !important;
-  border-right: 1px solid #ddd !important;
-  border-left: 1px solid #ddd !important;
-  margin: .5rem 0 1rem 0 !important;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2) !important;
+    border-top: 1px solid #dddddd !important;
+    border-right: 1px solid #dddddd !important;
+    border-left: 1px solid #dddddd !important;
+    margin: .5rem 0 1rem 0 !important;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2) !important;
 }
 
 .wpb-js-composer .vc_tta.vc_tta-accordion .vc_tta-controls-icon-position-left .vc_tta-controls-icon {
-  right:20px !important;
-  left:auto !important;
+    right: 20px !important;
+    left: auto !important;
+}
+
+@media only screen and (max-width: 450px) {
+    .vc_tta-panel-title vc_tta-controls-icon-position-left {
+        max-width:70%;
+    }
 }
