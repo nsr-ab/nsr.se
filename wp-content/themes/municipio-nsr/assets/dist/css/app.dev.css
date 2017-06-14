@@ -7731,9 +7731,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme.home .page-footer {
     display: none; } }
 
-.is-child-theme.home.page-template-full-width-blade .customer-feedback-container {
-  display: none; }
-
 .is-child-theme.home .customer-feedback-container {
   display: none; }
 
@@ -7806,3 +7803,6 @@ input:not([type]), input[type=date], input[type=datetime-local], input[type=date
 
 .customer-feedback-container .btn, .customer-feedback-container .btn-large, .customer-feedback-container .btn-large, .customer-feedback-container .notice.success {
   background-color: #007586; }
+
+.page-template-full-width-blade .customer-feedback-container {
+  display: none; }
