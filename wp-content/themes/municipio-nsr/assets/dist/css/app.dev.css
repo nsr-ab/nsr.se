@@ -7288,8 +7288,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       width: 95%; }
     .is-child-theme .customer-feedback-container input {
       padding-left: 15px; }
-  .is-child-theme .home .customer-feedback-container {
-    display: none; }
   .is-child-theme #main-content {
     -webkit-transition: all 500ms ease;
             transition: all 500ms ease; }
@@ -7732,6 +7730,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 @media only screen and (max-width: 768px) {
   .is-child-theme.home .page-footer {
     display: none; } }
+
+.is-child-theme.home .customer-feedback-container {
+  display: none; }
 
 .vc_tta-accordion .vc_tta-panel-heading,
 .vc_tta-accordion .vc_tta-panel-heading a,
