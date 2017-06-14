@@ -8,7 +8,7 @@
         <div class="grid {{ implode(' ', apply_filters('Municipio/Page/MainGrid/Classes', wp_get_post_parent_id(get_the_id()) != 0 ? array('no-margin-top') : array())) }}">
             @include('partials.sidebar-left')
             <div class="page-title grid-md-12 grid-lg-12 grid-sm-12 grid-xs-12">
-                <h1>{{ the_title() }}</h1>
+                <h1 class="single-nyheter">{{ the_title() }}</h1>
                 @include('partials.accessibility-menu')
             </div>
 
