@@ -555,7 +555,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
 
-            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Nästa tömningsdag</th></tr>';
+            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Nästa tömning</th></tr>';
             $fpMobRow += '<table class="fp-table-mobile">';
 
             var jsdate = new Date().toISOString().slice(0, 10);
