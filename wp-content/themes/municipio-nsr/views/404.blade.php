@@ -1,7 +1,7 @@
 @extends('templates.master')
 <?php
 
-    $php_errormsg();
+error_reporting(0);
 
 $the_page = null;
 $errorpageid = get_option('404pageid', 0);
@@ -9,7 +9,6 @@ if ($errorpageid !== 0) {
     $errorpageid = (int)$errorpageid;
     $the_page = get_page($errorpageid);
 }
-
 
 ?>
 
