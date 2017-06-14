@@ -7799,3 +7799,6 @@ input:not([type]), input[type=date], input[type=datetime-local], input[type=date
 
 .customer-feedback-container .btn, .customer-feedback-container .btn-large, .customer-feedback-container .btn-large, .customer-feedback-container .notice.success {
   background-color: #007586; }
+
+.gfield {
+  margin-bottom: 10px; }
