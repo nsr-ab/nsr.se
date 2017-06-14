@@ -126,6 +126,7 @@ class NSRTemplates
                             <span itemprop="name" class="breadcrumbs-current" title="' . $title . '">' . $title . '</span>
                             <meta itemprop="position" content="' . ($int + 1) . '" />
                           </li>';
+
                 } else {
                     $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                             <span itemprop="name" class="breadcrumbs-current">' . get_the_title() . '</span>

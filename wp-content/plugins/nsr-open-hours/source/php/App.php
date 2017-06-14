@@ -87,9 +87,12 @@ class App
     {
 
         $showAllSections = isset($atts['showall']) ? $atts['showall'] : null;
+
         $section = isset($atts['section']) ? $atts['section'] : null;
+
         $type = isset($atts['type']) ? $atts['type'] : null;
         $city = isset($atts['city']) ? $atts['city'] : null;
+
 
         $dsize = isset($atts['datesize']) ? $atts['datesize'] : null;
         $dateformat = ($dsize === 'full') ? 'l' : 'D';

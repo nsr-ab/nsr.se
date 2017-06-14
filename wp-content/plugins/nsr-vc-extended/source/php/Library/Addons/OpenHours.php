@@ -89,11 +89,11 @@ class OpenHours
                 'param_name' => 'vc_location',
                 'edit_field_class' => 'vc_col-sm-4 vc_col-md-4 disable-when-all',
                 'value' => $stack,
-                /*'dependency' => array(
+                'dependency' => array(
                     'element' => 'vc_all_locations',
                     'value' => 'true',
                     'callback' => 'callbackOutsideScope'
-                )*/
+                )
             ),
 
 
@@ -149,7 +149,7 @@ class OpenHours
     public function integrateWithVC()
     {
 
-        $stack = array(__('Choose Location...', 'nsr-vc-extended'));
+        $stack = "";//array(__('Choose Location...', 'nsr-vc-extended'));
         $oph_sections = get_field('oph_sections', 'option');
         if(isset($oph_sections)) {
 
