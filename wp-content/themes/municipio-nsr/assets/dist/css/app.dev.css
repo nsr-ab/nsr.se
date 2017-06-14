@@ -7285,6 +7285,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       margin-bottom: 20px; }
     .is-child-theme .customer-feedback-container textarea, .is-child-theme .customer-feedback-container input {
       border: 1px solid #cdcdcd !important;
+      background-color: #fff !important;
       width: 95%; }
   .is-child-theme #main-content {
     -webkit-transition: all 500ms ease;
