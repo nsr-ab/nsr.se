@@ -68,8 +68,19 @@ class NSRTemplates
         $output = array();
 
         echo '<ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">';
-
-        if (!is_front_page()) {
+        if (is_single() && is_singular(array('post'))) {
+            $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                                            <a itemprop="item" href="/" title="Start">
+                                                <span itemprop="name">Start</span>
+                                                <meta itemprop="position" content="-0" />
+                                            </a>
+                                       </li>';
+            $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                                                <span itemprop="name">Nyheter</span>
+                                                <meta itemprop="position" content="-0" />
+                                       </li>';
+        }
+        if (!is_front_page() && is_singular(array('page', 'villa', 'fastighet', 'foretag'))) {
             if (is_single() && !is_singular(array('page', 'villa', 'fastighet', 'foretag'))) {
                 $output[] = '<li>' . get_the_title() . '</li>';
             } elseif (is_category()) {

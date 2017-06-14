@@ -3,23 +3,14 @@
 @section('content')
 
     <div class="container main-container">
-
-        <div class="grid breadcrumbs-wrapper">
-            <div class="grid-lg-12">
-                <h4>{{ _e('News', 'nsr') }}</h4>
-            </div>
-        </div>
-
+        @include('partials.breadcrumbs')
 
         <div class="grid {{ implode(' ', apply_filters('Municipio/Page/MainGrid/Classes', wp_get_post_parent_id(get_the_id()) != 0 ? array('no-margin-top') : array())) }}">
-        @include('partials.sidebar-left')
-
-        <!-- NSR -->
+            @include('partials.sidebar-left')
             <div class="page-title grid-md-12 grid-lg-12 grid-sm-12 grid-xs-12">
                 <h1>{{ the_title() }}</h1>
                 @include('partials.accessibility-menu')
             </div>
-            <!-- /NSR -->
 
             <div class="{{ $contentGridSize }} grid-print-12" id="readspeaker-read">
 
