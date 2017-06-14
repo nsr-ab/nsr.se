@@ -7059,11 +7059,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   /* Opera < 12.1 */
   /* Ie fixes */ }
   .is-child-theme * {
-    font-family: "Lato";
+    font-family: "Lato" !important;
     font-weight: 400;
     font-style: normal; }
   .is-child-theme .material-icons {
-    font-family: "Material Icons";
+    font-family: "Material Icons" !important;
     font-weight: 400;
     font-style: normal; }
   .is-child-theme a, .is-child-theme .mce-content-body a:not([class]),
@@ -7079,7 +7079,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme [class*=theme-] article .widget_recent_entries a,
   .is-child-theme [class*=theme-] article a.link-item,
   .is-child-theme [class*=theme-] article a:not([class]) {
-    font-family: "Lato";
+    font-family: "Lato" !important;
     font-weight: 600;
     font-style: normal;
     color: #007586 !important; }
@@ -7099,11 +7099,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       text-decoration: underline;
       color: #004853 !important; }
   .is-child-theme b, .is-child-theme strong {
-    font-family: "Lato";
+    font-family: "Lato" !important;
     font-weight: 700;
     font-style: normal; }
   .is-child-theme h1, .is-child-theme h2, .is-child-theme h3, .is-child-theme h4, .is-child-theme h5 {
-    font-family: "Lato";
+    font-family: "Lato" !important;
     font-weight: 900;
     font-style: normal;
     color: #393939; }
@@ -7456,7 +7456,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme .container {
       width: 100%; } }
   .is-child-theme .vc_row table td, .is-child-theme .vc_row table td {
-    font-family: "Lato";
+    font-family: "Lato" !important;
     font-weight: 400;
     font-style: normal; }
   .is-child-theme .mobile-search {

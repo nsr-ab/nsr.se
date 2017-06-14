@@ -54,7 +54,7 @@
     @mixin font($family, $weight: 400, $style: normal) {
 
         @include track-fonts($family, $weight, $style);
-        font-family: $family;
+        font-family: $family !important;
         font-weight: $weight;
         font-style: $style;
     }
