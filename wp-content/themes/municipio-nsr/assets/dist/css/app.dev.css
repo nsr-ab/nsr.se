@@ -7455,6 +7455,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   @media only screen and (min-width: 601px) {
     .is-child-theme .container {
       width: 100%; } }
+  .is-child-theme .vc_row table td, .is-child-theme .vc_row table td {
+    font-family: "Lato";
+    font-weight: 400;
+    font-style: normal; }
   .is-child-theme .mobile-search {
     cursor: pointer; }
   .is-child-theme .mobile-search i {
@@ -7783,7 +7787,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .vc_tta-accordion h4 span {
     position: relative !important;
     display: inline-block !important;
-    width: 215px !important;
+    width: 75% !important;
     font-weight: bold; } }
 
 .gform_body select {

@@ -11,6 +11,11 @@
   }
 }
 
+.vc_row table td, .vc_row table td {
+  @include font('Lato', 400);
+}
+
+
 .mobile-search {
   cursor: pointer;
 }
