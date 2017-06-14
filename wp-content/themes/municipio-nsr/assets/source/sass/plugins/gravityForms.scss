@@ -10,7 +10,7 @@
     font-size: 16px !important;
     border: 1px solid #cccccc !important;
     padding: 6px 10px !important;
-    margin: 0 0 20px 0 !important;
+
     width: 100% !important;
     line-height: 1.3 !important;
 }
@@ -23,4 +23,8 @@
     background-size: 25px;
     background-repeat: no-repeat;
     background-position: 100%;
+}
+
+input:not([type]), input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], textarea.materialize-textarea {
+    margin-bottom: 0px !important;
 }
