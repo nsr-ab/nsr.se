@@ -129,7 +129,7 @@ class OpenHoursOptions extends App
                                     'class' => '',
                                     'id' => '',
                                 ),
-                            ),
+                            )
                         ),
                     ),
 
