@@ -87,6 +87,7 @@ class App
      */
     public function getOpeningHours($atts)
     {
+
         $showAllSections = isset($atts['showall']) ? $atts['showall'] : null;
 
         $section = isset($atts['section']) ? $atts['section'] : null;
@@ -102,12 +103,17 @@ class App
         if($showAllSections != 'true'){
 
             $oph_sections = get_field('oph_sections', 'option');
+            $citiesToShow = explode(',', $atts['cities']);
+
             //$return_value = "<li class=\"collection-header cleanHeader\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
             $return_value = "<li class=\"collection-item alltoday\"><span class='date text-align-left fulldate collection-subheader'>ÅTERVINNINGSCENTRALER</span><span class=\"secondary-content collection-subheader\">IDAG</span></li>";
 
             if(isset($oph_sections)) {
 
                 foreach ($oph_sections as $allsec) {
+
+                    if(!in_array($allsec['location'], $citiesToShow))
+                        continue;
 
                     $allsections = substr(md5($allsec['location']), 0, 6);
                     $sectionsLink = "<a href=\"".$allsec['link_to_page']."\">".$allsec['location']."</a>";
@@ -162,6 +168,7 @@ class App
             }
         }
         else {
+            die('This should not happen, contact developer!');
 
             switch ($type) {
 
