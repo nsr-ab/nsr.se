@@ -87,6 +87,7 @@ class App
      */
     public function getOpeningHours($atts)
     {
+        //echo "Hej!";
         $showAllSections = isset($atts['showall']) ? $atts['showall'] : null;
 
         $section = isset($atts['section']) ? $atts['section'] : null;
