@@ -567,7 +567,9 @@ td, tr {
   .meta-fraktion li {
     float: none !important;
     clear: both !important;
-    width: 100% !important; } }
+    width: 100% !important; }
+  .searchNSR .sorterings-guide-table li, .searchNSR .sorterings-guide-table ul {
+    display: block !important; } }
 
 .viewAllInlamning {
   margin-top: 20px; }
