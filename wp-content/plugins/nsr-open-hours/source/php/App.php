@@ -87,7 +87,6 @@ class App
      */
     public function getOpeningHours($atts)
     {
-        //echo "Hej!";
         $showAllSections = isset($atts['showall']) ? $atts['showall'] : null;
 
         $section = isset($atts['section']) ? $atts['section'] : null;
@@ -100,13 +99,22 @@ class App
         $dateformat = ($dsize === 'full') ? 'l' : 'D';
         $fulldateCSS = ($dsize === 'full') ? 'fulldate' : '';
 
-        if($showAllSections != 'true'){
+        $citiesToShow = explode(',', $atts['cities']);
+        //$citiesToShow[] = 'Helsingborg';
+        //$type = 'today';
+
+        if(sizeof($citiesToShow) > 1)
+            $type = 'today';
+
+        if($type == 'today'){
 
             $oph_sections = get_field('oph_sections', 'option');
-            $citiesToShow = explode(',', $atts['cities']);
-
+            
+            //oldest
             //$return_value = "<li class=\"collection-header cleanHeader\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
-            $return_value = "<li class=\"collection-item alltoday\"><span class='date text-align-left fulldate collection-subheader'>ÅTERVINNINGSCENTRALER</span><span class=\"secondary-content collection-subheader\">IDAG</span></li>";
+            //old
+            //$return_value = "<li class=\"collection-item alltoday\"><span class='date text-align-left fulldate collection-subheader'>ÅTERVINNINGSCENTRALER</span><span class=\"secondary-content collection-subheader\">IDAG</span></li>";
+            $return_value = "<li class=\"collection-item alltoday\"><span class='date text-align-left fulldate collection-subheader'>" . $city . "</span><span class=\"secondary-content collection-subheader\">IDAG</span></li>";
 
             if(isset($oph_sections)) {
 
@@ -168,7 +176,7 @@ class App
             }
         }
         else {
-            die('This should not happen, contact developer!');
+            //die('This should not happen, contact developer!');
 
             switch ($type) {
 
@@ -218,6 +226,9 @@ class App
 
                     $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
 
+                    $allsections = substr(md5($citiesToShow[0]), 0, 6);
+                    
+
                     while (true) {
 
                         if ($i === 7)
@@ -227,25 +238,27 @@ class App
                             continue;
                         }
 
-                        $exception_info = get_field('oph_exeptions_' . $section, 'option');
+
+
+                        $exception_info = get_field('oph_exeptions_' . $allsections, 'option');
                         $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date text-align-left  ' . $fulldateCSS . '">' : null;
                         $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
                         if (self::in_array_r($datetime->format('Y-m-d'), $exception_info)) {
 
                             foreach ($exception_info as $exc) {
 
-                                if ($exc['date_' . $section] === $datetime->format('Y-m-d')) {
-                                    $ex_title = $exc['ex_title_' . $section];
-                                    $ex_info = $exc['ex_info_' . $section];
+                                if ($exc['date_' . $allsections] === $datetime->format('Y-m-d')) {
+                                    $ex_title = $exc['ex_title_' . $allsections];
+                                    $ex_info = $exc['ex_info_' . $allsections];
                                     $return_value .= $listItem[2] . $openSpan . $ex_title . $closeSpan . "  <span class=\"secondary-content\">" . $ex_info . $listItem[1];
                                 }
                             }
                         } else {
 
                             if ($datetime->format('Y-m-d') != date('Y-m-d')) {
-                                $return_value .= $listItem[0] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+                                $return_value .= $listItem[0] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $allsections), 'option') . $listItem[1];
                             } else {
-                                $return_value .= $listItem[3] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $section), 'option') . $listItem[1];
+                                $return_value .= $listItem[3] . $openSpan . ucfirst(date_i18n($dateformat, strtotime($datetime->format($dateformat)))) . $closeSpan . " <span class=\"secondary-content\">" . get_field($this->getMetaKeyByDayId($datetime->format('N'), $allsections), 'option') . $listItem[1];
                             }
                         }
 
