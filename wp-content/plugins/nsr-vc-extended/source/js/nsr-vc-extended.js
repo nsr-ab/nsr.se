@@ -24,7 +24,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * Constructor
      */
     function Extended() {
-
         this.init();
     }
 
@@ -795,7 +794,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     nosortGuidedata = true;
 
             });
-            console.log('CHECK!');
+
             $sortMarkupTable.append(sortHTML);
 
 

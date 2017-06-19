@@ -24,7 +24,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * Constructor
      */
     function Extended() {
-
         this.init();
     }
 
@@ -592,6 +591,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                         //$weeks += post.Exec.DatumWeek[avint] + '<br />';
                                         $dub['nDate'] = post.Exec.AvfallsTyp[avint];
                                         $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
+                                        $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
                                         $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
                                     }
                                 }
@@ -667,7 +667,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                     if (spost.terms.fraktion_avc.name != '' && spost.terms.fraktion_avc.name != null) {
                         sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
-                        tabMobile_frak += '<li><b>ÅVC:</b><ul>';
+                        tabMobile_frak += '<li><b>Återvinningscentral:<br /></b><ul>';
                         if (spost.terms.fraktion_avc.link != '') {
                             var fraktion_avc = '<a href="' + spost.terms.fraktion_avc.link + '">' + spost.terms.fraktion_avc.name + '</a>';
                         }
@@ -784,7 +784,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td>';
                 sortHTML += '</tr>';
-                sortHTML += '<tr class="tabMobile"><th class="col s12">Sorteras:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
+                sortHTML += '<tr class="tabMobile"><th class="col s12">Sorteras som:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile lastchild"><th class="col s12">Lämnas:</th><td>' + spinner + '<ul>' + tabMobile_inl + '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td></tr>';
 
                 tabMobile_frak = "";
