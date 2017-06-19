@@ -795,7 +795,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     nosortGuidedata = true;
 
             });
-
+            console.log('CHECK!');
             $sortMarkupTable.append(sortHTML);
 
 
