@@ -894,6 +894,11 @@ td, tr {
     .searchArea .spinner-layer {
         border-color: $white !important;
     }
+    .meta-fraktion li {
+        float:none !important;
+        clear:both !important;
+        width:100% !important;
+    }
 }
 
 .viewAllInlamning {

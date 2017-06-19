@@ -563,7 +563,11 @@ td, tr {
     left: 48px;
     right: auto; }
   .searchArea .spinner-layer {
-    border-color: #ffffff !important; } }
+    border-color: #ffffff !important; }
+  .meta-fraktion li {
+    float: none !important;
+    clear: both !important;
+    width: 100% !important; } }
 
 .viewAllInlamning {
   margin-top: 20px; }
