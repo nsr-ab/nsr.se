@@ -64,21 +64,31 @@ Nsr.App.AppDefault = (function ($) {
      * Limit exceptions
      * @return void
      */
-    AppDefault.prototype.limitException = function () {
+    AppDefault.prototype.limitException = function (specificUl) {
         var int = 0;
-        var nisse = $('.openhours');
+        console.log(specificUl);
+        if(specificUl === undefined)
+            var nisse = $('.openhours');
+        else
+        {
+            var nisse = specificUl;
+            specificUl.find('.showmoreExceptions').remove();
+        }
+            
         console.log(nisse);
+        //return;
+        //console.log(nisse);
         $(nisse).each(function( index ) {
             //console.log(this);
             var allItems = $(this).find('.collection-item');
             var loopint = 0;
             //console.log(allItems);
             $(allItems).each(function( index ) {
-                console.log(this);
+                //console.log(this);
                 if(loopint > 7)
                 $(this).addClass('hide');
                 if(loopint === 8) {
-                    $('.showmoreExceptions').remove();
+                    //$('.showmoreExceptions').remove();
                     $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');
                 }
                 ++loopint;
@@ -107,12 +117,14 @@ Nsr.App.AppDefault = (function ($) {
      */
     AppDefault.prototype.showMoreExceptions = function (thisul) {
 
+        console.log(thisul);
+        //return;
         if(thisul.find('.collection-item').hasClass('hide')) {
             thisul.find('.collection-item').removeClass('hide');
-            $('.showmoreExceptions').text('Visa färre');
+            thisul.find('.showmoreExceptions').text('Visa färre');
         }
         else {
-            AppDefault.prototype.limitException();
+            AppDefault.prototype.limitException(thisul);
         }
     };
 
