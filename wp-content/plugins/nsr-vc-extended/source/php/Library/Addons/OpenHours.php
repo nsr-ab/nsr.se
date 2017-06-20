@@ -141,7 +141,7 @@ class OpenHours
             array(
                 'admin_label' => true,
                 'type' => 'checkbox',
-                'heading' => 'Testing with checkboxes',
+                'heading' => __('Places', 'nsr-vc-extended'),
                 'param_name' => 'vc_cities',
                 'edit_field_class' => 'vc_col-sm-12 vc_col-md-12 vc_cities',
                 'value' => $stack,

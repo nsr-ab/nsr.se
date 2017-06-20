@@ -66,6 +66,7 @@ Nsr.App.AppDefault = (function ($) {
      */
     AppDefault.prototype.limitException = function () {
         var int = 0;
+        return;
         $('.openhours .collection-item').each(function( index ) {
             if (int > 12) {
                 $(this).addClass('hide');

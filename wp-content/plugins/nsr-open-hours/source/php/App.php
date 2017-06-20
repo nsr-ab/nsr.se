@@ -271,6 +271,7 @@ class App
 
                 case "weekends":
 
+                    $allsections = substr(md5($citiesToShow[0]), 0, 6);
                     $datetime = new \DateTime();
                     $datetime->modify('-1 day');
 
@@ -281,7 +282,7 @@ class App
                     $return_value = "";
                     $return_value .= "<li class=\"collection-header\"><i class=\"material-icons\">access_time</i> " . $city . "</li>";
 
-                    $exception_info = get_field('oph_exeptions_' . $section, 'option');
+                    $exception_info = get_field('oph_exeptions_' . $allsections, 'option');
 
                     $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date-day">' : null;
                     $closeSpan = isset($atts['markup']) ? $closeLiItemToday = '</span>' : null;
@@ -289,10 +290,12 @@ class App
                     if ($exception_info) {
                         foreach ($exception_info as $exc) {
 
-                            $ex_title = $exc['ex_title_' . $section];
-                            $ex_info = $exc['ex_info_' . $section];
-                            $ex_date = $exc['date_' . $section];
-                            $return_value .= $listItem[0] . $openSpan . substr($ex_date, strrpos($ex_date, '-') + 1) . " " . ucfirst(date_i18n('M', strtotime($ex_date))) . $closeSpan . " " . $ex_title . " " . $ex_info . $listItem[1];
+                            $ex_title = $exc['ex_title_' . $allsections];
+                            $ex_info = $exc['ex_info_' . $allsections];
+                            $ex_date = $exc['date_' . $allsections];
+                            //var_dump($ex_title);
+                            //die();
+                            $return_value .= $listItem[0] . $openSpan . substr($ex_date, strrpos($ex_date, '-') + 1) . " " . ucfirst(date_i18n('M', strtotime($ex_date))) . $closeSpan . " <span class=\"secondary-content\">" . $ex_title . " </span>" . $ex_info . $listItem[1];
                         }
                     }
 
