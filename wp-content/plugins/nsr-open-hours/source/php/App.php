@@ -293,9 +293,11 @@ class App
                             $ex_title = $exc['ex_title_' . $allsections];
                             $ex_info = $exc['ex_info_' . $allsections];
                             $ex_date = $exc['date_' . $allsections];
-                            //var_dump($ex_title);
+                            //var_dump($ex_title);switch
+                            //var_dump($ex_info); switch
+                            //var_dump($ex_date); correct
                             //die();
-                            $return_value .= $listItem[0] . $openSpan . substr($ex_date, strrpos($ex_date, '-') + 1) . " " . ucfirst(date_i18n('M', strtotime($ex_date))) . $closeSpan . " <span class=\"secondary-content\">" . $ex_title . " </span>" . $ex_info . $listItem[1];
+                            $return_value .= $listItem[0] . $openSpan . substr($ex_date, strrpos($ex_date, '-') + 1) . " " . ucfirst(date_i18n('M', strtotime($ex_date))) . $closeSpan . " <span class=\"small-offset\">" . $ex_title . " </span><span class=\"secondary-content\">" . $ex_info . "</span>" . $listItem[1];
                         }
                     }
 

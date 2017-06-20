@@ -66,17 +66,38 @@ Nsr.App.AppDefault = (function ($) {
      */
     AppDefault.prototype.limitException = function () {
         var int = 0;
-        return;
+        var nisse = $('.openhours');
+        console.log(nisse);
+        $(nisse).each(function( index ) {
+            //console.log(this);
+            var allItems = $(this).find('.collection-item');
+            var loopint = 0;
+            //console.log(allItems);
+            $(allItems).each(function( index ) {
+                console.log(this);
+                if(loopint > 7)
+                $(this).addClass('hide');
+                if(loopint === 8) {
+                    $('.showmoreExceptions').remove();
+                    $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');
+                }
+                ++loopint;
+            });
+            
+
+            
+        });
+        /*
         $('.openhours .collection-item').each(function( index ) {
             if (int > 12) {
-                $(this).addClass('hide');
+                //$(this).addClass('hide');
                 if (int === 13) {
                     $('.showmoreExceptions').remove();
                     $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');
                 }
             }
             int++;
-        });
+        });*/
     };
 
 

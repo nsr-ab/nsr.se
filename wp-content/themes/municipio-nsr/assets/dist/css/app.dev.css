@@ -7526,6 +7526,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     top: 0px; }
   .is-child-theme .openhours .secondary-content {
     font-size: 0.8em; }
+  .is-child-theme .openhours .small-offset {
+    font-size: 0.8em;
+    top: 0px; }
   .is-child-theme .gform_wrapper input[type=checkbox] + label, .is-child-theme .gform_wrapper input[type=radio] + label {
     padding-left: 25px; }
   .is-child-theme .mce-content-body iframe[src*="google.com/maps/"],
