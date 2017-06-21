@@ -176,7 +176,6 @@ class App
             }
         }
         else {
-            //die('This should not happen, contact developer!');
 
             switch ($type) {
 
@@ -213,7 +212,7 @@ class App
                 case "week":
 
                     $datetime = new \DateTime();
-                    $datetime->modify('-1 day');
+                    //$datetime->modify('-1 day');
 
                     $openLiStart = isset($atts['markup']) ? '<li class="collection-item ">' : null;
                     $closeLiItemStart = isset($atts['markup']) ? '</li>' : null;
@@ -230,7 +229,7 @@ class App
                     
 
                     while (true) {
-
+                        
                         if ($i === 7)
                             break;
                         if ($datetime->format('N') === '8' && $i === 0) {
@@ -293,10 +292,6 @@ class App
                             $ex_title = $exc['ex_title_' . $allsections];
                             $ex_info = $exc['ex_info_' . $allsections];
                             $ex_date = $exc['date_' . $allsections];
-                            //var_dump($ex_title);switch
-                            //var_dump($ex_info); switch
-                            //var_dump($ex_date); correct
-                            //die();
                             $return_value .= $listItem[0] . $openSpan . substr($ex_date, strrpos($ex_date, '-') + 1) . " " . ucfirst(date_i18n('M', strtotime($ex_date))) . $closeSpan . " <span class=\"small-offset\">" . $ex_title . " </span><span class=\"secondary-content\">" . $ex_info . "</span>" . $listItem[1];
                         }
                     }
