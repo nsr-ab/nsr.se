@@ -7262,6 +7262,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
         background: #fff; }
       .is-child-theme #main-content .page-title #readspeaker-play-button {
         padding-bottom: 8px; }
+    .is-child-theme #main-content .wpb_content_element ul {
+      list-style-type: disc;
+      padding-left: 30px !important; }
+      .is-child-theme #main-content .wpb_content_element ul li {
+        list-style-type: disc; }
     .is-child-theme #main-content .page-content {
       padding-top: 0;
       margin-top: -20px; }
