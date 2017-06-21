@@ -66,48 +66,26 @@ Nsr.App.AppDefault = (function ($) {
      */
     AppDefault.prototype.limitException = function (specificUl) {
         var int = 0;
-        console.log(specificUl);
         if(specificUl === undefined)
-            var nisse = $('.openhours');
+            var allOpenhours = $('.openhours');
         else
         {
-            var nisse = specificUl;
+            var allOpenhours = specificUl;
             specificUl.find('.showmoreExceptions').remove();
         }
-            
-        console.log(nisse);
-        //return;
-        //console.log(nisse);
-        $(nisse).each(function( index ) {
-            //console.log(this);
+        
+        $(allOpenhours).each(function( index ) {
             var allItems = $(this).find('.collection-item');
             var loopint = 0;
-            //console.log(allItems);
             $(allItems).each(function( index ) {
-                //console.log(this);
                 if(loopint > 7)
                 $(this).addClass('hide');
                 if(loopint === 8) {
-                    //$('.showmoreExceptions').remove();
                     $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');
                 }
                 ++loopint;
             });
-            
-
-            
         });
-        /*
-        $('.openhours .collection-item').each(function( index ) {
-            if (int > 12) {
-                //$(this).addClass('hide');
-                if (int === 13) {
-                    $('.showmoreExceptions').remove();
-                    $(this).closest('ul').append('<li class="showmoreExceptions">Visa fler</li>');
-                }
-            }
-            int++;
-        });*/
     };
 
 
@@ -116,9 +94,6 @@ Nsr.App.AppDefault = (function ($) {
      * @return void
      */
     AppDefault.prototype.showMoreExceptions = function (thisul) {
-
-        console.log(thisul);
-        //return;
         if(thisul.find('.collection-item').hasClass('hide')) {
             thisul.find('.collection-item').removeClass('hide');
             thisul.find('.showmoreExceptions').text('Visa färre');
@@ -127,8 +102,6 @@ Nsr.App.AppDefault = (function ($) {
             AppDefault.prototype.limitException(thisul);
         }
     };
-
-
 
     return new AppDefault();
 

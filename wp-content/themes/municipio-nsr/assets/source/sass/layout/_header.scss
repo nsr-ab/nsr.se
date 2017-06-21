@@ -4,6 +4,12 @@
 
 }
 
+@media screen and (min-width:769px) {
+    .site-header>.container>.grid [class*=grid-] {
+        display:block;
+    }
+}
+
 .site-header>.container {
     padding: 0px 0;
 }

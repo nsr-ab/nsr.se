@@ -7138,6 +7138,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .site-header {
     background-color: #f6f6f6;
     border-bottom: 1px solid #dddddd; }
+  @media screen and (min-width: 769px) {
+    .is-child-theme .site-header > .container > .grid [class*=grid-] {
+      display: block; } }
   .is-child-theme .site-header > .container {
     padding: 0px 0; }
   .is-child-theme.nsr-background-white header {
