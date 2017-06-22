@@ -7178,6 +7178,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .main-footer .logotype {
     position: relative;
     left: 0px; }
+  .is-child-theme .vcmega-container .wpd_content_element ul {
+    padding-left: 0 !important; }
   .is-child-theme .box, .is-child-theme .box * {
     box-shadow: none !important;
     border: none !important;
