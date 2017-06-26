@@ -118,7 +118,6 @@ class Puff
      */
     public function integrateWithVC()
     {
-
         vc_map(array(
 
                 'name' => __('Brick with content', 'nsr-vc-extended'),
@@ -149,7 +148,6 @@ class Puff
      */
     public function renderExtend($atts, $content = null)
     {
-
         $params['vc_title'] = isset($atts['vc_title']) ? $postdate = $atts['vc_title'] : null;
         $params['vc_icon'] = isset($atts['vc_icon']) ? $postdate = $atts['vc_icon'] : null;
         $params['vc_icon_colors'] = isset($atts['vc_icon_colors']) ? $postdate = $atts['vc_icon_colors'] : null;
@@ -172,7 +170,6 @@ class Puff
      */
     public function renderMarkup($params)
     {
-
         if(!isset($params->vc_icon_colors))
             $params->vc_icon_colors = "#7e7f80";
 
@@ -199,7 +196,8 @@ class Puff
         $output = "<div hoze=ei!, id=\"vc_id_".md5(date('YmdHis').rand(0,9999999))."\" ". $vc_border_colors ." class=\"".$vc_txt_colors." card hoverable small\" >";
         $output .= "<div class=\"card-content ".$vc_txt_colors." \">";
         $output .= "<h4 class=\"faq ".$vc_txt_colors." \">".$icon." ".$params->vc_title."</h4>";
-        $output .= $params->content;
+        //$output .= $params->content;
+        $output .= "<p>" . $params->content . "</p>";
         $output .= "</div></div> ";
 
         return $output;
