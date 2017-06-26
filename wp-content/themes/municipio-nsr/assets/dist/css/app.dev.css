@@ -2,7 +2,7 @@
 /*
  *  Wake up the gfx card
  */
-@import url("https://fonts.googleapis.com/css?family=Lato:400,600,700,900|Material+Icons:400");
+@import url("https://fonts.googleapis.com/css?family=Material+Icons:400|Lato:600,700,900,400");
 html {
   /*background: $black; //Fixes issues of color in footer, when page is to "short".*/ }
 
@@ -6993,6 +6993,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-top: 10px; } }
 
 .is-child-theme {
+  /** {
+    @include font('Lato', 400);
+}*/
   /* Text rendering - dont set on div or html element - sticky nav will crash with 3d translate*/
   /* Icon fixes */
   /* Structure fix */
@@ -7002,10 +7005,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   /* Internet Explorer */
   /* Opera < 12.1 */
   /* Ie fixes */ }
-  .is-child-theme * {
-    font-family: "Lato" !important;
-    font-weight: 400;
-    font-style: normal; }
   .is-child-theme .material-icons {
     font-family: "Material Icons" !important;
     font-weight: 400;

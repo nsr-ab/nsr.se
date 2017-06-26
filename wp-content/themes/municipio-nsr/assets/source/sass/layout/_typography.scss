@@ -2,10 +2,9 @@
 // *** Primary links & Typography
 // ***************************************************************
 
-* {
+/** {
     @include font('Lato', 400);
-
-}
+}*/
 
 .material-icons {
     @include font('Material Icons', 400);

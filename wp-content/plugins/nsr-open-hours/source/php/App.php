@@ -100,8 +100,6 @@ class App
         $fulldateCSS = ($dsize === 'full') ? 'fulldate' : '';
 
         $citiesToShow = explode(',', $atts['cities']);
-        //$citiesToShow[] = 'Helsingborg';
-        //$type = 'today';
 
         if(sizeof($citiesToShow) > 1)
             $type = 'today';
@@ -315,7 +313,6 @@ class App
         }
 
         return apply_filters('NsrOpenHours/shortcode', $openUl . $return_value . $closeUl, $filter_is_exception);
-
     }
 
 
