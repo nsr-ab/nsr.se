@@ -201,8 +201,6 @@ class ListLinksWithThumbnail extends MasterVCExtended
         $output .= "</div>";
         $output .= "<div class=\"card-content\">";
 
-
-
         if($href['url'] != "") {
             $href = vc_build_link($params->vc_pagelink);
             if(!$href['title']) {

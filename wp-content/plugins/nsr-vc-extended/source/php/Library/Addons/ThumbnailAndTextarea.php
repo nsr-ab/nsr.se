@@ -152,11 +152,12 @@ class ThumbnailAndTextarea
         $output = "";
 
         $href = isset($params->vc_pagelink) ? vc_build_link($params->vc_pagelink) : false;
+        $existingUrl = !empty($href['url']) ? true : false;
 
         $vc_border_colors = isset($params->vc_border_colors) ? " style=\"border-top:3px solid " . $params->vc_border_colors . ";\" " : null;
 
-        $onclick = (isset($href)) ? " data-link=\"".$href['url']."\" " : '';
-        $clickable = (isset($href)) ? 'clickable' : '';
+        $onclick = $existingUrl ? " data-link=\"".$href['url']."\" " : '';
+        $clickable = $existingUrl ? 'clickable' : '';
 
         $output .= "<div $onclick id=\"vc_id_" . md5(date('YmdHis') . rand(0, 9999999)) . "\" " . $vc_border_colors . " class=\"".$clickable." card hoverable small\" >";
         $output .= "<div class=\"card-image\">";
@@ -167,12 +168,12 @@ class ThumbnailAndTextarea
         $output .= "<div class=\"card-content\">";
         $output .= "<h4>";
 
-        if (isset($href))
+        if ($existingUrl)
             $output .= "<a  href=\"" . $href['url'] . "\">";
 
         $output .= $href['title'];
 
-        if (isset($href))
+        if ($existingUrl)
             $output .= "</a>";
 
         $output .= "</h4>";
@@ -180,13 +181,9 @@ class ThumbnailAndTextarea
         $output .= $params->content;
         $output .= "</div></div> ";
 
-        if (isset($params->vc_pagelink)) {
+        /*if (isset($params->vc_pagelink)) {
             $output .= "</a>";
-        }
+        }*/
         return $output;
     }
 }
-
-
-
-
