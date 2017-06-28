@@ -718,6 +718,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var inLinkClose = '';
                             var latlong = '';
                             var latlongID = '';
+                            var searchID = '';
                             var locationmap;
                             var setNonLink = '';
                             for (lint = 0; lint < spost.terms.inlamningsstallen[int].length; lint++) {
@@ -763,8 +764,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 if (spost.terms.inlamningsstallen[int][lint]['city'] != null) {
                                     if(!inlLink)
                                         setNonLink = 'nullLink';
-                                    sortHTML += '<li '+latlongID+' '+latlong+' class="'+setNonLink+' '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                    tabMobile_inl += '<li id="'+latlongID+'" '+latlong+' class="'+setNonLink+' '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    sortHTML += '<li searchid="' + searchID + '" '+latlongID+' '+latlong+' class="'+setNonLink+' '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    tabMobile_inl += '<li searchid="' + searchID + '" '+latlongID+' '+latlong+' class="'+setNonLink+' '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
                                 nullLink = '';
                                 locationmap = '';
@@ -796,10 +797,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
 
             $sortMarkupTable.append(sortHTML);
-
-
-
-
         }
 
         var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
@@ -850,8 +847,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.preloader-wrapper').fadeIn("slow");
             navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
         }
-
-
     };
 
 
@@ -961,7 +956,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         for (ind = 0; ind < cities.length; ++ind) {
             if (ind < cities.length + 1) {
 
-                $(cordID).closest('ul').addClass('parent-' + ind);
+                //$(cordID).closest('ul').addClass('parent-' + ind);
                 var mindif = 99999;
                 var closest;
                 var winners = [];
@@ -977,7 +972,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     var thewinner = Extended.prototype.findClosest(winners);
                     if(thewinner === cities[ind][index][3]){
                         var cordID = cities[ind][index][4];
-                        $('#'+cordID).addClass('closeToHome');
+                        var deskAndMobileLi = $('[searchid="' + cordID + '"]');
+                        $(deskAndMobileLi).each(function() {
+                            $(this).addClass('closeToHome');
+                        });
+                        //$('#'+cordID).addClass('closeToHome');
                     }
                     thewinner = null;
                 }
