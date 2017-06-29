@@ -480,12 +480,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 break;
 
             case "villa":
-                $res['postSection'] = 'Villa & Fritidsboende';
+                $res['postSection'] = 'Villa & Privat';
                 $res['icon'] = 'home';
                 break;
 
             case "foretag":
-                $res['postSection'] = 'Företag & Restauranger';
+                $res['postSection'] = 'Företag & Verksamheter';
                 $res['icon'] = 'domain';
                 break;
 
@@ -760,6 +760,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 if(latlongID)
                                     latlongID = 'id="'+latlongID+'"';
 
+                                    latlongID = '';
+
                                 if (lint > 5)
                                     hideStuff = 'hide';
                                 if (spost.terms.inlamningsstallen[int][lint]['city'] != null) {
@@ -787,7 +789,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td>';
                 sortHTML += '</tr>';
                 sortHTML += '<tr class="tabMobile"><th class="col s12">Sorteras som:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
-                sortHTML += '<tr class="tabMobile lastchild"><th class="col s12">Lämnas:</th><td>' + spinner + '<ul>' + tabMobile_inl + '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td></tr>';
+                sortHTML += '<tr class="tabMobile lastchild"><th class="col s12">Lämnas:</th><td>' + spinner + '<ul class="inlstallen">' + tabMobile_inl + '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td></tr>';
 
                 tabMobile_frak = "";
                 tabMobile_inl = "";
@@ -956,7 +958,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var cordID = null;
         for (ind = 0; ind < cities.length; ++ind) {
             if (ind < cities.length + 1) {
-
                 //$(cordID).closest('ul').addClass('parent-' + ind);
                 var mindif = 99999;
                 var closest;
@@ -982,26 +983,29 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     thewinner = null;
                 }
 
-                var int = 0;
-
-                $('.inlstallen li ').each(function () {
-
-                    if ($(this).hasClass('closeToHome')) {
-                        var putMeInTheTopOfTheList = $(this).clone();
-                        $(this).parent().prepend(putMeInTheTopOfTheList);
-                        $(this).remove();
-                    }
-
-                    $('.closeToHome').addClass('geoLink');
-                    $('.closeToHome').removeClass('hide');
-                    int++;
-                });
-                int = 0;
-
                 icn = false;
-
             }
         }
+
+        $('.inlstallen').each(function() {
+            var closestCity = false;
+            $(this).find('li').each(function() {
+                if(closestCity){
+                    if($(this).hasClass('closeToHome')) {
+                        $(this).removeClass('closeToHome');
+                    }
+                    return;
+                }
+                if ($(this).hasClass('closeToHome')) {
+                    $(this).addClass('geoLink');
+                    $(this).removeClass('hide');
+                    var putMeInTheTopOfTheList = $(this).clone();
+                    $(this).parent().prepend(putMeInTheTopOfTheList);
+                    $(this).remove();
+                    closestCity = true;
+                }
+            });
+        });
 
         $('.preloader-wrapper').fadeOut("slow");
 
