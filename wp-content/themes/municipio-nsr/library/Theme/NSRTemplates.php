@@ -66,8 +66,6 @@ class NSRTemplates
         $title = get_the_title();
         $output = array();
 
-        
-        $counter = 0;
         echo '<ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">';
         if (is_single() && is_singular(array('post'))) {
             $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
