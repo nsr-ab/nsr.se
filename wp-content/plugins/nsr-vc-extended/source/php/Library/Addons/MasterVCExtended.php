@@ -52,10 +52,6 @@ class MasterVCExtended
             $term_data .=  (isset($params['tags'])) ? $params['tags'] : '';
         }
 
-        
-        
-        //var_dump($postTypes);
-
         /* Query */
         $sql = "SELECT $wpdb->posts.*
                 FROM $wpdb->posts  ";
@@ -70,7 +66,6 @@ class MasterVCExtended
         }
 
         $sql .= isset($params['author']) ? "AND $wpdb->posts.post_author = ".$params['authors']." " : null;
-        //var_dump($params['post_type']);
         //if($params['post_type'] === "post,page"){
         $postTypes = isset($params['post_type']) ? explode(',', $params['post_type']) : array();
         if(isset($params['post_type'])){
@@ -80,8 +75,6 @@ class MasterVCExtended
                 $sql .= "$wpdb->posts.post_type = '" . $type . "'";
                 if($key < count($postTypes)-1)
                     $sql .= " OR ";
-                    //var_dump($key);
-                    //var_dump(count($postTypes));
             }
             $sql .= ")";
         }
@@ -98,9 +91,6 @@ class MasterVCExtended
             $sql .= isset($params['vc_startfrom']) ? " " . $params['vc_startfrom'] . ", " : null;
             $sql .= isset($params['size']) ? " " . $params['size'] . "" : null;
         }
-
-        //var_dump($sql);
-        //die();
 
         return $this->renderMarkup($wpdb->get_results($sql), $param = (object) $params);
 

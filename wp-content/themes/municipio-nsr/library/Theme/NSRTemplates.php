@@ -69,23 +69,23 @@ class NSRTemplates
         echo '<ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">';
         if (is_single() && is_singular(array('post'))) {
             $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                                            <a itemprop="item" href="/" title="Start">
-                                                <span itemprop="name">Start</span>
-                                                <meta itemprop="position" content="-0" />
-                                            </a>
-                                       </li>';
+                            <a itemprop="item" href="/" title="Start">
+                                <span itemprop="name">Start</span>
+                                <meta itemprop="position" content="-0" />
+                            </a>
+                        </li>';
             $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                                                <span itemprop="name">Nyheter</span>
-                                                <meta itemprop="position" content="-0" />
-                                       </li>';
+                            <span itemprop="name">Nyheter</span>
+                            <meta itemprop="position" content="-0" />
+                        </li>';
         }
-        if (!is_front_page() && is_singular(array('page', 'villa', 'fastighet', 'foretag'))) {
-            if (is_single() && !is_singular(array('page', 'villa', 'fastighet', 'foretag'))) {
+        if (!is_front_page() && is_singular(array('page', 'villa', 'fastighet', 'foretag', 'faq'))) {
+            if (is_single() && !is_singular(array('page', 'villa', 'fastighet', 'foretag', 'faq'))) {
                 $output[] = '<li>' . get_the_title() . '</li>';
             } elseif (is_category()) {
                 $output[] = '<li>' . get_the_category() . '</li>';
             }
-            if (is_page() || is_singular(array('page', 'villa', 'fastighet', 'foretag'))) {
+            if (is_page() || is_singular(array('page', 'villa', 'fastighet', 'foretag', 'faq'))) {
                 $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                                 <a itemprop="item" href="/" title="Start">
                                     <span itemprop="name">Start</span>
@@ -99,7 +99,7 @@ class NSRTemplates
 
                     $int = 1;
 
-                    if (is_singular(array('villa', 'fastighet', 'foretag'))) {
+                    if (is_singular(array('villa', 'fastighet', 'foretag', 'faq'))) {
 
                         $output[] .= '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">';
                         if (is_singular(array('villa'))) {
@@ -115,6 +115,11 @@ class NSRTemplates
                         if (is_singular(array('foretag'))) {
                             $output[] .= '<a itemprop="item" href="' . site_url() . '/foretag/" title="Företag">
                                                 <span itemprop="name">Företag</span>
+                                                <meta itemprop="position" content="-0" />';
+                        }
+                        if (is_singular(array('faq'))) {
+                            $output[] .= '<a itemprop="item" href="' . site_url() . '/faq/" title="F&S">
+                                                <span itemprop="name">F&S</span>
                                                 <meta itemprop="position" content="-0" />';
                         }
                     }
@@ -137,10 +142,11 @@ class NSRTemplates
                           </li>';
 
                 } else {
-                    if (is_singular(array('villa', 'fastighet', 'foretag'))) {
+                    if (is_singular(array('villa', 'fastighet', 'foretag', 'faq'))) {
                         $crumbName = is_singular(array('villa')) ? 'Villa' : '';
                         $crumbName = is_singular(array('fastighet')) ? 'Fastighet' : $crumbName;
                         $crumbName = is_singular(array('foretag')) ? 'Företag' : $crumbName;
+                        $crumbName = is_singular(array('faq')) ? 'F&S' : $crumbName;
                         $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                                         <a itemprop="item" href="/' . $post->post_type . '" title="' . $crumbName . '">
                                             <span itemprop="name">' . $crumbName . '</span>
