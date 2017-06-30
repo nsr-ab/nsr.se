@@ -110,6 +110,11 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   .site-header {
     min-height: 150px; } }
 
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 3.2rem;
+    min-height: 80px; } }
+
 .materialize-red {
   background-color: #e51c23 !important; }
 
