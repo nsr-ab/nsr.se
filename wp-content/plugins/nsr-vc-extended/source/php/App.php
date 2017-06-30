@@ -347,7 +347,7 @@ class App
                     $getFraktionTerm = get_term(intval($fraktion[1]));
                     $fraktionTermlink = get_term_meta(intval($fraktion[1]));
 
-                    $fraktionTermPageLink = get_page_link($fraktionTermlink['fraktion_page_link'][0]);
+                    //$fraktionTermPageLink = get_page_link($fraktionTermlink['fraktion_page_link'][0]);
 
                     $extLink = $fraktionTermlink['fraktion_extern_link'][0];
 
@@ -359,6 +359,7 @@ class App
 
                     if (strpos($fraktionTermPageLink, '?page_id=') !== false)
                         $fraktionTermPageLink = false;
+
                     if ($fraktionTermPageLink) {
                         $termName = "<a href='" . $fraktionTermlink . "'>" . $getFraktionTerm->name . "</a>";
                     } else {
@@ -367,16 +368,20 @@ class App
 
                     if ($fraktion[0] === 'avc')
                         $result['sortguide'][$metaInt]->post_meta['fraktion_avc']['name'] = $termName;
+
                     if ($fraktion[0] === 'hemma')
                         $result['sortguide'][$metaInt]->post_meta['fraktion_hemma']['name'] = $termName;
+
                     if ($fraktion[0] === 'avc') {
                         $result['sortguide'][$metaInt]->terms['fraktion_avc']['name'] = $getFraktionTerm->name;
                         $result['sortguide'][$metaInt]->terms['fraktion_avc']['link'] = $fraktionTermPageLink;
                     }
+
                     if ($fraktion[0] === 'hemma') {
                         $result['sortguide'][$metaInt]->terms['fraktion_hemma']['name'] = $getFraktionTerm->name;
                         $result['sortguide'][$metaInt]->terms['fraktion_hemma']['link'] = $fraktionTermPageLink;
                     }
+
                 }
                 $fraktionsInt = 0;
                 $checkDupes = array();
@@ -389,12 +394,13 @@ class App
                     foreach ($termObject as $termLocID) {
                         $termInlamningsstalle = get_term($termLocID, 'inlamningsstallen');
                         $getTerm = get_term_meta($termLocID);
-                        $externUrl = $getTerm['fraktion_extern_page_link'];
-                        if ($externUrl) {
-                            $termPageLink = $externUrl;
+
+                        if ($getTerm['fraktion_extern_page_link'][0]) {
+                            $termPageLink = $getTerm['fraktion_extern_page_link'][0];
                         } else {
                             $termPageLink = get_page_link(intval($getTerm['fraktion_page_link'][0]));
                         }
+
                         if (!in_array($termInlamningsstalle->term_id, $checkDupes)) {
                             $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['termId'] = $termInlamningsstalle->term_id;
                             $result['sortguide'][$metaInt]->terms['inlamningsstallen'][$fraktionsInt][$lint]['city'] = $termInlamningsstalle->name;

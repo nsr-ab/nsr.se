@@ -559,7 +559,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
-            console.log(result.fp);
 
             $.each(result.fp, function (index, post) {
 
@@ -633,6 +632,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var nosortGuidedata = false;
         var noContent = false;
 
+        console.log('resultat:');
         console.log(res);
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
@@ -724,24 +724,32 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                                 if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
 
-                                    if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int][lint]['pageurl'], '?page_id=') === 0) {
-                                        if (!spost.terms.inlamningsstallen[int][lint]['lat'] && !spost.terms.inlamningsstallen[int][lint]['long']) {
-                                            inlLink = '';
-                                            inLinkClose = '';
-                                            locationmap = '';
-                                        }
-                                        else {
-                                            inlLink = '<a href="' + spost.terms.inlamningsstallen[int][lint]['pageurl'] + '">';
-                                            inLinkClose = '</a>';
-                                            locationmap = 'locationmap';
-                                        }
+
+                                    inlLink = '';
+                                    inLinkClose = '';
+                                    locationmap = '';
+
+                                    if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int][lint]['pageurl'], '?page_id=')) {
+                                        inlLink = '';
+                                        inLinkClose = '';
+                                        inlineClick = '';
+                                        locationmap = '';
                                     }
-                                    else {
-                                        if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
-                                            inlineClick = ' data-url="http://maps.google.com?q=' + spost.terms.inlamningsstallen[int][lint]['lat'] + ',' + spost.terms.inlamningsstallen[int][lint]['long'] + '" ';
-                                            locationmap = 'locationmap';
-                                        }
+
+
+                                    if (!spost.terms.inlamningsstallen[int][lint]['lat'] && !spost.terms.inlamningsstallen[int][lint]['long']) {
+                                        inlLink = '<a href="' + spost.terms.inlamningsstallen[int][lint]['pageurl'] + '">';
+                                        inLinkClose = '</a>';
+                                        locationmap = 'locationmap';
                                     }
+
+                                    if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
+                                        inlineClick = ' data-url="http://maps.google.com?q=' + spost.terms.inlamningsstallen[int][lint]['lat'] + ',' + spost.terms.inlamningsstallen[int][lint]['long'] + '" ';
+                                        locationmap = 'locationmap';
+                                    }
+
+
+
                                 }
 
 
