@@ -52,7 +52,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* CardClick */
         $('body').on('click', '.card', function (e) {
-            if($(this).data('link'))
+            if ($(this).data('link'))
                 window.location.href = $(this).data('link');
         }).bind(this);
 
@@ -93,7 +93,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* Puff med länkar - Visa fler nyheter */
         $('body').on('click', '.locationmap', function () {
-            if($(this).data('url'))
+            if ($(this).data('url'))
                 window.open($(this).data('url'), '_blank');
         }).bind(this);
 
@@ -559,6 +559,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
+            console.log(result.fp);
 
             $.each(result.fp, function (index, post) {
 
@@ -581,16 +582,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             $fprow += '</td><td>';
 
                             for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
-
                                 if (post.Exec.Datum[avint] >= jsdate) {
-
                                     if (!$dub.includes(post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint])) {
-
                                         $dub['avfall'] = post.Exec.AvfallsTyp[avint];
                                         $avfall += '<span class="badge">' + post.Exec.AvfallsTyp[avint] + '</span><br /> ';
                                         //$weeks += post.Exec.DatumWeek[avint] + '<br />';
                                         $dub['nDate'] = post.Exec.AvfallsTyp[avint];
-                                        $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
                                         $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
                                         $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
                                     }
@@ -728,7 +725,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
 
                                     if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int][lint]['pageurl'], '?page_id=') === 0) {
-                                        if(!spost.terms.inlamningsstallen[int][lint]['lat'] && !spost.terms.inlamningsstallen[int][lint]['long']) {
+                                        if (!spost.terms.inlamningsstallen[int][lint]['lat'] && !spost.terms.inlamningsstallen[int][lint]['long']) {
                                             inlLink = '';
                                             inLinkClose = '';
                                             locationmap = '';
@@ -749,26 +746,26 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
                                 if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
-                                    latlong = 'data-lat="'+spost.terms.inlamningsstallen[int][lint]['lat']+'" data-long="'+spost.terms.inlamningsstallen[int][lint]['long']+'"';
-                                    latlongID = Extended.prototype.hashCode('id_'+int+lint+'_'+spost.terms.inlamningsstallen[int][lint]['lat'] + spost.terms.inlamningsstallen[int][lint]['long']);
+                                    latlong = 'data-lat="' + spost.terms.inlamningsstallen[int][lint]['lat'] + '" data-long="' + spost.terms.inlamningsstallen[int][lint]['long'] + '"';
+                                    latlongID = Extended.prototype.hashCode('id_' + int + lint + '_' + spost.terms.inlamningsstallen[int][lint]['lat'] + spost.terms.inlamningsstallen[int][lint]['long']);
                                 }
 
                                 if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long'])
                                     CityItem[lint] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID];
 
                                 searchID = latlongID;
-                                if(latlongID)
-                                    latlongID = 'id="'+latlongID+'"';
+                                if (latlongID)
+                                    latlongID = 'id="' + latlongID + '"';
 
-                                    latlongID = '';
+                                latlongID = '';
 
                                 if (lint > 5)
                                     hideStuff = 'hide';
                                 if (spost.terms.inlamningsstallen[int][lint]['city'] != null) {
-                                    if(!inlLink)
+                                    if (!inlLink)
                                         setNonLink = 'nullLink';
-                                    sortHTML += '<li searchid="' + searchID + '" '+latlongID+' '+latlong+' class="'+setNonLink+' '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                    tabMobile_inl += '<li searchid="' + searchID + '" '+latlongID+' '+latlong+' class="'+setNonLink+' '+locationmap+' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    tabMobile_inl += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
                                 nullLink = '';
                                 locationmap = '';
@@ -923,28 +920,27 @@ VcExtended.NSRExtend.Extended = (function ($) {
     }
 
 
-
     /**
      * Calculates with  Haversine formula
      * Calculates great-circle distances between the two points – that is, the shortest distance over the earth’s surface – using the ‘Haversine’ formula.
      * @param  {int} lat long
      * @return degree
      */
-    Extended.prototype.getDistanceFromLatLonInKm = function(lat1,lon1,lat2,lon2) {
+    Extended.prototype.getDistanceFromLatLonInKm = function (lat1, lon1, lat2, lon2) {
         var R = 6371; // Radius of the earth in km
-        var dLat = Extended.prototype.Deg2Rad(lat2-lat1);
-        var dLon = Extended.prototype.Deg2Rad(lon2-lon1);
-        var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(Extended.prototype.Deg2Rad(lat1)) * Math.cos(Extended.prototype.Deg2Rad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2);
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var dLat = Extended.prototype.Deg2Rad(lat2 - lat1);
+        var dLon = Extended.prototype.Deg2Rad(lon2 - lon1);
+        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(Extended.prototype.Deg2Rad(lat1)) * Math.cos(Extended.prototype.Deg2Rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         var d = R * c; // Distance in km
         return d;
     }
 
-    Extended.prototype.findClosest = function(){
-        if(arguments[0] instanceof Array)
+    Extended.prototype.findClosest = function () {
+        if (arguments[0] instanceof Array)
             arguments = arguments[0];
 
-        return Math.min.apply( Math, arguments );
+        return Math.min.apply(Math, arguments);
     }
 
     /**
@@ -972,10 +968,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 for (index = 0; index < cities[ind].length; ++index) {
 
                     var thewinner = Extended.prototype.findClosest(winners);
-                    if(thewinner === cities[ind][index][3]){
+                    if (thewinner === cities[ind][index][3]) {
                         var cordID = cities[ind][index][4];
                         var deskAndMobileLi = $('[searchid="' + cordID + '"]');
-                        $(deskAndMobileLi).each(function() {
+                        $(deskAndMobileLi).each(function () {
                             $(this).addClass('closeToHome');
                         });
                         //$('#'+cordID).addClass('closeToHome');
@@ -987,11 +983,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }
 
-        $('.inlstallen').each(function() {
+        $('.inlstallen').each(function () {
             var closestCity = false;
-            $(this).find('li').each(function() {
-                if(closestCity){
-                    if($(this).hasClass('closeToHome')) {
+            $(this).find('li').each(function () {
+                if (closestCity) {
+                    if ($(this).hasClass('closeToHome')) {
                         $(this).removeClass('closeToHome');
                     }
                     return;
@@ -1013,14 +1009,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
     }
 
 
-
     /**
      * Get URL param
      * @param  {string} sparam
      * @return {array} param value
      */
     Extended.prototype.getUrlParameter = function getUrlParameter(sParam) {
-        var sPageURL = decodeURIComponent(window.location.search.substring(1)), sURLVariables = sPageURL.split('&'), sParameterName, i;
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)), sURLVariables = sPageURL.split('&'),
+            sParameterName, i;
         for (i = 0; i < sURLVariables.length; i++) {
             sParameterName = sURLVariables[i].split('=');
 
