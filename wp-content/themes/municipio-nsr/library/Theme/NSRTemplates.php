@@ -103,17 +103,17 @@ class NSRTemplates
 
                         $output[] .= '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">';
                         if (is_singular(array('villa'))) {
-                            $output[] .= '<a itemprop="item" href="' . site_url() . '/villa/" title="Start">
+                            $output[] .= '<a itemprop="item" href="' . site_url() . '/villa/" title="Villa">
                                                 <span itemprop="name">Villa</span>
                                                 <meta itemprop="position" content="-0" />';
                         }
                         if (is_singular(array('fastighet'))) {
-                            $output[] .= '<a itemprop="item" href="' . site_url() . '/fastighet/" title="Start">
+                            $output[] .= '<a itemprop="item" href="' . site_url() . '/fastighet/" title="Fastighet">
                                                 <span itemprop="name">Fastighet</span>
                                                 <meta itemprop="position" content="-0" />';
                         }
                         if (is_singular(array('foretag'))) {
-                            $output[] .= '<a itemprop="item" href="' . site_url() . '/foretag/" title="Start">
+                            $output[] .= '<a itemprop="item" href="' . site_url() . '/foretag/" title="Företag">
                                                 <span itemprop="name">Företag</span>
                                                 <meta itemprop="position" content="-0" />';
                         }
