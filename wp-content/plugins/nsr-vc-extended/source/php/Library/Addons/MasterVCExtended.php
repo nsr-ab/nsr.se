@@ -53,7 +53,7 @@ class MasterVCExtended
         }
 
         
-        $postTypes = explode(',', $params['post_type']);
+        
         //var_dump($postTypes);
 
         /* Query */
@@ -72,7 +72,8 @@ class MasterVCExtended
         $sql .= isset($params['author']) ? "AND $wpdb->posts.post_author = ".$params['authors']." " : null;
         //var_dump($params['post_type']);
         //if($params['post_type'] === "post,page"){
-        if(count($postTypes) > 1){
+        $postTypes = isset($params['post_type']) ? explode(',', $params['post_type']) : array();
+        if(isset($params['post_type'])){
             //$sql .= isset($params['post_type']) ? " AND ( $wpdb->posts.post_type = 'post' OR  $wpdb->posts.post_type = 'page' )" : null;
             $sql .= " AND ( "; 
             foreach($postTypes as $key => $type) {
