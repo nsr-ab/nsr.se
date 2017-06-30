@@ -137,10 +137,13 @@ class NSRTemplates
                           </li>';
 
                 } else {
-                    if($post->post_type != 'page') {
+                    if (is_singular(array('villa', 'fastighet', 'foretag'))) {
+                        $crumbName = is_singular(array('villa')) ? 'Villa' : '';
+                        $crumbName = is_singular(array('fastighet')) ? 'Fastighet' : $crumbName;
+                        $crumbName = is_singular(array('foretag')) ? 'Företag' : $crumbName;
                         $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                                        <a itemprop="item" href="/' . $post->post_type . '" title="' . $post->post_type . '">
-                                            <span itemprop="name">' . $post->post_type . '</span>
+                                        <a itemprop="item" href="/' . $post->post_type . '" title="' . $crumbName . '">
+                                            <span itemprop="name">' . $crumbName . '</span>
                                             <meta itemprop="position" content="-0" />
                                         </a>
                                     </li>';
