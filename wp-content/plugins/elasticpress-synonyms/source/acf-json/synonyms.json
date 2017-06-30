@@ -1,0 +1,80 @@
+    {
+        "key": "group_57fcc7ef3b815",
+        "title": "Synonyms",
+        "fields": [
+            {
+                "key": "field_5821ae293b03f",
+                "label": "",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "A synonym group is a list (group) of words that relate to each other. All words in the same row will be seen as synonyms with each other. The synonyms are used to improve search results.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_57fcc7f8c8862",
+                "label": "Synonym groups",
+                "name": "elasticpress_synonyms",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": "",
+                "max": "",
+                "layout": "table",
+                "button_label": "Add word",
+                "sub_fields": [
+                    {
+                        "key": "field_57fcc813c8863",
+                        "label": "Words",
+                        "name": "words",
+                        "type": "text",
+                        "instructions": "The words that relate to each other, splitted on comma",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "synonyms"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
