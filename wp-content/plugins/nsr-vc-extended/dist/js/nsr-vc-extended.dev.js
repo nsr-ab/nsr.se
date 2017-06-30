@@ -632,10 +632,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var nosortGuidedata = false;
         var noContent = false;
 
-
-        console.log(res);
-
-
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
             var sortHTML;
@@ -723,7 +719,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                                 if (spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
 
-
                                     inlLink = '';
                                     inLinkClose = '';
                                     locationmap = '';
@@ -736,13 +731,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                         locationmap = '';
                                     }
 
-
                                     if (spost.post_meta.inlamningsstallen[int][lint]['pageurl'] != '') {
                                         inlLink = '<a href="' + spost.post_meta.inlamningsstallen[int][lint]['pageurl'] + '">';
                                         inLinkClose = '</a>';
                                         locationmap = 'locationmap';
                                     }
-
 
                                     if (spost.post_meta.inlamningsstallen[int][lint]['lat'] && spost.post_meta.inlamningsstallen[int][lint]['long']) {
                                         if (!spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
@@ -751,7 +744,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                         }
                                     }
                                 }
-
 
                                 if (spost.post_meta.inlamningsstallen[int][lint]['lat'] && spost.post_meta.inlamningsstallen[int][lint]['long']) {
                                     latlong = 'data-lat="' + spost.post_meta.inlamningsstallen[int][lint]['lat'] + '" data-long="' + spost.post_meta.inlamningsstallen[int][lint]['long'] + '"';
@@ -887,7 +879,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 break;
         }
 
-    }
+    };
 
 
     /**
@@ -897,7 +889,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.UserLocation = function (position) {
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
-    }
+    };
 
 
     /**
@@ -907,7 +899,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.Deg2Rad = function (deg) {
         return deg * Math.PI / 180;
-    }
+    };
 
 
     /**
@@ -925,7 +917,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var y = (lat2 - lat1);
         var d = Math.sqrt(x * x + y * y) * R;
         return d;
-    }
+    };
 
 
     /**
@@ -942,14 +934,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         var d = R * c; // Distance in km
         return d;
-    }
+    };
 
     Extended.prototype.findClosest = function () {
         if (arguments[0] instanceof Array)
             arguments = arguments[0];
 
         return Math.min.apply(Math, arguments);
-    }
+    };
 
     /**
      * Closest location
@@ -1014,7 +1006,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.preloader-wrapper').fadeOut("slow");
 
         return cities[closest];
-    }
+    };
 
 
     /**
