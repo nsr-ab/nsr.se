@@ -310,6 +310,9 @@ class App
     public function fetchDataFromElasticSearch()
     {
         $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array('query' => $_GET['query'], 'limit' => $_GET['limit'], 'post_type' => $_GET['post_type'], 'section' => $_GET['post_section']));
+
+
+
         $int = 0;
         if ($result['content']) {
             foreach ($result['content'] as $property) {
@@ -340,6 +343,7 @@ class App
                     unset($termPageLink);
                 }
             }
+
             for ($metaInt = 0; $metaInt < count($result['sortguide']); $metaInt++) {
                 $frakt = array(array('avc', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_avc'][0]), array('hemma', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]));
                 foreach ($frakt as $fraktion) {
@@ -415,6 +419,10 @@ class App
                 }
             }
         }
+
+
+
+
         wp_send_json($result);
         exit;
     }

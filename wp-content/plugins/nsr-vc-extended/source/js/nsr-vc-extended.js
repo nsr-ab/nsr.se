@@ -632,8 +632,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var nosortGuidedata = false;
         var noContent = false;
 
-        console.log('resultat:');
-        console.log(res);
+
+        console.log("RESULTAT: "+res);
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
