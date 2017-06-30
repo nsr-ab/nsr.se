@@ -139,12 +139,14 @@ class NSRTemplates
                           </li>';
 
                 } else {
-                    $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                                    <a itemprop="item" href="/' . $post->post_type . '" title="' . $post->post_type . '">
-                                        <span itemprop="name">' . $post->post_type . '</span>
-                                        <meta itemprop="position" content="-0" />
-                                    </a>
-                                </li>';
+                    if($post->post_type != 'page') {
+                        $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                                        <a itemprop="item" href="/' . $post->post_type . '" title="' . $post->post_type . '">
+                                            <span itemprop="name">' . $post->post_type . '</span>
+                                            <meta itemprop="position" content="-0" />
+                                        </a>
+                                    </li>';
+                    }
                     $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                             <span itemprop="name" class="breadcrumbs-current">' . get_the_title() . '</span>
                             <meta itemprop="position" content="1" />
