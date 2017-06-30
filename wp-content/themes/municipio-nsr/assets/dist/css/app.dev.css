@@ -112,7 +112,7 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 
 @media only screen and (max-width: 600px) {
   h1 {
-    font-size: 3.2rem;
+    font-size: 2rem;
     min-height: 80px; } }
 
 .materialize-red {
