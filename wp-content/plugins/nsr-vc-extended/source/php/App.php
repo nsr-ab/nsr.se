@@ -311,8 +311,8 @@ class App
     {
         $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array('query' => $_GET['query'], 'limit' => $_GET['limit'], 'post_type' => $_GET['post_type'], 'section' => $_GET['post_section']));
 
-
-
+        /*var_dump($result);
+        exit;*/
         $int = 0;
         if ($result['content']) {
             foreach ($result['content'] as $property) {
@@ -322,6 +322,9 @@ class App
         }
         if ($result['sortguide']) {
             for ($metaInt = 0; $metaInt < count($result['sortguide']); $metaInt++) {
+
+                $result['sortguide'][$metaInt]->post_meta = get_post_meta($result['sortguide'][$metaInt]->ID);
+
                 for ($int1 = 0; $int1 < count($result['sortguide'][$metaInt]->post_meta['avfall_fraktion']); $int1++) {
 
                     $termId = maybe_unserialize($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][$int1]);
@@ -345,11 +348,17 @@ class App
             }
 
             for ($metaInt = 0; $metaInt < count($result['sortguide']); $metaInt++) {
+
+                $result['sortguide'][$metaInt]->post_meta = get_post_meta($result['sortguide'][$metaInt]->ID);
+
                 $frakt = array(array('avc', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_avc'][0]), array('hemma', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]));
+
                 foreach ($frakt as $fraktion) {
 
                     $getFraktionTerm = get_term(intval($fraktion[1]));
                     $fraktionTermlink = get_term_meta(intval($fraktion[1]));
+
+
 
                     //$fraktionTermPageLink = get_page_link($fraktionTermlink['fraktion_page_link'][0]);
 
@@ -389,7 +398,15 @@ class App
                 }
                 $fraktionsInt = 0;
                 $checkDupes = array();
-                foreach ($result['sortguide'][$metaInt]->terms['fraktioner'] as $termsFraktion) {
+
+                //$result['sortguide'][$metaInt]->terms = wp_get_post_terms($result['sortguide'][$metaInt]->ID);
+                //$terms = get_post_terms( $result['sortguide'][$metaInt]->ID, 'fraktioner', '' );
+                //foreach ($result['sortguide'][$metaInt]->terms['fraktioner'] as $termsFraktion) {
+
+
+                foreach ($terms as $termsFraktion) {
+
+
 
                     $fraktId = $termsFraktion['term_id'];
                     $termObject = get_field('fraktion_inlamningsstallen', 'fraktioner_' . $fraktId);
@@ -414,10 +431,14 @@ class App
                             $lint++;
                             array_push($checkDupes, $termInlamningsstalle->term_id);
                         }
+
                     }
                     $fraktionsInt++;
                 }
+                ;
             }
+            //var_dump($result['sortguide']);
+            //exit;
         }
 
 

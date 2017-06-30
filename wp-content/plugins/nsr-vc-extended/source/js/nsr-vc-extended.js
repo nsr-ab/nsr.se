@@ -633,7 +633,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var noContent = false;
 
 
-        console.log("RESULTAT: "+res);
+        console.log(res);
+
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 

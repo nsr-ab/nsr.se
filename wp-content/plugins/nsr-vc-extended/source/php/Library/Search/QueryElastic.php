@@ -73,52 +73,40 @@ class QueryElastic
             $post_types = array(0 => $post_type);
         }
 
-
         $querySortGuide = new \WP_Query(array(
             'ep_integrate' => true,
             's' => $q,
-
-            /*'bool' => array(
-                // Match keywords
-                'must' => array(
-                    array(
-                        'multi_match' => array(
-                            'query' => $q,
-                            'fuzziness' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
-                            'fields' => array(
-                                'post_title^7',
-                                'postmeta.meta_value^7',
-                                'meta' => array( 'synonym' ),
-                            ),
-                        )
-                    )
-                ),
-                // Match full query
-                'should' => array(
-                    array(
-                        'multi_match' => array(
-                            'query' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
-                            'fields' => array(
-                                'post_title^7',
-                                'postmeta.meta_value',
-                                'meta' => array( 'synonym' ),
-                            ),
-                            'type' => 'phrase'
+            'query' => array(
+                'bool' => array(
+                    // Match keywords
+                    'must' => array(
+                        array(
+                            'multi_match' => array(
+                                'query' => $q,
+                                'fuzziness' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q,12),
+                                'fields' => array(
+                                    'post_title^7',
+                                    'post_content^3',
+                                    'terms.post_tag.name^4'
+                                )
+                            )
                         )
                     ),
+                    // Match full query
+                    'should' => array(
+                        array(
+                            'multi_match' => array(
+                                'query' => $q,
+                                'fields' => array(
+                                    'post_title^7',
+                                    'post_content^3'
+                                ),
+                                'type' => 'phrase'
+                            )
+                        ),
+                    )
                 )
-            ),*/
-            /*'simple_query_string' => array(
-                'search_fields' => array('post_title^7','postmeta.meta_value^5' ),
-                'query' => $q . '~' . \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
-                'analyzer' => 'elasticpress_synonyms'
             ),
-            'search_fields' => array(
-                'post_title',
-                'postmeta.meta_value' => array( 'synonym' ),
-            ),*/
-
-            'query' => $q,
             'fuzziness' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q,12),
             'fields' => array(
                 'post_title^7',
