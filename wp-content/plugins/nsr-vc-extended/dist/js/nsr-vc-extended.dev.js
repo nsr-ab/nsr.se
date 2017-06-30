@@ -968,17 +968,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
 
                 for (index = 0; index < cities[ind].length; ++index) {
-
-                    var thewinner = Extended.prototype.findClosest(winners);
-                    if (thewinner === cities[ind][index][3]) {
-                        var cordID = cities[ind][index][4];
-                        var deskAndMobileLi = $('[searchid="' + cordID + '"]');
-                        $(deskAndMobileLi).each(function () {
-                            $(this).addClass('closeToHome');
-                        });
-                        //$('#'+cordID).addClass('closeToHome');
+                    if(cities[ind][index]) {
+                        var thewinner = Extended.prototype.findClosest(winners);
+                        if (thewinner === cities[ind][index][3]) {
+                            var cordID = cities[ind][index][4];
+                            var deskAndMobileLi = $('[searchid="' + cordID + '"]');
+                            $(deskAndMobileLi).each(function () {
+                                $(this).addClass('closeToHome');
+                            });
+                            //$('#'+cordID).addClass('closeToHome');
+                        }
+                        thewinner = null;
                     }
-                    thewinner = null;
                 }
 
                 icn = false;
