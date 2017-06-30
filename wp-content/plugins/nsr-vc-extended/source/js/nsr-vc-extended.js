@@ -660,17 +660,17 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '<tr class="tabMobile"><th class="col s12">Avfall:</th><td valign="top col s12">' + spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td></tr>';
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">' + spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td><td valign="top">';
 
-                if (spost.terms) {
+                if (spost.post_meta) {
 
 
-                    if (spost.terms.fraktion_avc.name != '' && spost.terms.fraktion_avc.name != null) {
+                    if (spost.post_meta.fraktion_avc.name != '' && spost.post_meta.fraktion_avc.name != null) {
                         sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
                         tabMobile_frak += '<li><b>Återvinningscentral:<br /></b><ul>';
-                        if (spost.terms.fraktion_avc.link != '') {
-                            var fraktion_avc = '<a href="' + spost.terms.fraktion_avc.link + '">' + spost.terms.fraktion_avc.name + '</a>';
+                        if (spost.post_meta.fraktion_avc.link != '') {
+                            var fraktion_avc = '<a href="' + spost.post_meta.fraktion_avc.link + '">' + spost.post_meta.fraktion_avc.name + '</a>';
                         }
                         else {
-                            var fraktion_avc = spost.terms.fraktion_avc.name;
+                            var fraktion_avc = spost.post_meta.fraktion_avc.name;
                         }
                         sortHTML += '<li class="fraktion-icon">' + fraktion_avc + '</li>';
                         tabMobile_frak += '<li class="fraktion-icon">' + fraktion_avc + "<li>";
@@ -678,14 +678,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         tabMobile_frak += '</ul></li>';
                     }
 
-                    if (spost.terms.fraktion_hemma.name != '' && spost.terms.fraktion_hemma.name != null) {
+                    if (spost.post_meta.fraktion_hemma.name != '' && spost.post_meta.fraktion_hemma.name != null) {
                         sortHTML += '<li><b>Hemma:</b><ul class="meta-fraktion">';
                         tabMobile_frak += '<li><b class="sortAs">Hemma:</b><ul>';
-                        if (spost.terms.fraktion_hemma.link != '') {
-                            var fraktion_hemma = '<a href="' + spost.terms.fraktion_hemma.link + '">' + spost.terms.fraktion_hemma.name + '</a>';
+                        if (spost.post_meta.fraktion_hemma.link != '') {
+                            var fraktion_hemma = '<a href="' + spost.post_meta.fraktion_hemma.link + '">' + spost.post_meta.fraktion_hemma.name + '</a>';
                         }
                         else {
-                            var fraktion_hemma = spost.terms.fraktion_hemma.name;
+                            var fraktion_hemma = spost.post_meta.fraktion_hemma.name;
                         }
                         sortHTML += '<li class="fraktion-icon">' + fraktion_hemma + '</li>';
                         tabMobile_frak += '<li class="fraktion-icon">' + fraktion_hemma + "<li>";
@@ -703,12 +703,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '<td valign="top">' + spinner + '<ul class="inlstallen">';
                 var hideStuff = '';
-                if (spost.terms) {
+                if (spost.post_meta) {
 
-                    if (spost.terms.inlamningsstallen && spost.terms.inlamningsstallen.length) {
+                    if (spost.post_meta.inlamningsstallen && spost.post_meta.inlamningsstallen.length) {
 
                         CityItem = [];
-                        for (var int = 0; int < spost.terms.inlamningsstallen.length; int++) {
+                        for (var int = 0; int < spost.post_meta.inlamningsstallen.length; int++) {
 
                             var lint;
                             var inlineClick = '';
@@ -719,18 +719,17 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var searchID = '';
                             var locationmap;
                             var setNonLink = '';
-                            for (lint = 0; lint < spost.terms.inlamningsstallen[int].length; lint++) {
+                            for (lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
 
-                                //console.log(spost.terms.inlamningsstallen[int][lint]);
-
-                                if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
+                                if (spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
 
 
                                     inlLink = '';
                                     inLinkClose = '';
                                     locationmap = '';
 
-                                    if (Extended.prototype.Strpos(spost.terms.inlamningsstallen[int][lint]['pageurl'], '?page_id=')) {
+                                    if (Extended.prototype.Strpos(spost.post_meta.inlamningsstallen[int][lint]['pageurl'], '?page_id=')) {
+                                        spost.post_meta.inlamningsstallen[int][lint]['pageurl'] = '';
                                         inlLink = '';
                                         inLinkClose = '';
                                         inlineClick = '';
@@ -738,29 +737,27 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                     }
 
 
-                                    if (!spost.terms.inlamningsstallen[int][lint]['lat'] && !spost.terms.inlamningsstallen[int][lint]['long']) {
-                                        inlLink = '<a href="' + spost.terms.inlamningsstallen[int][lint]['pageurl'] + '">';
+                                    if (spost.post_meta.inlamningsstallen[int][lint]['pageurl'] != '') {
+                                        inlLink = '<a href="' + spost.post_meta.inlamningsstallen[int][lint]['pageurl'] + '">';
                                         inLinkClose = '</a>';
                                         locationmap = 'locationmap';
                                     }
 
-                                    if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
-                                        inlineClick = ' data-url="http://maps.google.com?q=' + spost.terms.inlamningsstallen[int][lint]['lat'] + ',' + spost.terms.inlamningsstallen[int][lint]['long'] + '" ';
+
+                                    if (spost.post_meta.inlamningsstallen[int][lint]['lat'] && spost.post_meta.inlamningsstallen[int][lint]['long']) {
+                                        inlineClick = ' data-url="http://maps.google.com?q=' + spost.post_meta.inlamningsstallen[int][lint]['lat'] + ',' + spost.post_meta.inlamningsstallen[int][lint]['long'] + '" ';
                                         locationmap = 'locationmap';
                                     }
-
-
-
                                 }
 
 
-                                if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long']) {
-                                    latlong = 'data-lat="' + spost.terms.inlamningsstallen[int][lint]['lat'] + '" data-long="' + spost.terms.inlamningsstallen[int][lint]['long'] + '"';
-                                    latlongID = Extended.prototype.hashCode('id_' + int + lint + '_' + spost.terms.inlamningsstallen[int][lint]['lat'] + spost.terms.inlamningsstallen[int][lint]['long']);
+                                if (spost.post_meta.inlamningsstallen[int][lint]['lat'] && spost.post_meta.inlamningsstallen[int][lint]['long']) {
+                                    latlong = 'data-lat="' + spost.post_meta.inlamningsstallen[int][lint]['lat'] + '" data-long="' + spost.post_meta.inlamningsstallen[int][lint]['long'] + '"';
+                                    latlongID = Extended.prototype.hashCode('id_' + int + lint + '_' + spost.post_meta.inlamningsstallen[int][lint]['lat'] + spost.post_meta.inlamningsstallen[int][lint]['long']);
                                 }
 
-                                if (spost.terms.inlamningsstallen[int][lint]['lat'] && spost.terms.inlamningsstallen[int][lint]['long'])
-                                    CityItem[lint] = [spost.terms.inlamningsstallen[int][lint]['city'], spost.terms.inlamningsstallen[int][lint]['lat'], spost.terms.inlamningsstallen[int][lint]['long'], spost.terms.inlamningsstallen[int][lint]['city'], latlongID];
+                                if (spost.post_meta.inlamningsstallen[int][lint]['lat'] && spost.post_meta.inlamningsstallen[int][lint]['long'])
+                                    CityItem[lint] = [spost.post_meta.inlamningsstallen[int][lint]['city'], spost.post_meta.inlamningsstallen[int][lint]['lat'], spost.post_meta.inlamningsstallen[int][lint]['long'], spost.post_meta.inlamningsstallen[int][lint]['city'], latlongID];
 
                                 searchID = latlongID;
                                 if (latlongID)
@@ -770,11 +767,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                                 if (lint > 5)
                                     hideStuff = 'hide';
-                                if (spost.terms.inlamningsstallen[int][lint]['city'] != null) {
+                                if (spost.post_meta.inlamningsstallen[int][lint]['city'] != null) {
                                     if (!inlLink)
                                         setNonLink = 'nullLink';
-                                    sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                    tabMobile_inl += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.terms.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    tabMobile_inl += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
                                 nullLink = '';
                                 locationmap = '';
