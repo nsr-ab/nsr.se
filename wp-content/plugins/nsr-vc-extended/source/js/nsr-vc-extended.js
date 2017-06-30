@@ -723,7 +723,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var setNonLink = '';
                             for (lint = 0; lint < spost.terms.inlamningsstallen[int].length; lint++) {
 
-
+                                //console.log(spost.terms.inlamningsstallen[int][lint]);
 
                                 if (spost.terms.inlamningsstallen[int][lint]['pageurl']) {
 
