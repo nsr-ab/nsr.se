@@ -52,6 +52,9 @@ class MasterVCExtended
             $term_data .=  (isset($params['tags'])) ? $params['tags'] : '';
         }
 
+        
+        $postTypes = explode(',', $params['post_type']);
+        //var_dump($postTypes);
 
         /* Query */
         $sql = "SELECT $wpdb->posts.*
@@ -67,9 +70,19 @@ class MasterVCExtended
         }
 
         $sql .= isset($params['author']) ? "AND $wpdb->posts.post_author = ".$params['authors']." " : null;
-
-        if($params['post_type'] === "post,page"){
-            $sql .= isset($params['post_type']) ? " AND ( $wpdb->posts.post_type = 'post' OR  $wpdb->posts.post_type = 'page' )" : null;
+        //var_dump($params['post_type']);
+        //if($params['post_type'] === "post,page"){
+        if(count($postTypes) > 1){
+            //$sql .= isset($params['post_type']) ? " AND ( $wpdb->posts.post_type = 'post' OR  $wpdb->posts.post_type = 'page' )" : null;
+            $sql .= " AND ( "; 
+            foreach($postTypes as $key => $type) {
+                $sql .= "$wpdb->posts.post_type = '" . $type . "'";
+                if($key < count($postTypes)-1)
+                    $sql .= " OR ";
+                    //var_dump($key);
+                    //var_dump(count($postTypes));
+            }
+            $sql .= ")";
         }
         else {
             $sql .= isset($params['post_type']) ? " AND $wpdb->posts.post_type = '" . $params['post_type'] . "' " : null;
@@ -78,14 +91,15 @@ class MasterVCExtended
         $sql .= isset($params['order_by']) ? " ORDER BY $wpdb->posts.post_" . $params['order_by'] . " " : null;
         $sql .= isset($params['order']) ? " ".$params['order'] : null;
 
-
-
         if ( isset($params['size']) ) {
             $params['size'] = ($params['size'] === 'all') ? null : $params['size'];
             $sql .= isset($params['size']) ? " LIMIT " : null;
             $sql .= isset($params['vc_startfrom']) ? " " . $params['vc_startfrom'] . ", " : null;
             $sql .= isset($params['size']) ? " " . $params['size'] . "" : null;
         }
+
+        //var_dump($sql);
+        //die();
 
         return $this->renderMarkup($wpdb->get_results($sql), $param = (object) $params);
 
