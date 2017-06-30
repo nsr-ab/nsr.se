@@ -89,12 +89,6 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
 .modal {
   background-color: #fff; }
 
-.page-template-default .doc-nfo {
-  display: block !important; }
-
-.faq-template-default .doc-nfo {
-  display: block !important; }
-
 .readspeaker-play-button:before {
   text-decoration: none; }
 
