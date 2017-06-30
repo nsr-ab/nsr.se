@@ -38,7 +38,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         Extended.prototype.DefaultSiteSearch();
 
         if (!$('body').hasClass('wp-admin'))
-            $('.card.small').matchHeight();
+            $('.card-content').matchHeight();
 
         $(function () {
             this.CollapsibleHeaders();
@@ -181,7 +181,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var countItemsShow = $(element).closest("ul").find('li').length - 1;
             $(element).closest("ul").find('.showPosts').text('Visa alla (' + countItemsShow + ')');
         }
-        $('.card.small').matchHeight();
+        $('.card-content').matchHeight();
     };
 
 
