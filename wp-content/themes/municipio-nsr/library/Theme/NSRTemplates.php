@@ -66,6 +66,8 @@ class NSRTemplates
         $title = get_the_title();
         $output = array();
 
+        
+        $counter = 0;
         echo '<ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">';
         if (is_single() && is_singular(array('post'))) {
             $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
@@ -86,16 +88,14 @@ class NSRTemplates
                 $output[] = '<li>' . get_the_category() . '</li>';
             }
             if (is_page() || is_singular(array('page', 'villa', 'fastighet', 'foretag'))) {
-
                 $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                                            <a itemprop="item" href="/" title="Start">
-                                                <span itemprop="name">Start</span>
-                                                <meta itemprop="position" content="-0" />
-                                            </a>
-                                       </li>';
+                                <a itemprop="item" href="/" title="Start">
+                                    <span itemprop="name">Start</span>
+                                    <meta itemprop="position" content="-0" />
+                                </a>
+                            </li>';
 
                 if ($post->post_parent) {
-
                     $anc = array_reverse(get_post_ancestors($post->ID), true);
                     $title = get_the_title();
 
@@ -139,6 +139,12 @@ class NSRTemplates
                           </li>';
 
                 } else {
+                    $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                                    <a itemprop="item" href="/' . $post->post_type . '" title="' . $post->post_type . '">
+                                        <span itemprop="name">' . $post->post_type . '</span>
+                                        <meta itemprop="position" content="-0" />
+                                    </a>
+                                </li>';
                     $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                             <span itemprop="name" class="breadcrumbs-current">' . get_the_title() . '</span>
                             <meta itemprop="position" content="1" />
