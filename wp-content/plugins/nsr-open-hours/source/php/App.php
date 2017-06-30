@@ -99,7 +99,11 @@ class App
         $dateformat = ($dsize === 'full') ? 'l' : 'D';
         $fulldateCSS = ($dsize === 'full') ? 'fulldate' : '';
 
-        $citiesToShow = explode(',', $atts['cities']);
+        //var_dump($atts);
+       // die();
+       $citiesToShow = array('Helsingborg');
+       if(isset($atts['cities']))
+            $citiesToShow = explode(',', $atts['cities']);
 
         if(sizeof($citiesToShow) > 1)
             $type = 'today';

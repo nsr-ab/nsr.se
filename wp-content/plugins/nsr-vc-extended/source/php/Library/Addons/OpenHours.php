@@ -213,9 +213,6 @@ class OpenHours
             $params['vc_all_locations'] = isset($atts['vc_all_locations']) ? $atts['vc_all_locations'] : null;
             $params['vc_cities'] = isset($atts['vc_cities']) ? $atts['vc_cities'] : null;
 
-            if($params['vc_cities'] == null)
-                return "";
-
             return do_shortcode('[opening-hours  showall="'.$params['vc_all_locations'].'" datesize="'.$params['date_size'].'" city="'.$params['title'].'" type="' . $params['type'] . '"  section="' . $params['section'] . '" markup="true" cities="' . $params['vc_cities'] . '"]');
         }
     }
