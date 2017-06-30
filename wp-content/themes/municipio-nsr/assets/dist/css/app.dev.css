@@ -7776,6 +7776,6 @@ body {
   font-style: normal; }
 
 @media only screen and (max-width: 600px) {
-  h1 {
+  .is-child-theme h1 {
     font-size: 2rem;
     min-height: 80px; } }
