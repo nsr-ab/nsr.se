@@ -960,9 +960,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var winners = [];
                 for (index = 0; index < cities[ind].length; ++index) {
                     //var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
-                    var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
-                    winners[index] = dif;
-                    cities[ind][index][3] = dif;
+                    if(cities[ind][index]) {
+                        var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
+                        winners[index] = dif;
+                        cities[ind][index][3] = dif;
+                    }
                 }
 
                 for (index = 0; index < cities[ind].length; ++index) {
