@@ -949,7 +949,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {array} cities
      */
     Extended.prototype.NearestCity = function (latitude, longitude) {
-
+        console.log(latitude + " : " +longitude)
         var icon = 0;
         var cordID = null;
         for (ind = 0; ind < cities.length; ++ind) {
