@@ -745,8 +745,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
                                     if (spost.post_meta.inlamningsstallen[int][lint]['lat'] && spost.post_meta.inlamningsstallen[int][lint]['long']) {
-                                        inlineClick = ' data-url="http://maps.google.com?q=' + spost.post_meta.inlamningsstallen[int][lint]['lat'] + ',' + spost.post_meta.inlamningsstallen[int][lint]['long'] + '" ';
-                                        locationmap = 'locationmap';
+                                        if (!spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
+                                            inlineClick = ' data-url="http://maps.google.com?q=' + spost.post_meta.inlamningsstallen[int][lint]['lat'] + ',' + spost.post_meta.inlamningsstallen[int][lint]['long'] + '" ';
+                                            locationmap = 'locationmap';
+                                        }
                                     }
                                 }
 
