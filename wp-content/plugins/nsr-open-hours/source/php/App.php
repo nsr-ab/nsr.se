@@ -100,9 +100,9 @@ class App
         $fulldateCSS = ($dsize === 'full') ? 'fulldate' : '';
 
         //var_dump($atts);
-       // die();
-       $citiesToShow = array('Helsingborg');
-       if(isset($atts['cities']))
+        //die();
+        $citiesToShow = array('Helsingborg');
+        if(isset($atts['cities']))
             $citiesToShow = explode(',', $atts['cities']);
 
         if(sizeof($citiesToShow) > 1)
@@ -142,10 +142,11 @@ class App
 
                         if ($i === 1)
                             break;
-                        if ($datetime->format('N') === '1' && $i === 0) {
+                        //Legacy from how we showed it before
+                        /*if ($datetime->format('N') === '1' && $i === 0) {
                             $datetime->add(new \DateInterval('P1D'));
                             continue;
-                        }
+                        }*/
 
                         $exception_info = get_field('oph_exeptions_' . $allsections, 'option');
                         $openSpan = isset($atts['markup']) ? $openLiToday = '<span class="date text-align-left  ' . $fulldateCSS . '">' : null;
