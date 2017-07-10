@@ -582,7 +582,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                             for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
                                 if (post.Exec.Datum[avint] >= jsdate) {
-                                    if (!$dub.includes(post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint])) {
+                                    if (!$dub.indexOf(post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint]) > -1) {
                                         $dub['avfall'] = post.Exec.AvfallsTyp[avint];
                                         $avfall += '<span class="badge">' + post.Exec.AvfallsTyp[avint] + '</span><br /> ';
                                         //$weeks += post.Exec.DatumWeek[avint] + '<br />';
