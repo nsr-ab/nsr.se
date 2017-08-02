@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
-"POT-Creation-Date: 2017-01-27 11:31+0100\n"
-"PO-Revision-Date: 2017-08-02 16:04+0200\n"
+"POT-Creation-Date: 2017-08-02 16:29+0200\n"
+"PO-Revision-Date: 2017-08-02 16:29+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: source/php/App.php:135
+#: source/php/App.php:112
 msgid ""
 "<strong>NSR Visual Composer Extended</strong> requires <strong><a href="
 "\"http://bit.ly/vcomposer\" target=\"_blank\">Visual Composer</a></strong> "
@@ -33,19 +33,19 @@ msgstr ""
 #: source/php/Library/Addons/ListLinksWithThumbnail.php:42
 #: source/php/Library/Addons/ListNewsAndPosts.php:41
 #: source/php/Library/Addons/MenuCollapsible.php:41
-#: source/php/Library/Addons/ThumbnailAndTextarea.php:41
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:40
 msgid "Designation"
 msgstr "Benämning"
 
 #: source/php/Library/Addons/ListLinksWithThumbnail.php:45
 #: source/php/Library/Addons/ListNewsAndPosts.php:44
 #: source/php/Library/Addons/MenuCollapsible.php:43
-#: source/php/Library/Addons/ThumbnailAndTextarea.php:44
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:43
 msgid "Visible in admin (only!)"
 msgstr "Är bara synlig i back-end"
 
 #: source/php/Library/Addons/ListLinksWithThumbnail.php:54
-#: source/php/Library/Addons/ThumbnailAndTextarea.php:53
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:52
 msgid "Image"
 msgstr "Bild"
 
@@ -55,12 +55,12 @@ msgstr "Ladda upp bilder som har 991 pixlar i bredd, 264 pixlar i höjd."
 
 #: source/php/Library/Addons/ListLinksWithThumbnail.php:69
 #: source/php/Library/Addons/Puff.php:44
-#: source/php/Library/Addons/ThumbnailAndTextarea.php:68
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:67
 msgid "Top border color"
 msgstr "Övre kantfärg"
 
 #: source/php/Library/Addons/ListLinksWithThumbnail.php:82
-#: source/php/Library/Addons/ThumbnailAndTextarea.php:81
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:80
 msgid "Heading with link"
 msgstr "Rubrik och länk"
 
@@ -95,11 +95,11 @@ msgstr "Bild och länkar"
 
 #: source/php/Library/Addons/ListLinksWithThumbnail.php:133
 #: source/php/Library/Addons/ListNewsAndPosts.php:136
-#: source/php/Library/Addons/MenuCollapsible.php:215
+#: source/php/Library/Addons/MenuCollapsible.php:230
 #: source/php/Library/Addons/NSRSearch.php:102
-#: source/php/Library/Addons/OpenHours.php:173
-#: source/php/Library/Addons/Puff.php:121
-#: source/php/Library/Addons/ThumbnailAndTextarea.php:117
+#: source/php/Library/Addons/OpenHours.php:186
+#: source/php/Library/Addons/Puff.php:133
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:116
 msgid "NSR"
 msgstr "NSR"
 
@@ -116,19 +116,19 @@ msgid "Exclude"
 msgstr "Exkludera"
 
 #: source/php/Library/Addons/ListNewsAndPosts.php:68
-#: source/php/Library/Addons/MenuCollapsible.php:161
-#: source/php/Library/Addons/Puff.php:67
+#: source/php/Library/Addons/MenuCollapsible.php:176
+#: source/php/Library/Addons/Puff.php:80
 msgid "Icon"
 msgstr "Ikon"
 
 #: source/php/Library/Addons/ListNewsAndPosts.php:74
-#: source/php/Library/Addons/MenuCollapsible.php:176
-#: source/php/Library/Addons/Puff.php:73
+#: source/php/Library/Addons/MenuCollapsible.php:191
+#: source/php/Library/Addons/Puff.php:86
 msgid "Select icon from library."
 msgstr "Välj ikon från bibliotek"
 
 #: source/php/Library/Addons/ListNewsAndPosts.php:85
-#: source/php/Library/Addons/Puff.php:83
+#: source/php/Library/Addons/Puff.php:96
 msgid "Icon color"
 msgstr "Färg på ikon"
 
@@ -142,8 +142,8 @@ msgstr "Lista nyheter och sidor"
 
 #: source/php/Library/Addons/MenuCollapsible.php:61
 #: source/php/Library/Addons/NSRSearch.php:42
-#: source/php/Library/Addons/OpenHours.php:64
-#: source/php/Library/Addons/Puff.php:54
+#: source/php/Library/Addons/OpenHours.php:62
+#: source/php/Library/Addons/Puff.php:67
 msgid "Title"
 msgstr "Titel"
 
@@ -151,19 +151,19 @@ msgstr "Titel"
 msgid "Title, prefered maxchars 160"
 msgstr "Titel, antal tecken 160"
 
-#: source/php/Library/Addons/MenuCollapsible.php:74
+#: source/php/Library/Addons/MenuCollapsible.php:75
 msgid "Left border color (Menu only)"
 msgstr "Vänster Kantlinjefärg"
 
-#: source/php/Library/Addons/MenuCollapsible.php:76
+#: source/php/Library/Addons/MenuCollapsible.php:77
 msgid "Menu left border color"
 msgstr "Vänster Kantlinjefärg  (Endast meny)"
 
-#: source/php/Library/Addons/MenuCollapsible.php:87
+#: source/php/Library/Addons/MenuCollapsible.php:88
 msgid "Link title to page"
 msgstr "Länka titel till sida"
 
-#: source/php/Library/Addons/MenuCollapsible.php:89
+#: source/php/Library/Addons/MenuCollapsible.php:90
 msgid ""
 "If selected the title is going to be linked, if link title is selected, the "
 "main link title will be active."
@@ -171,27 +171,35 @@ msgstr ""
 "Väljer du att länka en sida så kommer inte den vanliga titeln att synas. "
 "<br />OBS! Glöm inte namnge länken."
 
-#: source/php/Library/Addons/MenuCollapsible.php:99
+#: source/php/Library/Addons/MenuCollapsible.php:101
+msgid "Textcolor"
+msgstr ""
+
+#: source/php/Library/Addons/MenuCollapsible.php:103
+msgid "Color on text if colored background"
+msgstr ""
+
+#: source/php/Library/Addons/MenuCollapsible.php:114
 msgid "Margin bottom (Menus only)"
 msgstr "Nedre marginaler"
 
-#: source/php/Library/Addons/MenuCollapsible.php:101
+#: source/php/Library/Addons/MenuCollapsible.php:116
 msgid "No margins"
 msgstr "Ingen marginal"
 
-#: source/php/Library/Addons/MenuCollapsible.php:101
+#: source/php/Library/Addons/MenuCollapsible.php:116
 msgid "Margins"
 msgstr "Marginal"
 
-#: source/php/Library/Addons/MenuCollapsible.php:102
+#: source/php/Library/Addons/MenuCollapsible.php:117
 msgid "Margin bottom"
 msgstr "Nedre marginal (Endast meny)"
 
-#: source/php/Library/Addons/MenuCollapsible.php:112
+#: source/php/Library/Addons/MenuCollapsible.php:127
 msgid "Your text"
 msgstr "Skriv din text"
 
-#: source/php/Library/Addons/MenuCollapsible.php:114
+#: source/php/Library/Addons/MenuCollapsible.php:129
 msgid ""
 "<table>\n"
 "                                                <tr col>\n"
@@ -266,19 +274,20 @@ msgstr ""
 "                                            </table>\n"
 "                        "
 
-#: source/php/Library/Addons/MenuCollapsible.php:148
+#: source/php/Library/Addons/MenuCollapsible.php:163
+#: source/php/Library/Addons/Puff.php:57
 msgid "Background color"
 msgstr "Bakgrundsfärg"
 
-#: source/php/Library/Addons/MenuCollapsible.php:150
+#: source/php/Library/Addons/MenuCollapsible.php:165
 msgid "Select row background color."
 msgstr "Välj bakgrundsfärg på rad"
 
-#: source/php/Library/Addons/MenuCollapsible.php:204
+#: source/php/Library/Addons/MenuCollapsible.php:219
 msgid "Menu accordion"
 msgstr "Meny / Dragspel "
 
-#: source/php/Library/Addons/MenuCollapsible.php:205
+#: source/php/Library/Addons/MenuCollapsible.php:220
 msgid "Menu Accordion"
 msgstr "Meny / Lista / Dragspel"
 
@@ -315,12 +324,17 @@ msgid "Page position"
 msgstr "Var ska sökboxen ligga på sidan?"
 
 #: source/php/Library/Addons/NSRSearch.php:73
-msgid "Searchbox alone in row"
-msgstr "Sökboxen ligger på en egen rad"
+#: source/php/Library/Addons/OpenHours.php:132
+msgid "Choose Type..."
+msgstr "Välj visningtyp…"
 
 #: source/php/Library/Addons/NSRSearch.php:74
 msgid "Searchbox mixed with other content"
 msgstr "Sökboxen ligger i samma kolumn som annat innehåll"
+
+#: source/php/Library/Addons/NSRSearch.php:75
+msgid "Searchbox alone in row"
+msgstr "Sökboxen ligger på en egen rad"
 
 #: source/php/Library/Addons/NSRSearch.php:92
 msgid "Search"
@@ -330,7 +344,7 @@ msgstr "Sök"
 msgid "NSR Search"
 msgstr "Sök på NSR"
 
-#: source/php/Library/Addons/NSRSearch.php:154
+#: source/php/Library/Addons/NSRSearch.php:156
 msgid ""
 "Where do you live? What stuff do you want to sort? Are you looking for "
 "something else?"
@@ -354,89 +368,73 @@ msgstr ""
 "NSR OpenHours måste vara installerat och aktiverat för att OpenHour "
 "tillägget ska fungera."
 
-#: source/php/Library/Addons/OpenHours.php:74
-msgid "All locations"
-msgstr "Visa en eller flera städer"
-
-#: source/php/Library/Addons/OpenHours.php:78
-msgid "Show 1 location"
-msgstr "Ja, Visa bara en Stad/Ort"
-
-#: source/php/Library/Addons/OpenHours.php:88
-msgid "Location"
-msgstr "Stad/Ort"
-
-#: source/php/Library/Addons/OpenHours.php:104
+#: source/php/Library/Addons/OpenHours.php:103
 msgid "Date Size"
 msgstr "Datumformat"
 
-#: source/php/Library/Addons/OpenHours.php:113
+#: source/php/Library/Addons/OpenHours.php:112
 msgid "Choose format..."
 msgstr "Välj format…"
 
-#: source/php/Library/Addons/OpenHours.php:114
+#: source/php/Library/Addons/OpenHours.php:113
 msgid "Short"
 msgstr "Kort"
 
-#: source/php/Library/Addons/OpenHours.php:115
+#: source/php/Library/Addons/OpenHours.php:114
 msgid "Full"
 msgstr "Full"
 
-#: source/php/Library/Addons/OpenHours.php:124
+#: source/php/Library/Addons/OpenHours.php:123
 msgid "Type"
 msgstr "Visningstyp"
 
 #: source/php/Library/Addons/OpenHours.php:133
-msgid "Choose Type..."
-msgstr "Välj visningtyp…"
-
-#: source/php/Library/Addons/OpenHours.php:134
 msgid "Weekends"
 msgstr "Helgdagar / Undantag"
 
-#: source/php/Library/Addons/OpenHours.php:135
+#: source/php/Library/Addons/OpenHours.php:134
 msgid "Week"
 msgstr "Vecka"
 
-#: source/php/Library/Addons/OpenHours.php:136
+#: source/php/Library/Addons/OpenHours.php:135
 msgid "Today"
 msgstr "Idag"
 
-#: source/php/Library/Addons/OpenHours.php:152
-msgid "Choose Location..."
-msgstr "Välj Stad/Ort"
+#: source/php/Library/Addons/OpenHours.php:144
+msgid "Places"
+msgstr ""
 
-#: source/php/Library/Addons/OpenHours.php:163
+#: source/php/Library/Addons/OpenHours.php:176
 msgid "NSR OpenHours"
 msgstr "NSR OpenHours"
 
-#: source/php/Library/Addons/OpenHours.php:164
+#: source/php/Library/Addons/OpenHours.php:177
 msgid "Add Openening hours"
 msgstr "Lägg till öppettider"
 
-#: source/php/Library/Addons/Puff.php:92
-#: source/php/Library/Addons/ThumbnailAndTextarea.php:89
+#: source/php/Library/Addons/Puff.php:105
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:88
 #: source/php/Library/Enqueue.php:87
 msgid "Content"
 msgstr "Kort beskrivning"
 
-#: source/php/Library/Addons/Puff.php:111
+#: source/php/Library/Addons/Puff.php:123
 msgid "Brick with content"
 msgstr "Puff med text"
 
-#: source/php/Library/Addons/Puff.php:112
+#: source/php/Library/Addons/Puff.php:124
 msgid "Title, icon, textarea"
 msgstr "Rubrik, icon, text"
 
-#: source/php/Library/Addons/ThumbnailAndTextarea.php:56
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:55
 msgid "Image size 620px x 300px."
 msgstr "Bildstorlek 620px x 300px"
 
-#: source/php/Library/Addons/ThumbnailAndTextarea.php:107
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:106
 msgid "Thumbnail, link, heading and text"
 msgstr "Puff med länk"
 
-#: source/php/Library/Addons/ThumbnailAndTextarea.php:108
+#: source/php/Library/Addons/ThumbnailAndTextarea.php:107
 msgid "Image, link, heading and description"
 msgstr "Bild, länk, rubrik, text"
 
@@ -471,6 +469,18 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "hiq.se"
 msgstr ""
+
+#~ msgid "All locations"
+#~ msgstr "Visa en eller flera städer"
+
+#~ msgid "Show 1 location"
+#~ msgstr "Ja, Visa bara en Stad/Ort"
+
+#~ msgid "Location"
+#~ msgstr "Stad/Ort"
+
+#~ msgid "Choose Location..."
+#~ msgstr "Välj Stad/Ort"
 
 #~ msgid "Tömningskalender eller sorteringsguiden"
 #~ msgstr "Tömningskalender eller sorteringsguiden"
