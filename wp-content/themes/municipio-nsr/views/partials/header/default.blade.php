@@ -54,7 +54,7 @@
             <div class="searchForm input-field col s10">
                 <i class="material-icons prefix notranslate">search</i>
                 <input class="form-control form-control-lg validated input-field s12" itemprop="query-input" required="" id="search-nsr" autocomplete="off" type="search" name="q" value="" aria-invalid="true">
-                <label for="search-input">Vad letar du efter?-</label>
+                <label for="search-input">Vad letar du efter?</label>
                 <input type="hidden" id="post_type" value="">
             </div>
 
