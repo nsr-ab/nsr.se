@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NSR Visual Composer Extended\n"
 "POT-Creation-Date: 2017-08-02 16:29+0200\n"
-"PO-Revision-Date: 2017-08-02 16:29+0200\n"
+"PO-Revision-Date: 2017-08-02 16:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -428,7 +428,7 @@ msgstr "Rubrik, icon, text"
 
 #: source/php/Library/Addons/ThumbnailAndTextarea.php:55
 msgid "Image size 620px x 300px."
-msgstr "Bildstorlek 620px x 300px"
+msgstr "Bildstorlek 620px x 300px."
 
 #: source/php/Library/Addons/ThumbnailAndTextarea.php:106
 msgid "Thumbnail, link, heading and text"
