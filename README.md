@@ -35,7 +35,7 @@ $Bash, Composer och lämplig PHP IDE.. <br><br>
 ###NSR VC Extended
 GIT: https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-vc-extended
 <br>
-Är en samling Visual Composer ad-dons. https://vc.wpbakery.com/
+Är en samling Visual Composer add-ons. https://vc.wpbakery.com/
 <br>
 •	Meny/Dragspel	- Accordion <br>
 •	Senaste nyheter	- Lista Nyheter, Sidor m.m <br>
