@@ -87,20 +87,29 @@ class NSRTemplates
             }
             if (is_page() || is_singular(array('page', 'villa', 'fastighet', 'foretag', 'faq'))) {
 
+                $showStart = true;
 
-                if (!is_page( 'Företag & Verksamheter') && !is_page( 'Fastighetsägare & Bostadsrättsföreningar')) {
-                    if(!is_singular('foretag') && !is_singular('foretag')) {
+                if (is_page('Företag & Verksamheter'))
+                    $showStart = false;
+                if (is_page('Fastighetsägare & Bostadsrättsföreningar'))
+                    $showStart = false;
+                if (is_singular('foretag'))
+                    $showStart = false;
+                if(!is_singular('foretag'))
+                    $showStart = false;
+
+                if ($showStart) {
+
                     $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                                 <a itemprop="item" href="/" title="Start">
                                     <span itemprop="name">Start</span>
                                     <meta itemprop="position" content="-0" />
                                 </a>
                             </li>';
-                    }
                 }
 
 
-                if (is_page( 'Företag & Verksamheter') || is_singular('foretag')) {
+                if (is_page('Företag & Verksamheter') || is_singular('foretag')) {
                     /*$output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                                 <a itemprop="item" href="/foretag/" title="Start">
                                     <span itemprop="name">Start</span>
@@ -109,8 +118,8 @@ class NSRTemplates
                             </li>'; */
                 }
 
-                
-                if (is_page( 'Fastighetsägare & Bostadsrättsföreningar')|| is_singular('fastighet')) {
+
+                if (is_page('Fastighetsägare & Bostadsrättsföreningar') || is_singular('fastighet')) {
                     /*$output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                                 <a itemprop="item" href="/fastighet/" title="Start">
                                     <span itemprop="name">Start</span>
@@ -119,7 +128,7 @@ class NSRTemplates
                             </li>';*/
                 }
 
-                
+
                 if ($post->post_parent) {
                     $anc = array_reverse(get_post_ancestors($post->ID), true);
                     $title = get_the_title();
