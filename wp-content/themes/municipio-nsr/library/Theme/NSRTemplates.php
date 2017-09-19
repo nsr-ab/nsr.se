@@ -86,13 +86,38 @@ class NSRTemplates
                 $output[] = '<li>' . get_the_category() . '</li>';
             }
             if (is_page() || is_singular(array('page', 'villa', 'fastighet', 'foretag', 'faq'))) {
-                $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+
+
+                if (!is_page( 'Företag & Verksamheter') && !is_page( 'Fastighetsägare & Bostadsrättsföreningar')) {
+                    $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                                 <a itemprop="item" href="/" title="Start">
                                     <span itemprop="name">Start</span>
                                     <meta itemprop="position" content="-0" />
                                 </a>
                             </li>';
+                }
 
+
+                if (is_page( 'Företag & Verksamheter')) {
+                    $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                                <a itemprop="item" href="/foretag/" title="Start">
+                                    <span itemprop="name">Start</span>
+                                    <meta itemprop="position" content="-0" />
+                                </a>
+                            </li>';
+                }
+
+                
+                if (is_page( 'Fastighetsägare & Bostadsrättsföreningar')) {
+                    $output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                                <a itemprop="item" href="/fastighet/" title="Start">
+                                    <span itemprop="name">Start</span>
+                                    <meta itemprop="position" content="-0" />
+                                </a>
+                            </li>';
+                }
+
+                
                 if ($post->post_parent) {
                     $anc = array_reverse(get_post_ancestors($post->ID), true);
                     $title = get_the_title();
