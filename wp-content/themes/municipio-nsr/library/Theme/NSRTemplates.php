@@ -13,12 +13,12 @@ class NSRTemplates
     {
         \Municipio\Helper\Template::add(
             __('Sida utan rubrik', 'NSRTemplates'),
-            \Municipio\Helper\Template::locateTemplate('vc-page.blade.php')
+            \Municipio\Helper\Template::locateTemplate('page-vc.blade.php')
         );
 
         \Municipio\Helper\Template::add(
             __('Sida utan rubrik (Startsida)', 'NSRTemplates'),
-            \Municipio\Helper\Template::locateTemplate('vc-page-nosidebar.blade.php')
+            \Municipio\Helper\Template::locateTemplate('page-vcnosidebar.blade.php')
         );
 
     }
