@@ -8,3 +8,8 @@ body {
         min-height:80px;
     }
 }
+
+/* Fix */
+.page-template-default .page-title, .page-template-default .customer-feedback-container {
+    display:none;
+}
