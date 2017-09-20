@@ -7295,7 +7295,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     cursor: pointer;
     font-size: 2.4rem !important; }
   .is-child-theme .tooltip-info {
-    width: 247px;
+    width: 259px;
     min-height: 117px;
     position: absolute;
     bottom: 100px;
@@ -7306,7 +7306,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme .tooltip-info .tooltip-inner {
       color: #000 !important;
       padding: 10px 15px;
-      font-size: 11px !important; }
+      line-height: 1.6em;
+      font-size: 13px !important; }
       .is-child-theme .tooltip-info .tooltip-inner b {
         font-weight: 600;
         font-size: 15px;

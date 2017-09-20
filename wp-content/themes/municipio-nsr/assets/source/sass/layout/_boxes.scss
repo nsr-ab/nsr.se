@@ -97,7 +97,7 @@
 
 .tooltip-info {
 
-    width: 247px;
+    width: 259px;
     min-height: 117px;
     position: absolute;
     bottom: 100px;
@@ -109,7 +109,8 @@
     .tooltip-inner {
         color: $palette-primary-black !important;
         padding: 10px 15px;
-        font-size: 11px !important;
+        line-height: 1.6em;
+        font-size: 13px!important;
 
         b {
             font-weight: 600;
