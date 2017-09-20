@@ -18,6 +18,18 @@ Nsr.App.AppDefault = (function ($) {
         $('body').on('click', '.showmoreExceptions', function (e) {
             AppDefault.prototype.showMoreExceptions($(this).closest('ul'));
         }).bind(this);
+
+        /* searchNSR - Close tooltip */
+        $('body').on('click', '.closeTooltip', function (e) {
+            AppDefault.prototype.closeTooltip();
+        }).bind(this);
+
+        $('body').on('click', '.infoSearch', function (e) {
+            AppDefault.prototype.showHideTooltip();
+        }).bind(this);
+
+        AppDefault.prototype.checkCookie();
+
     };
 
 
@@ -28,6 +40,61 @@ Nsr.App.AppDefault = (function ($) {
     AppDefault.prototype.init = function () {
         this.chngColor();
         window.setTimeout(this.removeActiveOnAccordions, 50);
+    };
+
+
+    AppDefault.prototype.setCookie = function (cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    };
+
+    AppDefault.prototype.getCookie = function (cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    };
+
+    AppDefault.prototype.checkCookie = function() {
+        var user = AppDefault.prototype.getCookie("username");
+        if (!user) {
+            $('.cookieBased').show();
+            AppDefault.prototype.setCookie("username", "nsr-visitor", 20);
+        }
+    };
+
+
+
+    /**
+     *  closeTooltip
+     *  Hide tooltip
+     */
+    AppDefault.prototype.closeTooltip = function () {
+           $('.tooltip-info').hide();
+    };
+
+    /**
+     *  showHideTooltip
+     *  show & hide tooltip
+     */
+    AppDefault.prototype.showHideTooltip = function () {
+        if($('.static-tooltip').is(":visible")) {
+            $('.static-tooltip').hide();
+        }
+        else {
+            $('.static-tooltip').show();
+        }
+
     };
 
 

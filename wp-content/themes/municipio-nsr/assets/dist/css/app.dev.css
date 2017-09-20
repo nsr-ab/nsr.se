@@ -7286,6 +7286,65 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       width: 95%; }
     .is-child-theme .customer-feedback-container input {
       padding-left: 15px; }
+  .is-child-theme .searchbuttons {
+    position: absolute;
+    top: 10px;
+    right: 10px; }
+  .is-child-theme .infoSearch {
+    color: #2dbccd;
+    cursor: pointer;
+    font-size: 2.4rem !important; }
+  .is-child-theme .tooltip-info {
+    width: 247px;
+    min-height: 117px;
+    position: absolute;
+    bottom: 100px;
+    z-index: 999;
+    word-wrap: break-word;
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+    .is-child-theme .tooltip-info .tooltip-inner {
+      color: #000 !important;
+      padding: 10px 15px;
+      font-size: 11px !important; }
+      .is-child-theme .tooltip-info .tooltip-inner b {
+        font-weight: 600;
+        font-size: 15px;
+        max-width: 206px; }
+      .is-child-theme .tooltip-info .tooltip-inner i {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        font-size: 17px;
+        color: #393939;
+        cursor: pointer; }
+    .is-child-theme .tooltip-info.static-tooltip {
+      display: none;
+      right: 5px !important;
+      bottom: auto;
+      top: 55px; }
+      .is-child-theme .tooltip-info.static-tooltip::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        right: 4%;
+        margin-left: -5px;
+        border-width: 11px;
+        border-style: solid;
+        border-color: transparent transparent #fff transparent; }
+    .is-child-theme .tooltip-info.tooltipAfter::after {
+      right: 20% !important; }
+    .is-child-theme .tooltip-info.cookieBased {
+      display: none; }
+      .is-child-theme .tooltip-info.cookieBased::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        right: 20%;
+        margin-left: -5px;
+        border-width: 11px;
+        border-style: solid;
+        border-color: #fff transparent transparent transparent; }
   .is-child-theme #main-content {
     -webkit-transition: all 500ms ease;
             transition: all 500ms ease; }

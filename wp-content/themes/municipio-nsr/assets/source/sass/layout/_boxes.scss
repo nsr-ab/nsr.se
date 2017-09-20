@@ -1,62 +1,64 @@
 .box, .box * {
     box-shadow: none !important;
-    border:none !important;
+    border: none !important;
     transition: all 500ms ease;
 }
 
 .box {
-    padding:0px;
+    padding: 0px;
     background: $palette-primary-white;
 
 }
 
-.box .box-title, .box .widget>h1, .box .widget>h2, .box .widget>h3, .box .widget>h4, .box .widget>h5, .box .widget>h6, .box .widget_calendar .widget>caption, .box .widgettitle, .box>h1, .box>h2, .box>h3, .box>h4, .box>h5, .box>h6, .widget_calendar .box .widget>caption, .widget_calendar .box>caption {
+.box .box-title, .box .widget > h1, .box .widget > h2, .box .widget > h3, .box .widget > h4, .box .widget > h5, .box .widget > h6, .box .widget_calendar .widget > caption, .box .widgettitle, .box > h1, .box > h2, .box > h3, .box > h4, .box > h5, .box > h6, .widget_calendar .box .widget > caption, .widget_calendar .box > caption {
     font-size: 1.2em;
-    font-weight:600;
+    font-weight: 600;
 }
 
-.box-panel .box-title, .box-panel .widget>h1, .box-panel .widget>h2, .box-panel .widget>h3, .box-panel .widget>h4, .box-panel .widget>h5, .box-panel .widget>h6, .box-panel .widget_calendar .widget>caption, .box-panel .widgettitle, .box-panel>h1, .box-panel>h2, .box-panel>h3, .box-panel>h4, .box-panel>h5, .box-panel>h6, .sidebar-content-area-bottom .widget_calendar [class^=widget_]:not(.widget_calendar)>caption, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .box-title, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget>h1, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget>h2, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget>h3, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget>h4, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget>h5, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget>h6, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget_calendar .widget>caption, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widgettitle, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar)>h1, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar)>h2, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar)>h3, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar)>h4, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar)>h5, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar)>h6, .sidebar-content-area .widget_calendar [class^=widget_]:not(.widget_calendar)>caption, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .box-title, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget>h1, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget>h2, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget>h3, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget>h4, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget>h5, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget>h6, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget_calendar .widget>caption, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widgettitle, .sidebar-content-area [class^=widget_]:not(.widget_calendar)>h1, .sidebar-content-area [class^=widget_]:not(.widget_calendar)>h2, .sidebar-content-area [class^=widget_]:not(.widget_calendar)>h3, .sidebar-content-area [class^=widget_]:not(.widget_calendar)>h4, .sidebar-content-area [class^=widget_]:not(.widget_calendar)>h5, .sidebar-content-area [class^=widget_]:not(.widget_calendar)>h6, .widget_calendar .box-panel .widget>caption, .widget_calendar .box-panel>caption, .widget_calendar .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget>caption, .widget_calendar .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar)>caption, .widget_calendar .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget>caption, .widget_calendar .sidebar-content-area [class^=widget_]:not(.widget_calendar)>caption {
+.box-panel .box-title, .box-panel .widget > h1, .box-panel .widget > h2, .box-panel .widget > h3, .box-panel .widget > h4, .box-panel .widget > h5, .box-panel .widget > h6, .box-panel .widget_calendar .widget > caption, .box-panel .widgettitle, .box-panel > h1, .box-panel > h2, .box-panel > h3, .box-panel > h4, .box-panel > h5, .box-panel > h6, .sidebar-content-area-bottom .widget_calendar [class^=widget_]:not(.widget_calendar) > caption, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .box-title, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget > h1, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget > h2, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget > h3, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget > h4, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget > h5, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget > h6, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget_calendar .widget > caption, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widgettitle, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) > h1, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) > h2, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) > h3, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) > h4, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) > h5, .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) > h6, .sidebar-content-area .widget_calendar [class^=widget_]:not(.widget_calendar) > caption, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .box-title, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget > h1, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget > h2, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget > h3, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget > h4, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget > h5, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget > h6, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget_calendar .widget > caption, .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widgettitle, .sidebar-content-area [class^=widget_]:not(.widget_calendar) > h1, .sidebar-content-area [class^=widget_]:not(.widget_calendar) > h2, .sidebar-content-area [class^=widget_]:not(.widget_calendar) > h3, .sidebar-content-area [class^=widget_]:not(.widget_calendar) > h4, .sidebar-content-area [class^=widget_]:not(.widget_calendar) > h5, .sidebar-content-area [class^=widget_]:not(.widget_calendar) > h6, .widget_calendar .box-panel .widget > caption, .widget_calendar .box-panel > caption, .widget_calendar .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) .widget > caption, .widget_calendar .sidebar-content-area-bottom [class^=widget_]:not(.widget_calendar) > caption, .widget_calendar .sidebar-content-area [class^=widget_]:not(.widget_calendar) .widget > caption, .widget_calendar .sidebar-content-area [class^=widget_]:not(.widget_calendar) > caption {
     background: $palette-primary-white;
     color: $palette-primary-green;
     box-shadow: none;
 }
 
-.box .box-title  {
-    padding:10px;
+.box .box-title {
+    padding: 10px;
 }
 
 .box-image {
-    box-shadow: 0 0px 8px rgba(0,0,0,0.09),0 0px 3px rgba(0,0,0,.12) !important;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.09), 0 0px 3px rgba(0, 0, 0, .12) !important;
 }
 
 .box-content {
-    box-shadow: 0 1px 8px rgba(0,0,0,0.09),0 2px 3px rgba(0,0,0,.12) !important;
-    padding:15px 18px;
-    color: alpha-color($palette-primary-grey, 50%, $type:'dark');
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.09), 0 2px 3px rgba(0, 0, 0, .12) !important;
+    padding: 15px 18px;
+    color: alpha-color($palette-primary-grey, 50%, $type: 'dark');
 
     h5 {
         color: $palette-primary-green !important;
-        font-weight:600;
+        font-weight: 600;
         text-decoration: none;
-        padding-bottom:0px !important;
+        padding-bottom: 0px !important;
     }
     p {
-        padding:0 3px 10px 6px;
+        padding: 0 3px 10px 6px;
     }
 }
 
-.box-filled .box-title, .box-filled .widget>h1, .box-filled .widget>h2, .box-filled .widget>h3, .box-filled .widget>h4, .box-filled .widget>h5, .box-filled .widget>h6, .box-filled .widget_calendar .widget>caption, .box-filled .widgettitle, .box-filled>h1, .box-filled>h2, .box-filled>h3, .box-filled>h4, .box-filled>h5, .box-filled>h6, .widget_calendar .box-filled .widget>caption, .widget_calendar .box-filled>caption {
+.box-filled .box-title, .box-filled .widget > h1, .box-filled .widget > h2, .box-filled .widget > h3, .box-filled .widget > h4, .box-filled .widget > h5, .box-filled .widget > h6, .box-filled .widget_calendar .widget > caption, .box-filled .widgettitle, .box-filled > h1, .box-filled > h2, .box-filled > h3, .box-filled > h4, .box-filled > h5, .box-filled > h6, .widget_calendar .box-filled .widget > caption, .widget_calendar .box-filled > caption {
     color: $palette-primary-green !important;
     padding: 0px !important;
 }
 
 .box-filled a:not(.btn), .box-filled a:not(.btn):not(.btn-large) {
     color: $palette-primary-green !important;
-    margin-left:10px !important;
+    margin-left: 10px !important;
 }
+
 .collection-item {
-    max-width:100% !important;
+    max-width: 100% !important;
 }
+
 .customer-feedback-container {
 
     margin: .5rem 0 1rem 0 !important;
@@ -69,14 +71,95 @@
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2) !important;
 
     .gutter.gutter-top:not(.gutter-margin) {
-        margin-bottom:20px;
+        margin-bottom: 20px;
     }
     textarea, input {
-        border:1px solid #cdcdcd !important;
-        background-color:#fff !important;
-        width:95%;
+        border: 1px solid #cdcdcd !important;
+        background-color: $palette-primary-white !important;
+        width: 95%;
     }
     input {
-        padding-left:15px;
+        padding-left: 15px;
     }
 }
+
+.searchbuttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.infoSearch {
+    color: #2dbccd;
+    cursor: pointer;
+    font-size: 2.4rem !important;
+}
+
+.tooltip-info {
+
+    width: 247px;
+    min-height: 117px;
+    position: absolute;
+    bottom: 100px;
+    z-index: 999;
+    word-wrap: break-word;
+    background-color: $palette-primary-white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+    .tooltip-inner {
+        color: $palette-primary-black !important;
+        padding: 10px 15px;
+        font-size: 11px !important;
+
+        b {
+            font-weight: 600;
+            font-size: 15px;
+            max-width: 206px;
+        }
+        i {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            font-size: 17px;
+            color: $palette-primary-darkgrey;
+            cursor: pointer;
+        }
+    }
+    &.static-tooltip {
+        display: none;
+        right: 5px !important;
+        bottom: auto;
+        top: 55px;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            right: 4%;
+            margin-left: -5px;
+            border-width: 11px;
+            border-style: solid;
+            border-color: transparent transparent $palette-primary-white transparent;
+        }
+    }
+    &.tooltipAfter {
+        &::after {
+            right: 20% !important;
+        }
+    }
+
+    &.cookieBased {
+        display:none;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            right: 20%;
+            margin-left: -5px;
+            border-width: 11px;
+            border-style: solid;
+            border-color: $palette-primary-white transparent transparent transparent;
+        }
+    }
+
+}
+
