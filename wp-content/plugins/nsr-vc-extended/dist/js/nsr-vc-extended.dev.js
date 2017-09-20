@@ -549,7 +549,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.outputFetchPlanner = function (result) {
 
-        console.log(result.fp);
+        //console.log(result.fp);
         
         var $fprow = '';
         var $fpMobRow = '';

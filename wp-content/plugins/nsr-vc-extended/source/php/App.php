@@ -250,10 +250,13 @@ class App
                 $fpId = self::gen_uid($item->PickupId);
                 $collect = $collection->getItem($fpId);
 
+
                 if ($collect === false) {
 
-                    $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=40&DateEnd=' . $stopDate);
-                    $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
+                    //$fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=40&DateEnd=' . $stopDate);
+                    $fpData = self::fetchPlansByCurl('/GetCalendarData?customerId=' . $item->customerId . '&maxCount=40&DateEnd=' . $stopDate);
+                    //$containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
+                    $containerData = self::fetchPlansByCurl('/GetContainerData?customerId=' . $item->customerId);
 
                     $colData['fp'][$int]['id'] = $fpId;
                     $colData['fp'][$int]['Adress'] = $item->PickupName;
