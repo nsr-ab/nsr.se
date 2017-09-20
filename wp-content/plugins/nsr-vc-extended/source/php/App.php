@@ -253,10 +253,13 @@ class App
 
                 if ($collect === false) {
 
+                    
                     //$fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=40&DateEnd=' . $stopDate);
-                    $fpData = self::fetchPlansByCurl('/GetCalendarData?customerId=' . $item->CustomerId . '&maxCount=40&DateEnd=' . $stopDate);
+                    //$fpData = self::fetchPlansByCurl('/GetCalendarData?customerId=' . $item->CustomerId . '&maxCount=40&DateEnd=' . $stopDate);
+                    $fpData = self::fetchPlansByCurl('/GetCalendarData?customerId=1025636&maxCount=40&DateEnd=' . $stopDate);
                     //$containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
-                    $containerData = self::fetchPlansByCurl('/GetContainerData?customerId=' . $item->CustomerId);
+                    //$containerData = self::fetchPlansByCurl('/GetContainerData?customerId=' . $item->CustomerId);
+                    $containerData = self::fetchPlansByCurl('/GetContainerData?customerId=1025636');
 
                     $colData['fp'][$int]['id'] = $fpId;
                     $colData['fp'][$int]['Adress'] = $item->PickupName;
