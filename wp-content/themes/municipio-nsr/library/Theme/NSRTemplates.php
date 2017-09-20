@@ -109,24 +109,6 @@ class NSRTemplates
                 }
 
 
-                if (is_page('Företag & Verksamheter') || is_singular('foretag')) {
-                    /*$output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                                <a itemprop="item" href="/foretag/" title="Start">
-                                    <span itemprop="name">Start</span>
-                                    <meta itemprop="position" content="-0" />
-                                </a>
-                            </li>'; */
-                }
-
-
-                if (is_page('Fastighetsägare & Bostadsrättsföreningar') || is_singular('fastighet')) {
-                    /*$output[] = '<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                                <a itemprop="item" href="/fastighet/" title="Start">
-                                    <span itemprop="name">Start</span>
-                                    <meta itemprop="position" content="-0" />
-                                </a>
-                            </li>';*/
-                }
 
 
                 if ($post->post_parent) {
