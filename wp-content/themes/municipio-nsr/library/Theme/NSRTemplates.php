@@ -95,7 +95,7 @@ class NSRTemplates
                     $showStart = false;
                 if (is_singular('foretag'))
                     $showStart = false;
-                if(!is_singular('foretag'))
+                if(is_singular('fastighet'))
                     $showStart = false;
 
                 if ($showStart) {
