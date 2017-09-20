@@ -245,6 +245,8 @@ class App
             $countCities++;
         }
 
+        var_dump($data->d);
+        exit;
         foreach ($data->d as $item) {
             if (in_array($item->PickupCity, $checkCityDupes)) {
                 $fpId = self::gen_uid($item->PickupId);
