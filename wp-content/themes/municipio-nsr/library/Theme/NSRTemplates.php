@@ -89,9 +89,9 @@ class NSRTemplates
 
                 $showStart = true;
 
-                if (is_page('Företag & Verksamheter'))
+                if (is_page('Företag och Verksamheter'))
                     $showStart = false;
-                if (is_page('Fastighetsägare & Bostadsrättsföreningar'))
+                if (is_page('Fastighetsägare och Bostadsrättsföreningar'))
                     $showStart = false;
                 if (is_singular('foretag'))
                     $showStart = false;
