@@ -247,13 +247,13 @@ class App
 
         foreach ($data->d as $item) {
             if (in_array($item->PickupCity, $checkCityDupes)) {
-                $fpId = self::gen_uid($item->customerId);
+                $fpId = self::gen_uid($item->PickupId);
                 $collect = $collection->getItem($fpId);
 
                 if ($collect === false) {
 
-                    $fpData = self::fetchPlansByCurl('/GetCalendarData?customerId=' . $item->customerId . '&maxCount=40&DateEnd=' . $stopDate);
-                    $containerData = self::fetchPlansByCurl('/GetContainerData?customerId=' . $item->customerId);
+                    $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=40&DateEnd=' . $stopDate);
+                    $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
 
                     $colData['fp'][$int]['id'] = $fpId;
                     $colData['fp'][$int]['Adress'] = $item->PickupName;
