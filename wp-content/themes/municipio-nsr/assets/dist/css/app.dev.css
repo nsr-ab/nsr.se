@@ -7329,6 +7329,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
         bottom: 100%;
         right: 4%;
         margin-left: -5px;
+        margin-bottom: -1px;
         border-width: 11px;
         border-style: solid;
         border-color: transparent transparent #fff transparent; }

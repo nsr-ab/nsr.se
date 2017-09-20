@@ -42,7 +42,10 @@ Nsr.App.AppDefault = (function ($) {
         window.setTimeout(this.removeActiveOnAccordions, 50);
     };
 
-
+    /**
+     *  setCookie
+     *  set new cookie
+     */
     AppDefault.prototype.setCookie = function (cname, cvalue, exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -50,6 +53,10 @@ Nsr.App.AppDefault = (function ($) {
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     };
 
+    /**
+     *  getCookie
+     *  get Cookies
+     */
     AppDefault.prototype.getCookie = function (cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
@@ -65,6 +72,11 @@ Nsr.App.AppDefault = (function ($) {
         return "";
     };
 
+
+    /**
+     *  checkCookie
+     *  check if cookies is set
+     */
     AppDefault.prototype.checkCookie = function() {
         var user = AppDefault.prototype.getCookie("username");
         if (!user) {
