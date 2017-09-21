@@ -855,7 +855,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
         if (navigator.geolocation) {
-            $('.preloader-wrapper').fadeIn("slow");
+            $('.search-autocomplete .preloader-wrapper').fadeIn("slow");
             navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
         }
     };
@@ -1017,7 +1017,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
         });
 
-        $('.preloader-wrapper').fadeOut("slow");
+        $('.search-autocomplete .preloader-wrapper').fadeOut("slow");
 
         return cities[closest];
     };
