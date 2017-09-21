@@ -287,7 +287,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
 
     Extended.prototype.fpTimer = function () {
-        Extended.prototype.fetchPlannerQuery($('.searchNSR'))
+        Extended.prototype.fetchPlannerQuery($('.searchNSR'));
     };
 
 
@@ -428,6 +428,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var progressbar = Extended.prototype.spinner(Extended.prototype.hashCode(data.action), 'big', true);
 
+        if ($('.searchNSR form .preloader-wrapper').length < 1) {
+            $('.searchNSR .searchArea').append(progressbar);
+        }
+
         $.ajax({
             url: ajax_object.ajax_url,
             data: data,
@@ -436,9 +440,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             beforeSend: function (xhr) {
 
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-                if ($('.searchNSR form .preloader-wrapper').length < 1) {
-                    $('.searchNSR .searchArea').append(progressbar);
-                }
+
 
                 $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
             }
