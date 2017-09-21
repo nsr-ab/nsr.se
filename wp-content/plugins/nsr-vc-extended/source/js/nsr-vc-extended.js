@@ -727,10 +727,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var searchID = '';
                             var locationmap;
                             var setNonLink = '';
-                            var countRows = 0;
-
                             for (lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
-
+                                console.log(lint);
                                 if (spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
 
                                     inlLink = '';
@@ -773,7 +771,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                                 latlongID = '';
 
-                                if (countRows > 5)
+                                if (lint > 5)
                                     hideStuff = 'hide';
                                 if (spost.post_meta.inlamningsstallen[int][lint]['city'] != null) {
                                     if (!inlLink)
@@ -787,7 +785,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 inlineClick = '';
                                 latlong = '';
                                 latlongID = '';
-                                countRows++;
                             }
                         }
 
