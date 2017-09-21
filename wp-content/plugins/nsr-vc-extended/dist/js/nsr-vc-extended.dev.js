@@ -399,13 +399,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         };
 
         Extended.prototype.getJsonData($element, fdata, null);
-
-        if ($('.searchNSR form .preloader-wrapper').length < 1) {
-            $('.searchNSR .searchArea').append(progressbar);
-        }
-
-        $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
-
     };
 
 
@@ -443,10 +436,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
             beforeSend: function (xhr) {
 
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
+                if ($('.searchNSR form .preloader-wrapper').length < 1) {
+                    $('.searchNSR .searchArea').append(progressbar);
+                }
 
+                $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
             }
 
         }).done(function (result) {
+
+            console.log(data.action);
 
             if (data.action === 'fetchDataFromElasticSearch') {
 
