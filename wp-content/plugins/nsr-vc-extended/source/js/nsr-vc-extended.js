@@ -727,8 +727,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var searchID = '';
                             var locationmap;
                             var setNonLink = '';
-                            for (lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
-
+                            //for (lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
+                            for (lint = 0; lint < 5; lint++) {
                                 if (spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
 
                                     inlLink = '';
