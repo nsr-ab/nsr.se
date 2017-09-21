@@ -718,7 +718,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         CityItem = [];
                         for (var int = 0; int < spost.post_meta.inlamningsstallen.length; int++) {
 
-                            var lint;
+                        
                             var inlineClick = '';
                             var inlLink = '';
                             var inLinkClose = '';
@@ -727,7 +727,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var searchID = '';
                             var locationmap;
                             var setNonLink = '';
-                            for (lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
+                            for (var lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
                                 console.log(lint);
                                 if (spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
 
