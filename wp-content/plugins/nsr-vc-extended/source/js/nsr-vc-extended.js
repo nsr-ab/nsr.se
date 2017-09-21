@@ -718,7 +718,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         CityItem = [];
                         for (var int = 0; int < spost.post_meta.inlamningsstallen.length; int++) {
 
-                        
+                            var lint;
                             var inlineClick = '';
                             var inlLink = '';
                             var inLinkClose = '';
@@ -727,10 +727,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var searchID = '';
                             var locationmap;
                             var setNonLink = '';
-                            for (var lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
-
-                                if (lint > 5)
-                                    hideStuff = 'hide';
+                            for (lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
 
                                 if (spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
 
@@ -774,24 +771,21 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                                 latlongID = '';
 
+                                if (lint > 5)
+                                    hideStuff = 'hide';
                                 if (spost.post_meta.inlamningsstallen[int][lint]['city'] != null) {
                                     if (!inlLink)
                                         setNonLink = 'nullLink';
-
                                     sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                     tabMobile_inl += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
-
-                       
-
                                 nullLink = '';
                                 locationmap = '';
+                                hideStuff = '';
                                 inlineClick = '';
                                 latlong = '';
                                 latlongID = '';
                             }
-                            hideStuff = '';
-
                         }
 
                         cities[cityInt] = CityItem;
