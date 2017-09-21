@@ -728,7 +728,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var locationmap;
                             var setNonLink = '';
                             for (var lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
-                            
+
+                                if (lint > 5)
+                                    hideStuff = 'hide';
+
                                 if (spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
 
                                     inlLink = '';
@@ -774,9 +777,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 if (spost.post_meta.inlamningsstallen[int][lint]['city'] != null) {
                                     if (!inlLink)
                                         setNonLink = 'nullLink';
-
-                                    if (lint > 5)
-                                        hideStuff = 'hide';
 
                                     sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                     tabMobile_inl += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
