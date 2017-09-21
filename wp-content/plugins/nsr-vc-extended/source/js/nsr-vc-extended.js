@@ -399,6 +399,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
         };
 
         Extended.prototype.getJsonData($element, fdata, null);
+
+        if ($('.searchNSR form .preloader-wrapper').length < 1) {
+            $('.searchNSR .searchArea').append(progressbar);
+        }
+
+        $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
+
     };
 
 
@@ -428,10 +435,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var progressbar = Extended.prototype.spinner(Extended.prototype.hashCode(data.action), 'big', true);
 
-        if ($('.searchNSR form .preloader-wrapper').length < 1) {
-            $('.searchNSR .searchArea').append(progressbar);
-        }
-
         $.ajax({
             url: ajax_object.ajax_url,
             data: data,
@@ -441,8 +444,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
 
-
-                $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
             }
 
         }).done(function (result) {
