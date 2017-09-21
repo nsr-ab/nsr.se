@@ -443,9 +443,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
             }
 
-        }).done(function (result) {
-
-            console.log(data.action);
+        }).complete(function (result) {
 
             if (data.action === 'fetchDataFromElasticSearch') {
 
@@ -456,7 +454,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 $('.search-fetchPlanner').html('');
                 this.outputFetchPlanner(result, false);
+
+                //if(data.action === 'fetchDataFromFetchPlanner')
                 $('.searchArea .preloader-wrapper').remove();
+
+
                 if ($('#searchkeyword-nsr').hasClass('valid'))
                     $('#searchkeyword-nsr').addClass('valid');
 
