@@ -445,7 +445,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }).complete( function() {
             if (data.action === 'fetchDataFromFetchPlanner') {
-                setTimeout(function(){ $('.searchArea .preloader-wrapper').remove(); }, 5000);
+                setTimeout(function(){ $('.searchArea .preloader-wrapper').remove(); }, 10000);
             }
         }).done(function (result) {
 
