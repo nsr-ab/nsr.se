@@ -443,7 +443,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
             }
 
-        }).ajaxComplete( function() {
+        }).complete( function() {
             if (data.action === 'fetchDataFromFetchPlanner') {
                 $('.searchArea .preloader-wrapper').remove();
             }
