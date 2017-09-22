@@ -446,7 +446,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }).complete( function() {
             if (data.action === 'fetchDataFromFetchPlanner') {
                 $('.searchArea .preloader-wrapper').remove();
-                //setTimeout(function(){  }, 3000);
             }
         }).done(function (result) {
 
@@ -459,7 +458,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 $('.search-fetchPlanner').html('');
                 this.outputFetchPlanner(result, false);
-                //$('.searchArea .preloader-wrapper').remove();
                 if ($('#searchkeyword-nsr').hasClass('valid'))
                     $('#searchkeyword-nsr').addClass('valid');
 

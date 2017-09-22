@@ -30,6 +30,8 @@ Nsr.App.AppDefault = (function ($) {
 
         AppDefault.prototype.checkCookie();
 
+        console.log('test varnish');
+
     };
 
 
