@@ -15,7 +15,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="format-detection" content="telephone=no">
     <meta name="HandheldFriendly" content="true" />
-
+    <!-- TEST VARNISH -->
     <script>
         var ajaxurl = '{!! apply_filters('Municipio/ajax_url_in_head', admin_url('admin-ajax.php')) !!}';
     </script>

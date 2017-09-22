@@ -54,8 +54,6 @@ class App
         $this->setBackgroundClass();
 
 
-        add_filter( 'allowed_http_origin', '__return_true' );
-
     }
 
     /**
