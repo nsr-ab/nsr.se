@@ -13,14 +13,14 @@ var VcExtended = VcExtended || {};
 VcExtended.NSRExtend = VcExtended.NSRExtend || {};
 VcExtended.NSRExtend.Extended = (function ($) {
 
-    var init = true;
+    //var init = true;
     var typingTimer = null;
     var timerFetchplanner;
     var timerElastic;
     var hxrLoader = 0;
     var doneTypingInterval = 200;
     var cities = [];
-    var fullscreen = true;
+    //var fullscreen = true;
 
     /**
      * Constructor
