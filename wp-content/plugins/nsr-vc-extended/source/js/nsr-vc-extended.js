@@ -734,7 +734,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (spost.post_meta.inlamningsstallen && spost.post_meta.inlamningsstallen.length) {
 
                         CityItem = [];
-                        for (var int = 0; int < 8; int++) {
+                        for (var int = 0; int < spost.post_meta.inlamningsstallen.length; int++) {
 
                             var lint;
                             var inlineClick = '';
@@ -746,7 +746,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var locationmap;
                             var setNonLink = '';
                             for (lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
-
+                     
                                 if (spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
 
                                     inlLink = '';
