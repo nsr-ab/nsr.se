@@ -795,10 +795,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                     if (!inlLink)
                                         setNonLink = 'nullLink';
 
-                                   if(lint < 3)
-                                       var $hide = '';
+                                   if(lint < 5)
+                                       var $hide = 'hide';
                                     sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' +$hide+ setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                    tabMobile_inl += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    tabMobile_inl += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + ' '+$hide+'> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
                                 nullLink = '';
                                 locationmap = '';
