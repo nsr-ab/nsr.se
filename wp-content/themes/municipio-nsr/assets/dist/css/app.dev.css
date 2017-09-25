@@ -7811,7 +7811,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   display: none; }
 
 .is-child-theme.home .page-footer {
-  display: none; }
+  display: none !important; }
 
 .vc_tta-accordion .vc_tta-panel-heading,
 .vc_tta-accordion .vc_tta-panel-heading a,
