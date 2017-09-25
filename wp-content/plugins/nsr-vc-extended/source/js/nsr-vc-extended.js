@@ -24,7 +24,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * Constructor
      */
     function Extended() {
-        this.init();
+        Extended.prototype.init();
     }
 
 
@@ -837,6 +837,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
         if (noContent)
             $content.appendTo($autocomplete);
+
         $autocomplete.appendTo($element).show();
 
         $('.fraktion-icon').each(function () {
