@@ -734,7 +734,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (spost.post_meta.inlamningsstallen && spost.post_meta.inlamningsstallen.length) {
 
                         CityItem = [];
-                        for (var int = 0; int < spost.post_meta.inlamningsstallen.length; int++) {
+                        for (var int = 0; int < 8; int++) {
 
                             var lint;
                             var inlineClick = '';
@@ -794,11 +794,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 if (spost.post_meta.inlamningsstallen[int][lint]['city'] != null) {
                                     if (!inlLink)
                                         setNonLink = 'nullLink';
-
-                                   if(lint < 5)
-                                       var $hide = 'hide';
-                                    sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' +$hide+ setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                    tabMobile_inl += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + ' '+$hide+'> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                                    tabMobile_inl += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
                                 nullLink = '';
                                 locationmap = '';
