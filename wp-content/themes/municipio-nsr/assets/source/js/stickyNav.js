@@ -115,10 +115,14 @@ Nsr.Sticky.StickyNav = (function ($) {
      */
     StickyNav.prototype.resetSticky = function () {
 
-        $('.mob').removeClass('sticky'), $('.side-nav').removeClass('sticky-side-nav'),
-            $('.mobile-nav').addClass('hidden-lg hidden-md'), $('.desk-logo').addClass('animate-showLogo'),
-            $('.desk-logo').removeClass('animate-hideLogo'), $('.mobile-logo').addClass('hide'), $('.sites-nav').removeClass('hide');
-
+        $('.mob').removeClass('sticky'), $('.side-nav').removeClass('sticky-side-nav');
+        if(!$('.searchArea input').is(':focus')) {
+            $('.mobile-nav').addClass('hidden-lg hidden-md');
+            $('.desk-logo').addClass('animate-showLogo');
+            $('.desk-logo').removeClass('animate-hideLogo');
+            $('.mobile-logo').addClass('hide');
+            $('.sites-nav').removeClass('hide');
+        }
         if($(window).width() < 601) {
             $('.mob').removeClass('sticky-fix');
             $('.side-nav').removeClass('sticky-side-nav-fix');
@@ -137,9 +141,19 @@ Nsr.Sticky.StickyNav = (function ($) {
         var stickyNavTop = $('#site-header').offset().top;
 
         if (scrollTop > stickyNavTop) {
-            $('.mob').addClass('sticky'), $('.side-nav').addClass('sticky-side-nav'),
-                $('.mobile-nav').removeClass('hidden-lg hidden-md'), $('.desk-logo').addClass('animate-hideLogo'),
-                $('.desk-logo').removeClass('animate-showLogo'), $('.mobile-logo').removeClass('hide'), $('.sites-nav').addClass('hide');
+
+
+            if(!$('.searchArea input').is(':focus')){
+                $('.mobile-nav').removeClass('hidden-lg hidden-md');
+                $('.desk-logo').addClass('animate-hideLogo');
+                $('.desk-logo').removeClass('animate-showLogo');
+                $('.mobile-logo').removeClass('hide'), $('.sites-nav').addClass('hide');
+
+            }
+
+            $('.mob').addClass('sticky'), $('.side-nav').addClass('sticky-side-nav');
+
+
 
             if($(window).width() < 601) {
                 $('.mob').addClass('sticky-fix');
