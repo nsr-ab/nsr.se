@@ -7198,6 +7198,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     background-color: #fff; }
   .is-child-theme .side-nav .quickSearch {
     display: none; }
+  @media screen and (max-width: 768px) {
+    .is-child-theme .site-header {
+      height: 82px;
+      min-height: 82px; }
+      .is-child-theme .site-header .logotype {
+        width: 140px;
+        margin-top: -17px; } }
   .is-child-theme .vcmega-main-wrap {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#23aabd+0,1c3533+100 */
     background: #23aabd;

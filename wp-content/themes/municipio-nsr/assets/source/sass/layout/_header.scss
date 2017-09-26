@@ -24,4 +24,14 @@
 
 .side-nav .quickSearch {
     display: none;
-}  
+}
+@media screen and (max-width: 768px) {
+    .site-header {
+        height:82px;
+        min-height:82px;
+        .logotype {
+            width:140px;
+            margin-top:-17px;
+        }
+    }
+}

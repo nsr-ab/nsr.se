@@ -246,7 +246,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         $('.tooltip-info.static-tooltip').removeClass('tooltipAfter');
         if ($(window).width() < 540) {
-            $('#site-header').css('min-height', '150px');
+            //$('#site-header').css('min-height', '150px');
             $('.desk-logo').show();
             $('.mob .center').addClass('hide');
         }
@@ -278,7 +278,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             if ($(window).width() < 540) {
                 $('.main-container').height(237);
-                $('#site-header').css('min-height','70px');
+                //$('#site-header').css('min-height','70px');
                 $('.desk-logo').hide();
                 $('.mob .center').removeClass('hide');
                 //$('.fullscreen').css('top','101px');
@@ -286,7 +286,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 //$('.site-header').css('min-height','72px');
             }
             else {
-                $('#site-header').css('min-height', '150px');
+                //$('#site-header').css('min-height', '150px');
                 $('.desk-logo').show();
                 $('.mob .center').addClass('hide');
             }
