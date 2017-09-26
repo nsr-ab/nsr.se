@@ -351,7 +351,7 @@ input[type=text]:focus.invalid {
         transition: all 500ms ease;
 
         @media (max-width: 450px) {
-            top: 101px;
+            //top: 101px;
         }
 
     }

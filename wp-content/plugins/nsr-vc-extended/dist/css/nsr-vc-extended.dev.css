@@ -235,9 +235,6 @@ input[type=text]:focus.invalid {
     box-sizing: border-box;
     display: table;
     transition: all 500ms ease; }
-    @media (max-width: 450px) {
-      .searchNSR.fullscreen {
-        top: 101px; } }
   .searchNSR table tbody {
     background-color: #016a77; }
   .searchNSR td, .searchNSR tr {
