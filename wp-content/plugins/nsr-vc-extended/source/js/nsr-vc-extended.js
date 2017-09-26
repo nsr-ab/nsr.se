@@ -636,7 +636,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
         if (result.fp.length === 0){
-            $fprow += '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev Ingen träff på "'+$('#searchkeyword-nsr').val()+'". Tömningsdagar finns även på <a style="color:#fff!important;" href="https://minasidor.nsr.se">https://minasidor.nsr.se</a></p><br /><br />';
+            $fprow += '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "'+$('#searchkeyword-nsr').val()+'". Tömningsdagar finns även på <a style="color:#fff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p><br /><br />';
         }
 
         $('.search-fetchPlanner').append($fprow);
@@ -840,7 +840,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
        
         if (res.sortguide.length === 0){
             var sHTML = "";
-            sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev Ingen träff på "'+$('#searchkeyword-nsr').val()+'". Tipsa oss om avfall som vi kan lägga till här  (<a style="color:#fff!important;" href="https://nsr.se/sorteringsguiden">https://nsr.se/sorteringsguiden</a>)</p><br /><br />';
+            sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "'+$('#searchkeyword-nsr').val()+'". Tipsa oss om avfall som vi kan lägga till här  (<a style="color:#fff!important;" href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a>)</p><br /><br />';
             $('.errorSortguide').html(sHTML).removeClass('hide');
 
         }
