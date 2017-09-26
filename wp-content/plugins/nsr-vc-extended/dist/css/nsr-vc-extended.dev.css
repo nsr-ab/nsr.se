@@ -418,7 +418,9 @@ input[type=text]:focus.invalid {
         border-bottom: 1px solid black;
         margin-bottom: 10px; }
       .searchNSR .tabMobile tr:last-child {
-        display: none; } }
+        display: none; }
+      .searchNSR .tabMobile.hide {
+        display: none !important; } }
   .searchNSR .sorterings-guide-table, .searchNSR td, .searchNSR tbody,
   .searchNSR .table-bordered tbody tr + tr, .searchNSR article table tbody tr + tr {
     box-shadow: none !important;

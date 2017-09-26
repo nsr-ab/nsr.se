@@ -645,6 +645,9 @@ input[type=text]:focus.invalid {
             tr:last-child {
                 display: none;
             }
+            &.hide {
+                display:none !important;
+            }
 
         }
 
