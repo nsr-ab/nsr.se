@@ -350,6 +350,10 @@ input[type=text]:focus.invalid {
         display: table;
         transition: all 500ms ease;
 
+        @media (max-width: 450px) {
+            top: 101px;
+        }
+
     }
 
     table tbody {
