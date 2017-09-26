@@ -419,7 +419,7 @@ input[type=text]:focus.invalid {
         margin-bottom: 10px; }
       .searchNSR .tabMobile tr:last-child {
         display: none; }
-      .searchNSR .tabMobile.hide {
+      .searchNSR .tabMobile li.hide {
         display: none !important; } }
   .searchNSR .sorterings-guide-table, .searchNSR td, .searchNSR tbody,
   .searchNSR .table-bordered tbody tr + tr, .searchNSR article table tbody tr + tr {
