@@ -393,7 +393,7 @@ input[type=text]:focus.invalid {
         font-style: italic;
     }
 
-    .sorteringsguiden h4, .search-autocomplete h4, .search-fetchPlanner h4 {
+    .sorteringsguiden h4, .search-autocomplete h4, .search-fetchPlanner h4, .errorSortguide h4, .errorPages h4 {
         font-size: 1.40rem;
         line-height: 25px !important;
         display: table;
@@ -607,7 +607,7 @@ input[type=text]:focus.invalid {
         }
     }
     .inlstallen li.hide {
-        display:none !important;
+        display: none !important;
     }
     @media (max-width: 540px) {
         .fp-table-mobile {
@@ -652,7 +652,6 @@ input[type=text]:focus.invalid {
                 display: none;
             }
 
-
         }
 
     }
@@ -670,7 +669,7 @@ input[type=text]:focus.invalid {
     }
     @media (max-width: 450px) {
         .sorterings-guide-table {
-            ul,li {
+            ul, li {
                 display: inline-block;
             }
 
@@ -750,7 +749,7 @@ input[type=text]:focus.invalid {
     }
 
     .closeSearch {
-        
+
         color: $signalGreen;
         cursor: pointer;
         font-size: 2.4rem !important;
@@ -899,9 +898,9 @@ td, tr {
         border-color: $white !important;
     }
     .meta-fraktion li {
-        float:none !important;
-        clear:both !important;
-        width:100% !important;
+        float: none !important;
+        clear: both !important;
+        width: 100% !important;
     }
     .searchNSR .sorterings-guide-table li, .searchNSR .sorterings-guide-table ul {
         display: block !important;
@@ -911,7 +910,7 @@ td, tr {
 .viewAllInlamning {
     margin-top: 20px;
     @media (max-width: 450px) {
-        display:block !important;
+        display: block !important;
     }
 }
 
@@ -928,6 +927,20 @@ td, tr {
 .viewAllInlamning a {
     margin-left: 17px;
 }
+
 .clickable {
-    cursor:pointer;
+    cursor: pointer;
 }
+
+.noResult {
+    text-align: center;
+    color: #ffffff;
+    a {
+        color: #ffffff !important;
+        &:hover {
+            color: #8ef3ff !important;
+        }
+    }
+}
+
+

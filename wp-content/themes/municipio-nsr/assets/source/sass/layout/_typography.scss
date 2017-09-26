@@ -7,6 +7,7 @@
 }
 
 
+
 a, .mce-content-body a:not([class]),
 .widget_archive [class*=theme-] article a,
 .widget_categories [class*=theme-] article a,
@@ -27,6 +28,7 @@ a, .mce-content-body a:not([class]),
         color: alpha-color($palette-primary-green, 10%, $type:'dark')  !important;
     }
 }
+
 
 b, strong {
     @include font('Lato', 700);

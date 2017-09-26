@@ -237,6 +237,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.closeScreen = function (element) {
 
         event.stopPropagation();
+        $('.errorPages').addClass('hide');
+        $('.errorSortguide').addClass('hide');
         $('.searchNSR').removeClass('fullscreen'), $('.searchNSR').removeClass('searchResult');
         $(element).addClass('hide'), $('#searchkeyword-nsr').val(''), $('.search-autocomplete').remove(), $('.sorteringsguiden').remove();
         $('.vc_row').show(), $('.page-footer').show(), $('.main-container').removeAttr('style'), $('.search-fetchPlanner').html('');
@@ -572,8 +574,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.outputFetchPlanner = function (result) {
 
-        //console.log(result.fp);
-        
         var $fprow = '';
         var $fpMobRow = '';
 
@@ -634,6 +634,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $fprow += '</table>';
             $fpMobRow += '</table>';
         }
+
+        if (result.fp.length === 0){
+            $fprow += '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev Ingen träff på "'+$('#searchkeyword-nsr').val()+'". Tömningsdagar finns även på <a style="color:#fff!important;" href="https://minasidor.nsr.se">https://minasidor.nsr.se</a></p><br /><br />';
+        }
+
         $('.search-fetchPlanner').append($fprow);
         $('.search-fetchPlanner').append($fpMobRow);
 
@@ -664,6 +669,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var tabMobile_inl = '';
             var CityItem;
             var cityInt = 0;
+
+            if($('.errorSortguide').is(':visible'))
+                $('.errorSortguide').addClass('hide');
 
             $.each(res.sortguide, function (index, spost) {
 
@@ -828,10 +836,22 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $sortMarkupTable.append(sortHTML);
         }
+        
+       
+        if (res.sortguide.length === 0){
+            var sHTML = "";
+            sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev Ingen träff på "'+$('#searchkeyword-nsr').val()+'". Tipsa oss om avfall som vi kan lägga till här  (<a style="color:#fff!important;" href="https://nsr.se/sorteringsguiden">https://nsr.se/sorteringsguiden</a>)</p><br /><br />';
+            $('.errorSortguide').html(sHTML).removeClass('hide');
+
+        }
 
         var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
 
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
+            
+            if($('.errorPages').is(':visible'))
+                $('.errorPages').addClass('hide');
+
             $.each(res.content, function (index, post) {
                 var $excerpt = post.post_excerpt.replace(/^(.{180}[^\s]*).*/, "$1");
                 if ($excerpt)
@@ -850,6 +870,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
             $('.search-autocomplete').prepend('<h4>Sidor på nsr.se</h4>');
         }
+        if (res.content.length === 0){
+            var sHTML = "";
+            sHTML += '<h4>Sidor på nsr.se</h4><br /><p class="noResult">Ingen träff på "'+$('#searchkeyword-nsr').val()+'".</p><br /><br />';
+            $('.errorPages').html(sHTML).removeClass('hide');
+
+        }
+
 
         if (nosortGuidedata) {
             $sortMarkupTable.appendTo($sorteringsguiden);
