@@ -281,6 +281,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('#site-header').css('min-height','70px');
                 $('.desk-logo').hide();
                 $('.mob .center').removeClass('hide');
+                $('.searchNSR').css('top','101px');
                 //$('.mob').addClass('sticky sticky-fix');
                 //$('.site-header').css('min-height','72px');
             }
