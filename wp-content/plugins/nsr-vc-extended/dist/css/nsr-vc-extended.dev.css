@@ -391,6 +391,8 @@ input[type=text]:focus.invalid {
   @media (min-width: 541px) {
     .searchNSR .fp-table-mobile {
       display: none; } }
+  .searchNSR .inlstallen li.hide {
+    display: none !important; }
   @media (max-width: 540px) {
     .searchNSR .fp-table-mobile {
       display: table;
@@ -418,9 +420,7 @@ input[type=text]:focus.invalid {
         border-bottom: 1px solid black;
         margin-bottom: 10px; }
       .searchNSR .tabMobile tr:last-child {
-        display: none; }
-      .searchNSR .tabMobile li.hide {
-        display: none !important; } }
+        display: none; } }
   .searchNSR .sorterings-guide-table, .searchNSR td, .searchNSR tbody,
   .searchNSR .table-bordered tbody tr + tr, .searchNSR article table tbody tr + tr {
     box-shadow: none !important;

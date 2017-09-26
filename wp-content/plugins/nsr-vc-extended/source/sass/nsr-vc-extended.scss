@@ -602,7 +602,9 @@ input[type=text]:focus.invalid {
             display: none;
         }
     }
-
+    .inlstallen li.hide {
+        display:none !important;
+    }
     @media (max-width: 540px) {
         .fp-table-mobile {
             display: table;
@@ -645,9 +647,7 @@ input[type=text]:focus.invalid {
             tr:last-child {
                 display: none;
             }
-            li.hide {
-                display:none !important;
-            }
+
 
         }
 
