@@ -278,16 +278,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             if ($(window).width() < 540) {
                 $('.main-container').height(237);
-                //$('#site-header').css('min-height','70px');
-                //$('.desk-logo').hide();
+
                 $('.mob .center').removeClass('hide');
-                //$('.fullscreen').css('top','101px');
-                //$('.mob').addClass('sticky sticky-fix');
-                //$('.site-header').css('min-height','72px');
             }
             else {
-                //$('#site-header').css('min-height', '150px');
-                //$('.desk-logo').show();
                 $('.mob .center').addClass('hide');
             }
 
@@ -912,7 +906,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             default:
                 constant = "Unrecognized error";
                 $('.search-autocomplete .preloader-wrapper').hide();
-                console.log('geoLocation: ' + constant);
+                //console.log('geoLocation: ' + constant);
                 break;
         }
 
@@ -986,7 +980,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {array} cities
      */
     Extended.prototype.NearestCity = function (latitude, longitude) {
-        console.log(latitude + " : " +longitude)
+        //console.log(latitude + " : " +longitude)
         var icon = 0;
         var cordID = null;
         for (ind = 0; ind < cities.length; ++ind) {
