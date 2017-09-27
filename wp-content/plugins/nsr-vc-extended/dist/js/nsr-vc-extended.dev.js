@@ -835,7 +835,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
                 }
-                if(spost.post_meta.inlamningsstallen.length !== 0)
+                if(spost.post_meta.inlamningsstallen.length > 0)
                     sortHTML += '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li>';
 
                 sortHTML += '</ul></td>';
