@@ -653,7 +653,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $fpMobRow += '</table>';
         }
 
-        if (result.fp.length === 0) {
+        if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length === 0) {
             $fprow += '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p><br /><br />';
         }
 
@@ -835,8 +835,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
                 }
+                if(spost.post_meta.inlamningsstallen.length !== 0)
+                    sortHTML += '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li>';
 
-                sortHTML += '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td>';
+                sortHTML += '</ul></td>';
                 sortHTML += '</tr>';
                 sortHTML += '<tr class="tabMobile"><th class="col s12">Sorteras som:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
                 sortHTML += '<tr class="tabMobile lastchild"><th class="col s12">Lämnas:</th><td>' + spinner + '<ul class="inlstallen">' + tabMobile_inl + '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td></tr>';
@@ -853,7 +855,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
 
-        if (res.sortguide.length === 0) {
+        if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length === 0) {
             var sHTML = "";
             sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tipsa oss om avfall som vi kan lägga till här  (<a style="color:#ffffff!important;" href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a>)</p><br /><br />';
             $('.errorSortguide').html(sHTML).removeClass('hide');
@@ -885,7 +887,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
             $('.search-autocomplete').prepend('<h4>Sidor på nsr.se</h4>');
         }
-        if (res.content.length === 0) {
+        if (typeof res.content != 'undefined' && res.content !== null && res.content.length === 0) {
             var sHTML = "";
             sHTML += '<h4>Sidor på nsr.se</h4><br /><p class="noResult">Ingen träff på "' + $('#searchkeyword-nsr').val() + '".</p><br /><br />';
             $('.errorPages').html(sHTML).removeClass('hide');
