@@ -972,6 +972,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {void}
      */
     Extended.prototype.UserLocation = function (position) {
+        console.log(position.coords.latitude + ' : ' + position.coords.longitude);
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
     };
 
