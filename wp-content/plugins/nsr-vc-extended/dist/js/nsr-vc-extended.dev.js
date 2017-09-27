@@ -653,13 +653,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $fpMobRow += '</table>';
         }
 
-        /* No result */
+        /* No result ..... */
         if (typeof result.fp != 'undefined' && result.fp !== null) {
             if(result.fp.length === 0) {
                 $fprow += '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p><br /><br />';
             }
         }
-
+        
         $('.search-fetchPlanner').append($fprow);
         $('.search-fetchPlanner').append($fpMobRow);
 
@@ -858,7 +858,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $sortMarkupTable.append(sortHTML);
         }
 
-        /* No result */
+        /* No result ..... */
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null) {
             if(res.sortguide.length === 0) {
                 var sHTML = "";
@@ -894,7 +894,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
 
-        /* No result */
+        /* No result ..... */
         if (typeof res.content != 'undefined' && res.content !== null) {
             if(res.content.length === 0) {
                 var sHTML = "";
