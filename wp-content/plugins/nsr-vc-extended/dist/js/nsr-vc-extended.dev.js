@@ -13,14 +13,14 @@ var VcExtended = VcExtended || {};
 VcExtended.NSRExtend = VcExtended.NSRExtend || {};
 VcExtended.NSRExtend.Extended = (function ($) {
 
- 
+
     var typingTimer = null;
     var timerFetchplanner;
     var timerElastic;
     var hxrLoader = 0;
     var doneTypingInterval = 200;
     var cities = [];
-    
+    var _gaq = _gaq || [];
 
     /**
      * Constructor
@@ -35,6 +35,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  Initializes all the necessary methods and binding stuff to events
      */
     Extended.prototype.init = function () {
+
+        _gaq.push(['_setAccount', 'UA-92267061-1']); // your ID/profile
+        _gaq.push(['_trackPageview']);
+
 
         /* Default search */
         Extended.prototype.DefaultSiteSearch();
@@ -287,9 +291,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('.mob .center').addClass('hide');
             }
 
-            
+
         }
-      
+
 
         if ($('body').hasClass('error404'))
             $('.sidebar-footer-area').css('margin-top', '200px');
@@ -444,6 +448,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.getJsonData = function ($element, data, $post_type) {
 
         var progressbar = Extended.prototype.spinner(Extended.prototype.hashCode(data.action), 'big', true);
+        var searchTerm = data;
+
+        console.log();
 
         $.ajax({
             url: ajax_object.ajax_url,
@@ -460,11 +467,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
             }
 
-        }).complete( function() {
+        }).complete(function () {
             if (data.action === 'fetchDataFromFetchPlanner') {
                 $('.searchArea .preloader-wrapper').remove();
             }
         }).done(function (result) {
+
+            _gaq.push(['_trackEvent', 'site-search', data.action, searchTerm, 'resultat:'+result.length]);
+
 
             if (data.action === 'fetchDataFromElasticSearch') {
 
@@ -635,8 +645,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $fpMobRow += '</table>';
         }
 
-        if (result.fp.length === 0){
-            $fprow += '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "'+$('#searchkeyword-nsr').val()+'". Tömningsdagar finns även på <a style="color:#fff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p><br /><br />';
+        if (result.fp.length === 0) {
+            $fprow += '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p><br /><br />';
         }
 
         $('.search-fetchPlanner').append($fprow);
@@ -670,7 +680,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var CityItem;
             var cityInt = 0;
 
-            if($('.errorSortguide').is(':visible'))
+            if ($('.errorSortguide').is(':visible'))
                 $('.errorSortguide').addClass('hide');
 
             $.each(res.sortguide, function (index, spost) {
@@ -751,7 +761,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             for (lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
                                 if (lint > 5)
                                     hideStuff = 'hide';
-                                
+
                                 if (spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
 
                                     inlLink = '';
@@ -795,14 +805,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 latlongID = '';
 
 
-
-
-
                                 if (spost.post_meta.inlamningsstallen[int][lint]['city'] != null) {
                                     if (!inlLink)
                                         setNonLink = 'nullLink';
                                     sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                    
+
                                     tabMobile_inl += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
                                 nullLink = '';
@@ -836,11 +843,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $sortMarkupTable.append(sortHTML);
         }
-        
-       
-        if (res.sortguide.length === 0){
+
+
+        if (res.sortguide.length === 0) {
             var sHTML = "";
-            sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "'+$('#searchkeyword-nsr').val()+'". Tipsa oss om avfall som vi kan lägga till här  (<a style="color:#fff!important;" href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a>)</p><br /><br />';
+            sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tipsa oss om avfall som vi kan lägga till här  (<a style="color:#ffffff!important;" href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a>)</p><br /><br />';
             $('.errorSortguide').html(sHTML).removeClass('hide');
 
         }
@@ -848,8 +855,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
 
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
-            
-            if($('.errorPages').is(':visible'))
+
+            if ($('.errorPages').is(':visible'))
                 $('.errorPages').addClass('hide');
 
             $.each(res.content, function (index, post) {
@@ -870,9 +877,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
             $('.search-autocomplete').prepend('<h4>Sidor på nsr.se</h4>');
         }
-        if (res.content.length === 0){
+        if (res.content.length === 0) {
             var sHTML = "";
-            sHTML += '<h4>Sidor på nsr.se</h4><br /><p class="noResult">Ingen träff på "'+$('#searchkeyword-nsr').val()+'".</p><br /><br />';
+            sHTML += '<h4>Sidor på nsr.se</h4><br /><p class="noResult">Ingen träff på "' + $('#searchkeyword-nsr').val() + '".</p><br /><br />';
             $('.errorPages').html(sHTML).removeClass('hide');
 
         }
@@ -1018,7 +1025,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var winners = [];
                 for (index = 0; index < cities[ind].length; ++index) {
                     //var dif = Extended.prototype.PythagorasEquirectangular(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
-                    if(cities[ind][index]) {
+                    if (cities[ind][index]) {
                         var dif = Extended.prototype.getDistanceFromLatLonInKm(latitude, longitude, cities[ind][index][1], cities[ind][index][2]);
                         winners[index] = dif;
                         cities[ind][index][3] = dif;
@@ -1026,7 +1033,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
 
                 for (index = 0; index < cities[ind].length; ++index) {
-                    if(cities[ind][index]) {
+                    if (cities[ind][index]) {
                         var thewinner = Extended.prototype.findClosest(winners);
                         if (thewinner === cities[ind][index][3]) {
                             var cordID = cities[ind][index][4];
