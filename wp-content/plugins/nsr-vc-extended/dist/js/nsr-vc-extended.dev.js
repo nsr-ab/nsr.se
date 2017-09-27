@@ -921,7 +921,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if (navigator.geolocation) {
             $('.search-autocomplete .preloader-wrapper').fadeIn("slow");
-            navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
+            window.navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
         }
     };
 
