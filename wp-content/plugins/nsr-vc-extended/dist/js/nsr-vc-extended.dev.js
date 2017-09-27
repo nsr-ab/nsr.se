@@ -36,8 +36,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.init = function () {
 
-        _gaq.push(['_setAccount', 'UA-92267061-1']); // your ID/profile
-        _gaq.push(['_trackPageview']);
+        //_gaq.push(['_setAccount', 'UA-92267061-1']); // your ID/profile
+        //_gaq.push(['_trackPageview']);
         
 
         /* Default search */
@@ -448,9 +448,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.getJsonData = function ($element, data, $post_type) {
 
         var progressbar = Extended.prototype.spinner(Extended.prototype.hashCode(data.action), 'big', true);
-        var searchTerm = data;
-
-        console.log();
 
         $.ajax({
             url: ajax_object.ajax_url,
@@ -473,18 +470,28 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }).done(function (result) {
 
-            _gaq.push(['_trackEvent', 'site-search', data.action, searchTerm, 'resultat:' + result.length]);
-            parent.ga('send', 'event', 'site-search-devs', searchTerm);
-
-
             if (data.action === 'fetchDataFromElasticSearch') {
 
                 $('.searchNSR').addClass('searchResult'), $element.find('.sorteringsguiden').remove(), $element.find('.search-autocomplete').remove();
+
+                if (typeof result.sortguide != 'undefined' && result.sortguide !== null) {
+                    parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length);
+                }
+
+                if (typeof result.content != 'undefined' && result.content !== null) {
+                    parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length);
+                }
+
                 this.outputAutocomplete($element, result, $post_type);
             }
             else {
 
                 $('.search-fetchPlanner').html('');
+
+                if (typeof result.fp != 'undefined' && result.fp !== null) {
+                    parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length);
+                }
+
                 this.outputFetchPlanner(result, false);
                 if ($('#searchkeyword-nsr').hasClass('valid'))
                     $('#searchkeyword-nsr').addClass('valid');
