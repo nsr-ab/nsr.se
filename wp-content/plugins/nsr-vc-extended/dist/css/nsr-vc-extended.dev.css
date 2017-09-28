@@ -256,7 +256,7 @@ input[type=text]:focus.invalid {
     display: block;
     padding: 7.5px 10px;
     font-style: italic; }
-  .searchNSR .sorteringsguiden h4, .searchNSR .search-autocomplete h4, .searchNSR .search-fetchPlanner h4, .searchNSR .errorSortguide h4, .searchNSR .errorPages h4 {
+  .searchNSR .sorteringsguiden h4, .searchNSR .search-autocomplete h4, .searchNSR .errorFetchPlanner h4, .searchNSR .errorSortguide h4, .searchNSR .errorPages h4 {
     font-size: 1.40rem;
     line-height: 25px !important;
     display: table; }
