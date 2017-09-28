@@ -201,8 +201,10 @@ class NSRSearch
                          </div>
                       </div> 
                      
-                     <div id=\"searchResult\"></div>
+                     <div class=\"search-autocomplete\"></div>
                      <div class=\"search-fetchPlanner\"></div>
+                     <div id=\"searchResult\"></div>
+                     
                    
                       <!-- Search - No result -->
                      <div class=\"errorNoresult\">

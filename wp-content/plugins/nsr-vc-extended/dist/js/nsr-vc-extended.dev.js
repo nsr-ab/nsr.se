@@ -679,7 +679,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.outputAutocomplete = function (element, res, searchSection) {
 
         var $element = $(element);
-        var $autocomplete = $('<div class="search-autocomplete"></div>');
+        var $autocomplete = $('search-autocomplete');
         var $content = $('<ul class="search-autocomplete-content"></ul>');
         var $sorteringsguiden = $('<div class="sorteringsguiden"><h4>Sorteringsguiden</h4><div class="left badgeInfo"><span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div></div>');
         var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
