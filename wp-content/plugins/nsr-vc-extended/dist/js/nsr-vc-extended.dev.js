@@ -909,13 +909,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
         if (nosortGuidedata) {
-            $sortMarkupTable.prependTo($sorteringsguiden);
-            $sorteringsguiden.prependTo($element);
+            $sortMarkupTable.appendTo($sorteringsguiden);
+            $sorteringsguiden.appendTo($element);
         }
         if (noContent)
-            $content.prependTo($autocomplete);
+            $content.appendTo($autocomplete);
 
-        $autocomplete.prependTo($element).show();
+        $autocomplete.appendTo($element).show();
 
         $('.fraktion-icon').each(function () {
             if ($(this).find('span').hasClass('nofraktionlink'))
