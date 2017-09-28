@@ -661,7 +661,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             if(result.fp.length === 0) {
                 var sHTML = '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p><br /><br />';
                 $('.errorNoresult .errorFetchPlanner').html(sHTML).removeClass('hide');
-
             }
         }
 
