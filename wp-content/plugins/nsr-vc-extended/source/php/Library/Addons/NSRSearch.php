@@ -203,7 +203,8 @@ class NSRSearch
                      
                      <div id=\"searchResult\"></div>
                      <div class=\"search-fetchPlanner\"></div>
-                     </div>
+                   
+                      <!-- Search - No result -->
                      <div class=\"errorNoresult\">
                      
                         <div class=\"errorSortguide hide\"></div>
@@ -211,6 +212,10 @@ class NSRSearch
                         <div class=\"errorFetchPlanner hide\"></div>
                         
                      </div>
+                   
+                   
+                     </div>
+                     
                      
                      
                      ";
