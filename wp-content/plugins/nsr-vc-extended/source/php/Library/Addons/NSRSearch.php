@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Puff ad-don for Visual Composer
  *
@@ -11,20 +10,14 @@
  * NSR search widget.
  *
  */
-
 namespace VcExtended\Library\Addons;
-
 class NSRSearch
 {
-
     function __construct()
     {
         add_action('init', array($this, 'integrateWithVC'));
         add_shortcode('nsr_search', array($this, 'renderExtend'));
-
     }
-
-
     /**
      * Available parameters
      * @return array
@@ -32,8 +25,6 @@ class NSRSearch
     static function params()
     {
         return array(
-
-
             /** @Param Designation parameter */
             array(
                 'admin_label' => true,
@@ -41,9 +32,7 @@ class NSRSearch
                 'heading' => __('Title', 'nsr-vc-extended'),
                 'param_name' => 'vc_designation',
                 'edit_field_class' => 'vc_col-sm-7 vc_col-md-7',
-
             ),
-
             /** @Param post types parameter */
             array(
                 'admin_label' => true,
@@ -58,7 +47,6 @@ class NSRSearch
                     __('Fastighetsägare & Bostadsrättsföreningar', 'nsr-vc-extended') => 'fastighet',
                     __('Företag & Restauranger', 'nsr-vc-extended') => 'foretag',
                     __('Vanliga frågor', 'nsr-vc-extended') => 'faq',
-
                 ),
             ),
             /** @Param post types parameter */
@@ -81,9 +69,7 @@ class NSRSearch
                 'heading' => __('Tooltip title', 'vc_tooltip_title'),
                 'param_name' => 'vc_tooltip_title',
                 'edit_field_class' => 'vc_col-sm-7 vc_col-md-7',
-
             ),
-
             /** @Param Designation parameter */
             array(
                 'admin_label' => true,
@@ -91,22 +77,16 @@ class NSRSearch
                 'heading' => __('Tooltip', 'vc_tooltip'),
                 'param_name' => 'vc_tooltip',
                 'edit_field_class' => 'vc_col-sm-7 vc_col-md-7',
-
             ),
-
         );
     }
-
-
     /**
      * Mapping Ad-don
      * @return void
      */
     public function integrateWithVC()
     {
-
         vc_map(array(
-
                 'name' => __('Search', 'nsr-vc-extended'),
                 'description' => __('NSR Search', 'nsr-vc-extended'),
                 'base' => 'nsr_search',
@@ -124,8 +104,6 @@ class NSRSearch
             )
         );
     }
-
-
     /**
      * Logic behind Ad-don output
      * @param array $atts
@@ -134,18 +112,13 @@ class NSRSearch
      */
     public function renderExtend(array $atts, $content = null)
     {
-
         $params['vc_designation'] = isset($atts['vc_designation']) ? $atts['vc_designation'] : null;
         $params['vc_search_sections'] = isset($atts['vc_search_sections']) ? $atts['vc_search_sections'] : null;
         $params['vc_search_position'] = isset($atts['vc_search_position']) ? $atts['vc_search_position'] : null;
         $params['vc_tooltip'] = isset($atts['vc_tooltip']) ? $atts['vc_tooltip'] : null;
         $params['vc_tooltip_title'] = isset($atts['vc_tooltip_title']) ? $atts['vc_tooltip_title'] : null;
-
         return $this->renderMarkup($param = (object)$params);
-
     }
-
-
     /**
      * loop object and render markup
      * @param array $params
@@ -153,7 +126,6 @@ class NSRSearch
      */
     public function renderMarkup($params)
     {
-
         if ($params->vc_search_position === 'content') {
             $positionFixed = 'position-relative';
         } else {
@@ -202,30 +174,14 @@ class NSRSearch
                       </div> 
                      
                      <div id=\"searchResult\"></div>
+                     <div class=\"errorSortguide hide\"></div>
                      <div class=\"search-fetchPlanner\"></div>
-                   
-                      <!-- Search - No result -->
-                     <div class=\"errorNoresult\">
-                     
-                        <div class=\"errorSortguide hide\"></div>
-                        <div class=\"errorPages hide\"></div>
-                        <div class=\"errorFetchPlanner hide\"></div>
-                        
-                     </div>
-                   
-                   
+                     <div class=\"errorPages hide\"></div>
                      </div>
                      
                      
                      
                      ";
-
         return $output;
-
-
     }
 }
-
-
-
-
