@@ -71,7 +71,7 @@ class Elasticsearch
     }
 
     /**
-     * Indexable post types
+     * Indexable post types 
      * @param  array $types Default post types
      * @return array Updated post types
      */
