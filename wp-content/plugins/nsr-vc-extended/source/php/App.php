@@ -357,13 +357,13 @@ class App
 
                 $result['sortguide'][$metaInt]->post_meta = get_post_meta($result['sortguide'][$metaInt]->ID);
 
-                $frakt = array(array('avc', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_avc'][0]), array('hemma', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]));
+                $frakt = array(array('avc', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_avc'][0]),
+                               array('hemma', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]));
 
                 foreach ($frakt as $fraktion) {
 
                     $getFraktionTerm = get_term(intval($fraktion[1]));
                     $fraktionTermlink = get_term_meta(intval($fraktion[1]));
-
 
                     $extLink = $fraktionTermlink['fraktion_extern_link'][0];
 

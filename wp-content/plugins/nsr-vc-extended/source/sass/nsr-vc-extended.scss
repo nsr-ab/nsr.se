@@ -393,6 +393,12 @@ input[type=text]:focus.invalid {
         font-style: italic;
     }
 
+    .errorPages, .errorSortguide, .search-fetchPlanner > p.noResult {
+      margin-bottom: 20px;
+    }
+    .search-fetchPlanner, .errorSortguide, .errorPages {
+        margin-top: 20px;
+    }
     .sorteringsguiden h4, .search-autocomplete h4, .search-fetchPlanner h4, .errorSortguide h4, .errorPages h4 {
         font-size: 1.40rem;
         line-height: 25px !important;
