@@ -49,12 +49,19 @@ class QueryElastic
             )
         );
 
+        print_r($mapping);exit;
+
         return $mapping;
     }
 
 
     public static function jsonSearch($data)
     {
+        function themeslug_deactivate_ep_fuzziness( $fuzz ) {
+            return 0;
+        }
+        add_filter('ep_fuzziness_arg', 'themeslug_deactivate_ep_fuzziness');
+        add_filter('ep_config_mapping', array($this, 'elasticPressSynonymMapping'));
 
         $q = sanitize_text_field($data['query']);
         $post_type = sanitize_text_field($data['post_type']);
@@ -112,12 +119,13 @@ class QueryElastic
                 'analyzer' => 'elasticpress_synonyms'
             ),
 
-
-            'posts_per_page' => 15,
+            'posts_per_page' => 100,
             'post_type' => 'sorteringsguide',
             'cache_results' => false
         ));
 
+        //print_r($querySortGuide);
+        //exit;
 
         $query = new \WP_Query(array(
             'ep_integrate' => true,

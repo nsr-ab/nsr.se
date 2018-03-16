@@ -18,6 +18,7 @@ class NSRSearch
         add_action('init', array($this, 'integrateWithVC'));
         add_shortcode('nsr_search', array($this, 'renderExtend'));
     }
+
     /**
      * Available parameters
      * @return array
@@ -156,6 +157,7 @@ class NSRSearch
                                 <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\" required=\"\" id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
                                 <label for=\"searchQ-input\">" . __('Where do you live? What stuff do you want to sort? Are you looking for something else?', 'nsr-vc-extended') . "</label>
                                 <input type=\"hidden\" id=\"post_type\" value=\"" . $params->vc_search_sections . "\">
+                                <input type=\"submit\" class=\"btn btn-large waves-effect waves-light notranslate search-button\" style=\"display:none;\" value=\"SÖK\">
                             </div>
                            
                         </form>
