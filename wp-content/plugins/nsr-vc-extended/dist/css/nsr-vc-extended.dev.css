@@ -20,11 +20,15 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers) li:before {
 .collapsible-body {
   background-color: #fafafa; }
 
-.collapsible-body p, .mce-content-body p:first-of-type, article p:first-of-type {
+.collapsible-body p,
+.mce-content-body p:first-of-type,
+article p:first-of-type {
   margin-top: 0px; }
 
-.mce-content-body ul li + li, .modularity-mod-text .box-content ul li + li,
-.unordered-list li + li, article ul:not(.nav):not(.slider-items):not(.line-numbers) li + li {
+.mce-content-body ul li + li,
+.modularity-mod-text .box-content ul li + li,
+.unordered-list li + li,
+article ul:not(.nav):not(.slider-items):not(.line-numbers) li + li {
   margin-top: 0px; }
 
 .collapsible-header i {
@@ -91,26 +95,32 @@ a.collection-item {
 .card-content h4 a:hover {
   text-decoration: underline; }
 
-.page-template-default .vc_col-sm-6 .collection-title, .page-template-vc-page-blade .vc_col-sm-6 .collection-title {
+.page-template-default .vc_col-sm-6 .collection-title,
+.page-template-vc-page-blade .vc_col-sm-6 .collection-title {
   max-width: 80%;
   display: inline-block; }
 
-.page-template-default .vc_col-sm-4 .collection-title, .page-template-vc-page-blade .vc_col-sm-4 .collection-title {
+.page-template-default .vc_col-sm-4 .collection-title,
+.page-template-vc-page-blade .vc_col-sm-4 .collection-title {
   max-width: 70%;
   display: inline-block; }
 
 @media only screen and (max-width: 1200px) {
-  .page-template-default .vc_col-sm-4 .collection-title, .page-template-vc-page-blade .vc_col-sm-4 .collection-title {
+  .page-template-default .vc_col-sm-4 .collection-title,
+  .page-template-vc-page-blade .vc_col-sm-4 .collection-title {
     max-width: 65%; } }
 
 @media only screen and (max-width: 991px) {
-  .page-template-default .vc_col-sm-6 .collection-title, .page-template-vc-page-blade .vc_col-sm-6 .collection-title {
+  .page-template-default .vc_col-sm-6 .collection-title,
+  .page-template-vc-page-blade .vc_col-sm-6 .collection-title {
     max-width: 65%; }
-  .page-template-default .vc_col-sm-4 .collection-title, .page-template-vc-page-blade .vc_col-sm-4 .collection-title {
+  .page-template-default .vc_col-sm-4 .collection-title,
+  .page-template-vc-page-blade .vc_col-sm-4 .collection-title {
     max-width: 45%; } }
 
 @media only screen and (max-width: 930px) {
-  .page-template-default .vc_col-sm-4 .collection-title, .page-template-vc-page-blade .vc_col-sm-4 .collection-title {
+  .page-template-default .vc_col-sm-4 .collection-title,
+  .page-template-vc-page-blade .vc_col-sm-4 .collection-title {
     clear: both;
     position: relative; } }
 
@@ -208,10 +218,13 @@ input[type=text]:focus.invalid {
     color: #6e6e6e; }
   .searchNSR .collection-item {
     max-width: 100% !important; }
-  .searchNSR .collection, .searchNSR .collection-item {
+  .searchNSR .collection,
+  .searchNSR .collection-item {
     background-color: #006875 !important;
     border: none; }
-  .searchNSR span, .searchNSR p, .searchNSR a {
+  .searchNSR span,
+  .searchNSR p,
+  .searchNSR a {
     color: #ffffff !important; }
   .searchNSR.fullscreen {
     z-index: 9999;
@@ -236,7 +249,8 @@ input[type=text]:focus.invalid {
     transition: all 500ms ease; }
   .searchNSR table tbody {
     background-color: #016a77; }
-  .searchNSR td, .searchNSR tr {
+  .searchNSR td,
+  .searchNSR tr {
     vertical-align: top !important;
     background: none !important; }
   .searchNSR.position-relative {
@@ -256,15 +270,27 @@ input[type=text]:focus.invalid {
     display: block;
     padding: 7.5px 10px;
     font-style: italic; }
-  .searchNSR .errorPages, .searchNSR .errorSortguide, .searchNSR .search-fetchPlanner > p.noResult {
+  .searchNSR .errorPages,
+  .searchNSR .errorSortguide,
+  .searchNSR .search-fetchPlanner > p.noResult {
     margin-bottom: 20px; }
-  .searchNSR .search-fetchPlanner, .searchNSR .errorSortguide, .searchNSR .errorPages {
+  .searchNSR .search-fetchPlanner,
+  .searchNSR .errorSortguide,
+  .searchNSR .errorPages {
     margin-top: 20px; }
-  .searchNSR .sorteringsguiden h4, .searchNSR .search-autocomplete h4, .searchNSR .search-fetchPlanner h4, .searchNSR .errorSortguide h4, .searchNSR .errorPages h4 {
+  .searchNSR .sorteringsguiden h4,
+  .searchNSR .search-autocomplete h4,
+  .searchNSR .search-fetchPlanner h4,
+  .searchNSR .errorSortguide h4,
+  .searchNSR .errorPages h4 {
     font-size: 1.40rem;
     line-height: 25px !important;
     display: table; }
-  .searchNSR .search-autocomplete, .searchNSR .search-content, .searchNSR .sorterings-guide-table, .searchNSR .fp-table, .searchNSR .fp-table-mobile {
+  .searchNSR .search-autocomplete,
+  .searchNSR .search-content,
+  .searchNSR .sorterings-guide-table,
+  .searchNSR .fp-table,
+  .searchNSR .fp-table-mobile {
     display: none;
     margin-top: 20px;
     z-index: 99;
@@ -274,58 +300,147 @@ input[type=text]:focus.invalid {
     display: table;
     width: 100%;
     transition: 300ms ease; }
-    .searchNSR .search-autocomplete tr, .searchNSR .search-autocomplete td, .searchNSR .search-autocomplete tbody, .searchNSR .search-autocomplete table, .searchNSR .search-content tr, .searchNSR .search-content td, .searchNSR .search-content tbody, .searchNSR .search-content table, .searchNSR .sorterings-guide-table tr, .searchNSR .sorterings-guide-table td, .searchNSR .sorterings-guide-table tbody, .searchNSR .sorterings-guide-table table, .searchNSR .fp-table tr, .searchNSR .fp-table td, .searchNSR .fp-table tbody, .searchNSR .fp-table table, .searchNSR .fp-table-mobile tr, .searchNSR .fp-table-mobile td, .searchNSR .fp-table-mobile tbody, .searchNSR .fp-table-mobile table {
+    .searchNSR .search-autocomplete tr,
+    .searchNSR .search-autocomplete td,
+    .searchNSR .search-autocomplete tbody,
+    .searchNSR .search-autocomplete table,
+    .searchNSR .search-content tr,
+    .searchNSR .search-content td,
+    .searchNSR .search-content tbody,
+    .searchNSR .search-content table,
+    .searchNSR .sorterings-guide-table tr,
+    .searchNSR .sorterings-guide-table td,
+    .searchNSR .sorterings-guide-table tbody,
+    .searchNSR .sorterings-guide-table table,
+    .searchNSR .fp-table tr,
+    .searchNSR .fp-table td,
+    .searchNSR .fp-table tbody,
+    .searchNSR .fp-table table,
+    .searchNSR .fp-table-mobile tr,
+    .searchNSR .fp-table-mobile td,
+    .searchNSR .fp-table-mobile tbody,
+    .searchNSR .fp-table-mobile table {
       border-color: #016a77 !important;
       border-bottom: none; }
-    .searchNSR .search-autocomplete th, .searchNSR .search-content th, .searchNSR .sorterings-guide-table th, .searchNSR .fp-table th, .searchNSR .fp-table-mobile th {
+    .searchNSR .search-autocomplete th,
+    .searchNSR .search-content th,
+    .searchNSR .sorterings-guide-table th,
+    .searchNSR .fp-table th,
+    .searchNSR .fp-table-mobile th {
       font-weight: 600;
       background-color: #016a77 !important; }
-    .searchNSR .search-autocomplete tr:nth-child(even), .searchNSR .search-content tr:nth-child(even), .searchNSR .sorterings-guide-table tr:nth-child(even), .searchNSR .fp-table tr:nth-child(even), .searchNSR .fp-table-mobile tr:nth-child(even) {
+    .searchNSR .search-autocomplete tr:nth-child(even),
+    .searchNSR .search-content tr:nth-child(even),
+    .searchNSR .sorterings-guide-table tr:nth-child(even),
+    .searchNSR .fp-table tr:nth-child(even),
+    .searchNSR .fp-table-mobile tr:nth-child(even) {
       background-color: #018190 !important;
       color: #ffffff !important; }
-    .searchNSR .search-autocomplete tr:nth-child(odd), .searchNSR .search-content tr:nth-child(odd), .searchNSR .sorterings-guide-table tr:nth-child(odd), .searchNSR .fp-table tr:nth-child(odd), .searchNSR .fp-table-mobile tr:nth-child(odd) {
+    .searchNSR .search-autocomplete tr:nth-child(odd),
+    .searchNSR .search-content tr:nth-child(odd),
+    .searchNSR .sorterings-guide-table tr:nth-child(odd),
+    .searchNSR .fp-table tr:nth-child(odd),
+    .searchNSR .fp-table-mobile tr:nth-child(odd) {
       color: #ffffff !important;
       background-color: #017886 !important; }
-    .searchNSR .search-autocomplete li, .searchNSR .search-content li, .searchNSR .sorterings-guide-table li, .searchNSR .fp-table li, .searchNSR .fp-table-mobile li {
+    .searchNSR .search-autocomplete li,
+    .searchNSR .search-content li,
+    .searchNSR .sorterings-guide-table li,
+    .searchNSR .fp-table li,
+    .searchNSR .fp-table-mobile li {
       font-size: .9em;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       display: table-cell; }
-      .searchNSR .search-autocomplete li:hover, .searchNSR .search-content li:hover, .searchNSR .sorterings-guide-table li:hover, .searchNSR .fp-table li:hover, .searchNSR .fp-table-mobile li:hover {
+      .searchNSR .search-autocomplete li:hover,
+      .searchNSR .search-content li:hover,
+      .searchNSR .sorterings-guide-table li:hover,
+      .searchNSR .fp-table li:hover,
+      .searchNSR .fp-table-mobile li:hover {
         background-color: rgba(0, 0, 0, 0.2);
         box-shadow: none;
         text-decoration: none;
         color: #ffffff !important; }
-    .searchNSR .search-autocomplete li a, .searchNSR .search-content li a, .searchNSR .sorterings-guide-table li a, .searchNSR .fp-table li a, .searchNSR .fp-table-mobile li a {
+    .searchNSR .search-autocomplete li a,
+    .searchNSR .search-content li a,
+    .searchNSR .sorterings-guide-table li a,
+    .searchNSR .fp-table li a,
+    .searchNSR .fp-table-mobile li a {
       display: block;
       padding: 0px 0px;
       text-decoration: none !important;
       color: #ffffff !important; }
-      .searchNSR .search-autocomplete li a:hover, .searchNSR .search-content li a:hover, .searchNSR .sorterings-guide-table li a:hover, .searchNSR .fp-table li a:hover, .searchNSR .fp-table-mobile li a:hover {
+      .searchNSR .search-autocomplete li a:hover,
+      .searchNSR .search-content li a:hover,
+      .searchNSR .sorterings-guide-table li a:hover,
+      .searchNSR .fp-table li a:hover,
+      .searchNSR .fp-table-mobile li a:hover {
         color: #90f3ff !important; }
-    .searchNSR .search-autocomplete .meta-fraktion li a, .searchNSR .search-content .meta-fraktion li a, .searchNSR .sorterings-guide-table .meta-fraktion li a, .searchNSR .fp-table .meta-fraktion li a, .searchNSR .fp-table-mobile .meta-fraktion li a {
+    .searchNSR .search-autocomplete .meta-fraktion li a,
+    .searchNSR .search-content .meta-fraktion li a,
+    .searchNSR .sorterings-guide-table .meta-fraktion li a,
+    .searchNSR .fp-table .meta-fraktion li a,
+    .searchNSR .fp-table-mobile .meta-fraktion li a {
       padding: 0px 15px; }
-    .searchNSR .search-autocomplete .meta-fraktion i, .searchNSR .search-content .meta-fraktion i, .searchNSR .sorterings-guide-table .meta-fraktion i, .searchNSR .fp-table .meta-fraktion i, .searchNSR .fp-table-mobile .meta-fraktion i {
+    .searchNSR .search-autocomplete .meta-fraktion i,
+    .searchNSR .search-content .meta-fraktion i,
+    .searchNSR .sorterings-guide-table .meta-fraktion i,
+    .searchNSR .fp-table .meta-fraktion i,
+    .searchNSR .fp-table-mobile .meta-fraktion i {
       font-size: 1.0rem !important;
       margin-top: 2px; }
-    .searchNSR .search-autocomplete .meta-fraktion a, .searchNSR .search-content .meta-fraktion a, .searchNSR .sorterings-guide-table .meta-fraktion a, .searchNSR .fp-table .meta-fraktion a, .searchNSR .fp-table-mobile .meta-fraktion a {
+    .searchNSR .search-autocomplete .meta-fraktion a,
+    .searchNSR .search-content .meta-fraktion a,
+    .searchNSR .sorterings-guide-table .meta-fraktion a,
+    .searchNSR .fp-table .meta-fraktion a,
+    .searchNSR .fp-table-mobile .meta-fraktion a {
       color: white !important; }
-    .searchNSR .search-autocomplete td li b, .searchNSR .search-autocomplete td b, .searchNSR .search-content td li b, .searchNSR .search-content td b, .searchNSR .sorterings-guide-table td li b, .searchNSR .sorterings-guide-table td b, .searchNSR .fp-table td li b, .searchNSR .fp-table td b, .searchNSR .fp-table-mobile td li b, .searchNSR .fp-table-mobile td b {
+    .searchNSR .search-autocomplete td li b,
+    .searchNSR .search-autocomplete td b,
+    .searchNSR .search-content td li b,
+    .searchNSR .search-content td b,
+    .searchNSR .sorterings-guide-table td li b,
+    .searchNSR .sorterings-guide-table td b,
+    .searchNSR .fp-table td li b,
+    .searchNSR .fp-table td b,
+    .searchNSR .fp-table-mobile td li b,
+    .searchNSR .fp-table-mobile td b {
       color: #8ef3ff !important; }
-    .searchNSR .search-autocomplete li.selected a, .searchNSR .search-content li.selected a, .searchNSR .sorterings-guide-table li.selected a, .searchNSR .fp-table li.selected a, .searchNSR .fp-table-mobile li.selected a {
+    .searchNSR .search-autocomplete li.selected a,
+    .searchNSR .search-content li.selected a,
+    .searchNSR .sorterings-guide-table li.selected a,
+    .searchNSR .fp-table li.selected a,
+    .searchNSR .fp-table-mobile li.selected a {
       background-color: rgba(0, 0, 0, 0.1); }
-    .searchNSR .search-autocomplete i, .searchNSR .search-content i, .searchNSR .sorterings-guide-table i, .searchNSR .fp-table i, .searchNSR .fp-table-mobile i {
+    .searchNSR .search-autocomplete i,
+    .searchNSR .search-content i,
+    .searchNSR .sorterings-guide-table i,
+    .searchNSR .fp-table i,
+    .searchNSR .fp-table-mobile i {
       float: left;
       color: #039db0; }
-    .searchNSR .search-autocomplete .isize, .searchNSR .search-content .isize, .searchNSR .sorterings-guide-table .isize, .searchNSR .fp-table .isize, .searchNSR .fp-table-mobile .isize {
+    .searchNSR .search-autocomplete .isize,
+    .searchNSR .search-content .isize,
+    .searchNSR .sorterings-guide-table .isize,
+    .searchNSR .fp-table .isize,
+    .searchNSR .fp-table-mobile .isize {
       font-size: 1.2rem;
       margin-top: 1px; }
-    .searchNSR .search-autocomplete .locationmap, .searchNSR .search-content .locationmap, .searchNSR .sorterings-guide-table .locationmap, .searchNSR .fp-table .locationmap, .searchNSR .fp-table-mobile .locationmap {
+    .searchNSR .search-autocomplete .locationmap,
+    .searchNSR .search-content .locationmap,
+    .searchNSR .sorterings-guide-table .locationmap,
+    .searchNSR .fp-table .locationmap,
+    .searchNSR .fp-table-mobile .locationmap {
       cursor: pointer; }
-      .searchNSR .search-autocomplete .locationmap:hover, .searchNSR .search-content .locationmap:hover, .searchNSR .sorterings-guide-table .locationmap:hover, .searchNSR .fp-table .locationmap:hover, .searchNSR .fp-table-mobile .locationmap:hover {
+      .searchNSR .search-autocomplete .locationmap:hover,
+      .searchNSR .search-content .locationmap:hover,
+      .searchNSR .sorterings-guide-table .locationmap:hover,
+      .searchNSR .fp-table .locationmap:hover,
+      .searchNSR .fp-table-mobile .locationmap:hover {
         color: #90f3ff !important; }
   .searchNSR .streetCiy div {
     margin-top: -6px; }
-  .searchNSR .geoLink, .searchNSR .inlstallen a {
+  .searchNSR .geoLink,
+  .searchNSR .inlstallen a {
     color: #ffffff;
     font-weight: normal !important; }
   .searchNSR .viewAllInlamning a {
@@ -356,13 +471,17 @@ input[type=text]:focus.invalid {
     position: relative; }
   .searchNSR .preSortCell {
     min-width: 200px; }
-  .searchNSR .sorterings-guide-table .badge, .searchNSR .sorteringsguiden .badge, .searchNSR .fp-table .badge, .searchNSR .fp-table-mobile .badge {
+  .searchNSR .sorterings-guide-table .badge,
+  .searchNSR .sorteringsguiden .badge,
+  .searchNSR .fp-table .badge,
+  .searchNSR .fp-table-mobile .badge {
     border-radius: 16px !important;
     font-size: 0.7rem;
     background: #013d44 !important;
     min-width: 0.9rem !important;
     margin-left: 5px; }
-  .searchNSR .fp-table .badge, .searchNSR .fp-table-mobile .badge {
+  .searchNSR .fp-table .badge,
+  .searchNSR .fp-table-mobile .badge {
     margin-top: 5px; }
   .searchNSR .badgeInfo .badge {
     float: none;
@@ -378,7 +497,8 @@ input[type=text]:focus.invalid {
     padding-top: 25px; }
   .searchNSR .fpthmob:first-child th {
     padding-top: 0px; }
-  .searchNSR .fpthmob span, .searchNSR .streetCiy {
+  .searchNSR .fpthmob span,
+  .searchNSR .streetCiy {
     text-transform: capitalize !important; }
   .searchNSR .fpthmob th i {
     margin-right: 5px; }
@@ -389,7 +509,8 @@ input[type=text]:focus.invalid {
     position: absolute;
     top: 5px;
     right: 5px; }
-  .searchNSR .preSortCellMobile, .searchNSR .tabMobile {
+  .searchNSR .preSortCellMobile,
+  .searchNSR .tabMobile {
     display: none; }
   @media (min-width: 541px) {
     .searchNSR .fp-table-mobile {
@@ -424,18 +545,24 @@ input[type=text]:focus.invalid {
         margin-bottom: 10px; }
       .searchNSR .tabMobile tr:last-child {
         display: none; } }
-  .searchNSR .sorterings-guide-table, .searchNSR td, .searchNSR tbody,
-  .searchNSR .table-bordered tbody tr + tr, .searchNSR article table tbody tr + tr {
+  .searchNSR .sorterings-guide-table,
+  .searchNSR td,
+  .searchNSR tbody,
+  .searchNSR .table-bordered tbody tr + tr,
+  .searchNSR article table tbody tr + tr {
     box-shadow: none !important;
     border: none !important; }
-  .searchNSR .sorterings-guide-table ul, .searchNSR .sorterings-guide-table li, .searchNSR .sorterings-guide-table li a {
+  .searchNSR .sorterings-guide-table ul,
+  .searchNSR .sorterings-guide-table li,
+  .searchNSR .sorterings-guide-table li a {
     border: none;
     list-style: disc;
     box-shadow: none;
     float: none;
     display: block; }
   @media (max-width: 450px) {
-    .searchNSR .sorterings-guide-table ul, .searchNSR .sorterings-guide-table li {
+    .searchNSR .sorterings-guide-table ul,
+    .searchNSR .sorterings-guide-table li {
       display: inline-block; }
     .searchNSR .tabMobile {
       display: -ms-grid !important;
@@ -446,7 +573,10 @@ input[type=text]:focus.invalid {
     background: none !important; }
   .searchNSR .exnfodispl {
     max-width: 300px; }
-  .searchNSR .preSortCell, .searchNSR .exnfodispl, .searchNSR .fp-table td, .searchNSR .fp-table-mobile td {
+  .searchNSR .preSortCell,
+  .searchNSR .exnfodispl,
+  .searchNSR .fp-table td,
+  .searchNSR .fp-table-mobile td {
     font-size: 1.0rem; }
   @media (max-width: 700px) {
     .searchNSR .exnfodispl {
@@ -455,7 +585,10 @@ input[type=text]:focus.invalid {
     margin-bottom: 20px; }
   .searchNSR .fp-table i {
     padding-right: 10px; }
-  .searchNSR .search-autocomplete-content li, .searchNSR .sorterings-guide-table, .searchNSR .fp-table, .searchNSR .fp-table-mobile {
+  .searchNSR .search-autocomplete-content li,
+  .searchNSR .sorterings-guide-table,
+  .searchNSR .fp-table,
+  .searchNSR .fp-table-mobile {
     background-color: #016a77;
     font-size: 1.1rem; }
   .searchNSR .search-autocomplete-image {
@@ -465,7 +598,8 @@ input[type=text]:focus.invalid {
     height: 30px;
     margin-right: 5px;
     border-radius: 2px; }
-  .searchNSR .search-autocomplete-content li, .searchNSR .search-content li {
+  .searchNSR .search-autocomplete-content li,
+  .searchNSR .search-content li {
     max-width: 100% !important; }
   .searchNSR .search-autocomplete-content li a {
     padding-left: 30px; }
@@ -490,7 +624,8 @@ input[type=text]:focus.invalid {
     margin-bottom: 10px; }
   .searchNSR .extNfo {
     margin-top: 20px; }
-  .searchNSR .locationmap:before, .searchNSR .fraktion-icon:before {
+  .searchNSR .locationmap:before,
+  .searchNSR .fraktion-icon:before {
     font-family: 'Material Icons';
     color: #2dbccd;
     top: 0px !important;
@@ -507,7 +642,8 @@ input[type=text]:focus.invalid {
     padding-left: 15px;
     padding-bottom: 5px; }
   @media (max-width: 1000px) {
-    .searchNSR .search-autocomplete, .searchNSR .search-content {
+    .searchNSR .search-autocomplete,
+    .searchNSR .search-content {
       top: 210px; } }
   .searchNSR ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
@@ -526,10 +662,17 @@ input[type=text]:focus.invalid {
   .searchNSR .preloader-wrapper {
     width: 18px !important;
     height: 18px !important;
-    margin-right: 8px;
+    margin-right: 7rem;
     float: right; }
+  .searchNSR .search-button {
+    position: absolute;
+    top: 0.6rem;
+    right: 5.5rem;
+    padding: 0 1rem;
+    max-width: 5rem; }
 
-td, tr {
+td,
+tr {
   vertical-align: top !important; }
 
 .waitingForConnection {
@@ -570,7 +713,8 @@ td, tr {
     float: none !important;
     clear: both !important;
     width: 100% !important; }
-  .searchNSR .sorterings-guide-table li, .searchNSR .sorterings-guide-table ul {
+  .searchNSR .sorterings-guide-table li,
+  .searchNSR .sorterings-guide-table ul {
     display: block !important; } }
 
 .viewAllInlamning {

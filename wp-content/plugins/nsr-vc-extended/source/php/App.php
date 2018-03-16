@@ -99,6 +99,8 @@ class App
         add_action('wp_ajax_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
         add_action('wp_ajax_nopriv_fetchDataFromFetchPlanner', array($this, 'fetchDataFromFetchPlanner'));
         add_action('wp_ajax_fetchDataFromFetchPlanner', array($this, 'fetchDataFromFetchPlanner'));
+        add_action('wp_ajax_nopriv_fetchDataFromFetchPlannerCombined', array($this, 'fetchDataFromFetchPlannerCombined'));
+        add_action('wp_ajax_fetchDataFromFetchPlannerCombined', array($this, 'fetchDataFromFetchPlannerCombined'));
     }
 
     /**
@@ -222,6 +224,88 @@ class App
     }
 
     /**
+     *  fetchDataFromFetchPlannerCombined
+     *  Get data from Fetchplanners API
+     */
+     public function fetchDataFromFetchPlannerCombined()
+     {
+        $todaysDate = date('Y-m-d');
+        $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
+        $q = $_GET['query'];
+
+        $data = self::fetchPlansByCurl('/GetContainerCalendarDataByPickupName?pickupName=' .
+            trim(urlencode($q)) . '&dateStart=' . $todaysDate . '&dateEnd=' . $stopDate . '&maxCountCalendarPerContainer=10');
+
+        $int = 0;
+        $colData['fp'] = array();
+        $idToIndex = array();
+        $dupIdTypDate = array();
+
+        foreach ($data->d as $item) {
+            $fpId = md5('PICKUPID' . $item->PickupId);
+            //$fpId = $item->PickupId;
+
+            if (isset($idToIndex[$fpId]))
+                $i = $idToIndex[$fpId];
+            else {
+                $i = $idToIndex[$fpId] = $int++;           
+                $colData['fp'][$i]['id'] = $fpId;
+                $colData['fp'][$i]['Adress'] = $item->PickupName;
+                $colData['fp'][$i]['Ort'] = ucfirst(mb_strtolower($item->PickupCity));
+                $colData['fp'][$i]['Exec'] = array(
+                    'Datum'=>array(),
+                    'DatumFormaterat'=>array(),
+                    'DatumKontroll'=>array(),
+                    'DatumWeek'=>array(),
+                    'AvfallsTyp'=>array(),
+                    'AvfallsTypFormaterat'=>array()
+                );
+            }    
+
+            foreach ($item->Calendars as $cal) {
+                $date = self::setDateFormat($cal->ExecutionDate);
+                $datetime = new \DateTime($date);
+                $typ = self::getFpDefenitions($item->ContentTypeCode);
+
+                if (isset($dupIdTypDate[$fpId . $typ . $date]))
+                    continue;
+                $dupIdTypDate[$fpId . $typ . $date] = 1;
+
+                for ($j=0 ; $j<count($colData['fp'][$i]['Exec']['Datum']) ; $j++) {
+                    if ($colData['fp'][$i]['Exec']['Datum'][$j] > $date)
+                        break;
+                }
+
+                array_splice($colData['fp'][$i]['Exec']['Datum'], $j, 0, $date);
+                array_splice($colData['fp'][$i]['Exec']['DatumFormaterat'], $j, 0, ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y')))));
+                array_splice($colData['fp'][$i]['Exec']['DatumKontroll'], $j, 0, $cal->ExecutionDate);
+                array_splice($colData['fp'][$i]['Exec']['DatumWeek'], $j, 0, ($datetime->format("W") % 2 == 1) ? 'Udda veckor' : 'Jämna veckor');
+                array_splice($colData['fp'][$i]['Exec']['AvfallsTyp'], $j, 0, $typ);
+                array_splice($colData['fp'][$i]['Exec']['AvfallsTypFormaterat'], $j, 0, $item->ContentTypeCode);
+            }
+        }
+
+        usort($colData['fp'], function($v, $w) use ($q) {
+            $len = strlen($q);
+            $a = $v['Adress'];
+            $b = $w['Adress'];
+            if (!strcasecmp($a, $q))
+                return -1;
+            if (!strcasecmp($b, $q))
+                return 1;
+            if (!strncasecmp($a, $q, $len) && strncasecmp($b, $q, $len))
+                return -1;
+            if (strncasecmp($a, $q, $len) && !strncasecmp($b, $q, $len))
+                return 1;
+            return strcasecmp($a, $b);                
+        });
+
+        wp_send_json($colData);
+        exit;
+     }
+
+     
+    /**
      *  fetchDataFromFetchPlanner
      *  Get data from Fetchplanners API
      */
@@ -245,8 +329,6 @@ class App
             $countCities++;
         }
 
-        //var_dump($data->d);
-
         foreach ($data->d as $item) {
             if (in_array($item->PickupCity, $checkCityDupes)) {
                 $fpId = self::gen_uid($item->PickupId);
@@ -257,6 +339,8 @@ class App
 
                     
                     $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=40&DateEnd=' . $stopDate);
+
+
                     //$fpData = self::fetchPlansByCurl('/GetCalendarData?customerId=' . $item->CustomerId . '&maxCount=40&DateEnd=' . $stopDate);
                     //$fpData = self::fetchPlansByCurl('/GetCalendarData?customerId=1025636&maxCount=40&DateEnd=' . $stopDate);
                     $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);

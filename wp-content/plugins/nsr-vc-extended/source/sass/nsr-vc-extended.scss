@@ -13,7 +13,6 @@ $mossGreen: #039db0;
 $darkGreen: #007684;
 $darkerGreen: #016a77;
 $lightCyan: #90f3ff;
-
 .main-content * {
     overflow-wrap: break-word;
     transition: all 500ms ease;
@@ -41,12 +40,16 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers) li:before {
     background-color: $lighGrey;
 }
 
-.collapsible-body p, .mce-content-body p:first-of-type, article p:first-of-type {
+.collapsible-body p,
+.mce-content-body p:first-of-type,
+article p:first-of-type {
     margin-top: 0px;
 }
 
-.mce-content-body ul li + li, .modularity-mod-text .box-content ul li + li,
-.unordered-list li + li, article ul:not(.nav):not(.slider-items):not(.line-numbers) li + li {
+.mce-content-body ul li+li,
+.modularity-mod-text .box-content ul li+li,
+.unordered-list li+li,
+article ul:not(.nav):not(.slider-items):not(.line-numbers) li+li {
     margin-top: 0px;
 }
 
@@ -129,15 +132,14 @@ a.collection-item {
 
 .card-content h4 a {
     text-decoration: none !important;
-
 }
 
 .card-content h4 a:hover {
     text-decoration: underline;
 }
 
-.page-template-default, .page-template-vc-page-blade {
-
+.page-template-default,
+.page-template-vc-page-blade {
     .vc_col-sm-6 .collection-title {
         max-width: 80%;
         display: inline-block;
@@ -151,7 +153,6 @@ a.collection-item {
             max-width: 65%;
         }
     }
-
     @media only screen and (max-width: 991px) {
         .vc_col-sm-6 .collection-title {
             max-width: 65%;
@@ -164,17 +165,12 @@ a.collection-item {
         .vc_col-sm-4 .collection-title {
             clear: both;
             position: relative;
-
         }
-        .vc_col-sm-4 .date {
-
-        }
+        .vc_col-sm-4 .date {}
     }
-
 }
 
 .home {
-
     .vc_col-sm-6 .collection-title,
     .vc_col-sm-4 .collection-title {
         display: inline-block;
@@ -190,7 +186,6 @@ a.collection-item {
             max-width: 67%;
         }
     }
-
 }
 
 .collapsible-body p,
@@ -206,6 +201,7 @@ a.collection-item {
     margin: 0px;
 }
 
+
 /* POWER SEARCH  :-D */
 
 input[type=search].invalid,
@@ -216,7 +212,6 @@ input[type=text]:focus.invalid {
 }
 
 .searchNSR {
-
     padding: 20px;
     background-color: $defaultDarkGreen !important;
     transition: 300ms ease;
@@ -229,14 +224,12 @@ input[type=text]:focus.invalid {
     }
     h4 {
         line-height: 14px !important;
-
     }
     @media (max-width: 540px) {
         .badgeInfo {
             float: right !important;
             margin-bottom: 0px !important;
         }
-
         h4 {
             line-height: 25px !important;
             display: table;
@@ -248,13 +241,10 @@ input[type=text]:focus.invalid {
         margin-top: 10px;
         padding-left: 4.5rem;
     }
-
     .input-field input[type=search]:focus {
         background-color: rgba(0, 0, 0, 0.2);
         color: $white;
-
     }
-
     .prefix {
         color: $signalGreen;
         left: 4.6rem;
@@ -262,74 +252,61 @@ input[type=text]:focus.invalid {
         font-size: 2.7em !important;
     }
     @media (max-width: 500px) {
-
         .input-field input[type=search] {
             margin-left: 1.7rem;
         }
-
         .prefix {
             left: 3rem;
         }
-
         h4 {
             width: 80%;
         }
-
     }
-
-    .input-field input[type=search] + label {
+    .input-field input[type=search]+label {
         left: 5.2rem !important;
         top: 2.1rem;
         font-size: 1.2em;
         color: $lightCyan !important;
     }
-
-    .input-field input[type=search] + label.active {
+    .input-field input[type=search]+label.active {
         font-size: 0.9em;
         margin-top: 12px;
     }
-
     @media (max-width: 885px) {
-        .input-field input[type=search] + label {
+        .input-field input[type=search]+label {
             font-size: 0.9em !important;
-
         }
     }
     @media (max-width: 720px) {
-        .input-field input[type=search] + label {
+        .input-field input[type=search]+label {
             display: none;
         }
     }
-
     input[type=search].form-control-lg {
         font-size: 2.0em;
         padding-top: 1.2rem;
         width: calc(93% - 7rem) !important;
     }
-
     #searchResult .small {
         color: $darkGrey;
-
     }
-
     .collection-item {
         max-width: 100% !important;
     }
-
-    .collection, .collection-item {
+    .collection,
+    .collection-item {
         background-color: darken($darkGreen, 3%) !important;
         border: none;
     }
-
-    span, p, a {
+    span,
+    p,
+    a {
         color: $white !important;
     }
-
     &.fullscreen {
         z-index: 9999;
         background-color: rgba(0, 0, 0, 0.5);
         position: absolute;
-
         width: 100%;
         margin: 0;
         padding: 15px;
@@ -349,32 +326,25 @@ input[type=text]:focus.invalid {
         box-sizing: border-box;
         display: table;
         transition: all 500ms ease;
-
         @media (max-width: 450px) {
             //top: 101px;
         }
-
     }
-
     table tbody {
         background-color: $darkerGreen;
-
     }
-
-    td, tr {
+    td,
+    tr {
         vertical-align: top !important;
         background: none !important;
     }
-
     &.position-relative {
         position: relative !important;
     }
-
     &.position-relative.fullscreen {
         top: 20px;
         margin-bottom: 40px;
     }
-
     .section {
         position: absolute;
         top: -10px;
@@ -382,29 +352,38 @@ input[type=text]:focus.invalid {
         font-weight: 600;
         color: $signalGreen !important;
     }
-
     ul {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
     }
-
     .search-autocomplete-nothing-found {
         display: block;
         padding: 7.5px 10px;
         font-style: italic;
     }
-
-    .errorPages, .errorSortguide, .search-fetchPlanner > p.noResult {
-      margin-bottom: 20px;
+    .errorPages,
+    .errorSortguide,
+    .search-fetchPlanner>p.noResult {
+        margin-bottom: 20px;
     }
-    .search-fetchPlanner, .errorSortguide, .errorPages {
+    .search-fetchPlanner,
+    .errorSortguide,
+    .errorPages {
         margin-top: 20px;
     }
-    .sorteringsguiden h4, .search-autocomplete h4, .search-fetchPlanner h4, .errorSortguide h4, .errorPages h4 {
+    .sorteringsguiden h4,
+    .search-autocomplete h4,
+    .search-fetchPlanner h4,
+    .errorSortguide h4,
+    .errorPages h4 {
         font-size: 1.40rem;
         line-height: 25px !important;
         display: table;
     }
-    .search-autocomplete, .search-content, .sorterings-guide-table, .fp-table, .fp-table-mobile {
+    .search-autocomplete,
+    .search-content,
+    .sorterings-guide-table,
+    .fp-table,
+    .fp-table-mobile {
         display: none;
         margin-top: 20px;
         z-index: 99;
@@ -414,8 +393,10 @@ input[type=text]:focus.invalid {
         display: table;
         width: 100%;
         transition: 300ms ease;
-
-        tr, td, tbody, table {
+        tr,
+        td,
+        tbody,
+        table {
             border-color: $darkerGreen !important;
             border-bottom: none;
         }
@@ -432,21 +413,17 @@ input[type=text]:focus.invalid {
             //background-color:$darkerGreen;
             background-color: lighten($darkerGreen, 3%) !important;
         }
-
         li {
             font-size: .9em;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             display: table-cell;
-
             &:hover {
                 background-color: rgba(0, 0, 0, .2);
                 box-shadow: none;
                 text-decoration: none;
                 color: $white !important;
             }
-
         }
-
         li a {
             display: block;
             padding: 0px 0px; //Removed 0px 20px
@@ -455,7 +432,6 @@ input[type=text]:focus.invalid {
             &:hover {
                 color: $lightCyan !important;
             }
-
         }
         .meta-fraktion li a {
             padding: 0px 15px;
@@ -464,22 +440,18 @@ input[type=text]:focus.invalid {
             font-size: 1.0rem !important;
             margin-top: 2px;
         }
-
         .meta-fraktion a {
             color: lighten($lightGreen, 10%) !important;
         }
-        td li b, td b {
+        td li b,
+        td b {
             color: $signalGreenNeo !important;
         }
-
         li.selected a {
             background-color: rgba(0, 0, 0, .1);
-
         }
-
         i {
             float: left;
-
             color: $mossGreen;
         }
         .isize {
@@ -492,23 +464,19 @@ input[type=text]:focus.invalid {
                 color: $lightCyan !important;
             }
         }
-
     }
     .streetCiy div {
         margin-top: -6px;
     }
-
-    .geoLink, .inlstallen a {
+    .geoLink,
+    .inlstallen a {
         color: #ffffff;
         font-weight: normal !important;
-
     }
-
     .viewAllInlamning a {
         font-weight: 600;
         margin-top: 10px;
     }
-
     .geoLink:before {
         color: #ffffff !important;
     }
@@ -522,11 +490,7 @@ input[type=text]:focus.invalid {
         top: 0 !important;
         left: 0 !important;
     }
-
-    .nofraktionlink.span > li {
-
-    }
-
+    .nofraktionlink.span>li {}
     .search-autocomplete-content {
         h5 {
             font-size: 1.64rem;
@@ -541,26 +505,27 @@ input[type=text]:focus.invalid {
             margin-top: -5px;
             margin-left: 13px;
         }
-
     }
     .sorterings-guide-table td {
         position: relative;
-
     }
     .preSortCell {
         min-width: 200px;
     }
-    .sorterings-guide-table .badge, .sorteringsguiden .badge, .fp-table .badge, .fp-table-mobile .badge {
+    .sorterings-guide-table .badge,
+    .sorteringsguiden .badge,
+    .fp-table .badge,
+    .fp-table-mobile .badge {
         border-radius: 16px !important;
         font-size: 0.7rem;
         background: darken($darkerGreen, 10%) !important;
         min-width: 0.9rem !important;
         margin-left: 5px;
     }
-    .fp-table .badge, .fp-table-mobile .badge {
+    .fp-table .badge,
+    .fp-table-mobile .badge {
         margin-top: 5px;
     }
-
     .badgeInfo .badge {
         float: none;
         padding: 3px 6px;
@@ -579,14 +544,12 @@ input[type=text]:focus.invalid {
     .fpthmob th {
         background-color: $defaultDarkGreen;
         padding-top: 25px;
-
     }
-
     .fpthmob:first-child th {
         padding-top: 0px;
     }
-
-    .fpthmob span, .streetCiy {
+    .fpthmob span,
+    .streetCiy {
         text-transform: capitalize !important;
     }
     .fpthmob th i {
@@ -597,14 +560,13 @@ input[type=text]:focus.invalid {
             margin-top: 10px;
         }
     }
-
     .badgecontainer {
         position: absolute;
         top: 5px;
         right: 5px;
     }
-
-    .preSortCellMobile, .tabMobile {
+    .preSortCellMobile,
+    .tabMobile {
         display: none;
     }
     @media (min-width: 541px) {
@@ -633,40 +595,38 @@ input[type=text]:focus.invalid {
         }
         .tabMobile {
             display: grid;
-
             th {
-
                 background-color: $darkerGreen;
             }
-
             td {
                 width: 100%;
                 background-color: lighten($darkerGreen, 3%) !important;
             }
-
-            &tr:nth-child(even), &tr:nth-child(odd) {
+            &tr:nth-child(even),
+            &tr:nth-child(odd) {
                 background-color: lighten($darkerGreen, 3%) !important;
                 color: $lightGreen !important;
             }
-
             &.lastchild {
                 border-bottom: 1px solid darken($darkerGreen, 60%);
                 margin-bottom: 10px;
             }
-
             tr:last-child {
                 display: none;
             }
-
         }
-
     }
-    .sorterings-guide-table, td, tbody,
-    .table-bordered tbody tr + tr, article table tbody tr + tr {
+    .sorterings-guide-table,
+    td,
+    tbody,
+    .table-bordered tbody tr+tr,
+    article table tbody tr+tr {
         box-shadow: none !important;
         border: none !important;
     }
-    .sorterings-guide-table ul, .sorterings-guide-table li, .sorterings-guide-table li a {
+    .sorterings-guide-table ul,
+    .sorterings-guide-table li,
+    .sorterings-guide-table li a {
         border: none;
         list-style: disc;
         box-shadow: none;
@@ -675,52 +635,48 @@ input[type=text]:focus.invalid {
     }
     @media (max-width: 450px) {
         .sorterings-guide-table {
-            ul, li {
+            ul,
+            li {
                 display: inline-block;
             }
-
         }
         .tabMobile {
             display: grid !important;
-
             ul {
                 margin-top: 0rem !important;
             }
         }
     }
-
     .sorterings-guide-table li:hover {
         background: none !important;
     }
-
     .exnfodispl {
         max-width: 300px;
-
     }
-
-    .preSortCell, .exnfodispl, .fp-table td, .fp-table-mobile td {
+    .preSortCell,
+    .exnfodispl,
+    .fp-table td,
+    .fp-table-mobile td {
         font-size: 1.0rem;
     }
-
     @media (max-width: 700px) {
         .exnfodispl {
             display: none;
         }
     }
-
     .fp-table {
         margin-bottom: 20px;
     }
-
     .fp-table i {
         padding-right: 10px;
     }
-
-    .search-autocomplete-content li, .sorterings-guide-table, .fp-table, .fp-table-mobile {
+    .search-autocomplete-content li,
+    .sorterings-guide-table,
+    .fp-table,
+    .fp-table-mobile {
         background-color: $darkerGreen;
         font-size: 1.1rem;
     }
-
     .search-autocomplete-image {
         display: inline-block;
         vertical-align: middle;
@@ -729,21 +685,17 @@ input[type=text]:focus.invalid {
         margin-right: 5px;
         border-radius: 2px;
     }
-
-    .search-autocomplete-content li, .search-content li {
+    .search-autocomplete-content li,
+    .search-content li {
         max-width: 100% !important;
     }
-
     .search-autocomplete-content li a {
         padding-left: 30px;
     }
-
     @media (max-width: 500px) {
         .search-autocomplete-content li a {
-
             line-height: 1.4rem;
             padding: 10px 0;
-
         }
         .search-autocomplete-content .moreinfo {
             padding-top: 10px;
@@ -753,97 +705,90 @@ input[type=text]:focus.invalid {
             display: none;
         }
     }
-
     .closeSearch {
-
         color: $signalGreen;
         cursor: pointer;
         font-size: 2.4rem !important;
-
         &:hover {
             color: lighten(#2dbccd, 10%);
         }
     }
-
     .position-relative .closeSearch {
         display: none !important;
     }
-
     .sortAs {
         margin-bottom: 10px;
     }
-
     .extNfo {
         margin-top: 20px;
     }
-
-    .locationmap:before, .fraktion-icon:before {
+    .locationmap:before,
+    .fraktion-icon:before {
         font-family: 'Material Icons';
         color: $signalGreen;
         top: 0px !important;
         left: 0px !important;
     }
-
     .locationmap:before {
         content: 'location_on' !important;
     }
-
     .fraktion-icon:before {
         content: 'description' !important;
     }
-
     .fraktion-icon {
         padding-left: 15px;
     }
-
     .fraktion-icon a {
         margin-left: -15px;
     }
-
     .locationmap {
         padding-left: 15px;
         padding-bottom: 5px;
     }
-
     @media (max-width: 1000px) {
-        .search-autocomplete, .search-content {
+        .search-autocomplete,
+        .search-content {
             top: 210px;
         }
-
     }
-
-    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+     ::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
         color: $white !important;
     }
-
-    ::-moz-placeholder { /* Firefox 19+ */
+     ::-moz-placeholder {
+        /* Firefox 19+ */
         color: $white !important;
     }
-
-    :-ms-input-placeholder { /* IE 10+ */
+     :-ms-input-placeholder {
+        /* IE 10+ */
         color: $white !important;
     }
-
-    :-moz-placeholder { /* Firefox 18- */
+     :-moz-placeholder {
+        /* Firefox 18- */
         color: $white !important;
     }
-
     .relative {
         position: relative;
     }
-
     .preloader-wrapper {
         width: 18px !important;
         height: 18px !important;
-        margin-right: 8px;
+        //margin-right: 8px;
+        margin-right: 7rem;
         float: right;
     }
-
+    .search-button {
+        position: absolute;
+        top: 0.6rem;
+        right: 5.5rem;
+        padding: 0 1rem;
+        max-width: 5rem;
+    }
 }
 
-td, tr {
+td,
+tr {
     vertical-align: top !important;
-
 }
 
 .waitingForConnection {
@@ -858,7 +803,6 @@ td, tr {
         background-color: $signalGreen !important;
         border-bottom: $signalGreen !important;
         box-shadow: 0 1px 0 0 $signalGreen !important;
-
     }
     100% {
         background-color: black !important;
@@ -872,7 +816,6 @@ td, tr {
     width: calc(50% - 3rem) !important;
     margin: -20px auto !important;
     margin-bottom: 10px !important;
-
 }
 
 .searchArea .preloader-wrapper {
@@ -908,7 +851,8 @@ td, tr {
         clear: both !important;
         width: 100% !important;
     }
-    .searchNSR .sorterings-guide-table li, .searchNSR .sorterings-guide-table ul {
+    .searchNSR .sorterings-guide-table li,
+    .searchNSR .sorterings-guide-table ul {
         display: block !important;
     }
 }
@@ -927,7 +871,6 @@ td, tr {
     left: 0px !important;
     content: 'apps' !important;
     padding-right: 20px;
-
 }
 
 .viewAllInlamning a {
