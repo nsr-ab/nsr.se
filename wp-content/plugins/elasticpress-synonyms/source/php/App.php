@@ -24,7 +24,6 @@ class App
      */
     public function init()
     {
-        echo "hej";exit;
         if (!$this->isElasticPress()) {
             return;
         }
