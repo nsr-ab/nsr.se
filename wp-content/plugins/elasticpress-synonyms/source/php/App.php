@@ -24,6 +24,7 @@ class App
      */
     public function init()
     {
+        echo "hej";exit;
         if (!$this->isElasticPress()) {
             return;
         }
@@ -79,6 +80,12 @@ class App
             'synonyms' => $synonymData
         );
 
+        // FREDRIK: Must add synonym as an analyzer filter too
+        $mapping['settings']['analysis']['analyzer']['elasticpress_synonyms'] = array(
+            'tokenizer'=>'standard',
+            'filter'=>array('elasticpress_synonyms')
+        );
+    
         // Tell ES to use filter above by default
         array_unshift($mapping['settings']['analysis']['analyzer']['default']['filter'], 'elasticpress_synonyms');
 

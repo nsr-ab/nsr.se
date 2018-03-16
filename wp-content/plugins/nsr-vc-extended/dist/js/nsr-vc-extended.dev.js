@@ -509,7 +509,6 @@ VcExtended.NSRExtend.Extended = (function($) {
 
                 this.outputAutocomplete($element, result, $post_type);
             } else {
-
                 $('.search-fetchPlanner').html('');
 
                 if (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') {

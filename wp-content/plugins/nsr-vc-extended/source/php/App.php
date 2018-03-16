@@ -241,9 +241,12 @@ class App
         $idToIndex = array();
         $dupIdTypDate = array();
 
+        //print_r($data->d);exit;
+
         foreach ($data->d as $item) {
-            $fpId = md5('PICKUPID' . $item->PickupId);
+            //$fpId = md5('PICKUPID' . $item->PickupId);
             //$fpId = $item->PickupId;
+            $fpId = md5('CUSTOMERID' . $item->CustomerId);
 
             if (isset($idToIndex[$fpId]))
                 $i = $idToIndex[$fpId];
