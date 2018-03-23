@@ -727,7 +727,7 @@ VcExtended.NSRExtend.Extended = (function($) {
             $.each(res.sortguide, function(index, spost) {
 
                 var customerCatIcons = '';
-                if (spost.post_meta) {
+                if (spost.post_meta && spost.post_meta.avfall_kundkategori && spost.post_meta.avfall_kundkategori.length >= 1) {
 
                     if (spost.post_meta.avfall_kundkategori[0].indexOf('foretag') >= 0) {
                         customerCatIcons += '<span class="badge sortSectionIcon company">F</span>';
@@ -773,9 +773,11 @@ VcExtended.NSRExtend.Extended = (function($) {
                 }
 
                 sortHTML += '</td>';
-                var braAttVeta;
-                if (spost.post_meta)
+                var braAttVeta = '';
+                if (spost.post_meta && spost.post_meta.avfall_bra_att_veta &&
+                    spost.post_meta.avfall_bra_att_veta.length >= 1 && typeof spost.post_meta.avfall_bra_att_veta[0] != 'undefined') {
                     braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'), '<br />');
+                }
 
                 sortHTML += '<td class="exnfodispl">' + braAttVeta + '</td>';
 
