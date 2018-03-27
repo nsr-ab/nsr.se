@@ -100,7 +100,12 @@ VcExtended.NSRExtend.Extended = (function($) {
         $('.searchNSR').on("input", function() {
             window.clearTimeout(typingTimer);
             if (!wouldBeTimer) {
-                $('.searchNSR .search-button').show();
+                $('.searchNSR .search-button-mobile').hide();
+                $('.searchNSR .search-button').hide();
+                if ($(window).width() < 767)
+                    $('.searchNSR .search-button-mobile').show();
+                else
+                    $('.searchNSR .search-button').show();
                 wouldBeTimer = true;
             }
             //typingTimer = window.setTimeout(Extended.prototype.doneTyping, doneTypingInterval);
@@ -131,7 +136,12 @@ VcExtended.NSRExtend.Extended = (function($) {
         var query = Extended.prototype.getUrlParameter('q');
 
         if (query) {
-            $('.searchNSR .search-button').show();
+            $('.searchNSR .search-button-mobile').hide();
+            $('.searchNSR .search-button').hide();
+            if ($(window).width() < 767)
+                $('.searchNSR .search-button-mobile').show();
+            else
+                $('.searchNSR .search-button').show();
             $('#searchkeyword-nsr').focus(), $('#searchkeyword-nsr').val(query.replace(/\+/g, ' '));
             Extended.prototype.doneTyping();
         }
