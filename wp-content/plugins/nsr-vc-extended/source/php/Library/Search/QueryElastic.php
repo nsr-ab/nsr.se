@@ -88,7 +88,7 @@ class QueryElastic
 
         if (mb_strlen($q) <= 3) {
             $rq = $q;
-        ]
+        }
         else {
             $words = explode(" ", $q);
             $rq = array();
