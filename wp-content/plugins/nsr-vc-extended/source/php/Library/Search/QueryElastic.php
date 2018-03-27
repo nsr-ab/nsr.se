@@ -83,6 +83,22 @@ class QueryElastic
             $post_types = array(0 => $post_type);
         }
 
+        $q = mb_strtolower(trim($q));
+        $q = preg_replace("/\s+/", " ", $q);
+
+        if (mb_strlen($q) <= 3) {
+            $rq = $q;
+        ]
+        else {
+            $words = explode(" ", $q);
+            $rq = array();
+            foreach ($words as $w) {
+                if (!preg_match("/^[0-9\.,_\-%]+\$/", $w) && mb_strlen($w) > 2)
+                    $rq[] = $w;
+            }
+            $rq = implode(" ", $rq);
+        }
+
         $querySortGuide = new \WP_Query(array(
             'ep_integrate' => true,
             's' => $q,
@@ -177,6 +193,8 @@ class QueryElastic
         ));
 */
 
+
+
         $query = new \WP_Query(array(
             'ep_integrate' => true,
             's' => $q,
@@ -188,7 +206,23 @@ class QueryElastic
             'cache_results' => false
         ));
 
+        $rquery = new \WP_Query(array(
+            'ep_integrate' => true,
+            's' => $rq,
+            'fuzziness'=>1,
+            'orderby' => 'relevance',
+            'posts_per_page' => 5,
+            'post_status' => $postStatuses,
+            'cache_results' => false
+        ));
+
+        if (!count($rquery->posts)) {
+            return array('sortguide'=>array(), 'content'=>array());
+        }
+
         return array(
+            //'rq'=>$rq,
+            //'rcontent' => array_slice($rquery->posts, 0, 10),
             'content' => array_slice($query->posts, 0, 10),
             'sortguide' => array_slice($sortGuidePosts, 0, 10),
          );

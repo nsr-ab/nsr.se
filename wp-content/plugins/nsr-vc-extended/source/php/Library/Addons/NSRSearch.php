@@ -184,9 +184,9 @@ class NSRSearch
                          </div>
                       </div> 
                      
-                     <div id=\"searchResult\"></div>
+                      <div class=\"search-fetchPlanner\"></div>
+                      <div id=\"searchResult\"></div>
                      <div class=\"errorSortguide hide\"></div>
-                     <div class=\"search-fetchPlanner\"></div>
                      <div class=\"errorPages hide\"></div>
                      </div>
                      
