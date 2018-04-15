@@ -254,9 +254,11 @@ input[type=text]:focus.invalid {
     @media (max-width: 500px) {
         .input-field input[type=search] {
             margin-left: 1.7rem;
+            padding-left: 1rem; /* FREDRIK */
         }
         .prefix {
             left: 3rem;
+            display:none; /* FREDRIK */
         }
         h4 {
             width: 80%;
@@ -286,6 +288,14 @@ input[type=text]:focus.invalid {
         font-size: 2.0em;
         padding-top: 1.2rem;
         width: calc(93% - 7rem) !important;
+    }
+    @media (max-width: 450px) {
+        input[type=search].form-control-lg {
+            width: calc(93% - 3.6rem) !important;
+            margin-left:0px;
+            margin-right:0px;
+            font-size:1.2em;
+        }
     }
     #searchResult .small {
         color: $darkGrey;
@@ -692,7 +702,7 @@ input[type=text]:focus.invalid {
     .search-autocomplete-content li a {
         padding-left: 30px;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 450px) {
         .search-autocomplete-content li a {
             line-height: 1.4rem;
             padding: 10px 0;
@@ -774,15 +784,30 @@ input[type=text]:focus.invalid {
         width: 18px !important;
         height: 18px !important;
         //margin-right: 8px;
-        margin-right: 7rem;
+        margin-right: 3rem;
         float: right;
     }
     .search-button {
         position: absolute;
+        /*
         top: 0.6rem;
         right: 5.5rem;
+        */
         padding: 0 1rem;
         max-width: 5rem;
+
+        top: 0px;
+        right: 30px;
+        height: 90%;
+        margin-top: 10px;
+        border-radius: 0 !important;
+        box-shadow:none !important;
+    }
+    @media (max-width: 450px) {
+        .search-button {
+            max-width: 4rem;
+            right: 10px;
+        }
     }
 }
 
@@ -838,11 +863,10 @@ tr {
 
 @media (max-width: 450px) {
     .searchArea .preloader-wrapper {
-        top: 30px;
+        top: 16px;
+        left: 16px;
         width: 24px !important;
         height: 24px !important;
-        left: 48px;
-        right: -50px;
     }
     .searchArea .spinner-layer {
         border-color: $white !important;

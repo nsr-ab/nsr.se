@@ -157,15 +157,18 @@ class NSRSearch
                                 <label for=\"searchQ-input\">" . __('Where do you live? What stuff do you want to sort? Are you looking for something else?', 'nsr-vc-extended') . "</label>
                                 <input type=\"hidden\" id=\"post_type\" value=\"" . $params->vc_search_sections . "\">
                                 <!-- <input type=\"submit\" class=\"btn btn-large waves-effect waves-light notranslate search-button\" style=\"display:none;\" value=\"SÖK\"> -->
-                                <input type=\"submit\" class=\"btn btn-large notranslate search-button\" style=\"display:none;\" value=\"SÖK\"> 
+                                <!-- <input type=\"submit\" class=\"btn btn-large notranslate search-button\" style=\"display:none;\" value=\"SÖK\">  -->
+                                <input type=\"submit\" class=\"btn btn-large notranslate search-button\" value=\"SÖK\">                                 
                             </div>
                           </div>
 
+                          <!--
                           <div class=\"row\">
                             <div class=\"col s12\" align=\"center\">
                                 <input type=\"submit\" class=\"btn btn-large notranslate search-button-mobile\" style=\"display:none;\" value=\"SÖK\"> 
                             </div>                          
                           </div>
+                          -->
                           
                         </form>
                     
