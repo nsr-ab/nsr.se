@@ -656,7 +656,7 @@ VcExtended.NSRExtend.Extended = (function($) {
                             $fprow += '<tr id="' + post.id + '" class="tabDesk">';
                             $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
                             $fprow += '<div><b class="">' + post.Ort + '</b></div>';
-                            $fprow += '</td><td>';
+                            $fprow += '</td><td style="padding-top:20px;">';
 
                             for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
                                 if (post.Exec.Datum[avint] >= jsdate) {
