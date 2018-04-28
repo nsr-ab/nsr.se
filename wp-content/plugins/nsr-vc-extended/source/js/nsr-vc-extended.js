@@ -653,11 +653,6 @@ VcExtended.NSRExtend.Extended = (function($) {
                         if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
                             foundRows = true;
 
-                            $fprow += '<tr id="' + post.id + '" class="tabDesk">';
-                            $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
-                            $fprow += '<div><b class="">' + post.Ort + '</b></div>';
-                            $fprow += '</td><td style="padding-top:20px;">';
-
                             for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
                                 if (post.Exec.Datum[avint] >= jsdate) {
                                     if (!$dub.indexOf(post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint]) > -1) {
@@ -671,10 +666,15 @@ VcExtended.NSRExtend.Extended = (function($) {
                                 }
                             }
 
+                            $fprow += '<tr id="' + post.id + '" class="tabDesk">';
+                            $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
+                            $fprow += '<div><b class="">' + post.Ort + '</b></div>';
+                            $fprow += '</td><td style="padding-top:15px;">';
                             $fprow += $avfall + '</td><td>' + $nextDate;
+
                             $fpMobRow += '<tr class="fpthmob"><th colspan="2"><i class="material-icons">date_range</i> <span><strong> ' + post.Adress + '</span>, <span>' + post.Ort + '</span></strong></th></tr>';
                             $fpMobRow += '<tr><th>Kärl</th><th>Nästa tömning</th></tr>';
-                            $fpMobRow += '<tr><td>' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
+                            $fpMobRow += '<tr><td style="padding-top:15px;">' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
                         }
 
                         $fprow += '</td></tr>';

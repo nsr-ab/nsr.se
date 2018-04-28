@@ -489,12 +489,11 @@ input[type=text]:focus.invalid {
     font-size: 0.7rem;
     background: #013d44 !important;
     min-width: 0.9rem !important;
-    /*FREDRIK
-        margin-left: 5px;
-        */ }
+    margin-left: 5px; }
   .searchNSR .fp-table .badge,
   .searchNSR .fp-table-mobile .badge {
-    margin-top: 5px; }
+    /* FREDRIK        margin-top: 5px; */
+    margin-top: 0px; }
   .searchNSR .badgeInfo .badge {
     float: none;
     padding: 3px 6px; }

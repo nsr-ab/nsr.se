@@ -530,13 +530,12 @@ input[type=text]:focus.invalid {
         font-size: 0.7rem;
         background: darken($darkerGreen, 10%) !important;
         min-width: 0.9rem !important;
-        /*FREDRIK
         margin-left: 5px;
-        */
     }
     .fp-table .badge,
     .fp-table-mobile .badge {
-        margin-top: 5px;
+/* FREDRIK        margin-top: 5px; */
+        margin-top:0px;
     }
     .badgeInfo .badge {
         float: none;
