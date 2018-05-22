@@ -11,7 +11,7 @@
 var VcExtended = VcExtended || {};
 
 VcExtended.NSRExtend = VcExtended.NSRExtend || {};
-VcExtended.NSRExtend.Extended = (function ($) {
+VcExtended.NSRExtend.Extended = (function($) {
 
 
     var typingTimer = null;
@@ -21,6 +21,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var doneTypingInterval = 200;
     var cities = [];
     var _gaq = _gaq || [];
+    var wouldBeTimer = false;
 
     /**
      * Constructor
@@ -34,7 +35,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  init
      *  Initializes all the necessary methods and binding stuff to events
      */
-    Extended.prototype.init = function () {
+    Extended.prototype.init = function() {
 
         //_gaq.push(['_setAccount', 'UA-92267061-1']); // your ID/profile
         //_gaq.push(['_trackPageview']);
@@ -46,80 +47,101 @@ VcExtended.NSRExtend.Extended = (function ($) {
         if (!$('body').hasClass('wp-admin'))
             $('.card-content').matchHeight();
 
-        $(function () {
+        $(function() {
             this.CollapsibleHeaders();
         }.bind(this));
 
         /* Puff med länkar - Visa fler nyheter */
-        $('body').on('click', '.showAllPosts', function () {
+        $('body').on('click', '.showAllPosts', function() {
             Extended.prototype.displayMore(this);
         }).bind(this);
 
 
         /* CardClick */
-        $('body').on('click', '.card', function (e) {
+        $('body').on('click', '.card', function(e) {
             if ($(this).data('link'))
                 window.location.href = $(this).data('link');
         }).bind(this);
 
         /* searchNSR - Full screen */
-        $('body').on('click', '.searchArea *', function (e) {
+        $('body').on('click', '.searchArea *', function(e) {
             Extended.prototype.fullScreen(e);
         }).bind(this);
 
 
         /* searchNSR - Close full screen */
-        $('body').on('click', '.closeSearch', function (e) {
+        $('body').on('click', '.closeSearch', function(e) {
             Extended.prototype.closeScreen(this);
         }).bind(this);
 
 
         /* searchNSR - Enter key function */
-        $.fn.enterKey = function (fnc) {
+        $.fn.enterKey = function(fnc) {
             Extended.prototype.enterTrigger(fnc, this);
         }
 
         /* searchNSR - Hiting Enter on search */
-        $('.searchNSR').enterKey(function () {
+        $('.searchNSR').enterKey(function() {
             event.preventDefault();
             window.clearTimeout(typingTimer);
             Extended.prototype.doneTyping();
         });
 
-        /* On input starting timer  */
-        $('.searchNSR').on("input", function () {
+        /* searchNSR - Submit means search */
+        $('.searchNSR form').on('submit', function(e) {
+            e.preventDefault();
             window.clearTimeout(typingTimer);
-            typingTimer = window.setTimeout(Extended.prototype.doneTyping, doneTypingInterval);
+            Extended.prototype.doneTyping();
+            return false;
+        }).bind(this);
+
+
+        /* On input starting timer  */
+        $('.searchNSR').on("input", function() {
+            window.clearTimeout(typingTimer);
+            if (!wouldBeTimer) {
+                //$('.searchNSR .search-button-mobile').hide();
+                $('.searchNSR .search-button').show();
+                //if ($(window).width() < 767)
+                    //$('.searchNSR .search-button-mobile').show();
+                //else
+                    //$('.searchNSR .search-button').show();
+                wouldBeTimer = true;
+            }
+            //typingTimer = window.setTimeout(Extended.prototype.doneTyping, doneTypingInterval);
         });
 
         /* Backspace or space clears timeout */
-        $('.searchNSR').on('keydown', function (e) {
+        $('.searchNSR').on('keydown', function(e) {
             Extended.prototype.haltTimer(e, typingTimer);
         });
 
         /* Puff med länkar - Visa fler nyheter */
-        $('body').on('click', '.locationmap', function () {
+        $('body').on('click', '.locationmap', function() {
             if ($(this).data('url'))
                 window.open($(this).data('url'), '_blank');
         }).bind(this);
 
         /* Puff med länkar - Visa fler nyheter */
-        $('body').on('click', '#searchkeyword-nsr', function () {
+        $('body').on('click', '#searchkeyword-nsr', function() {
             $('#searchkeyword-nsr').focus();
         }).bind(this);
-
-
     };
 
     /**
      *  DefaultSiteSearch
      *  Search via searchModal window
      */
-    Extended.prototype.DefaultSiteSearch = function () {
-
+    Extended.prototype.DefaultSiteSearch = function() {
         var query = Extended.prototype.getUrlParameter('q');
 
         if (query) {
+            //$('.searchNSR .search-button-mobile').hide();
+            $('.searchNSR .search-button').show();
+            //if ($(window).width() < 767)
+              //  $('.searchNSR .search-button-mobile').show();
+            //else
+                //$('.searchNSR .search-button').show();
             $('#searchkeyword-nsr').focus(), $('#searchkeyword-nsr').val(query.replace(/\+/g, ' '));
             Extended.prototype.doneTyping();
         }
@@ -129,10 +151,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  eventHandler
      *  Managing all event handlers (Silence is gold)
      */
-    Extended.prototype.CollapsibleHeaders = function () {
+    Extended.prototype.CollapsibleHeaders = function() {
 
         // Accordion open & close and links
-        $('body').on('click', '.collapsible-header', function () {
+        $('body').on('click', '.collapsible-header', function() {
 
             $id = $(this).parents('ul').attr('id');
 
@@ -140,12 +162,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $($id).find('.materialIconState').text('add');
                 if ($(this).hasClass('active')) {
                     $(this).find('.materialIconState').text('remove');
-                }
-                else {
+                } else {
                     $(this).find('.materialIconState').text('add');
                 }
-            }
-            else {
+            } else {
                 window.location.href = $(this).find('a').attr('href');
             }
 
@@ -160,8 +180,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @param {object} element
      *  @return {void}
      */
-    Extended.prototype.encodeStr = function (str) {
-        return str.split("").reduce(function (a, b) {
+    Extended.prototype.encodeStr = function(str) {
+        return str.split("").reduce(function(a, b) {
             a = ((a << 5) - a) + b.charCodeAt(0);
             return a & a
         }, 0);
@@ -174,15 +194,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @param {object} element
      *  @return {void}
      */
-    Extended.prototype.displayMore = function (element) {
+    Extended.prototype.displayMore = function(element) {
         event.preventDefault();
 
         if ($(element).closest("ul").find('li').hasClass('hide')) {
             $(element).closest("ul").find('.hide').addClass('show'), $(element).closest("ul").find('li').removeClass('hide');
             var countItemsHide = $(element).closest("ul").find('li').length - 6;
             $(element).closest("ul").find('.showPosts').text('Dölj (' + countItemsHide + ')');
-        }
-        else {
+        } else {
             $(element).closest("ul").find('.show').addClass('hide'), $(element).closest("ul").find('li').removeClass('show');
             var countItemsShow = $(element).closest("ul").find('li').length - 1;
             $(element).closest("ul").find('.showPosts').text('Visa alla (' + countItemsShow + ')');
@@ -198,9 +217,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @param {object} element
      *  @return {void}
      */
-    Extended.prototype.enterTrigger = function (fnc, element) {
-        return element.each(function () {
-            $(element).keypress(function (ev) {
+    Extended.prototype.enterTrigger = function(fnc, element) {
+        return element.each(function() {
+            $(element).keypress(function(ev) {
                 var keycode = (ev.keyCode ? ev.keyCode : ev.which);
                 if (keycode == '13') {
                     $('.search-autocomplete').remove(), $('.sorteringsguiden').remove();
@@ -220,7 +239,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @param {int} typingTimer
      *  @return {void}
      */
-    Extended.prototype.haltTimer = function (e, typingTimer) {
+    Extended.prototype.haltTimer = function(e, typingTimer) {
 
         switch (e.which) {
             case 32:
@@ -238,7 +257,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  Close search screen
      *  @param {object} element
      */
-    Extended.prototype.closeScreen = function (element) {
+    Extended.prototype.closeScreen = function(element) {
 
         event.stopPropagation();
         $('.errorPages').addClass('hide');
@@ -265,7 +284,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @param {object} element
      *  @return {void}
      */
-    Extended.prototype.fullScreen = function (element) {
+    Extended.prototype.fullScreen = function(element) {
 
         if ($(element.target).is('i') || $(element.target).is('.search-autocomplete')) {
             element.preventDefault();
@@ -279,15 +298,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
         if (!$('.searchNSR').hasClass('position-relative')) {
 
             $('.tooltip-info.static-tooltip').addClass('tooltipAfter');
-            $('.closeSearch').removeClass('hide'), $('html, body').animate({scrollTop: 0}, 'slow');
+            $('.closeSearch').removeClass('hide'), $('html, body').animate({ scrollTop: 0 }, 'slow');
             $('.vc_row').hide(), $('.page-footer').hide(), $('.searchNSR').closest('.vc_row').show(), $('.main-container').height(317);
 
             if ($(window).width() < 540) {
                 $('.main-container').height(237);
 
                 $('.mob .center').removeClass('hide');
-            }
-            else {
+            } else {
                 $('.mob .center').addClass('hide');
             }
 
@@ -307,7 +325,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @return {void}
      */
 
-    Extended.prototype.fpTimer = function () {
+    Extended.prototype.fpTimer = function() {
         Extended.prototype.fetchPlannerQuery($('.searchNSR'));
     };
 
@@ -317,7 +335,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  fires a call to fetchplannerQuery
      *  @return {void}
      */
-    Extended.prototype.ElasticTimer = function (element) {
+    Extended.prototype.ElasticTimer = function(element) {
         Extended.prototype.autocomplete(element);
     };
 
@@ -327,11 +345,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  fires a call to autocomples and fetchplanner
      *  @return {void}
      */
-    Extended.prototype.doneTyping = function () {
+    Extended.prototype.doneTyping = function() {
 
-        $('.searchNSR').each(function (index, element) {
+        $('.searchNSR').each(function(index, element) {
             clearTimeout(timerElastic), clearTimeout(timerFetchplanner);
-            timerElastic = setTimeout(function () {
+            timerElastic = setTimeout(function() {
                 Extended.prototype.ElasticTimer(element);
             }, 300);
         });
@@ -344,7 +362,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} element
      * @return {void}
      */
-    Extended.prototype.autocomplete = function (element) {
+    Extended.prototype.autocomplete = function(element) {
 
         var $element = $(element);
         var $input = $element.find('input[type="search"]');
@@ -362,7 +380,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} element Autocomplete
      * @return {bool}
      */
-    Extended.prototype.autocompleteSubmit = function (element) {
+    Extended.prototype.autocompleteSubmit = function(element) {
 
         var $element = $(element);
         var $autocomplete = $element.find('.search-autocomplete');
@@ -378,15 +396,36 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
     /**
+     * A search has taken place. Push the query GET parameter on to the browser stack
+     * @param  {object} element Autocomplete element
+     * @param  {string} query The query string
+     * @return {void}
+     */
+    Extended.prototype.pushQueryUrl = function(element, query, post_type) {
+
+        // TODO: Handle post_type!
+        if (typeof history != 'undefined') {
+            var $currentState = history.state;
+            var $state = { query: query, post_type: post_type };
+            var $title = 'S&ouml;k - NSR AB';
+            var $url = '/sok/?q=' + encodeURIComponent(query);
+            history.replaceState($state, $title, $url);
+        }
+    }
+
+
+    /**
      * Query for autocomplete suggestions
      * @param  {object} element Autocomplete element
      * @return {void}
      */
-    Extended.prototype.autocompleteQuery = function (element) {
+    Extended.prototype.autocompleteQuery = function(element) {
 
         var $element = $(element);
         var $input = $element.find('input[type="search"]').val();
         var $post_type = $('#post_type').val();
+
+        Extended.prototype.pushQueryUrl($element, $input, $post_type);
 
         var data = {
             action: 'fetchDataFromElasticSearch',
@@ -397,8 +436,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         };
 
         Extended.prototype.getJsonData($element, data, $post_type);
-
-
     };
 
 
@@ -407,13 +444,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} element fetchplanner element
      * @return {void}
      */
-    Extended.prototype.fetchPlannerQuery = function (element) {
+    Extended.prototype.fetchPlannerQuery = function(element) {
 
 
         var $element = $(element);
         var $input = $('#searchkeyword-nsr').val();
         var fdata = {
-            action: 'fetchDataFromFetchPlanner',
+            action: 'fetchDataFromFetchPlannerCombined',
             query: $input,
             level: 'ajax',
             type: 'json'
@@ -428,7 +465,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} element Autocomplete element
      * @return {void}
      */
-    Extended.prototype.spinner = function () {
+    Extended.prototype.spinner = function() {
 
         var id = arguments[0];
         var size = arguments[1];
@@ -445,7 +482,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} element Autocomplete element
      * @return {void}
      */
-    Extended.prototype.getJsonData = function ($element, data, $post_type) {
+    Extended.prototype.getJsonData = function($element, data, $post_type) {
 
         var progressbar = Extended.prototype.spinner(Extended.prototype.hashCode(data.action), 'big', true);
 
@@ -454,8 +491,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             data: data,
             method: 'GET',
             dataType: 'json',
-            beforeSend: function (xhr) {
-
+            beforeSend: function(xhr) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
                 if ($('.searchNSR form .preloader-wrapper').length < 1) {
                     $('.searchNSR .searchArea').append(progressbar);
@@ -464,31 +500,28 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
             }
 
-        }).complete(function () {
-            if (data.action === 'fetchDataFromFetchPlanner') {
+        }).complete(function() {
+            if (data.action === 'fetchDataFromFetchPlanner' || data.action === 'fetchDataFromFetchPlannerCombined') {
                 $('.searchArea .preloader-wrapper').remove();
             }
-        }).done(function (result) {
-
+        }).done(function(result) {
             if (data.action === 'fetchDataFromElasticSearch') {
 
                 $('.searchNSR').addClass('searchResult'), $element.find('.sorteringsguiden').remove(), $element.find('.search-autocomplete').remove();
 
-                if (typeof result.sortguide != 'undefined' && result.sortguide !== null) {
+                if (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') {
                     parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length);
                 }
 
-                if (typeof result.content != 'undefined' && result.content !== null) {
+                if (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') {
                     parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length);
                 }
 
                 this.outputAutocomplete($element, result, $post_type);
-            }
-            else {
-
+            } else {
                 $('.search-fetchPlanner').html('');
 
-                if (typeof result.fp != 'undefined' && result.fp !== null) {
+                if (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') {
                     parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length);
                 }
 
@@ -506,7 +539,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @param post_type string
      *  @return {array} res
      */
-    Extended.prototype.metaDataStr = function (post_type) {
+    Extended.prototype.metaDataStr = function(post_type) {
 
         var $res = new Array();
 
@@ -570,7 +603,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * hash strings
      * @return {string}
      */
-    Extended.prototype.hashCode = function (str) {
+    Extended.prototype.hashCode = function(str) {
         var hash = 0;
         if (str === null)
             return hash;
@@ -590,10 +623,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {array}  result  fetchplanner query result
      * @return {void}
      */
-    Extended.prototype.outputFetchPlanner = function (result) {
+    Extended.prototype.outputFetchPlanner = function(result) {
 
         var $fprow = '';
         var $fpMobRow = '';
+        var foundRows = false;
 
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
 
@@ -603,7 +637,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
 
-            $.each(result.fp, function (index, post) {
+            $.each(result.fp, function(index, post) {
 
                 var $dub = [];
                 var $avfall = '';
@@ -617,11 +651,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (post.Exec.AvfallsTyp[0] || post.Exec.AvfallsTyp[1]) {
 
                         if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
-
-                            $fprow += '<tr id="' + post.id + '" class="tabDesk">';
-                            $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
-                            $fprow += '<div><b class="">' + post.Ort + '</b></div>';
-                            $fprow += '</td><td>';
+                            foundRows = true;
 
                             for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
                                 if (post.Exec.Datum[avint] >= jsdate) {
@@ -636,10 +666,15 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 }
                             }
 
+                            $fprow += '<tr id="' + post.id + '" class="tabDesk">';
+                            $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
+                            $fprow += '<div><b class="">' + post.Ort + '</b></div>';
+                            $fprow += '</td><td style="padding-top:15px;">';
                             $fprow += $avfall + '</td><td>' + $nextDate;
+
                             $fpMobRow += '<tr class="fpthmob"><th colspan="2"><i class="material-icons">date_range</i> <span><strong> ' + post.Adress + '</span>, <span>' + post.Ort + '</span></strong></th></tr>';
                             $fpMobRow += '<tr><th>Kärl</th><th>Nästa tömning</th></tr>';
-                            $fpMobRow += '<tr><td>' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
+                            $fpMobRow += '<tr><td style="padding-top:15px;">' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
                         }
 
                         $fprow += '</td></tr>';
@@ -655,9 +690,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* No result ..... */
         if (typeof result.fp != 'undefined' && result.fp !== null) {
-            if(result.fp.length === 0) {
-                $fprow += '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p><br /><br />';
+            if (result.fp.length === 0 || !foundRows) {
+                $fprow = '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p>';
+                $('.search-fetchPlanner').detach().insertAfter(".errorSortguide");
+            } else {
+                $('.search-fetchPlanner').detach().insertBefore(".errorSortguide");
             }
+        } else {
+            $('.search-fetchPlanner').detach().insertAfter(".errorSortguide");
         }
 
         $('.search-fetchPlanner').append($fprow);
@@ -672,7 +712,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {array}  res     Autocomplete query result
      * @return {void}
      */
-    Extended.prototype.outputAutocomplete = function (element, res, searchSection) {
+    Extended.prototype.outputAutocomplete = function(element, res, searchSection) {
 
         var $element = $(element);
         var $autocomplete = $('<div class="search-autocomplete"></div>');
@@ -694,10 +734,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
             if ($('.errorSortguide').is(':visible'))
                 $('.errorSortguide').addClass('hide');
 
-            $.each(res.sortguide, function (index, spost) {
+            $.each(res.sortguide, function(index, spost) {
 
                 var customerCatIcons = '';
-                if (spost.post_meta) {
+                if (spost.post_meta && spost.post_meta.avfall_kundkategori && spost.post_meta.avfall_kundkategori.length >= 1) {
 
                     if (spost.post_meta.avfall_kundkategori[0].indexOf('foretag') >= 0) {
                         customerCatIcons += '<span class="badge sortSectionIcon company">F</span>';
@@ -718,8 +758,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         tabMobile_frak += '<li><b>Återvinningscentral:<br /></b><ul>';
                         if (spost.post_meta.fraktion_avc.link != '') {
                             var fraktion_avc = '<a href="' + spost.post_meta.fraktion_avc.link + '">' + spost.post_meta.fraktion_avc.name + '</a>';
-                        }
-                        else {
+                        } else {
                             var fraktion_avc = spost.post_meta.fraktion_avc.name;
                         }
                         sortHTML += '<li class="fraktion-icon">' + fraktion_avc + '</li>';
@@ -733,8 +772,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         tabMobile_frak += '<li><b class="sortAs">Hemma:</b><ul>';
                         if (spost.post_meta.fraktion_hemma.link != '') {
                             var fraktion_hemma = '<a href="' + spost.post_meta.fraktion_hemma.link + '">' + spost.post_meta.fraktion_hemma.name + '</a>';
-                        }
-                        else {
+                        } else {
                             var fraktion_hemma = spost.post_meta.fraktion_hemma.name;
                         }
                         sortHTML += '<li class="fraktion-icon">' + fraktion_hemma + '</li>';
@@ -745,9 +783,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
 
                 sortHTML += '</td>';
-                var braAttVeta;
-                if (spost.post_meta)
+                var braAttVeta = '';
+                if (spost.post_meta && spost.post_meta.avfall_bra_att_veta &&
+                    spost.post_meta.avfall_bra_att_veta.length >= 1 && typeof spost.post_meta.avfall_bra_att_veta[0] != 'undefined') {
                     braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'), '<br />');
+                }
 
                 sortHTML += '<td class="exnfodispl">' + braAttVeta + '</td>';
 
@@ -860,9 +900,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* No result ..... */
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null) {
-            if(res.sortguide.length === 0) {
+            if (res.sortguide.length === 0) {
                 var sHTML = "";
-                sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tipsa oss om avfall som vi kan lägga till här  (<a style="color:#ffffff!important;" href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a>)</p><br /><br />';
+                sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tipsa oss om avfall som vi kan lägga till här  (<a style="color:#ffffff!important;" href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a>)</p>';
                 $('.errorSortguide').html(sHTML).removeClass('hide');
             }
         }
@@ -874,7 +914,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             if ($('.errorPages').is(':visible'))
                 $('.errorPages').addClass('hide');
 
-            $.each(res.content, function (index, post) {
+            $.each(res.content, function(index, post) {
                 var $excerpt = post.post_excerpt.replace(/^(.{180}[^\s]*).*/, "$1");
                 if ($excerpt)
                     $excerpt = $excerpt + "...";
@@ -896,9 +936,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* No result ..... */
         if (typeof res.content != 'undefined' && res.content !== null) {
-            if(res.content.length === 0) {
+            if (res.content.length === 0) {
                 var sHTML = "";
-                sHTML += '<h4>Sidor på nsr.se</h4><br /><p class="noResult">Ingen träff på "' + $('#searchkeyword-nsr').val() + '".</p><br /><br />';
+                sHTML += '<h4>Sidor på nsr.se</h4><br /><p class="noResult">Ingen träff på "' + $('#searchkeyword-nsr').val() + '".</p>';
                 $('.errorPages').html(sHTML).removeClass('hide');
             }
         }
@@ -906,14 +946,23 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if (nosortGuidedata) {
             $sortMarkupTable.appendTo($sorteringsguiden);
-            $sorteringsguiden.appendTo($element);
+            //            $sorteringsguiden.appendTo($element);
+            $sorteringsguiden.detach().insertBefore(".errorSortguide");
         }
-        if (noContent)
+
+        if (noContent) {
             $content.appendTo($autocomplete);
+            $autocomplete.detach().insertBefore(".errorSortguide");
+        }
+        /*
+        	else {
+        	    $autocomplete.detach().insertAfter(".errorSortguide");
+                }
+        */
 
-        $autocomplete.appendTo($element).show();
+        //        $autocomplete.appendTo($element).show();
 
-        $('.fraktion-icon').each(function () {
+        $('.fraktion-icon').each(function() {
             if ($(this).find('span').hasClass('nofraktionlink'))
                 $(this).removeClass('fraktion-icon');
         });
@@ -939,7 +988,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} error
      * @return {void}
      */
-    Extended.prototype.GeoError = function (error) {
+    Extended.prototype.GeoError = function(error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
                 constant = "PERMISSION_DENIED";
@@ -971,7 +1020,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {object} position
      * @return {void}
      */
-    Extended.prototype.UserLocation = function (position) {
+    Extended.prototype.UserLocation = function(position) {
         //console.log(position.coords.latitude + ' : ' + position.coords.longitude);
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
     };
@@ -982,7 +1031,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {int} deg
      * @return degree
      */
-    Extended.prototype.Deg2Rad = function (deg) {
+    Extended.prototype.Deg2Rad = function(deg) {
         return deg * Math.PI / 180;
     };
 
@@ -992,7 +1041,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {int} lat long
      * @return degree
      */
-    Extended.prototype.PythagorasEquirectangular = function (lat1, lon1, lat2, lon2) {
+    Extended.prototype.PythagorasEquirectangular = function(lat1, lon1, lat2, lon2) {
         lat1 = Extended.prototype.Deg2Rad(lat1);
         lat2 = Extended.prototype.Deg2Rad(lat2);
         lon1 = Extended.prototype.Deg2Rad(lon1);
@@ -1011,7 +1060,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {int} lat long
      * @return degree
      */
-    Extended.prototype.getDistanceFromLatLonInKm = function (lat1, lon1, lat2, lon2) {
+    Extended.prototype.getDistanceFromLatLonInKm = function(lat1, lon1, lat2, lon2) {
         var R = 6371; // Radius of the earth in km
         var dLat = Extended.prototype.Deg2Rad(lat2 - lat1);
         var dLon = Extended.prototype.Deg2Rad(lon2 - lon1);
@@ -1021,7 +1070,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return d;
     };
 
-    Extended.prototype.findClosest = function () {
+    Extended.prototype.findClosest = function() {
         if (arguments[0] instanceof Array)
             arguments = arguments[0];
 
@@ -1033,7 +1082,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {int} lat long
      * @return {array} cities
      */
-    Extended.prototype.NearestCity = function (latitude, longitude) {
+    Extended.prototype.NearestCity = function(latitude, longitude) {
         //console.log(latitude + " : " +longitude)
         var icon = 0;
         var cordID = null;
@@ -1058,7 +1107,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         if (thewinner === cities[ind][index][3]) {
                             var cordID = cities[ind][index][4];
                             var deskAndMobileLi = $('[searchid="' + cordID + '"]');
-                            $(deskAndMobileLi).each(function () {
+                            $(deskAndMobileLi).each(function() {
                                 $(this).addClass('closeToHome');
                             });
                             //$('#'+cordID).addClass('closeToHome');
@@ -1071,9 +1120,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }
 
-        $('.inlstallen').each(function () {
+        $('.inlstallen').each(function() {
             var closestCity = false;
-            $(this).find('li').each(function () {
+            $(this).find('li').each(function() {
                 if (closestCity) {
                     if ($(this).hasClass('closeToHome')) {
                         $(this).removeClass('closeToHome');
@@ -1103,7 +1152,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {array} param value
      */
     Extended.prototype.getUrlParameter = function getUrlParameter(sParam) {
-        var sPageURL = decodeURIComponent(window.location.search.substring(1)), sURLVariables = sPageURL.split('&'),
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
             sParameterName, i;
         for (i = 0; i < sURLVariables.length; i++) {
             sParameterName = sURLVariables[i].split('=');

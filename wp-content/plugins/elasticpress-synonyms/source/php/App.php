@@ -79,8 +79,21 @@ class App
             'synonyms' => $synonymData
         );
 
-        // Tell ES to use filter above by default
-        array_unshift($mapping['settings']['analysis']['analyzer']['default']['filter'], 'elasticpress_synonyms');
+        // FREDRIK: Must add synonym as an analyzer filter too
+        $mapping['settings']['analysis']['analyzer']['elasticpress_synonyms'] = array(
+            'tokenizer'=>'standard',
+            'filter'=>array('elasticpress_synonyms')
+        );
+    
+        //// Tell ES to use filter above by default
+        //array_unshift($mapping['settings']['analysis']['analyzer']['default']['filter'], 'elasticpress_synonyms');
+
+        $mapping['settings']['analysis']['analyzer']['default']['filter'] = array_diff(
+            $mapping['settings']['analysis']['analyzer']['default']['filter'],
+            array('elasticpress_synonyms'));
+        //array_unshift($mapping['settings']['analysis']['analyzer']['default']['filter'], 'elasticpress_synonyms');
+        $mapping['settings']['analysis']['analyzer']['default']['filter'][] = 'elasticpress_synonyms';
+
 
         // Return new mapping settings
         return $mapping;

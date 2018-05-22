@@ -71,7 +71,7 @@ class Elasticsearch
     }
 
     /**
-     * Indexable post types
+     * Indexable post types 
      * @param  array $types Default post types
      * @return array Updated post types
      */
@@ -82,16 +82,21 @@ class Elasticsearch
 
     public function searchArgs($args, $scope, $query_args)
     {
-        $q =    $this->filterQuery(
+        $q = $this->filterQuery(
             trim($query_args['s'])
         );
 
         $args['min_score'] = 0.03;
 
+        if (isset($query_args['fuzziness']) && $query_args['fuzziness'] > 0)
+            $eff_query = $q . '~' . $this->fuzzynessSize($q, $query_args['fuzziness']);
+        else
+            $eff_query = $q;
+
         $args['query'] = array(
             'simple_query_string' => array(
-                'fields' => array('post_title^7', 'post_content^3'),
-                'query' => $q . '~'.$this->fuzzynessSize($q),
+                'fields' => array('post_title^7', 'post_content^3', 'postmeta.meta_value'),
+                'query' => $eff_query,
                 'analyzer' => 'elasticpress_synonyms'
             )
         );
@@ -260,8 +265,30 @@ class Elasticsearch
         }
     }
 
+    /**
+     * Merges two sets of result posts. Will return all posts in set1 and then
+     * all posts in set2 that are NOT in set1.
+     * @param  array $set1 Top set of posts
+     * @param  array $set2 Bottom set of posts
+     * @return array Merged set of posts
+     */
+    public function mergeResults($set1, $set2) {
+        $out = array();
+        $seen = array();
 
+        foreach ($set1 as $e) {
+            if (!isset($seen[$e->ID])) {            
+                $seen[$e->ID] = 1;
+                $out[] = $e;
+            }
+        }
+        foreach ($set2 as $e) {
+            if (!isset($seen[$e->ID])) {            
+                $seen[$e->ID] = 1;
+                $out[] = $e;
+            }
+        }
 
-
-
+        return $out;
+    }
 }
