@@ -423,7 +423,7 @@ VcExtended.NSRExtend.Extended = (function($) {
 
         var $element = $(element);
         var $input = $element.find('input[type="search"]').val();
-        var $post_type = $('#post_type', $input.parent()).val();
+        var $post_type = $('#post_type', $element.find('input[type="search"]').parent()).val();
 
         Extended.prototype.pushQueryUrl($element, $input, $post_type);
 
@@ -449,7 +449,7 @@ VcExtended.NSRExtend.Extended = (function($) {
 
         var $element = $(element);
         var $input = $('#searchkeyword-nsr').val();
-        var $post_type = $('#post_type', $input.parent()).val();
+        var $post_type = $('#post_type', $('#searchkeyword-nsr').parent()).val();
         var fdata = {
             action: 'fetchDataFromFetchPlannerCombined',
             query: $input,
