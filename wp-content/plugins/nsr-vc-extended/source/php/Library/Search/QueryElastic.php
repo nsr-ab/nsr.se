@@ -75,6 +75,11 @@ class QueryElastic
         $limit = isset($data['limit']) ? $data['limit'] : 9;
         $postStatuses = array('publish', 'inherit');
 
+        // If only searching for calendar, return empty response
+        if ($post_type == "tomningskalender") {
+            return array('sortguide'=>array(), 'content'=>array());
+        }
+
         $q = \VcExtended\Library\Search\ElasticSearch::filterQuery(trim($q));
 
         if ($post_type === "" || $post_type === "all") {
@@ -192,19 +197,20 @@ class QueryElastic
             'cache_results' => false
         ));
 */
-
-
-
-        $query = new \WP_Query(array(
-            'ep_integrate' => true,
-            's' => $q,
-            'fuzziness'=>4,
-            'orderby' => 'relevance',
-            'posts_per_page' => $limit,
-            'post_status' => $postStatuses,
-            'post_type' => str_replace("sorteringsguide", "", $post_types),
-            'cache_results' => false
-        ));
+        $contentPosts = array();
+        if ($post_type != "sorteringsguide") {
+            $query = new \WP_Query(array(
+                'ep_integrate' => true,
+                's' => $q,
+                'fuzziness'=>4,
+                'orderby' => 'relevance',
+                'posts_per_page' => $limit,
+                'post_status' => $postStatuses,
+                'post_type' => str_replace("sorteringsguide", "", $post_types),
+                'cache_results' => false
+            ));
+            $contentPosts = $query->posts;
+        }
 
         $rquery = new \WP_Query(array(
             'ep_integrate' => true,
@@ -223,7 +229,7 @@ class QueryElastic
         return array(
             //'rq'=>$rq,
             //'rcontent' => array_slice($rquery->posts, 0, 10),
-            'content' => array_slice($query->posts, 0, 10),
+            'content' => array_slice($contentPosts, 0, 10),
             'sortguide' => array_slice($sortGuidePosts, 0, 10),
          );
 

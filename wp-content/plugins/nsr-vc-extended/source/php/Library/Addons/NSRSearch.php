@@ -48,6 +48,8 @@ class NSRSearch
                     __('Fastighetsägare & Bostadsrättsföreningar', 'nsr-vc-extended') => 'fastighet',
                     __('Företag & Restauranger', 'nsr-vc-extended') => 'foretag',
                     __('Vanliga frågor', 'nsr-vc-extended') => 'faq',
+                    __('Sorteringsguide', 'nsr-vc-extended') => 'sorteringsguide',
+                    __('Tömningskalender', 'nsr-vc-extended') => 'tomningskalender',
                 ),
             ),
             /** @Param post types parameter */
