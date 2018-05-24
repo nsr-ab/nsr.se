@@ -232,7 +232,14 @@ class App
         $todaysDate = date('Y-m-d');
         $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
         $q = $_GET['query'];
+        $post_type = $_GET['post_type'];
         
+        // Only call on empty post_type or tomningskalender
+        if (!($post_type == "" || $post_type == "all" || $post_type == "tomningskalender")) {
+            wp_send_json(array('fp'=>array()));
+            exit;
+        }
+
         // Turn 3B into 3 B
         $qp = explode(" ", $q);
         if (count($qp) > 1 && preg_match('!^([0-9]+)([A-Za-z])$!', $qp[count($qp)-1], $m) && count($m) == 3) {
