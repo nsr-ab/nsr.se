@@ -48,6 +48,8 @@ class NSRSearch
                     __('Fastighetsägare & Bostadsrättsföreningar', 'nsr-vc-extended') => 'fastighet',
                     __('Företag & Restauranger', 'nsr-vc-extended') => 'foretag',
                     __('Vanliga frågor', 'nsr-vc-extended') => 'faq',
+                    __('Sorteringsguide', 'nsr-vc-extended') => 'sorteringsguide',
+                    __('Tömningskalender', 'nsr-vc-extended') => 'tomningskalender',
                 ),
             ),
             /** @Param post types parameter */
@@ -154,7 +156,7 @@ class NSRSearch
                             <div class=\"input-field col s12 searchArea\">
                                 <i class=\"material-icons prefix notranslate\">&#xE8B6;</i>
                                 <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\" required=\"\" id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
-                                <label for=\"searchQ-input\">" . __('Where do you live? What stuff do you want to sort? Are you looking for something else?', 'nsr-vc-extended') . "</label>
+                                <label for=\"searchkeyword-nsr\">" . __('Where do you live? What stuff do you want to sort? Are you looking for something else?', 'nsr-vc-extended') . "</label>
                                 <input type=\"hidden\" id=\"post_type\" value=\"" . $params->vc_search_sections . "\">
                                 <!-- <input type=\"submit\" class=\"btn btn-large waves-effect waves-light notranslate search-button\" style=\"display:none;\" value=\"SÖK\"> -->
                                 <!-- <input type=\"submit\" class=\"btn btn-large notranslate search-button\" style=\"display:none;\" value=\"SÖK\">  -->

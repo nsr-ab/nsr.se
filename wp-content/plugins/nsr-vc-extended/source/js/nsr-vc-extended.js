@@ -402,13 +402,13 @@ VcExtended.NSRExtend.Extended = (function($) {
      * @return {void}
      */
     Extended.prototype.pushQueryUrl = function(element, query, post_type) {
-
-        // TODO: Handle post_type!
         if (typeof history != 'undefined') {
             var $currentState = history.state;
             var $state = { query: query, post_type: post_type };
             var $title = 'S&ouml;k - NSR AB';
             var $url = '/sok/?q=' + encodeURIComponent(query);
+            if (post_type != '' && post_type != 'all')
+                $url += '&post_type=' + encodeURIComponent(post_type);
             history.replaceState($state, $title, $url);
         }
     }
@@ -423,7 +423,7 @@ VcExtended.NSRExtend.Extended = (function($) {
 
         var $element = $(element);
         var $input = $element.find('input[type="search"]').val();
-        var $post_type = $('#post_type').val();
+        var $post_type = $('#post_type', $element.find('input[type="search"]').parent()).val();
 
         Extended.prototype.pushQueryUrl($element, $input, $post_type);
 
@@ -449,9 +449,11 @@ VcExtended.NSRExtend.Extended = (function($) {
 
         var $element = $(element);
         var $input = $('#searchkeyword-nsr').val();
+        var $post_type = $('#post_type', $('#searchkeyword-nsr').parent()).val();
         var fdata = {
             action: 'fetchDataFromFetchPlannerCombined',
             query: $input,
+            post_type: $post_type,
             level: 'ajax',
             type: 'json'
         };
