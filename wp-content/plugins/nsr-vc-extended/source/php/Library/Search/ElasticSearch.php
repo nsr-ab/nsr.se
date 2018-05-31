@@ -95,7 +95,7 @@ class Elasticsearch
 
         $args['query'] = array(
             'simple_query_string' => array(
-                'fields' => array('post_title^7', 'post_content^3', 'postmeta.meta_value'),
+                'fields' => array('post_title*^7', 'post_content*^3', 'postmeta.meta_value'),
                 'query' => $eff_query,
                 'analyzer' => 'elasticpress_synonyms'
             )
