@@ -18,6 +18,7 @@ class NSRSearch
         add_action('init', array($this, 'integrateWithVC'));
         add_shortcode('nsr_search', array($this, 'renderExtend'));
     }
+
     /**
      * Available parameters
      * @return array
@@ -47,6 +48,8 @@ class NSRSearch
                     __('Fastighetsägare & Bostadsrättsföreningar', 'nsr-vc-extended') => 'fastighet',
                     __('Företag & Restauranger', 'nsr-vc-extended') => 'foretag',
                     __('Vanliga frågor', 'nsr-vc-extended') => 'faq',
+                    __('Sorteringsguide', 'nsr-vc-extended') => 'sorteringsguide',
+                    __('Tömningskalender', 'nsr-vc-extended') => 'tomningskalender',
                 ),
             ),
             /** @Param post types parameter */
@@ -137,8 +140,9 @@ class NSRSearch
         $output = "<div class=\"row search searchNSR " . $positionFixed . "\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\">
                         
                         <div class=\"col s12\">
-                          <div class=\"row\">
-                          
+
+                        <form itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/SearchAction\">
+                          <div class=\"row\">                       
                                                           
                             <div class=\"tooltip-info cookieBased\">
                                 <div class=\"tooltip-inner\">
@@ -147,19 +151,31 @@ class NSRSearch
                                    " . $params->vc_tooltip . "
                                 </div>
                             </div>                               
-                           
                           
-                        <form itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/SearchAction\">
                             <h4 class=\"search-title\">" . $params->vc_designation . "</h4>
                             <div class=\"input-field col s12 searchArea\">
                                 <i class=\"material-icons prefix notranslate\">&#xE8B6;</i>
                                 <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\" required=\"\" id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
-                                <label for=\"searchQ-input\">" . __('Where do you live? What stuff do you want to sort? Are you looking for something else?', 'nsr-vc-extended') . "</label>
+                                <label for=\"searchkeyword-nsr\">" . __('Where do you live? What stuff do you want to sort? Are you looking for something else?', 'nsr-vc-extended') . "</label>
                                 <input type=\"hidden\" id=\"post_type\" value=\"" . $params->vc_search_sections . "\">
+                                <!-- <input type=\"submit\" class=\"btn btn-large waves-effect waves-light notranslate search-button\" style=\"display:none;\" value=\"SÖK\"> -->
+                                <!-- <input type=\"submit\" class=\"btn btn-large notranslate search-button\" style=\"display:none;\" value=\"SÖK\">  -->
+                                <input type=\"submit\" class=\"btn btn-large notranslate search-button\" value=\"SÖK\">                                 
                             </div>
-                           
+                          </div>
+
+                          <!--
+                          <div class=\"row\">
+                            <div class=\"col s12\" align=\"center\">
+                                <input type=\"submit\" class=\"btn btn-large notranslate search-button-mobile\" style=\"display:none;\" value=\"SÖK\"> 
+                            </div>                          
+                          </div>
+                          -->
+                          
                         </form>
-                    </div></div>  
+                    
+
+                    </div>  
                      
                      <div class=\"searchbuttons\"> 
                      <i class=\"infoSearch material-icons\">info</i> <i class=\"hide closeSearch material-icons\">cancel</i>
@@ -173,9 +189,9 @@ class NSRSearch
                          </div>
                       </div> 
                      
-                     <div id=\"searchResult\"></div>
+                      <div class=\"search-fetchPlanner\"></div>
+                      <div id=\"searchResult\"></div>
                      <div class=\"errorSortguide hide\"></div>
-                     <div class=\"search-fetchPlanner\"></div>
                      <div class=\"errorPages hide\"></div>
                      </div>
                      
