@@ -56,7 +56,7 @@ class App
     public function elasticPressSynonymMapping($mapping)
     {
 
-        //Get synonyms
+  //Get synonyms
         $synonyms = (array) get_field('elasticpress_synonyms', 'options');
 
         // Validate that we have data, if not. Exit.
@@ -84,7 +84,7 @@ class App
             'tokenizer'=>'standard',
             'filter'=>array('elasticpress_synonyms')
         );
-    
+
         //// Tell ES to use filter above by default
         //array_unshift($mapping['settings']['analysis']['analyzer']['default']['filter'], 'elasticpress_synonyms');
 
@@ -97,14 +97,14 @@ class App
 
         // Return new mapping settings
         return $mapping;
-    }
+        }
 
     /**
      * Adds synonyms wordlist options page
      */
     public function addSynonymsOptionsPage()
     {
-        if (!class_exists('EP_Modules') || !function_exists('acf_add_options_page')) {
+        if (!$this->isElasticPress() || !function_exists('acf_add_options_page')) {
             return;
         }
 
@@ -122,18 +122,7 @@ class App
      */
     public function isElasticPress()
     {
-        if (!class_exists('EP_Modules')) {
-            return false;
-        }
-
-        $modules = \EP_Modules::factory();
-        $activeModules = $modules->get_active_modules();
-
-        if (isset($activeModules['search'])) {
-            return true;
-        }
-
-        return false;
+        return (bool) defined('EP_URL');
     }
 
     /**
