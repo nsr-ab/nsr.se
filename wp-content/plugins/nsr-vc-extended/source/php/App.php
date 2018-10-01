@@ -231,8 +231,9 @@ class App
      {
         $todaysDate = date('Y-m-d');
         $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
+        $q = $_GET['query'];
         $q = preg_replace("/\s+/gi", " ", $q);
-        $q = trim($_GET['query']);
+        $q = trim($q);
         $post_type = trim($_GET['post_type']);
         
         // Only call on empty post_type or tomningskalender
@@ -320,6 +321,7 @@ class App
             return strcasecmp($a, $b);                
         });
 
+        $colData['q'] = $q;
         wp_send_json($colData);
         exit;
      }
