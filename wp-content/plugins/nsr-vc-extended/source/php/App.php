@@ -231,8 +231,8 @@ class App
      {
         $todaysDate = date('Y-m-d');
         $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
-        $q = $_GET['query'];
-        $q = preg_replace('/\s+/gi', ' ', $q);
+        $originalq = $_GET['query'];
+        $q = preg_replace('/\s+/gi', ' ', $originalq);
         $q = trim($q);
         $post_type = trim($_GET['post_type']);
         
@@ -321,6 +321,7 @@ class App
             return strcasecmp($a, $b);                
         });
 
+        $colData['q0'] = $originalq;
         $colData['q'] = $q;
         wp_send_json($colData);
         exit;
