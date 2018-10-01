@@ -232,7 +232,7 @@ class App
         $todaysDate = date('Y-m-d');
         $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
         $q = $_GET['query'];
-        $q = preg_replace("/\s+/gi", " ", $q);
+        $q = preg_replace('/\s+/gi', ' ', $q);
         $q = trim($q);
         $post_type = trim($_GET['post_type']);
         
