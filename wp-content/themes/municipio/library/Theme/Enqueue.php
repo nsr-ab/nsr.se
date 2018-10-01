@@ -187,7 +187,7 @@ class Enqueue
 
             $ga = "<script>
                         window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-                        ga('create','" . $gaUser . "','auto');ga('send','pageview')
+                        ga('create','" . $gaUser . "','auto');ga('send','pageview');ga('set', 'anonymizeIp', true);
                     </script>";
 
             return $ga . str_replace(' src', ' async defer src', $tag);
