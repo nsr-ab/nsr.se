@@ -231,10 +231,8 @@ class App
      {
         $todaysDate = date('Y-m-d');
         $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
-        $originalq = $_GET['query'];
-        $q = preg_replace('/\s+/i', ' ', $originalq);
-        $q = trim($q);
-        $post_type = trim($_GET['post_type']);
+        $q = $_GET['query'];
+        $post_type = $_GET['post_type'];
         
         // Only call on empty post_type or tomningskalender
         if (!($post_type == "" || $post_type == "all" || $post_type == "tomningskalender")) {
@@ -321,8 +319,6 @@ class App
             return strcasecmp($a, $b);                
         });
 
-        $colData['q0'] = $originalq;
-        $colData['q'] = $q;
         wp_send_json($colData);
         exit;
      }
@@ -424,10 +420,7 @@ class App
      */
     public function fetchDataFromElasticSearch()
     {
-        $q = trim($_GET['query']);
-        $post_type = trim($_GET['post_type']);
-        $post_section = trim($_GET['post_section']);
-        $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array('query' => $q, 'limit' => $_GET['limit'], 'post_type' => $post_type, 'section' => $post_section));
+        $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array('query' => $_GET['query'], 'limit' => $_GET['limit'], 'post_type' => $_GET['post_type'], 'section' => $_GET['post_section']));
 
         $int = 0;
         if ($result['content']) {
