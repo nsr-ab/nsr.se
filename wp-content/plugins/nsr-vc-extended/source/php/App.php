@@ -490,6 +490,8 @@ class App
                 $month++;
             }
         }
+
+        header('Content-Disposition: filename="tomningskalender.pdf"');
         $pdf->Output();
 
         exit;  

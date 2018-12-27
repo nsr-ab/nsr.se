@@ -65,63 +65,6 @@ class FPDFCalendar extends FPDF
         return GregorianToJD($month, $day, $year);
     }
 
-    /*
-    function isHoliday($date) {
-        $this->JDtoYMD($date, $year, $month, $day);
-        if ($month == 7 && $day == 4)
-            return "Independence Day";
-        if ($month == 1 && $day == 1)
-            return "New Year's Day";
-        if ($month == 12 && $day == 25)
-            return "Christmas";
-        if ($month == 11)
-            {
-            $dow = gmdate("w", jdtounix($date));
-            if ($day == 11 && $dow > 0 && $dow < 6) // does the eleventh fall on a weekday?
-                return "Veteran's Day";
-            if ($dow == 1 && ($day == 12 || $day == 13))
-                return "Veteran's Day";
-            }
-        if ($this->isWeekHoliday($date, 4, 4, 11)) // thursday of the fourth week of November
-            return "Thanksgiving";
-        if ($this->isWeekHoliday($date, 1, 3, 1))
-            return "MLK, Jr. Day";
-        if ($this->isWeekHoliday($date, 1, 3, 2))
-            return "President's Day";
-        if ($this->isWeekHoliday($date, 2, 1, 11))
-            return "Election Day";
-        if ($this->isWeekHoliday($date, 1, 1, 9))
-            return "Labor Day";
-        if ($this->isWeekHoliday($date, 1, 2, 10))
-            return "Columbus Day";
-        if ($this->isWeekHoliday($date, 1, 99, 5))
-            return "Memorial Day";
-        if ($this->isWeekHoliday($date, 0, 2, 5))
-            return "Mother's Day";
-        if ($this->isWeekHoliday($date, 0, 3, 6))
-            return "Father's Day";
-        return "";
-    }
-    */
-
-    /*
-    function isWeekHoliday($date, $dayOfWeek, $weekOfMonth, $monthOfDate) {
-        $this->JDtoYMD($date, $year, $month, $day);
-        if ($monthOfDate != $month)
-            return 0;
-        $jd = jdtounix($date);
-        $dow = gmdate("w", $jd);
-        if ($dow != $dayOfWeek)
-        return 0;
-        $daysInMonth = gmdate("t", $jd);
-        if ($weekOfMonth > 5 && $day + 6 > $daysInMonth)
-            return 1;
-        if ($day > ($weekOfMonth - 1) * 7 && $day <= ($weekOfMonth * 7))
-            return 1;
-        return 0;
-    }
-    */
-
     function tinyCalendar($date, $square) {
         $this->JDtoYMD($date, $year, $month, $day);
 
@@ -141,7 +84,8 @@ class FPDFCalendar extends FPDF
         $this->SetXY($x, $y);
         $this->SetFontSize(8);
         for ($i = 1; $i <= 7; ++$i) {
-            $day = strtoupper(gmdate("l", jdtounix($this->MDYtoJD(12,$i,2008))));
+            //$day = strtoupper(gmdate("l", jdtounix($this->MDYtoJD(12,$i,2008))));
+            $day = strtoupper(substr(utf8_decode($this->weekdays[ gmdate("N", jdtounix($this->MDYtoJD(12,$i,2008))) - 1]), 0, 1));
             $this->Cell($square, $square, $day[0], 0,0,"C");
         }
         $y += $square;
@@ -157,36 +101,6 @@ class FPDFCalendar extends FPDF
             $this->SetXY($x, $y);
         }
     }
-
-    function printDay($date) {
-        $this->JDtoYMD($date,$year,$month,$day);
-        if ($month == 1 && $day == 10){
-            $this->SetXY($this->x, $this->y + $this->squareHeight / 2);
-            $this->SetFont("Arial", "B", 10);
-            $this->Cell($this->squareWidth,5,"Happy Birthday!", 0,0, "C");
-        }
-    }
-
-    /*
-    function printHoliday($date) {
-        $x = $this->x;
-        $y = $this->y;
-        $height = 5.5;
-        if ($this->squareHeight < 50)
-            $height = 4;
-        $widthPercent = .92;
-        $fontSize = 11;
-        $holiday = $this->isHoliday($date);
-        if (strlen($holiday)) {
-            $wd = gmdate("w",jdtounix($date));
-            if ($wd != 0 && $wd != 6)
-                $this->Cell($this->squareWidth, $this->squareHeight, "", 0, 0, "", true);
-            $this->SetXY($x + $this->squareWidth * (1-$widthPercent)/2,$y + $this->squareHeight * 0.83);
-            $this->SetFont("Helvetica", "B", $fontSize);
-            $this->Cell($this->squareWidth * $widthPercent,$height,$holiday, 0, 0, "C");
-        }
-    }
-    */
 
     function printMonth($date, $bydate=array()) {
         $this->date = $date;
