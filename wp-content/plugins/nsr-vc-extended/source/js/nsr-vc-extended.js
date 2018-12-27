@@ -671,6 +671,11 @@ VcExtended.NSRExtend.Extended = (function($) {
                             $fprow += '<tr id="' + post.id + '" class="tabDesk">';
                             $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
                             $fprow += '<div><b class="">' + post.Ort + '</b></div>';
+
+                            // This is how you call iCalendar and PDF generators
+                            $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query='+encodeURIComponent(result.q)+'&level=ajax&type=json&calendar_type=ical&id='+encodeURIComponent(post.id)+'"><h4>ical</h4></a>';
+                            $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query='+encodeURIComponent(result.q)+'&level=ajax&type=json&calendar_type=pdf&id='+encodeURIComponent(post.id)+'"><h4>pdf</h4></a>';
+
                             $fprow += '</td><td style="padding-top:15px;">';
                             $fprow += $avfall + '</td><td>' + $nextDate;
 

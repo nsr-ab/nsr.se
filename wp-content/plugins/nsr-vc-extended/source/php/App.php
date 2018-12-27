@@ -92,15 +92,47 @@ class App
         /**
          * Enqueue Scripts
          */
-        if (!class_exists('Enqueue')) {
+         if (!class_exists('Enqueue')) {
             new \VcExtended\Library\Enqueue();
         }
+
+        // ZapCal classes
+        if (!class_exists('ZDateHelper')) {
+            new \VcExtended\Library\ZapCal\ZDateHelper();
+        }
+        if (!class_exists('ZCiCalDataNode')) {
+            new \VcExtended\Library\ZapCal\ZCiCalDataNode();
+        }
+        if (!class_exists('ZCiCalNode')) {
+            new \VcExtended\Library\ZapCal\ZCiCalNode();
+        }
+        if (!class_exists('ZCRecurringDate')) {
+            new \VcExtended\Library\ZapCal\ZCRecurringDate();
+        }
+        if (!class_exists('ZCTimeZoneHelper')) {
+            new \VcExtended\Library\ZapCal\ZCTimeZoneHelper();
+        }
+        if (!class_exists('ZCiCal')) {
+            new \VcExtended\Library\ZapCal\ZCiCal();
+        }
+
+        // FPDF
+        if (!class_exists('FPDF')) {
+            new \VcExtended\Library\FPDF\FPDF();
+        }
+        if (!class_exists('FPDFCalendar')) {
+            new \VcExtended\Library\FPDF\FPDFCalendar();
+        }
+        
+
         add_action('wp_ajax_nopriv_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
         add_action('wp_ajax_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
         add_action('wp_ajax_nopriv_fetchDataFromFetchPlanner', array($this, 'fetchDataFromFetchPlanner'));
         add_action('wp_ajax_fetchDataFromFetchPlanner', array($this, 'fetchDataFromFetchPlanner'));
         add_action('wp_ajax_nopriv_fetchDataFromFetchPlannerCombined', array($this, 'fetchDataFromFetchPlannerCombined'));
         add_action('wp_ajax_fetchDataFromFetchPlannerCombined', array($this, 'fetchDataFromFetchPlannerCombined'));
+        add_action('wp_ajax_nopriv_fetchDataFromFetchPlannerCalendar', array($this, 'fetchDataFromFetchPlannerCalendar'));
+        add_action('wp_ajax_fetchDataFromFetchPlannerCalendar', array($this, 'fetchDataFromFetchPlannerCalendar'));
     }
 
     /**
@@ -224,22 +256,11 @@ class App
     }
 
     /**
-     *  fetchDataFromFetchPlannerCombined
+     *  fetchDataFromFetchPlannerInternal
      *  Get data from Fetchplanners API
      */
-     public function fetchDataFromFetchPlannerCombined()
+     private function fetchDataFromFetchPlannerInternal($from, $to, $q, $post_type, $maxcount=10)
      {
-        $todaysDate = date('Y-m-d');
-        $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
-        $q = $_GET['query'];
-        $post_type = $_GET['post_type'];
-        
-        // Only call on empty post_type or tomningskalender
-        if (!($post_type == "" || $post_type == "all" || $post_type == "tomningskalender")) {
-            wp_send_json(array('fp'=>array()));
-            exit;
-        }
-
         // Turn 3B into 3 B
         $qp = explode(" ", $q);
         if (count($qp) > 1 && preg_match('!^([0-9]+)([A-Za-z])$!', $qp[count($qp)-1], $m) && count($m) == 3) {
@@ -249,11 +270,18 @@ class App
             $q = implode(" ", $qp);
         }
 
+        // Only call on empty post_type or tomningskalender
+        if (!($post_type == "" || $post_type == "all" || $post_type == "tomningskalender")) {
+            return array('fp'=>array(), 'q'=>$q);
+            exit;
+        }
+        
         $data = self::fetchPlansByCurl('/GetContainerCalendarDataByPickupName?pickupName=' .
-            trim(urlencode($q)) . '&dateStart=' . $todaysDate . '&dateEnd=' . $stopDate . '&maxCountCalendarPerContainer=10');
+            trim(urlencode($q)) . '&dateStart=' . $todaysDate . '&dateEnd=' . $stopDate . '&maxCountCalendarPerContainer=' . $maxcount);
 
         $int = 0;
         $colData['fp'] = array();
+        $colData['q'] = $q;
         $idToIndex = array();
         $dupIdTypDate = array();
 
@@ -319,11 +347,154 @@ class App
             return strcasecmp($a, $b);                
         });
 
-        wp_send_json($colData);
-        exit;
+        return $colData;
      }
 
      
+    public function fetchDataFromFetchPlannerCombined() {
+        $todaysDate = date('Y-m-d');
+        $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
+        $q = $_GET['query'];
+        $post_type = $_GET['post_type'];
+
+        $colData  = $this->fetchDataFromFetchPlannerInternal($todaysDate, $stopDate, $q, $post_type);
+        return wp_send_json($colData);
+    }
+
+    private function sendEmptyCalendar($calendar_type) {
+        if ($calendar_type == "ical") {
+            $icalobj = new \VcExtended\Library\ZapCal\ZCiCal();          
+            header('Content-Disposition: filename="tomningskalender.ics"');
+            header("Content-Type: Text/Calendar");
+            echo $icalobj->export();
+            exit;    
+        }
+
+        echo "<h4>Ingen kalender kunde genereras för denna tömningsplats.</h4>";
+        exit;
+    }
+
+    public function fetchDataFromFetchPlannerCalendar() {
+        $todaysDate = date('Y-m-d');
+        $stopDate = date("Y-m-d", strtotime("$todaysDate +365 days"));
+        $q = $_GET['query'];
+        $post_type = $_GET['post_type'];
+        $calendar_type = ($_GET['calendar_type'] == "ical") ? "ical" : "pdf";
+        $id = isset($_GET['id']) ? $_GET['id'] : "";
+
+        $colData  = $this->fetchDataFromFetchPlannerInternal($todaysDate, $stopDate, $q, $post_type, 100);
+
+        if (!$colData || !isset($colData['fp']) || !count($colData['fp'])) {
+            $this->sendEmptyCalendar($calendar_type);
+            exit;
+        }
+
+        $exec = null;
+        $title = "";
+        do {
+            $post = @array_shift($colData['fp']);
+            if ($post && isset($post['Exec']) && ($id == "" || $id == $post['id'])) {
+                for ($i=0 ; $i<count($post['Exec']['AvfallsTyp']) ; $i++) {
+                    if (strlen($post['Exec']['AvfallsTyp'][$i]) >= 1) {
+                        $exec = $post['Exec'];
+                        $title = $post['Adress'] . ', ' . $post['Ort'];
+                        break;
+                    }
+                }
+            }
+        } while ($exec == null && count($colData['fp']) > 0);
+
+        if (!$exec) {
+            $this->sendEmptyCalendar($calendar_type);
+            exit;
+        }
+
+        $results = array();
+        $dub = array();
+        for ($avint = 0; $avint < count($exec['AvfallsTyp']); $avint++) {
+          //  echo "<pre>$avint " . $exec['Datum'][$avint] . " ". $exec['AvfallsTyp'][$avint] ."</pre>";
+
+            if (strtotime($exec['Datum'][$avint]) >= strtotime($todaysDate) && $exec['AvfallsTyp'][$avint] != "") {
+                $k = $exec['AvfallsTyp'][$avint] . ' ' . $exec['Datum'][$avint];
+                if (!isset($dub[$k])) {
+                    $dub[$k] = 1;
+                    $results[] = array('Datum'=>$exec['Datum'][$avint], 'AvfallsTyp'=>$exec['AvfallsTyp'][$avint]);
+                }
+            }
+        }
+
+        if (!count($results)) {
+            $this->sendEmptyCalendar($calendar_type);
+            exit;
+        }
+
+        //
+        // ICAL
+        //
+        if ($calendar_type == "ical") {
+            $icalobj = new \VcExtended\Library\ZapCal\ZCiCal();
+            $index = 1;
+            foreach ($results as $result) {            
+                $eventobj = new \VcExtended\Library\ZapCal\ZCiCalNode("VEVENT", $icalobj->curnode);
+                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("SUMMARY:" . $result['AvfallsTyp']));
+                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTART:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'])));
+                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTEND:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'])));
+                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("UID:" . date('Y-m-d-H-i-s') . "@nsr.se" . "#" . ($index++)));
+                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTAMP:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime()));
+                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("Description:" . \VcExtended\Library\ZapCal\ZCiCal::formatContent($result['AvfallsTyp'] . " - " . $title)));
+            }
+        
+            header('Content-Disposition: filename="tomningskalender.ics"');
+            header("Content-Type: Text/Calendar");
+            echo $icalobj->export();
+            exit;
+        }
+
+        //
+        // PDF
+        //
+        $bydate = array();
+        $lastyear = 0;
+        $lastmonth = 0;
+        foreach ($results as $v) {
+            $d = $v['Datum'];
+            $a = $v['AvfallsTyp'];
+            if (!isset($bydate[$d]))
+                $bydate[$d] = "";
+            $bydate[$d] .= $a . "\n";
+
+            $y = (int)substr($d, 0, 4);
+            $m = (int)substr($d, 5, 2);
+            if (!$lastyear || !$lastmonth || $lastyear < $y || ($lastyear == $y && $lastmonth < $m)) {
+                $lastyear = $y;
+                $lastmonth = $m;
+            }
+        }
+
+        $pdf = new \VcExtended\Library\FPDF\FPDFCalendar("L", "A4");
+        $pdf->SetMargins(7,7);
+        $pdf->SetAutoPageBreak(false, 0);
+        $pdf->SetFillColor(190,190,250);
+        $year = (int)gmdate("Y");
+        $month = (int)gmdate("m");
+        for ($monthi = 0; $monthi <= 12; $monthi++) {
+            $date = $pdf->MDYtoJD($month, 1, $year);
+            $pdf->printMonth($date, $bydate);
+            if ($year == $lastyear && $month == $lastmonth)
+                break;
+            if ($month == 12) {
+                $month = 1;
+                $year++;
+            }
+            else {
+                $month++;
+            }
+        }
+        $pdf->Output();
+
+        exit;  
+    }
+
     /**
      *  fetchDataFromFetchPlanner
      *  Get data from Fetchplanners API
@@ -543,10 +714,8 @@ class App
 
         }
 
-
-
-
-        wp_send_json($result);
-        exit;
-    }
+         wp_send_json($result);
+         exit;
+     }
+ 
 }
