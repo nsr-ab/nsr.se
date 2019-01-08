@@ -68,7 +68,6 @@ class QueryElastic
         add_filter('ep_fuzziness_arg', 'themeslug_deactivate_ep_fuzziness');
         add_filter('ep_config_mapping', array($this, 'elasticPressSynonymMapping'));
         */
-
         $q = sanitize_text_field($data['query']);
         $post_type = sanitize_text_field($data['post_type']);
         //$post_section = sanitize_text_field($data['post_section']);
@@ -90,8 +89,13 @@ class QueryElastic
 
         $q = mb_strtolower(trim($q));
         $q = preg_replace("/\s+/", " ", $q);
+        $titlesort = false;
 
-        if (mb_strlen($q) <= 3) {
+        if (mb_strlen($q) == 2 && mb_substr($q, 1, 1) == "*") {
+            $rq = "";
+            $titlesort = true;
+        }
+        else if (mb_strlen($q) <= 3) {
             $rq = $q;
         }
         else {
@@ -108,13 +112,14 @@ class QueryElastic
             'ep_integrate' => true,
             's' => $q,
             'fuzziness'=>0,
-            'posts_per_page' => 20,
+            'posts_per_page' => $titlesort ? 100 : 20,
             'post_type' => 'sorteringsguide',
             'cache_results' => false
         ));
 
         $sortGuidePosts = $querySortGuide->posts;
-        if (count($querySortGuide) < 8) {
+
+        if (count($querySortGuide) < 8 && !$titlesort) {
             $querySortGuideFuzzy = new \WP_Query(array(
                 'ep_integrate' => true,
                 's' => $q,
@@ -127,76 +132,10 @@ class QueryElastic
             $sortGuidePosts = \VcExtended\Library\Search\ElasticSearch::mergeResults($sortGuidePosts, $querySortGuideFuzzy->posts);
         }
 
-        /*
-        $querySortGuide = new \WP_Query(array(
-            'ep_integrate' => true,
-            's' => $q,
-            'query' => array(
-                'bool' => array(
-                    // Match keywords
-                    'must' => array(
-                        array(
-                            'multi_match' => array(
-                                'query' => $q,
-                                'fuzziness' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q, 12),
-                                'fields' => array(
-                                    'post_title^7',
-                                    'post_content^3',
-                                    'terms.post_tag.name^4'
-                                )
-                            )
-                        )
-                    ),
-                    // Match full query
-                    'should' => array(
-                        array(
-                            'multi_match' => array(
-                                'query' => $q,
-                                'fields' => array(
-                                    'post_title^7',
-                                    'post_content^3'
-                                ),
-                                'type' => 'phrase'
-                            )
-                        ),
-                    )
-                )
-            ),
-            'fuzziness' => \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q, 12),
-            'fields' => array(
-                'post_title^7',
-                'postmeta.meta_value',
-                'meta' => array('synonym', '_synonym'),
-                'analyzer' => 'elasticpress_synonyms'
-            ),
+        if ($titlesort) {
+            $sortGuidePosts = \VcExtended\Library\Search\ElasticSearch::sortByTitle($sortGuidePosts, $q);
+        }
 
-            'posts_per_page' => 100,
-            'post_type' => 'sorteringsguide',
-            'cache_results' => false
-        ));
-        */
-
-
-        //print_r($querySortGuide);
-        //exit;
-/*
-        $query = new \WP_Query(array(
-            'ep_integrate' => true,
-            's' => $q,
-
-            'simple_query_string' => array(
-                'fields' => array('post_title^7', 'post_content^3', 'taxonomies^3'),
-                'query' => $q . '~' . \VcExtended\Library\Search\ElasticSearch::fuzzynessSize($q),
-                'analyzer' => 'elasticpress_synonyms'
-            ),
-
-            'orderby' => 'relevance',
-            'posts_per_page' => $limit,
-            'post_status' => $postStatuses,
-            'post_type' => str_replace("sorteringsguide", "", $post_types),
-            'cache_results' => false
-        ));
-*/
         $contentPosts = array();
         if ($post_type != "sorteringsguide") {
             $query = new \WP_Query(array(
@@ -212,25 +151,27 @@ class QueryElastic
             $contentPosts = $query->posts;
         }
 
-        $rquery = new \WP_Query(array(
-            'ep_integrate' => true,
-            's' => $rq,
-            'fuzziness'=>1,
-            'orderby' => 'relevance',
-            'posts_per_page' => 5,
-            'post_status' => $postStatuses,
-            'cache_results' => false
-        ));
+        if ($rq != "") {
+            $rquery = new \WP_Query(array(
+                'ep_integrate' => true,
+                's' => $rq,
+                'fuzziness'=>1,
+                'orderby' => 'relevance',
+                'posts_per_page' => 5,
+                'post_status' => $postStatuses,
+                'cache_results' => false
+            ));
 
-        if (!count($rquery->posts)) {
-            return array('sortguide'=>array(), 'content'=>array());
+            if (!count($rquery->posts)) {
+                return array('sortguide'=>array(), 'content'=>array());
+            }
         }
 
         return array(
             //'rq'=>$rq,
             //'rcontent' => array_slice($rquery->posts, 0, 10),
-            'content' => array_slice($contentPosts, 0, 10),
-            'sortguide' => array_slice($sortGuidePosts, 0, 10),
+            'content' => array_slice($contentPosts, 0, $limit),
+            'sortguide' => array_slice($sortGuidePosts, 0, $limit),
          );
 
 

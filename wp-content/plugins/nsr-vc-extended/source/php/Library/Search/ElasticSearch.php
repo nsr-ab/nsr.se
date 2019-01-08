@@ -291,4 +291,27 @@ class Elasticsearch
 
         return $out;
     }
+
+
+    /**
+     * Sorts results by title and enforces first character is the one specified
+     * @param  array $set1 Set of posts
+     * @return array Sorted and filtered set of posts
+     */
+     public function sortByTitle($set, $first=null) {
+        $out = array();
+        $seen = array();
+
+        usort ($set, function ($a, $b) {
+            return strcmp(mb_strtolower($a->post_title), strtolower($b->post_title));
+        });
+
+        foreach ($set as $e) {
+            if (!$first || mb_strtolower(mb_substr($e->post_title, 0, 1)) == mb_strtolower(mb_substr($first, 0, 1))) {
+                $out[] = $e;
+            }
+        }
+
+        return $out;
+    }
 }
