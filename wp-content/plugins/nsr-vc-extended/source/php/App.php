@@ -242,6 +242,8 @@ class App
             return 'SLAM';
         if ($defenition == 'Slam' && $jobtemplate == "Kampanjtömning")
             return 'SLAM';
+        if ($defenition == 'Slam')
+            return 'SLAM';
 
         if ($jobtemplate == "Mjukplast")
             return 'MJUKPLAST';
