@@ -650,39 +650,39 @@ VcExtended.NSRExtend.Extended = (function($) {
 
                 if (post.hasOwnProperty('Exec')) {
 
-                    if (post.Exec.AvfallsTyp[0] || post.Exec.AvfallsTyp[1]) {
-
-                        if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
-                            foundRows = true;
-
-                            for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
-                                if (post.Exec.Datum[avint] >= jsdate) {
-                                    if (!$dub.indexOf(post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint]) > -1) {
-                                        $dub['avfall'] = post.Exec.AvfallsTyp[avint];
-                                        $avfall += '<span class="badge">' + post.Exec.AvfallsTyp[avint] + '</span><br /> ';
-                                        //$weeks += post.Exec.DatumWeek[avint] + '<br />';
-                                        $dub['nDate'] = post.Exec.AvfallsTyp[avint];
-                                        $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
-                                        $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
-                                    }
+                    var foundRowsInThis = false;
+                    for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
+                        if (post.Exec.AvfallsTyp != false) {
+                            if (post.Exec.Datum[avint] >= jsdate) {
+                                if (!$dub.indexOf(post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint]) > -1) {
+                                    foundRows = true;
+                                    foundRowsInThis = true;
+                                    $dub['avfall'] = post.Exec.AvfallsTyp[avint];
+                                     $avfall += '<span class="badge">' + post.Exec.AvfallsTyp[avint] + '</span><br /> ';
+                                    //$weeks += post.Exec.DatumWeek[avint] + '<br />';
+                                    $dub['nDate'] = post.Exec.AvfallsTyp[avint];
+                                    $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
+                                    $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
                                 }
                             }
-
-                            $fprow += '<tr id="' + post.id + '" class="tabDesk">';
-                            $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
-                            $fprow += '<div><b class="">' + post.Ort + '</b></div>';
-
-                            // This is how you call iCalendar and PDF generators
-                            $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query='+encodeURIComponent(result.q)+'&level=ajax&type=json&calendar_type=ical&id='+encodeURIComponent(post.id)+'"><h4>ical</h4></a>';
-                            $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query='+encodeURIComponent(result.q)+'&level=ajax&type=json&calendar_type=pdf&id='+encodeURIComponent(post.id)+'"><h4>pdf</h4></a>';
-
-                            $fprow += '</td><td style="padding-top:15px;">';
-                            $fprow += $avfall + '</td><td>' + $nextDate;
-
-                            $fpMobRow += '<tr class="fpthmob"><th colspan="2"><i class="material-icons">date_range</i> <span><strong> ' + post.Adress + '</span>, <span>' + post.Ort + '</span></strong></th></tr>';
-                            $fpMobRow += '<tr><th>Kärl</th><th>Nästa tömning</th></tr>';
-                            $fpMobRow += '<tr><td style="padding-top:15px;">' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
                         }
+                    }
+
+                    if (foundRowsInThis) {
+                        $fprow += '<tr id="' + post.id + '" class="tabDesk">';
+                        $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
+                        $fprow += '<div><b class="">' + post.Ort + '</b></div>';
+
+                        // This is how you call iCalendar and PDF generators
+                        $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query='+encodeURIComponent(result.q)+'&level=ajax&type=json&calendar_type=ical&id='+encodeURIComponent(post.id)+'"><h4>ical</h4></a>';
+                        $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query='+encodeURIComponent(result.q)+'&level=ajax&type=json&calendar_type=pdf&id='+encodeURIComponent(post.id)+'"><h4>pdf</h4></a>';
+
+                        $fprow += '</td><td style="padding-top:15px;">';
+                        $fprow += $avfall + '</td><td>' + $nextDate;
+
+                        $fpMobRow += '<tr class="fpthmob"><th colspan="2"><i class="material-icons">date_range</i> <span><strong> ' + post.Adress + '</span>, <span>' + post.Ort + '</span></strong></th></tr>';
+                        $fpMobRow += '<tr><th>Kärl</th><th>Nästa tömning</th></tr>';
+                        $fpMobRow += '<tr><td style="padding-top:15px;">' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
 
                         $fprow += '</td></tr>';
                     }

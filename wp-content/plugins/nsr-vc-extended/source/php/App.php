@@ -207,9 +207,65 @@ class App
      * @param string
      * @return string
      */
-    public static function getFpDefenitions($defenition)
+    public static function getFpDefenitions($defenition, $jobtemplate)
     {
-        $retVal = array('KÄRL 1', 'KÄRL 2', 'TVÅDELAT KÄRL', 'TRÄDGÅRDSAVFALL', 'RESTAVFALL', false);
+        if ($jobtemplate == "Extra tömning")
+            $jobtemplate = "Tömning";
+
+        // Bjuv/Åstorp
+        if ($defenition == 'Mat+Rest+Hp+Fg' && $jobtemplate == "Tömning")    //(Töms normalt varannan vecka)
+            return 'KÄRL 1';
+        if ($defenition == 'Ti+Pf+Me+Og' && $jobtemplate == "Tömning")    //(Töms normalt var fjärde vecka)
+            return 'KÄRL 2';
+
+        // Båstad/Ängelholm
+        if ($defenition == 'Mat+Rest+Me+Hp' && $jobtemplate == "Tömning")    //(Töms normalt varannan vecka)
+            return 'KÄRL 1';
+        if ($defenition == 'Ti+Pf+Fg+Og' && $jobtemplate == "Tömning")    //(Töms normalt var fjärde vecka)
+            return 'KÄRL 2';
+
+        // Helsingborg
+        if ($defenition == 'Mat+Rest+Pf+Fg' && $jobtemplate == "Tömning")    //(Töms normalt varannan vecka)
+            return 'KÄRL 1';
+        if ($defenition == 'Me+Og+Ti+Plast' && $jobtemplate == "Tömning")    //(Töms normalt var fjärde vecka)
+            return 'KÄRL 2';
+
+        if ($defenition == 'Mat+Rest' && $jobtemplate == "Tömning")
+            return 'TVÅDELAT KÄRL';
+        if ($defenition == 'Trädgårdsavfall' && $jobtemplate == "Tömning")
+            return 'TRÄDGÅRDSAVFALL';
+        if ($defenition == 'Restavfall' && $jobtemplate == "Tömning")
+            return 'RESTAVFALL';
+        if ($defenition == 'Slam' && $jobtemplate == "Tömning")
+            return 'SLAM';
+        if ($defenition == 'Slam' && $jobtemplate == "Fast 7 dagars")
+            return 'SLAM';
+        if ($defenition == 'Slam' && $jobtemplate == "Kampanjtömning")
+            return 'SLAM';
+
+        if ($jobtemplate == "Mjukplast")
+            return 'MJUKPLAST';
+        if ($jobtemplate == "Grovsopor")
+            return 'GROVSOPOR';
+        if ($jobtemplate == "Röd box")
+            return 'RÖD BOX';
+
+        if ($defenition == 'Slam kampanj' || $jobtemplate == "Slam kampanj")
+            return 'SLAM';
+        if ($defenition == 'Slam fast 7 dagars' || $jobtemplate == "Slam fast 7 dagars")
+            return 'SLAM';
+        if ($defenition == 'Slam budad 7 dagar' || $jobtemplate == "Slam budad 7 dagar")
+            return 'SLAM';
+        if ($defenition == 'Slam budad 2 dagar' || $jobtemplate == "Slam budad 2 dagar")
+            return 'SLAM';
+        if ($defenition == 'Slam akut' || $jobtemplate == "Slam akut")
+            return 'SLAM';
+        if ($defenition == 'Slam akut nästa arbetsdag' || $jobtemplate == "Slam akut nästa arbetsdag")
+            return 'SLAM';
+
+            
+        /*
+        $retVal = array('KÄRL 1', 'KÄRL 2', 'TVÅDELAT KÄRL', 'TRÄDGÅRDSAVFALL', 'RESTAVFALL', 'SLAM', false);
         switch ($defenition) {
             // Bjuv/Åstorp
             case 'Mat+Rest+Hp+Fg':
@@ -249,10 +305,16 @@ class App
             case "Restavfall":
                 $type = $retVal[4];
                 break;
-            default:
+            case "Slam":
                 $type = $retVal[5];
+                break;
+            default:
+                $type = $retVal[6];
         }
         return $type;
+        */
+
+        return false;
     }
 
     /**
@@ -312,7 +374,7 @@ class App
             foreach ($item->Calendars as $cal) {
                 $date = self::setDateFormat($cal->ExecutionDate);
                 $datetime = new \DateTime($date);
-                $typ = self::getFpDefenitions($item->ContentTypeCode);
+                $typ = self::getFpDefenitions($item->ContentTypeCode, $cal->JobTemplate);
 
                 if (isset($dupIdTypDate[$fpId . $typ . $date]))
                     continue;
