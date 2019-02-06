@@ -577,84 +577,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
         this.sortGuideResult(element, res);
         this.sortPagesResult(element, res);
 
-<<<<<<< HEAD
         if (window.navigator.geolocation) {
             $('.search-autocomplete-data .preloader-wrapper').fadeIn("slow");
             window.navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
-=======
-            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Nästa tömning</th></tr>';
-            $fpMobRow += '<table class="fp-table-mobile">';
-
-            var jsdate = new Date().toISOString().slice(0, 10);
-            var dateExp = false;
-
-            $.each(result.fp, function(index, post) {
-
-                var $dub = [];
-                var $avfall = '';
-                var $weeks = '';
-                var $nextDate = '';
-
-                $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('valid');
-
-                if (post.hasOwnProperty('Exec')) {
-
-                    if (post.Exec.AvfallsTyp[0] || post.Exec.AvfallsTyp[1]) {
-
-                        if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
-                            foundRows = true;
-
-                            for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
-                                if (post.Exec.Datum[avint] >= jsdate) {
-                                    if (!$dub.indexOf(post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint]) > -1) {
-                                        $dub['avfall'] = post.Exec.AvfallsTyp[avint];
-                                        $avfall += '<span class="badge">' + post.Exec.AvfallsTyp[avint] + '</span><br /> ';
-                                        //$weeks += post.Exec.DatumWeek[avint] + '<br />';
-                                        $dub['nDate'] = post.Exec.AvfallsTyp[avint];
-                                        $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
-                                        $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
-                                    }
-                                }
-                            }
-
-                            $fprow += '<tr id="' + post.id + '" class="tabDesk">';
-                            $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
-                            $fprow += '<div><b class="">' + post.Ort + '</b></div>';
-
-                            // This is how you call iCalendar and PDF generators
-                            $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query='+encodeURIComponent(result.q)+'&level=ajax&type=json&calendar_type=ical&id='+encodeURIComponent(post.id)+'"><h4>ical</h4></a>';
-                            $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query='+encodeURIComponent(result.q)+'&level=ajax&type=json&calendar_type=pdf&id='+encodeURIComponent(post.id)+'"><h4>pdf</h4></a>';
-
-                            $fprow += '</td><td style="padding-top:15px;">';
-                            $fprow += $avfall + '</td><td>' + $nextDate;
-
-                            $fpMobRow += '<tr class="fpthmob"><th colspan="2"><i class="material-icons">date_range</i> <span><strong> ' + post.Adress + '</span>, <span>' + post.Ort + '</span></strong></th></tr>';
-                            $fpMobRow += '<tr><th>Kärl</th><th>Nästa tömning</th></tr>';
-                            $fpMobRow += '<tr><td style="padding-top:15px;">' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
-                        }
-
-                        $fprow += '</td></tr>';
-                    }
-                }
-
-                dateExp = false;
-
-            });
-            $fprow += '</table>';
-            $fpMobRow += '</table>';
-        }
-
-        /* No result ..... */
-        if (typeof result.fp != 'undefined' && result.fp !== null) {
-            if (result.fp.length === 0 || !foundRows) {
-                $fprow = '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p>';
-                $('.search-fetchPlanner').detach().insertAfter(".errorSortguide");
-            } else {
-                $('.search-fetchPlanner').detach().insertBefore(".errorSortguide");
-            }
-        } else {
-            $('.search-fetchPlanner').detach().insertAfter(".errorSortguide");
->>>>>>> e1e3a9bb640a88f930f16c687f582afef917dc28
         }
         $('#nsr-searchResult').removeClass('hide');
     };
