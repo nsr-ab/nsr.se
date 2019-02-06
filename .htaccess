@@ -1,0 +1,40 @@
+## BEGIN WordPress
+
+# WP Multisite
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+
+# add a trailing slash to /wp-admin
+RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ $1wp-admin/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) wp/$2 [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ wp/$2 [L]
+RewriteRule . index.php [L]
+
+#RewriteRule ^(/.*|$) /$1 [NC,L]
+#RewriteRule ^wp(/.*|$) /$1 [NC,L]
+# END WordPress
+
+
+# Secutiry rules & Wordpress default configuration.
+
+# Admin redirect
+#RedirectMatch 301 /admin/(.*) /wp/wp-admin/$1
+
+#<IfModule mod_rewrite.c>
+#    RewriteEngine On
+
+#    RewriteCond %{HTTP_HOST} .*nsr.se.*
+#    RewriteCond %{HTTPS} on
+#    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#</ifModule>
+
+php_value upload_max_filesize 200M
+php_value post_max_size 200M
+php_value max_execution_time 300
+php_value max_input_time 300

@@ -7,33 +7,41 @@
         transition-timing-function: ease;
         transition: 0.8s;
     }
+    @media only screen and (max-width: 1000px) {
+        background-color: darken($palette-primary-grey-input, 1%);
+    }
 
-    max-width: 530px;
-    min-width: 530px;
     width: 100%;
-    padding-top: 8px;
 
     nav {
-        background-color: $palette-primary-white;
-        transition: box-shadow .25s;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        background-color: transparent;
+        box-shadow: none;
         border-radius: 2px;
-        height: 90px;
-        padding: 15px 20px;
+        margin-top: -15px;
+
+        top: 36px;
+        left: 216px;
         width: 100%;
+        display: flex;
+        align-items: flex-end;
     }
 
     nav ul li.active {
-        background-color: $palette-primary-white;
+        color: $palette-primary-white;
     }
 
     a {
+        display: flex;
         text-decoration: underline;
         line-height: 20px;
         font-size: 1.0rem;
         font-weight: 400;
         text-align: left;
 
+        height: 70px;
+        align-items: center;
+        color: $palette-primary-white;
+        padding-left: 20px;
     }
 
     ul {
@@ -42,6 +50,120 @@
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
+        @media only screen and (max-width: 1000px) {
+            width: 100%;
+            background-color: darken($palette-primary-grey-input, 1%);
+        }
+
+        li {
+            width: 100%;
+            text-align: left;
+            cursor:pointer;
+
+            &:last-child {
+                border-top-right-radius: 8px;
+            }
+
+            &:first-child {
+                border-top-left-radius: 8px;
+            }
+
+            a:before {
+                display: inline-block;
+                font-size: 22px;
+                text-align: left;
+            }
+
+            &:nth-child(1) {
+                width: 200px;
+                a:before {
+                    width: 40px;
+                    content: "\f015";
+                    font-family: FontAwesome;
+                    @media only screen and (max-width: 1000px) {
+                        a::before {
+                            content: '';
+                        }
+                    }
+                }
+
+                @media only screen and (max-width: 1000px) {
+                    width: 33% !important;
+                    text-align:center;
+                    &:before {
+                        font-size: 25px;
+                        content: "\f015";
+                        font-family: FontAwesome;
+                        vertical-align: inherit;
+                        text-align:center;
+                        a::before {
+                            content: '';
+                        }
+
+                    }
+                }
+
+            }
+
+            &:nth-child(2) {
+                width: 200px;
+                a::before {
+                    width: 50px;
+                    content: "\f275";
+                    font-family: FontAwesome;
+                    @media only screen and (max-width: 1000px) {
+                        a::before {
+                            content: '';
+                        }
+                    }
+                }
+
+                @media only screen and (max-width: 1000px) {
+                    width: 33% !important;
+                    text-align:center;
+                    &::before {
+                        font-size: 25px;
+                        content: "\f275";
+                        font-family: FontAwesome;
+                        text-align:center;
+                        a::before {
+                            content: '';
+
+                        }
+
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                width: 260px;
+                a::before {
+                    width: 76px;
+                    content: "\f1ad";
+                    font-family: FontAwesome;
+                    @media only screen and (max-width: 1000px) {
+                        a::before {
+                            content: '';
+                        }
+                    }
+                }
+
+                @media only screen and (max-width: 1000px) {
+                    width: 34% !important;
+                    text-align:center;
+                    &::before {
+                        font-size: 25px;
+                        content: "\f1ad";
+                        font-family: FontAwesome;
+                        text-align:center;
+                        a::before {
+                            content: '';
+                        }
+
+                    }
+                }
+            }
+        }
     }
 
     h6 {
@@ -53,38 +175,71 @@
 
 /* Navigation li item,  Mobile & Desktop */
 
-.sites-nav li, .side-nav li {
+.sites-nav li  {
 
-    padding: 10px 0;
+
     display: table-cell;
+    align-self: flex-end;
+
 
     &:hover {
-        background: none;
+
         color: alpha-color($palette-primary-green, 10%, $type: 'dark');
     }
 
-    &:hover a {
-        color: inherit;
-        background: inherit;
+    &:hover {
+        color: $palette-primary-white !important;
         transition-timing-function: ease;
         transition: 0.8s;
+
     }
 
-    @for $int from 1 through length($colors-primary) {
+    @for $int from 1 through length($colors-nav) {
 
-        &:nth-child(#{length($colors-primary)}n+#{$int}) {
-            border-left: 12px solid lighten(nth($colors-primary, $int), 40%);
+        &:nth-child(#{length($colors-nav)}n+#{$int}) {
+            background-color: nth($colors-nav, $int);
         }
 
-        &:nth-child(#{length($colors-primary)}n+#{$int}):hover, &:nth-child(#{length($colors-primary)}n+#{$int}).active {
-            border-left: 12px solid nth($colors-primary, $int);
+        &:nth-child(#{length($colors-nav)}n+#{$int}):hover,
+        &:nth-child(#{length($colors-nav)}n+#{$int}).active {
             transition-timing-function: ease;
             transition: 0.18s;
         }
+        @media only screen and (max-width: 1000px) {
+            &:nth-child(#{length($colors-nav)}n+#{$int}) {
+                background-color: transparent;
+                color: nth($colors-nav, $int);
+
+            }
+            background-color: nth($colors-nav, $int);
+            color:white;
+            &:nth-child(#{length($colors-nav)}n+#{$int}):hover,
+            &:nth-child(#{length($colors-nav)}n+#{$int}).current-menu-item,
+            &:nth-child(#{length($colors-nav)}n+#{$int}).active {
+                background-color: nth($colors-nav, $int);
+                color:white;
+
+            }
+        }
     }
 
-    &.active a {
+    &.active {
         color: alpha-color($palette-primary-green, 10%, $type: 'dark');
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+    .mob .sites-nav li {
+
+        span a {
+            display: none;
+
+        }
+
+        span a::before {
+            display: block;
+        }
     }
 }
 
@@ -93,9 +248,10 @@
     position: absolute;
     top: 10px;
     z-index: 999;
-
+    padding:0px !important;
     .material-icons {
         font-size: 36px;
+
         &.translate-icon-btn {
             font-size: 30px;
         }
@@ -105,14 +261,19 @@
 }
 
 .mob {
+    width: 100%;
+    max-width: 100%;
 
     h6 {
         margin-left: 22px;
     }
 
     .mobile-search {
-        left: 10px;
+        position:Absolute;
+        top:20px;
+        right: 20px;
         color: $palette-primary-green;
+        float:right;
     }
 
     .mobile-nav {
@@ -125,11 +286,21 @@
 
     }
 
-    .mobile-logo a {
-        width: 120px;
-        margin-top: -15px;
-        animation: popout 0.5s ease;
-        -webkit-animation: popout 0.5s ease;
+    .mobile-logo {
+        width:120px;
+        height:90px;
+        a {
+            width: 90px;
+            margin-top: -9px;
+            margin-left:20px;
+            animation: popout 0.5s ease;
+            -webkit-animation: popout 0.5s ease;
+        }
+    }
+
+
+    @media only screen and (min-width: 1000px) {
+        display: none;
     }
 
     @keyframes popout {
@@ -157,134 +328,54 @@
     }
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1000px) {
     .mobile-search {
         right: 20px;
         left: auto !important;
+
     }
 
 }
 
-/* Mobile Sidebar */
-
-.side-nav {
-
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-
-    & a:hover, &.active {
-        background: none;
-    }
-
-    .topnav {
-        margin-bottom: 50px;
-        padding: 0 15px 20px 0;
-
-        &:hover {
-            background: none;
-        }
-    }
-
-    nav {
-        background: none;
-        box-shadow: none;
-    }
-
-    .material-icons {
-        font-size: 36px !important;
-        &.translate-icon-btn {
-            font-size: 30px;
-        }
-
-        position: absolute;
-        top: 13px;
-
-        &.close {
-            right: 26px;
-        }
-
-        &.search {
-            left: 25px;
-        }
-
-        &.search, &.close {
-            cursor: pointer;
-            color: $palette-primary-green;
-
-        }
-
-    }
-
-
-    li {
-        height: auto;
-        max-width: 300px;
-        width: 100%;
-        float: none;
-        display: table;
-        border-top: 1px solid alpha-color($palette-primary-grey, 1%, $type: 'light');
-
-        & a {
-            line-height: 20px;
-            display: table-cell;
-            vertical-align: middle;
-            text-align: left;
-        }
-        &:hover, &.active {
-            border-top: 1px solid alpha-color($palette-primary-grey, 1%, $type: 'dark');
-            background-color: alpha-color($palette-primary-grey, 1%, $type: 'light');
-            transition: background-color 3s !important;
-            transition: border 2s !important;
-
-        }
-    }
-
+.desk {
+    display: block !important;
 }
 
-@media (max-width: 1060px) {
+@media (min-width: 1001px) {
+    .desk {
+        display: block !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .desk {
+        display: none !important;
+    }
     #nsr-logo {
         max-width: 30%;
     }
     .sites-nav {
-        max-width: 70%;
+        margin-top: -31px;
+        max-width: 100%;
+
+        ul li {
+            width: 33% !important;
+            border-radius: 0px !important;
+
+        }
     }
 }
 
-@media (max-width: 860px) {
-    .acc-helper-menu {
-        display: none;
-    }
-}
 
 @media (max-width: 768px) {
     #nsr-logo {
         max-width: 100%;
     }
-    .acc-helper-menu {
-        display: block;
-    }
+
 }
 
 .admin-bar #site-header {
     margin-top: 0;
-}
-
-.admin-bar .side-nav {
-    margin-top: 36px;
-}
-
-@media only screen and (min-width: 330px) {
-    .side-nav .search {
-        display: none;
-    }
-}
-
-@media only screen and (min-width: 991px) {
-    .side-nav .search {
-        display: none;
-    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -297,13 +388,6 @@
     }
 }
 
-.sticky {
-    position: fixed;
-    top: 0px;
-    background-color: $palette-primary-white-opacity;
-    height: 60px;
-    border-bottom: 3px solid alpha-color($palette-primary-grey, 5%, $type: 'dark');
-}
 
 .animate-showLogo {
     opacity: 1;
@@ -317,48 +401,17 @@
     -moz-transition: all 0.2s ease;
 }
 
-/* Sticky & admin bar */
-
-@mixin adminBarStickyMenu($top, $margin) {
-    .admin-bar .mob {
-        top: $top;
+.all-device {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    @media (max-width: 1000px) {
+        top:14px;
     }
-
-    .admin-bar .side-nav.sticky-side-nav {
-        top: $top;
-        margin-top: $margin;
+    z-index: 999;
+    .material-icons {
+        font-size:27px;
     }
-}
-
-.admin-bar .mob {
-    top: 32px;
-
-}
-
-@media only screen and (max-width: 782px) {
-    @include adminBarStickyMenu($top: 46px, $margin: 0);
-}
-
-@media only screen and (max-width: 768px) {
-    @include adminBarStickyMenu($top: 46px, $margin: 0);
-}
-
-@media only screen and (max-width: 600px) {
-    @include adminBarStickyMenu($top: 46px, $margin: 32px);
-}
-
-.sticky-fix {
-    top: 0 !important;
-
-}
-
-.sticky-side-nav-fix {
-    top: 0 !important;
-    margin-top: 0 !important;
-}
-
-.sticky .mobile-search {
-    right: auto;
 }
 
 .breadcrumbs {
@@ -375,7 +428,10 @@
 
 }
 
-@media (max-width: 469px) {
+@media (max-width: 1000px) {
+    .breadcrumbs {
+        display:none;
+    }
     .breadcrumbs li:nth-last-child(2) a:before {
 
         font-family: "Material Icons";
@@ -396,18 +452,17 @@
     margin-left: 5px;
 }
 
-@media (max-width: 469px) {
+@media (max-width: 1000px) {
     .site-header {
         position: relative;
     }
-    .acc-helper-menu {
-        position: Absolute;
-        left: 10px;
-        top: 10px;
-        width: 260px;
-    }
+
     .acc-helper-menu li {
         float: left;
+        margin-top:5px;
+    }
+    .admin-bar .mob .mobile-logo a {
+        margin-top:-5px !important;
     }
 }
 
@@ -415,4 +470,35 @@
     #nsr-logo {
         margin-top: 10px;
     }
+
 }
+@media (max-width: 599px) {
+
+    .admin-bar .mob .mobile-logo a {
+        margin-top: 0 !important;
+    }
+
+    .admin-bar .mob, .mobile-nav, .mobile-search {
+        top: 35px;
+    }
+
+    .admin-bar .all-device {
+        top: 50px;
+    }
+    .admin-bar #site-header {
+        margin-top: 0px;
+        height: 151px;
+    }
+}
+.admin-bar {
+    top:0px !important;
+    @media (max-width: 599px) {
+        top: -46px !important;
+    }
+    .mob {
+        .mobile-logo a {
+            margin-top: 0px;
+        }
+    }
+}
+

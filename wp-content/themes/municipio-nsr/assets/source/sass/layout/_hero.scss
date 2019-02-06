@@ -1,0 +1,47 @@
+/* The hero image */
+.heroWrapper {
+    height: 400px;
+    z-index: 997;
+    @media (max-width: 1000px) {
+        min-height:300px;
+    }
+
+    @media (max-width: 450px) {
+        height:200px;
+    }
+    background-position: center !important;;
+    background-repeat: no-repeat !important;;
+    background-size: cover !important;;
+    position: relative !important;;
+    align-items: center;
+
+
+    .hero-search {
+        text-align: center !important;;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        max-width:80%;
+
+    }
+
+    .hero-form {
+        margin: 0 auto;
+        max-width:800px !important;
+        padding:50px;
+    }
+    .searchTooltip {
+        @media (max-width: 450px) {
+            display:none;
+        }
+        color:white;
+        font-size: 14px;
+        padding-top: 13px;
+        line-height: 22px;
+    }
+
+}
+
+

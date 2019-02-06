@@ -37,7 +37,7 @@
         // *** Structure - Header
         // ***************************************************************
         @import 'layout/_header';
-
+        @import 'layout/_hero';
 
         // ***************************************************************
         // *** Structure - Footer
@@ -55,6 +55,7 @@
         // *** Structure  - Content
         // ***************************************************************
         @import 'layout/_content';
+        @import 'layout/_search';
 
 
         // ***************************************************************
@@ -73,13 +74,7 @@
         // *** Import Google Fonts
         // ***************************************************************
         @include importGoogleFonts();
-
-
-
         @import 'layout/outsidescope';
-
-
-
     }
 
     .is-child-theme.home {
@@ -95,7 +90,6 @@
     @import 'plugins/visualComposer';
     @import 'plugins/gravityForms';
     @import 'plugins/customerFeedback';
-
     @import 'layout/overwrite';
 
 

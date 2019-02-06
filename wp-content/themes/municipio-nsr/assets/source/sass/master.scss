@@ -6,7 +6,9 @@ html  {
     top: 0;
 
 }
-
+.admin-bar {
+    top: -46px !important;
+}
 html.video-is-playing {
     .scroll-down-please-icon,
     .scroll-down-please {
@@ -49,6 +51,7 @@ html.translated-ltr #site-header {
         display: table-cell;
         vertical-align: middle;
         padding: 0px;
+        position:relative;
     }
 
     .sticky {
@@ -134,3 +137,4 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
         min-height:150px;
     }
 }
+

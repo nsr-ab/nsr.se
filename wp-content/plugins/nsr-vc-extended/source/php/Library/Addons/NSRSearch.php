@@ -10,7 +10,9 @@
  * NSR search widget.
  *
  */
+
 namespace VcExtended\Library\Addons;
+
 class NSRSearch
 {
     function __construct()
@@ -61,6 +63,7 @@ class NSRSearch
                 'edit_field_class' => 'vc_col-sm-7 vc_col-md-7',
                 'value' => array(
                     __('Choose Type...', 'nsr-vc-extended') => '',
+                    __('Searchbox in Hero', 'nsr-vc-extended') => 'hero',
                     __('Searchbox mixed with other content', 'nsr-vc-extended') => 'content',
                     __('Searchbox alone in row', 'nsr-vc-extended') => 'top',
                 ),
@@ -83,6 +86,7 @@ class NSRSearch
             ),
         );
     }
+
     /**
      * Mapping Ad-don
      * @return void
@@ -107,6 +111,7 @@ class NSRSearch
             )
         );
     }
+
     /**
      * Logic behind Ad-don output
      * @param array $atts
@@ -122,6 +127,7 @@ class NSRSearch
         $params['vc_tooltip_title'] = isset($atts['vc_tooltip_title']) ? $atts['vc_tooltip_title'] : null;
         return $this->renderMarkup($param = (object)$params);
     }
+
     /**
      * loop object and render markup
      * @param array $params
@@ -129,15 +135,21 @@ class NSRSearch
      */
     public function renderMarkup($params)
     {
+        $hero = '';
         if ($params->vc_search_position === 'content') {
             $positionFixed = 'position-relative';
         } else {
-            $positionFixed = 'position-absolute';
+            if ($params->vc_search_position === 'hero') {
+                $hero = 'nsrHero';
+            } else {
+                $positionFixed = 'position-absolute';
+            }
         }
         if ($params->vc_search_position === '' || $params->vc_search_position === false) {
             $positionFixed = 'position-relative';
         }
-        $output = "<div class=\"row search searchNSR " . $positionFixed . "\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\">
+
+        $output = "<div class=\"row search searchNSR " . $hero . " " . $positionFixed . "\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\">
                         
                         <div class=\"col s12\">
 
@@ -150,53 +162,41 @@ class NSRSearch
                                     <b>" . $params->vc_tooltip_title . "</b><br />
                                    " . $params->vc_tooltip . "
                                 </div>
-                            </div>                               
+                            </div>               
                           
-                            <h4 class=\"search-title\">" . $params->vc_designation . "</h4>
+                            <!-- <h4 class=\"search-title\">" . $params->vc_designation . "</h4> -->
                             <div class=\"input-field col s12 searchArea\">
-                                <i class=\"material-icons prefix notranslate\">&#xE8B6;</i>
-                                <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\" required=\"\" id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
-                                <label for=\"searchkeyword-nsr\">" . __('Where do you live? What stuff do you want to sort? Are you looking for something else?', 'nsr-vc-extended') . "</label>
-                                <input type=\"hidden\" id=\"post_type\" value=\"" . $params->vc_search_sections . "\">
-                                <!-- <input type=\"submit\" class=\"btn btn-large waves-effect waves-light notranslate search-button\" style=\"display:none;\" value=\"SÖK\"> -->
-                                <!-- <input type=\"submit\" class=\"btn btn-large notranslate search-button\" style=\"display:none;\" value=\"SÖK\">  -->
-                                <input type=\"submit\" class=\"btn btn-large notranslate search-button\" value=\"SÖK\">                                 
+                                <div class=\"searchWrapper\">
+                                    <i class=\"material-icons prefix notranslate\">&#xE8B6;</i>
+                                    <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\" required=\"\" id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
+                                    <label for=\"searchkeyword-nsr\">" . __('Where do you live? What stuff do you want to sort? Are you looking for something else?',
+                'nsr-vc-extended') . "</label>
+                                    <input type=\"hidden\" id=\"post_type\" value=\"" . $params->vc_search_sections . "\">
+                                     <!-- <b>" . $params->vc_tooltip_title . "</b><br /> -->
+                                     <div class=\"searchTooltip\">" . $params->vc_tooltip . "</div>
+                                     <div class=\"searchbuttons\"> 
+                                        <i class=\"infoSearch material-icons\">info</i> <i class=\"hide closeSearch material-icons\">cancel</i><span class=\"infoSearchTxt\">Tips från coachen</span>
+                                     </div> 
+                     
+                                      <div class=\"tooltip-info static-tooltip\">
+                                        <div class=\"tooltip-inner\">
+                                            <i class=\"material-icons closeTooltip\">close</i>
+                                               <b>" . $params->vc_tooltip_title . "</b><br />
+                                                   " . $params->vc_tooltip . "
+                                         </div>
+                                      </div> 
+                                    <!-- <input type=\"submit\" class=\"btn btn-large waves-effect waves-light notranslate search-button\" style=\"display:none;\" value=\"SÖK\"> -->
+                                    <!-- <input type=\"submit\" class=\"btn btn-large notranslate search-button\" style=\"display:none;\" value=\"SÖK\">  -->
+                                    <button type=\"submit\" class=\"btn btn-large notranslate search-button\"><span>SÖK</span></button>        
+                                </div>                         
                             </div>
+                           
+         
                           </div>
-
-                          <!--
-                          <div class=\"row\">
-                            <div class=\"col s12\" align=\"center\">
-                                <input type=\"submit\" class=\"btn btn-large notranslate search-button-mobile\" style=\"display:none;\" value=\"SÖK\"> 
-                            </div>                          
-                          </div>
-                          -->
-                          
                         </form>
-                    
-
                     </div>  
-                     
-                     <div class=\"searchbuttons\"> 
-                     <i class=\"infoSearch material-icons\">info</i> <i class=\"hide closeSearch material-icons\">cancel</i>
-                     </div> 
-                     
-                      <div class=\"tooltip-info static-tooltip\">
-                        <div class=\"tooltip-inner\">
-                            <i class=\"material-icons closeTooltip\">close</i>
-                               <b>" . $params->vc_tooltip_title . "</b><br />
-                                   " . $params->vc_tooltip . "
-                         </div>
-                      </div> 
-                     
-                      <div class=\"search-fetchPlanner\"></div>
-                      <div id=\"searchResult\"></div>
-                     <div class=\"errorSortguide hide\"></div>
-                     <div class=\"errorPages hide\"></div>
                      </div>
-                     
-                     
-                     
+
                      ";
         return $output;
     }

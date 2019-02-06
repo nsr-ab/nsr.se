@@ -36,7 +36,7 @@ class Enqueue
 
         wp_enqueue_style('Nsr-css', get_stylesheet_directory_uri() . '/assets/dist/css/app.min.css', '', filemtime(get_stylesheet_directory() . '/assets/dist/css/app.min.css'));
 
-        wp_register_style('Nsr-fontawsome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', '', '1.0.0');
+        wp_register_style('Nsr-fontawsome', get_stylesheet_directory_uri(). '/assets/vendors/fontawesome/css/all.min.css', '', '5.7.0');
         wp_enqueue_style('Nsr-fontawsome');
     }
 

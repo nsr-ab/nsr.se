@@ -85,14 +85,26 @@
 
 .searchbuttons {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 75px;
+    left: 0px;
+    @media (min-width: 451px) {
+        display:none;
+    }
+    .infoSearchTxt {
+        position: absolute;
+        width: 100px;
+        left: 23px;
+        top: -1px;
+        font-size: 12px !important;
+        cursor:pointer;
+        color:white;
+    }
 }
 
 .infoSearch {
-    color: #2dbccd;
+    color: white;
     cursor: pointer;
-    font-size: 2.4rem !important;
+    font-size: 1.4rem !important;
 }
 
 .tooltip-info {
@@ -128,14 +140,14 @@
     }
     &.static-tooltip {
         display: none;
-        right: 5px !important;
+        left: -15px !important;
         bottom: auto;
-        top: 55px;
+        top: 107px;
         &::after {
             content: "";
             position: absolute;
             bottom: 100%;
-            right: 4%;
+            left: 19px;
             margin-left: -5px;
             margin-bottom:-1px;
             border-width: 11px;

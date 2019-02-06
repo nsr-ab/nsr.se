@@ -155,59 +155,75 @@ input[type=search].invalid,
 input[type=search]:focus.invalid,
 input[type=text].invalid,
 input[type=text]:focus.invalid {
-  border: none; }
+  border: none !important;
+  box-shadow: none !important; }
 
 .searchNSR {
-  padding: 20px;
-  background-color: #006c7c !important;
+  background-color: transparent !important;
   transition: 300ms ease;
-  margin-left: 0rem !important;
-  margin-right: 0rem !important;
   position: relative;
-  transition: all 500ms ease; }
-  .searchNSR h4.search-title {
-    line-height: 22px !important; }
-  .searchNSR h4 {
-    line-height: 14px !important; }
+  transition: all 500ms ease;
+  margin-left: -40px !important; }
+  .searchNSR.row {
+    margin-bottom: 0px !important; }
   @media (max-width: 540px) {
     .searchNSR .badgeInfo {
       float: right !important;
-      margin-bottom: 0px !important; }
-    .searchNSR h4 {
-      line-height: 25px !important;
-      display: table; } }
+      margin-bottom: 0px !important; } }
+  .searchNSR .searchWrapper {
+    border-radius: 12px;
+    position: relative;
+    height: 74%;
+    -ms-flex-align: center;
+        align-items: center;
+    padding: 0px !important; }
+  @media (max-width: 500px) {
+    .searchNSR .infoSearch {
+      display: block; }
+    .searchNSR button::before {
+      font-family: Material Icons;
+      content: '\E8B6';
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 28px; }
+    .searchNSR button span {
+      display: none; } }
   .searchNSR .input-field input[type=search] {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    margin-top: 10px;
-    padding-left: 4.5rem; }
+    background-color: white;
+    color: black;
+    border-top-left-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+    height: 28px;
+    border-bottom: 4px solid white !important;
+    box-shadow: none !important;
+    padding-left: 70px !important;
+    margin-left: 0 !important;
+    width: 100% !important; }
+    @media (max-width: 1199px) {
+      .searchNSR .input-field input[type=search] {
+        height: 29px; } }
   .searchNSR .input-field input[type=search]:focus {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #ffffff; }
+    color: black; }
   .searchNSR .prefix {
     color: #2dbccd;
-    left: 4.6rem;
-    top: 1.7rem;
-    font-size: 2.7em !important; }
-  @media (max-width: 500px) {
-    .searchNSR .input-field input[type=search] {
-      margin-left: 1.7rem;
-      padding-left: 1rem;
-      /* FREDRIK */ }
-    .searchNSR .prefix {
-      left: 3rem;
-      display: none;
-      /* FREDRIK */ }
-    .searchNSR h4 {
-      width: 80%; } }
+    position: absolute;
+    left: 20px;
+    padding: 11px 0 0 4px;
+    top: 9px !important;
+    font-size: 1.7rem !important;
+    z-index: 100;
+    color: grey; }
+    @media (max-width: 500px) {
+      .searchNSR .prefix {
+        display: none; } }
   .searchNSR .input-field input[type=search] + label {
-    left: 5.2rem !important;
-    top: 2.1rem;
-    font-size: 1.2em;
-    color: #90f3ff !important; }
+    top: 1.3rem;
+    font-size: 1.0em !important;
+    font-weight: 600;
+    color: grey !important;
+    left: 60px; }
   .searchNSR .input-field input[type=search] + label.active {
-    font-size: 0.9em;
-    margin-top: 12px; }
+    display: none; }
   @media (max-width: 885px) {
     .searchNSR .input-field input[type=search] + label {
       font-size: 0.9em !important; } }
@@ -217,12 +233,9 @@ input[type=text]:focus.invalid {
   .searchNSR input[type=search].form-control-lg {
     font-size: 2.0em;
     padding-top: 1.2rem;
-    width: calc(93% - 7rem) !important; }
-  @media (max-width: 450px) {
+    /* Midnight hack .... :-/ */ }
+  @media (max-width: 420px) {
     .searchNSR input[type=search].form-control-lg {
-      width: calc(93% - 3.6rem) !important;
-      margin-left: 0px;
-      margin-right: 0px;
       font-size: 1.2em; } }
   .searchNSR #searchResult .small {
     color: #6e6e6e; }
@@ -242,7 +255,6 @@ input[type=text]:focus.invalid {
     position: absolute;
     width: 100%;
     margin: 0;
-    padding: 15px;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -255,8 +267,7 @@ input[type=text]:focus.invalid {
     bottom: 0;
     margin: 0;
     box-sizing: border-box;
-    display: table;
-    transition: all 500ms ease; }
+    display: table; }
   .searchNSR table tbody {
     background-color: #016a77; }
   .searchNSR td,
@@ -274,8 +285,6 @@ input[type=text]:focus.invalid {
     right: 10px;
     font-weight: 600;
     color: #2dbccd !important; }
-  .searchNSR ul {
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
   .searchNSR .search-autocomplete-nothing-found {
     display: block;
     padding: 7.5px 10px;
@@ -677,22 +686,16 @@ input[type=text]:focus.invalid {
     float: right; }
   .searchNSR .search-button {
     position: absolute;
-    /*
-        top: 0.6rem;
-        right: 5.5rem;
-        */
-    padding: 0 1rem;
-    max-width: 5rem;
-    top: 0px;
-    right: 30px;
-    height: 90%;
-    margin-top: 10px;
-    border-radius: 0 !important;
+    border-top-right-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+    /* padding: 0 1rem; */
+    max-width: 9rem;
+    margin: 0 !important;
+    top: 0;
+    right: -96px;
+    border: 3.5px solid #fff;
+    height: 65px;
     box-shadow: none !important; }
-  @media (max-width: 450px) {
-    .searchNSR .search-button {
-      max-width: 4rem;
-      right: 10px; } }
 
 td,
 tr {
@@ -709,19 +712,20 @@ tr {
   margin: -20px auto !important;
   margin-bottom: 10px !important; }
 
-.searchArea .preloader-wrapper {
-  position: absolute;
-  top: 35px;
-  right: 80px;
-  width: 30px !important;
-  height: 30px !important; }
-
-@media (max-width: 768px) {
+.searchArea {
+  margin-left: -8px !important; }
   .searchArea .preloader-wrapper {
-    top: 40px;
-    right: -50px;
-    width: 20px !important;
-    height: 20px !important; } }
+    position: absolute;
+    top: 35px;
+    width: 30px !important;
+    height: 30px !important;
+    border: 1px solid red; }
+  @media (max-width: 768px) {
+    .searchArea .preloader-wrapper {
+      top: 40px;
+      right: -50px;
+      width: 20px !important;
+      height: 20px !important; } }
 
 @media (max-width: 450px) {
   .searchArea .preloader-wrapper {
@@ -766,3 +770,65 @@ tr {
     color: #ffffff !important; }
     .noResult a:hover {
       color: #8ef3ff !important; }
+
+.search-nav {
+  position: absolute;
+  bottom: 0px;
+  margin: 0 auto;
+  margin-left: 20px;
+  left: 0px;
+  right: 0px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  width: 100%; }
+  .search-nav li {
+    max-width: 300px;
+    padding: 10px 20px;
+    float: left;
+    color: white;
+    background: #094c55;
+    margin: 0 3px;
+    text-align: center; }
+    .search-nav li:nth-child(1) {
+      border-top-left-radius: 8px; }
+    .search-nav li:nth-child(3) {
+      border-top-right-radius: 8px; }
+    .search-nav li:hover {
+      background: #006c7c; }
+    .search-nav li:focus, .search-nav li.active {
+      background: #006c7c; }
+  @media (max-width: 450px) {
+    .search-nav {
+      display: none; } }
+
+#nsr-searchResult {
+  background-color: #fff !important;
+  max-width: 90%;
+  padding: 15px !important;
+  margin: 0 auto; }
+  #nsr-searchResult .sorteringsguiden-data, #nsr-searchResult .search-autocomplete, #nsr-searchResult .search-fetchPlanner {
+    padding: 25px; }
+  #nsr-searchResult .sorteringsguiden.show, #nsr-searchResult .errorSortguide.show, #nsr-searchResult .search-autocomplete.show, #nsr-searchResult .errorPages.show, #nsr-searchResult .search-fetchPlanner.show {
+    display: block !important;
+    max-width: 915px !important;
+    border: 1px solid red !important; }
+  #nsr-searchResult .sorterings-guide-table, #nsr-searchResult .search-fetchPlanner {
+    max-width: 915px !important;
+    width: 100% !important;
+    margin-left: -15px !important;
+    padding: 15px; }
+
+.nsr-origamiLoader {
+  background: url(/wp-content/themes/municipio-nsr/assets/dist/img/loader.svg);
+  background-repeat: no-repeat;
+  display: block;
+  width: 100px;
+  height: 82px;
+  background-size: 47px;
+  background-position-y: 0px;
+  color: white !important;
+  font-size: 1.7rem !important; }

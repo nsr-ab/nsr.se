@@ -23,6 +23,8 @@ class App
             add_action('admin_notices', array($this, 'showVcVersionNotice'));
             return;
         }
+   
+
         /**
          * Master methods
          */

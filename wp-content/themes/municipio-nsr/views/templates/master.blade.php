@@ -71,9 +71,24 @@
 
         @include('partials.header')
 
+            <?php if( !empty(get_field('visualComposerACFHero')) ): ?>
+                <div class="heroWrapper row search searchNSR" data-bgimage="<?php echo the_field('HImage', get_the_ID()); ?>" style="background-image: url(<?php echo the_field('HImage', get_the_ID()); ?>);">
+                    <div class="hero-search">
+                        <?php echo the_field('visualComposerACFHero', get_the_ID()); ?>
+                    </div>
+                    <div class="searchMenu"></div>
+                </div>
+            <?php endif; ?>
         <main id="main-content" class="clearfix">
+            <div id="nsr-searchResult" class="hide">
+                <div class="sorteringsguiden hide searchView"><div class="sorteringsguiden-data"></div></div>
+                <div class="search-autocomplete hide searchView"><div class="search-autocomplete-data"></div></div>
+                <div class="search-fetchPlanner hide searchView"><div class="search-fetchPlanner-data"></div></div>
+                <div class="errorSortguide hide"></div>
+                <div class="errorPages hide"></div>
+            </div>
             @yield('content')
-
+<
             @if (is_active_sidebar('content-area-bottom'))
             <div class="container gutter-xl gutter-vertical sidebar-content-area-bottom">
                 <div class="grid">

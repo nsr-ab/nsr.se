@@ -28,6 +28,10 @@ a, .mce-content-body a:not([class]),
         color: alpha-color($palette-primary-green, 10%, $type:'dark')  !important;
     }
 }
+.nav a {
+    color: $palette-primary-white !important;
+    text-decoration:none;
+}
 
 
 b, strong {

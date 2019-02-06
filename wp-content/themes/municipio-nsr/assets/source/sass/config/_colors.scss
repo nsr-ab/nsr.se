@@ -30,7 +30,7 @@ $palette-green-5: $palette-primary-green !important;
 
 
 /* Red */
-$palette-primary-red: #7a409c;
+$palette-primary-red: #52439f;
 
 /* Blue */
 $palette-primary-blue: #0195af;
@@ -52,6 +52,16 @@ $colors-primary: (
     $palette-primary-mint, $palette-primary-hulk-green,
     $palette-primary-yellow, $palette-primary-orange
 );
+
+/* "2018 - Layout 2.0  */
+$colors-nav: (
+        $palette-primary-green,
+        $palette-primary-red,
+        $palette-primary-mint
+);
+
+
+
 
 
 
