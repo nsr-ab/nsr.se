@@ -114,6 +114,28 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('#searchkeyword-nsr').focus();
         }).bind(this);
 
+        /* Search Navigation*/
+        $('body').on('click', '.nsr-elasticSearch-nav', function () {
+            $('.search-nav li').removeClass('active');
+            $(this).addClass('active');
+            $('.searchView').addClass('hide');
+            $('.sorteringsguiden').removeClass('hide');
+        }).bind(this);
+
+        $('body').on('click', '.nsr-page-nav', function () {
+            $('.search-nav li').removeClass('active');
+            $(this).addClass('active');
+            $('.searchView').addClass('hide');
+            $('.search-autocomplete').removeClass('hide');
+        }).bind(this);
+
+        $('body').on('click', '.nsr-fetchplanner-nav', function () {
+            $('.search-nav li').removeClass('active');
+            $(this).addClass('active');
+            $('.searchView').addClass('hide');
+            $('.search-fetchPlanner').removeClass('hide');
+        }).bind(this);
+
 
     };
 
@@ -214,7 +236,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $(element).keypress(function (ev) {
                 var keycode = (ev.keyCode ? ev.keyCode : ev.which);
                 if (keycode == '13') {
-                    $('.search-autocomplete').remove(), $('.sorteringsguiden').remove();
+                    //$('.search-autocomplete').remove(), $('.sorteringsguiden').remove();
                     fnc.call(element, ev);
                     event.preventDefault();
                     return false;
@@ -534,20 +556,20 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
 
-        if (data.action === 'fetchDataFromElasticSearch') {
+        //if (data.action === 'fetchDataFromElasticSearch') {
 
             (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length) : '';
             (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length) : '';
             this.outputAutocomplete($element, result);
 
-        } else {
+        //} else {
 
             $('.search-fetchPlanner').html('');
             (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
             this.outputFetchPlanner($element, result);
             if ($('#searchkeyword-nsr').hasClass('valid'))
                 $('#searchkeyword-nsr').addClass('valid');
-        }
+        //}
 
         $('.prefix').removeClass('nsr-origamiLoader');
 
@@ -560,7 +582,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('.search-autocomplete').addClass('show');
                 break;
             case 'fetchplanner':
-                $('.earch-fetchPlanner').addClass('show');
+                $('.search-fetchPlanner').addClass('show');
                 break;
         }
     };
@@ -594,8 +616,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
 
-        $('#nsr-searchResult').html('<div class="sorteringsguiden-data"></div>');
-        $('.sorteringsguiden-data').append('<h4>Sorteringsguiden</h4><div class="left badgeInfo"><span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div>');
+        //if (res.sortguide.length > 0)
+        $('.sorteringsguiden-data').append('<h4>Sorteringsguiden</h4><div class="left badgeInfo">' +
+            '<span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div>');
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
@@ -611,7 +634,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $.each(res.sortguide, function (index, spost) {
 
                 var customerCatIcons = '';
-                if (spost.post_meta && spost.post_meta.avfall_kundkategori && spost.post_meta.avfall_kundkategori.length >= 1) {
+                if (spost.post_meta && spost.post_meta.avfall_kundkategori &&
+                    spost.post_meta.avfall_kundkategori.length >= 1) {
 
                     if (spost.post_meta.avfall_kundkategori[0].indexOf('foretag') >= 0) {
                         customerCatIcons += '<span class="badge sortSectionIcon company">F</span>';
@@ -621,8 +645,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
 
-                sortHTML += '<tr class="tabMobile"><th class="col s12">Avfall:</th><td valign="top col s12">' + spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td></tr>';
-                sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">' + spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td><td valign="top">';
+                sortHTML += '<tr class="tabMobile"><th class="col s12">Avfall:</th><td valign="top col s12">' +
+                    spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td></tr>';
+                sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">' +
+                    spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td><td valign="top">';
 
                 if (spost.post_meta) {
 
@@ -631,7 +657,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
                         tabMobile_frak += '<li><b>Återvinningscentral:<br /></b><ul>';
                         if (spost.post_meta.fraktion_avc.link != '') {
-                            var fraktion_avc = '<a href="' + spost.post_meta.fraktion_avc.link + '">' + spost.post_meta.fraktion_avc.name + '</a>';
+                            var fraktion_avc = '<a href="' + spost.post_meta.fraktion_avc.link + '">' +
+                                spost.post_meta.fraktion_avc.name + '</a>';
                         } else {
                             var fraktion_avc = spost.post_meta.fraktion_avc.name;
                         }
@@ -645,7 +672,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         sortHTML += '<li><b>Hemma:</b><ul class="meta-fraktion">';
                         tabMobile_frak += '<li><b class="sortAs">Hemma:</b><ul>';
                         if (spost.post_meta.fraktion_hemma.link != '') {
-                            var fraktion_hemma = '<a href="' + spost.post_meta.fraktion_hemma.link + '">' + spost.post_meta.fraktion_hemma.name + '</a>';
+                            var fraktion_hemma = '<a href="' + spost.post_meta.fraktion_hemma.link + '">' +
+                                spost.post_meta.fraktion_hemma.name + '</a>';
                         } else {
                             var fraktion_hemma = spost.post_meta.fraktion_hemma.name;
                         }
@@ -659,8 +687,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '</td>';
                 var braAttVeta = '';
                 if (spost.post_meta && spost.post_meta.avfall_bra_att_veta &&
-                    spost.post_meta.avfall_bra_att_veta.length >= 1 && typeof spost.post_meta.avfall_bra_att_veta[0] != 'undefined') {
-                    braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'), '<br />');
+                    spost.post_meta.avfall_bra_att_veta.length >= 1 &&
+                    typeof spost.post_meta.avfall_bra_att_veta[0] != 'undefined') {
+                    braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'),
+                        '<br />');
                 }
 
                 sortHTML += '<td class="exnfodispl">' + braAttVeta + '</td>';
@@ -758,7 +788,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '</ul></td>';
                 sortHTML += '</tr>';
                 sortHTML += '<tr class="tabMobile"><th class="col s12">Sorteras som:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
-                sortHTML += '<tr class="tabMobile lastchild"><th class="col s12">Lämnas:</th><td>' + spinner + '<ul class="inlstallen">' + tabMobile_inl + '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td></tr>';
+                sortHTML += '<tr class="tabMobile lastchild"><th class="col s12">Lämnas:</th><td>' + spinner + '<ul class="inlstallen">' + tabMobile_inl
+                    + '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td></tr>';
 
                 tabMobile_frak = "";
                 tabMobile_inl = "";
@@ -769,14 +800,17 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
 
             $('.sorteringsguiden-data').append(sortHTML);
+            $('.sorteringsguiden').removeClass('hide');
         }
 
         /* No result ..... */
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null) {
             if (res.sortguide.length === 0) {
                 var sHTML = "";
-                sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tipsa oss om avfall som vi kan lägga till här  (<a style="color:#ffffff!important;" href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a>)</p>';
-                $('.errorSortguide').html(sHTML).removeClass('hide');
+                sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val()
+                    + '". Tipsa oss om avfall som vi kan lägga till här  ( <a href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a> )</p>';
+                $('.sorteringsguiden-data').html(sHTML);
+
             }
         }
 
@@ -785,12 +819,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
     }
 
 
-    Extended.prototype.sortPagesResult = function (res) {
+    Extended.prototype.sortPagesResult = function (element, res) {
         var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
+        //if (res.content.length > 0)
+        $('.search-autocomplete-data').append('<h4>Sidor på nsr.se</h4>');
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
-
-            if ($('.errorPages').is(':visible'))
-                $('.errorPages').addClass('hide');
 
             $.each(res.content, function (index, post) {
                 var $excerpt = post.post_excerpt.replace(/^(.{180}[^\s]*).*/, "$1");
@@ -805,10 +838,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 if ($excerpt)
                     pageHTML += '<div class="moreinfo">' + $excerpt + '</div>';
                 pageHTML += '</a></li>';
-                $content.append(pageHTML);
+                $('.search-autocomplete-data').append(pageHTML);
                 noContent = true;
             });
-            $('.search-autocomplete-data').prepend('<h4>Sidor på nsr.se</h4>');
         }
 
 
@@ -817,7 +849,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             if (res.content.length === 0) {
                 var sHTML = "";
                 sHTML += '<h4>Sidor på nsr.se</h4><br /><p class="noResult">Ingen träff på "' + $('#searchkeyword-nsr').val() + '".</p>';
-                $('.errorPages').html(sHTML).removeClass('hide');
+                $('.search-autocomplete-data').html(sHTML).removeClass('hide');
             }
         }
     };
@@ -834,11 +866,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $fprow = '';
         var $fpMobRow = '';
         var foundRows = false;
-
+        console.log(result.fp);
         $('.search-fetchPlanner-data').append('<h4>Tömmningsdagar</h4><table class="fp-table-mobile"></table><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Nästa tömning</th></tr></table>');
 
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
-
 
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
@@ -910,7 +941,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.fp-table-mobile').append($fpMobRow);
 
     };
-
 
 
     /**

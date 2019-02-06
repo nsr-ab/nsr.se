@@ -763,13 +763,8 @@ tr {
 .clickable {
   cursor: pointer; }
 
-.noResult {
-  text-align: center;
-  color: #ffffff; }
-  .noResult a {
-    color: #ffffff !important; }
-    .noResult a:hover {
-      color: #8ef3ff !important; }
+.noResult a:hover {
+  color: #8ef3ff !important; }
 
 .search-nav {
   position: absolute;
@@ -792,7 +787,8 @@ tr {
     color: white;
     background: #094c55;
     margin: 0 3px;
-    text-align: center; }
+    text-align: center;
+    cursor: pointer; }
     .search-nav li:nth-child(1) {
       border-top-left-radius: 8px; }
     .search-nav li:nth-child(3) {

@@ -7627,13 +7627,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   @media (max-width: 450px) {
     .is-child-theme .tabMobile ul {
       margin-top: 0 !important; } }
-  .is-child-theme .noResult {
-    text-align: center;
-    color: #ffffff; }
-    .is-child-theme .noResult a {
-      color: #ffffff !important; }
-      .is-child-theme .noResult a:hover {
-        color: #8ef3ff !important; }
+  .is-child-theme .noResult a:hover {
+    color: #8ef3ff !important; }
   .is-child-theme .forceWhiteLinkColor a,
   .is-child-theme .forceWhiteLinkColor a:hover,
   .is-child-theme .forceWhiteLinkColor a:visited,
