@@ -479,7 +479,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
         var $element = $(element);
-        var $input = $('#searchkeyword-nsr').val();
+        var $input = $element.find('input[type="search"]').val();
         var $post_type = $('#post_type', $('#searchkeyword-nsr').parent()).val();
         var fdata = {
             action: 'fetchDataFromFetchPlannerCombined',
@@ -521,6 +521,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }).done(function (result) {
             this.dataFromSource(data_type, $element, data, $post_type, result);
+            //console.log(result);
         }.bind(this));
     };
 
@@ -533,6 +534,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param result
      */
     Extended.prototype.dataFromSource = function (data_type, $element, data, $post_type, result) {
+
+        $('.sorteringsguiden-data').html('');
+        $('.search-autocomplete-data').html('');
 
         $('#nsr-searchResult').css('display', 'block');
         if (!$('.hero-search').hasClass('searchMenu')) {
@@ -558,17 +562,17 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         //if (data.action === 'fetchDataFromElasticSearch') {
 
-            (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length) : '';
-            (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length) : '';
-            this.outputAutocomplete($element, result);
+        (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length) : '';
+        (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length) : '';
+        this.outputAutocomplete($element, result);
 
         //} else {
 
-            $('.search-fetchPlanner').html('');
-            (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
-            this.outputFetchPlanner($element, result);
-            if ($('#searchkeyword-nsr').hasClass('valid'))
-                $('#searchkeyword-nsr').addClass('valid');
+        $('.search-fetchPlanner').html('');
+        (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
+        this.outputFetchPlanner($element, result);
+        if ($('#searchkeyword-nsr').hasClass('valid'))
+            $('#searchkeyword-nsr').addClass('valid');
         //}
 
         $('.prefix').removeClass('nsr-origamiLoader');
@@ -617,9 +621,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
 
         //if (res.sortguide.length > 0)
-        $('.sorteringsguiden-data').append('<h4>Sorteringsguiden</h4><div class="left badgeInfo">' +
-            '<span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div>');
-
+        //$('.sorteringsguiden-data').append('<h4>Sorteringsguiden</h4><div class="left badgeInfo">' +
+        //    '<span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div>');
+        $('.sorteringsguiden-data').append('<h4>Sorteringsguiden</h4><div class="left badgeInfo"></div>');
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
             var tabMobile_frak = null;
@@ -630,10 +634,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
             if ($('.errorSortguide').is(':visible'))
                 $('.errorSortguide').addClass('hide');
 
-
+            sortHTML += '<table>';
             $.each(res.sortguide, function (index, spost) {
 
-                var customerCatIcons = '';
+                /* var customerCatIcons = '';
                 if (spost.post_meta && spost.post_meta.avfall_kundkategori &&
                     spost.post_meta.avfall_kundkategori.length >= 1) {
 
@@ -645,10 +649,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
 
+
                 sortHTML += '<tr class="tabMobile"><th class="col s12">Avfall:</th><td valign="top col s12">' +
                     spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td></tr>';
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">' +
                     spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td><td valign="top">';
+                */
 
                 if (spost.post_meta) {
 
@@ -798,7 +804,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     nosortGuidedata = true;*/
 
             });
-
+            sortHTML += '</table>';
             $('.sorteringsguiden-data').append(sortHTML);
             $('.sorteringsguiden').removeClass('hide');
         }
