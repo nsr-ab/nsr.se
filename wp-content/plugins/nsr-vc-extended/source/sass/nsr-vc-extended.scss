@@ -633,6 +633,8 @@ input[type=text]:focus.invalid {
     }
     .preSortCell {
         min-width: 200px;
+        font-weight: 600;
+        font-size: 1.4rem;
     }
     .sorterings-guide-table .badge,
     .sorteringsguiden .badge,
@@ -776,7 +778,7 @@ input[type=text]:focus.invalid {
     .exnfodispl {
         max-width: 300px;
     }
-    .preSortCell,
+
     .exnfodispl,
     .fp-table td,
     .fp-table-mobile td {
@@ -845,18 +847,40 @@ input[type=text]:focus.invalid {
     .extNfo {
         margin-top: 20px;
     }
+    .fraktion-icon-home {
+        color: $defaultGreen;
+        line-height: 6px;
+    }
+    .fraktion-icon-avc{
+        color: $darkGrey;
+    }
+
     .locationmap:before,
-    .fraktion-icon:before {
-        font-family: 'Material Icons';
-        color: $signalGreen;
+    .fraktion-icon-home:before,
+    .fraktion-icon-avc:before
+    {
+        color: $darkGrey;
         top: 0px !important;
         left: 0px !important;
+        padding-right:10px;
+        content: '\f1b8' !important;
+        font-size: 16px;
+        align-items: center;
+    }
+    .locationmap:before,
+    .fraktion-icon-home:before
+    {
+        font-family: 'Material Icons';
     }
     .locationmap:before {
         content: 'location_on' !important;
     }
-    .fraktion-icon:before {
-        content: 'description' !important;
+    .fraktion-icon-avc:before {
+        font-family: 'FontAwesome';
+
+    }
+    .fraktion-icon-home:before {
+        content: '\e88a' !important;
     }
     .fraktion-icon {
         padding-left: 15px;
@@ -1025,10 +1049,24 @@ tr {
 
     background-color: #fff !important;
     max-width: 90%;
-    padding:15px !important;
     margin: 0 auto;
     .sorteringsguiden-data, .search-autocomplete, .search-fetchPlanner {
-        padding: 25px;
+
+        td {
+            padding:10px;
+
+        }
+        tr {
+            border-bottom:1px solid #eaeaea;
+            td:first-child {
+                padding-left: 20px;
+            }
+            td:last-child {
+                padding-right: 20px;
+            }
+        }
+
+
     }
 
     .sorteringsguiden.show, .errorSortguide.show, .search-autocomplete.show, .errorPages.show, .search-fetchPlanner.show {

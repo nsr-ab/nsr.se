@@ -78,8 +78,9 @@
                 width: 200px;
                 a:before {
                     width: 40px;
-                    content: "\f015";
-                    font-family: FontAwesome;
+                    content: "\e88a";
+                    font-weight:normal;
+                    font-family: Material Icons;
                     @media only screen and (max-width: 1000px) {
                         a::before {
                             content: '';
@@ -92,8 +93,9 @@
                     text-align:center;
                     &:before {
                         font-size: 25px;
-                        content: "\f015";
-                        font-family: FontAwesome;
+                        content: "\e88a";
+                        font-weight:normal;
+                        font-family: Material Icons;
                         vertical-align: inherit;
                         text-align:center;
                         a::before {
@@ -109,8 +111,9 @@
                 width: 200px;
                 a::before {
                     width: 50px;
-                    content: "\f275";
-                    font-family: FontAwesome;
+                    content: "\e563";
+                    font-weight:normal;
+                    font-family: Material Icons;
                     @media only screen and (max-width: 1000px) {
                         a::before {
                             content: '';
@@ -123,8 +126,9 @@
                     text-align:center;
                     &::before {
                         font-size: 25px;
-                        content: "\f275";
-                        font-family: FontAwesome;
+                        content: "\e563";
+                        font-weight:normal;
+                        font-family: Material Icons;
                         text-align:center;
                         a::before {
                             content: '';
@@ -139,8 +143,9 @@
                 width: 260px;
                 a::before {
                     width: 76px;
-                    content: "\f1ad";
-                    font-family: FontAwesome;
+                    content: "\e7ee";
+                    font-family: Material Icons;
+                    font-weight:normal;
                     @media only screen and (max-width: 1000px) {
                         a::before {
                             content: '';
@@ -153,8 +158,9 @@
                     text-align:center;
                     &::before {
                         font-size: 25px;
-                        content: "\f1ad";
-                        font-family: FontAwesome;
+                        content: "\e7ee";
+                        font-weight:normal;
+                        font-family: Material Icons;
                         text-align:center;
                         a::before {
                             content: '';

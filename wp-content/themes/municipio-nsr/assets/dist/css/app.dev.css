@@ -6532,8 +6532,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
         width: 200px; }
         .sites-nav ul li:nth-child(1) a:before {
           width: 40px;
-          content: "\f015";
-          font-family: FontAwesome; }
+          content: "\e88a";
+          font-weight: normal;
+          font-family: Material Icons; }
           @media only screen and (max-width: 1000px) {
             .sites-nav ul li:nth-child(1) a:before a::before {
               content: ''; } }
@@ -6543,8 +6544,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
             text-align: center; }
             .sites-nav ul li:nth-child(1):before {
               font-size: 25px;
-              content: "\f015";
-              font-family: FontAwesome;
+              content: "\e88a";
+              font-weight: normal;
+              font-family: Material Icons;
               vertical-align: inherit;
               text-align: center; }
               .sites-nav ul li:nth-child(1):before a::before {
@@ -6553,8 +6555,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
         width: 200px; }
         .sites-nav ul li:nth-child(2) a::before {
           width: 50px;
-          content: "\f275";
-          font-family: FontAwesome; }
+          content: "\e563";
+          font-weight: normal;
+          font-family: Material Icons; }
           @media only screen and (max-width: 1000px) {
             .sites-nav ul li:nth-child(2) a::before a::before {
               content: ''; } }
@@ -6564,8 +6567,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
             text-align: center; }
             .sites-nav ul li:nth-child(2)::before {
               font-size: 25px;
-              content: "\f275";
-              font-family: FontAwesome;
+              content: "\e563";
+              font-weight: normal;
+              font-family: Material Icons;
               text-align: center; }
               .sites-nav ul li:nth-child(2)::before a::before {
                 content: ''; } }
@@ -6573,8 +6577,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
         width: 260px; }
         .sites-nav ul li:nth-child(3) a::before {
           width: 76px;
-          content: "\f1ad";
-          font-family: FontAwesome; }
+          content: "\e7ee";
+          font-family: Material Icons;
+          font-weight: normal; }
           @media only screen and (max-width: 1000px) {
             .sites-nav ul li:nth-child(3) a::before a::before {
               content: ''; } }
@@ -6584,8 +6589,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
             text-align: center; }
             .sites-nav ul li:nth-child(3)::before {
               font-size: 25px;
-              content: "\f1ad";
-              font-family: FontAwesome;
+              content: "\e7ee";
+              font-weight: normal;
+              font-family: Material Icons;
               text-align: center; }
               .sites-nav ul li:nth-child(3)::before a::before {
                 content: ''; } }

@@ -515,13 +515,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
             }
 
-        }).complete(function () {
-            if (data.action === 'fetchDataFromFetchPlanner' || data.action === 'fetchDataFromFetchPlannerCombined') {
-                $('.nsr-searchResult .preloader-wrapper').remove();
-            }
         }).done(function (result) {
             this.dataFromSource(data_type, $element, data, $post_type, result);
-            //console.log(result);
+            $('#nsr-searchResult').css('display', 'block');
+
         }.bind(this));
     };
 
@@ -537,11 +534,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         $('.sorteringsguiden-data').html('');
         $('.search-autocomplete-data').html('');
-
-        $('#nsr-searchResult').css('display', 'block');
-        if (!$('.hero-search').hasClass('searchMenu')) {
-            (!$('.searchMenu').find('ul').hasClass('search-nav')) ? $('.searchMenu').append('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sorteringsguiden</li><li class="vc_col-sm-3 nsr-page-nav">Sidor</li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömmingsdagar</li></ul>') : '';
-        }
 
         switch (data_type) {
             case 'elastic':
@@ -575,7 +567,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('#searchkeyword-nsr').addClass('valid');
         //}
 
-        $('.prefix').removeClass('nsr-origamiLoader');
+
 
         /* Relevance */
         switch ($mostRelevance) {
@@ -608,6 +600,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
             window.navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
         }
         $('#nsr-searchResult').removeClass('hide');
+        (!$('.searchMenu').find('ul').hasClass('search-nav')) ? $('.searchMenu').append('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sorteringsguiden</li><li class="vc_col-sm-3 nsr-page-nav">Sidor</li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömmingsdagar</li></ul>') : '';
+        setTimeout($('.prefix').removeClass('nsr-origamiLoader'), 2000);
+
     };
 
 
@@ -620,10 +615,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
 
-        //if (res.sortguide.length > 0)
-        //$('.sorteringsguiden-data').append('<h4>Sorteringsguiden</h4><div class="left badgeInfo">' +
-        //    '<span class="badge">P</span> Privat <span class="badge">F</span> Företag<br /></div>');
-        $('.sorteringsguiden-data').append('<h4>Sorteringsguiden</h4><div class="left badgeInfo"></div>');
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
             var tabMobile_frak = null;
@@ -631,62 +622,50 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var CityItem;
             var cityInt = 0;
             var sortHTML = null;
+
             if ($('.errorSortguide').is(':visible'))
                 $('.errorSortguide').addClass('hide');
 
             sortHTML += '<table>';
             $.each(res.sortguide, function (index, spost) {
 
-                /* var customerCatIcons = '';
-                if (spost.post_meta && spost.post_meta.avfall_kundkategori &&
-                    spost.post_meta.avfall_kundkategori.length >= 1) {
-
-                    if (spost.post_meta.avfall_kundkategori[0].indexOf('foretag') >= 0) {
-                        customerCatIcons += '<span class="badge sortSectionIcon company">F</span>';
-                    }
-                    if (spost.post_meta.avfall_kundkategori[0].indexOf('villa') >= 0) {
-                        customerCatIcons += '<span class="badge sortSectionIcon private">P</span> ';
-                    }
-                }
-
-
-                sortHTML += '<tr class="tabMobile"><th class="col s12">Avfall:</th><td valign="top col s12">' +
-                    spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td></tr>';
+                sortHTML += '<tr class="tabMobile"><td valign="top col s12">' +
+                    spost.post_title + '</td></tr>';
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">' +
-                    spost.post_title + ' <div class="badgecontainer">' + customerCatIcons + '</div></td><td valign="top">';
-                */
+                    spost.post_title + '</td><td valign="top">';
+
 
                 if (spost.post_meta) {
 
-
+                    // Fraktioner
                     if (spost.post_meta.fraktion_avc.name != '' && spost.post_meta.fraktion_avc.name != null) {
-                        sortHTML += '<li><b>Återvinningscentral:</b><ul class="sortAs meta-fraktion">';
-                        tabMobile_frak += '<li><b>Återvinningscentral:<br /></b><ul>';
+                        sortHTML += '<ul class="sortAs meta-fraktion">';
+                        tabMobile_frak += '<ul>';
                         if (spost.post_meta.fraktion_avc.link != '') {
                             var fraktion_avc = '<a href="' + spost.post_meta.fraktion_avc.link + '">' +
                                 spost.post_meta.fraktion_avc.name + '</a>';
                         } else {
                             var fraktion_avc = spost.post_meta.fraktion_avc.name;
                         }
-                        sortHTML += '<li class="fraktion-icon">' + fraktion_avc + '</li>';
-                        tabMobile_frak += '<li class="fraktion-icon">' + fraktion_avc + "<li>";
-                        sortHTML += '</ul></li>';
-                        tabMobile_frak += '</ul></li>';
+                        sortHTML += '<li class="fraktion-icon-avc">' + fraktion_avc + '</li>';
+                        tabMobile_frak += '<li class="fraktion-icon-avc">' + fraktion_avc + "<li>";
+                        sortHTML += '</ul>';
+                        tabMobile_frak += '</ul>';
                     }
 
                     if (spost.post_meta.fraktion_hemma.name != '' && spost.post_meta.fraktion_hemma.name != null) {
-                        sortHTML += '<li><b>Hemma:</b><ul class="meta-fraktion">';
-                        tabMobile_frak += '<li><b class="sortAs">Hemma:</b><ul>';
+                        sortHTML += '<ul class="sortAs meta-fraktion">';
+                        tabMobile_frak += '<ul>';
                         if (spost.post_meta.fraktion_hemma.link != '') {
                             var fraktion_hemma = '<a href="' + spost.post_meta.fraktion_hemma.link + '">' +
                                 spost.post_meta.fraktion_hemma.name + '</a>';
                         } else {
                             var fraktion_hemma = spost.post_meta.fraktion_hemma.name;
                         }
-                        sortHTML += '<li class="fraktion-icon">' + fraktion_hemma + '</li>';
-                        tabMobile_frak += '<li class="fraktion-icon">' + fraktion_hemma + "<li>";
-                        sortHTML += '</ul></li>';
-                        tabMobile_frak += '</ul></li>';
+                        sortHTML += '<li class="fraktion-icon-home">' + fraktion_hemma + '</li>';
+                        tabMobile_frak += '<li class="fraktion-icon-home">' + fraktion_hemma + "<li>";
+                        sortHTML += '</ul>';
+                        tabMobile_frak += '</ul>';
                     }
                 }
 
@@ -805,6 +784,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             });
             sortHTML += '</table>';
+
             $('.sorteringsguiden-data').append(sortHTML);
             $('.sorteringsguiden').removeClass('hide');
         }
@@ -822,13 +802,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
 
-    }
+    };
 
 
     Extended.prototype.sortPagesResult = function (element, res) {
         var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
         //if (res.content.length > 0)
-        $('.search-autocomplete-data').append('<h4>Sidor på nsr.se</h4>');
+
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
 
             $.each(res.content, function (index, post) {
