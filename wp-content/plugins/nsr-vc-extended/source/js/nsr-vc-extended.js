@@ -3,9 +3,6 @@
  *
  * @package NSRVCExtended
  *
- * Author: Johan Silvergrund
- * Company: HIQ
- *
  */
 
 var VcExtended = VcExtended || {};
@@ -136,6 +133,25 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.search-fetchPlanner').removeClass('hide');
         }).bind(this);
 
+        $('body').on('click', '.preSort-inl .material-icons', function () {
+            $('.inlstallen li').hide(); //removeAttr('style');
+            if ($(this).hasClass('expand-more')) {
+                $(this).removeClass('expand-more');
+                $(this).addClass('expand-less');
+                $(this).text('expand_less');
+            } else {
+                $(this).removeClass('expand-less');
+                $(this).addClass('expand-more');
+                $(this).text('expand_more');
+            }
+
+            $(this).closest('.preSort-inl').find('li').show();
+        }).bind(this);
+
+
+    };
+
+    Extended.prototype.DefaultSiteSearch = function () {
 
     };
 
@@ -632,7 +648,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 sortHTML += '<tr class="tabMobile"><td valign="top col s12">' +
                     spost.post_title + '</td></tr>';
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">' +
-                    spost.post_title + '</td><td valign="top">';
+                    spost.post_title + '</td><td valign="top" class="preSort-frakt">';
 
 
                 if (spost.post_meta) {
@@ -678,9 +694,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         '<br />');
                 }
 
-                sortHTML += '<td class="exnfodispl">' + braAttVeta + '</td>';
+                sortHTML += '<td class="exnfodispl ">' + braAttVeta + '</td>';
 
-                sortHTML += '<td valign="top">' + spinner + '<ul class="inlstallen">';
+                sortHTML += '<td valign="top" class="preSort-inl"><i class="material-icons expand-more">expand_more</i>';// + spinner +
+                sortHTML += '<ul class="inlstallen">';
                 var hideStuff = '';
                 if (spost.post_meta) {
 

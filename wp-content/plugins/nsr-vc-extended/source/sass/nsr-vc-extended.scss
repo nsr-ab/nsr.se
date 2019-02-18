@@ -599,10 +599,10 @@ input[type=text]:focus.invalid {
         font-weight: 600;
         margin-top: 10px;
     }
-    .geoLink:before {
+    /*.geoLink:before {
         color: #ffffff !important;
-    }
-    .nullLink {
+    }*/
+    /*.nullLink {
         padding-left: 15px;
     }
     .nullLink:before {
@@ -612,7 +612,7 @@ input[type=text]:focus.invalid {
         top: 0 !important;
         left: 0 !important;
     }
-    .nofraktionlink.span>li {}
+    .nofraktionlink.span>li {}*/
     .search-autocomplete-content {
         h5 {
             font-size: 1.64rem;
@@ -632,9 +632,29 @@ input[type=text]:focus.invalid {
         position: relative;
     }
     .preSortCell {
+        width:40%;
         min-width: 200px;
         font-weight: 600;
         font-size: 1.4rem;
+    }
+    .preSort-inl,
+    .preSort-frakt {
+        width:30%;
+    }
+    .preSort-inl {
+        li {
+            margin-right:30px;
+        }
+        .expand-more, .expand-less {
+            color:$darkGrey;
+            position:absolute !important;
+            right:20px !important;
+            padding-top:3px;
+            cursor:pointer;
+            &:hover {
+                color:$defaultGreen;
+            }
+        }
     }
     .sorterings-guide-table .badge,
     .sorteringsguiden .badge,
@@ -699,8 +719,14 @@ input[type=text]:focus.invalid {
             display: none;
         }
     }
-    .inlstallen li.hide {
-        display: none !important;
+    .inlstallen li {
+        display: none;
+        color: $defaultGreen;
+        text-align:right;
+        &.closeToHome {
+            display:block !important;
+        }
+
     }
     @media (max-width: 540px) {
         .fp-table-mobile {
@@ -855,7 +881,7 @@ input[type=text]:focus.invalid {
         color: $darkGrey;
     }
 
-    .locationmap:before,
+    //.locationmap:before,
     .fraktion-icon-home:before,
     .fraktion-icon-avc:before
     {
@@ -867,14 +893,14 @@ input[type=text]:focus.invalid {
         font-size: 16px;
         align-items: center;
     }
-    .locationmap:before,
+    //.locationmap:before,
     .fraktion-icon-home:before
     {
         font-family: 'Material Icons';
     }
-    .locationmap:before {
+    /*.locationmap:before {
         content: 'location_on' !important;
-    }
+    }*/
     .fraktion-icon-avc:before {
         font-family: 'FontAwesome';
 
@@ -973,7 +999,7 @@ tr {
     }
 }
 
-.viewAllInlamning {
+/*.viewAllInlamning {
     margin-top: 20px;
     @media (max-width: 450px) {
         display: block !important;
@@ -992,7 +1018,7 @@ tr {
 .viewAllInlamning a {
     margin-left: 17px;
 }
-
+*/
 .clickable {
     cursor: pointer;
 }
