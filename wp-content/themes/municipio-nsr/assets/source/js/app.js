@@ -168,7 +168,7 @@ Nsr.App.AppDefault = (function ($) {
     AppDefault.prototype.checkCookie = function () {
         var user = AppDefault.prototype.getCookie("username");
         if (!user) {
-            $('.cookieBased').show();
+            //$('.cookieBased').show();
             AppDefault.prototype.setCookie("username", "nsr-visitor", 20);
         }
     };

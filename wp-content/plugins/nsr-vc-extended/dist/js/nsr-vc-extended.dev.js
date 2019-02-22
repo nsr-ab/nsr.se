@@ -113,39 +113,50 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* Search Navigation*/
         $('body').on('click', '.nsr-elasticSearch-nav', function () {
+            $('#nsr-searchResult').removeClass('transparent-background');
             $('.search-nav li').removeClass('active');
             $(this).addClass('active');
             $('.searchView').addClass('hide');
             $('.sorteringsguiden').removeClass('hide');
+            $('.a-o').removeClass('hide');
         }).bind(this);
 
         $('body').on('click', '.nsr-page-nav', function () {
+            $('#nsr-searchResult').addClass('transparent-background');
             $('.search-nav li').removeClass('active');
             $(this).addClass('active');
             $('.searchView').addClass('hide');
             $('.search-autocomplete').removeClass('hide');
+            $('.a-o').addClass('hide');
         }).bind(this);
 
         $('body').on('click', '.nsr-fetchplanner-nav', function () {
+            $('#nsr-searchResult').removeClass('transparent-background');
             $('.search-nav li').removeClass('active');
             $(this).addClass('active');
             $('.searchView').addClass('hide');
             $('.search-fetchPlanner').removeClass('hide');
+            $('.a-o').addClass('hide');
         }).bind(this);
 
+        // Expand more info
         $('body').on('click', '.preSort-inl .material-icons', function () {
-            $('.inlstallen li').hide(); //removeAttr('style');
+            $('.inlstallen li').hide();
+            $('.sorteringsguiden-data tr').removeClass('expand-tr');
+
             if ($(this).hasClass('expand-more')) {
+                $('.preSort-inl').find('i').text('expand_more');
                 $(this).removeClass('expand-more');
                 $(this).addClass('expand-less');
                 $(this).text('expand_less');
+                $(this).closest('.preSort-inl').find('li').show();
+                $(this).closest('tr').addClass('expand-tr');
             } else {
                 $(this).removeClass('expand-less');
                 $(this).addClass('expand-more');
                 $(this).text('expand_more');
+                $(this).closest('.preSort-inl').find('li').hide();
             }
-
-            $(this).closest('.preSort-inl').find('li').show();
         }).bind(this);
 
 
@@ -551,6 +562,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.sorteringsguiden-data').html('');
         $('.search-autocomplete-data').html('');
 
+        var $mostRelevance;
+        var $relevant = [];
+
         switch (data_type) {
             case 'elastic':
                 $relevant['sortguide'] = result.sortguide.length;
@@ -572,6 +586,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length) : '';
         (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length) : '';
+
+        console.log(result);
         this.outputAutocomplete($element, result);
 
         //} else {
@@ -579,10 +595,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.search-fetchPlanner').html('');
         (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
         this.outputFetchPlanner($element, result);
+
         if ($('#searchkeyword-nsr').hasClass('valid'))
             $('#searchkeyword-nsr').addClass('valid');
         //}
-
 
 
         /* Relevance */
@@ -608,16 +624,35 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.outputAutocomplete = function (element, res) {
 
-        this.sortGuideResult(element, res);
-        this.sortPagesResult(element, res);
+        var sortGuideData = this.sortGuideResult(element, res);
+        var sortPagesData = this.sortPagesResult(element, res);
 
         if (window.navigator.geolocation) {
             $('.search-autocomplete-data .preloader-wrapper').fadeIn("slow");
             window.navigator.geolocation.getCurrentPosition(Extended.prototype.UserLocation, Extended.prototype.GeoError);
         }
+
+        if (sortGuideData) {
+            $('.sorteringsguiden-data').append(sortGuideData);
+            $('.sorteringsguiden').removeClass('hide');
+        }
+
+        if (sortPagesData) {
+            $('.search-autocomplete-data').append(sortPagesData);
+        }
+
+
+        //Search result menu
         $('#nsr-searchResult').removeClass('hide');
         (!$('.searchMenu').find('ul').hasClass('search-nav')) ? $('.searchMenu').append('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sorteringsguiden</li><li class="vc_col-sm-3 nsr-page-nav">Sidor</li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömmingsdagar</li></ul>') : '';
-        setTimeout($('.prefix').removeClass('nsr-origamiLoader'), 2000);
+
+
+        //Hits
+        $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span class="a-o right-align right hide">Sorteringsguiden A till Ö</span>');
+        $('.search-hits').removeClass('hide');
+
+        if ($('.nsr-elasticSearch-nav').hasClass('active'))
+            $('.a-o').removeClass('hide');
 
     };
 
@@ -629,49 +664,44 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.sortGuideResult = function (element, res) {
 
-        var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
+        var spinner = '';//Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
             var tabMobile_frak = null;
-            var tabMobile_inl = null;
             var CityItem;
             var cityInt = 0;
-            var sortHTML = null;
+            var sortHTML = '';
 
             if ($('.errorSortguide').is(':visible'))
                 $('.errorSortguide').addClass('hide');
 
             sortHTML += '<table>';
+
             $.each(res.sortguide, function (index, spost) {
 
-                sortHTML += '<tr class="tabMobile"><td valign="top col s12">' +
-                    spost.post_title + '</td></tr>';
                 sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">' +
                     spost.post_title + '</td><td valign="top" class="preSort-frakt">';
-
 
                 if (spost.post_meta) {
 
                     // Fraktioner
                     if (spost.post_meta.fraktion_avc.name != '' && spost.post_meta.fraktion_avc.name != null) {
                         sortHTML += '<ul class="sortAs meta-fraktion">';
-                        tabMobile_frak += '<ul>';
+
                         if (spost.post_meta.fraktion_avc.link != '') {
                             var fraktion_avc = '<a href="' + spost.post_meta.fraktion_avc.link + '">' +
                                 spost.post_meta.fraktion_avc.name + '</a>';
                         } else {
                             var fraktion_avc = spost.post_meta.fraktion_avc.name;
                         }
+
                         sortHTML += '<li class="fraktion-icon-avc">' + fraktion_avc + '</li>';
-                        tabMobile_frak += '<li class="fraktion-icon-avc">' + fraktion_avc + "<li>";
                         sortHTML += '</ul>';
-                        tabMobile_frak += '</ul>';
                     }
 
                     if (spost.post_meta.fraktion_hemma.name != '' && spost.post_meta.fraktion_hemma.name != null) {
                         sortHTML += '<ul class="sortAs meta-fraktion">';
-                        tabMobile_frak += '<ul>';
                         if (spost.post_meta.fraktion_hemma.link != '') {
                             var fraktion_hemma = '<a href="' + spost.post_meta.fraktion_hemma.link + '">' +
                                 spost.post_meta.fraktion_hemma.name + '</a>';
@@ -679,23 +709,23 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             var fraktion_hemma = spost.post_meta.fraktion_hemma.name;
                         }
                         sortHTML += '<li class="fraktion-icon-home">' + fraktion_hemma + '</li>';
-                        tabMobile_frak += '<li class="fraktion-icon-home">' + fraktion_hemma + "<li>";
+
+                        var braAttVeta = '';
+                        if (spost.post_meta && spost.post_meta.avfall_bra_att_veta &&
+                            spost.post_meta.avfall_bra_att_veta.length >= 1 &&
+                            typeof spost.post_meta.avfall_bra_att_veta[0] != 'undefined') {
+                            braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'),
+                                '<br />');
+
+                            (braAttVeta) ? sortHTML += '<li class="exnfodispl "><b>Bra att veta</b><div>' + braAttVeta + '</div></li>' : '';
+                            braAttVeta = '';
+                        }
+
                         sortHTML += '</ul>';
-                        tabMobile_frak += '</ul>';
                     }
                 }
 
                 sortHTML += '</td>';
-                var braAttVeta = '';
-                if (spost.post_meta && spost.post_meta.avfall_bra_att_veta &&
-                    spost.post_meta.avfall_bra_att_veta.length >= 1 &&
-                    typeof spost.post_meta.avfall_bra_att_veta[0] != 'undefined') {
-                    braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'),
-                        '<br />');
-                }
-
-                sortHTML += '<td class="exnfodispl ">' + braAttVeta + '</td>';
-
                 sortHTML += '<td valign="top" class="preSort-inl"><i class="material-icons expand-more">expand_more</i>';// + spinner +
                 sortHTML += '<ul class="inlstallen">';
                 var hideStuff = '';
@@ -766,8 +796,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                     if (!inlLink)
                                         setNonLink = 'nullLink';
                                     sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-
-                                    tabMobile_inl += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
                                 }
                                 nullLink = '';
                                 locationmap = '';
@@ -789,25 +817,21 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '</ul></td>';
                 sortHTML += '</tr>';
-                sortHTML += '<tr class="tabMobile"><th class="col s12">Sorteras som:</th><td><ul class="meta-fraktion">' + tabMobile_frak + '</ul></td></tr>';
-                sortHTML += '<tr class="tabMobile lastchild"><th class="col s12">Lämnas:</th><td>' + spinner + '<ul class="inlstallen">' + tabMobile_inl
-                    + '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li></ul></td></tr>';
 
-                tabMobile_frak = "";
-                tabMobile_inl = "";
+
 
                 /*if (spost.post_title.length > 0)
                     nosortGuidedata = true;*/
 
             });
+
             sortHTML += '</table>';
 
-            $('.sorteringsguiden-data').append(sortHTML);
-            $('.sorteringsguiden').removeClass('hide');
+            return sortHTML;
         }
 
         /* No result ..... */
-        if (typeof res.sortguide != 'undefined' && res.sortguide !== null) {
+        /*if (typeof res.sortguide != 'undefined' && res.sortguide !== null) {
             if (res.sortguide.length === 0) {
                 var sHTML = "";
                 sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val()
@@ -815,9 +839,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('.sorteringsguiden-data').html(sHTML);
 
             }
-        }
+        }*/
 
-        var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
+        //var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
 
     };
 
@@ -825,6 +849,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.sortPagesResult = function (element, res) {
         var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
         //if (res.content.length > 0)
+        var pageHTML = '';
 
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
 
@@ -837,24 +862,26 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 if (!$metaDataStr['icon'])
                     $metaDataStr['icon'] = "find_in_page";
 
-                var pageHTML = '<li class="collapsible-header col s12 m12 l12"> <i class="material-icons"> ' + $metaDataStr['icon'] + '</i><a href="' + post.guid + '">' + post.post_title + '<span class="section right">' + $metaDataStr['postSection'] + '</span>';
+                pageHTML += '<div class="search-page-result collection"><div class="site-section">' + $metaDataStr['postSection'] + '</div><a href="' + post.guid + '">' + post.post_title;
                 if ($excerpt)
                     pageHTML += '<div class="moreinfo">' + $excerpt + '</div>';
-                pageHTML += '</a></li>';
-                $('.search-autocomplete-data').append(pageHTML);
+                pageHTML += '</a></div>';
+
                 noContent = true;
             });
+
+            return pageHTML;
         }
 
 
         /* No result ..... */
-        if (typeof res.content != 'undefined' && res.content !== null) {
+        /*if (typeof res.content != 'undefined' && res.content !== null) {
             if (res.content.length === 0) {
                 var sHTML = "";
                 sHTML += '<h4>Sidor på nsr.se</h4><br /><p class="noResult">Ingen träff på "' + $('#searchkeyword-nsr').val() + '".</p>';
                 $('.search-autocomplete-data').html(sHTML).removeClass('hide');
             }
-        }
+        }*/
     };
 
 
@@ -869,7 +896,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $fprow = '';
         var $fpMobRow = '';
         var foundRows = false;
-        console.log(result.fp);
+
         $('.search-fetchPlanner-data').append('<h4>Tömmningsdagar</h4><table class="fp-table-mobile"></table><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Nästa tömning</th></tr></table>');
 
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
@@ -942,6 +969,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
         $('.fp-table').append($fprow);
         $('.fp-table-mobile').append($fpMobRow);
+
+        setTimeout(function () {
+            $('.prefix').removeClass('nsr-origamiLoader');
+        }, 2000);
 
     };
 

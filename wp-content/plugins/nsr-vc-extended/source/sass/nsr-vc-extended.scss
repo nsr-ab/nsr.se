@@ -269,6 +269,15 @@ input[type=text]:focus.invalid {
                 display: inline-block;
                 vertical-align: middle;
                 font-size: 28px;
+                @media (max-width: 500px) {
+                    vertical-align: unset;
+                    margin-right: -11px;
+                    width: 50px;
+                    position: absolute;
+                    top: -5px;
+                    right: 13px;
+                    font-size:23px;
+                }
             }
             span {
                 display:none;
@@ -288,6 +297,11 @@ input[type=text]:focus.invalid {
         width:100% !important;
         @media (max-width: 1199px) {
             height:29px;
+        }
+        @media (max-width: 500px) {
+            font-size:0.2em;
+            padding-left:23px !important;
+            height:12px;
         }
     }
     .input-field input[type=search]:focus {
@@ -464,9 +478,14 @@ input[type=text]:focus.invalid {
         border: 3.5px solid #fff;
         height: 65px;
         box-shadow: none!important;
-
-
-
+        @media (max-width: 500px) {
+            max-width: 20px;
+            height: 48px;
+            border-top-right-radius: 8px!important;
+            border-bottom-right-radius: 8px!important;
+            border: 2.5px solid #fff;
+            border-left: 3px solid #fff;
+        }
     }
     @media (max-width: 450px) {
         .search-button {
@@ -477,6 +496,19 @@ input[type=text]:focus.invalid {
 }
 #nsr-searchResult {
 
+    max-width: 1280px;
+    .search-hits {
+        padding:20px 15px;
+        background-color:#f5f5f5;
+        font-size:1.4rem;
+        color:$darkGrey;
+        font-weight:normal;
+        .a-o {
+            color: $darkerGreen;
+            cursor:pointer;
+            font-weight:bold;
+        }
+    }
     .search-autocomplete-nothing-found {
         display: block;
         padding: 7.5px 10px;
@@ -501,7 +533,7 @@ input[type=text]:focus.invalid {
         line-height: 25px !important;
         display: table;
     }
-    .search-autocomplete,
+
     .search-content,
     .sorterings-guide-table,
     .fp-table,
@@ -634,8 +666,34 @@ input[type=text]:focus.invalid {
     .preSortCell {
         width:40%;
         min-width: 200px;
+
+    }
+    .preSortCell, .search-page-result {
         font-weight: 600;
         font-size: 1.4rem;
+    }
+    .search-page-result {
+        padding:15px;
+        margin-bottom:5px;
+        padding-bottom:20px;
+        background-color:white;
+        a {
+            text-decoration: none;
+            color:#252525 !important;
+            font-weight:400 !important;
+            clear:both;
+            width:100%;
+        }
+        .site-section {
+            font-size:0.8rem;
+            font-weight:normal;
+            color: $mossGreen !important;
+
+        }
+        .moreinfo {
+            font-size: 1.0rem;
+            max-width: 600px;
+        }
     }
     .preSort-inl,
     .preSort-frakt {
@@ -735,37 +793,6 @@ input[type=text]:focus.invalid {
             width: 100%;
             max-width: 100%;
         }
-        .tabDesk {
-            display: none;
-        }
-        .preSortCellMobile {
-            display: block;
-        }
-        .preSortCell {
-            display: none;
-        }
-        .tabMobile {
-            display: grid;
-            th {
-                background-color: $darkerGreen;
-            }
-            td {
-                width: 100%;
-                background-color: lighten($darkerGreen, 3%) !important;
-            }
-            &tr:nth-child(even),
-            &tr:nth-child(odd) {
-                background-color: lighten($darkerGreen, 3%) !important;
-                color: $lightGreen !important;
-            }
-            &.lastchild {
-                border-bottom: 1px solid darken($darkerGreen, 60%);
-                margin-bottom: 10px;
-            }
-            tr:last-child {
-                display: none;
-            }
-        }
     }
     .sorterings-guide-table,
     td,
@@ -784,25 +811,13 @@ input[type=text]:focus.invalid {
         float: none;
         display: block;
     }
-    @media (max-width: 450px) {
-        .sorterings-guide-table {
-            ul,
-            li {
-                display: inline-block;
-            }
-        }
-        .tabMobile {
-            display: grid !important;
-            ul {
-                margin-top: 0rem !important;
-            }
-        }
-    }
+
     .sorterings-guide-table li:hover {
         background: none !important;
     }
     .exnfodispl {
-        max-width: 300px;
+        //max-width: 300px;
+        padding-top:30px !important;
     }
 
     .exnfodispl,
@@ -825,7 +840,6 @@ input[type=text]:focus.invalid {
     .sorterings-guide-table,
     .fp-table,
     .fp-table-mobile {
-        background-color: $darkerGreen;
         font-size: 1.1rem;
     }
     .search-autocomplete-image {
@@ -1044,7 +1058,10 @@ tr {
     align-items: center;
     justify-content: center;
     width:100%;
-
+    z-index:-1;
+    @media (max-width: 560px) {
+        background:#106f7d;
+    }
     li {
         max-width:300px;
         padding: 10px 20px;
@@ -1054,28 +1071,48 @@ tr {
         margin: 0 3px;
         text-align:center;
         cursor:pointer;
+        @media (max-width: 450px) {
+            font-size:12px;
+            margin:0px;
+        }
+
         &:nth-child(1) {
             border-top-left-radius: 8px;
         }
         &:nth-child(3) {
             border-top-right-radius: 8px;
         }
+        &:nth-child(1), &:nth-child(1) {
+            @media (max-width: 560px) {
+                border-radius:0;
+            }
+        }
+
         &:hover {
             background:$defaultDarkGreen;
         }
         &:focus, &.active {
             background:$defaultDarkGreen;
         }
+        @media (max-width: 450px) {
+            background:#106f7d;
+            &.active {
+                background: #11616c;
+                border-radius:0;
+            }
+        }
     }
-    @media (max-width: 450px) {
-        display:none;
-    }
+
 }
 #nsr-searchResult {
 
-    background-color: #fff !important;
-    max-width: 90%;
+    background-color: #fff;
+    max-width: 1260px;
+    width:100%;
     margin: 0 auto;
+    &.transparent-background {
+        background-color: transparent !important;
+    }
     .sorteringsguiden-data, .search-autocomplete, .search-fetchPlanner {
 
         td {
@@ -1122,6 +1159,6 @@ tr {
     font-size: 1.7rem !important;
 
 }
-.searchView li {
-
+.expand-tr {
+    background-color: #f7f7f7;
 }

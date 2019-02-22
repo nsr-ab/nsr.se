@@ -73,6 +73,7 @@
 
             <?php if( !empty(get_field('visualComposerACFHero')) ): ?>
                 <div class="heroWrapper row search searchNSR" data-bgimage="<?php echo the_field('HImage', get_the_ID()); ?>" style="background-image: url(<?php echo the_field('HImage', get_the_ID()); ?>);">
+                    <span class="designation">SÖK</span>
                     <div class="hero-search">
                         <?php echo the_field('visualComposerACFHero', get_the_ID()); ?>
                     </div>
@@ -81,6 +82,7 @@
             <?php endif; ?>
         <main id="main-content" class="clearfix">
             <div id="nsr-searchResult" class="hide">
+                <div class="search-hits hide"></div>
                 <div class="sorteringsguiden hide searchView"><div class="sorteringsguiden-data"></div></div>
                 <div class="search-autocomplete hide searchView"><div class="search-autocomplete-data"></div></div>
                 <div class="search-fetchPlanner hide searchView"><div class="search-fetchPlanner-data"></div></div>

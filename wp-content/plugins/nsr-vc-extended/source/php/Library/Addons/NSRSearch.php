@@ -156,7 +156,7 @@ class NSRSearch
                         <form itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/SearchAction\">
                           <div class=\"row\">                       
                                                           
-                            <div class=\"tooltip-info cookieBased\">
+                            <div class=\"tooltip-info\">
                                 <div class=\"tooltip-inner\">
                                     <i class=\"material-icons closeTooltip\">close</i>
                                     <b>" . $params->vc_tooltip_title . "</b><br />
@@ -168,7 +168,7 @@ class NSRSearch
                             <div class=\"input-field col s12 searchArea\">
                                 <div class=\"searchWrapper\">
                                     <i class=\"material-icons prefix notranslate\">&#xE8B6;</i>
-                                    <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\" required=\"\" id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
+                                    <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\"  id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
                                     <label for=\"searchkeyword-nsr\">" . __('Where do you live? What stuff do you want to sort? Are you looking for something else?',
                 'nsr-vc-extended') . "</label>
                                     <input type=\"hidden\" id=\"post_type\" value=\"" . $params->vc_search_sections . "\">

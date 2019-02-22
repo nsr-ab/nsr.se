@@ -2,13 +2,32 @@
 .heroWrapper {
     height: 400px;
     z-index: 997;
-    @media (max-width: 1000px) {
-        min-height:300px;
+
+    span.designation {
+        display: none;
     }
 
-    @media (max-width: 450px) {
-        height:200px;
+    @media (max-width: 1000px) {
+        min-height: 300px;
     }
+
+    @media (max-width: 580px) {
+        background-image: none !important;
+        background-color:$palette-primary-green !important;
+        position:relative;
+        min-height: auto;
+        height: 200px;
+        span.designation {
+            position:absolute;
+            top: 10px;
+            left: 60px;
+            display: inline-block;
+            text-align:left;
+            font-size:1.1rem;
+        }
+
+    }
+
     background-position: center !important;;
     background-repeat: no-repeat !important;;
     background-size: cover !important;;
@@ -20,23 +39,27 @@
         text-align: center !important;;
         position: absolute;
         top: 50%;
+        @media (max-width: 580px) {
+            top: 40%;
+        }
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
-        max-width:80%;
+        max-width: 80%;
 
     }
 
     .hero-form {
         margin: 0 auto;
-        max-width:800px !important;
-        padding:50px;
+        max-width: 800px !important;
+        padding: 50px;
     }
+
     .searchTooltip {
-        @media (max-width: 450px) {
-            display:none;
+        @media (max-width: 580px) {
+            display: none;
         }
-        color:white;
+        color: white;
         font-size: 14px;
         padding-top: 13px;
         line-height: 22px;
