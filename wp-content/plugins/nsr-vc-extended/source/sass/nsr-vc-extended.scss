@@ -225,6 +225,9 @@ input[type=text]:focus.invalid {
     margin-left:-40px !important;
     &.row {
         margin-bottom:0px !important;
+        @media (max-width: 580px) {
+            //padding-top: 30px;
+        }
     }
     .col {
         //padding: 0 !important;
@@ -255,6 +258,7 @@ input[type=text]:focus.invalid {
 
         align-items: center;
         padding:0px !important;
+
 
     }
     @media (max-width: 500px) {
@@ -587,6 +591,11 @@ input[type=text]:focus.invalid {
                 color: $lightCyan !important;
             }
         }
+        @media (max-width: 560px) {
+            .meta-fraktion li {
+                padding-left:30px;
+            }
+        }
         .meta-fraktion li a {
             padding: 0px 15px;
         }
@@ -671,6 +680,12 @@ input[type=text]:focus.invalid {
     .preSortCell, .search-page-result {
         font-weight: 600;
         font-size: 1.4rem;
+        @media (max-width: 680px) {
+            padding:20px;
+            width:100%;
+            position:relative;
+        }
+
     }
     .search-page-result {
         padding:15px;
@@ -777,16 +792,49 @@ input[type=text]:focus.invalid {
             display: none;
         }
     }
-    .inlstallen li {
-        display: none;
-        color: $defaultGreen;
-        text-align:right;
-        &.closeToHome {
-            display:block !important;
+    .preSort-frakt {
+        padding-top:30px;
+        .meta-fraktion li {
+            padding-left:30px;
+            display: inline-block;
+        }
+    }
+    .inlstallen {
+
+        li {
+
+            display: none;
+            color: $defaultGreen;
+            text-align:right;
+            &.closeToHome {
+                display:block !important;
+            }
+            &:nth-child(1) {
+                display:block;
+            };
+            @media (max-width: 680px) {
+                font-size:1.1rem;
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(3),
+                &:nth-child(4),
+                &.viewAllInlamning {
+                    display: block !important;
+                    text-align: left;
+                    padding-left: 30px;
+                }
+            }
+            h4 {
+                color: #6e6e6e;
+                margin-left:-10px;
+                font-weight:600;
+                font-size: 1.3rem;
+            }
         }
 
     }
-    @media (max-width: 540px) {
+
+    @media (max-width: 560px) {
         .fp-table-mobile {
             display: table;
             border: none !important;
@@ -888,14 +936,17 @@ input[type=text]:focus.invalid {
         margin-top: 20px;
     }
     .fraktion-icon-home {
-        color: $defaultGreen;
-        line-height: 6px;
-    }
-    .fraktion-icon-avc{
-        color: $darkGrey;
+        @media (min-width: 581px) {
+            color: $defaultGreen;
+            line-height: 6px;
+        }
     }
 
+    .meta-fraction li {
+        display: inline-block;
+    }
     //.locationmap:before,
+    .exnfodispl:before,
     .fraktion-icon-home:before,
     .fraktion-icon-avc:before
     {
@@ -919,6 +970,11 @@ input[type=text]:focus.invalid {
         font-family: 'FontAwesome';
 
     }
+    .exnfodispl:before {
+        font-family: 'Material Icons';
+        content: '\e88e' !important;
+    }
+
     .fraktion-icon-home:before {
         content: '\e88a' !important;
     }
@@ -938,6 +994,7 @@ input[type=text]:focus.invalid {
             top: 210px;
         }
     }
+
 }
 td,
 tr {
@@ -1006,6 +1063,15 @@ tr {
         float: none !important;
         clear: both !important;
         width: 100% !important;
+        color: #6e6e6e;
+
+        b {
+            color:#575757;
+            width:80%;
+        }
+        div {
+            padding-left:25px;
+        }
     }
     .searchNSR .sorterings-guide-table li,
     .searchNSR .sorterings-guide-table ul {
@@ -1057,11 +1123,11 @@ tr {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:100%;
     z-index:-1;
     @media (max-width: 560px) {
         background:#106f7d;
     }
+
     li {
         max-width:300px;
         padding: 10px 20px;
@@ -1082,7 +1148,7 @@ tr {
         &:nth-child(3) {
             border-top-right-radius: 8px;
         }
-        &:nth-child(1), &:nth-child(1) {
+        &:nth-child(1), &:nth-child(3) {
             @media (max-width: 560px) {
                 border-radius:0;
             }
@@ -1099,11 +1165,48 @@ tr {
             &.active {
                 background: #11616c;
                 border-radius:0;
+                font-size: 16px;
+            }
+        }
+        @media (max-width: 340px) {
+            &.active {
+                font-size: 14px;
             }
         }
     }
 
 }
+
+.purple {
+    .search-nav {
+        background-color:#3f3080;
+        li {
+            background-color:#3f3080;
+            &:hover {
+                background:#2f2263;
+            }
+            &:focus, &.active {
+                background:#2f2263;
+            }
+            @media (max-width: 450px) {
+                background:#3f3080;
+                &.active {
+                    background: #2f2263;
+                    border-radius:0;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .search-button {
+        background:#3f3080;
+        &:hover {
+            background:#2f2263;
+        }
+    }
+}
+
+
 #nsr-searchResult {
 
     background-color: #fff;
@@ -1157,8 +1260,85 @@ tr {
     //margin-top:-7px;
     color: white !important;
     font-size: 1.7rem !important;
-
+    @media (max-width: 500px) {
+        background-size: 38px;
+        background-position-y: 2px;
+        background-position-x: 8px;
+    }
 }
 .expand-tr {
     background-color: #f7f7f7;
 }
+
+.tabDesk td {
+    @media (max-width: 680px) {
+        padding: 20px;
+        display: inline-block;
+    }
+}
+.deskHide, .expand-sortCell {
+    display:none !important;
+
+}
+.meta-fraktion div {
+    display: inline-block;
+}
+
+@media (max-width: 680px) {
+    .mobHide {
+        display:none;
+    }
+    .deskHide {
+        display: inline-block !important;
+    }
+    .preSort-inl, .preSort-frakt {
+        display: none !important;
+    }
+    .expand-inl {
+        display:none !important;
+    }
+    .showPreSorts {
+        display: table-row !important;
+    }
+    .preSortCell {
+        width:90% !important;
+    }
+    .expand-sortCell {
+        position:absolute;
+        right:-10px;
+        top:15px;
+        cursor:pointer;
+    }
+    .exnfodispl {
+        display:block !important;
+        div {
+            max-width:80%;
+        }
+    }
+    .meta-fraktion {
+        li {
+            width:100% !important;
+        }
+        font-size:1.1rem;
+    }
+    .no-margins {
+        margin:0px;
+    }
+    .searchDesignation {
+        padding-top: 0px;
+        margin-top: 10px;
+        font-weight: normal;
+        font-size: 19px;
+        position: relative;
+        left: -51px;
+        width: 100%;
+        @media (max-width: 450px) {
+            left:0px;
+        }
+    }
+}
+
+
+
+
+

@@ -83,10 +83,12 @@
     }
 }
 
+
 .searchbuttons {
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 0px;
+
     @media (min-width: 560px) {
         display:none;
     }

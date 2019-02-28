@@ -150,12 +150,12 @@ class NSRSearch
         }
 
         $output = "<div class=\"row search searchNSR " . $hero . " " . $positionFixed . "\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\">
-                        
+                        <div class=\"searchDesignation deskHide\"></div>   
                         <div class=\"col s12\">
 
                         <form itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/SearchAction\">
                           <div class=\"row\">                       
-                                                          
+                                                
                             <div class=\"tooltip-info\">
                                 <div class=\"tooltip-inner\">
                                     <i class=\"material-icons closeTooltip\">close</i>
@@ -167,6 +167,7 @@ class NSRSearch
                             <!-- <h4 class=\"search-title\">" . $params->vc_designation . "</h4> -->
                             <div class=\"input-field col s12 searchArea\">
                                 <div class=\"searchWrapper\">
+                                    
                                     <i class=\"material-icons prefix notranslate\">&#xE8B6;</i>
                                     <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\"  id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
                                     <label for=\"searchkeyword-nsr\">" . __('Where do you live? What stuff do you want to sort? Are you looking for something else?',

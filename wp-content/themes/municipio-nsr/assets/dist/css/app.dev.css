@@ -7036,18 +7036,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
         min-height: 300px; } }
     @media (max-width: 580px) {
       .is-child-theme .heroWrapper {
+        padding-top: 10px;
         background-image: none !important;
-        background-color: #007586 !important;
         position: relative;
         min-height: auto;
-        height: 200px; }
-        .is-child-theme .heroWrapper span.designation {
-          position: absolute;
-          top: 10px;
-          left: 60px;
-          display: inline-block;
-          text-align: left;
-          font-size: 1.1rem; } }
+        height: 240px; } }
     .is-child-theme .heroWrapper .hero-search {
       text-align: center !important;
       position: absolute;
@@ -7071,6 +7064,12 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       @media (max-width: 580px) {
         .is-child-theme .heroWrapper .searchTooltip {
           display: none; } }
+    @media (max-width: 680px) {
+      .is-child-theme .heroWrapper .searching .searchbuttons {
+        top: 70px; } }
+    @media (max-width: 500px) {
+      .is-child-theme .heroWrapper .searching .searchbuttons {
+        top: 60px; } }
   .is-child-theme .vcmega-main-wrap {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#23aabd+0,1c3533+100 */
     background: #23aabd;
@@ -7160,7 +7159,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       padding-left: 15px; }
   .is-child-theme .searchbuttons {
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 0px; }
     @media (min-width: 560px) {
       .is-child-theme .searchbuttons {

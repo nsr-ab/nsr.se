@@ -12,19 +12,12 @@
     }
 
     @media (max-width: 580px) {
+        padding-top:10px;
         background-image: none !important;
-        background-color:$palette-primary-green !important;
+        //background-color:$palette-primary-green !important;
         position:relative;
         min-height: auto;
-        height: 200px;
-        span.designation {
-            position:absolute;
-            top: 10px;
-            left: 60px;
-            display: inline-block;
-            text-align:left;
-            font-size:1.1rem;
-        }
+        height: 240px;
 
     }
 
@@ -63,6 +56,16 @@
         font-size: 14px;
         padding-top: 13px;
         line-height: 22px;
+    }
+    @media (max-width: 680px) {
+        .searching .searchbuttons {
+            top: 70px;
+        }
+    }
+    @media (max-width: 500px) {
+        .searching .searchbuttons {
+            top: 60px;
+        }
     }
 
 }

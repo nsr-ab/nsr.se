@@ -74,6 +74,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             event.preventDefault();
             window.clearTimeout(typingTimer);
             Extended.prototype.doneTyping();
+            $('.searchWrapper').addClass('searching');
         });
 
         /* searchNSR - Submit means search */
@@ -81,6 +82,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             e.preventDefault();
             window.clearTimeout(typingTimer);
             Extended.prototype.doneTyping();
+            $('.searchWrapper').addClass('searching');
             return false;
         }).bind(this);
 
@@ -141,28 +143,58 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         // Expand more info
         $('body').on('click', '.preSort-inl .material-icons', function () {
+
             $('.inlstallen li').hide();
             $('.sorteringsguiden-data tr').removeClass('expand-tr');
 
             if ($(this).hasClass('expand-more')) {
+
                 $('.preSort-inl').find('i').text('expand_more');
                 $(this).removeClass('expand-more');
                 $(this).addClass('expand-less');
                 $(this).text('expand_less');
                 $(this).closest('.preSort-inl').find('li').show();
                 $(this).closest('tr').addClass('expand-tr');
+                $('.inlstallen').each(function () {
+                    $(this).find('li:first').show();
+                });
             } else {
                 $(this).removeClass('expand-less');
                 $(this).addClass('expand-more');
                 $(this).text('expand_more');
                 $(this).closest('.preSort-inl').find('li').hide();
+
+
+                $('.inlstallen').each(function () {
+                    $(this).find('li:first').show();
+                });
             }
         }).bind(this);
 
+        // Expand more info
+        $('body').on('click', '.preSortCell .material-icons', function () {
 
+            if (!$(this).closest('.tabDesk').find('.preSort-frakt').hasClass('showPreSorts')){
+                $(this).closest('.tabDesk').find('.expand-less').removeClass('hide');
+                $(this).addClass('hide');
+                $(this).closest('.tabDesk').find('.preSort-frakt').addClass('showPreSorts');
+                $(this).closest('.tabDesk').find('.preSort-inl').addClass('showPreSorts');
+                $(this).closest('tr').addClass('expand-tr');
+            }
+            else {
+                $(this).closest('.tabDesk').find('.expand-more').removeClass('hide');
+                $(this).addClass('hide');
+                $(this).closest('.tabDesk').find('.preSort-frakt').removeClass('showPreSorts');
+                $(this).closest('.tabDesk').find('.preSort-inl').removeClass('showPreSorts');
+                $(this).closest('tr').removeClass('expand-tr');
+            }
+
+        }).bind(this);
+
+        $('.searchDesignation').html($('.searchNSR').attr('data-searchdesignation'));
     };
 
-    Extended.prototype.DefaultSiteSearch = function () {
+    Extended.prototype.onReSize = function () {
 
     };
 
@@ -535,8 +567,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
             dataType: 'json',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-                if ($('.nsr-searchResult .preloader-wrapper').length < 1) {
-                    $('.prefix').addClass('nsr-origamiLoader');
+                if ($(window).width() > 500) {
+                    if ($('.nsr-searchResult .preloader-wrapper').length < 1) {
+                        $('.prefix').addClass('nsr-origamiLoader');
+                    }
+                } else {
+                    $('.search-button').addClass('nsr-origamiLoader');
                 }
 
                 $('#searchkeyword-nsr').removeClass('valid'), $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('waitingForConnection');
@@ -648,7 +684,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
         //Hits
-        $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span class="a-o right-align right hide">Sorteringsguiden A till Ö</span>');
+        $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span class="a-o right-align right hide mobHide">Sorteringsguiden A till Ö</span>');
         $('.search-hits').removeClass('hide');
 
         if ($('.nsr-elasticSearch-nav').hasClass('active'))
@@ -665,170 +701,101 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.sortGuideResult = function (element, res) {
 
         var spinner = '';//Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
+        var cityInt = 0;
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
 
-            var tabMobile_frak = null;
-            var CityItem;
-            var cityInt = 0;
             var sortHTML = '';
+            var CityItem = [];
+            var minMobHack = false;
+            var minMob = $(window).width();
+            if (minMob < 680) {
+                minMobHack = true;
+            }
 
             if ($('.errorSortguide').is(':visible'))
                 $('.errorSortguide').addClass('hide');
 
-            sortHTML += '<table>';
+            sortHTML += '<table class="sortGuideCompleteInfo">';
 
             $.each(res.sortguide, function (index, spost) {
+                    sortHTML += '<tr class="tabDesk">';
+                    sortHTML += '<td class="preSortCell" valign="top">';
+                    sortHTML += spost.post_title + ' <i class="hide expand-sortCell material-icons expand-less deskHide">expand_less</i> <i class="expand-sortCell material-icons expand-more deskHide">expand_more</i> </td><td valign="top" class="preSort-frakt">';
 
-                sortHTML += '<tr class="tabDesk"><td class="preSortCell" valign="top">' +
-                    spost.post_title + '</td><td valign="top" class="preSort-frakt">';
+                    if (spost.post_meta) {
 
-                if (spost.post_meta) {
+                        // Fraktioner
+                        if (spost.post_meta.fraktion_avc.name != '' && spost.post_meta.fraktion_avc.name != null) {
+                            sortHTML += '<ul class="sortAs meta-fraktion">';
+                            sortHTML += '<li class="fraktion-icon-avc">';
+                            sortHTML += '<b class="deskHide">Återvinningscentral:</b>';
 
-                    // Fraktioner
-                    if (spost.post_meta.fraktion_avc.name != '' && spost.post_meta.fraktion_avc.name != null) {
-                        sortHTML += '<ul class="sortAs meta-fraktion">';
-
-                        if (spost.post_meta.fraktion_avc.link != '') {
-                            var fraktion_avc = '<a href="' + spost.post_meta.fraktion_avc.link + '">' +
-                                spost.post_meta.fraktion_avc.name + '</a>';
-                        } else {
-                            var fraktion_avc = spost.post_meta.fraktion_avc.name;
-                        }
-
-                        sortHTML += '<li class="fraktion-icon-avc">' + fraktion_avc + '</li>';
-                        sortHTML += '</ul>';
-                    }
-
-                    if (spost.post_meta.fraktion_hemma.name != '' && spost.post_meta.fraktion_hemma.name != null) {
-                        sortHTML += '<ul class="sortAs meta-fraktion">';
-                        if (spost.post_meta.fraktion_hemma.link != '') {
-                            var fraktion_hemma = '<a href="' + spost.post_meta.fraktion_hemma.link + '">' +
-                                spost.post_meta.fraktion_hemma.name + '</a>';
-                        } else {
-                            var fraktion_hemma = spost.post_meta.fraktion_hemma.name;
-                        }
-                        sortHTML += '<li class="fraktion-icon-home">' + fraktion_hemma + '</li>';
-
-                        var braAttVeta = '';
-                        if (spost.post_meta && spost.post_meta.avfall_bra_att_veta &&
-                            spost.post_meta.avfall_bra_att_veta.length >= 1 &&
-                            typeof spost.post_meta.avfall_bra_att_veta[0] != 'undefined') {
-                            braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'),
-                                '<br />');
-
-                            (braAttVeta) ? sortHTML += '<li class="exnfodispl "><b>Bra att veta</b><div>' + braAttVeta + '</div></li>' : '';
-                            braAttVeta = '';
-                        }
-
-                        sortHTML += '</ul>';
-                    }
-                }
-
-                sortHTML += '</td>';
-                sortHTML += '<td valign="top" class="preSort-inl"><i class="material-icons expand-more">expand_more</i>';// + spinner +
-                sortHTML += '<ul class="inlstallen">';
-                var hideStuff = '';
-                if (spost.post_meta) {
-
-                    if (spost.post_meta.inlamningsstallen && spost.post_meta.inlamningsstallen.length) {
-
-                        CityItem = [];
-                        for (var int = 0; int < spost.post_meta.inlamningsstallen.length; int++) {
-
-                            var lint;
-                            var inlineClick = '';
-                            var inlLink = '';
-                            var inLinkClose = '';
-                            var latlong = '';
-                            var latlongID = '';
-                            var searchID = '';
-                            var locationmap;
-                            var setNonLink = '';
-                            for (lint = 0; lint < spost.post_meta.inlamningsstallen[int].length; lint++) {
-                                if (lint > 5)
-                                    hideStuff = 'hide';
-
-                                if (spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
-
-                                    inlLink = '';
-                                    inLinkClose = '';
-                                    locationmap = '';
-
-                                    if (Extended.prototype.Strpos(spost.post_meta.inlamningsstallen[int][lint]['pageurl'], '?page_id=')) {
-                                        spost.post_meta.inlamningsstallen[int][lint]['pageurl'] = '';
-                                        inlLink = '';
-                                        inLinkClose = '';
-                                        inlineClick = '';
-                                        locationmap = '';
-                                    }
-
-                                    if (spost.post_meta.inlamningsstallen[int][lint]['pageurl'] != '') {
-                                        inlLink = '<a href="' + spost.post_meta.inlamningsstallen[int][lint]['pageurl'] + '">';
-                                        inLinkClose = '</a>';
-                                        locationmap = 'locationmap';
-                                    }
-
-                                    if (spost.post_meta.inlamningsstallen[int][lint]['lat'] && spost.post_meta.inlamningsstallen[int][lint]['long']) {
-                                        if (!spost.post_meta.inlamningsstallen[int][lint]['pageurl']) {
-                                            inlineClick = ' data-url="http://maps.google.com?q=' + spost.post_meta.inlamningsstallen[int][lint]['lat'] + ',' + spost.post_meta.inlamningsstallen[int][lint]['long'] + '" ';
-                                            locationmap = 'locationmap';
-                                        }
-                                    }
-                                }
-
-                                if (spost.post_meta.inlamningsstallen[int][lint]['lat'] && spost.post_meta.inlamningsstallen[int][lint]['long']) {
-                                    latlong = 'data-lat="' + spost.post_meta.inlamningsstallen[int][lint]['lat'] + '" data-long="' + spost.post_meta.inlamningsstallen[int][lint]['long'] + '"';
-                                    latlongID = Extended.prototype.hashCode('id_' + int + lint + '_' + spost.post_meta.inlamningsstallen[int][lint]['lat'] + spost.post_meta.inlamningsstallen[int][lint]['long']);
-                                }
-
-                                if (spost.post_meta.inlamningsstallen[int][lint]['lat'] && spost.post_meta.inlamningsstallen[int][lint]['long'])
-                                    CityItem[lint] = [spost.post_meta.inlamningsstallen[int][lint]['city'], spost.post_meta.inlamningsstallen[int][lint]['lat'], spost.post_meta.inlamningsstallen[int][lint]['long'], spost.post_meta.inlamningsstallen[int][lint]['city'], latlongID];
-
-                                searchID = latlongID;
-                                if (latlongID)
-                                    latlongID = 'id="' + latlongID + '"';
-
-                                latlongID = '';
-
-
-                                if (spost.post_meta.inlamningsstallen[int][lint]['city'] != null) {
-                                    if (!inlLink)
-                                        setNonLink = 'nullLink';
-                                    sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ' + inlLink + spost.post_meta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
-                                }
-                                nullLink = '';
-                                locationmap = '';
-                                hideStuff = '';
-                                inlineClick = '';
-                                latlong = '';
-                                latlongID = '';
+                            if (spost.post_meta.fraktion_avc.link != '') {
+                                var fraktion_avc = '<a href="' + spost.post_meta.fraktion_avc.link + '">' +
+                                    spost.post_meta.fraktion_avc.name + '</a>';
+                            } else {
+                                var fraktion_avc = spost.post_meta.fraktion_avc.name;
                             }
+                            if (minMobHack)
+                                sortHTML += '<div>';
+                            sortHTML += fraktion_avc;
+                            if (minMobHack)
+                                sortHTML += '</div>';
+                            sortHTML += '</li></ul>';
                         }
 
-                        cities[cityInt] = CityItem;
-                        cityInt++;
-                        sortHTML += '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li>';
+                        if (spost.post_meta.fraktion_hemma.name != '' && spost.post_meta.fraktion_hemma.name != null) {
+                            sortHTML += '<ul class="sortAs meta-fraktion">';
+
+                            sortHTML += '<li class="fraktion-icon-home">';
+                            sortHTML += '<b class="deskHide">Hemma:</b>';
+                            if (spost.post_meta.fraktion_hemma.link != '') {
+                                var fraktion_hemma = '<a href="' + spost.post_meta.fraktion_hemma.link + '">' +
+                                    spost.post_meta.fraktion_hemma.name + '</a>';
+                            } else {
+                                var fraktion_hemma = spost.post_meta.fraktion_hemma.name;
+                            }
+                            if (minMobHack)
+                                sortHTML += '<div>';
+                            sortHTML += fraktion_hemma;
+                            if (minMobHack)
+                                sortHTML += '</div>';
+                            sortHTML += '</li>';
+
+                            var braAttVeta = '';
+                            if (spost.post_meta && spost.post_meta.avfall_bra_att_veta &&
+                                spost.post_meta.avfall_bra_att_veta.length >= 1 &&
+                                typeof spost.post_meta.avfall_bra_att_veta[0] != 'undefined') {
+                                braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'),
+                                    '<br />');
+
+                                (braAttVeta) ? sortHTML += '<li class="exnfodispl "><b>Bra att veta</b><div>' + braAttVeta + '</div></li>' : '';
+                            }
+                            braAttVeta = '';
+                            sortHTML += '</ul>';
+                        }
                     }
 
+                    sortHTML += '</td>';
+
+                    sortHTML += Extended.prototype.inStallen(spost.post_meta, CityItem, minMobHack);
+
+                    cities[cityInt] = CityItem;
+                    cityInt++;
+
+                    sortHTML += '</ul>';
+                    sortHTML += '</td>';
+                    sortHTML += '</tr>';
 
                 }
-
-
-                sortHTML += '</ul></td>';
-                sortHTML += '</tr>';
-
-
-
-                /*if (spost.post_title.length > 0)
-                    nosortGuidedata = true;*/
-
-            });
+            );
 
             sortHTML += '</table>';
 
             return sortHTML;
         }
+
 
         /* No result ..... */
         /*if (typeof res.sortguide != 'undefined' && res.sortguide !== null) {
@@ -843,6 +810,118 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         //var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
 
+    };
+
+    /**
+     * Render markup for Inlamningställen
+     * @param postMeta
+     * @returns {string}
+     */
+    Extended.prototype.inStallen = function (postMeta, CityItem, view) {
+
+        var hideStuff = '';
+        var sortHTML = '';
+        var CityItem = [];
+        var minMobHack = false;
+        var minMob = $(window).width();
+        if (minMob < 680) {
+            minMobHack = true;
+        }
+
+
+        sortHTML += '<td valign="top" class="preSort-inl">';
+
+
+        sortHTML += '<i class="expand-inl material-icons expand-more">expand_more</i>';
+        sortHTML += '<ul class="inlstallen">';
+
+        if (postMeta) {
+            if (postMeta.inlamningsstallen && postMeta.inlamningsstallen.length) {
+
+                if (minMobHack)
+                    sortHTML += '<li class="deskHide"><h4>Lämnas nära dig:</h4></li>';
+                for (var int = 0; int < postMeta.inlamningsstallen.length; int++) {
+
+                    var lint;
+                    var inlineClick = '';
+                    var inlLink = '';
+                    var inLinkClose = '';
+                    var latlong = '';
+                    var latlongID = '';
+                    var searchID = '';
+                    var locationmap;
+                    var setNonLink = '';
+
+                    for (lint = 0; lint < postMeta.inlamningsstallen[int].length; lint++) {
+                        if (lint > 5)
+                            hideStuff = 'hide';
+
+                        if (postMeta.inlamningsstallen[int][lint]['pageurl']) {
+
+                            inlLink = '';
+                            inLinkClose = '';
+                            locationmap = '';
+
+                            if (Extended.prototype.Strpos(postMeta.inlamningsstallen[int][lint]['pageurl'], '?page_id=')) {
+                                postMeta.inlamningsstallen[int][lint]['pageurl'] = '';
+                                inlLink = '';
+                                inLinkClose = '';
+                                inlineClick = '';
+                                locationmap = '';
+                            }
+
+                            if (postMeta.inlamningsstallen[int][lint]['pageurl'] != '') {
+                                inlLink = '<a href="' + postMeta.inlamningsstallen[int][lint]['pageurl'] + '">';
+                                inLinkClose = '</a>';
+                                locationmap = 'locationmap';
+                            }
+
+                            if (postMeta.inlamningsstallen[int][lint]['lat'] && postMeta.inlamningsstallen[int][lint]['long']) {
+                                if (!postMeta.inlamningsstallen[int][lint]['pageurl']) {
+                                    inlineClick = ' data-url="http://maps.google.com?q=' + postMeta.inlamningsstallen[int][lint]['lat'] + ',' + postMeta.inlamningsstallen[int][lint]['long'] + '" ';
+                                    locationmap = 'locationmap';
+                                }
+                            }
+                        }
+
+                        if (postMeta.inlamningsstallen[int][lint]['lat'] && postMeta.inlamningsstallen[int][lint]['long']) {
+                            latlong = 'data-lat="' + postMeta.inlamningsstallen[int][lint]['lat'] + '" data-long="' + postMeta.inlamningsstallen[int][lint]['long'] + '"';
+                            latlongID = Extended.prototype.hashCode('id_' + int + lint + '_' + postMeta.inlamningsstallen[int][lint]['lat'] + postMeta.inlamningsstallen[int][lint]['long']);
+                        }
+
+                        if (postMeta.inlamningsstallen[int][lint]['lat'] && postMeta.inlamningsstallen[int][lint]['long'])
+                            CityItem[lint] = [postMeta.inlamningsstallen[int][lint]['city'], postMeta.inlamningsstallen[int][lint]['lat'], postMeta.inlamningsstallen[int][lint]['long'], postMeta.inlamningsstallen[int][lint]['city'], latlongID];
+
+                        searchID = latlongID;
+                        if (latlongID)
+                            latlongID = 'id="' + latlongID + '"';
+
+                        latlongID = '';
+
+
+                        if (postMeta.inlamningsstallen[int][lint]['city'] != null) {
+                            if (!inlLink)
+                                setNonLink = 'nullLink';
+                            sortHTML += '<li searchid="' + searchID + '" ' + latlongID + ' ' + latlong + ' class="' + setNonLink + ' ' + locationmap + ' ' + hideStuff + '" ' + inlineClick + '> ';
+                            sortHTML += inlLink + postMeta.inlamningsstallen[int][lint]['city'] + inLinkClose + '</li>';
+                        }
+                        nullLink = '';
+                        locationmap = '';
+                        hideStuff = '';
+                        inlineClick = '';
+                        latlong = '';
+                        latlongID = '';
+                    }
+                }
+
+                sortHTML += '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li>';
+            }
+
+            sortHTML += '</td>';
+
+
+        }
+        return sortHTML;
     };
 
 
@@ -972,6 +1051,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         setTimeout(function () {
             $('.prefix').removeClass('nsr-origamiLoader');
+            $('.search-button').removeClass('nsr-origamiLoader');
         }, 2000);
 
     };

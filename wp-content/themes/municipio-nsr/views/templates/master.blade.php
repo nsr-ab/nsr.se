@@ -72,8 +72,7 @@
         @include('partials.header')
 
             <?php if( !empty(get_field('visualComposerACFHero')) ): ?>
-                <div class="heroWrapper row search searchNSR" data-bgimage="<?php echo the_field('HImage', get_the_ID()); ?>" style="background-image: url(<?php echo the_field('HImage', get_the_ID()); ?>);">
-                    <span class="designation">SÖK</span>
+                <div class="heroWrapper row search searchNSR" data-searchDesignation='<?php echo get_the_title(); ?>' data-bgimage="<?php echo the_field('HImage', get_the_ID()); ?>" style="background-image: url(<?php echo the_field('HImage', get_the_ID()); ?>);">
                     <div class="hero-search">
                         <?php echo the_field('visualComposerACFHero', get_the_ID()); ?>
                     </div>
