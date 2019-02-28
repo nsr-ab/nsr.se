@@ -89,7 +89,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* On input starting timer  */
         $('.searchNSR').on("input", function () {
-            console.log('init 101');
+
             window.clearTimeout(typingTimer);
             if (!wouldBeTimer) {
                 $('.searchNSR .search-button').show();
@@ -203,7 +203,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  Search via searchModal window
      */
     Extended.prototype.DefaultSiteSearch = function () {
-        console.log('DefaultSiteSearch 136');
+
         var query = Extended.prototype.getUrlParameter('q');
 
         if (query) {
@@ -223,7 +223,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  Managing all event handlers (Silence is gold)
      */
     Extended.prototype.CollapsibleHeaders = function () {
-        console.log('CollapsibleHeader 156');
+
         // Accordion open & close and links
         $('body').on('click', '.collapsible-header', function () {
 
@@ -266,7 +266,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @return {void}
      */
     Extended.prototype.displayMore = function (element) {
-        console.log('display more 199');
+
         event.preventDefault();
 
         if ($(element).closest("ul").find('li').hasClass('hide')) {
@@ -290,7 +290,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @return {void}
      */
     Extended.prototype.enterTrigger = function (fnc, element) {
-        console.log('enterTrigger');
+
         return element.each(function () {
             $(element).keypress(function (ev) {
                 var keycode = (ev.keyCode ? ev.keyCode : ev.which);
@@ -358,7 +358,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @return {void}
      */
     Extended.prototype.doneTyping = function () {
-        console.log('doneTyping 354');
+
         $('.searchNSR').each(function (index, element) {
             clearTimeout(timerElastic), clearTimeout(timerFetchplanner);
             timerElastic = setTimeout(function () {
@@ -472,7 +472,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {void}
      */
     Extended.prototype.autocomplete = function (element) {
-        console.log('autoccomplete 371');
+
         var $element = $(element);
         var $input = $element.find('input[type="search"]');
 
@@ -538,7 +538,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
         var $element = $(element);
-        var $input = $element.find('input[type="search"]').val();
+        var $input = $('#searchkeyword-nsr').val();
         var $post_type = $('#post_type', $('#searchkeyword-nsr').parent()).val();
         var fdata = {
             action: 'fetchDataFromFetchPlannerCombined',
@@ -581,7 +581,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }).done(function (result) {
             this.dataFromSource(data_type, $element, data, $post_type, result);
             $('#nsr-searchResult').css('display', 'block');
-
+            console.log(result);
         }.bind(this));
     };
 
