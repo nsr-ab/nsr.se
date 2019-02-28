@@ -900,26 +900,65 @@ tr {
       .search-nav li.active {
         font-size: 14px; } }
 
-.purple .search-nav {
-  background-color: #3f3080; }
+@media (max-width: 559px) {
+  .purple .search-nav {
+    background-color: #3f3080; } }
+
+@media (max-width: 559px) {
   .purple .search-nav li {
-    background-color: #3f3080; }
-    .purple .search-nav li:hover {
-      background: #2f2263; }
-    .purple .search-nav li:focus, .purple .search-nav li.active {
-      background: #2f2263; }
-    @media (max-width: 450px) {
-      .purple .search-nav li {
-        background: #3f3080; }
-        .purple .search-nav li.active {
-          background: #2f2263;
-          border-radius: 0;
-          font-size: 16px; } }
+    background-color: #3f3080; } }
+
+@media (min-width: 560px) {
+  .purple .search-nav li:hover {
+    background: #2f2263; } }
+
+.purple .search-nav li:focus, .purple .search-nav li.active {
+  background: #2f2263; }
+
+@media (max-width: 560px) {
+  .purple .search-nav li {
+    background: #3f3080; }
+    .purple .search-nav li.active {
+      background: #2f2263;
+      border-radius: 0;
+      font-size: 16px; } }
 
 .purple .search-button {
-  background: #3f3080; }
+  background-color: #3f3080; }
+  .purple .search-button.nsr-origamiLoader {
+    background-color: transparent; }
   .purple .search-button:hover {
-    background: #2f2263; }
+    background-color: #2f2263; }
+
+@media (max-width: 559px) {
+  .green-light .search-nav {
+    background-color: #12847b; } }
+
+@media (max-width: 559px) {
+  .green-light .search-nav li {
+    background-color: #12847b; } }
+
+@media (min-width: 560px) {
+  .green-light .search-nav li:hover {
+    background: #14716a; } }
+
+.green-light .search-nav li:focus, .green-light .search-nav li.active {
+  background: #14716a; }
+
+@media (max-width: 560px) {
+  .green-light .search-nav li {
+    background: #12847b; }
+    .green-light .search-nav li.active {
+      background: #14716a;
+      border-radius: 0;
+      font-size: 16px; } }
+
+.green-light .search-button {
+  background-color: #14716a; }
+  .green-light .search-button.nsr-origamiLoader {
+    background-color: transparent; }
+  .green-light .search-button:hover {
+    background-color: #048c7d; }
 
 #nsr-searchResult {
   background-color: #fff;
@@ -1011,7 +1050,9 @@ tr {
     font-size: 19px;
     position: relative;
     left: -51px;
-    width: 100%; } }
+    width: 100%;
+    text-align: left;
+    padding-left: 15px; } }
   @media (max-width: 680px) and (max-width: 450px) {
     .searchDesignation {
       left: 0px; } }

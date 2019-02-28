@@ -31,7 +31,9 @@ Nsr.App.AppDefault = (function ($) {
         AppDefault.prototype.checkCookie();
 
         AppDefault.prototype.heroBackground(deskHero);
+
         var deskHero = $('.heroWrapper').attr('data-bgimage');
+
         $( window ).resize(function() {
             AppDefault.prototype.heroBackground(deskHero);
         });
@@ -119,7 +121,6 @@ Nsr.App.AppDefault = (function ($) {
             $('.mob .sites-nav  li.current-menu-item').removeAttr('style');
         }
 
-        console.log($('.sites-nav .current-menu-item ').css('background-color'));
 
         if ($('.sites-nav .current-menu-item ').css('background-color') === 'rgb(82, 67, 159)') {
             $('.heroWrapper').removeClass('green-light');

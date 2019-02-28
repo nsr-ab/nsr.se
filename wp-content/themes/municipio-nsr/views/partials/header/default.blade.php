@@ -40,11 +40,11 @@
         <a href="#translate" aria-label="translate"><i
                     class="material-icons translate-icon-btn">language</i></a>
     </li>
-    <li>
+    <!-- <li>
         <a class="waves-effect waves-light" href="#searchModal">
             <i translate="no"
                class="notranslate left material-icons search quickSearch">&#xE8B6;</i></a>
-    </li>
+    </li> -->
 </ul>
 </div>
 

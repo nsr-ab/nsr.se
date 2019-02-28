@@ -1179,16 +1179,22 @@ tr {
 
 .purple {
     .search-nav {
-        background-color:#3f3080;
+        @media (max-width: 559px) {
+            background-color: #3f3080;
+        }
         li {
-            background-color:#3f3080;
-            &:hover {
-                background:#2f2263;
+            @media (max-width: 559px) {
+                background-color: #3f3080;
+            }
+            @media (min-width: 560px) {
+                &:hover {
+                    background: #2f2263;
+                }
             }
             &:focus, &.active {
                 background:#2f2263;
             }
-            @media (max-width: 450px) {
+            @media (max-width: 560px) {
                 background:#3f3080;
                 &.active {
                     background: #2f2263;
@@ -1199,9 +1205,50 @@ tr {
         }
     }
     .search-button {
-        background:#3f3080;
+        background-color:#3f3080;
+        &.nsr-origamiLoader {
+            background-color: transparent;
+        }
         &:hover {
-            background:#2f2263;
+            background-color:#2f2263;
+        }
+    }
+}
+.green-light {
+    .search-nav {
+        @media (max-width: 559px) {
+            background-color: #12847b;
+        }
+        li {
+            @media (max-width: 559px) {
+                background-color: #12847b;
+            }
+            @media (min-width: 560px) {
+                &:hover {
+                    background: #14716a;
+                }
+            }
+            &:focus, &.active {
+                background:#14716a;
+            }
+            @media (max-width: 560px) {
+                background:#12847b;
+                &.active {
+                    background: #14716a;
+                    border-radius:0;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .search-button {
+
+        background-color:#14716a;
+        &.nsr-origamiLoader {
+            background-color: transparent;
+        }
+        &:hover {
+            background-color:#048c7d;
         }
     }
 }
@@ -1332,6 +1379,8 @@ tr {
         position: relative;
         left: -51px;
         width: 100%;
+        text-align:left;
+        padding-left: 15px;
         @media (max-width: 450px) {
             left:0px;
         }
