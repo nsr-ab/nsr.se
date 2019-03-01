@@ -1016,6 +1016,9 @@ tr {
 .meta-fraktion div {
   display: inline-block; }
 
+.no-result {
+  padding: 15px 15px 30px 15px; }
+
 @media (max-width: 680px) {
   .mobHide {
     display: none; }

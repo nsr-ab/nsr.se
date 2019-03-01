@@ -74,12 +74,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $('.sorteringsguiden-data').html('');
             $('.search-autocomplete-data').html('');
-            $('.search-fetchPlanner').html('');
+            $('.search-fetchPlanner-data').html('');
 
             event.preventDefault();
             window.clearTimeout(typingTimer);
             Extended.prototype.doneTyping();
             $('.searchWrapper').addClass('searching');
+            $('.search-nav li').removeClass('active');
         });
 
         /* searchNSR - Submit means search */
@@ -87,12 +88,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $('.sorteringsguiden-data').html('');
             $('.search-autocomplete-data').html('');
-            $('.search-fetchPlanner').html('');
+            $('.search-fetchPlanner-data').html('');
 
             e.preventDefault();
             window.clearTimeout(typingTimer);
             Extended.prototype.doneTyping();
             $('.searchWrapper').addClass('searching');
+            $('.search-nav li').removeClass('active');
             return false;
         }).bind(this);
 
@@ -587,8 +589,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }).done(function (result) {
             this.dataFromSource(data_type, $element, data, $post_type, result);
-            $('#nsr-searchResult').css('display', 'block');
-            console.log(result);
         }.bind(this));
     };
 
@@ -602,26 +602,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.dataFromSource = function (data_type, $element, data, $post_type, result) {
 
-        var $mostRelevance;
-        var $relevant = [];
-
-        switch (data_type) {
-            case 'elastic':
-                $relevant['sortguide'] = result.sortguide.length;
-                $relevant['content'] = result.content.length;
-                relevantCount = 1;
-                break;
-            case 'fetchplanner':
-                $relevant['fetchplanner'] = result.fp.length;
-                relevantCount = 2;
-                break;
-        }
-
-        if (relevantCount == 2) {
-            $mostRelevance = $relevant.indexOf(Math.max.apply(window, $relevant));
-        }
-
-        console.log(data.action);
         if (data.action === 'fetchDataFromElasticSearch') {
 
             (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length) : '';
@@ -636,21 +616,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
             this.outputFetchPlanner($element, result);
 
         }
+
         if ($('#searchkeyword-nsr').hasClass('valid'))
             $('#searchkeyword-nsr').addClass('valid');
 
-        /* Relevance */
-        switch ($mostRelevance) {
-            case 'sortguide':
-                $('sorteringsguiden-data').addClass('show');
-                break;
-            case 'content':
-                $('.search-autocomplete').addClass('show');
-                break;
-            case 'fetchplanner':
-                $('.search-fetchPlanner').addClass('show');
-                break;
-        }
+        $('#nsr-searchResult').css('display', 'block');
+
     };
 
 
@@ -682,7 +653,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         //Search result menu
         $('#nsr-searchResult').removeClass('hide');
-        (!$('.searchMenu').find('ul').hasClass('search-nav')) ? $('.searchMenu').append('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sorteringsguiden</li><li class="vc_col-sm-3 nsr-page-nav">Sidor</li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömmingsdagar</li></ul>') : '';
+        (!$('.searchMenu').find('ul').hasClass('search-nav')) ? $('.searchMenu').append('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav">Sorteringsguiden</li><li class="vc_col-sm-3 nsr-page-nav">Sidor</li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömmingsdagar</li></ul>') : '';
 
 
         //Hits
@@ -795,20 +766,34 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             sortHTML += '</table>';
 
+            if (res.sortguide.length > 0) {
+                $('#nsr-searchResult').removeClass('transparent-background');
+                $('.search-nav li').removeClass('active');
+                $('.nsr-elasticSearch-nav').addClass('active');
+            }
+
             return sortHTML;
         }
 
 
         /* No result ..... */
-        /*if (typeof res.sortguide != 'undefined' && res.sortguide !== null) {
+        if (typeof res.sortguide != 'undefined' && res.sortguide !== null) {
             if (res.sortguide.length === 0) {
                 var sHTML = "";
-                sHTML += '<h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val()
-                    + '". Tipsa oss om avfall som vi kan lägga till här  ( <a href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a> )</p>';
+                sHTML += '<div class="no-result"><h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val()
+                    + '". Tipsa oss om avfall som vi kan lägga till här  ( <a href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a> )</p></div>';
+
                 $('.sorteringsguiden-data').html(sHTML);
+                $('.nsr-elasticSearch-nav').removeClass('active');
+
+                $('.searchView').addClass('hide');
+                $('.search-fetchPlanner').removeClass('hide');
+                $('.a-o').addClass('hide');
+
+                $('.nsr-fetchplanner-nav').addClass('active');
 
             }
-        }*/
+        }
 
         //var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
 
@@ -916,10 +901,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                 sortHTML += '<li class="viewAllInlamning"><a href="/alla-inlamningsstallen/">Visa alla</a></li>';
             }
-
             sortHTML += '</td>';
-
-
         }
         return sortHTML;
     };
@@ -954,13 +936,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
         /* No result ..... */
-        /*if (typeof res.content != 'undefined' && res.content !== null) {
+        if (typeof res.content != 'undefined' && res.content !== null) {
             if (res.content.length === 0) {
                 var sHTML = "";
-                sHTML += '<h4>Sidor på nsr.se</h4><br /><p class="noResult">Ingen träff på "' + $('#searchkeyword-nsr').val() + '".</p>';
+                sHTML += '<div class="no-result"><h4>Sidor på nsr.se</h4><br /><p class="noResult">Ingen träff på "' + $('#searchkeyword-nsr').val() + '".</p></div>';
                 $('.search-autocomplete-data').html(sHTML).removeClass('hide');
+                $('#nsr-searchResult').removeClass('transparent-background');
             }
-        }*/
+        }
     };
 
 
@@ -1019,8 +1002,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $fprow += '<div id="' + post.id + '" class="vc_col-sm-12 tabDesk">';
 
                         $fprow += '<div class="vc_col-sm-8">';
-                            $fprow += '<span class="fpTopic">' + post.Adress + '</span><br />';
-                            $fprow += '<b class="">' + post.Ort + '</b><br /><br />';
+                        $fprow += '<span class="fpTopic">' + post.Adress + '</span><br />';
+                        $fprow += '<b class="">' + post.Ort + '</b><br /><br />';
 
                         // This is how you call iCalendar and PDF generators
                         $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till i kalender</a><br />';
@@ -1029,7 +1012,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $fprow += '</div>';
 
                         $fprow += '<div  class="vc_col-sm-4 avfall">';
-                            $fprow += '<div class="vc_col-sm-6 align-right">' + $avfall + '</div><div class="vc_col-sm-6">' + $nextDate + '</div>';
+                        $fprow += '<div class="vc_col-sm-6 align-right">' + $avfall + '</div><div class="vc_col-sm-6">' + $nextDate + '</div>';
                         $fprow += '</div>';
 
                         $fprow += '</div>';
@@ -1041,20 +1024,29 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
         }
         $fprow += '</div>';
-
+        $('.nsr-fetchplanner-nav').addClass('active');
         /* No result ..... */
-        if (typeof result.fp != 'undefined' && result.fp !== null) {
-            if (result.fp.length === 0 || !foundRows) {
-                $fprow = '<h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p>';
-                $('.search-fetchPlanner').detach().insertAfter(".errorSortguide");
-            } else {
-                $('.search-fetchPlanner').detach().insertBefore(".errorSortguide");
-            }
-        } else {
-            $('.search-fetchPlanner').detach().insertAfter(".errorSortguide");
-        }
 
-        $('.search-fetchPlanner').append($fprow);
+        if (result.fp.length === 0) {
+            $fprow = '<div class="no-result"><h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p></div>';
+            $('.search-fetchPlanner-data').html($fprow);
+            $('.searchView').addClass('hide');
+            /* Fredag.
+            $('.a-o').addClass('hide');
+
+            $('.search-nav li').removeClass('active');
+
+            $('.nsr-page-nav').addClass('active');
+            $('.search-autocomplete.searchView').removeClass('hide');
+            */
+
+
+        } else {
+
+            $('.search-fetchPlanner-data').html($fprow);
+            $('.search-fetchPlanner').removeClass('hide');
+            $('#nsr-searchResult').removeClass('transparent-background');
+        }
 
         setTimeout(function () {
             $('.prefix').removeClass('nsr-origamiLoader');
