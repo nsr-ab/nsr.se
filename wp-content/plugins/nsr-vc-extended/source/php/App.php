@@ -8,12 +8,10 @@
  * Company: HIQ
  *
  */
-
 namespace VcExtended;
 class App
 {
     public $collection;
-
     public function __construct()
     {
         /**
@@ -23,8 +21,6 @@ class App
             add_action('admin_notices', array($this, 'showVcVersionNotice'));
             return;
         }
-   
-
         /**
          * Master methods
          */
@@ -94,10 +90,9 @@ class App
         /**
          * Enqueue Scripts
          */
-         if (!class_exists('Enqueue')) {
+        if (!class_exists('Enqueue')) {
             new \VcExtended\Library\Enqueue();
         }
-
         // ZapCal classes
         if (!class_exists('ZDateHelper')) {
             new \VcExtended\Library\ZapCal\ZDateHelper();
@@ -117,7 +112,6 @@ class App
         if (!class_exists('ZCiCal')) {
             new \VcExtended\Library\ZapCal\ZCiCal();
         }
-
         // FPDF
         if (!class_exists('FPDF')) {
             new \VcExtended\Library\FPDF\FPDF();
@@ -125,7 +119,6 @@ class App
         if (!class_exists('FPDFCalendar')) {
             new \VcExtended\Library\FPDF\FPDFCalendar();
         }
-        
 
         add_action('wp_ajax_nopriv_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
         add_action('wp_ajax_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
@@ -136,7 +129,6 @@ class App
         add_action('wp_ajax_nopriv_fetchDataFromFetchPlannerCalendar', array($this, 'fetchDataFromFetchPlannerCalendar'));
         add_action('wp_ajax_fetchDataFromFetchPlannerCalendar', array($this, 'fetchDataFromFetchPlannerCalendar'));
     }
-
     /**
      * Show Notice if Visual Composer is activated or not.
      * @return string
@@ -148,7 +140,6 @@ class App
           <p>' . __('<strong>NSR Visual Composer Extended</strong> requires <strong><a href="http://bit.ly/vcomposer" target="_blank">Visual Composer</a></strong> plugin to be installed and activated on your site.', 'nsr-vc-extended') . '</p>
         </div>';
     }
-
     /**
      * Unique result
      * @param array
@@ -164,7 +155,6 @@ class App
         }
         return array_values($temp_array);
     }
-
     /**
      * Unique id
      * @param int
@@ -174,7 +164,6 @@ class App
     {
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyz"), 0, $l);
     }
-
     /**
      * Get data from fetchplanner
      * @param string
@@ -191,7 +180,6 @@ class App
         curl_close($fetchplanner_curl);
         return json_decode($response);
     }
-
     /**
      * Set correct date format
      * @param string
@@ -203,7 +191,6 @@ class App
         $date = ($date / 1000);
         return date("Y-m-d", strtotime(substr(strtok(date("Y-m-d H:m", $date), ":"), 0, -2) . '+1 day'));
     }
-
     /**
      * Set correct date format
      * @param string
@@ -256,13 +243,12 @@ class App
         }
         return $type;
     }
-
     /**
      *  fetchDataFromFetchPlannerInternal
      *  Get data from Fetchplanners API
      */
-     private function fetchDataFromFetchPlannerInternal($from, $to, $q, $post_type, $maxcount=10)
-     {
+    private function fetchDataFromFetchPlannerInternal($from, $to, $q, $post_type, $maxcount=10)
+    {
         // Turn 3B into 3 B
         $qp = explode(" ", $q);
         if (count($qp) > 1 && preg_match('!^([0-9]+)([A-Za-z])$!', $qp[count($qp)-1], $m) && count($m) == 3) {
@@ -271,33 +257,28 @@ class App
             array_push($qp, $m[2]);
             $q = implode(" ", $qp);
         }
-
         // Only call on empty post_type or tomningskalender
         if (!($post_type == "" || $post_type == "all" || $post_type == "tomningskalender")) {
             return array('fp'=>array(), 'q'=>$q);
             exit;
         }
-        
+
         $data = self::fetchPlansByCurl('/GetContainerCalendarDataByPickupName?pickupName=' .
             trim(urlencode($q)) . '&dateStart=' . $todaysDate . '&dateEnd=' . $stopDate . '&maxCountCalendarPerContainer=' . $maxcount);
-
         $int = 0;
         $colData['fp'] = array();
         $colData['q'] = $q;
         $idToIndex = array();
         $dupIdTypDate = array();
-
         //print_r($data->d);exit;
-
         foreach ($data->d as $item) {
             //$fpId = md5('PICKUPID' . $item->PickupId);
             //$fpId = $item->PickupId;
             $fpId = md5('CUSTOMERID' . $item->CustomerId);
-
             if (isset($idToIndex[$fpId]))
                 $i = $idToIndex[$fpId];
             else {
-                $i = $idToIndex[$fpId] = $int++;           
+                $i = $idToIndex[$fpId] = $int++;
                 $colData['fp'][$i]['id'] = $fpId;
                 $colData['fp'][$i]['Adress'] = $item->PickupName;
                 $colData['fp'][$i]['Ort'] = ucfirst(mb_strtolower($item->PickupCity));
@@ -309,22 +290,18 @@ class App
                     'AvfallsTyp'=>array(),
                     'AvfallsTypFormaterat'=>array()
                 );
-            }    
-
+            }
             foreach ($item->Calendars as $cal) {
                 $date = self::setDateFormat($cal->ExecutionDate);
                 $datetime = new \DateTime($date);
                 $typ = self::getFpDefenitions($item->ContentTypeCode);
-
                 if (isset($dupIdTypDate[$fpId . $typ . $date]))
                     continue;
                 $dupIdTypDate[$fpId . $typ . $date] = 1;
-
                 for ($j=0 ; $j<count($colData['fp'][$i]['Exec']['Datum']) ; $j++) {
                     if ($colData['fp'][$i]['Exec']['Datum'][$j] > $date)
                         break;
                 }
-
                 array_splice($colData['fp'][$i]['Exec']['Datum'], $j, 0, $date);
                 array_splice($colData['fp'][$i]['Exec']['DatumFormaterat'], $j, 0, ucfirst(date_i18n('l j M', strtotime($datetime->format('F jS, Y')))));
                 array_splice($colData['fp'][$i]['Exec']['DatumKontroll'], $j, 0, $cal->ExecutionDate);
@@ -333,7 +310,6 @@ class App
                 array_splice($colData['fp'][$i]['Exec']['AvfallsTypFormaterat'], $j, 0, $item->ContentTypeCode);
             }
         }
-
         usort($colData['fp'], function($v, $w) use ($q) {
             $len = strlen($q);
             $a = $v['Adress'];
@@ -346,36 +322,30 @@ class App
                 return -1;
             if (strncasecmp($a, $q, $len) && !strncasecmp($b, $q, $len))
                 return 1;
-            return strcasecmp($a, $b);                
+            return strcasecmp($a, $b);
         });
-
         return $colData;
-     }
+    }
 
-     
     public function fetchDataFromFetchPlannerCombined() {
         $todaysDate = date('Y-m-d');
         $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
         $q = $_GET['query'];
         $post_type = $_GET['post_type'];
-
         $colData  = $this->fetchDataFromFetchPlannerInternal($todaysDate, $stopDate, $q, $post_type);
         return wp_send_json($colData);
     }
-
     private function sendEmptyCalendar($calendar_type) {
         if ($calendar_type == "ical") {
-            $icalobj = new \VcExtended\Library\ZapCal\ZCiCal();          
+            $icalobj = new \VcExtended\Library\ZapCal\ZCiCal();
             header('Content-Disposition: filename="tomningskalender.ics"');
             header("Content-Type: Text/Calendar");
             echo $icalobj->export();
-            exit;    
+            exit;
         }
-
         echo "<h4>Ingen kalender kunde genereras för denna tömningsplats.</h4>";
         exit;
     }
-
     public function fetchDataFromFetchPlannerCalendar() {
         $todaysDate = date('Y-m-d');
         $stopDate = date("Y-m-d", strtotime("$todaysDate +365 days"));
@@ -383,14 +353,11 @@ class App
         $post_type = $_GET['post_type'];
         $calendar_type = ($_GET['calendar_type'] == "ical") ? "ical" : "pdf";
         $id = isset($_GET['id']) ? $_GET['id'] : "";
-
         $colData  = $this->fetchDataFromFetchPlannerInternal($todaysDate, $stopDate, $q, $post_type, 100);
-
         if (!$colData || !isset($colData['fp']) || !count($colData['fp'])) {
             $this->sendEmptyCalendar($calendar_type);
             exit;
         }
-
         $exec = null;
         $title = "";
         do {
@@ -405,17 +372,14 @@ class App
                 }
             }
         } while ($exec == null && count($colData['fp']) > 0);
-
         if (!$exec) {
             $this->sendEmptyCalendar($calendar_type);
             exit;
         }
-
         $results = array();
         $dub = array();
         for ($avint = 0; $avint < count($exec['AvfallsTyp']); $avint++) {
-          //  echo "<pre>$avint " . $exec['Datum'][$avint] . " ". $exec['AvfallsTyp'][$avint] ."</pre>";
-
+            //  echo "<pre>$avint " . $exec['Datum'][$avint] . " ". $exec['AvfallsTyp'][$avint] ."</pre>";
             if (strtotime($exec['Datum'][$avint]) >= strtotime($todaysDate) && $exec['AvfallsTyp'][$avint] != "") {
                 $k = $exec['AvfallsTyp'][$avint] . ' ' . $exec['Datum'][$avint];
                 if (!isset($dub[$k])) {
@@ -424,19 +388,17 @@ class App
                 }
             }
         }
-
         if (!count($results)) {
             $this->sendEmptyCalendar($calendar_type);
             exit;
         }
-
         //
         // ICAL
         //
         if ($calendar_type == "ical") {
             $icalobj = new \VcExtended\Library\ZapCal\ZCiCal();
             $index = 1;
-            foreach ($results as $result) {            
+            foreach ($results as $result) {
                 $eventobj = new \VcExtended\Library\ZapCal\ZCiCalNode("VEVENT", $icalobj->curnode);
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("SUMMARY:" . $result['AvfallsTyp']));
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTART:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'])));
@@ -445,13 +407,12 @@ class App
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTAMP:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime()));
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("Description:" . \VcExtended\Library\ZapCal\ZCiCal::formatContent($result['AvfallsTyp'] . " - " . $title)));
             }
-        
+
             header('Content-Disposition: filename="tomningskalender.ics"');
             header("Content-Type: Text/Calendar");
             echo $icalobj->export();
             exit;
         }
-
         //
         // PDF
         //
@@ -464,7 +425,6 @@ class App
             if (!isset($bydate[$d]))
                 $bydate[$d] = "";
             $bydate[$d] .= $a . "\n";
-
             $y = (int)substr($d, 0, 4);
             $m = (int)substr($d, 5, 2);
             if (!$lastyear || !$lastmonth || $lastyear < $y || ($lastyear == $y && $lastmonth < $m)) {
@@ -472,7 +432,6 @@ class App
                 $lastmonth = $m;
             }
         }
-
         $pdf = new \VcExtended\Library\FPDF\FPDFCalendar("L", "A4");
         $pdf->SetMargins(7,7);
         $pdf->SetAutoPageBreak(false, 0);
@@ -492,13 +451,10 @@ class App
                 $month++;
             }
         }
-
         header('Content-Disposition: filename="tomningskalender.pdf"');
         $pdf->Output();
-
-        exit;  
+        exit;
     }
-
     /**
      *  fetchDataFromFetchPlanner
      *  Get data from Fetchplanners API
@@ -507,45 +463,34 @@ class App
     {
         $collection = new \VcExtended\Library\Helper\Collection();
         $data = self::fetchPlansByCurl('/GetPickupDatabyName?pickupName=' . trim(urlencode($_GET['query'])) . '&maxCount=50');
-
         $executeDates['fp'] = array();
         $colData['fp'] = array();
-
         $int = 0;
         $todaysDate = date('Y-m-d');
         $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
         $countCities = 0;
         $checkCityDupes = array();
-
         foreach ($data->d as $item) {
             if (!in_array($item->PickupCity, $checkCityDupes))
                 array_push($checkCityDupes, $item->PickupCity);
             $countCities++;
         }
-
         foreach ($data->d as $item) {
             if (in_array($item->PickupCity, $checkCityDupes)) {
                 $fpId = self::gen_uid($item->PickupId);
                 $collect = $collection->getItem($fpId);
-
-
                 if ($collect === false) {
 
-                    
                     $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=40&DateEnd=' . $stopDate);
-
-
                     //$fpData = self::fetchPlansByCurl('/GetCalendarData?customerId=' . $item->CustomerId . '&maxCount=40&DateEnd=' . $stopDate);
                     //$fpData = self::fetchPlansByCurl('/GetCalendarData?customerId=1025636&maxCount=40&DateEnd=' . $stopDate);
                     $containerData = self::fetchPlansByCurl('/GetContainerData?pickupId=' . $item->PickupId);
                     //$containerData = self::fetchPlansByCurl('/GetContainerData?customerId=' . $item->CustomerId);
                     //$containerData = self::fetchPlansByCurl('/GetContainerData?customerId=1025636');
-
                     $colData['fp'][$int]['id'] = $fpId;
                     $colData['fp'][$int]['Adress'] = $item->PickupName;
                     $colData['fp'][$int]['Ort'] = ucfirst(mb_strtolower($item->PickupCity));
                     $fInt = 0;
-
                     foreach ($fpData->d as $fpItem) {
                         foreach ($containerData->d as $contInfo) {
                             if ($contInfo->ContainerId === $fpItem->ContainerId) {
@@ -573,7 +518,6 @@ class App
                 $executeDates['fp'][$int]['id'] = $collect->fp[$int]->id;
                 $executeDates['fp'][$int]['Adress'] = $collect->fp[$int]->Adress;
                 $executeDates['fp'][$int]['Ort'] = $collect->fp[$int]->Ort;
-
                 for ($fpInt = 0; $fpInt < count($collect->fp[$int]->Exec->Datum); $fpInt++) {
                     $executeDates['fp'][$int]['Exec']['Datum'][$fpInt] = $collect->fp[$int]->Exec->Datum[$fpInt];
                     $executeDates['fp'][$int]['Exec']['DatumFormaterat'][$fpInt] = $collect->fp[$int]->Exec->DatumFormaterat[$fpInt];
@@ -588,7 +532,6 @@ class App
         wp_send_json($executeDates);
         exit;
     }
-
     /**
      *  fetch_data
      *  Get data from Elastic Search
@@ -596,7 +539,6 @@ class App
     public function fetchDataFromElasticSearch()
     {
         $result = \VcExtended\Library\Search\QueryElastic::jsonSearch(array('query' => $_GET['query'], 'limit' => $_GET['limit'], 'post_type' => $_GET['post_type'], 'section' => $_GET['post_section']));
-
         $int = 0;
         if ($result['content']) {
             foreach ($result['content'] as $property) {
@@ -606,16 +548,12 @@ class App
         }
         if ($result['sortguide']) {
             for ($metaInt = 0; $metaInt < count($result['sortguide']); $metaInt++) {
-
                 $result['sortguide'][$metaInt]->post_meta = get_post_meta($result['sortguide'][$metaInt]->ID);
-
                 for ($int1 = 0; $int1 < count($result['sortguide'][$metaInt]->post_meta['avfall_fraktion']); $int1++) {
-
                     $termId = maybe_unserialize($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][$int1]);
                     $getTerm = get_term(intval($termId[$int1]));
                     $termlink = get_term_meta(intval($termId[$int1]));
                     $termPageLink = get_page_link($termlink['fraktion_page_link'][0]);
-
                     if ($result['sortguide'][$metaInt]->post_meta['avfall_fraktion'][0]) {
                         if (strpos($termPageLink, '?page_id=') !== false)
                             $termPageLink = false;
@@ -630,68 +568,47 @@ class App
                     unset($termPageLink);
                 }
             }
-
             for ($metaInt = 0; $metaInt < count($result['sortguide']); $metaInt++) {
-
                 $result['sortguide'][$metaInt]->post_meta = get_post_meta($result['sortguide'][$metaInt]->ID);
-
                 $frakt = array(array('avc', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_avc'][0]),
-                               array('hemma', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]));
-
+                    array('hemma', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]));
                 foreach ($frakt as $fraktion) {
-
                     $getFraktionTerm = get_term(intval($fraktion[1]));
                     $fraktionTermlink = get_term_meta(intval($fraktion[1]));
-
                     $extLink = $fraktionTermlink['fraktion_extern_link'][0];
-
                     if ($extLink) {
                         $fraktionTermPageLink = $extLink;
                     } else {
                         $fraktionTermPageLink = get_page_link($fraktionTermlink['fraktion_page_link'][0]);
                     }
-
                     if (strpos($fraktionTermPageLink, '?page_id=') !== false)
                         $fraktionTermPageLink = false;
-
                     if ($fraktionTermPageLink) {
                         $termName = "<a href='" . $fraktionTermPageLink . "'>" . $getFraktionTerm->name . "</a>";
                     } else {
                         $termName = "<span class='nofraktionlink'>" . $getFraktionTerm->name . "</span>";
                     }
-
-
-
                     if ($fraktion[0] === 'avc')
                         $result['sortguide'][$metaInt]->post_meta['fraktion_avc']['name'] = $termName;
-
                     if ($fraktion[0] === 'hemma')
                         $result['sortguide'][$metaInt]->post_meta['fraktion_hemma']['name'] = $termName;
-
                     if ($fraktion[0] === 'avc') {
                         $result['sortguide'][$metaInt]->post_meta['fraktion_avc']['name'] = $getFraktionTerm->name;
                         $result['sortguide'][$metaInt]->post_meta['fraktion_avc']['link'] = $fraktionTermPageLink;
                     }
-
                     if ($fraktion[0] === 'hemma') {
                         $result['sortguide'][$metaInt]->post_meta['fraktion_hemma']['name'] = $getFraktionTerm->name;
                         $result['sortguide'][$metaInt]->post_meta['fraktion_hemma']['link'] = $fraktionTermPageLink;
                     }
-
                 }
                 $fraktionsInt = 0;
                 $checkDupes = array();
-
                 $terms = get_the_terms($result['sortguide'][$metaInt]->ID,'fraktioner');
-
                 foreach ($terms as $termsFraktion) {
-
                     $fraktId = $termsFraktion->term_id;
                     $termObject = get_field('fraktion_inlamningsstallen', 'fraktioner_' . $fraktId);
                     $lint = 0;
-
                     foreach ($termObject as $termLocID) {
-
                         $termInlamningsstalle = get_term($termLocID, 'inlamningsstallen');
                         $getTerm = get_term_meta($termLocID);
                         if ($getTerm['fraktion_extern_page_link'][0]) {
@@ -699,7 +616,6 @@ class App
                         } else {
                             $termPageLink = get_page_link(intval($getTerm['fraktion_page_link'][0]));
                         }
-
                         if (!in_array($termInlamningsstalle->term_id, $checkDupes)) {
                             $result['sortguide'][$metaInt]->post_meta['inlamningsstallen'][$fraktionsInt][$lint]['termId'] = $termInlamningsstalle->term_id;
                             $result['sortguide'][$metaInt]->post_meta['inlamningsstallen'][$fraktionsInt][$lint]['city'] = $termInlamningsstalle->name;
@@ -709,17 +625,13 @@ class App
                             $lint++;
                             array_push($checkDupes, $termInlamningsstalle->term_id);
                         }
-
                     }
                     $fraktionsInt++;
                 }
-
             }
-
         }
+        wp_send_json($result);
+        exit;
+    }
 
-         wp_send_json($result);
-         exit;
-     }
- 
 }

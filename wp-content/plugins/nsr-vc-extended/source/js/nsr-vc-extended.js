@@ -536,7 +536,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.fetchPlannerQuery = function (element) {
 
-
         var $element = $(element);
         var $input = $('#searchkeyword-nsr').val();
         var $post_type = $('#post_type', $('#searchkeyword-nsr').parent()).val();
@@ -549,6 +548,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         };
 
         Extended.prototype.getJsonData('fetchplanner', $element, fdata, null);
+
     };
 
     /**

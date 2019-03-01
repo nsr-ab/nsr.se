@@ -812,6 +812,7 @@ input[type=text]:focus.invalid {
             &:nth-child(1) {
                 display:block;
             };
+
             @media (max-width: 680px) {
                 font-size:1.1rem;
                 &:nth-child(1),
@@ -824,6 +825,7 @@ input[type=text]:focus.invalid {
                     padding-left: 30px;
                 }
             }
+
             h4 {
                 color: #6e6e6e;
                 margin-left:-10px;
