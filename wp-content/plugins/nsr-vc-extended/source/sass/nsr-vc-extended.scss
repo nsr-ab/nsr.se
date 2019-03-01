@@ -731,16 +731,14 @@ input[type=text]:focus.invalid {
     }
     .sorterings-guide-table .badge,
     .sorteringsguiden .badge,
-    .fp-table .badge,
-    .fp-table-mobile .badge {
+    .fp .badge{
         border-radius: 16px !important;
         font-size: 0.7rem;
         background: darken($darkerGreen, 10%) !important;
         min-width: 0.9rem !important;
         margin-left: 5px;
     }
-    .fp-table .badge,
-    .fp-table-mobile .badge {
+    .fp .badge{
         /* FREDRIK        margin-top: 5px; */
         margin-top:0px;
     }
@@ -753,12 +751,8 @@ input[type=text]:focus.invalid {
         font-size: 0.9rem;
         margin-bottom: 10px !important;
     }
-    .fp-table .badge {
-        //float:left;
-    }
-    .fp-table-mobile .badge {
-        float: left;
-    }
+
+
     .fpthmob th {
         background-color: $defaultDarkGreen;
         padding-top: 25px;
@@ -870,9 +864,7 @@ input[type=text]:focus.invalid {
         padding-top:30px !important;
     }
 
-    .exnfodispl,
-    .fp-table td,
-    .fp-table-mobile td {
+    .exnfodispl {
         font-size: 1.0rem;
     }
     @media (max-width: 700px) {
@@ -880,16 +872,28 @@ input[type=text]:focus.invalid {
             display: none;
         }
     }
-    .fp-table {
-        margin-bottom: 20px;
+
+    .fp {
+        max-width:100%;
+        width:100%;
+        .fpTopic {
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+        .align-right {
+            text-align:right;
+        }
+
+        .avfall {
+            font-size:1.0rem;
+        }
+        a {
+            font-size:1.0rem;
+        }
     }
-    .fp-table i {
-        padding-right: 10px;
-    }
-    .search-autocomplete-content li,
-    .sorterings-guide-table,
-    .fp-table,
-    .fp-table-mobile {
+
+
+    .search-autocomplete-content li{
         font-size: 1.1rem;
     }
     .search-autocomplete-image {
@@ -1280,21 +1284,26 @@ tr {
                 padding-right: 20px;
             }
         }
-
-
+    }
+    .fp .tabDesk {
+        padding:10px 20px;
+        border-bottom:1px solid #eaeaea;
+        margin-right: -30px;
     }
 
     .sorteringsguiden.show, .errorSortguide.show, .search-autocomplete.show, .errorPages.show, .search-fetchPlanner.show {
         display:block !important;
         max-width:915px !important;
-        border:1px solid red !important;
+
     }
     .sorterings-guide-table, .search-fetchPlanner {
-        max-width:915px !important;
+
         width:100% !important;
         margin-left:-15px !important;
         padding:15px;
     }
+
+
 }
 
 //JOHAN MENYN - i hero

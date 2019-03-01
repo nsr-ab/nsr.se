@@ -127,10 +127,13 @@ class App
 
         add_action('wp_ajax_nopriv_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
         add_action('wp_ajax_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
+
         add_action('wp_ajax_nopriv_fetchDataFromFetchPlanner', array($this, 'fetchDataFromFetchPlanner'));
         add_action('wp_ajax_fetchDataFromFetchPlanner', array($this, 'fetchDataFromFetchPlanner'));
+
         add_action('wp_ajax_nopriv_fetchDataFromFetchPlannerCombined', array($this, 'fetchDataFromFetchPlannerCombined'));
         add_action('wp_ajax_fetchDataFromFetchPlannerCombined', array($this, 'fetchDataFromFetchPlannerCombined'));
+
         add_action('wp_ajax_nopriv_fetchDataFromFetchPlannerCalendar', array($this, 'fetchDataFromFetchPlannerCalendar'));
         add_action('wp_ajax_fetchDataFromFetchPlannerCalendar', array($this, 'fetchDataFromFetchPlannerCalendar'));
     }

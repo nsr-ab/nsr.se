@@ -545,7 +545,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var $element = $(element);
         var $input = $('#searchkeyword-nsr').val();
-        var $post_type = $('#post_type', $('#searchkeyword-nsr').parent()).val();
+        var $post_type = ''; //$('#post_type', $('#searchkeyword-nsr').parent()).val();
         var fdata = {
             action: 'fetchDataFromFetchPlannerCombined',
             query: $input,
@@ -588,6 +588,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }).done(function (result) {
             this.dataFromSource(data_type, $element, data, $post_type, result);
             $('#nsr-searchResult').css('display', 'block');
+            console.log(result);
         }.bind(this));
     };
 
@@ -620,23 +621,23 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $mostRelevance = $relevant.indexOf(Math.max.apply(window, $relevant));
         }
 
+        console.log(data.action);
+        if (data.action === 'fetchDataFromElasticSearch') {
 
-        //if (data.action === 'fetchDataFromElasticSearch') {
+            (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length) : '';
+            (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length) : '';
 
-        (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length) : '';
-        (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length) : '';
+            this.outputAutocomplete($element, result);
 
-        this.outputAutocomplete($element, result);
+        } else {
 
-        //} else {
+            (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
 
-        (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
-        this.outputFetchPlanner($element, result);
+            this.outputFetchPlanner($element, result);
 
+        }
         if ($('#searchkeyword-nsr').hasClass('valid'))
             $('#searchkeyword-nsr').addClass('valid');
-        //}
-
 
         /* Relevance */
         switch ($mostRelevance) {
@@ -969,16 +970,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param  {array}  result  fetchplanner query result
      * @return {void}
      */
-    Extended.prototype.outputFetchPlanner = function (result) {
+    Extended.prototype.outputFetchPlanner = function (element, result) {
 
-        var $fprow = '';
-        var $fpMobRow = '';
+
+        var $fprow = '<div class="fp grid ">';
         var foundRows = false;
 
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
-
-            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Nästa tömning</th></tr>';
-            $fpMobRow += '<table class="fp-table-mobile">';
 
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
@@ -996,13 +994,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                     var foundRowsInThis = false;
                     for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
-                        if (post.Exec.AvfallsTyp != false) {
+                        if (avint <= 5) {
                             if (post.Exec.Datum[avint] >= jsdate) {
                                 if (!$dub.indexOf(post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint]) > -1) {
                                     foundRows = true;
                                     foundRowsInThis = true;
                                     $dub['avfall'] = post.Exec.AvfallsTyp[avint];
-                                    $avfall += '<span class="badge">' + post.Exec.AvfallsTyp[avint] + '</span><br /> ';
+                                    if (post.Exec.AvfallsTyp[avint]) {
+                                        var avtyp = post.Exec.AvfallsTyp[avint].toLowerCase();
+                                        $avfall += '<span>' + avtyp.charAt(0).toUpperCase() + avtyp.slice(1) + '</span>';
+                                    }
+
+                                    $avfall += ' <br /> ';
                                     //$weeks += post.Exec.DatumWeek[avint] + '<br />';
                                     $dub['nDate'] = post.Exec.AvfallsTyp[avint];
                                     $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
@@ -1013,32 +1016,31 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
 
                     if (foundRowsInThis) {
-                        $fprow += '<tr id="' + post.id + '" class="tabDesk">';
-                        $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
-                        $fprow += '<div><b class="">' + post.Ort + '</b></div>';
+                        $fprow += '<div id="' + post.id + '" class="vc_col-sm-12 tabDesk">';
+
+                        $fprow += '<div class="vc_col-sm-8">';
+                            $fprow += '<span class="fpTopic">' + post.Adress + '</span><br />';
+                            $fprow += '<b class="">' + post.Ort + '</b><br /><br />';
 
                         // This is how you call iCalendar and PDF generators
-                        $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '"><h4>ical</h4></a>';
-                        $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '"><h4>pdf</h4></a>';
+                        $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till i kalender</a><br />';
+                        $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '">Visa PDF dokument</a>';
 
-                        $fprow += '</td><td style="padding-top:15px;">';
-                        $fprow += $avfall + '</td><td>' + $nextDate;
+                        $fprow += '</div>';
 
-                        $fpMobRow += '<tr class="fpthmob"><th colspan="2"><i class="material-icons">date_range</i> <span><strong> ' + post.Adress + '</span>, <span>' + post.Ort + '</span></strong></th></tr>';
-                        $fpMobRow += '<tr><th>Kärl</th><th>Nästa tömning</th></tr>';
-                        $fpMobRow += '<tr><td style="padding-top:15px;">' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
+                        $fprow += '<div  class="vc_col-sm-4 avfall">';
+                            $fprow += '<div class="vc_col-sm-6 align-right">' + $avfall + '</div><div class="vc_col-sm-6">' + $nextDate + '</div>';
+                        $fprow += '</div>';
 
-                        $fprow += '</td></tr>';
+                        $fprow += '</div>';
                     }
                 }
 
                 dateExp = false;
 
             });
-            $fprow += '</table>';
-            $fpMobRow += '</table>';
-
         }
+        $fprow += '</div>';
 
         /* No result ..... */
         if (typeof result.fp != 'undefined' && result.fp !== null) {
@@ -1053,7 +1055,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
         $('.search-fetchPlanner').append($fprow);
-        $('.search-fetchPlanner').append($fpMobRow);
 
         setTimeout(function () {
             $('.prefix').removeClass('nsr-origamiLoader');
