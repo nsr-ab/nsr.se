@@ -836,11 +836,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
         sortHTML += '<td valign="top" class="preSort-inl">';
-
-
         sortHTML += '<i class="expand-inl material-icons expand-more">expand_more</i>';
         sortHTML += '<ul class="inlstallen">';
-
+        console.log('Inlämningsställen');
+        console.log(postMeta);
         if (postMeta) {
             if (postMeta.inlamningsstallen && postMeta.inlamningsstallen.length) {
 
