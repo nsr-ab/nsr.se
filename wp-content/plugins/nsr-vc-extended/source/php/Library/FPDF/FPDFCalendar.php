@@ -13,18 +13,20 @@ class FPDFCalendar extends FPDF
     protected $longestMonth = "September";
     protected $weekdays = array("Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag");
 
+    protected $monthIndex = 0;
+
     function __construct($orientation="L", $format="Letter")
     {
         parent::__construct($orientation, "mm", $format);
 
         // compute font size
         $this->tinySquareSize = 4;
-        $this->headerFontSize = 70;
-        $this->SetFont("Times", "B", $this->headerFontSize);
+        $this->headerFontSize = 30;
+        $this->SetFont("Helvetica", "B", $this->headerFontSize);
         $width = $this->w - $this->lMargin - $this->rMargin;
         while ($this->GetStringWidth($this->longestMonth) > $width - $this->tinySquareSize * 22) {
             --$this->headerFontSize;
-            $this->SetFont("Times", "B", $this->headerFontSize);
+            $this->SetFont("Helvetica", "B", $this->headerFontSize);
         }
     }
 
@@ -105,25 +107,43 @@ class FPDFCalendar extends FPDF
     function printMonth($date, $bydate=array()) {
         $this->date = $date;
         $this->JDtoYMD($date, $year, $month, $day);
-        $this->AddPage();
+
+        $this->monthIndex++;
 
         // compute size base on current settings
-        $width = $this->w - $this->lMargin - $this->rMargin;
-        $height = $this->h - $this->tMargin - $this->bMargin;
+        $width = ($this->w - $this->lMargin - $this->rMargin) * 0.48;
+        $height = ($this->h - $this->tMargin - $this->bMargin) * 0.45;
+        $ofsx = ($this->monthIndex % 4 == 1 || $this->monthIndex % 4 == 3) ? 0 : (($this->w - $this->lMargin - $this->rMargin) * 0.52);
+        $ofsy = ($this->monthIndex % 4 == 1 || $this->monthIndex % 4 == 2) ? 0 : (($this->h - $this->tMargin - $this->bMargin) * 0.45);
+
+        if ($this->monthIndex % 4 == 1) {
+            $this->AddPage();
+
+            // print general text
+            $this->SetXY($this->lMargin, $this->tMargin + 2.02*$height);
+            $this->SetFont("Helvetica", "B", 10);
+            $this->Cell(($this->w - $this->lMargin - $this->rMargin), 5, utf8_decode("Blah blah blah generell text hamnar här. Kommer från NSR."), 0, 0, "C");
+
+            $this->SetXY($this->lMargin, $this->tMargin + 2.02*$height + 5);
+            $this->SetFont("Helvetica", "B", 10);
+            $this->Cell(($this->w - $this->lMargin - $this->rMargin) , 5, utf8_decode("Blah blah blah generell text hamnar här. Kommer från NSR. Andra raden."), 0, 0, "C");    
+        }
 
         // print prev and next calendars
+/*
         $this->setXY($this->lMargin,$this->tMargin);
         $this->tinyCalendar($this->lastMonth($date), $this->tinySquareSize);
         $this->setXY($this->lMargin+$width - $this->tinySquareSize * 7,$this->tMargin);
         $this->tinyCalendar($this->nextMonth($date), $this->tinySquareSize);
+*/
 
         // print header
-        $firstLine = $this->tinySquareSize * 8 + $this->tMargin;
+        $firstLine = $this->tinySquareSize * 4 + $this->tMargin;
         $monthStr = strtoupper($this->months[gmdate("n", jdtounix($date))-1]) . " ";
         $monthStr .= strtoupper(gmdate ("Y", jdtounix($date)));
-        $this->SetXY($this->lMargin,$this->tMargin);
-        $this->SetFont("Times", "B", $this->headerFontSize);
-        $this->Cell($width, $firstLine, $monthStr, 0,0, "C");
+        $this->SetXY($this->lMargin + $ofsx, $this->tMargin + $ofsy);
+        $this->SetFont("Helvetica", "B", $this->headerFontSize);
+        $this->Cell($width, $firstLine, $monthStr, 0, 0, "C");
 
         // compute number of weeks in month.
         //$wd=gmdate("w",jdtounix($date));
@@ -146,23 +166,23 @@ class FPDFCalendar extends FPDF
         // compute vertical lines
         $this->squareWidth = $width / 7;
         $verticalLines = array($this->lMargin, $this->squareWidth, $this->squareWidth, $this->squareWidth, $this->squareWidth, $this->squareWidth, $this->squareWidth, $this->squareWidth);
-        
+
         // print days of week
         $x = 0;
-        $this->SetFont("Times", "B", 12);
+        $this->SetFont("Helvetica", "B", 12);
         for ($i = 1; $i <= 7; ++$i) {
             $x += $verticalLines[$i-1];
-            $this->SetXY($x,$firstLine);
+            $this->SetXY($x+$ofsx, $firstLine+$ofsy);
             //$day = gmdate("l", jdtounix($this->MDYtoJD(2,$i,2009)));
             $wd = utf8_decode($this->weekdays[ gmdate("N", jdtounix($this->MDYtoJD(12,$i,2008))) - 1]);
             $this->Cell($verticalLines[$i], 6, $wd, 0, 0, "C");
         }
-        
+
         // print numbers in boxes
         //$wd = gmdate("w",jdtounix($date));
         $wd = (int)gmdate("N",jdtounix($date)) - 1;
         $cur = $date - $wd;
-        $this->SetFont("Times", "B", 20);
+        $this->SetFont("Helvetica", "B", 10);
         $x = 0;
         $y = $horizontalLines[0];
         for ($k=0 ; $k<$numWeeks ; $k++) {
@@ -175,14 +195,14 @@ class FPDFCalendar extends FPDF
                     $isodate = sprintf("%04d-%02d-%02d", $curYear, $curMonth, $curDay);
                     if (isset($bydate[$isodate])) {
                         $t = str_replace("\n", ", ", trim($bydate[$isodate]));
-                        $this->setXY($x, $y);
+                        $this->setXY($x+$ofsx, $y+$ofsy);
                         $this->Cell($this->squareWidth, $this->squareHeight, "", 0, 0, "", true);
-                        $this->SetXY($x, $y + $this->squareHeight / 2);
+                        $this->SetXY($x+$ofsx, $y + $ofsy + $this->squareHeight/2);
                         $this->SetFont("Arial", "B", 10);
                         $this->Cell($this->squareWidth,5,utf8_decode($t), 0,0, "C");           
                     }
-                    $this->SetFont("Times", "B", 20);
-                    $this->SetXY($x,$y+1);
+                    $this->SetFont("Helvetica", "B", 8);
+                    $this->SetXY($x + $ofsx, $y + $ofsy - 0.5);
                     $this->Cell(5, 5, $curDay);
                 }
                 ++$cur;
@@ -196,7 +216,7 @@ class FPDFCalendar extends FPDF
         foreach ($horizontalLines as $key => $value) {
             $ly += $value;
             $ry += $value;
-            $this->Line($this->lMargin,$ly,$this->lMargin+$width,$ry);
+            $this->Line($this->lMargin+$ofsx, $ly+$ofsy, $this->lMargin+$width+$ofsx, $ry+$ofsy);
         }
 
         // print vertical lines
@@ -205,7 +225,7 @@ class FPDFCalendar extends FPDF
         foreach ($verticalLines as $key => $value) {
             $lx += $value;
             $rx += $value;
-            $this->Line($lx,$firstLine,$rx,$firstLine + 6 + $this->squareHeight * $numWeeks);
+            $this->Line($lx+$ofsx,$firstLine+$ofsy,$rx+$ofsx,$firstLine + 6 + $this->squareHeight * $numWeeks + $ofsy);
         }
     }
 
