@@ -74,7 +74,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $('.sorteringsguiden-data').html('');
             $('.search-autocomplete-data').html('');
-
+            $('.search-fetchPlanner').html('');
 
             event.preventDefault();
             window.clearTimeout(typingTimer);
@@ -87,6 +87,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $('.sorteringsguiden-data').html('');
             $('.search-autocomplete-data').html('');
+            $('.search-fetchPlanner').html('');
 
             e.preventDefault();
             window.clearTimeout(typingTimer);
@@ -629,7 +630,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         //} else {
 
-        $('.search-fetchPlanner').html('');
         (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
         this.outputFetchPlanner($element, result);
 
