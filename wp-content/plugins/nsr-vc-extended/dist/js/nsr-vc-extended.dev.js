@@ -183,14 +183,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
         // Expand more info
         $('body').on('click', '.preSortCell .material-icons', function () {
 
-            if (!$(this).closest('.tabDesk').find('.preSort-frakt').hasClass('showPreSorts')){
+            if (!$(this).closest('.tabDesk').find('.preSort-frakt').hasClass('showPreSorts')) {
                 $(this).closest('.tabDesk').find('.expand-less').removeClass('hide');
                 $(this).addClass('hide');
                 $(this).closest('.tabDesk').find('.preSort-frakt').addClass('showPreSorts');
                 $(this).closest('.tabDesk').find('.preSort-inl').addClass('showPreSorts');
                 $(this).closest('tr').addClass('expand-tr');
-            }
-            else {
+            } else {
                 $(this).closest('.tabDesk').find('.expand-more').removeClass('hide');
                 $(this).addClass('hide');
                 $(this).closest('.tabDesk').find('.preSort-frakt').removeClass('showPreSorts');
@@ -976,9 +975,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var $fpMobRow = '';
         var foundRows = false;
 
-        $('.search-fetchPlanner-data').append('<h4>Tömmningsdagar</h4><table class="fp-table-mobile"></table><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Nästa tömning</th></tr></table>');
-
         if (typeof result.fp != 'undefined' && result.fp !== null && result.fp.length > 0) {
+
+            $fprow += '<h4>Tömningsdagar</h4><table class="fp-table"><tr class="tabDesk"><th colspan="2">Adress</th><th>Nästa tömning</th></tr>';
+            $fpMobRow += '<table class="fp-table-mobile">';
 
             var jsdate = new Date().toISOString().slice(0, 10);
             var dateExp = false;
@@ -990,39 +990,43 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var $weeks = '';
                 var $nextDate = '';
 
-                // OUTPUT
                 $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('valid');
 
                 if (post.hasOwnProperty('Exec')) {
 
-                    if (post.Exec.AvfallsTyp[0] || post.Exec.AvfallsTyp[1]) {
-
-                        if ($.inArray(false, post.Exec.AvfallsTyp) < 0) {
-                            foundRows = true;
-
-                            for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
-                                if (post.Exec.Datum[avint] >= jsdate) {
-                                    if (!$dub.indexOf(post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint]) > -1) {
-                                        $dub['avfall'] = post.Exec.AvfallsTyp[avint];
-                                        $avfall += '<span class="badge">' + post.Exec.AvfallsTyp[avint] + '</span><br /> ';
-                                        //$weeks += post.Exec.DatumWeek[avint] + '<br />';
-                                        $dub['nDate'] = post.Exec.AvfallsTyp[avint];
-                                        $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
-                                        $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
-                                    }
+                    var foundRowsInThis = false;
+                    for (var avint = 0; avint < post.Exec.AvfallsTyp.length; avint++) {
+                        if (post.Exec.AvfallsTyp != false) {
+                            if (post.Exec.Datum[avint] >= jsdate) {
+                                if (!$dub.indexOf(post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint]) > -1) {
+                                    foundRows = true;
+                                    foundRowsInThis = true;
+                                    $dub['avfall'] = post.Exec.AvfallsTyp[avint];
+                                    $avfall += '<span class="badge">' + post.Exec.AvfallsTyp[avint] + '</span><br /> ';
+                                    //$weeks += post.Exec.DatumWeek[avint] + '<br />';
+                                    $dub['nDate'] = post.Exec.AvfallsTyp[avint];
+                                    $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
+                                    $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
                                 }
                             }
-
-                            $fprow += '<tr id="' + post.id + '" class="tabDesk">';
-                            $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
-                            $fprow += '<div><b class="">' + post.Ort + '</b></div>';
-                            $fprow += '</td><td style="padding-top:15px;">';
-                            $fprow += $avfall + '</td><td>' + $nextDate;
-
-                            $fpMobRow += '<tr class="fpthmob"><th colspan="2"><i class="material-icons">date_range</i> <span><strong> ' + post.Adress + '</span>, <span>' + post.Ort + '</span></strong></th></tr>';
-                            $fpMobRow += '<tr><th>Kärl</th><th>Nästa tömning</th></tr>';
-                            $fpMobRow += '<tr><td style="padding-top:15px;">' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
                         }
+                    }
+
+                    if (foundRowsInThis) {
+                        $fprow += '<tr id="' + post.id + '" class="tabDesk">';
+                        $fprow += '<td class="streetCiy"><strong>' + post.Adress + '</strong>';
+                        $fprow += '<div><b class="">' + post.Ort + '</b></div>';
+
+                        // This is how you call iCalendar and PDF generators
+                        $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '"><h4>ical</h4></a>';
+                        $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '"><h4>pdf</h4></a>';
+
+                        $fprow += '</td><td style="padding-top:15px;">';
+                        $fprow += $avfall + '</td><td>' + $nextDate;
+
+                        $fpMobRow += '<tr class="fpthmob"><th colspan="2"><i class="material-icons">date_range</i> <span><strong> ' + post.Adress + '</span>, <span>' + post.Ort + '</span></strong></th></tr>';
+                        $fpMobRow += '<tr><th>Kärl</th><th>Nästa tömning</th></tr>';
+                        $fpMobRow += '<tr><td style="padding-top:15px;">' + $avfall + '</td><td>' + $nextDate + '</td></tr>';
 
                         $fprow += '</td></tr>';
                     }
@@ -1033,6 +1037,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
             $fprow += '</table>';
             $fpMobRow += '</table>';
+
         }
 
         /* No result ..... */
@@ -1046,8 +1051,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
         } else {
             $('.search-fetchPlanner').detach().insertAfter(".errorSortguide");
         }
-        $('.fp-table').append($fprow);
-        $('.fp-table-mobile').append($fpMobRow);
+
+        $('.search-fetchPlanner').append($fprow);
+        $('.search-fetchPlanner').append($fpMobRow);
 
         setTimeout(function () {
             $('.prefix').removeClass('nsr-origamiLoader');
@@ -1055,7 +1061,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }, 2000);
 
     };
-
 
     /**
      * GEo Error
@@ -1236,4 +1241,5 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     return new Extended;
 
-})(jQuery);
+})
+(jQuery);
