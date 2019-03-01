@@ -356,7 +356,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      *  @return {void}
      */
     Extended.prototype.ElasticTimer = function (element) {
-        console.log('elasticTimer 342');
         Extended.prototype.autocomplete(element);
     };
 
@@ -500,7 +499,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {void}
      */
     Extended.prototype.pushQueryUrl = function (element, query, post_type) {
-        console.log('pushQueryURL 410');
         /*OBS !!!!!! sätt igpng när du e klar if (typeof history != 'undefined') {
             var $currentState = history.state;
             var $state = {query: query, post_type: post_type};
@@ -590,7 +588,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }).done(function (result) {
             this.dataFromSource(data_type, $element, data, $post_type, result);
             $('#nsr-searchResult').css('display', 'block');
-            console.log(result);
         }.bind(this));
     };
 
@@ -629,7 +626,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length) : '';
         (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length) : '';
 
-        console.log(result);
         this.outputAutocomplete($element, result);
 
         //} else {
@@ -834,12 +830,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
             minMobHack = true;
         }
 
-
+        console.log(postMeta);
         sortHTML += '<td valign="top" class="preSort-inl">';
         sortHTML += '<i class="expand-inl material-icons expand-more">expand_more</i>';
         sortHTML += '<ul class="inlstallen">';
-        console.log('Inlämningsställen');
-        console.log(postMeta);
+
         if (postMeta) {
             if (postMeta.inlamningsstallen && postMeta.inlamningsstallen.length) {
 
@@ -1072,22 +1067,18 @@ VcExtended.NSRExtend.Extended = (function ($) {
             case error.PERMISSION_DENIED:
                 constant = "PERMISSION_DENIED";
                 $('.search-autocomplete-data .preloader-wrapper').hide();
-                console.log('geoLocation: ' + constant);
                 break;
             case error.POSITION_UNAVAILABLE:
                 constant = "POSITION_UNAVAILABLE";
                 $('.search-autocomplete-data .preloader-wrapper').hide();
-                console.log('geoLocation: ' + constant);
                 break;
             case error.TIMEOUT:
                 constant = "TIMEOUT";
                 $('.search-autocomplete-data .preloader-wrapper').hide();
-                console.log('geoLocation: ' + constant);
                 break;
             default:
                 constant = "Unrecognized error";
                 $('.search-autocomplete-data .preloader-wrapper').hide();
-                //console.log('geoLocation: ' + constant);
                 break;
         }
 
@@ -1100,7 +1091,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {void}
      */
     Extended.prototype.UserLocation = function (position) {
-        //console.log(position.coords.latitude + ' : ' + position.coords.longitude);
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
     };
 
@@ -1162,7 +1152,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {array} cities
      */
     Extended.prototype.NearestCity = function (latitude, longitude) {
-        //console.log(latitude + " : " +longitude)
+
         var icon = 0;
         var cordID = null;
         for (ind = 0; ind < cities.length; ++ind) {
