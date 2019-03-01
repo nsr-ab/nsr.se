@@ -136,6 +136,8 @@ class NSRSearch
     public function renderMarkup($params)
     {
         $hero = '';
+        $positionFixed = '';
+
         if ($params->vc_search_position === 'content') {
             $positionFixed = 'position-relative';
         } else {
@@ -145,6 +147,7 @@ class NSRSearch
                 $positionFixed = 'position-absolute';
             }
         }
+        
         if ($params->vc_search_position === '' || $params->vc_search_position === false) {
             $positionFixed = 'position-relative';
         }
