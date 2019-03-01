@@ -1030,22 +1030,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
         if (result.fp.length === 0) {
             $fprow = '<div class="no-result"><h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p></div>';
             $('.search-fetchPlanner-data').html($fprow);
-            $('.searchView').addClass('hide');
-            /* Fredag.
-            $('.a-o').addClass('hide');
-
-            $('.search-nav li').removeClass('active');
-
-            $('.nsr-page-nav').addClass('active');
-            $('.search-autocomplete.searchView').removeClass('hide');
-            */
-
 
         } else {
 
             $('.search-fetchPlanner-data').html($fprow);
-            $('.search-fetchPlanner').removeClass('hide');
-            $('#nsr-searchResult').removeClass('transparent-background');
+
         }
 
         setTimeout(function () {
