@@ -71,6 +71,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* searchNSR - Hiting Enter on search */
         $('.searchNSR').enterKey(function () {
+
+            $('.sorteringsguiden-data').html('');
+            $('.search-autocomplete-data').html('');
+
+
             event.preventDefault();
             window.clearTimeout(typingTimer);
             Extended.prototype.doneTyping();
@@ -79,6 +84,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* searchNSR - Submit means search */
         $('.searchNSR form').on('submit', function (e) {
+
+            $('.sorteringsguiden-data').html('');
+            $('.search-autocomplete-data').html('');
+
             e.preventDefault();
             window.clearTimeout(typingTimer);
             Extended.prototype.doneTyping();
@@ -594,9 +603,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @param result
      */
     Extended.prototype.dataFromSource = function (data_type, $element, data, $post_type, result) {
-
-        $('.sorteringsguiden-data').html('');
-        $('.search-autocomplete-data').html('');
 
         var $mostRelevance;
         var $relevant = [];
