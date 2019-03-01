@@ -147,7 +147,7 @@ class NSRSearch
                 $positionFixed = 'position-absolute';
             }
         }
-        
+
         if ($params->vc_search_position === '' || $params->vc_search_position === false) {
             $positionFixed = 'position-relative';
         }
