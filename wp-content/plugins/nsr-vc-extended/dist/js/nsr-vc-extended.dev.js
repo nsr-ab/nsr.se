@@ -784,13 +784,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     + '". Tipsa oss om avfall som vi kan lägga till här  ( <a href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a> )</p></div>';
 
                 $('.sorteringsguiden-data').html(sHTML);
-                $('.nsr-elasticSearch-nav').removeClass('active');
-
-                $('.searchView').addClass('hide');
-                $('.search-fetchPlanner').removeClass('hide');
-                $('.a-o').addClass('hide');
-
-                $('.nsr-fetchplanner-nav').addClass('active');
 
             }
         }
