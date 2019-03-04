@@ -604,6 +604,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if (data.action === 'fetchDataFromElasticSearch') {
 
+            $relevant['sortguide'] = (result.sortguide.length > 0 )  ? result.sortguide.length : 0;
+            $relevant['page'] = (result.content.length > 0 )  ? result.content.length : 0;
+
             (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length) : '';
             (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length) : '';
 
@@ -611,6 +614,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         } else {
 
+            $relevant['fetchplanner'] = (result.fp.length > 0 )  ? result.fp.length : 0;
             (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
 
             this.outputFetchPlanner($element, result);
@@ -621,6 +625,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('#searchkeyword-nsr').addClass('valid');
 
         $('#nsr-searchResult').css('display', 'block');
+
+
+        /*if ($relevant['sortguide'] != '' && $relevant['page'] != '' && $relevant['fetchplanner'] != ''){
+            if ($relevant['sortguide'] <= 0) {
+                $('#nsr-searchResult .nsr-elasticSearch-nav').removeClass('active');
+                $('#nsr-searchResult .nsr-fetchplanner-nav').addClass('active');
+                $('#nsr-searchResult .sorteringsguiden').addClass('hide');
+                $('#nsr-searchResult .search-fetchPlanner').removeClass('hide');
+            }
+        }*/
 
     };
 
