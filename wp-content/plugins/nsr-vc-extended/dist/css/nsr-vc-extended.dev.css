@@ -688,7 +688,7 @@ input[type=text]:focus.invalid {
     max-width: 100%;
     width: 100%; }
     #nsr-searchResult .fp .fpTopic {
-      font-weight: 600;
+      font-weight: 400;
       font-size: 1.4rem; }
     #nsr-searchResult .fp .align-right {
       text-align: right; }
@@ -981,7 +981,7 @@ tr {
   #nsr-searchResult .sorteringsguiden.show, #nsr-searchResult .errorSortguide.show, #nsr-searchResult .search-autocomplete.show, #nsr-searchResult .errorPages.show, #nsr-searchResult .search-fetchPlanner.show {
     display: block !important;
     max-width: 915px !important; }
-  #nsr-searchResult .sorterings-guide-table, #nsr-searchResult .search-fetchPlanner {
+  #nsr-searchResult .sorterings-guide-table {
     width: 100% !important;
     margin-left: -15px !important;
     padding: 15px; }

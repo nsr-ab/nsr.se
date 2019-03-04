@@ -22,7 +22,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var contentDataAmount = [];
     var $relevant = [];
     var relevantCount = null;
-
+    var emptyRes = false;
     /**
      * Constructor
      */
@@ -98,6 +98,20 @@ VcExtended.NSRExtend.Extended = (function ($) {
             return false;
         }).bind(this);
 
+        /* CardClick */
+        $('body').on('click', '.a-o', function (e) {
+
+            $('.sorteringsguiden-data').html('');
+            $('.search-autocomplete-data').html('');
+            $('.search-fetchPlanner-data').html('');
+
+            e.preventDefault();
+            window.clearTimeout(typingTimer);
+            Extended.prototype.doneTyping();
+            $('.searchWrapper').addClass('searching');
+            $('.search-nav li').removeClass('active');
+            return false;
+        }).bind(this);
 
         /* On input starting timer  */
         $('.searchNSR').on("input", function () {
@@ -602,6 +616,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.dataFromSource = function (data_type, $element, data, $post_type, result) {
 
+
+
         if (data.action === 'fetchDataFromElasticSearch') {
 
             $relevant['sortguide'] = (result.sortguide.length > 0 )  ? result.sortguide.length : 0;
@@ -612,14 +628,27 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             this.outputAutocomplete($element, result);
 
+            if ($relevant['sortguide'] == 0) {
+                $('.search-nav li').removeClass('active');
+                $('.nsr-fetchplanner-nav').addClass('active');
+                $('#nsr-searchResult .sorteringsguiden').addClass('hide');
+                $('#nsr-searchResult .search-fetchPlanner').removeClass('hide');
+            }
+            else {
+                $('#nsr-searchResult .search-fetchPlanner').addClass('hide');
+            }
+
         } else {
 
-            $relevant['fetchplanner'] = (result.fp.length > 0 )  ? result.fp.length : 0;
             (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
 
             this.outputFetchPlanner($element, result);
 
+
         }
+
+
+
 
         if ($('#searchkeyword-nsr').hasClass('valid'))
             $('#searchkeyword-nsr').addClass('valid');
@@ -627,14 +656,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('#nsr-searchResult').css('display', 'block');
 
 
-        /*if ($relevant['sortguide'] != '' && $relevant['page'] != '' && $relevant['fetchplanner'] != ''){
-            if ($relevant['sortguide'] <= 0) {
-                $('#nsr-searchResult .nsr-elasticSearch-nav').removeClass('active');
-                $('#nsr-searchResult .nsr-fetchplanner-nav').addClass('active');
-                $('#nsr-searchResult .sorteringsguiden').addClass('hide');
-                $('#nsr-searchResult .search-fetchPlanner').removeClass('hide');
-            }
-        }*/
+
+
+
 
     };
 
@@ -765,7 +789,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
 
                     sortHTML += '</td>';
-
+                    console.log(spost.post_meta);
                     sortHTML += Extended.prototype.inStallen(spost.post_meta, CityItem, minMobHack);
 
                     cities[cityInt] = CityItem;
@@ -822,7 +846,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             minMobHack = true;
         }
 
-        console.log(postMeta);
         sortHTML += '<td valign="top" class="preSort-inl">';
         sortHTML += '<i class="expand-inl material-icons expand-more">expand_more</i>';
         sortHTML += '<ul class="inlstallen">';

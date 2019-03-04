@@ -85,6 +85,7 @@
                 <div class="sorteringsguiden hide searchView"><div class="sorteringsguiden-data"></div></div>
                 <div class="search-autocomplete hide searchView"><div class="search-autocomplete-data"></div></div>
                 <div class="search-fetchPlanner hide searchView"><div class="search-fetchPlanner-data"></div></div>
+                <div class="search-ao hide searchView"><div class="search-ao-data"></div></div>
                 <div class="errorSortguide hide"></div>
                 <div class="errorPages hide"></div>
             </div>
