@@ -667,7 +667,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         //Search result menu
         $('#nsr-searchResult').removeClass('hide');
-        (!$('.searchMenu').find('ul').hasClass('search-nav')) ? $('.searchMenu').append('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav">Sorteringsguiden</li><li class="vc_col-sm-3 nsr-page-nav">Sidor</li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömmingsdagar</li></ul>') : '';
+        (!$('.searchMenu').find('ul').hasClass('search-nav')) ? $('.searchMenu').append('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sorteringsguiden</li><li class="vc_col-sm-3 nsr-page-nav">Sidor</li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömmingsdagar</li></ul>') : '';
 
 
         //Hits
@@ -1031,7 +1031,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
         }
         $fprow += '</div>';
-        $('.nsr-fetchplanner-nav').addClass('active');
+
         /* No result ..... */
 
         if (result.fp.length === 0) {
