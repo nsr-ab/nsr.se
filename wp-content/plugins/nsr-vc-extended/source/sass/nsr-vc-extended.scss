@@ -882,10 +882,63 @@ input[type=text]:focus.invalid {
         }
         .align-right {
             text-align:right;
+            @media (max-width: 767px) {
+                text-align:left;
+                padding-left:0px;
+            }
+        }
+        .avfall-files-desk {
+            display:block;
+        }
+        .avfall-files-mob {
+            display:none;
         }
 
+        .expand-avfall {
+            display:none;
+        }
+        @media (max-width: 767px) {
+            .fp-address {
+                max-height: 70px;
+            }
+            .expand-avfall {
+                display: block;
+                position: absolute;
+                right: 40px;
+                cursor: pointer;
+            }
+
+            .avfall-files-desk {
+                display:none;
+            }
+            .avfall-files-mob {
+                display:block;
+            }
+        }
         .avfall {
             font-size:1.0rem;
+            @media (max-width: 767px) {
+                a {
+                    width:100%;
+                }
+                .vc_col-xs-6 {
+                    padding:15px 0;
+                }
+                &.hideDetails {
+                    display:none;
+                }
+                &.showDetails {
+                    display:block;
+                }
+            }
+            span {
+                padding-bottom:10px;
+            }
+        }
+        @media (max-width: 767px) {
+            .bold {
+                font-weight: 600;
+            }
         }
         a {
             font-size:1.0rem;
@@ -1289,6 +1342,9 @@ tr {
         padding:10px 20px;
         border-bottom:1px solid #eaeaea;
         margin-right: -30px;
+        @media (max-width: 559px) {
+            padding-bottom:0px;
+        }
     }
 
     .sorteringsguiden.show, .errorSortguide.show, .search-autocomplete.show, .errorPages.show, .search-fetchPlanner.show {

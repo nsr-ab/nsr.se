@@ -216,6 +216,23 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }).bind(this);
 
+
+        // Expand more info
+        $('body').on('click', '.fp .tabDesk .material-icons', function () {
+
+            if ($(this).closest('.tabDesk').find('.avfall').hasClass('hideDetails')) {
+                $(this).closest('.tabDesk').find('.avfall').removeClass('hideDetails');
+                $(this).closest('.tabDesk').addClass('expand-tr');
+                $(this).closest('.tabDesk').find('.material-icons').text('expand_less');
+            } else {
+                $(this).closest('.tabDesk').find('.avfall').addClass('hideDetails');
+                $(this).closest('.tabDesk').find('.material-icons').text('expand_more');
+                $(this).closest('.tabDesk').removeClass('expand-tr');
+            }
+
+        }).bind(this);
+
+
         $('.searchDesignation').html($('.searchNSR').attr('data-searchdesignation'));
     };
 
@@ -1021,7 +1038,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                     $avfall += ' <br /> ';
                                     //$weeks += post.Exec.DatumWeek[avint] + '<br />';
                                     $dub['nDate'] = post.Exec.AvfallsTyp[avint];
-                                    $nextDate += post.Exec.DatumFormaterat[avint] + '<br />';
+                                    $nextDate += '<span>' + post.Exec.DatumFormaterat[avint] + '<span><br />';
                                     $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
                                 }
                             }
@@ -1031,18 +1048,22 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     if (foundRowsInThis) {
                         $fprow += '<div id="' + post.id + '" class="vc_col-sm-12 tabDesk">';
 
-                        $fprow += '<div class="vc_col-sm-8">';
+                        $fprow += '<div class="vc_col-sm-8 fp-address">';
+                        $fprow += '<i class="expand-avfall material-icons expand-more">expand_more</i>';
                         $fprow += '<span class="fpTopic">' + post.Adress + '</span><br />';
                         $fprow += '<b class="">' + post.Ort + '</b><br /><br />';
 
-                        // This is how you call iCalendar and PDF generators
-                        $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till i kalender</a><br />';
-                        $fprow += ' <a target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '">Visa PDF dokument</a>';
+                        $fprow += ' <a class="avfall-files-desk" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till i kalender</a><br />';
+                        $fprow += ' <a class="avfall-files-desk" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '">Visa PDF dokument</a>';
 
                         $fprow += '</div>';
 
-                        $fprow += '<div  class="vc_col-sm-4 avfall">';
-                        $fprow += '<div class="vc_col-sm-6 align-right">' + $avfall + '</div><div class="vc_col-sm-6">' + $nextDate + '</div>';
+                        $fprow += '<div  class="vc_col-sm-4 avfall hideDetails">';
+                        // This is how you call iCalendar and PDF generators
+                        $fprow += ' <a class="avfall-files-mob" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till i kalender</a>';
+                        $fprow += ' <a class="avfall-files-mob" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '">Visa PDF dokument</a>';
+
+                        $fprow += '<div class="vc_col-sm-6 align-right vc_col-xs-6 bold">' + $avfall + '</div><div class="vc_col-sm-6 vc_col-xs-6">' + $nextDate + '</div>';
                         $fprow += '</div>';
 
                         $fprow += '</div>';

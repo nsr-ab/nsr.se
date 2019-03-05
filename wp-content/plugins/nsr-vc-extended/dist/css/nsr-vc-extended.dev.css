@@ -692,8 +692,44 @@ input[type=text]:focus.invalid {
       font-size: 1.4rem; }
     #nsr-searchResult .fp .align-right {
       text-align: right; }
+      @media (max-width: 767px) {
+        #nsr-searchResult .fp .align-right {
+          text-align: left;
+          padding-left: 0px; } }
+    #nsr-searchResult .fp .avfall-files-desk {
+      display: block; }
+    #nsr-searchResult .fp .avfall-files-mob {
+      display: none; }
+    #nsr-searchResult .fp .expand-avfall {
+      display: none; }
+    @media (max-width: 767px) {
+      #nsr-searchResult .fp .fp-address {
+        max-height: 70px; }
+      #nsr-searchResult .fp .expand-avfall {
+        display: block;
+        position: absolute;
+        right: 40px;
+        cursor: pointer; }
+      #nsr-searchResult .fp .avfall-files-desk {
+        display: none; }
+      #nsr-searchResult .fp .avfall-files-mob {
+        display: block; } }
     #nsr-searchResult .fp .avfall {
       font-size: 1.0rem; }
+      @media (max-width: 767px) {
+        #nsr-searchResult .fp .avfall a {
+          width: 100%; }
+        #nsr-searchResult .fp .avfall .vc_col-xs-6 {
+          padding: 15px 0; }
+        #nsr-searchResult .fp .avfall.hideDetails {
+          display: none; }
+        #nsr-searchResult .fp .avfall.showDetails {
+          display: block; } }
+      #nsr-searchResult .fp .avfall span {
+        padding-bottom: 10px; }
+    @media (max-width: 767px) {
+      #nsr-searchResult .fp .bold {
+        font-weight: 600; } }
     #nsr-searchResult .fp a {
       font-size: 1.0rem; }
   #nsr-searchResult .search-autocomplete-content li {
@@ -978,6 +1014,9 @@ tr {
     padding: 10px 20px;
     border-bottom: 1px solid #eaeaea;
     margin-right: -30px; }
+    @media (max-width: 559px) {
+      #nsr-searchResult .fp .tabDesk {
+        padding-bottom: 0px; } }
   #nsr-searchResult .sorteringsguiden.show, #nsr-searchResult .errorSortguide.show, #nsr-searchResult .search-autocomplete.show, #nsr-searchResult .errorPages.show, #nsr-searchResult .search-fetchPlanner.show {
     display: block !important;
     max-width: 915px !important; }
