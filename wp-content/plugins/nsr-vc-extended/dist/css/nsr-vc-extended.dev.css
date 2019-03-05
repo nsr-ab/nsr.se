@@ -1012,8 +1012,7 @@ tr {
       padding-right: 20px; }
   #nsr-searchResult .fp .tabDesk {
     padding: 10px 20px;
-    border-bottom: 1px solid #eaeaea;
-    margin-right: -30px; }
+    border-bottom: 1px solid #eaeaea; }
     @media (max-width: 559px) {
       #nsr-searchResult .fp .tabDesk {
         padding-bottom: 0px; } }
