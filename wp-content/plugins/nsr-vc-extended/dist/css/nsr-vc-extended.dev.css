@@ -708,7 +708,7 @@ input[type=text]:focus.invalid {
       #nsr-searchResult .fp .expand-avfall {
         display: block;
         position: absolute;
-        right: 40px;
+        right: 0px;
         cursor: pointer; }
       #nsr-searchResult .fp .avfall-files-desk {
         display: none; }
