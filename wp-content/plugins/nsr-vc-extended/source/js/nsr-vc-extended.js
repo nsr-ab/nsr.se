@@ -631,7 +631,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 alphabet = ['s', 't', 'u'];
                 break;
             case 'v-z':
-                alphabet = ['v', 'w', 'x'];
+                alphabet = ['v', 'w'];
                 break;
 
             case 'ä-ö':

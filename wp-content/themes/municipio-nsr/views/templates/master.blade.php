@@ -94,9 +94,8 @@
                         <li class="a-o-trigger vc_col-sm-1" data-letter="m-o">M-O</li>
                         <li class="a-o-trigger vc_col-sm-1" data-letter="p-r">P-R</li>
                         <li class="a-o-trigger vc_col-sm-1" data-letter="s-u">S-U</li>
-                        <li class="a-o-trigger vc_col-sm-1" data-letter="v-x">V-X</li>
-                        <li class="a-o-trigger vc_col-sm-1" data-letter="y-z">Y-Å</li>
-                        <li class="a-o-trigger vc_col-sm-1" data-letter="ä-ö">Ä-Ö</li>
+                        <li class="a-o-trigger vc_col-sm-1" data-letter="v-w">V-W</li>
+                        <li class="a-o-trigger vc_col-sm-1" data-letter="y-ö">Y-Ö</li>
                     </ul>
                     <div class="search-ao-data"></div>
                 </div>
