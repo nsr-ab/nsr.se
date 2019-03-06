@@ -102,7 +102,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('body').on('click', '.a-o-trigger', function (e) {
 
             e.preventDefault();
-            $('.search-hits').append('<div class="data-spinner nsr-origamiLoader right"></div>');
+            $('.prefix').addClass('nsr-origamiLoader');
             console.log('TEST');
             $('.a-o-trigger').removeClass('active');
 
@@ -698,7 +698,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }).done(function (result) {
             if (done)
-                $('.data-spinner').remove();
+                $('.prefix').removeClass('nsr-origamiLoader');
         }.bind(this));
     };
 
