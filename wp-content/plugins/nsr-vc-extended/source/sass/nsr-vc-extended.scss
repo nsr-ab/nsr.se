@@ -512,6 +512,10 @@ input[type=text]:focus.invalid {
             cursor:pointer;
             font-weight:bold;
         }
+        .data-spinner {
+            margin-top: -6px;
+            margin-right: -46px;
+        }
     }
     .search-autocomplete-nothing-found {
         display: block;

@@ -369,6 +369,9 @@ input[type=text]:focus.invalid {
       color: #016a77;
       cursor: pointer;
       font-weight: bold; }
+    #nsr-searchResult .search-hits .data-spinner {
+      margin-top: -6px;
+      margin-right: -46px; }
   #nsr-searchResult .search-autocomplete-nothing-found {
     display: block;
     padding: 7.5px 10px;

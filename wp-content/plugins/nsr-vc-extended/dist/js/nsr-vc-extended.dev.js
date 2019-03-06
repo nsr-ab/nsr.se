@@ -646,6 +646,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var markup = [];
         for (var int = 0; int < alphabet.length; int++) {
+            if (int === 0) {
+                $('.search-hits').append('<div class="data-spinner nsr-origamiLoader right"></div>');
+            }
+
             var data = {
                 action: 'fetchDataFromElasticSearch',
                 query: alphabet[int] + '*',
@@ -693,7 +697,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             async: false,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-                $('.search-hits').append('<div class="data-spinner nsr-origamiLoader right"></div>');
             }
         }).done(function (result) {
             if (done)
