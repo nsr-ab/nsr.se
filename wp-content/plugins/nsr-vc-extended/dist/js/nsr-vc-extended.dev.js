@@ -116,7 +116,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.search-nav li').removeClass('active');
 
             var aoSelect = ($(this).attr('data-letter')) ? $(this).attr('data-letter') : 'a-c';
-
+            $('.search-hits').append('<div class="data-spinner nsr-origamiLoader right"></div>');
+            
             Extended.prototype.AOQuery(aoSelect);
 
         }).bind(this);
@@ -646,9 +647,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var markup = [];
         for (var int = 0; int < alphabet.length; int++) {
-            if (int === 1) {
-                $('.search-hits').append('<div class="data-spinner nsr-origamiLoader right"></div>');
-            }
 
             var data = {
                 action: 'fetchDataFromElasticSearch',
@@ -701,7 +699,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }).done(function (result) {
             if (done)
                 $('.data-spinner').remove();
-            console.log('done');
+            console.log('done' + done);
         }.bind(this));
     };
 
