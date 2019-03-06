@@ -630,11 +630,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
             case 's-u':
                 alphabet = ['s', 't', 'u'];
                 break;
-            case 'v-z':
+            case 'v-w':
                 alphabet = ['v', 'w'];
                 break;
 
-            case 'ä-ö':
+            case 'y-ö':
                 alphabet = ['y', 'ä', 'ö'];
                 break;
 
