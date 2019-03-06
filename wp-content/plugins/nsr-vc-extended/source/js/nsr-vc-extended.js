@@ -103,7 +103,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             e.preventDefault();
             $('.prefix').addClass('nsr-origamiLoader');
-            $(this).addClass('nsr-origamiLoader');
             $('.a-o-trigger').removeClass('active');
 
             if ($(this).hasClass('show-ao')) {
@@ -699,7 +698,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }).done(function (result) {
             if (done) {
                 $('.prefix').removeClass('nsr-origamiLoader');
-                $('.a-o-trigger').removeClass('nsr-origamiLoader');
             }
 
         }.bind(this));

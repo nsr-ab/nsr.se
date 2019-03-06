@@ -1051,19 +1051,6 @@ tr {
       padding-left: 20px;
       cursor: pointer;
       text-align: center; }
-      #nsr-searchResult .ao-nav li.nsr-origamiLoader {
-        background: url(/wp-content/themes/municipio-nsr/assets/dist/img/loader.svg);
-        background-repeat: no-repeat;
-        display: block;
-        width: 60px;
-        height: 60px;
-        background-size: 47px;
-        background-position-y: -4px;
-        color: #fff !important;
-        font-size: 15px;
-        background-color: white;
-        background-position-x: 12px;
-        padding-top: 6px; }
       #nsr-searchResult .ao-nav li.active {
         font-weight: 900; }
 
