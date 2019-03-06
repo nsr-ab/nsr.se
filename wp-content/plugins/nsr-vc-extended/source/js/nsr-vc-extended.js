@@ -102,6 +102,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('body').on('click', '.a-o-trigger', function (e) {
 
             e.preventDefault();
+            $('.search-hits').append('<div class="data-spinner nsr-origamiLoader right"></div>');
             $('.a-o-trigger').removeClass('active');
 
             if ($(this).hasClass('show-ao')) {
@@ -116,8 +117,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.search-nav li').removeClass('active');
 
             var aoSelect = ($(this).attr('data-letter')) ? $(this).attr('data-letter') : 'a-c';
-            $('.search-hits').append('<div class="data-spinner nsr-origamiLoader right"></div>');
-            
             Extended.prototype.AOQuery(aoSelect);
 
         }).bind(this);
@@ -659,8 +658,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var tmpJson = [];
 
             var done = false;
-
-            if (int === alphabet.length) {
+            console.log(int +' : '+ alphabet.length);
+            if (int == alphabet.length) {
                 done = true;
             }
 
