@@ -1026,6 +1026,7 @@ tr {
   #nsr-searchResult .search-ao {
     position: relative; }
   #nsr-searchResult .search-ao-data {
+    min-height: 30px;
     padding: 130px 30px 30px 30px; }
     #nsr-searchResult .search-ao-data li {
       list-style: disc !important;
