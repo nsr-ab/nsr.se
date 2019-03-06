@@ -23,6 +23,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var $relevant = [];
     var relevantCount = null;
     var emptyRes = false;
+
     /**
      * Constructor
      */
@@ -100,17 +101,15 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* CardClick */
         $('body').on('click', '.a-o', function (e) {
-
-            $('.sorteringsguiden-data').html('');
-            $('.search-autocomplete-data').html('');
-            $('.search-fetchPlanner-data').html('');
-
             e.preventDefault();
-            window.clearTimeout(typingTimer);
-            Extended.prototype.doneTyping();
+            $('.search-ao-data').html('');
             $('.searchWrapper').addClass('searching');
             $('.search-nav li').removeClass('active');
-            return false;
+
+            var aoSelect = ($(this).attr('data-letter')) ? $(this).attr('data-letter') : '';
+
+            Extended.prototype.AOQuery(aoSelect);
+
         }).bind(this);
 
         /* On input starting timer  */
@@ -592,6 +591,96 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
     /**
+     * Special - A-Ö
+     * @param letter
+     * @constructor
+     */
+    Extended.prototype.AOQuery = function (param) {
+
+        var letter = (param) ? param : 'a-c';
+        var $post_type = 'sorteringsguide';
+        var letters = [];
+
+        switch (letter) {
+            case 'a-c':
+                alphabet = ['a', 'b', 'c'];
+                break;
+            case 'd-f':
+                alphabet = ['d', 'e', 'f'];
+                break;
+            case 'g-i':
+                alphabet = ['g', 'h', 'i'];
+                break;
+            case 'j-l':
+                alphabet = ['j', 'k', 'l'];
+                break;
+            case 'm-o':
+                alphabet = ['m', 'n', 'o'];
+                break;
+            case 'p-r':
+                alphabet = ['p', 'q', 'r'];
+                break;
+            case 's-u':
+                alphabet = ['s', 't', 'u'];
+                break;
+            case 'v-z':
+                alphabet = ['v', 'w', 'x'];
+                break;
+            case 'y-z':
+                alphabet = ['y', 'z', 'å'];
+                break;
+            case 'ä-ö':
+                alphabet = ['ä', 'ö'];
+                break;
+
+        }
+
+        var aoResult = [];
+        var int = 0;
+
+        for (var int = 0; int<alphabet.length; int++) {
+
+            var data = {
+                action: 'fetchDataFromElasticSearch',
+                query: alphabet[int] + '*',
+                post_type: $post_type,
+                level: 'ajax',
+                type: 'json'
+            };
+//admin-ajax.php?action=fetchDataFromElasticSearch&query=a*&post_type=sorteringsguide&level=ajax&type=json
+///admin-ajax.php?action=fetchDataFromElasticSearch&query=b*&post_type=sorteringsguide&level=ajax&type=json
+            $.ajax({
+                url: ajax_object.ajax_url,
+                data: data,
+                method: 'GET',
+                dataType: 'json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
+                    $('.search-ao-data').addClass('nsr-origamiLoader');
+                }
+            }).done(function (result) {
+                aoResult[int] = result;
+                console.log(aoResult[int]);
+                if(int == 3) {
+                    $('.search-ao-data').removeClass('nsr-origamiLoader');
+                    for (var int = 0; aoResult.length < int; int++) {
+                        var markup = '<ul>';
+                        for(var sortInt=0; aoResult[int].sortguide.post_title.length < sortInt; sortInt++){
+
+                        }
+                        markup += '<li>'+$('.search-ao-data').html()+'<li>';
+
+                        var markup = '<ul>';
+                    }
+                }
+                $('search-ao').removeClass('hide');
+            }.bind(this));
+        }
+
+    };
+
+
+    /**
      *
      * @param data_type
      * @param $element
@@ -634,11 +723,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.dataFromSource = function (data_type, $element, data, $post_type, result) {
 
 
-
         if (data.action === 'fetchDataFromElasticSearch') {
 
-            $relevant['sortguide'] = (result.sortguide.length > 0 )  ? result.sortguide.length : 0;
-            $relevant['page'] = (result.content.length > 0 )  ? result.content.length : 0;
+            $relevant['sortguide'] = (result.sortguide.length > 0) ? result.sortguide.length : 0;
+            $relevant['page'] = (result.content.length > 0) ? result.content.length : 0;
 
             (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length) : '';
             (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length) : '';
@@ -650,8 +738,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('.nsr-fetchplanner-nav').addClass('active');
                 $('#nsr-searchResult .sorteringsguiden').addClass('hide');
                 $('#nsr-searchResult .search-fetchPlanner').removeClass('hide');
-            }
-            else {
+            } else {
                 $('#nsr-searchResult .search-fetchPlanner').addClass('hide');
             }
 
@@ -665,16 +752,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
 
-
-
         if ($('#searchkeyword-nsr').hasClass('valid'))
             $('#searchkeyword-nsr').addClass('valid');
 
         $('#nsr-searchResult').css('display', 'block');
-
-
-
-
 
 
     };
@@ -712,7 +793,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
         //Hits
-        $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span class="a-o right-align right hide mobHide">Sorteringsguiden A till Ö</span>');
+        $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span data-letter="a-c" class="a-o right-align right hide mobHide">Sorteringsguiden A till Ö</span>');
         $('.search-hits').removeClass('hide');
 
         if ($('.nsr-elasticSearch-nav').hasClass('active'))
