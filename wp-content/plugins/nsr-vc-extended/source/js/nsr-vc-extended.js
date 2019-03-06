@@ -646,7 +646,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         var markup = [];
         for (var int = 0; int < alphabet.length; int++) {
-            if (int === 0) {
+            if (int === 1) {
                 $('.search-hits').append('<div class="data-spinner nsr-origamiLoader right"></div>');
             }
 
@@ -701,6 +701,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }).done(function (result) {
             if (done)
                 $('.data-spinner').remove();
+            console.log('done');
         }.bind(this));
     };
 
