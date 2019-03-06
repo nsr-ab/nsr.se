@@ -664,7 +664,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
 
             var json = this.getJsonDataAO(data, done);
-            markup += '<h5>' + json.responseJSON.sortguide[0].post_title.charAt(0) + '</h5>';
+            if (json.responseJSON.sortguide[listInt].post_title != '' && json.responseJSON.sortguide[listInt].post_title != 'undefined') {
+                markup += '<h5>' + json.responseJSON.sortguide[0].post_title.charAt(0) + '</h5>';
+            }
+
             markup += '<ul>';
 
             for (var listInt = 0; listInt < json.responseJSON.sortguide.length; listInt++) {
