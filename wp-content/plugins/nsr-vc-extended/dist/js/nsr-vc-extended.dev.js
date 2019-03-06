@@ -693,7 +693,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             async: false,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-                $('.search-ao-data').append('<div class="data-spinner nsr-origamiLoader"></div>');
+                $('.search-hits').append('<div class="data-spinner nsr-origamiLoader right"></div>');
             }
         }).done(function (result) {
             if (done)
