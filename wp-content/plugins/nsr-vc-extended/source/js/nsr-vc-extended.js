@@ -679,7 +679,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.search-autocomplete').addClass('hide');
         $('.search-fetchPlanner').addClass('hide');
         $('.search-ao').removeClass('hide');
-   
+
     };
 
 
@@ -693,11 +693,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
             async: false,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-                $('.search-ao-data').addClass('nsr-origamiLoader');
+                $('.search-ao-data').append('<div class="data-spinner nsr-origamiLoader"></div>');
             }
         }).done(function (result) {
             if (done)
-                $('.search-ao-data').removeClass('nsr-origamiLoader');
+                $('.data-spinner').remove();
         }.bind(this));
     };
 
