@@ -656,12 +656,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             var tmpJson = [];
 
-            /*
-            tmpJson[0] = 'https://nsr.local/tmp-data/a.json';
-            tmpJson[1] = 'https://nsr.local/tmp-data/b.json';
-            tmpJson[2] = 'https://nsr.local/tmp-data/c.json';*/
+            var done = false;
 
-            var json = this.getJsonDataAO(tmpJson[int], data, int);
+            if (int === alphabet.length) {
+                done = true;
+            }
+
+            var json = this.getJsonDataAO(data, done);
             markup += '<h5>' + json.responseJSON.sortguide[0].post_title.charAt(0) + '</h5>';
             markup += '<ul>';
 
@@ -671,8 +672,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
             }
             markup += '</ul>';
-            if (int === alphabet.length)
-                $('.search-ao-data').removeClass('nsr-origamiLoader');
         }
 
         $('.search-ao-data').html(markup);
@@ -680,15 +679,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.search-autocomplete').addClass('hide');
         $('.search-fetchPlanner').addClass('hide');
         $('.search-ao').removeClass('hide');
-
+   
     };
 
 
-    Extended.prototype.getJsonDataAO = function (tmpJson, data) {
+    Extended.prototype.getJsonDataAO = function (data, done) {
 
         return $.ajax({
             url: ajax_object.ajax_url,
-            //url: tmpJson,
             data: data,
             method: 'GET',
             dataType: 'json',
@@ -697,7 +695,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
                 $('.search-ao-data').addClass('nsr-origamiLoader');
             }
-        });
+        }).done(function (result) {
+            if (done)
+                $('.search-ao-data').removeClass('nsr-origamiLoader');
+        }.bind(this));
     };
 
     /**
