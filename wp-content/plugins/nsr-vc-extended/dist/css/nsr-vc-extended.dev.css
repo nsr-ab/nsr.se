@@ -1023,6 +1023,32 @@ tr {
     width: 100% !important;
     margin-left: -15px !important;
     padding: 15px; }
+  #nsr-searchResult .search-ao {
+    position: relative; }
+  #nsr-searchResult .search-ao-data {
+    padding: 130px 30px 30px 30px; }
+    #nsr-searchResult .search-ao-data li {
+      list-style: disc !important;
+      list-style-type: disc !important; }
+    #nsr-searchResult .search-ao-data ul {
+      margin-top: 15px;
+      margin-left: 55px; }
+    #nsr-searchResult .search-ao-data h5 {
+      line-height: 16px; }
+  #nsr-searchResult .ao-nav {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    display: table-row;
+    margin: 0 auto;
+    padding: 50px 0; }
+    #nsr-searchResult .ao-nav li {
+      float: left;
+      padding-left: 20px;
+      cursor: pointer;
+      text-align: center; }
+      #nsr-searchResult .ao-nav li.active {
+        font-weight: 900; }
 
 .nsr-origamiLoader {
   background: url(/wp-content/themes/municipio-nsr/assets/dist/img/loader.svg);

@@ -1,0 +1,1049 @@
+{
+"content": [],
+"sortguide": [
+{
+"ID": 2699,
+"post_author": 10,
+"post_date": "2017-06-09 11:56:38",
+"post_date_gmt": "2017-06-09 11:56:38",
+"post_content": "",
+"post_title": "Badkar, helt",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "badkar-helt",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-06-09 11:56:38",
+"post_modified_gmt": "2017-06-09 11:56:38",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/badkar-helt/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 93,
+"slug": "aterbruk-mobler-och-prylar",
+"name": "Återbruk Möbler och prylar",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1503054653:10"
+],
+"_edit_last": [
+"10"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:3:{i:0;s:5:\"villa\";i:1;s:9:\"fastighet\";i:2;s:7:\"foretag\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+""
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"93"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+"Lämna gärna hela saker till en loppis eller sälj."
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"_wpb_vc_js_status": [
+"false"
+],
+"fraktion_avc": {
+"name": null,
+"link": false
+},
+"fraktion_hemma": {
+"name": "Återbruk Möbler och prylar",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 2700,
+"post_author": 10,
+"post_date": "2017-06-09 11:57:09",
+"post_date_gmt": "2017-06-09 11:57:09",
+"post_content": "",
+"post_title": "Badkar, metall",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "badkar-metall",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-06-09 11:57:09",
+"post_modified_gmt": "2017-06-09 11:57:09",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/badkar-metall/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 194,
+"slug": "grovavfall",
+"name": "Grovavfall",
+"parent": 0
+},
+{
+"term_id": 106,
+"slug": "metallskrot",
+"name": "Metallskrot",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1504016664:1"
+],
+"_edit_last": [
+"10"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:3:{i:0;s:5:\"villa\";i:1;s:9:\"fastighet\";i:2;s:7:\"foretag\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"106"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"194"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+""
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"_wpb_vc_js_status": [
+"false"
+],
+"fraktion_avc": {
+"name": "Metallskrot",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Grovavfall",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 2702,
+"post_author": 10,
+"post_date": "2017-06-09 11:59:23",
+"post_date_gmt": "2017-06-09 11:59:23",
+"post_content": "",
+"post_title": "Bag-in-box, innerpåsen med tap",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "bag-in-box-innerpasen-med-tap",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-06-09 11:59:23",
+"post_modified_gmt": "2017-06-09 11:59:23",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/bag-in-box-innerpasen-med-tap/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 111,
+"slug": "forpackning-av-mjukplast",
+"name": "Förpackning av mjukplast",
+"parent": 0
+},
+{
+"term_id": 67,
+"slug": "mjukplastforpackningar",
+"name": "Mjukplastförpackningar",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1504016958:1"
+],
+"_edit_last": [
+"10"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:3:{i:0;s:5:\"villa\";i:1;s:9:\"fastighet\";i:2;s:7:\"foretag\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"111"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"67"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+""
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"_wpb_vc_js_status": [
+"false"
+],
+"fraktion_avc": {
+"name": "Förpackning av mjukplast",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Mjukplastförpackningar",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 2701,
+"post_author": 10,
+"post_date": "2017-06-09 11:58:16",
+"post_date_gmt": "2017-06-09 11:58:16",
+"post_content": "",
+"post_title": "Bag-in-box, lådan",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "bag-in-box-ladan",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-06-09 11:58:16",
+"post_modified_gmt": "2017-06-09 11:58:16",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/bag-in-box-ladan/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 116,
+"slug": "forpackning-av-papper",
+"name": "Förpackning av papper",
+"parent": 0
+},
+{
+"term_id": 64,
+"slug": "pappersforpackningar",
+"name": "Pappersförpackningar",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1504016667:1"
+],
+"_edit_last": [
+"10"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:3:{i:0;s:5:\"villa\";i:1;s:9:\"fastighet\";i:2;s:7:\"foretag\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"116"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"64"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+""
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"_wpb_vc_js_status": [
+"false"
+],
+"fraktion_avc": {
+"name": "Förpackning av papper",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Pappersförpackningar",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 2585,
+"post_author": 10,
+"post_date": "2017-06-09 09:29:11",
+"post_date_gmt": "2017-06-09 09:29:11",
+"post_content": "",
+"post_title": "Bakform, folie",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "bakform-folie",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-06-09 09:29:35",
+"post_modified_gmt": "2017-06-09 09:29:35",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/bakform-folie/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 117,
+"slug": "forpackning-av-metall",
+"name": "Förpackning av metall",
+"parent": 0
+},
+{
+"term_id": 54,
+"slug": "metallforpackningar",
+"name": "Metallförpackningar",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1497000437:10"
+],
+"_edit_last": [
+"10"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:3:{i:0;s:5:\"villa\";i:1;s:9:\"fastighet\";i:2;s:7:\"foretag\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"117"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"54"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+"Metaller kan återvinnas hur många gånger som helst."
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"_wpb_vc_js_status": [
+"false"
+],
+"fraktion_avc": {
+"name": "Förpackning av metall",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Metallförpackningar",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 5820,
+"post_author": 10,
+"post_date": "2017-07-11 08:00:55",
+"post_date_gmt": "2017-07-11 08:00:55",
+"post_content": "",
+"post_title": "Bakform, papper",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "bakform-papper",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-07-11 08:00:55",
+"post_modified_gmt": "2017-07-11 08:00:55",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/bakform-papper/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 62,
+"slug": "restavfall",
+"name": "Restavfall",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1499759923:12"
+],
+"_edit_last": [
+"12"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:3:{i:0;s:5:\"villa\";i:1;s:9:\"fastighet\";i:2;s:7:\"foretag\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+""
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"62"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+""
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"fraktion_avc": {
+"name": null,
+"link": false
+},
+"fraktion_hemma": {
+"name": "Restavfall",
+"link": "http://sandbox.nsr.se/avfall-och-miljo/kallsortering-och-atervinning/restavfall/"
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 2808,
+"post_author": 10,
+"post_date": "2017-06-09 13:56:57",
+"post_date_gmt": "2017-06-09 13:56:57",
+"post_content": "",
+"post_title": "Ballong",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "ballong",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-06-09 13:56:57",
+"post_modified_gmt": "2017-06-09 13:56:57",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/ballong/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 127,
+"slug": "ej-sorterbart-smatt",
+"name": "Ej sorterbart - smått",
+"parent": 0
+},
+{
+"term_id": 62,
+"slug": "restavfall",
+"name": "Restavfall",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1504016670:1"
+],
+"_edit_last": [
+"10"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:3:{i:0;s:5:\"villa\";i:1;s:9:\"fastighet\";i:2;s:7:\"foretag\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"127"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"62"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+""
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"_wpb_vc_js_status": [
+"false"
+],
+"fraktion_avc": {
+"name": "Ej sorterbart - smått",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Restavfall",
+"link": "http://sandbox.nsr.se/avfall-och-miljo/kallsortering-och-atervinning/restavfall/"
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 4748,
+"post_author": 10,
+"post_date": "2017-07-06 08:56:56",
+"post_date_gmt": "2017-07-06 08:56:56",
+"post_content": "",
+"post_title": "Balsamflaska ",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "balsamflaska",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-07-06 08:56:56",
+"post_modified_gmt": "2017-07-06 08:56:56",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/balsamflaska/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 112,
+"slug": "forpackning-av-hardplast",
+"name": "Förpackning av hårdplast",
+"parent": 0
+},
+{
+"term_id": 60,
+"slug": "hardplatsforpackningar",
+"name": "Hårdplastförpackningar",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1503054753:10"
+],
+"_edit_last": [
+"12"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:3:{i:0;s:5:\"villa\";i:1;s:9:\"fastighet\";i:2;s:7:\"foretag\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"112"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"60"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+""
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"fraktion_avc": {
+"name": "Förpackning av hårdplast",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Hårdplastförpackningar",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 2703,
+"post_author": 10,
+"post_date": "2017-06-09 12:00:41",
+"post_date_gmt": "2017-06-09 12:00:41",
+"post_content": "",
+"post_title": "Bananlåda",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "bananlada",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-06-09 12:00:41",
+"post_modified_gmt": "2017-06-09 12:00:41",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/bananlada/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 64,
+"slug": "pappersforpackningar",
+"name": "Pappersförpackningar",
+"parent": 0
+},
+{
+"term_id": 115,
+"slug": "wellpapp",
+"name": "Wellpapp",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1504016726:1"
+],
+"_edit_last": [
+"10"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:3:{i:0;s:5:\"villa\";i:1;s:9:\"fastighet\";i:2;s:7:\"foretag\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"115"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"64"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+"Riv sönder större kartonger om du lämnar det i ditt kärl hemma annars kanske det fastnar."
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"_wpb_vc_js_status": [
+"false"
+],
+"fraktion_avc": {
+"name": "Wellpapp",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Pappersförpackningar",
+"link": false
+}
+},
+"elasticsearch": true
+}
+]
+}

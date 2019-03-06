@@ -99,14 +99,23 @@ VcExtended.NSRExtend.Extended = (function ($) {
             return false;
         }).bind(this);
 
-        /* CardClick */
-        $('body').on('click', '.a-o', function (e) {
+        $('body').on('click', '.a-o-trigger', function (e) {
+
             e.preventDefault();
+            $('.a-o-trigger').removeClass('active');
+
+            if ($(this).hasClass('show-ao')) {
+                $(this).removeClass('active');
+                $('.ao-nav li:first-child').addClass('active');
+            } else {
+                $(this).addClass('active');
+            }
+
             $('.search-ao-data').html('');
             $('.searchWrapper').addClass('searching');
             $('.search-nav li').removeClass('active');
 
-            var aoSelect = ($(this).attr('data-letter')) ? $(this).attr('data-letter') : '';
+            var aoSelect = ($(this).attr('data-letter')) ? $(this).attr('data-letter') : 'a-c';
 
             Extended.prototype.AOQuery(aoSelect);
 
@@ -597,11 +606,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.AOQuery = function (param) {
 
-        var letter = (param) ? param : 'a-c';
         var $post_type = 'sorteringsguide';
-        var letters = [];
 
-        switch (letter) {
+        switch (param) {
             case 'a-c':
                 alphabet = ['a', 'b', 'c'];
                 break;
@@ -635,11 +642,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }
 
-        var aoResult = [];
-        var int = 0;
+        alphabet = alphabet.sort();
 
-        for (var int = 0; int<alphabet.length; int++) {
-
+        var markup = [];
+        for (var int = 0; int < alphabet.length; int++) {
             var data = {
                 action: 'fetchDataFromElasticSearch',
                 query: alphabet[int] + '*',
@@ -647,38 +653,50 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 level: 'ajax',
                 type: 'json'
             };
-//admin-ajax.php?action=fetchDataFromElasticSearch&query=a*&post_type=sorteringsguide&level=ajax&type=json
-///admin-ajax.php?action=fetchDataFromElasticSearch&query=b*&post_type=sorteringsguide&level=ajax&type=json
-            $.ajax({
-                url: ajax_object.ajax_url,
-                data: data,
-                method: 'GET',
-                dataType: 'json',
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-                    $('.search-ao-data').addClass('nsr-origamiLoader');
-                }
-            }).done(function (result) {
-                aoResult[int] = result;
-                console.log(aoResult[int]);
-                if(int == 3) {
-                    $('.search-ao-data').removeClass('nsr-origamiLoader');
-                    for (var int = 0; aoResult.length < int; int++) {
-                        var markup = '<ul>';
-                        for(var sortInt=0; aoResult[int].sortguide.post_title.length < sortInt; sortInt++){
 
-                        }
-                        markup += '<li>'+$('.search-ao-data').html()+'<li>';
+            var tmpJson = [];
 
-                        var markup = '<ul>';
-                    }
+            /*
+            tmpJson[0] = 'https://nsr.local/tmp-data/a.json';
+            tmpJson[1] = 'https://nsr.local/tmp-data/b.json';
+            tmpJson[2] = 'https://nsr.local/tmp-data/c.json';*/
+
+            var json = this.getJsonDataAO(tmpJson[int], data, int);
+            markup += '<h5>' + json.responseJSON.sortguide[0].post_title.charAt(0) + '</h5>';
+            markup += '<ul>';
+
+            for (var listInt = 0; listInt < json.responseJSON.sortguide.length; listInt++) {
+                if (json.responseJSON.sortguide[listInt].post_title != '') {
+                    markup += '<li>' + json.responseJSON.sortguide[listInt].post_title + '</li>';
                 }
-                $('search-ao').removeClass('hide');
-            }.bind(this));
+            }
+            markup += '</ul>';
         }
 
+        $('.search-ao-data').html(markup);
+        $('.sorteringsguiden').addClass('hide');
+        $('.search-autocomplete').addClass('hide');
+        $('.search-fetchPlanner').addClass('hide');
+        $('.search-ao').removeClass('hide');
+        $('.search-ao-data').removeClass('nsr-origamiLoader');
     };
 
+
+    Extended.prototype.getJsonDataAO = function (tmpJson, data) {
+
+        return $.ajax({
+            url: ajax_object.ajax_url,
+            //url: tmpJson,
+            data: data,
+            method: 'GET',
+            dataType: 'json',
+            async: false,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
+                $('.search-ao-data').addClass('nsr-origamiLoader');
+            }
+        });
+    };
 
     /**
      *
@@ -793,7 +811,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
         //Hits
-        $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span data-letter="a-c" class="a-o right-align right hide mobHide">Sorteringsguiden A till Ö</span>');
+        $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span data-letter="a-c" class="a-o a-o-trigger right-align right hide mobHide show-ao">Sorteringsguiden A till Ö</span>');
         $('.search-hits').removeClass('hide');
 
         if ($('.nsr-elasticSearch-nav').hasClass('active'))

@@ -1,0 +1,1142 @@
+{
+"content": [],
+"sortguide": [
+{
+"ID": 1119,
+"post_author": 5,
+"post_date": "2017-02-17 14:48:00",
+"post_date_gmt": "2017-02-17 14:48:00",
+"post_content": "",
+"post_title": "Aceton",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "aceton-2",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-06-09 09:21:26",
+"post_modified_gmt": "2017-06-09 09:21:26",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 4,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/aceton-2/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 100,
+"slug": "farligt-avfall",
+"name": "Farligt Avfall",
+"parent": 0
+}
+],
+"inlamningsstallen": [
+{
+"term_id": 151,
+"slug": "atervinningscentral-angelholm",
+"name": "Återvinningscentral Ängelholm",
+"parent": 0
+},
+{
+"term_id": 150,
+"slug": "atervinningscentral-astorp",
+"name": "Återvinningscentral Åstorp",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1496999955:10"
+],
+"_edit_last": [
+"10"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:2:{i:0;s:9:\"fastighet\";i:1;s:7:\"foretag\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"100"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+""
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+"Farligt avfall från verksamhet får endast transporteras efter att anmälan gjorts till Länsstyrelsen. Transportdokument ska alltid följa med och visas upp vid avlämning."
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"avfall_synonymer": [
+""
+],
+"_avfall_synonymer": [
+"field_586d03e89d980"
+],
+"_wpb_vc_js_status": [
+"true"
+],
+"fraktion_avc": {
+"name": "Farligt Avfall",
+"link": false
+},
+"fraktion_hemma": {
+"name": null,
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 1117,
+"post_author": 5,
+"post_date": "2017-02-17 14:42:44",
+"post_date_gmt": "2017-02-17 14:42:44",
+"post_content": "",
+"post_title": "Aceton",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "aceton",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-02-17 14:42:44",
+"post_modified_gmt": "2017-02-17 14:42:44",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 3,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/aceton/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 100,
+"slug": "farligt-avfall",
+"name": "Farligt Avfall",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1496999856:10"
+],
+"_edit_last": [
+"5"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:1:{i:0;s:5:\"villa\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"100"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"100"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+""
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"avfall_synonymer": [
+""
+],
+"_avfall_synonymer": [
+"field_586d03e89d980"
+],
+"_wpb_vc_js_status": [
+"true"
+],
+"fraktion_avc": {
+"name": "Farligt Avfall",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Farligt Avfall",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 2575,
+"post_author": 10,
+"post_date": "2017-06-09 09:23:08",
+"post_date_gmt": "2017-06-09 09:23:08",
+"post_content": "",
+"post_title": "Ackumulationer",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "ackumulationer",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-06-09 09:23:08",
+"post_modified_gmt": "2017-06-09 09:23:08",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/ackumulationer/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 102,
+"slug": "blybatterier",
+"name": "Blybatterier",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1504016766:1"
+],
+"_edit_last": [
+"10"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:1:{i:0;s:5:\"villa\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"102"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+""
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+""
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"_wpb_vc_js_status": [
+"false"
+],
+"fraktion_avc": {
+"name": "Blybatterier",
+"link": false
+},
+"fraktion_hemma": {
+"name": null,
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 1122,
+"post_author": 5,
+"post_date": "2017-02-17 14:57:09",
+"post_date_gmt": "2017-02-17 14:57:09",
+"post_content": "",
+"post_title": "Aluminiumburk, pant",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "aluminiumburk-pant",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-02-17 15:00:11",
+"post_modified_gmt": "2017-02-17 15:00:11",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 6,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/aluminiumburk-pant/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 94,
+"slug": "pant",
+"name": "Pant",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1487582547:1"
+],
+"_edit_last": [
+"5"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:1:{i:0;s:5:\"villa\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"94"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"94"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+"Kan pantas i de flesta matbutiker. Sorteras som metallförpackning om pant saknas."
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"avfall_synonymer_0_avfall_synonym": [
+"Metallburk"
+],
+"_avfall_synonymer_0_avfall_synonym": [
+"field_586d0767fc7fe"
+],
+"avfall_synonymer_1_avfall_synonym": [
+"Burk"
+],
+"_avfall_synonymer_1_avfall_synonym": [
+"field_586d0767fc7fe"
+],
+"avfall_synonymer_2_avfall_synonym": [
+"Pantburk"
+],
+"_avfall_synonymer_2_avfall_synonym": [
+"field_586d0767fc7fe"
+],
+"avfall_synonymer_3_avfall_synonym": [
+""
+],
+"_avfall_synonymer_3_avfall_synonym": [
+"field_586d0767fc7fe"
+],
+"avfall_synonymer": [
+"4"
+],
+"_avfall_synonymer": [
+"field_586d03e89d980"
+],
+"_wpb_vc_js_status": [
+"true"
+],
+"fraktion_avc": {
+"name": "Pant",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Pant",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 1259,
+"post_author": 1,
+"post_date": "2017-02-21 15:19:50",
+"post_date_gmt": "2017-02-21 15:19:50",
+"post_content": "",
+"post_title": "Aluminiumfolie slakteriavfall",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "aluminiumfolie-2",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2018-12-16 06:26:35",
+"post_modified_gmt": "2018-12-16 05:26:35",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/aluminiumfolie-2/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 117,
+"slug": "forpackning-av-metall",
+"name": "Förpackning av metall",
+"parent": 0
+},
+{
+"term_id": 54,
+"slug": "metallforpackningar",
+"name": "Metallförpackningar",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}",
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1544937877:16"
+],
+"_edit_last": [
+"16"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:1:{i:0;s:5:\"villa\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"117"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"54"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+"Metaller kan återvinnas hur många gånger som helst.\r\n\r\n&nbsp;\r\n\r\nslakteriavfall\r\n\r\n&nbsp;"
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"avfall_synonymer_0_avfall_synonym": [
+"Folie"
+],
+"_avfall_synonymer_0_avfall_synonym": [
+"field_586d0767fc7fe"
+],
+"avfall_synonymer": [
+"1"
+],
+"_avfall_synonymer": [
+"field_586d03e89d980"
+],
+"_wpb_vc_js_status": [
+"true"
+],
+"_expiration-date-status": [
+"saved"
+],
+"fraktion_avc": {
+"name": "Förpackning av metall",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Metallförpackningar",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 1258,
+"post_author": 5,
+"post_date": "2017-02-21 15:19:00",
+"post_date_gmt": "2017-02-21 15:19:14",
+"post_content": "",
+"post_title": "Aluminiumform",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "aluminiumform",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-02-21 15:20:41",
+"post_modified_gmt": "2017-02-21 15:20:41",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/aluminiumform/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 117,
+"slug": "forpackning-av-metall",
+"name": "Förpackning av metall",
+"parent": 0
+},
+{
+"term_id": 54,
+"slug": "metallforpackningar",
+"name": "Metallförpackningar",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1487690328:5"
+],
+"_edit_last": [
+"5"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:1:{i:0;s:5:\"villa\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"117"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"54"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+"Metaller kan återvinnas hur många gånger som helst."
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"avfall_synonymer_0_avfall_synonym": [
+"Folie"
+],
+"_avfall_synonymer_0_avfall_synonym": [
+"field_586d0767fc7fe"
+],
+"avfall_synonymer": [
+"1"
+],
+"_avfall_synonymer": [
+"field_586d03e89d980"
+],
+"_wpb_vc_js_status": [
+"true"
+],
+"_nested_pages_status": [
+"show"
+],
+"_np_nav_status": [
+"show"
+],
+"_np_link_target": [
+""
+],
+"fraktion_avc": {
+"name": "Förpackning av metall",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Metallförpackningar",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 1124,
+"post_author": 5,
+"post_date": "2017-02-17 15:08:11",
+"post_date_gmt": "2017-02-17 15:08:11",
+"post_content": "",
+"post_title": "Alvedon",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "alvedon",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-02-17 15:08:11",
+"post_modified_gmt": "2017-02-17 15:08:11",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 7,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/alvedon/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 181,
+"slug": "medicin",
+"name": "Medicin",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1496833656:2"
+],
+"_edit_last": [
+"5"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:1:{i:0;s:5:\"villa\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+""
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"181"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+"Medicin ska du alltid lämna i genomskinlig plastpåse till apotek"
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"avfall_synonymer_0_avfall_synonym": [
+"Värktabletter"
+],
+"_avfall_synonymer_0_avfall_synonym": [
+"field_586d0767fc7fe"
+],
+"avfall_synonymer_1_avfall_synonym": [
+"Tabletter"
+],
+"_avfall_synonymer_1_avfall_synonym": [
+"field_586d0767fc7fe"
+],
+"avfall_synonymer_2_avfall_synonym": [
+""
+],
+"_avfall_synonymer_2_avfall_synonym": [
+"field_586d0767fc7fe"
+],
+"avfall_synonymer": [
+"3"
+],
+"_avfall_synonymer": [
+"field_586d03e89d980"
+],
+"_wpb_vc_js_status": [
+"true"
+],
+"fraktion_avc": {
+"name": null,
+"link": false
+},
+"fraktion_hemma": {
+"name": "Medicin",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 2798,
+"post_author": 10,
+"post_date": "2017-06-09 13:40:56",
+"post_date_gmt": "2017-06-09 13:40:56",
+"post_content": "",
+"post_title": "Alvedon",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "alvedon-2",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-06-09 13:40:56",
+"post_modified_gmt": "2017-06-09 13:40:56",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/alvedon-2/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 250,
+"slug": "lakemedel",
+"name": "Läkemedel",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1505722185:1"
+],
+"_edit_last": [
+"10"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:1:{i:0;s:5:\"villa\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+""
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"250"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+"Gammal läkemedel och medicin ska lämnas till närmsta apotek i en genomskinlig påse."
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"_wpb_vc_js_status": [
+"false"
+],
+"fraktion_avc": {
+"name": null,
+"link": false
+},
+"fraktion_hemma": {
+"name": "Läkemedel",
+"link": false
+}
+},
+"elasticsearch": true
+},
+{
+"ID": 5617,
+"post_author": 10,
+"post_date": "2017-07-10 07:49:35",
+"post_date_gmt": "2017-07-10 07:49:35",
+"post_content": "",
+"post_title": "Ammoniak",
+"post_excerpt": "",
+"post_status": "publish",
+"comment_status": 0,
+"ping_status": 0,
+"post_password": "",
+"post_name": "ammoniak",
+"to_ping": "",
+"pinged": "",
+"post_modified": "2017-08-18 11:30:22",
+"post_modified_gmt": "2017-08-18 11:30:22",
+"post_content_filtered": "",
+"post_parent": 0,
+"guid": "",
+"menu_order": 0,
+"post_type": "sorteringsguide",
+"post_mime_type": "",
+"comment_count": 0,
+"filter": "raw",
+"site_id": 1,
+"permalink": "http://sandbox.nsr.se/sorteringsguide/ammoniak/",
+"terms": {
+"fraktioner": [
+{
+"term_id": 100,
+"slug": "farligt-avfall",
+"name": "Farligt Avfall",
+"parent": 0
+}
+]
+},
+"post_meta": {
+"_vc_post_settings": [
+"a:1:{s:10:\"vc_grid_id\";a:0:{}}"
+],
+"_edit_lock": [
+"1504016647:1"
+],
+"_edit_last": [
+"10"
+],
+"_wp_page_template": [
+"default"
+],
+"post_single_show_featured_image": [
+"0"
+],
+"_post_single_show_featured_image": [
+"field_56c33e148efe3"
+],
+"post_show_share": [
+"1"
+],
+"_post_show_share": [
+"field_56c33d008efe3"
+],
+"post_show_author": [
+"1"
+],
+"_post_show_author": [
+"field_56cadc4e0480b"
+],
+"post_show_author_image": [
+"1"
+],
+"_post_show_author_image": [
+"field_56cadc7b0480c"
+],
+"avfall_kundkategori": [
+"a:1:{i:0;s:5:\"villa\";}"
+],
+"_avfall_kundkategori": [
+"field_586d08e9db9e1"
+],
+"avfall_fraktion_avc": [
+"100"
+],
+"_avfall_fraktion_avc": [
+"field_589490a16f6a7"
+],
+"avfall_fraktion_hemma": [
+"100"
+],
+"_avfall_fraktion_hemma": [
+"field_589491224529e"
+],
+"avfall_bra_att_veta": [
+""
+],
+"_avfall_bra_att_veta": [
+"field_586d034e3dd38"
+],
+"_wpb_vc_js_status": [
+"false"
+],
+"fraktion_avc": {
+"name": "Farligt Avfall",
+"link": false
+},
+"fraktion_hemma": {
+"name": "Farligt Avfall",
+"link": false
+}
+},
+"elasticsearch": true
+}
+]
+}

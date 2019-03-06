@@ -85,7 +85,21 @@
                 <div class="sorteringsguiden hide searchView"><div class="sorteringsguiden-data"></div></div>
                 <div class="search-autocomplete hide searchView"><div class="search-autocomplete-data"></div></div>
                 <div class="search-fetchPlanner hide searchView"><div class="search-fetchPlanner-data"></div></div>
-                <div class="search-ao hide searchView"><div class="search-ao-data"></div></div>
+                <div class="search-ao hide searchView">
+                    <ul class="ao-nav vc_col-sm-10">
+                        <li class="a-o-trigger vc_col-sm-1 active" data-letter="a-c">A-C</li>
+                        <li class="a-o-trigger vc_col-sm-1" data-letter="d-f">D-F</li>
+                        <li class="a-o-trigger vc_col-sm-1" data-letter="g-i">G-I</li>
+                        <li class="a-o-trigger vc_col-sm-1" data-letter="j-l">J-L</li>
+                        <li class="a-o-trigger vc_col-sm-1" data-letter="m-o">M-O</li>
+                        <li class="a-o-trigger vc_col-sm-1" data-letter="p-r">P-R</li>
+                        <li class="a-o-trigger vc_col-sm-1" data-letter="s-u">S-U</li>
+                        <li class="a-o-trigger vc_col-sm-1" data-letter="v-x">V-X</li>
+                        <li class="a-o-trigger vc_col-sm-1" data-letter="y-z">Y-Å</li>
+                        <li class="a-o-trigger vc_col-sm-1" data-letter="ä-ö">Ä-Ö</li>
+                    </ul>
+                    <div class="search-ao-data"></div>
+                </div>
                 <div class="errorSortguide hide"></div>
                 <div class="errorPages hide"></div>
             </div>

@@ -1358,6 +1358,44 @@ tr {
         margin-left:-15px !important;
         padding:15px;
     }
+    .search-ao {
+        position:relative;
+    }
+    .search-ao-data {
+
+        padding: 130px 30px 30px 30px;
+        li {
+            list-style: disc !important;
+            list-style-type: disc !important;
+        }
+        ul {
+            margin-top:15px;
+            margin-left: 55px;
+        }
+        h5 {
+            line-height:16px;
+        }
+    }
+
+    .ao-nav {
+        position:absolute;
+        z-index:10;
+        width:100%;
+        display: table-row;
+        margin: 0 auto;
+        padding:50px 0;
+        li {
+            float:left;
+            padding-left:20px;
+            cursor:pointer;
+            text-align:center;
+
+            &.active {
+                font-weight: 900;
+            }
+        }
+    }
+
 
 
 }
