@@ -634,7 +634,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 alphabet = ['v', 'w', 'x'];
                 break;
             case 'y-z':
-                alphabet = ['y', 'z', 'å'];
+                alphabet = ['y', 'å'];
                 break;
             case 'ä-ö':
                 alphabet = ['ä', 'ö'];
@@ -664,14 +664,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
 
             var json = this.getJsonDataAO(data, done);
-            if (typeof json.responseJSON.sortguide[0].post_title != '' && typeof json.responseJSON.sortguide[0].post_title != 'undefined') {
+            if (typeof (json.responseJSON.sortguide[0].post_title)  != '' && typeof( json.responseJSON.sortguide[0].post_title ) != 'undefined') {
                 markup += '<h5>' + json.responseJSON.sortguide[0].post_title.charAt(0) + '</h5>';
             }
 
             markup += '<ul>';
 
             for (var listInt = 0; listInt < json.responseJSON.sortguide.length; listInt++) {
-                if (typeof json.responseJSON.sortguide[listInt].post_title != '' && typeof json.responseJSON.sortguide[listInt].post_title != 'undefined') {
+                if (typeof (json.responseJSON.sortguide[listInt].post_title) != '' && typeof (json.responseJSON.sortguide[listInt].post_title != 'undefined')) {
                     markup += '<li>' + json.responseJSON.sortguide[listInt].post_title + '</li>';
                 }
             }
