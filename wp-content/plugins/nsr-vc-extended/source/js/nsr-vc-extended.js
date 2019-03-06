@@ -103,7 +103,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             e.preventDefault();
             $('.prefix').addClass('nsr-origamiLoader');
-            console.log('TEST');
+      
             $('.a-o-trigger').removeClass('active');
 
             if ($(this).hasClass('show-ao')) {
