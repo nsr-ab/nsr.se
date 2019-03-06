@@ -671,14 +671,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 }
             }
             markup += '</ul>';
+            if (int === alphabet.length)
+                $('.search-ao-data').removeClass('nsr-origamiLoader');
         }
 
         $('.search-ao-data').html(markup);
         $('.sorteringsguiden').addClass('hide');
         $('.search-autocomplete').addClass('hide');
         $('.search-fetchPlanner').addClass('hide');
-        $('.search-ao').removeClass('hide');
-        $('.search-ao-data').removeClass('nsr-origamiLoader');
+        $('.show-ao').removeClass('hide');
+
     };
 
 
@@ -693,7 +695,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             async: false,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
-                $('.search-ao-data').addClass('nsr-origamiLoader');
+                $('.show-ao').addClass('nsr-origamiLoader');
             }
         });
     };
