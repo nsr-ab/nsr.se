@@ -625,7 +625,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 alphabet = ['m', 'n', 'o'];
                 break;
             case 'p-r':
-                alphabet = ['p', 'q', 'r'];
+                alphabet = ['p', 'r'];
                 break;
             case 's-u':
                 alphabet = ['s', 't', 'u'];
@@ -668,7 +668,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             markup += '<ul>';
 
             for (var listInt = 0; listInt < json.responseJSON.sortguide.length; listInt++) {
-                if (json.responseJSON.sortguide[listInt].post_title != '') {
+                if (json.responseJSON.sortguide[listInt].post_title != '' && json.responseJSON.sortguide[listInt].post_title != 'undefined') {
                     markup += '<li>' + json.responseJSON.sortguide[listInt].post_title + '</li>';
                 }
             }
