@@ -658,8 +658,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var tmpJson = [];
 
             var done = false;
-            console.log(int +' : '+ alphabet.length);
-            if (int == alphabet.length) {
+
+            if (int == alphabet.length-1) {
                 done = true;
             }
 
