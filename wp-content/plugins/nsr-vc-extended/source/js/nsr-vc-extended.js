@@ -692,7 +692,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             data: data,
             method: 'GET',
             dataType: 'json',
-            async: false,
+            //async: false,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
             }
