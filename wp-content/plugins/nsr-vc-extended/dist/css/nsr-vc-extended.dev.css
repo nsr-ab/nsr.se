@@ -1129,11 +1129,16 @@ tr {
     .searchDesignation {
       left: 0px; } }
 
+.hero-search .searchMenu {
+  display: none; }
+
+#main-content .a-o {
+  display: none; }
+
 #main-content .searchNSR {
-  height: 300px;
+  height: 332px;
   margin: 0 !important;
-  background-color: #007586 !important;
-  background-position-x: -5px; }
+  background-color: #007586 !important; }
   #main-content .searchNSR .searchDesignation {
     display: none !important; }
   #main-content .searchNSR h2 {
@@ -1173,3 +1178,15 @@ tr {
     padding-left: 6px; }
   #main-content .searchNSR .nsr-origamiLoader {
     background-position-x: -4px; }
+  #main-content .searchNSR .search-nav {
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    bottom: 0px;
+    width: 100%;
+    margin: 0; }
+    #main-content .searchNSR .search-nav li {
+      margin: 0px;
+      border: none;
+      width: 50%;
+      border-radius: unset; }

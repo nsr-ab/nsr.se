@@ -65,7 +65,6 @@ class NSRSearch
                     __('Choose Type...', 'nsr-vc-extended') => '',
                     __('Searchbox in Hero', 'nsr-vc-extended') => 'hero',
                     __('Searchbox mixed with other content', 'nsr-vc-extended') => 'content',
-                    __('Searchbox alone in row', 'nsr-vc-extended') => 'top',
                 ),
             ),
             /** @Param Designation parameter */
@@ -200,15 +199,19 @@ class NSRSearch
                            
          
                           </div>
-                        </form>
-                    </div>  
+                        </form> ";
+        if ($params->vc_search_position === 'content') {
+            $output .= " <div class=\"searchMenu sortguideMenu\"></div> ";
+        }
+            $output .= "</div>
+                    
                      </div>
                      ";
 
 
         //if (empty(get_field('visualComposerACFHero'))) {
         if ($params->vc_search_position === 'content') {
-            $output .= "<div class=\"searchMenu sortguideMenu\"></div>
+            $output .= "
            
                         <div id=\"nsr-searchResult\" class=\"hide\">
                             <div class=\"search-hits hide\"></div>

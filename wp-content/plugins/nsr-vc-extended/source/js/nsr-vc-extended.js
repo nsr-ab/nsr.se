@@ -23,7 +23,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var $relevant = [];
     var relevantCount = null;
     var emptyRes = false;
-
+    var searchHits = 0;
     /**
      * Constructor
      */
@@ -82,6 +82,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             Extended.prototype.doneTyping();
             $('.searchWrapper').addClass('searching');
             $('.search-nav li').removeClass('active');
+            Extended.prototype.searchNav();
         });
 
         /* searchNSR - Submit means search */
@@ -96,6 +97,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             Extended.prototype.doneTyping();
             $('.searchWrapper').addClass('searching');
             $('.search-nav li').removeClass('active');
+            Extended.prototype.searchNav();
             return false;
         }).bind(this);
 
@@ -245,8 +247,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.searchDesignation').html($('.searchNSR').attr('data-searchdesignation'));
     };
 
-    Extended.prototype.onReSize = function () {
-
+    Extended.prototype.searchNav = function () {
+        $('.search-hits').addClass('hide');
+        if ($('.searchMenu').hasClass('sortguideMenu')) {
+            $('.searchMenu').html('<ul class="search-nav"><li class="vc_col-sm-3 show-ao a-o-trigger">A-Ö</li><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sökresultat <span></span></li></ul>');
+        }
+        if (!$('.searchMenu').hasClass('sortguideMenu')) {
+            $('.searchMenu').html('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sorteringsguiden <span></span></li><li class="vc_col-sm-3 nsr-page-nav">Sidor <span></span></li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömmingsdagar <span></span></li></ul>');
+        }
     };
 
     /**
@@ -751,7 +759,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.dataFromSource = function (data_type, $element, data, $post_type, result) {
 
-
         if (data.action === 'fetchDataFromElasticSearch') {
 
             $relevant['sortguide'] = (result.sortguide.length > 0) ? result.sortguide.length : 0;
@@ -771,13 +778,23 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('#nsr-searchResult .search-fetchPlanner').addClass('hide');
             }
 
+            if (typeof result.sortguide != 'undefined' && result.sortguide !== null) {
+                $('.sortguideMenu .nsr-elasticSearch-nav span').html($relevant['sortguide']);
+                $('.nsr-elasticSearch-nav span').html('('+$relevant['sortguide']+')');
+            }
+
+            if (typeof result.content != 'undefined' && result.content !== null)
+                $('.nsr-page-nav span').html('('+$relevant['page']+')');
+
         } else {
 
             (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
 
             this.outputFetchPlanner($element, result);
-
-
+            if (typeof result.fp != 'undefined' && result.fp !== null) {
+                $relevant['fetchplanner'] = (result.fp.length > 0) ? result.fp.length : 0;
+                $('.search-nav .nsr-fetchplanner-nav span').html('('+$relevant['fetchplanner']+')');
+            }
         }
 
 
@@ -818,8 +835,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         //Search result menu
         $('#nsr-searchResult').removeClass('hide');
-        (!$('.searchMenu').find('ul').hasClass('search-nav')) ? $('.searchMenu').append('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sorteringsguiden</li><li class="vc_col-sm-3 nsr-page-nav">Sidor</li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömmingsdagar</li></ul>') : '';
-
 
         //Hits
         $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span data-letter="a-c" class="a-o a-o-trigger right-align right hide mobHide show-ao">Sorteringsguiden A till Ö</span>');
@@ -936,6 +951,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('.search-nav li').removeClass('active');
                 $('.nsr-elasticSearch-nav').addClass('active');
             }
+
 
             return sortHTML;
         }
@@ -1185,6 +1201,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             });
         }
         $fprow += '</div>';
+
 
         /* No result ..... */
 
