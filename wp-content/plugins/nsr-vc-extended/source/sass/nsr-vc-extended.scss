@@ -1554,8 +1554,6 @@ tr {
             }
         }
     }
-
-
 }
 
 //JOHAN MENYN - i hero
@@ -1693,6 +1691,13 @@ tr {
         margin: 0 !important;
         background-color: $defaultGreen !important;
         @media (max-width: 560px) {
+            height: 200px;
+        }
+
+        @media (max-width: 560px) {
+            height: 190px;
+        }
+        @media (max-width: 500px) {
             height: 177px;
         }
 
@@ -1711,8 +1716,6 @@ tr {
                 margin-left: 0px;
             }
         }
-
-
 
         h2 {
             margin-top: 0px !important;
@@ -1748,9 +1751,11 @@ tr {
             width: 80% !important;
 
             @media (min-width: 650px) {
-                padding-left: 52px !important;
+                padding-left: 68px!important;
             }
-
+            @media (max-width: 350px) {
+                padding-left: 40px!important;
+            }
 
             @media (max-width: 590px) {
                 width: 65% !important;
@@ -1760,6 +1765,8 @@ tr {
             @media (min-width: 992px) {
                 height: 28px;
             }
+
+
 
         }
 
@@ -1773,7 +1780,7 @@ tr {
             font-size: 14px;
         }
 
-        @media (max-width: 559px) {
+        @media (max-width: 570px) {
             .searchTooltip {
                 display: none;
             }
@@ -1802,6 +1809,12 @@ tr {
                 border-radius: unset;
             }
         }
+        @media (max-width: 1005px) {
+            .inlstallen h4 {
+                padding-bottom: 20px;
+            }
+        }
+
     }
 }
 

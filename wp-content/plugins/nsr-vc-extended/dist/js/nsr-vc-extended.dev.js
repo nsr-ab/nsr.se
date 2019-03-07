@@ -807,7 +807,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
 
             if (typeof result.sortguide != 'undefined' && result.sortguide !== null) {
-                $('.sortguideMenu .nsr-elasticSearch-nav span').html($relevant['sortguide']);
+                $('.sortguideMenu .sortguide-nsr-elasticSearch-nav span').html($relevant['sortguide']);
                 $('.nsr-elasticSearch-nav span').html('(' + $relevant['sortguide'] + ')');
             }
             if (!$('.searchMenu').hasClass('sortguideMenu')) {
