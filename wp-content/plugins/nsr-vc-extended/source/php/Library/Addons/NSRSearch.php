@@ -152,10 +152,14 @@ class NSRSearch
             $positionFixed = 'position-relative';
         }
 
-        $output = "<div class=\"row search searchNSR " . $hero . " " . $positionFixed . "\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\">
+        $output = "<div class=\"row search searchNSR " . $hero . " " . $positionFixed . "\" data-searchDesignation=\"".get_the_title()."\" itemscope=\"\" itemtype=\"http://schema.org/WebSite\">
                         <div class=\"searchDesignation deskHide\"></div>   
                         <div class=\"col s12\">
-
+                         ";
+                        if ($params->vc_search_position === 'content') {
+                                $output .= "<h2>Sök i Sorteringsguiden</h2>";
+                        }
+                        $output .= " 
                         <form itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/SearchAction\">
                           <div class=\"row\">                       
                                                 
@@ -170,8 +174,7 @@ class NSRSearch
                             <!-- <h4 class=\"search-title\">" . $params->vc_designation . "</h4> -->
                             <div class=\"input-field col s12 searchArea\">
                                 <div class=\"searchWrapper\">
-                                    
-                                    <i class=\"material-icons prefix notranslate\">&#xE8B6;</i>
+                                   <i class=\"material-icons prefix notranslate\">&#xE8B6;</i>
                                     <input class=\"form-control form-control-lg validated input-field s12\" itemprop=\"query-input\"  id=\"searchkeyword-nsr\" autocomplete=\"off\"  type=\"search\" name=\"searchQ\" value=\"\" aria-invalid=\"true\">
                                     <label for=\"searchkeyword-nsr\">" . __('Where do you live? What stuff do you want to sort? Are you looking for something else?',
                 'nsr-vc-extended') . "</label>
@@ -200,8 +203,39 @@ class NSRSearch
                         </form>
                     </div>  
                      </div>
-
                      ";
+
+
+        //if (empty(get_field('visualComposerACFHero'))) {
+        if ($params->vc_search_position === 'content') {
+            $output .= "<div class=\"searchMenu sortguideMenu\"></div>
+           
+                        <div id=\"nsr-searchResult\" class=\"hide\">
+                            <div class=\"search-hits hide\"></div>
+                            <div class=\"sorteringsguiden hide searchView\"><div class=\"sorteringsguiden-data\"></div></div>
+                            <div class=\"search-autocomplete hide searchView\"><div class=\"search-autocomplete-data\"></div></div>
+                            <div class=\"search-fetchPlanner hide searchView\"><div class=\"search-fetchPlanner-data\"></div></div>
+                            <div class=\"search-ao hide searchView\">
+                                <ul class=\"ao-nav vc_col-sm-10\">
+                                    <li class=\"a-o-trigger vc_col-sm-1 active\" data-letter=\"a-c\">A-C</li>
+                                    <li class=\"a-o-trigger vc_col-sm-1\" data-letter=\"d-f\">D-F</li>
+                                    <li class=\"a-o-trigger vc_col-sm-1\" data-letter=\"g-i\">G-I</li>
+                                    <li class=\"a-o-trigger vc_col-sm-1\" data-letter=\"j-l\">J-L</li>
+                                    <li class=\"a-o-trigger vc_col-sm-1\" data-letter=\"m-o\">M-O</li>
+                                    <li class=\"a-o-trigger vc_col-sm-1\" data-letter=\"p-r\">P-R</li>
+                                    <li class=\"a-o-trigger vc_col-sm-1\" data-letter=\"s-u\">S-U</li>
+                                    <li class=\"a-o-trigger vc_col-sm-1\" data-letter=\"v-w\">V-W</li>
+                                    <li class=\"a-o-trigger vc_col-sm-1\" data-letter=\"y-ö\">Y-Ö</li>
+                                </ul>
+                                <div class=\"search-ao-data\"></div>
+                            </div>
+                            <div class=\"errorSortguide hide\"></div>
+                            <div class=\"errorPages hide\"></div>
+                        </div>
+                        
+            ";
+        }
+
         return $output;
     }
 }

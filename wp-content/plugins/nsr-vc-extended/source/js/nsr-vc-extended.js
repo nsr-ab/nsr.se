@@ -117,6 +117,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.search-nav li').removeClass('active');
 
             var aoSelect = ($(this).attr('data-letter')) ? $(this).attr('data-letter') : 'a-c';
+            //var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
             Extended.prototype.AOQuery(aoSelect);
 
         }).bind(this);
@@ -698,6 +699,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             async: false,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-WP-Nonce', ajax_object.nonce);
+
             }
         }).done(function (result) {
             if (done) {

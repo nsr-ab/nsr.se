@@ -1498,7 +1498,65 @@ tr {
     }
 }
 
+#main-content .searchNSR {
+    .searchDesignation {
+        display:none !important;
+    }
+    height:300px;
+    margin: 0 !important;
+    background-color: $defaultGreen !important;
+    h2 {
+        margin-top:0px !important;
+        color:#d6e8ea;
+        padding-left:30px;
+        padding-top:35px;
+        padding-bottom:30px;
+    }
+    form {
+        padding-left: 20px;
+        margin-left:11px;
+    }
+    .container .row {
+        margin: 0 !important;
+        .col.s12 {
+            width:95%;
+        }
+    }
+    .search-button {
+        right: 0px;
+    }
+    input[type=search] {
 
+        padding-left:68px !important;
+        width:80% !important;
+        @media (max-width: 511px) {
+            width:65% !important;
+        }
+        @media (min-width: 992px) {
+            height:28px;
+        }
+    }
+    .searchWrapper {
+        width:98%;
+    }
+    .searchTooltip {
+        color:#d6e8ea;
+        padding-top: 20px;
+        font-size: 14px;
+    }
+    @media (max-width: 559px) {
+        .searchTooltip {
+            display:none;
+        }
+    }
+    .prefix {
+        padding-left:6px;
+    }
+    .nsr-origamiLoader {
+        background-position-x: -4px;
+    }
+    background-position-x: -5px;
+}
 
 
 

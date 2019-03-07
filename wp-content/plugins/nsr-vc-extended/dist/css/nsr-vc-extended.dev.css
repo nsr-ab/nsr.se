@@ -1128,3 +1128,48 @@ tr {
   @media (max-width: 680px) and (max-width: 450px) {
     .searchDesignation {
       left: 0px; } }
+
+#main-content .searchNSR {
+  height: 300px;
+  margin: 0 !important;
+  background-color: #007586 !important;
+  background-position-x: -5px; }
+  #main-content .searchNSR .searchDesignation {
+    display: none !important; }
+  #main-content .searchNSR h2 {
+    margin-top: 0px !important;
+    color: #d6e8ea;
+    padding-left: 30px;
+    padding-top: 35px;
+    padding-bottom: 30px; }
+  #main-content .searchNSR form {
+    padding-left: 20px;
+    margin-left: 11px; }
+  #main-content .searchNSR .container .row {
+    margin: 0 !important; }
+    #main-content .searchNSR .container .row .col.s12 {
+      width: 95%; }
+  #main-content .searchNSR .search-button {
+    right: 0px; }
+  #main-content .searchNSR input[type=search] {
+    padding-left: 68px !important;
+    width: 80% !important; }
+    @media (max-width: 511px) {
+      #main-content .searchNSR input[type=search] {
+        width: 65% !important; } }
+    @media (min-width: 992px) {
+      #main-content .searchNSR input[type=search] {
+        height: 28px; } }
+  #main-content .searchNSR .searchWrapper {
+    width: 98%; }
+  #main-content .searchNSR .searchTooltip {
+    color: #d6e8ea;
+    padding-top: 20px;
+    font-size: 14px; }
+  @media (max-width: 559px) {
+    #main-content .searchNSR .searchTooltip {
+      display: none; } }
+  #main-content .searchNSR .prefix {
+    padding-left: 6px; }
+  #main-content .searchNSR .nsr-origamiLoader {
+    background-position-x: -4px; }

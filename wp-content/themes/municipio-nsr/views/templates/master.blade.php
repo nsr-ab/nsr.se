@@ -71,7 +71,7 @@
 
         @include('partials.header')
 
-            <?php if( !empty(get_field('visualComposerACFHero')) ): ?>
+            <?php if( !empty(get_field('visualComposerACFHero', get_the_ID())) && get_field('visualComposerACFHero', get_the_ID()) != '<div id="vcHero"></div>'): ?>
                 <div class="heroWrapper row search searchNSR" data-searchDesignation='<?php echo get_the_title(); ?>' data-bgimage="<?php echo the_field('HImage', get_the_ID()); ?>" style="background-image: url(<?php echo the_field('HImage', get_the_ID()); ?>);">
                     <div class="hero-search">
                         <?php echo the_field('visualComposerACFHero', get_the_ID()); ?>
@@ -80,6 +80,7 @@
                 </div>
             <?php endif; ?>
         <main id="main-content" class="clearfix">
+            <?php if( !empty(get_field('visualComposerACFHero', get_the_ID())) && get_field('visualComposerACFHero', get_the_ID()) != '<div id="vcHero"></div>'): ?>
             <div id="nsr-searchResult" class="hide">
                 <div class="search-hits hide"></div>
                 <div class="sorteringsguiden hide searchView"><div class="sorteringsguiden-data"></div></div>
@@ -102,6 +103,7 @@
                 <div class="errorSortguide hide"></div>
                 <div class="errorPages hide"></div>
             </div>
+            <?php endif; ?>
             @yield('content')
 <
             @if (is_active_sidebar('content-area-bottom'))
