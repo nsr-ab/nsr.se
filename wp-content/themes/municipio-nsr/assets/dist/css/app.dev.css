@@ -128,6 +128,8 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
       display: block; }
     .sortguide-topmenu.sort-desk {
       display: none; } }
+  .sortguide-topmenu .search .page-title {
+    display: none; }
 
 .materialize-red {
   background-color: #e51c23 !important; }

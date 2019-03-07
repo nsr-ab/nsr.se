@@ -64,7 +64,7 @@ class NSRSearch
                 'value' => array(
                     __('Choose Type...', 'nsr-vc-extended') => '',
                     __('Searchbox in Hero', 'nsr-vc-extended') => 'hero',
-                    __('Searchbox mixed with other content', 'nsr-vc-extended') => 'content',
+                    __('Searchbox sorteringsguiden', 'nsr-vc-extended') => 'content',
                 ),
             ),
             /** @Param Designation parameter */

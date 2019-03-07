@@ -288,14 +288,19 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var query = Extended.prototype.getUrlParameter('q');
 
         if (query) {
-            //$('.searchNSR .search-button-mobile').hide();
-            $('.searchNSR .search-button').show();
-            //if ($(window).width() < 767)
-            //  $('.searchNSR .search-button-mobile').show();
-            //else
-            //$('.searchNSR .search-button').show();
+            $('.breadcrumbs').hide();
             $('#searchkeyword-nsr').focus(), $('#searchkeyword-nsr').val(query.replace(/\+/g, ' '));
+            $('.sorteringsguiden-data').html('');
+            $('.search-autocomplete-data').html('');
+            $('.search-fetchPlanner-data').html('');
+
+            window.clearTimeout(typingTimer);
             Extended.prototype.doneTyping();
+            $('.searchWrapper').addClass('searching');
+            $('.search-nav li').removeClass('active');
+            Extended.prototype.searchNav();
+            $relevant['count'] = 0;
+
         }
     }
 
@@ -571,14 +576,16 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {void}
      */
     Extended.prototype.pushQueryUrl = function (element, query, post_type) {
-       if (typeof history != 'undefined') {
-            var $currentState = history.state;
-            var $state = {query: query, post_type: post_type};
-            var $title = 'S&ouml;k - NSR AB';
-            var $url = '/sok/?q=' + encodeURIComponent(query);
-            if (post_type != '' && post_type != 'all')
-                $url += '&post_type=' + encodeURIComponent(post_type);
-            history.replaceState($state, $title, $url);
+        if (!$('.searchMenu').hasClass('sortguideMenu')) {
+            if (typeof history != 'undefined') {
+                var $currentState = history.state;
+                var $state = {query: query, post_type: post_type};
+                var $title = 'S&ouml;k - NSR AB';
+                var $url = '/sok/?q=' + encodeURIComponent(query);
+                if (post_type != '' && post_type != 'all')
+                    $url += '&post_type=' + encodeURIComponent(post_type);
+                history.replaceState($state, $title, $url);
+            }
         }
     }
 
