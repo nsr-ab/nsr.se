@@ -7,7 +7,7 @@
         transition-timing-function: ease;
         transition: 0.8s;
     }
-    @media only screen and (max-width: 1000px) {
+    @media only screen and (max-width: 1005px) {
         background-color: darken($palette-primary-grey-input, 1%);
     }
 
@@ -50,7 +50,7 @@
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
-        @media only screen and (max-width: 1000px) {
+        @media only screen and (max-width: 1005px) {
             width: 100%;
             background-color: darken($palette-primary-grey-input, 1%);
         }
@@ -81,14 +81,14 @@
                     content: "\e88a";
                     font-weight:normal;
                     font-family: Material Icons;
-                    @media only screen and (max-width: 1000px) {
+                    @media only screen and (max-width: 1005px) {
                         a::before {
                             content: '';
                         }
                     }
                 }
 
-                @media only screen and (max-width: 1000px) {
+                @media only screen and (max-width: 1005px) {
                     width: 33% !important;
                     text-align:center;
                     &:before {
@@ -114,14 +114,14 @@
                     content: "\e563";
                     font-weight:normal;
                     font-family: Material Icons;
-                    @media only screen and (max-width: 1000px) {
+                    @media only screen and (max-width: 1005px) {
                         a::before {
                             content: '';
                         }
                     }
                 }
 
-                @media only screen and (max-width: 1000px) {
+                @media only screen and (max-width: 1005px) {
                     width: 33% !important;
                     text-align:center;
                     &::before {
@@ -146,14 +146,14 @@
                     content: "\e7ee";
                     font-family: Material Icons;
                     font-weight:normal;
-                    @media only screen and (max-width: 1000px) {
+                    @media only screen and (max-width: 1005px) {
                         a::before {
                             content: '';
                         }
                     }
                 }
 
-                @media only screen and (max-width: 1000px) {
+                @media only screen and (max-width: 1005px) {
                     width: 34% !important;
                     text-align:center;
                     &::before {
@@ -211,7 +211,7 @@
             transition-timing-function: ease;
             transition: 0.18s;
         }
-        @media only screen and (max-width: 1000px) {
+        @media only screen and (max-width: 1005px) {
             &:nth-child(#{length($colors-nav)}n+#{$int}) {
                 background-color: transparent;
                 color: nth($colors-nav, $int);
@@ -235,7 +235,7 @@
 
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1005px) {
     .mob .sites-nav li {
 
         span a {
@@ -305,7 +305,7 @@
     }
 
 
-    @media only screen and (min-width: 1000px) {
+    @media only screen and (min-width: 1005px) {
         display: none;
     }
 
@@ -334,7 +334,7 @@
     }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1005px) {
     .mobile-search {
         right: 20px;
         left: auto !important;
@@ -353,7 +353,7 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1005px) {
     .desk {
         display: none !important;
     }
@@ -411,7 +411,7 @@
     position: absolute;
     right: 30px;
     top: 30px;
-    @media (max-width: 1000px) {
+    @media (max-width: 1005px) {
         top:14px;
     }
     z-index: 999;
@@ -434,7 +434,7 @@
 
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1005px) {
     .breadcrumbs {
         display:none;
     }
@@ -458,7 +458,7 @@
     margin-left: 5px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1005px) {
     .site-header {
         position: relative;
     }

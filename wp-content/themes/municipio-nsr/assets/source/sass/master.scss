@@ -137,4 +137,26 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
         min-height:150px;
     }
 }
+.sortguide-topmenu {
+    position:absolute;
 
+    &.sort-mob {
+        display:none;
+        right: 73px;
+        top: 2px !important;
+    }
+    &.sort-desk {
+        display:block;
+        right: 103px;
+        top: -1px!important;
+    }
+    @media (max-width: 1050px) {
+        &.sort-mob {
+            display:block;
+        }
+        &.sort-desk{
+            display:none;
+        }
+    }
+
+}

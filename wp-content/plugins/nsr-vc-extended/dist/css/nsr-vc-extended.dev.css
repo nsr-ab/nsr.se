@@ -1133,7 +1133,7 @@ tr {
     .searchDesignation {
       left: 0px; } }
 
-.hero-search .searchMenu {
+.hero-search .searchMenu, .hero-search .searchDesignation-sortguide {
   display: none; }
 
 #main-content .a-o {
@@ -1227,6 +1227,15 @@ tr {
       border: none;
       width: 50%;
       border-radius: unset; }
-  @media (max-width: 1005px) {
-    #main-content .searchNSR .inlstallen h4 {
-      padding-bottom: 20px; } }
+
+@media (max-width: 1005px) {
+  #main-content .deskHide h4 {
+    margin-bottom: 15px; }
+  #main-content .sortAs li::before {
+    padding-left: 10px; }
+  #main-content .sortAs li div {
+    padding-left: 10px; } }
+
+@media (max-width: 460px) {
+  #main-content .sortAs li div {
+    padding-left: 0px; } }

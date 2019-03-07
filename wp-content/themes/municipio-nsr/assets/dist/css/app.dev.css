@@ -113,6 +113,22 @@ article ul:not(.nav):not(.slider-items):not(.line-numbers):not(.player-playlist)
   .site-header {
     min-height: 150px; } }
 
+.sortguide-topmenu {
+  position: absolute; }
+  .sortguide-topmenu.sort-mob {
+    display: none;
+    right: 73px;
+    top: 2px !important; }
+  .sortguide-topmenu.sort-desk {
+    display: block;
+    right: 103px;
+    top: -1px !important; }
+  @media (max-width: 1050px) {
+    .sortguide-topmenu.sort-mob {
+      display: block; }
+    .sortguide-topmenu.sort-desk {
+      display: none; } }
+
 .materialize-red {
   background-color: #e51c23 !important; }
 
@@ -6479,7 +6495,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 /* Main top Navigation */
 .sites-nav {
   width: 100%; }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1005px) {
     .sites-nav {
       background-color: #e3e3e3; } }
   .sites-nav nav {
@@ -6512,7 +6528,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .sites-nav ul {
     display: -ms-flexbox;
     display: flex; }
-    @media only screen and (max-width: 1000px) {
+    @media only screen and (max-width: 1005px) {
       .sites-nav ul {
         width: 100%;
         background-color: #e3e3e3; } }
@@ -6535,10 +6551,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
           content: "\e88a";
           font-weight: normal;
           font-family: Material Icons; }
-          @media only screen and (max-width: 1000px) {
+          @media only screen and (max-width: 1005px) {
             .sites-nav ul li:nth-child(1) a:before a::before {
               content: ''; } }
-        @media only screen and (max-width: 1000px) {
+        @media only screen and (max-width: 1005px) {
           .sites-nav ul li:nth-child(1) {
             width: 33% !important;
             text-align: center; }
@@ -6558,10 +6574,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
           content: "\e563";
           font-weight: normal;
           font-family: Material Icons; }
-          @media only screen and (max-width: 1000px) {
+          @media only screen and (max-width: 1005px) {
             .sites-nav ul li:nth-child(2) a::before a::before {
               content: ''; } }
-        @media only screen and (max-width: 1000px) {
+        @media only screen and (max-width: 1005px) {
           .sites-nav ul li:nth-child(2) {
             width: 33% !important;
             text-align: center; }
@@ -6580,10 +6596,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
           content: "\e7ee";
           font-family: Material Icons;
           font-weight: normal; }
-          @media only screen and (max-width: 1000px) {
+          @media only screen and (max-width: 1005px) {
             .sites-nav ul li:nth-child(3) a::before a::before {
               content: ''; } }
-        @media only screen and (max-width: 1000px) {
+        @media only screen and (max-width: 1005px) {
           .sites-nav ul li:nth-child(3) {
             width: 34% !important;
             text-align: center; }
@@ -6615,7 +6631,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .sites-nav li:nth-child(3n+1):hover, .sites-nav li:nth-child(3n+1).active {
     transition-timing-function: ease;
     transition: 0.18s; }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1005px) {
     .sites-nav li {
       background-color: #007586;
       color: white; }
@@ -6630,7 +6646,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .sites-nav li:nth-child(3n+2):hover, .sites-nav li:nth-child(3n+2).active {
     transition-timing-function: ease;
     transition: 0.18s; }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1005px) {
     .sites-nav li {
       background-color: #52439f;
       color: white; }
@@ -6645,7 +6661,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .sites-nav li:nth-child(3n+3):hover, .sites-nav li:nth-child(3n+3).active {
     transition-timing-function: ease;
     transition: 0.18s; }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1005px) {
     .sites-nav li {
       background-color: #01ab98;
       color: white; }
@@ -6658,7 +6674,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .sites-nav li.active {
     color: #004853; }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1005px) {
   .mob .sites-nav li span a {
     display: none; }
   .mob .sites-nav li span a::before {
@@ -6700,7 +6716,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       margin-left: 20px;
       animation: popout 0.5s ease;
       -webkit-animation: popout 0.5s ease; }
-  @media only screen and (min-width: 1000px) {
+  @media only screen and (min-width: 1005px) {
     .mob {
       display: none; } }
 
@@ -6712,7 +6728,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   to {
     transform: scale(1); } }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1005px) {
   .mobile-search {
     right: 20px;
     left: auto !important; } }
@@ -6724,7 +6740,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .desk {
     display: block !important; } }
 
-@media (max-width: 1000px) {
+@media (max-width: 1005px) {
   .desk {
     display: none !important; }
   #nsr-logo {
@@ -6765,7 +6781,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   right: 30px;
   top: 30px;
   z-index: 999; }
-  @media (max-width: 1000px) {
+  @media (max-width: 1005px) {
     .all-device {
       top: 14px; } }
   .all-device .material-icons {
@@ -6780,7 +6796,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     color: #007586 !important;
     font-size: 105% !important; }
 
-@media (max-width: 1000px) {
+@media (max-width: 1005px) {
   .breadcrumbs {
     display: none; }
   .breadcrumbs li:nth-last-child(2) a:before {
@@ -6799,7 +6815,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   margin-top: -2px;
   margin-left: 5px; }
 
-@media (max-width: 1000px) {
+@media (max-width: 1005px) {
   .site-header {
     position: relative; }
   .acc-helper-menu li {

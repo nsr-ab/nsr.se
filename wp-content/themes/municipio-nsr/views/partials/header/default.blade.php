@@ -36,6 +36,12 @@
 
 <div class="all-device">
 <ul class="acc-helper-menu">
+    <li class="sort-mob sortguide-topmenu">
+        <a aria-label="sorteringsguiden" href="/sorteringsguiden/">SORTERING</a>
+    </li>
+    <li class="sort-desk sortguide-topmenu">
+        <a aria-label="sorteringsguiden" href="/sorteringsguiden/">Sorteringsguiden</a>
+    </li>
     <li>
         <a href="#translate" aria-label="translate"><i
                     class="material-icons translate-icon-btn">language</i></a>

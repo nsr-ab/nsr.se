@@ -571,7 +571,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      * @return {void}
      */
     Extended.prototype.pushQueryUrl = function (element, query, post_type) {
-        /*OBS !!!!!! sätt igpng när du e klar if (typeof history != 'undefined') {
+       if (typeof history != 'undefined') {
             var $currentState = history.state;
             var $state = {query: query, post_type: post_type};
             var $title = 'S&ouml;k - NSR AB';
@@ -579,7 +579,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             if (post_type != '' && post_type != 'all')
                 $url += '&post_type=' + encodeURIComponent(post_type);
             history.replaceState($state, $title, $url);
-        }*/
+        }
     }
 
 
@@ -807,7 +807,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
 
             if (typeof result.sortguide != 'undefined' && result.sortguide !== null) {
-                $('.sortguideMenu .sortguide-nsr-elasticSearch-nav span').html($relevant['sortguide']);
+                $('.sortguideMenu .sortguide-nsr-elasticSearch-nav span').html('('+$relevant['sortguide']+')');
                 $('.nsr-elasticSearch-nav span').html('(' + $relevant['sortguide'] + ')');
             }
             if (!$('.searchMenu').hasClass('sortguideMenu')) {

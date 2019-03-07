@@ -1668,9 +1668,10 @@ tr {
 }
 
 .hero-search {
-    .searchMenu {
+    .searchMenu, .searchDesignation-sortguide  {
         display: none;
     }
+
 }
 
 #main-content {
@@ -1809,13 +1810,34 @@ tr {
                 border-radius: unset;
             }
         }
-        @media (max-width: 1005px) {
-            .inlstallen h4 {
-                padding-bottom: 20px;
+
+
+    }
+
+    @media (max-width: 1005px) {
+        .deskHide h4 {
+            margin-bottom: 15px;
+        }
+        .sortAs li {
+            &::before {
+                padding-left: 10px;
             }
+
+            div {
+                padding-left: 10px;
+            }
+
         }
 
     }
+    @media (max-width: 460px) {
+        .sortAs li {
+            div {
+                padding-left: 0px;
+            }
+        }
+    }
+
 }
 
 
