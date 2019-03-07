@@ -159,6 +159,7 @@ class NSRSearch
                                 $output .= "<h2>Sök i Sorteringsguiden</h2>";
                         }
                         $output .= " 
+                        <div class=\"searchDesignation-sortguide\">SÖK</div>
                         <form itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/SearchAction\">
                           <div class=\"row\">                       
                                                 

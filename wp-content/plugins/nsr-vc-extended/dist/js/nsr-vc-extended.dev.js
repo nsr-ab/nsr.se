@@ -867,6 +867,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
 
         }
+        setTimeout(function () {
+            $('.prefix').removeClass('nsr-origamiLoader');
+            $('.search-button').removeClass('nsr-origamiLoader');
+        }, 2000);
 
     };
 
@@ -930,7 +934,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var CityItem = [];
             var minMobHack = false;
             var minMob = $(window).width();
-            if (minMob < 680) {
+            if (minMob < 1005) {
                 minMobHack = true;
             }
 
@@ -1053,9 +1057,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var CityItem = [];
         var minMobHack = false;
         var minMob = $(window).width();
-        if (minMob < 680) {
+
+        if (minMob < 1005) {
             minMobHack = true;
         }
+
+
 
         sortHTML += '<td valign="top" class="preSort-inl">';
         sortHTML += '<i class="expand-inl material-icons expand-more">expand_more</i>';
@@ -1278,11 +1285,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
         $('.search-fetchPlanner-data').html($fprow);
-        setTimeout(function () {
-            $('.prefix').removeClass('nsr-origamiLoader');
-            $('.search-button').removeClass('nsr-origamiLoader');
-        }, 2000);
-
     };
 
     /**
