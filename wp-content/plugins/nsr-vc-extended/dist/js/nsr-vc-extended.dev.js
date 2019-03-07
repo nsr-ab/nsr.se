@@ -112,7 +112,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.a-o-trigger').removeClass('active');
 
             if ($(this).hasClass('show-ao')) {
-                $(this).removeClass('active');
+                if (!$('.searchMenu').hasClass('sortguideMenu')) {
+                    $(this).removeClass('active');
+                }
                 $('.ao-nav li:first-child').addClass('active');
             } else {
                 $(this).addClass('active');
