@@ -25,6 +25,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var relevantCount = null;
     var emptyRes = false;
     var searchHits = 0;
+
     /**
      * Constructor
      */
@@ -669,14 +670,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             var done = false;
 
-            if (int == alphabet.length-1) {
+            if (int == alphabet.length - 1) {
                 done = true;
             }
 
             var json = this.getJsonDataAO(data, done);
             if (json) {
-                markup += (typeof (json.responseJSON.sortguide[0].post_title)  !== '' && typeof( json.responseJSON.sortguide[0].post_title ) !== 'undefined')  ?
-                     '<h5>' + json.responseJSON.sortguide[0].post_title.charAt(0) + '</h5>' : '';
+                markup += (typeof (json.responseJSON.sortguide[0].post_title) !== '' && typeof (json.responseJSON.sortguide[0].post_title) !== 'undefined') ?
+                    '<h5>' + json.responseJSON.sortguide[0].post_title.charAt(0) + '</h5>' : '';
 
             }
 
@@ -765,40 +766,49 @@ VcExtended.NSRExtend.Extended = (function ($) {
         if (data.action === 'fetchDataFromElasticSearch') {
 
             $relevant['sortguide'] = (result.sortguide.length > 0) ? result.sortguide.length : 0;
-            $relevant['page'] = (result.content.length > 0) ? result.content.length : 0;
+
+            if (!$('.searchMenu').hasClass('sortguideMenu')) {
+                $relevant['page'] = (result.content.length > 0) ? result.content.length : 0;
+            }
 
             (typeof result.sortguide != 'undefined' && result.sortguide !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.sortguide.length) : '';
             (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length) : '';
 
             this.outputAutocomplete($element, result);
             $relevant['count'] = $relevant['count'] + 2;
-            if ($relevant['sortguide'] == 0) {
-                $('.search-nav li').removeClass('active');
-                $('.nsr-fetchplanner-nav').addClass('active');
-                $('#nsr-searchResult .sorteringsguiden').addClass('hide');
-                $('#nsr-searchResult .search-fetchPlanner').removeClass('hide');
-            } else {
-                $('#nsr-searchResult .search-fetchPlanner').addClass('hide');
+
+            if (!$('.searchMenu').hasClass('sortguideMenu')) {
+                if ($relevant['sortguide'] == 0) {
+                    $('.search-nav li').removeClass('active');
+                    $('.nsr-fetchplanner-nav').addClass('active');
+                    $('#nsr-searchResult .sorteringsguiden').addClass('hide');
+                    $('#nsr-searchResult .search-fetchPlanner').removeClass('hide');
+                } else {
+                    $('#nsr-searchResult .search-fetchPlanner').addClass('hide');
+                }
             }
 
             if (typeof result.sortguide != 'undefined' && result.sortguide !== null) {
                 $('.sortguideMenu .nsr-elasticSearch-nav span').html($relevant['sortguide']);
-                $('.nsr-elasticSearch-nav span').html('('+$relevant['sortguide']+')');
+                $('.nsr-elasticSearch-nav span').html('(' + $relevant['sortguide'] + ')');
+            }
+            if (!$('.searchMenu').hasClass('sortguideMenu')) {
+                if (typeof result.content != 'undefined' && result.content !== null)
+                    $('.nsr-page-nav span').html('(' + $relevant['page'] + ')');
             }
 
-            if (typeof result.content != 'undefined' && result.content !== null)
-                $('.nsr-page-nav span').html('('+$relevant['page']+')');
 
         } else {
+            if (!$('.searchMenu').hasClass('sortguideMenu')) {
+                (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
 
-            (typeof result.fp != 'undefined' && result.fp !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.fp.length) : '';
-
-            this.outputFetchPlanner($element, result);
-            if (typeof result.fp != 'undefined' && result.fp !== null) {
-                $relevant['fetchplanner'] = (result.fp.length > 0) ? result.fp.length : 0;
-                $('.search-nav .nsr-fetchplanner-nav span').html('('+$relevant['fetchplanner']+')');
+                this.outputFetchPlanner($element, result);
+                if (typeof result.fp != 'undefined' && result.fp !== null) {
+                    $relevant['fetchplanner'] = (result.fp.length > 0) ? result.fp.length : 0;
+                    $('.search-nav .nsr-fetchplanner-nav span').html('(' + $relevant['fetchplanner'] + ')');
+                }
+                $relevant['count'] = $relevant['count'] + 1;
             }
-            $relevant['count'] = $relevant['count'] + 1;
         }
 
 
@@ -806,31 +816,35 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('#searchkeyword-nsr').addClass('valid');
 
         $('#nsr-searchResult').css('display', 'block');
+        if (!$('.searchMenu').hasClass('sortguideMenu')) {
+            if ($relevant['count'] === 3) {
+                var rel = Math.max($relevant['sortguide'], $relevant['page'], $relevant['fetchplanner']);
 
-        if ($relevant['count'] === 3){
-            var rel = Math.max($relevant['sortguide'], $relevant['page'], $relevant['fetchplanner']);
+                $('.searchView').addClass('hide');
 
-            $('.searchView').addClass('hide');
-            if ($relevant['sortguide'] === rel) {
-                $('#nsr-searchResult').removeClass('transparent-background');
-                $('.search-nav li').removeClass('active');
-                $('.nsr-elasticSearch-nav').addClass('active');
-                $('.sorteringsguiden').removeClass('hide');
-            }
-            if ($relevant['page'] !== $relevant['sortguide']) {
-                if ($relevant['page'] === rel) {
-                    $('#nsr-searchResult').addClass('transparent-background');
-                    $('.search-nav li').removeClass('active');
-                    $('.nsr-page-nav').addClass('active');
-                    $('.search-autocomplete').removeClass('hide');
-                }
-            }
-            if ($relevant['fetchplanner'] !== $relevant['sortguide']) {
-                if ($relevant['fetchplanner'] === rel) {
+                if ($relevant['sortguide'] === rel) {
                     $('#nsr-searchResult').removeClass('transparent-background');
                     $('.search-nav li').removeClass('active');
-                    $('.nsr-fetchplanner-nav').addClass('active');
-                    $('.search-fetchPlanner').removeClass('hide');
+                    $('.nsr-elasticSearch-nav').addClass('active');
+                    $('.sorteringsguiden').removeClass('hide');
+                }
+
+                if ($relevant['page'] !== $relevant['sortguide']) {
+                    if ($relevant['page'] === rel) {
+                        $('#nsr-searchResult').addClass('transparent-background');
+                        $('.search-nav li').removeClass('active');
+                        $('.nsr-page-nav').addClass('active');
+                        $('.search-autocomplete').removeClass('hide');
+                    }
+                }
+
+                if ($relevant['fetchplanner'] !== $relevant['sortguide']) {
+                    if ($relevant['fetchplanner'] === rel) {
+                        $('#nsr-searchResult').removeClass('transparent-background');
+                        $('.search-nav li').removeClass('active');
+                        $('.nsr-fetchplanner-nav').addClass('active');
+                        $('.search-fetchPlanner').removeClass('hide');
+                    }
                 }
             }
 
