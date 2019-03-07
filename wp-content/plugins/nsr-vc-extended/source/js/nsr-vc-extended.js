@@ -21,6 +21,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     var wouldBeTimer = false;
     var contentDataAmount = [];
     var $relevant = [];
+    $relevant['count'] = 0;
     var relevantCount = null;
     var emptyRes = false;
     var searchHits = 0;
@@ -83,6 +84,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.searchWrapper').addClass('searching');
             $('.search-nav li').removeClass('active');
             Extended.prototype.searchNav();
+            $relevant['count'] = 0;
         });
 
         /* searchNSR - Submit means search */
@@ -98,6 +100,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.searchWrapper').addClass('searching');
             $('.search-nav li').removeClass('active');
             Extended.prototype.searchNav();
+            $relevant['count'] = 0;
             return false;
         }).bind(this);
 
@@ -768,7 +771,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             (typeof result.content != 'undefined' && result.content !== null && typeof parent.ga != 'undefined') ? parent.ga('send', 'event', 'SiteSearch', data.action, data.query, result.content.length) : '';
 
             this.outputAutocomplete($element, result);
-
+            $relevant['count'] = $relevant['count'] + 2;
             if ($relevant['sortguide'] == 0) {
                 $('.search-nav li').removeClass('active');
                 $('.nsr-fetchplanner-nav').addClass('active');
@@ -795,6 +798,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $relevant['fetchplanner'] = (result.fp.length > 0) ? result.fp.length : 0;
                 $('.search-nav .nsr-fetchplanner-nav span').html('('+$relevant['fetchplanner']+')');
             }
+            $relevant['count'] = $relevant['count'] + 1;
         }
 
 
@@ -803,6 +807,34 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         $('#nsr-searchResult').css('display', 'block');
 
+        if ($relevant['count'] === 3){
+            var rel = Math.max($relevant['sortguide'], $relevant['page'], $relevant['fetchplanner']);
+
+            $('.searchView').addClass('hide');
+            if ($relevant['sortguide'] === rel) {
+                $('#nsr-searchResult').removeClass('transparent-background');
+                $('.search-nav li').removeClass('active');
+                $('.nsr-elasticSearch-nav').addClass('active');
+                $('.sorteringsguiden').removeClass('hide');
+            }
+            if ($relevant['page'] !== $relevant['sortguide']) {
+                if ($relevant['page'] === rel) {
+                    $('#nsr-searchResult').addClass('transparent-background');
+                    $('.search-nav li').removeClass('active');
+                    $('.nsr-page-nav').addClass('active');
+                    $('.search-autocomplete').removeClass('hide');
+                }
+            }
+            if ($relevant['fetchplanner'] !== $relevant['sortguide']) {
+                if ($relevant['fetchplanner'] === rel) {
+                    $('#nsr-searchResult').removeClass('transparent-background');
+                    $('.search-nav li').removeClass('active');
+                    $('.nsr-fetchplanner-nav').addClass('active');
+                    $('.search-fetchPlanner').removeClass('hide');
+                }
+            }
+
+        }
 
     };
 
@@ -946,12 +978,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             sortHTML += '</table>';
 
-            if (res.sortguide.length > 0) {
+            /*if (res.sortguide.length > 0) {
                 $('#nsr-searchResult').removeClass('transparent-background');
                 $('.search-nav li').removeClass('active');
                 $('.nsr-elasticSearch-nav').addClass('active');
             }
-
+            */
 
             return sortHTML;
         }
@@ -1207,14 +1239,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         if (result.fp.length === 0) {
             $fprow = '<div class="no-result"><h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p></div>';
-            $('.search-fetchPlanner-data').html($fprow);
-
-        } else {
-
-            $('.search-fetchPlanner-data').html($fprow);
-
         }
 
+        $('.search-fetchPlanner-data').html($fprow);
         setTimeout(function () {
             $('.prefix').removeClass('nsr-origamiLoader');
             $('.search-button').removeClass('nsr-origamiLoader');
