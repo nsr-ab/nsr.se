@@ -162,6 +162,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.searchView').addClass('hide');
             $('.sorteringsguiden').removeClass('hide');
             $('.a-o').removeClass('hide');
+            console.log('active AO');
         }).bind(this);
 
         $('body').on('click', '.nsr-page-nav', function () {
@@ -181,6 +182,23 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.search-fetchPlanner').removeClass('hide');
             $('.a-o').addClass('hide');
         }).bind(this);
+
+
+        $('body').on('click', '.sortguideMenu .show-ao', function () {
+            $('.search-nav li').removeClass('active');
+            $(this).addClass('active');
+            console.log('active AO');
+        }).bind(this);
+
+        /* Search Navigation*/
+        $('body').on('click', '.sortguide-nsr-elasticSearch-nav', function () {
+            $('.search-nav li').removeClass('active');
+            $(this).addClass('active');
+            $('.searchView').addClass('hide');
+            $('.sorteringsguiden').removeClass('hide');
+            console.log('active elastic');
+        }).bind(this);
+
 
         // Expand more info
         $('body').on('click', '.preSort-inl .material-icons', function () {
@@ -254,7 +272,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.searchNav = function () {
         $('.search-hits').addClass('hide');
         if ($('.searchMenu').hasClass('sortguideMenu')) {
-            $('.searchMenu').html('<ul class="search-nav"><li class="vc_col-sm-3 show-ao a-o-trigger">A-Ö</li><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sökresultat <span></span></li></ul>');
+            $('.searchMenu').html('<ul class="search-nav"><li class="vc_col-sm-3 show-ao a-o-trigger">A-Ö</li><li class="vc_col-sm-3 sortguide-nsr-elasticSearch-nav active">Sökresultat <span></span></li></ul>');
         }
         if (!$('.searchMenu').hasClass('sortguideMenu')) {
             $('.searchMenu').html('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sorteringsguiden <span></span></li><li class="vc_col-sm-3 nsr-page-nav">Sidor <span></span></li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömmingsdagar <span></span></li></ul>');
@@ -862,7 +880,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.outputAutocomplete = function (element, res) {
 
         var sortGuideData = this.sortGuideResult(element, res);
-        var sortPagesData = this.sortPagesResult(element, res);
+        if (!$('.searchMenu').hasClass('sortguideMenu')) {
+            var sortPagesData = this.sortPagesResult(element, res);
+        }
+
 
         if (window.navigator.geolocation) {
             $('.search-autocomplete-data .preloader-wrapper').fadeIn("slow");
@@ -873,9 +894,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.sorteringsguiden-data').append(sortGuideData);
             $('.sorteringsguiden').removeClass('hide');
         }
-
-        if (sortPagesData) {
-            $('.search-autocomplete-data').append(sortPagesData);
+        if (!$('.searchMenu').hasClass('sortguideMenu')) {
+            if (sortPagesData) {
+                $('.search-autocomplete-data').append(sortPagesData);
+            }
         }
 
 
