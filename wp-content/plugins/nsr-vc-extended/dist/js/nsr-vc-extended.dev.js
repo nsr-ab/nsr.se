@@ -124,6 +124,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.searchWrapper').addClass('searching');
             if (!$('.searchMenu').hasClass('sortguideMenu')) {
                 $('.search-nav li').removeClass('active');
+            } else {
+                $('.show-ao').addClass('active');
             }
             var aoSelect = ($(this).attr('data-letter')) ? $(this).attr('data-letter') : 'a-c';
             //var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
