@@ -120,8 +120,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             $('.search-ao-data').html('');
             $('.searchWrapper').addClass('searching');
-            $('.search-nav li').removeClass('active');
-
+            if (!$('.searchMenu').hasClass('sortguideMenu')) {
+                $('.search-nav li').removeClass('active');
+            }
             var aoSelect = ($(this).attr('data-letter')) ? $(this).attr('data-letter') : 'a-c';
             //var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
             Extended.prototype.AOQuery(aoSelect);
