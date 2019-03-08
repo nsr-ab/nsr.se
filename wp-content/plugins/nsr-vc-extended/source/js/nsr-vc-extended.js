@@ -254,7 +254,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.searchMenu').html('<ul class="search-nav"><li class="vc_col-sm-3 show-ao a-o-trigger">A-Ö</li><li class="vc_col-sm-3 sortguide-nsr-elasticSearch-nav active">Sökresultat <span></span></li></ul>');
         }
         if (!$('.searchMenu').hasClass('sortguideMenu')) {
-            $('.searchMenu').html('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sorteringsguiden <span></span></li><li class="vc_col-sm-3 nsr-page-nav">Sidor <span></span></li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömmingsdagar <span></span></li></ul>');
+            $('.searchMenu').html('<ul class="search-nav"><li class="vc_col-sm-3 nsr-elasticSearch-nav active">Sorteringsguiden <span></span></li><li class="vc_col-sm-3 nsr-page-nav">Sidor <span></span></li><li class="vc_col-sm-3 nsr-fetchplanner-nav">Tömningsdagar <span></span></li></ul>');
         }
     };
 
