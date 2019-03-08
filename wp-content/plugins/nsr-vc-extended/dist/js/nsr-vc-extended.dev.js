@@ -5,8 +5,16 @@
  *
  */
 
+/**
+ *
+ * @type {{}|{}}
+ */
 var VcExtended = VcExtended || {};
 
+/**
+ * Om my god what a mess.
+ * @type {*|{}}
+ */
 VcExtended.NSRExtend = VcExtended.NSRExtend || {};
 VcExtended.NSRExtend.Extended = (function ($) {
 
@@ -37,215 +45,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
     /**
      *  init
      *  Initializes all the necessary methods and binding stuff to events
+     *  Sloppy, yes!
      */
     Extended.prototype.init = function () {
 
         Extended.prototype.DefaultSiteSearch();
-        if (!$('body').hasClass('wp-admin'))
-            $('.card-content').matchHeight();
+        Extended.prototype.actionAndBindings();
 
-        $(function () {
-            this.CollapsibleHeaders();
-        }.bind(this));
-
-        $('body').on('click', '.showAllPosts', function () {
-            Extended.prototype.displayMore(this);
-        }).bind(this);
-
-        $('body').on('click', '.card', function (e) {
-            if ($(this).data('link'))
-                window.location.href = $(this).data('link');
-        }).bind(this);
-
-        $.fn.enterKey = function (fnc) {
-            Extended.prototype.enterTrigger(fnc, this);
-        }
-
-        $('.searchNSR').enterKey(function () {
-
-            $('.sorteringsguiden-data').html('');
-            $('.search-autocomplete-data').html('');
-            $('.search-fetchPlanner-data').html('');
-
-            event.preventDefault();
-            window.clearTimeout(typingTimer);
-            Extended.prototype.doneTyping();
-            $('.searchWrapper').addClass('searching');
-            $('.search-nav li').removeClass('active');
-            Extended.prototype.searchNav();
-            $relevant['count'] = 0;
-        });
-
-        $('.searchNSR form').on('submit', function (e) {
-
-            $('.sorteringsguiden-data').html('');
-            $('.search-autocomplete-data').html('');
-            $('.search-fetchPlanner-data').html('');
-
-            e.preventDefault();
-            window.clearTimeout(typingTimer);
-            Extended.prototype.doneTyping();
-            $('.searchWrapper').addClass('searching');
-            $('.search-nav li').removeClass('active');
-            Extended.prototype.searchNav();
-            $relevant['count'] = 0;
-            return false;
-        }).bind(this);
-
-        $('body').on('click', '.a-o-trigger', function (e) {
-
-            e.preventDefault();
-            $('.prefix').addClass('nsr-origamiLoader');
-            $('.a-o-trigger').removeClass('active');
-
-            if ($(this).hasClass('show-ao')) {
-                if (!$('.searchMenu').hasClass('sortguideMenu')) {
-                    $(this).removeClass('active');
-                }
-                $('.ao-nav li:first-child').addClass('active');
-            } else {
-                $(this).addClass('active');
-            }
-
-            $('.search-ao-data').html('');
-            $('.searchWrapper').addClass('searching');
-            if (!$('.searchMenu').hasClass('sortguideMenu')) {
-                $('.search-nav li').removeClass('active');
-            } else {
-                $('.show-ao').addClass('active');
-            }
-            var aoSelect = ($(this).attr('data-letter')) ? $(this).attr('data-letter') : 'a-c';
-            Extended.prototype.AOQuery(aoSelect);
-
-        }).bind(this);
-
-        $('.searchNSR').on("input", function () {
-
-            window.clearTimeout(typingTimer);
-            if (!wouldBeTimer) {
-                $('.searchNSR .search-button').show();
-                wouldBeTimer = true;
-            }
-        });
-
-        $('.searchNSR').on('keydown', function (e) {
-            Extended.prototype.haltTimer(e, typingTimer);
-        });
-
-        $('body').on('click', '.locationmap', function () {
-            if ($(this).data('url'))
-                window.open($(this).data('url'), '_blank');
-        }).bind(this);
-
-
-        $('body').on('click', '#searchkeyword-nsr', function () {
-            $('#searchkeyword-nsr').focus();
-        }).bind(this);
-
-
-        $('body').on('click', '.nsr-elasticSearch-nav', function () {
-            $('#nsr-searchResult').removeClass('transparent-background');
-            $('.search-nav li').removeClass('active');
-            $(this).addClass('active');
-            $('.searchView').addClass('hide');
-            $('.sorteringsguiden').removeClass('hide');
-            $('.a-o').removeClass('hide');
-            console.log('active AO');
-        }).bind(this);
-
-        $('body').on('click', '.nsr-page-nav', function () {
-            $('#nsr-searchResult').addClass('transparent-background');
-            $('.search-nav li').removeClass('active');
-            $(this).addClass('active');
-            $('.searchView').addClass('hide');
-            $('.search-autocomplete').removeClass('hide');
-            $('.a-o').addClass('hide');
-        }).bind(this);
-
-        $('body').on('click', '.nsr-fetchplanner-nav', function () {
-            $('#nsr-searchResult').removeClass('transparent-background');
-            $('.search-nav li').removeClass('active');
-            $(this).addClass('active');
-            $('.searchView').addClass('hide');
-            $('.search-fetchPlanner').removeClass('hide');
-            $('.a-o').addClass('hide');
-        }).bind(this);
-
-        $('body').on('click', '.sortguideMenu .show-ao', function () {
-            $('.search-nav li').removeClass('active');
-            $(this).addClass('active');
-            console.log('active AO');
-        }).bind(this);
-
-        $('body').on('click', '.sortguide-nsr-elasticSearch-nav', function () {
-            $('.search-nav li').removeClass('active');
-            $(this).addClass('active');
-            $('.searchView').addClass('hide');
-            $('.sorteringsguiden').removeClass('hide');
-            console.log('active elastic');
-        }).bind(this);
-
-        $('body').on('click', '.preSort-inl .material-icons', function () {
-
-            $('.inlstallen li').hide();
-            $('.sorteringsguiden-data tr').removeClass('expand-tr');
-
-            if ($(this).hasClass('expand-more')) {
-
-                $('.preSort-inl').find('i').text('expand_more');
-                $(this).removeClass('expand-more');
-                $(this).addClass('expand-less');
-                $(this).text('expand_less');
-                $(this).closest('.preSort-inl').find('li').show();
-                $(this).closest('tr').addClass('expand-tr');
-                $('.inlstallen').each(function () {
-                    $(this).find('li:first').show();
-                });
-            } else {
-                $(this).removeClass('expand-less');
-                $(this).addClass('expand-more');
-                $(this).text('expand_more');
-                $(this).closest('.preSort-inl').find('li').hide();
-
-
-                $('.inlstallen').each(function () {
-                    $(this).find('li:first').show();
-                });
-            }
-        }).bind(this);
-
-        $('body').on('click', '.preSortCell .material-icons', function () {
-
-            if (!$(this).closest('.tabDesk').find('.preSort-frakt').hasClass('showPreSorts')) {
-                $(this).closest('.tabDesk').find('.expand-less').removeClass('hide');
-                $(this).addClass('hide');
-                $(this).closest('.tabDesk').find('.preSort-frakt').addClass('showPreSorts');
-                $(this).closest('.tabDesk').find('.preSort-inl').addClass('showPreSorts');
-                $(this).closest('tr').addClass('expand-tr');
-            } else {
-                $(this).closest('.tabDesk').find('.expand-more').removeClass('hide');
-                $(this).addClass('hide');
-                $(this).closest('.tabDesk').find('.preSort-frakt').removeClass('showPreSorts');
-                $(this).closest('.tabDesk').find('.preSort-inl').removeClass('showPreSorts');
-                $(this).closest('tr').removeClass('expand-tr');
-            }
-
-        }).bind(this);
-
-        $('body').on('click', '.fp .tabDesk .material-icons', function () {
-
-            if ($(this).closest('.tabDesk').find('.avfall').hasClass('hideDetails')) {
-                $(this).closest('.tabDesk').find('.avfall').removeClass('hideDetails');
-                $(this).closest('.tabDesk').addClass('expand-tr');
-                $(this).closest('.tabDesk').find('.material-icons').text('expand_less');
-            } else {
-                $(this).closest('.tabDesk').find('.avfall').addClass('hideDetails');
-                $(this).closest('.tabDesk').find('.material-icons').text('expand_more');
-                $(this).closest('.tabDesk').removeClass('expand-tr');
-            }
-
-        }).bind(this);
-        $('.searchDesignation').html($('.searchNSR').attr('data-searchdesignation'));
     };
 
     Extended.prototype.searchNav = function () {
@@ -281,7 +87,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $relevant['count'] = 0;
 
         }
-    }
+    };
 
     /**
      *  eventHandler
@@ -463,6 +269,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return hash;
     };
 
+
     /**
      *  postIcon
      *  @param post_type string
@@ -514,8 +321,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return $res;
     };
 
+
     /**
-     *
+     * Spinner/Loader
      * @returns {string}
      */
     Extended.prototype.spinner = function () {
@@ -561,8 +369,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var $state = {query: query, post_type: post_type};
                 var $title = 'S&ouml;k - NSR AB';
                 var $url = '/sok/?q=' + encodeURIComponent(query);
-                if (post_type != '' && post_type != 'all')
-                    $url += '&post_type=' + encodeURIComponent(post_type);
+                /*if (post_type != '' && post_type != 'all')
+                    $url += '&post_type=' + encodeURIComponent(post_type);*/
                 history.replaceState($state, $title, $url);
             }
         }
@@ -670,8 +478,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 type: 'json'
             };
 
-            var tmpJson = [];
-
             var done = false;
 
             if (int == alphabet.length - 1) {
@@ -684,7 +490,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     '<h5>' + json.responseJSON.sortguide[0].post_title.charAt(0) + '</h5>' : '';
 
             }
-
 
             markup += '<ul>';
 
@@ -705,6 +510,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
+    /**
+     *  Get data from APi's (A-Ö)
+     * @param data
+     * @param done
+     * @returns {*}
+     */
     Extended.prototype.getJsonDataAO = function (data, done) {
 
         return $.ajax({
@@ -725,8 +536,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }.bind(this));
     };
 
+
     /**
-     *
+     *  Get data from API's
      * @param data_type
      * @param $element
      * @param data
@@ -757,8 +569,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }.bind(this));
     };
 
+
     /**
-     *
+     * Collect data find relevance etc
      * @param data_type
      * @param $element
      * @param data
@@ -815,7 +628,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }
 
-
         if ($('#searchkeyword-nsr').hasClass('valid'))
             $('#searchkeyword-nsr').addClass('valid');
 
@@ -851,8 +663,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
                 }
             }
-
         }
+
         setTimeout(function () {
             $('.prefix').removeClass('nsr-origamiLoader');
             $('.search-button').removeClass('nsr-origamiLoader');
@@ -862,10 +674,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
     /**
-     * Outputs the autocomplete dropdown
-     * @param  {object} element Autocomplete element
-     * @param  {array}  res     Autocomplete query result
-     * @return {void}
+     * Sorteringsguide & Pages
+     * @param element
+     * @param res
      */
     Extended.prototype.outputAutocomplete = function (element, res) {
 
@@ -873,7 +684,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         if (!$('.searchMenu').hasClass('sortguideMenu')) {
             var sortPagesData = this.sortPagesResult(element, res);
         }
-
 
         if (window.navigator.geolocation) {
             $('.search-autocomplete-data .preloader-wrapper').fadeIn("slow");
@@ -890,7 +700,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }
 
-
         //Search result menu
         $('#nsr-searchResult').removeClass('hide');
 
@@ -905,13 +714,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
     /**
-     *
+     * Sorteringsguide - Build result
      * @param element
      * @param res
+     * @returns {string}
      */
     Extended.prototype.sortGuideResult = function (element, res) {
 
-        var spinner = '';//Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
         var cityInt = 0;
 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null && res.sortguide.length > 0) {
@@ -989,7 +798,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     }
 
                     sortHTML += '</td>';
-                    console.log(spost.post_meta);
                     sortHTML += Extended.prototype.inStallen(spost.post_meta, CityItem, minMobHack);
 
                     cities[cityInt] = CityItem;
@@ -1003,14 +811,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             );
 
             sortHTML += '</table>';
-
-            /*if (res.sortguide.length > 0) {
-                $('#nsr-searchResult').removeClass('transparent-background');
-                $('.search-nav li').removeClass('active');
-                $('.nsr-elasticSearch-nav').addClass('active');
-            }
-            */
-
             return sortHTML;
         }
 
@@ -1026,14 +826,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             }
         }
-
-        //var $metaDataStr = Extended.prototype.metaDataStr('sorteringsguide');
-
     };
 
+
     /**
-     * Render markup for Inlamningställen
+     * Build markup for inlämningsställen
      * @param postMeta
+     * @param CityItem
+     * @param view
      * @returns {string}
      */
     Extended.prototype.inStallen = function (postMeta, CityItem, view) {
@@ -1047,8 +847,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         if (minMob < 1005) {
             minMobHack = true;
         }
-
-
 
         sortHTML += '<td valign="top" class="preSort-inl">';
         sortHTML += '<i class="expand-inl material-icons expand-more">expand_more</i>';
@@ -1117,7 +915,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
                         latlongID = '';
 
-
                         if (postMeta.inlamningsstallen[int][lint]['city'] != null) {
                             if (!inlLink)
                                 setNonLink = 'nullLink';
@@ -1141,9 +938,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
     };
 
 
+    /**
+     *  Build result for pages
+     * @param element
+     * @param res
+     * @returns {string}
+     */
     Extended.prototype.sortPagesResult = function (element, res) {
-        var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
-        //if (res.content.length > 0)
+
         var pageHTML = '';
 
         if (typeof res.content != 'undefined' && res.content !== null && res.content.length > 0) {
@@ -1182,10 +984,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
 
     /**
-     * Outputs Fetchplanner
-     * @param  {object} element fetchplanner element
-     * @param  {array}  result  fetchplanner query result
-     * @return {void}
+     *  Build result for fetchplanner
+     * @param element
+     * @param result
      */
     Extended.prototype.outputFetchPlanner = function (element, result) {
 
@@ -1239,17 +1040,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $fprow += '<i class="expand-avfall material-icons expand-more">expand_more</i>';
                         $fprow += '<span class="fpTopic">' + post.Adress + '</span><br />';
                         $fprow += '<b class="">' + post.Ort + '</b><br /><br />';
-
                         $fprow += ' <a class="avfall-files-desk" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till i kalender</a><br />';
                         $fprow += ' <a class="avfall-files-desk" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '">Visa PDF dokument</a>';
-
                         $fprow += '</div>';
-
                         $fprow += '<div  class="vc_col-sm-4 avfall hideDetails">';
                         // This is how you call iCalendar and PDF generators
                         $fprow += ' <a class="avfall-files-mob" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till i kalender</a>';
                         $fprow += ' <a class="avfall-files-mob" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '">Visa PDF dokument</a>';
-
                         $fprow += '<div class="vc_col-sm-6 align-right vc_col-xs-6 bold">' + $avfall + '</div><div class="vc_col-sm-6 vc_col-xs-6">' + $nextDate + '</div>';
                         $fprow += '</div>';
 
@@ -1263,9 +1060,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
         $fprow += '</div>';
 
-
         /* No result ..... */
-
         if (result.fp.length === 0) {
             $fprow = '<div class="no-result"><h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p></div>';
         }
@@ -1273,10 +1068,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.search-fetchPlanner-data').html($fprow);
     };
 
+
     /**
-     * GEo Error
-     * @param  {object} error
-     * @return {void}
+     * Geo error
+     * @param error
+     * @constructor
      */
     Extended.prototype.GeoError = function (error) {
         switch (error.code) {
@@ -1297,14 +1093,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('.search-autocomplete-data .preloader-wrapper').hide();
                 break;
         }
-
     };
 
 
     /**
      * Callback function for asynchronous call to HTML5 geolocation
-     * @param  {object} position
-     * @return {void}
+     * @param position
+     * @constructor
      */
     Extended.prototype.UserLocation = function (position) {
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
@@ -1313,8 +1108,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     /**
      * Convert Degress to Radians
-     * @param  {int} deg
-     * @return degree
+     * @param deg
+     * @returns {number}
+     * @constructor
      */
     Extended.prototype.Deg2Rad = function (deg) {
         return deg * Math.PI / 180;
@@ -1323,8 +1119,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     /**
      * Calculates with Pythagoras
-     * @param  {int} lat long
-     * @return degree
+     * @param lat1
+     * @param lon1
+     * @param lat2
+     * @param lon2
+     * @returns {number}
+     * @constructor
      */
     Extended.prototype.PythagorasEquirectangular = function (lat1, lon1, lat2, lon2) {
         lat1 = Extended.prototype.Deg2Rad(lat1);
@@ -1341,9 +1141,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     /**
      * Calculates with  Haversine formula
-     * Calculates great-circle distances between the two points – that is, the shortest distance over the earth’s surface – using the ‘Haversine’ formula.
-     * @param  {int} lat long
-     * @return degree
+     * Calculates great-circle distances between the two points – that is, the shortest distance over
+     * the earth’s surface – using the ‘Haversine’ formula.
+     * @param lat1
+     * @param lon1
+     * @param lat2
+     * @param lon2
+     * @returns {number}
      */
     Extended.prototype.getDistanceFromLatLonInKm = function (lat1, lon1, lat2, lon2) {
         var R = 6371; // Radius of the earth in km
@@ -1355,6 +1159,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return d;
     };
 
+
+    /**
+     * Find closets city
+     * @returns {number}
+     */
     Extended.prototype.findClosest = function () {
         if (arguments[0] instanceof Array)
             arguments = arguments[0];
@@ -1362,10 +1171,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return Math.min.apply(Math, arguments);
     };
 
+
     /**
      * Closest location
-     * @param  {int} lat long
-     * @return {array} cities
+     * @param latitude
+     * @param longitude
+     * @returns {*}
+     * @constructor
      */
     Extended.prototype.NearestCity = function (latitude, longitude) {
 
@@ -1433,8 +1245,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     /**
      * Get URL param
-     * @param  {string} sparam
-     * @return {array} param value
+     * @param sParam
+     * @returns {*}
      */
     Extended.prototype.getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -1447,6 +1259,236 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 return sParameterName[1] === undefined ? true : sParameterName[1];
             }
         }
+    };
+
+
+    /**
+     * Bindings and different actions - Its a jquery mess !
+     * Not the proudest moment...
+     */
+    Extended.prototype.actionAndBindings = function () {
+
+        if (!$('body').hasClass('wp-admin'))
+            $('.card-content').matchHeight();
+
+
+        $(function () {
+            this.CollapsibleHeaders();
+        }.bind(this));
+
+
+        $('body').on('click', '.showAllPosts', function () {
+            Extended.prototype.displayMore(this);
+        }).bind(this);
+
+
+        $('body').on('click', '.card', function (e) {
+            if ($(this).data('link'))
+                window.location.href = $(this).data('link');
+        }).bind(this);
+
+
+        $.fn.enterKey = function (fnc) {
+            Extended.prototype.enterTrigger(fnc, this);
+        };
+
+
+        $('.searchNSR').enterKey(function () {
+
+            $('.sorteringsguiden-data').html('');
+            $('.search-autocomplete-data').html('');
+            $('.search-fetchPlanner-data').html('');
+
+            event.preventDefault();
+            window.clearTimeout(typingTimer);
+            Extended.prototype.doneTyping();
+            $('.searchWrapper').addClass('searching');
+            $('.search-nav li').removeClass('active');
+            Extended.prototype.searchNav();
+            $relevant['count'] = 0;
+        });
+
+
+        $('.searchNSR form').on('submit', function (e) {
+
+            $('.sorteringsguiden-data').html('');
+            $('.search-autocomplete-data').html('');
+            $('.search-fetchPlanner-data').html('');
+
+            e.preventDefault();
+            window.clearTimeout(typingTimer);
+            Extended.prototype.doneTyping();
+            $('.searchWrapper').addClass('searching');
+            $('.search-nav li').removeClass('active');
+            Extended.prototype.searchNav();
+            $relevant['count'] = 0;
+            return false;
+        }).bind(this);
+
+
+        $('body').on('click', '.a-o-trigger', function (e) {
+
+            e.preventDefault();
+            $('.prefix').addClass('nsr-origamiLoader');
+            $('.a-o-trigger').removeClass('active');
+
+            if ($(this).hasClass('show-ao')) {
+                if (!$('.searchMenu').hasClass('sortguideMenu')) {
+                    $(this).removeClass('active');
+                }
+                $('.ao-nav li:first-child').addClass('active');
+            } else {
+                $(this).addClass('active');
+            }
+
+            $('.search-ao-data').html('');
+            $('.searchWrapper').addClass('searching');
+            if (!$('.searchMenu').hasClass('sortguideMenu')) {
+                $('.search-nav li').removeClass('active');
+            } else {
+                $('.show-ao').addClass('active');
+            }
+            var aoSelect = ($(this).attr('data-letter')) ? $(this).attr('data-letter') : 'a-c';
+            Extended.prototype.AOQuery(aoSelect);
+
+        }).bind(this);
+
+
+        $('.searchNSR').on("input", function () {
+
+            window.clearTimeout(typingTimer);
+            if (!wouldBeTimer) {
+                $('.searchNSR .search-button').show();
+                wouldBeTimer = true;
+            }
+        });
+
+
+        $('.searchNSR').on('keydown', function (e) {
+            Extended.prototype.haltTimer(e, typingTimer);
+        });
+
+
+        $('body').on('click', '.locationmap', function () {
+            if ($(this).data('url'))
+                window.open($(this).data('url'), '_blank');
+        }).bind(this);
+
+
+        $('body').on('click', '#searchkeyword-nsr', function () {
+            $('#searchkeyword-nsr').focus();
+        }).bind(this);
+
+
+        $('body').on('click', '.nsr-elasticSearch-nav', function () {
+            $('#nsr-searchResult').removeClass('transparent-background');
+            $('.search-nav li').removeClass('active');
+            $(this).addClass('active');
+            $('.searchView').addClass('hide');
+            $('.sorteringsguiden').removeClass('hide');
+            $('.a-o').removeClass('hide');
+        }).bind(this);
+
+
+        $('body').on('click', '.nsr-page-nav', function () {
+            $('#nsr-searchResult').addClass('transparent-background');
+            $('.search-nav li').removeClass('active');
+            $(this).addClass('active');
+            $('.searchView').addClass('hide');
+            $('.search-autocomplete').removeClass('hide');
+            $('.a-o').addClass('hide');
+        }).bind(this);
+
+
+        $('body').on('click', '.nsr-fetchplanner-nav', function () {
+            $('#nsr-searchResult').removeClass('transparent-background');
+            $('.search-nav li').removeClass('active');
+            $(this).addClass('active');
+            $('.searchView').addClass('hide');
+            $('.search-fetchPlanner').removeClass('hide');
+            $('.a-o').addClass('hide');
+        }).bind(this);
+
+
+        $('body').on('click', '.sortguideMenu .show-ao', function () {
+            $('.search-nav li').removeClass('active');
+            $(this).addClass('active');
+        }).bind(this);
+
+
+        $('body').on('click', '.sortguide-nsr-elasticSearch-nav', function () {
+            $('.search-nav li').removeClass('active');
+            $(this).addClass('active');
+            $('.searchView').addClass('hide');
+            $('.sorteringsguiden').removeClass('hide');
+        }).bind(this);
+
+
+        $('body').on('click', '.preSort-inl .material-icons', function () {
+
+            $('.inlstallen li').hide();
+            $('.sorteringsguiden-data tr').removeClass('expand-tr');
+
+            if ($(this).hasClass('expand-more')) {
+
+                $('.preSort-inl').find('i').text('expand_more');
+                $(this).removeClass('expand-more');
+                $(this).addClass('expand-less');
+                $(this).text('expand_less');
+                $(this).closest('.preSort-inl').find('li').show();
+                $(this).closest('tr').addClass('expand-tr');
+                $('.inlstallen').each(function () {
+                    $(this).find('li:first').show();
+                });
+            } else {
+                $(this).removeClass('expand-less');
+                $(this).addClass('expand-more');
+                $(this).text('expand_more');
+                $(this).closest('.preSort-inl').find('li').hide();
+
+
+                $('.inlstallen').each(function () {
+                    $(this).find('li:first').show();
+                });
+            }
+        }).bind(this);
+
+
+        $('body').on('click', '.preSortCell .material-icons', function () {
+
+            if (!$(this).closest('.tabDesk').find('.preSort-frakt').hasClass('showPreSorts')) {
+                $(this).closest('.tabDesk').find('.expand-less').removeClass('hide');
+                $(this).addClass('hide');
+                $(this).closest('.tabDesk').find('.preSort-frakt').addClass('showPreSorts');
+                $(this).closest('.tabDesk').find('.preSort-inl').addClass('showPreSorts');
+                $(this).closest('tr').addClass('expand-tr');
+            } else {
+                $(this).closest('.tabDesk').find('.expand-more').removeClass('hide');
+                $(this).addClass('hide');
+                $(this).closest('.tabDesk').find('.preSort-frakt').removeClass('showPreSorts');
+                $(this).closest('.tabDesk').find('.preSort-inl').removeClass('showPreSorts');
+                $(this).closest('tr').removeClass('expand-tr');
+            }
+
+        }).bind(this);
+
+
+        $('body').on('click', '.fp .tabDesk .material-icons', function () {
+
+            if ($(this).closest('.tabDesk').find('.avfall').hasClass('hideDetails')) {
+                $(this).closest('.tabDesk').find('.avfall').removeClass('hideDetails');
+                $(this).closest('.tabDesk').addClass('expand-tr');
+                $(this).closest('.tabDesk').find('.material-icons').text('expand_less');
+            } else {
+                $(this).closest('.tabDesk').find('.avfall').addClass('hideDetails');
+                $(this).closest('.tabDesk').find('.material-icons').text('expand_more');
+                $(this).closest('.tabDesk').removeClass('expand-tr');
+            }
+
+        }).bind(this);
+
+        $('.searchDesignation').html($('.searchNSR').attr('data-searchdesignation'));
+
     };
 
 
