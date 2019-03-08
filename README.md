@@ -1,7 +1,6 @@
 #NSR Webb.
 ==============
-Utvecklare: Johan Silvergrund <a href="http://hiq.se/">HIQ</a>, Nermin Delilovic <a href="http://nsr.se/">NSR</a> <br>
-Källkod för NSR Wordpress-tema och wordpress-plugins.
+NSR Wordpress-tema och wordpress-plugins.
 
 ##Tema: 
 ###Huvudtema: Municipio 
@@ -21,15 +20,6 @@ $Bash, Composer och lämplig PHP IDE.. <br><br>
 
 ###Verktyg för kompilering av JavaScript och SASS/CSS
 <a href="https://nodejs.org/en/">NodeJS</a> och moduler från <a href="https://www.npmjs.com/">npm</a>: <br>
-
-•	Gulp <br>
-•	Gulp-Sass <br>
-•	Gulp-Concat <br>
-•	Gulp-Uglify <br>
-•	Gulp-CSSNano <br>
-•	Gulp-Rename <br>
-•	Gulp-Autoprefixer <br><br>
-
 
 ##Plugins:
 ###NSR VC Extended
