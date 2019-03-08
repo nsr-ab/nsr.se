@@ -14,12 +14,6 @@ Beroenden: <a href="https://www.advancedcustomfields.com/">Advanced Custom Field
 ## Installation av Municipio
 Följ anvisningar på https://github.com/helsingborg-stad/Municipio-boilerplate <br><br>
 
-### Verktyg för vidarutveckling av Municipio-NSR PHP kod:
-$Bash, Composer och lämplig PHP IDE.. <br><br>
-
-### Verktyg för kompilering av JavaScript och SASS/CSS
-<a href="https://nodejs.org/en/">NodeJS</a> och moduler från <a href="https://www.npmjs.com/">npm</a>: <br>
-
 ## Plugins:
 ### NSR VC Extended
 <br>
