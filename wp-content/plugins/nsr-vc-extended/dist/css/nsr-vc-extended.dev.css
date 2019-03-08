@@ -942,24 +942,19 @@ tr {
   .purple .search-nav {
     background-color: #3f3080; } }
 
-@media (max-width: 559px) {
-  .purple .search-nav li {
-    background-color: #3f3080; } }
-
-@media (min-width: 560px) {
+.purple .search-nav li {
+  background-color: #3f3080; }
   .purple .search-nav li:hover {
-    background: #2f2263; } }
-
-.purple .search-nav li:focus, .purple .search-nav li.active {
-  background: #2f2263; }
-
-@media (max-width: 560px) {
-  .purple .search-nav li {
-    background: #3f3080; }
-    .purple .search-nav li.active {
-      background: #2f2263;
-      border-radius: 0;
-      font-size: 16px; } }
+    background: #2f2263; }
+  .purple .search-nav li:focus, .purple .search-nav li.active {
+    background: #2f2263; }
+  @media (max-width: 560px) {
+    .purple .search-nav li {
+      background: #3f3080; }
+      .purple .search-nav li.active {
+        background: #2f2263;
+        border-radius: 0;
+        font-size: 16px; } }
 
 .purple .search-button {
   background-color: #3f3080; }
@@ -972,24 +967,19 @@ tr {
   .green-light .search-nav {
     background-color: #12847b; } }
 
-@media (max-width: 559px) {
-  .green-light .search-nav li {
-    background-color: #12847b; } }
-
-@media (min-width: 560px) {
+.green-light .search-nav li {
+  background-color: #12847b; }
   .green-light .search-nav li:hover {
-    background: #14716a; } }
-
-.green-light .search-nav li:focus, .green-light .search-nav li.active {
-  background: #14716a; }
-
-@media (max-width: 560px) {
-  .green-light .search-nav li {
-    background: #12847b; }
-    .green-light .search-nav li.active {
-      background: #14716a;
-      border-radius: 0;
-      font-size: 16px; } }
+    background: #14716a; }
+  .green-light .search-nav li:focus, .green-light .search-nav li.active {
+    background: #14716a; }
+  @media (max-width: 560px) {
+    .green-light .search-nav li {
+      background: #12847b; }
+      .green-light .search-nav li.active {
+        background: #14716a;
+        border-radius: 0;
+        font-size: 16px; } }
 
 .green-light .search-button {
   background-color: #14716a; }

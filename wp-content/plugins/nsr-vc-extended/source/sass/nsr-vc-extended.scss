@@ -1376,14 +1376,14 @@ tr {
         }
 
         li {
-            @media (max-width: 559px) {
+
                 background-color: #3f3080;
-            }
-            @media (min-width: 560px) {
+
+
                 &:hover {
                     background: #2f2263;
                 }
-            }
+
 
             &:focus, &.active {
                 background: #2f2263;
@@ -1420,14 +1420,14 @@ tr {
         }
 
         li {
-            @media (max-width: 559px) {
+
                 background-color: #12847b;
-            }
-            @media (min-width: 560px) {
+
+
                 &:hover {
                     background: #14716a;
                 }
-            }
+     
 
             &:focus, &.active {
                 background: #14716a;

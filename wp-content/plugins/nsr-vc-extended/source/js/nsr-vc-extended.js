@@ -40,13 +40,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
      */
     Extended.prototype.init = function () {
 
-        //_gaq.push(['_setAccount', 'UA-92267061-1']); // your ID/profile
-        //_gaq.push(['_trackPageview']);
-
-
-        /* Default search */
         Extended.prototype.DefaultSiteSearch();
-
         if (!$('body').hasClass('wp-admin'))
             $('.card-content').matchHeight();
 
@@ -54,25 +48,19 @@ VcExtended.NSRExtend.Extended = (function ($) {
             this.CollapsibleHeaders();
         }.bind(this));
 
-        /* Puff med länkar - Visa fler nyheter */
         $('body').on('click', '.showAllPosts', function () {
             Extended.prototype.displayMore(this);
         }).bind(this);
 
-
-        /* CardClick */
         $('body').on('click', '.card', function (e) {
             if ($(this).data('link'))
                 window.location.href = $(this).data('link');
         }).bind(this);
 
-
-        /* searchNSR - Enter key function */
         $.fn.enterKey = function (fnc) {
             Extended.prototype.enterTrigger(fnc, this);
         }
 
-        /* searchNSR - Hiting Enter on search */
         $('.searchNSR').enterKey(function () {
 
             $('.sorteringsguiden-data').html('');
@@ -88,7 +76,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $relevant['count'] = 0;
         });
 
-        /* searchNSR - Submit means search */
         $('.searchNSR form').on('submit', function (e) {
 
             $('.sorteringsguiden-data').html('');
@@ -128,12 +115,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 $('.show-ao').addClass('active');
             }
             var aoSelect = ($(this).attr('data-letter')) ? $(this).attr('data-letter') : 'a-c';
-            //var spinner = Extended.prototype.spinner(Extended.prototype.hashCode('elasticCords'));
             Extended.prototype.AOQuery(aoSelect);
 
         }).bind(this);
 
-        /* On input starting timer  */
         $('.searchNSR').on("input", function () {
 
             window.clearTimeout(typingTimer);
@@ -143,23 +128,21 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         });
 
-        /* Backspace or space clears timeout */
         $('.searchNSR').on('keydown', function (e) {
             Extended.prototype.haltTimer(e, typingTimer);
         });
 
-        /* Puff med länkar - Visa fler nyheter */
         $('body').on('click', '.locationmap', function () {
             if ($(this).data('url'))
                 window.open($(this).data('url'), '_blank');
         }).bind(this);
 
-        /* Puff med länkar - Visa fler nyheter */
+
         $('body').on('click', '#searchkeyword-nsr', function () {
             $('#searchkeyword-nsr').focus();
         }).bind(this);
 
-        /* Search Navigation*/
+
         $('body').on('click', '.nsr-elasticSearch-nav', function () {
             $('#nsr-searchResult').removeClass('transparent-background');
             $('.search-nav li').removeClass('active');
@@ -188,14 +171,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.a-o').addClass('hide');
         }).bind(this);
 
-
         $('body').on('click', '.sortguideMenu .show-ao', function () {
             $('.search-nav li').removeClass('active');
             $(this).addClass('active');
             console.log('active AO');
         }).bind(this);
 
-        /* Search Navigation*/
         $('body').on('click', '.sortguide-nsr-elasticSearch-nav', function () {
             $('.search-nav li').removeClass('active');
             $(this).addClass('active');
@@ -204,8 +185,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             console.log('active elastic');
         }).bind(this);
 
-
-        // Expand more info
         $('body').on('click', '.preSort-inl .material-icons', function () {
 
             $('.inlstallen li').hide();
@@ -235,7 +214,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }).bind(this);
 
-        // Expand more info
         $('body').on('click', '.preSortCell .material-icons', function () {
 
             if (!$(this).closest('.tabDesk').find('.preSort-frakt').hasClass('showPreSorts')) {
@@ -254,8 +232,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }).bind(this);
 
-
-        // Expand more info
         $('body').on('click', '.fp .tabDesk .material-icons', function () {
 
             if ($(this).closest('.tabDesk').find('.avfall').hasClass('hideDetails')) {
@@ -269,8 +245,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
 
         }).bind(this);
-
-
         $('.searchDesignation').html($('.searchNSR').attr('data-searchdesignation'));
     };
 
