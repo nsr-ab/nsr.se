@@ -22,7 +22,6 @@ $Bash, Composer och lämplig PHP IDE.. <br><br>
 
 ## Plugins:
 ### NSR VC Extended
-GIT: https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-vc-extended
 <br>
 Är en samling Visual Composer add-ons. https://vc.wpbakery.com/
 <br>
@@ -38,8 +37,6 @@ GIT: https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-vc-exte
 
 
 ### NSR Open Hours
-GIT: https://github.com/nsr-ab/nsr.se/tree/master/wp-content/plugins/nsr-open-hours <br><br>
-
 Lägg till olika städer/orter med länk till intern sida. <br>
 Det går att skapa undantag i öppettider för varje stad. Utvisning sker via NSR VC Extended eller widget.<br>
 
