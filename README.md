@@ -1,9 +1,8 @@
 # NSR Webb.
-==============
 NSR Wordpress-tema och wordpress-plugins.
 
 ## Tema: 
-###Huvudtema: Municipio 
+### Huvudtema: Municipio 
 GIT: https://github.com/helsingborg-stad/Municipio-boilerplate <br>
 Beroenden: <a href="https://www.advancedcustomfields.com/">Advanced Custom Fields Pro</a> <br> 
 
