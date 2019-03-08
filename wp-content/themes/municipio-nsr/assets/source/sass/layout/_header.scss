@@ -52,8 +52,9 @@
 
 @media screen and (max-width: 1000px) {
     .site-header {
-        height:82px;
-        min-height:82px;
+        height: 120px;
+        border-bottom: none;
+        min-height: 120px;
         .desk-logo {
             display:none;
         }

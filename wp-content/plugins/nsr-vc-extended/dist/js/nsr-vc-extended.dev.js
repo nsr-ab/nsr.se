@@ -643,6 +643,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     $('.search-nav li').removeClass('active');
                     $('.nsr-elasticSearch-nav').addClass('active');
                     $('.sorteringsguiden').removeClass('hide');
+                    $('.a-o-qview').removeClass('hide');
                 }
 
                 if ($relevant['page'] !== $relevant['sortguide']) {
@@ -651,6 +652,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $('.search-nav li').removeClass('active');
                         $('.nsr-page-nav').addClass('active');
                         $('.search-autocomplete').removeClass('hide');
+                        $('.a-o-qview').addClass('hide');
                     }
                 }
 
@@ -660,6 +662,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $('.search-nav li').removeClass('active');
                         $('.nsr-fetchplanner-nav').addClass('active');
                         $('.search-fetchPlanner').removeClass('hide');
+                        $('.a-o-qview').addClass('hide');
                     }
                 }
             }
@@ -704,11 +707,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('#nsr-searchResult').removeClass('hide');
 
         //Hits
-        $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span data-letter="a-c" class="a-o a-o-trigger right-align right hide mobHide show-ao">Sorteringsguiden A till Ö</span>');
+        $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span data-letter="a-c" class="a-o-trigger right-align right hide mobHide a-o-qview">Sorteringsguiden A till Ö</span>');
         $('.search-hits').removeClass('hide');
 
         if ($('.nsr-elasticSearch-nav').hasClass('active'))
-            $('.a-o').removeClass('hide');
+            $('.a-o-qview').removeClass('hide');
 
     };
 
@@ -1304,6 +1307,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
             Extended.prototype.doneTyping();
             $('.searchWrapper').addClass('searching');
             $('.search-nav li').removeClass('active');
+
+            if (!$('.searchMenu').hasClass('sortguideMenu')) {
+                $('.a-o-qview').removeClass();
+            }
             Extended.prototype.searchNav();
             $relevant['count'] = 0;
         });
@@ -1322,6 +1329,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.search-nav li').removeClass('active');
             Extended.prototype.searchNav();
             $relevant['count'] = 0;
+
+            if (!$('.searchMenu').hasClass('sortguideMenu')) {
+                $('.a-o-qview').removeClass();
+            }
             return false;
         }).bind(this);
 
@@ -1386,7 +1397,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $(this).addClass('active');
             $('.searchView').addClass('hide');
             $('.sorteringsguiden').removeClass('hide');
-            $('.a-o').removeClass('hide');
+            $('.a-o-qview').removeClass('hide');
         }).bind(this);
 
 
@@ -1396,7 +1407,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $(this).addClass('active');
             $('.searchView').addClass('hide');
             $('.search-autocomplete').removeClass('hide');
-            $('.a-o').addClass('hide');
+            $('.a-o-qview').addClass('hide');
         }).bind(this);
 
 
@@ -1406,7 +1417,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $(this).addClass('active');
             $('.searchView').addClass('hide');
             $('.search-fetchPlanner').removeClass('hide');
-            $('.a-o').addClass('hide');
+            $('.a-o-qview').addClass('hide');
         }).bind(this);
 
 

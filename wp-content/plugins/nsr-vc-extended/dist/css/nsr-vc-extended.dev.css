@@ -365,7 +365,7 @@ input[type=text]:focus.invalid {
     font-size: 1.4rem;
     color: #6e6e6e;
     font-weight: normal; }
-    #nsr-searchResult .search-hits .a-o {
+    #nsr-searchResult .search-hits .a-o-qview {
       color: #016a77;
       cursor: pointer;
       font-weight: bold; }
@@ -1126,8 +1126,12 @@ tr {
 .hero-search .searchMenu, .hero-search .searchDesignation-sortguide {
   display: none; }
 
-#main-content .a-o {
-  display: none; }
+.search-nav li span {
+  display: none !important; }
+
+@media (max-width: 1005px) {
+  .sortAs li::before {
+    padding-left: 0px; } }
 
 #main-content .searchbuttons {
   display: none; }

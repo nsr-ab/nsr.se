@@ -217,6 +217,9 @@ li.before {
 
 .fulldate {
   min-width: 40px !important;
+  @media (max-width: 1070px) {
+    min-width: 135px!important;
+  }
 }
 
 @media (max-width: 1070px) {

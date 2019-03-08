@@ -543,7 +543,7 @@ input[type=text]:focus.invalid {
         color: $darkGrey;
         font-weight: normal;
 
-        .a-o {
+        .a-o-qview {
             color: $darkerGreen;
             cursor: pointer;
             font-weight: bold;
@@ -1673,11 +1673,20 @@ tr {
     }
 
 }
+.search-nav li span {
+    display:none !important;
+}
+@media (max-width: 1005px) {
 
-#main-content {
-    .a-o {
-        display: none;
+    .sortAs li {
+        &::before {
+            padding-left: 0px;
+        }
+
     }
+
+}
+#main-content {
 
     .searchbuttons {
         display: none;

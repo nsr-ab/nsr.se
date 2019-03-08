@@ -7024,8 +7024,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     display: none; }
   @media screen and (max-width: 1000px) {
     .is-child-theme .site-header {
-      height: 82px;
-      min-height: 82px; }
+      height: 120px;
+      border-bottom: none;
+      min-height: 120px; }
       .is-child-theme .site-header .desk-logo {
         display: none; }
       .is-child-theme .site-header .mob {
@@ -7541,6 +7542,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     font-weight: 600; }
   .is-child-theme .fulldate {
     min-width: 40px !important; }
+    @media (max-width: 1070px) {
+      .is-child-theme .fulldate {
+        min-width: 135px !important; } }
   @media (max-width: 1070px) {
     .is-child-theme .openhours .collection .collection-item {
       padding: 10px; } }
