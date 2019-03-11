@@ -117,7 +117,12 @@ Nsr.App.AppDefault = (function ($) {
         else {
             $('.heroWrapper').removeAttr('style');
             var heroBg = $('.sites-nav .current-menu-item ').css('background-color');
-            $('.heroWrapper').attr('style', 'background-color:'+heroBg+'!important;');
+            console.log(heroBg);
+            if (heroBg !== undefined) {
+                $('.heroWrapper').attr('style', 'background-color:'+heroBg+'!important;');
+            } else {
+                $('.heroWrapper').attr('style', 'background-color:#007586!important;');
+            }
             $('.mob .sites-nav  li.current-menu-item').removeAttr('style');
         }
 

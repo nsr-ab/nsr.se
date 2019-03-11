@@ -7042,6 +7042,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .is-child-theme .heroWrapper {
     height: 400px;
     z-index: 997;
+    margin-top: -1px;
+    background-color: #007586;
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
