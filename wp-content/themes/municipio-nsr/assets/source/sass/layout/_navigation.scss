@@ -24,6 +24,10 @@
         width: 100%;
         display: flex;
         align-items: flex-end;
+
+        @media (max-width: 599px) {
+            margin-bottom: -1px;
+        }
     }
 
     nav ul li.active {
@@ -58,7 +62,7 @@
         li {
             width: 100%;
             text-align: left;
-            cursor:pointer;
+            cursor: pointer;
 
             &:last-child {
                 border-top-right-radius: 8px;
@@ -76,10 +80,11 @@
 
             &:nth-child(1) {
                 width: 200px;
+
                 a:before {
                     width: 40px;
                     content: "\e88a";
-                    font-weight:normal;
+                    font-weight: normal;
                     font-family: Material Icons;
                     @media only screen and (max-width: 1005px) {
                         a::before {
@@ -90,14 +95,15 @@
 
                 @media only screen and (max-width: 1005px) {
                     width: 33% !important;
-                    text-align:center;
+                    text-align: center;
                     &:before {
                         font-size: 25px;
                         content: "\e88a";
-                        font-weight:normal;
+                        font-weight: normal;
                         font-family: Material Icons;
                         vertical-align: inherit;
-                        text-align:center;
+                        text-align: center;
+
                         a::before {
                             content: '';
                         }
@@ -109,10 +115,11 @@
 
             &:nth-child(2) {
                 width: 200px;
+
                 a::before {
                     width: 50px;
                     content: "\e563";
-                    font-weight:normal;
+                    font-weight: normal;
                     font-family: Material Icons;
                     @media only screen and (max-width: 1005px) {
                         a::before {
@@ -123,13 +130,14 @@
 
                 @media only screen and (max-width: 1005px) {
                     width: 33% !important;
-                    text-align:center;
+                    text-align: center;
                     &::before {
                         font-size: 25px;
                         content: "\e563";
-                        font-weight:normal;
+                        font-weight: normal;
                         font-family: Material Icons;
-                        text-align:center;
+                        text-align: center;
+
                         a::before {
                             content: '';
 
@@ -141,11 +149,12 @@
 
             &:nth-child(3) {
                 width: 260px;
+
                 a::before {
                     width: 76px;
                     content: "\e7ee";
                     font-family: Material Icons;
-                    font-weight:normal;
+                    font-weight: normal;
                     @media only screen and (max-width: 1005px) {
                         a::before {
                             content: '';
@@ -155,13 +164,14 @@
 
                 @media only screen and (max-width: 1005px) {
                     width: 34% !important;
-                    text-align:center;
+                    text-align: center;
                     &::before {
                         font-size: 25px;
                         content: "\e7ee";
-                        font-weight:normal;
+                        font-weight: normal;
                         font-family: Material Icons;
-                        text-align:center;
+                        text-align: center;
+
                         a::before {
                             content: '';
                         }
@@ -181,7 +191,7 @@
 
 /* Navigation li item,  Mobile & Desktop */
 
-.sites-nav li  {
+.sites-nav li {
 
 
     display: table-cell;
@@ -218,12 +228,12 @@
 
             }
             background-color: nth($colors-nav, $int);
-            color:white;
+            color: white;
             &:nth-child(#{length($colors-nav)}n+#{$int}):hover,
             &:nth-child(#{length($colors-nav)}n+#{$int}).current-menu-item,
             &:nth-child(#{length($colors-nav)}n+#{$int}).active {
                 background-color: nth($colors-nav, $int);
-                color:white;
+                color: white;
 
             }
         }
@@ -254,7 +264,8 @@
     position: absolute;
     top: 10px;
     z-index: 999;
-    padding:0px !important;
+    padding: 0px !important;
+
     .material-icons {
         font-size: 36px;
 
@@ -275,11 +286,11 @@
     }
 
     .mobile-search {
-        position:Absolute;
-        top:20px;
+        position: Absolute;
+        top: 20px;
         right: 20px;
         color: $palette-primary-green;
-        float:right;
+        float: right;
     }
 
     .mobile-nav {
@@ -293,12 +304,13 @@
     }
 
     .mobile-logo {
-        width:120px;
-        height:90px;
+        width: 120px;
+        height: 90px;
+
         a {
             width: 90px;
             margin-top: -9px;
-            margin-left:20px;
+            margin-left: 20px;
             animation: popout 0.5s ease;
             -webkit-animation: popout 0.5s ease;
         }
@@ -412,11 +424,12 @@
     right: 30px;
     top: 30px;
     @media (max-width: 1005px) {
-        top:14px;
+        top: 14px;
     }
     z-index: 999;
+
     .material-icons {
-        font-size:27px;
+        font-size: 27px;
     }
 }
 
@@ -436,7 +449,7 @@
 
 @media (max-width: 1005px) {
     .breadcrumbs {
-        display:none;
+        display: none;
     }
     .breadcrumbs li:nth-last-child(2) a:before {
 
@@ -465,10 +478,10 @@
 
     .acc-helper-menu li {
         float: left;
-        margin-top:5px;
+        margin-top: 5px;
     }
     .admin-bar .mob .mobile-logo a {
-        margin-top:-5px !important;
+        margin-top: -5px !important;
     }
 }
 
@@ -478,6 +491,7 @@
     }
 
 }
+
 @media (max-width: 599px) {
 
     .admin-bar .mob .mobile-logo a {
@@ -496,15 +510,26 @@
         height: 151px;
     }
 }
+
 .admin-bar {
-    top:0px !important;
+    top: 0px !important;
     @media (max-width: 599px) {
         top: -46px !important;
     }
+
     .mob {
         .mobile-logo a {
             margin-top: 0px;
         }
     }
+}
+
+@media (max-width: 599px) {
+    .sites-nav {
+        .nav {
+            margin-bottom: -1px;
+        }
+    }
+
 }
 
