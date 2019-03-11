@@ -1673,8 +1673,10 @@ tr {
     }
 
 }
-.search-nav li span {
-    display:none !important;
+@media (max-width: 605px) {
+    .search-nav li span {
+        display: none;
+    }
 }
 @media (max-width: 1005px) {
 

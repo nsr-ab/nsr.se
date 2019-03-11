@@ -1126,8 +1126,9 @@ tr {
 .hero-search .searchMenu, .hero-search .searchDesignation-sortguide {
   display: none; }
 
-.search-nav li span {
-  display: none !important; }
+@media (max-width: 605px) {
+  .search-nav li span {
+    display: none; } }
 
 @media (max-width: 1005px) {
   .sortAs li::before {
