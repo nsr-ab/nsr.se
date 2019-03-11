@@ -1043,7 +1043,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $fprow += '<i class="expand-avfall material-icons expand-more">expand_more</i>';
                         $fprow += '<span class="fpTopic">' + post.Adress + '</span><br />';
                         $fprow += '<b class="">' + post.Ort + '</b><br /><br />';
-                        $fprow += ' <a class="avfall-files-desk" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till i kalender</a><br />';
+                        $fprow += ' <a class="avfall-files-desk" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till i kalender</a>';
                         $fprow += ' <a class="avfall-files-desk" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '">Visa PDF dokument</a>';
                         $fprow += '</div>';
                         $fprow += '<div  class="vc_col-sm-4 avfall hideDetails">';
