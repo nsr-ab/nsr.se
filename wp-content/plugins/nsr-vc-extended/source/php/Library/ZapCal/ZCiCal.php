@@ -45,7 +45,7 @@ class ZCiCal {
  *
 *
 */
-function __construct($title, $data = "", $maxevents = 1000000, $startevent = 0) {
+function __construct($title = "", $data = "", $maxevents = 1000000, $startevent = 0) {
 
 	if($data != ""){
 		// unfold lines
@@ -207,10 +207,12 @@ function __construct($title, $data = "", $maxevents = 1000000, $startevent = 0) 
 				$datanode = new ZCiCalDataNode("METHOD:PUBLISH");
 				$this->curnode->data[$datanode->getName()] = $datanode;
 
-				$datanode = new ZCiCalDataNode("NAME:".$title);
-				$this->curnode->data[$datanode->getName()] = $datanode;
-				$datanode = new ZCiCalDataNode("X-WR-CALNAME:".$title);
-				$this->curnode->data[$datanode->getName()] = $datanode;
+				if ($title != "") {
+					$datanode = new ZCiCalDataNode("NAME:".$title);
+					$this->curnode->data[$datanode->getName()] = $datanode;
+					$datanode = new ZCiCalDataNode("X-WR-CALNAME:".$title);
+					$this->curnode->data[$datanode->getName()] = $datanode;
+				}
 			}
 }
 
