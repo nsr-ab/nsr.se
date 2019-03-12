@@ -10,9 +10,11 @@
  */
 
   
+namespace VcExtended;
+
 define('ANDRADTOMNING', '2019-12-23, 2019-12-24, 2019-12-25, 2019-12-26, 2019-12-27, 2019-12-28, 2019-12-29, 2019-12-30, 2019-12-31');
 
-namespace VcExtended;
+
 class App
 {
     public $collection;
