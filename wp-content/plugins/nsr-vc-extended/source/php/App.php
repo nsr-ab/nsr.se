@@ -92,7 +92,7 @@ class App
         /**
          * Enqueue Scripts
          */
-        if (!class_exists('Enqueue')) {
+         if (!class_exists('Enqueue')) {
             new \VcExtended\Library\Enqueue();
         }
 
@@ -123,7 +123,7 @@ class App
         if (!class_exists('FPDFCalendar')) {
             new \VcExtended\Library\FPDF\FPDFCalendar();
         }
-
+        
 
         add_action('wp_ajax_nopriv_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
         add_action('wp_ajax_fetchDataFromElasticSearch', array($this, 'fetchDataFromElasticSearch'));
@@ -230,6 +230,8 @@ class App
         if ($defenition == 'Me+Og+Ti+Plast' && $jobtemplate == "Tömning")    //(Töms normalt var fjärde vecka)
             return 'KÄRL 2';
 
+        if ($defenition == 'Matavfall' && $jobtemplate == "Tömning")
+            return 'MATAVFALL';
         if ($defenition == 'Mat+Rest' && $jobtemplate == "Tömning")
             return 'TVÅDELAT KÄRL';
         if ($defenition == 'Trädgårdsavfall' && $jobtemplate == "Tömning")
@@ -265,7 +267,10 @@ class App
         if ($defenition == 'Slam akut nästa arbetsdag' || $jobtemplate == "Slam akut nästa arbetsdag")
             return 'SLAM';
 
+       // return "$jobtemplate $defenition";
+        return false;
 
+            
         /*
         $retVal = array('KÄRL 1', 'KÄRL 2', 'TVÅDELAT KÄRL', 'TRÄDGÅRDSAVFALL', 'RESTAVFALL', 'SLAM', false);
         switch ($defenition) {
@@ -316,15 +321,16 @@ class App
         return $type;
         */
 
-        return false;
+
+        //return false;
     }
 
     /**
      *  fetchDataFromFetchPlannerInternal
      *  Get data from Fetchplanners API
      */
-    private function fetchDataFromFetchPlannerInternal($from, $to, $q, $post_type, $maxcount=10)
-    {
+     private function fetchDataFromFetchPlannerInternal($from, $to, $q, $post_type, $maxcount=10)
+     {
         // Turn 3B into 3 B
         $qp = explode(" ", $q);
         if (count($qp) > 1 && preg_match('!^([0-9]+)([A-Za-z])$!', $qp[count($qp)-1], $m) && count($m) == 3) {
@@ -339,7 +345,7 @@ class App
             return array('fp'=>array(), 'q'=>$q);
             exit;
         }
-
+        
         $data = self::fetchPlansByCurl('/GetContainerCalendarDataByPickupName?pickupName=' .
             trim(urlencode($q)) . '&dateStart=' . $todaysDate . '&dateEnd=' . $stopDate . '&maxCountCalendarPerContainer=' . $maxcount);
 
@@ -359,7 +365,7 @@ class App
             if (isset($idToIndex[$fpId]))
                 $i = $idToIndex[$fpId];
             else {
-                $i = $idToIndex[$fpId] = $int++;
+                $i = $idToIndex[$fpId] = $int++;           
                 $colData['fp'][$i]['id'] = $fpId;
                 $colData['fp'][$i]['Adress'] = $item->PickupName;
                 $colData['fp'][$i]['Ort'] = ucfirst(mb_strtolower($item->PickupCity));
@@ -371,13 +377,14 @@ class App
                     'AvfallsTyp'=>array(),
                     'AvfallsTypFormaterat'=>array()
                 );
-            }
+            }    
 
             foreach ($item->Calendars as $cal) {
                 $date = self::setDateFormat($cal->ExecutionDate);
                 $datetime = new \DateTime($date);
                 $typ = self::getFpDefenitions($item->ContentTypeCode, $cal->JobTemplate);
 
+               // echo "$date $typ " .$item->ContentTypeCode ." " . $cal->JobTemplate."\n";
                 if (isset($dupIdTypDate[$fpId . $typ . $date]))
                     continue;
                 $dupIdTypDate[$fpId . $typ . $date] = 1;
@@ -408,13 +415,13 @@ class App
                 return -1;
             if (strncasecmp($a, $q, $len) && !strncasecmp($b, $q, $len))
                 return 1;
-            return strcasecmp($a, $b);
+            return strcasecmp($a, $b);                
         });
 
         return $colData;
-    }
+     }
 
-
+     
     public function fetchDataFromFetchPlannerCombined() {
         $todaysDate = date('Y-m-d');
         $stopDate = date("Y-m-d", strtotime("$todaysDate +26 days"));
@@ -427,11 +434,11 @@ class App
 
     private function sendEmptyCalendar($calendar_type) {
         if ($calendar_type == "ical") {
-            $icalobj = new \VcExtended\Library\ZapCal\ZCiCal();
+            $icalobj = new \VcExtended\Library\ZapCal\ZCiCal("Tömningskalender");          
             header('Content-Disposition: filename="tomningskalender.ics"');
             header("Content-Type: Text/Calendar");
             echo $icalobj->export();
-            exit;
+            exit;    
         }
 
         echo "<h4>Ingen kalender kunde genereras för denna tömningsplats.</h4>";
@@ -476,7 +483,7 @@ class App
         $results = array();
         $dub = array();
         for ($avint = 0; $avint < count($exec['AvfallsTyp']); $avint++) {
-            //  echo "<pre>$avint " . $exec['Datum'][$avint] . " ". $exec['AvfallsTyp'][$avint] ."</pre>";
+          //  echo "<pre>$avint " . $exec['Datum'][$avint] . " ". $exec['AvfallsTyp'][$avint] ."</pre>";
 
             if (strtotime($exec['Datum'][$avint]) >= strtotime($todaysDate) && $exec['AvfallsTyp'][$avint] != "") {
                 $k = $exec['AvfallsTyp'][$avint] . ' ' . $exec['Datum'][$avint];
@@ -492,22 +499,25 @@ class App
             exit;
         }
 
+        // Ändrade tömningsdagar
+        $andrtomn = array_map(function ($d) { return trim($d); }, explode(",", ANDRADTOMNING));
+
         //
         // ICAL
         //
         if ($calendar_type == "ical") {
-            $icalobj = new \VcExtended\Library\ZapCal\ZCiCal();
+            $icalobj = new \VcExtended\Library\ZapCal\ZCiCal("Tömningskalender");
             $index = 1;
-            foreach ($results as $result) {
+            foreach ($results as $result) {            
                 $eventobj = new \VcExtended\Library\ZapCal\ZCiCalNode("VEVENT", $icalobj->curnode);
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("SUMMARY:" . $result['AvfallsTyp']));
-                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTART:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'])));
-                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTEND:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'])));
+                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTART:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'] . " 00:00:00")));
+                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTEND:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'] . " 23:59:59")));
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("UID:" . date('Y-m-d-H-i-s') . "@nsr.se" . "#" . ($index++)));
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTAMP:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime()));
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("Description:" . \VcExtended\Library\ZapCal\ZCiCal::formatContent($result['AvfallsTyp'] . " - " . $title)));
             }
-
+        
             header('Content-Disposition: filename="tomningskalender.ics"');
             header("Content-Type: Text/Calendar");
             echo $icalobj->export();
@@ -543,7 +553,7 @@ class App
         $month = (int)gmdate("m");
         for ($monthi = 0; $monthi <= 12; $monthi++) {
             $date = $pdf->MDYtoJD($month, 1, $year);
-            $pdf->printMonth($date, $bydate);
+            $pdf->printMonth($title, $date, $bydate, $andrtomn);
             if ($year == $lastyear && $month == $lastmonth)
                 break;
             if ($month == 12) {
@@ -558,7 +568,7 @@ class App
         header('Content-Disposition: filename="tomningskalender.pdf"');
         $pdf->Output();
 
-        exit;
+        exit;  
     }
 
     /**
@@ -593,7 +603,7 @@ class App
 
                 if ($collect === false) {
 
-
+                    
                     $fpData = self::fetchPlansByCurl('/GetCalendarData?pickupId=' . $item->PickupId . '&maxCount=40&DateEnd=' . $stopDate);
 
 
@@ -698,7 +708,7 @@ class App
                 $result['sortguide'][$metaInt]->post_meta = get_post_meta($result['sortguide'][$metaInt]->ID);
 
                 $frakt = array(array('avc', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_avc'][0]),
-                    array('hemma', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]));
+                               array('hemma', $result['sortguide'][$metaInt]->post_meta['avfall_fraktion_hemma'][0]));
 
                 foreach ($frakt as $fraktion) {
 
@@ -780,8 +790,8 @@ class App
 
         }
 
-        wp_send_json($result);
-        exit;
-    }
-
+         wp_send_json($result);
+         exit;
+     }
+ 
 }

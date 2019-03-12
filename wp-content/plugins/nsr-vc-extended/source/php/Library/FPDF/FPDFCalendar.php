@@ -21,13 +21,13 @@ class FPDFCalendar extends FPDF
 
         // compute font size
         $this->tinySquareSize = 4;
-        $this->headerFontSize = 30;
-        $this->SetFont("Helvetica", "B", $this->headerFontSize);
-        $width = $this->w - $this->lMargin - $this->rMargin;
-        while ($this->GetStringWidth($this->longestMonth) > $width - $this->tinySquareSize * 22) {
-            --$this->headerFontSize;
-            $this->SetFont("Helvetica", "B", $this->headerFontSize);
-        }
+        //$this->headerFontSize = 30;
+        //$this->SetFont("Helvetica", "B", $this->headerFontSize);
+        //$width = $this->w - $this->lMargin - $this->rMargin;
+        //while ($this->GetStringWidth($this->longestMonth) > $width - $this->tinySquareSize * 22) {
+          //  --$this->headerFontSize;
+            //$this->SetFont("Helvetica", "B", $this->headerFontSize);
+        //}
     }
 
     // useful date manipulation routines
@@ -104,7 +104,7 @@ class FPDFCalendar extends FPDF
         }
     }
 
-    function printMonth($date, $bydate=array()) {
+    function printMonth($title, $date, $bydate=array(), $andrtomn=array()) {
         $this->date = $date;
         $this->JDtoYMD($date, $year, $month, $day);
 
@@ -119,16 +119,36 @@ class FPDFCalendar extends FPDF
         if ($this->monthIndex % 4 == 1) {
             $this->AddPage();
 
+            // print address
+            $this->SetXY($this->lMargin, $this->tMargin);
+            $this->SetFont("Helvetica", "B", 15);
+            $this->Cell(($this->w - $this->lMargin - $this->rMargin), 5, utf8_decode($title), 0, 0, "C");
+
             // print general text
-            $this->SetXY($this->lMargin, $this->tMargin + 2.02*$height);
-            $this->SetFont("Helvetica", "B", 10);
-            $this->Cell(($this->w - $this->lMargin - $this->rMargin), 5, utf8_decode("Blah blah blah generell text hamnar här. Kommer från NSR."), 0, 0, "C");
+            $this->SetXY($this->lMargin, $this->tMargin + 2.02*$height - 5);
+            $this->SetFont("Helvetica", "", 8);
+            $this->Cell(($this->w - $this->lMargin - $this->rMargin), 5, utf8_decode("Ditt kärl ska stå på anvisad plats senast klockan 6 på tömningsdagens morgon. Anslut dig gärna till sms-påminnelse (www.nsr.se/sms), så får du ett sms kvällen före tömning."), 0, 0, "L");
+
+            $this->SetXY($this->lMargin, $this->tMargin + 2.02*$height + 0);
+            $this->SetFont("Helvetica", "", 8);
+            $this->Cell(($this->w - $this->lMargin - $this->rMargin) , 5, utf8_decode("Om ditt kärl inte blivit tömt, felsök gärna på vår webbplats www.nsr.se innan du kontaktar oss."), 0, 0, "L");    
 
             $this->SetXY($this->lMargin, $this->tMargin + 2.02*$height + 5);
-            $this->SetFont("Helvetica", "B", 10);
-            $this->Cell(($this->w - $this->lMargin - $this->rMargin) , 5, utf8_decode("Blah blah blah generell text hamnar här. Kommer från NSR. Andra raden."), 0, 0, "C");    
+            $this->SetFont("Helvetica", "", 8);
+            $this->Cell(($this->w - $this->lMargin - $this->rMargin) , 5, utf8_decode("Ändrad tömningsdag betyder att tömning kan ske någon dag tidigare eller senare på grund av helgdag. Ställ ut kärl en dag före ordinarie tömningsdag och låt stå tills kärl är tömt."), 0, 0, "L");    
+
+            $this->SetXY($this->lMargin, $this->tMargin + 2.02*$height + 10);
+            $this->SetFont("Helvetica", "", 8);
+            $this->Cell(($this->w - $this->lMargin - $this->rMargin) , 5, utf8_decode("Detaljerat tömningsschema under storhelger hittar du på www.nsr.se/helgschema"), 0, 0, "L");    
+
         }
 
+        
+        
+        
+        
+         
+        
         // print prev and next calendars
 /*
         $this->setXY($this->lMargin,$this->tMargin);
@@ -142,7 +162,7 @@ class FPDFCalendar extends FPDF
         $monthStr = strtoupper($this->months[gmdate("n", jdtounix($date))-1]) . " ";
         $monthStr .= strtoupper(gmdate ("Y", jdtounix($date)));
         $this->SetXY($this->lMargin + $ofsx, $this->tMargin + $ofsy);
-        $this->SetFont("Helvetica", "B", $this->headerFontSize);
+        $this->SetFont("Helvetica", "B", 22);
         $this->Cell($width, $firstLine, $monthStr, 0, 0, "C");
 
         // compute number of weeks in month.
@@ -194,12 +214,22 @@ class FPDFCalendar extends FPDF
                 if ($curMonth == $month) {
                     $isodate = sprintf("%04d-%02d-%02d", $curYear, $curMonth, $curDay);
                     if (isset($bydate[$isodate])) {
-                        $t = str_replace("\n", ", ", trim($bydate[$isodate]));
+                        $texts = explode("\n", trim($bydate[$isodate]));
+                        if (in_array($isodate, $andrtomn)) {
+                            array_unshift($texts, "ÄNDRAD TÖMNINGSDAG");
+                            $this->SetFillColor(255, 200, 200);
+                        }
+                        else {
+                            $this->SetFillColor(200, 200, 255);
+                        }
                         $this->setXY($x+$ofsx, $y+$ofsy);
                         $this->Cell($this->squareWidth, $this->squareHeight, "", 0, 0, "", true);
-                        $this->SetXY($x+$ofsx, $y + $ofsy + $this->squareHeight/2);
-                        $this->SetFont("Arial", "B", 10);
-                        $this->Cell($this->squareWidth,5,utf8_decode($t), 0,0, "C");           
+                        $this->SetFont("Helvetica", "B", 4.3);
+                        $rowindex = 0;
+                        foreach ($texts as $t) {
+                            $this->SetXY($x+$ofsx, $y + $ofsy + $this->squareHeight/2);
+                            $this->Cell($this->squareWidth,-1+3.2*($rowindex++),utf8_decode($t), 0,0, "C");
+                        }
                     }
                     $this->SetFont("Helvetica", "B", 8);
                     $this->SetXY($x + $ofsx, $y + $ofsy - 0.5);
