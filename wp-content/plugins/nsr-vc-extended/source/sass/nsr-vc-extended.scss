@@ -1559,7 +1559,7 @@ tr {
 
 //JOHAN MENYN - i hero
 .nsr-origamiLoader {
-    background: url(/wp-content/themes/municipio-nsr/assets/dist/img/loader.svg);
+    background: url(/wp-content/themes/municipio-nsr/assets/dist/img/loader.gif);
     background-repeat: no-repeat;
     display: block;
     width: 100px;
@@ -1569,6 +1569,7 @@ tr {
     //margin-top:-7px;
     color: white !important;
     font-size: 1.7rem !important;
+
     @media (max-width: 500px) {
         background-size: 38px;
         background-position-y: 2px;

@@ -1045,7 +1045,7 @@ tr {
         font-weight: 900; }
 
 .nsr-origamiLoader {
-  background: url(/wp-content/themes/municipio-nsr/assets/dist/img/loader.svg);
+  background: url(/wp-content/themes/municipio-nsr/assets/dist/img/loader.gif);
   background-repeat: no-repeat;
   display: block;
   width: 100px;
