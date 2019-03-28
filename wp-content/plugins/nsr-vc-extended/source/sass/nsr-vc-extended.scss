@@ -310,6 +310,7 @@ input[type=text]:focus.invalid {
         padding-left: 70px !important;
         margin-left: 0 !important;
         width: 100% !important;
+
         @media (max-width: 1199px) {
             height: 29px;
         }
@@ -317,6 +318,9 @@ input[type=text]:focus.invalid {
             font-size: 0.2em;
             padding-left: 23px !important;
             height: 12px;
+        }
+        @media (min-width: 845px) {
+            //width: 500px !important;
         }
     }
 
