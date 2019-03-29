@@ -217,8 +217,6 @@ input[type=text]:focus.invalid {
         font-size: 0.2em;
         padding-left: 23px !important;
         height: 12px; } }
-  .searchNSR .input-field input[type=search]:focus {
-    color: black; }
   .searchNSR .prefix {
     color: #2dbccd;
     position: absolute;
@@ -246,9 +244,11 @@ input[type=text]:focus.invalid {
     .searchNSR .input-field input[type=search] + label {
       display: none; } }
   .searchNSR input[type=search].form-control-lg {
-    font-size: 2.0em;
-    padding-top: 1.2rem;
-    /* Midnight hack .... :-/ */ }
+    font-size: 24px !important;
+    padding-top: 17.5px; }
+    @media (max-width: 580px) {
+      .searchNSR input[type=search].form-control-lg {
+        padding-top: 16.6px; } }
   @media (max-width: 420px) {
     .searchNSR input[type=search].form-control-lg {
       font-size: 1.2em; } }
@@ -302,16 +302,32 @@ input[type=text]:focus.invalid {
     color: #2dbccd !important; }
   .searchNSR ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
-    color: #ffffff !important; }
+    color: #8a8a8a !important;
+    font-size: 24px; }
+    @media (max-width: 580px) {
+      .searchNSR ::-webkit-input-placeholder {
+        font-size: 18px; } }
   .searchNSR ::-moz-placeholder {
     /* Firefox 19+ */
-    color: #ffffff !important; }
+    color: #8a8a8a !important;
+    font-size: 24px; }
+    @media (max-width: 580px) {
+      .searchNSR ::-moz-placeholder {
+        font-size: 15px; } }
   .searchNSR :-ms-input-placeholder {
     /* IE 10+ */
-    color: #ffffff !important; }
+    color: #8a8a8a !important;
+    font-size: 24px; }
+    @media (max-width: 580px) {
+      .searchNSR :-ms-input-placeholder {
+        font-size: 15px; } }
   .searchNSR :-moz-placeholder {
     /* Firefox 18- */
-    color: #ffffff !important; }
+    color: #8a8a8a !important;
+    font-size: 24px; }
+    @media (max-width: 580px) {
+      .searchNSR :-moz-placeholder {
+        font-size: 15px; } }
   .searchNSR .relative {
     position: relative; }
   .searchNSR .preloader-wrapper {
@@ -1045,7 +1061,7 @@ tr {
         font-weight: 900; }
 
 .nsr-origamiLoader {
-  background: url(/wp-content/themes/municipio-nsr/assets/dist/img/loader.svg);
+  background: url(/wp-content/themes/municipio-nsr/assets/dist/img/loader.gif);
   background-repeat: no-repeat;
   display: block;
   width: 100px;

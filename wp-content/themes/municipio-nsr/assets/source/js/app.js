@@ -38,6 +38,7 @@ Nsr.App.AppDefault = (function ($) {
             AppDefault.prototype.heroBackground(deskHero);
         });
 
+        $('.nav a').removeAttr('title');
 
     };
 

@@ -1,4 +1,6 @@
 <!-- Mobile -->
+<!-- Quick hack for ie11 -->
+
 <div class="mob grid-xs-12 grid-sm-12">
     <div class="mobile-logo grid-xs-12 grid-sm-12 grid-md-12 hide">
         {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option'), true, get_field('header_tagline_enable', 'option')) !!}
@@ -83,9 +85,9 @@
     <div class="grid">
 
 
-        <div class="grid-auto text-center-xs text-center-sm">
+        <div class="grid-auto text-center-xs text-center-sm desk-position">
             <div class="grid grid-table grid-va-middle no-padding">
-                <div class="grid-xs-8 grid-sm-8 grid-md-2 text-left-sm text-left-xs">
+                <div class="grid-xs-8 grid-sm-8 grid-md-3 text-left-sm text-left-xs ie-fix">
 
                     <div id="nsr-logo">
                         <div class="desk-logo">
@@ -96,7 +98,7 @@
                 </div>
 
 
-                <div class="hidden-sm hidden-xs sites-nav grid-sm-4 grid-md-4 ">
+                <div class="hidden-sm hidden-xs sites-nav grid-sm-6 grid-md-6 ">
 
 
                     {!!
