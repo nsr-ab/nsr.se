@@ -924,7 +924,7 @@ tr {
     padding: 10px 20px;
     float: left;
     color: white;
-    background: #094c55;
+    background: #006c7c;
     margin: 0 3px;
     text-align: center;
     cursor: pointer; }
@@ -940,14 +940,14 @@ tr {
       .search-nav li:nth-child(1), .search-nav li:nth-child(3) {
         border-radius: 0; } }
     .search-nav li:hover {
-      background: #006c7c; }
+      background: #094c55; }
     .search-nav li:focus, .search-nav li.active {
-      background: #006c7c; }
+      background: #094c55; }
     @media (max-width: 450px) {
       .search-nav li {
-        background: #106f7d; }
+        background: #006c7c; }
         .search-nav li.active {
-          background: #11616c;
+          background: #094c55;
           border-radius: 0;
           font-size: 16px; } }
     @media (max-width: 340px) {
@@ -961,14 +961,14 @@ tr {
 .purple .search-nav li {
   background-color: #3f3080; }
   .purple .search-nav li:hover {
-    background: #2f2263; }
+    background: #261b54; }
   .purple .search-nav li:focus, .purple .search-nav li.active {
-    background: #2f2263; }
+    background: #261b54; }
   @media (max-width: 560px) {
     .purple .search-nav li {
       background: #3f3080; }
       .purple .search-nav li.active {
-        background: #2f2263;
+        background: #261b54;
         border-radius: 0;
         font-size: 16px; } }
 
@@ -981,19 +981,19 @@ tr {
 
 @media (max-width: 559px) {
   .green-light .search-nav {
-    background-color: #12847b; } }
+    background-color: #14716a; } }
 
 .green-light .search-nav li {
-  background-color: #12847b; }
+  background-color: #14716a; }
   .green-light .search-nav li:hover {
-    background: #14716a; }
+    background: #125853; }
   .green-light .search-nav li:focus, .green-light .search-nav li.active {
-    background: #14716a; }
+    background: #125853; }
   @media (max-width: 560px) {
     .green-light .search-nav li {
-      background: #12847b; }
+      background: #14716a; }
       .green-light .search-nav li.active {
-        background: #14716a;
+        background: #125853;
         border-radius: 0;
         font-size: 16px; } }
 
@@ -1134,10 +1134,14 @@ tr {
     left: -51px;
     width: 100%;
     text-align: left;
-    padding-left: 15px; } }
+    padding-left: 15px;
+    display: none !important; } }
   @media (max-width: 1005px) and (max-width: 450px) {
     .searchDesignation {
       left: 0px; } }
+  @media (max-width: 1005px) and (max-width: 767px) {
+    .searchDesignation {
+      display: block !important; } }
 
 .hero-search .searchMenu, .hero-search .searchDesignation-sortguide {
   display: none; }
@@ -1250,3 +1254,6 @@ tr {
 @media (max-width: 460px) {
   #main-content .sortAs li div {
     padding-left: 0px; } }
+
+.cursor-pointer {
+  cursor: pointer; }

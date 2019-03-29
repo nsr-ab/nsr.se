@@ -1340,7 +1340,7 @@ tr {
         padding: 10px 20px;
         float: left;
         color: white;
-        background: $defaultDarkGreenSearchNav;
+        background: $defaultDarkGreen;
         margin: 0 3px;
         text-align: center;
         cursor: pointer;
@@ -1364,17 +1364,17 @@ tr {
         }
 
         &:hover {
-            background: $defaultDarkGreen;
+            background: $defaultDarkGreenSearchNav;
         }
 
         &:focus, &.active {
-            background: $defaultDarkGreen;
+            background: $defaultDarkGreenSearchNav;
         }
 
         @media (max-width: 450px) {
-            background: #106f7d;
+            background: $defaultDarkGreen;
             &.active {
-                background: #11616c;
+                background: $defaultDarkGreenSearchNav;
                 border-radius: 0;
                 font-size: 16px;
             }
@@ -1396,23 +1396,20 @@ tr {
         }
 
         li {
-
                 background-color: #3f3080;
-
-
                 &:hover {
-                    background: #2f2263;
+                    background: #261b54;
                 }
 
 
             &:focus, &.active {
-                background: #2f2263;
+                background: #261b54;
             }
 
             @media (max-width: 560px) {
                 background: #3f3080;
                 &.active {
-                    background: #2f2263;
+                    background: #261b54;
                     border-radius: 0;
                     font-size: 16px;
                 }
@@ -1436,27 +1433,27 @@ tr {
 .green-light {
     .search-nav {
         @media (max-width: 559px) {
-            background-color: #12847b;
+            background-color: #14716a;
         }
 
         li {
 
-                background-color: #12847b;
+                background-color: #14716a;
 
 
                 &:hover {
-                    background: #14716a;
+                    background: #125853;
                 }
 
 
             &:focus, &.active {
-                background: #14716a;
+                background:  #125853;
             }
 
             @media (max-width: 560px) {
-                background: #12847b;
+                background: #14716a;
                 &.active {
-                    background: #14716a;
+                    background:  #125853;
                     border-radius: 0;
                     font-size: 16px;
                 }
@@ -1682,9 +1679,14 @@ tr {
         width: 100%;
         text-align: left;
         padding-left: 15px;
+        display:none !important;
         @media (max-width: 450px) {
             left: 0px;
         }
+        @media (max-width: 767px) {
+            display:block !important;
+        }
+
     }
 }
 
@@ -1870,6 +1872,9 @@ tr {
         }
     }
 
+}
+.cursor-pointer {
+    cursor:pointer;
 }
 
 

@@ -48,6 +48,9 @@
         <a href="#translate" aria-label="translate"><i
                     class="material-icons translate-icon-btn">language</i></a>
     </li>
+    <li>
+        <a class="waves-effect waves-light" href="/sok/"><i translate="no" class="notranslate left material-icons search quickSearch"></i></a>
+    </li>
     <!-- <li>
         <a class="waves-effect waves-light" href="#searchModal">
             <i translate="no"

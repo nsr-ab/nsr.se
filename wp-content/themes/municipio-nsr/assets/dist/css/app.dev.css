@@ -7098,6 +7098,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       @media (max-width: 580px) {
         .is-child-theme .heroWrapper .hero-search {
           top: 40%; } }
+      @media (min-width: 1000px) {
+        .is-child-theme .heroWrapper .hero-search {
+          max-width: 820px;
+          width: 100%; } }
     .is-child-theme .heroWrapper .hero-form {
       margin: 0 auto;
       max-width: 800px !important;
@@ -7213,8 +7217,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme .searchbuttons .infoSearchTxt {
       position: absolute;
       width: 100px;
-      left: 23px;
-      top: -1px;
+      left: 29px;
+      top: 3px;
       font-size: 12px !important;
       cursor: pointer;
       color: white; }

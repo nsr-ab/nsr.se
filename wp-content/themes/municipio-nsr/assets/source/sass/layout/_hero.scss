@@ -40,8 +40,9 @@
         transform: translate(-50%, -50%);
         color: white;
         max-width: 80%;
-        @media (min-width: 845px) {
-            //width: 560px;
+        @media (min-width: 1000px) {
+            max-width: 820px;
+            width:100%;
         }
 
     }
