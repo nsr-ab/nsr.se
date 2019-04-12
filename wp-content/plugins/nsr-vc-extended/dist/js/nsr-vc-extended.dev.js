@@ -6,13 +6,13 @@
  */
 
 /**
- *
+ * Monster file handling Search API calls
  * @type {{}|{}}
  */
 var VcExtended = VcExtended || {};
 
 /**
- * Om my god what a mess.
+ * Extend
  * @type {*|{}}
  */
 VcExtended.NSRExtend = VcExtended.NSRExtend || {};
@@ -41,7 +41,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         Extended.prototype.init();
     }
 
-
     /**
      *  init
      *  Initializes all the necessary methods and binding stuff to events
@@ -54,6 +53,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     };
 
+    /**
+     * Search navigation
+     */
     Extended.prototype.searchNav = function () {
         $('.search-hits').addClass('hide');
         if ($('.searchMenu').hasClass('sortguideMenu')) {
@@ -115,7 +117,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     };
 
-
     /**
      *  displayMore
      *  Show more or less posts
@@ -128,7 +129,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             return a & a
         }, 0);
     }
-
 
     /**
      *  displayMore
@@ -152,7 +152,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.card-content').matchHeight();
     };
 
-
     /**
      *  enterTrigger
      *  on enter
@@ -174,7 +173,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             })
         })
     };
-
 
     /**
      *  haltTimer
@@ -200,17 +198,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     };
 
-
     /**
      *  timer FetchPlanner
      *  fires a call to fetchplannerQuery
      *  @return {void}
      */
-
     Extended.prototype.fpTimer = function () {
         Extended.prototype.fetchPlannerQuery($('.searchNSR'));
     };
-
 
     /**
      *  timer FetchPlanner
@@ -220,7 +215,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.ElasticTimer = function (element) {
         Extended.prototype.autocomplete(element);
     };
-
 
     /**
      *  doneTyping
@@ -238,7 +232,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         timerFetchplanner = setTimeout(Extended.prototype.fpTimer, 1100);
     };
 
-
     /**
      * find occurance in strings
      * @param  {string} haystack
@@ -250,7 +243,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var i = (haystack + '').indexOf(needle, (offset || 0));
         return i === -1 ? 0 : i;
     };
-
 
     /**
      * hash strings
@@ -268,7 +260,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
         return hash;
     };
-
 
     /**
      *  postIcon
@@ -321,7 +312,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return $res;
     };
 
-
     /**
      * Spinner/Loader
      * @returns {string}
@@ -336,7 +326,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             size = 'small';
         return '<div class="' + id + ' preloader-wrapper ' + size + ' active" style="display:' + display + ';"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
     };
-
 
     /**
      * Initializes the autocomplete functionality
@@ -354,7 +343,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         this.autocompleteQuery(element);
     };
-
 
     /**
      * A search has taken place. Push the query GET parameter on to the browser stack
@@ -375,7 +363,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }
     }
-
 
     /**
      * Query for autocomplete suggestions
@@ -400,7 +387,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         Extended.prototype.getJsonData('elastic', $element, data, $post_type);
     };
-
 
     /**
      * Query for fetchplanner
@@ -485,9 +471,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
 
             var json = this.getJsonDataAO(data, done);
-            console.log('-- Start debugging');
+            /*console.log('-- Start debugging');
             console.log(json);
-            console.log('-- Stop debugging');
+            console.log('-- Stop debugging');*/
             if (json) {
                 markup += (typeof (json.responseJSON.sortguide[0].post_title) !== '' && typeof (json.responseJSON.sortguide[0].post_title) !== 'undefined') ?
                     '<h5>' + json.responseJSON.sortguide[0].post_title.charAt(0) + '</h5>' : '';
@@ -511,7 +497,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.search-ao').removeClass('hide');
 
     };
-
 
     /**
      *  Get data from APi's (A-Ö)
@@ -538,7 +523,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }.bind(this));
     };
-
 
     /**
      *  Get data from API's
@@ -571,7 +555,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             this.dataFromSource(data_type, $element, data, $post_type, result);
         }.bind(this));
     };
-
 
     /**
      * Collect data find relevance etc
@@ -647,7 +630,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     };
 
-
     /**
      * relevance
      * @param $relevant
@@ -688,7 +670,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
     };
 
-
     /**
      * Sorteringsguide & Pages
      * @param element
@@ -727,7 +708,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.a-o-qview').removeClass('hide');
 
     };
-
 
     /**
      * Sorteringsguide - Build result
@@ -830,7 +810,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             return sortHTML;
         }
 
-
         /* No result ..... */
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null) {
             if (res.sortguide.length === 0) {
@@ -843,7 +822,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }
     };
-
 
     /**
      * Build markup for inlämningsställen
@@ -953,7 +931,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return sortHTML;
     };
 
-
     /**
      *  Build result for pages
      * @param element
@@ -998,7 +975,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }
     };
-
 
     /**
      *  Build result for fetchplanner
@@ -1085,7 +1061,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.search-fetchPlanner-data').html($fprow);
     };
 
-
     /**
      * Geo error
      * @param error
@@ -1112,7 +1087,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
     };
 
-
     /**
      * Callback function for asynchronous call to HTML5 geolocation
      * @param position
@@ -1121,7 +1095,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.UserLocation = function (position) {
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
     };
-
 
     /**
      * Convert Degress to Radians
@@ -1132,7 +1105,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.Deg2Rad = function (deg) {
         return deg * Math.PI / 180;
     };
-
 
     /**
      * Calculates with Pythagoras
@@ -1155,7 +1127,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return d;
     };
 
-
     /**
      * Calculates with  Haversine formula
      * Calculates great-circle distances between the two points – that is, the shortest distance over
@@ -1176,7 +1147,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return d;
     };
 
-
     /**
      * Find closets city
      * @returns {number}
@@ -1187,7 +1157,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         return Math.min.apply(Math, arguments);
     };
-
 
     /**
      * Closest location
@@ -1258,7 +1227,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         return cities[closest];
     };
-
 
     /**
      * Get URL param

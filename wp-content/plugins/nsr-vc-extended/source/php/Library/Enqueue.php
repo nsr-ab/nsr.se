@@ -77,14 +77,9 @@ class Enqueue
 
         wp_register_script('matchHeight', plugins_url('nsr-vc-extended/dist/js/jquery.matchHeight-min.js'), '', '', true);
         wp_enqueue_script('matchHeight');
+        
+        wp_register_script('vcExtended', plugins_url('nsr-vc-extended/dist/js/nsr-vc-extended.min.js'), '', '', true);
 
-
-
-        if(NSR_DEVMODE === 1 || NSR_DEVMODE === true) {
-            wp_register_script('vcExtended', plugins_url('nsr-vc-extended/dist/js/nsr-vc-extended.dev.js'), '', '', true);
-        } else {
-            wp_register_script('vcExtended', plugins_url('nsr-vc-extended/dist/js/nsr-vc-extended.min.js'), '', '', true);
-        }
 
         wp_localize_script(
             'vcExtended',

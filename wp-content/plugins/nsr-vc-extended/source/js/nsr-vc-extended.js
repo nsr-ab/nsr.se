@@ -629,7 +629,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }, 2000);
 
     };
-    
+
     /**
      * relevance
      * @param $relevant
