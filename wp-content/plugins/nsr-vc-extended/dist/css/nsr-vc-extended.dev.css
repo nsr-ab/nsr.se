@@ -697,8 +697,6 @@ input[type=text]:focus.invalid {
   #nsr-searchResult .sorterings-guide-table li:hover {
     background: none !important; }
   #nsr-searchResult .exnfodispl {
-    padding-top: 30px !important; }
-  #nsr-searchResult .exnfodispl {
     font-size: 1.0rem; }
   @media (max-width: 700px) {
     #nsr-searchResult .exnfodispl {
@@ -746,9 +744,8 @@ input[type=text]:focus.invalid {
           display: block; } }
       #nsr-searchResult .fp .avfall span {
         padding-bottom: 10px; }
-    @media (max-width: 767px) {
-      #nsr-searchResult .fp .bold {
-        font-weight: 600; } }
+    #nsr-searchResult .fp .bold {
+      font-weight: 600; }
     #nsr-searchResult .fp a {
       font-size: 1.0rem; }
   #nsr-searchResult .search-autocomplete-content li {
@@ -788,8 +785,7 @@ input[type=text]:focus.invalid {
     margin-top: 20px; }
   @media (min-width: 581px) {
     #nsr-searchResult .fraktion-icon-home {
-      color: #007586;
-      line-height: 6px; } }
+      line-height: 18px; } }
   #nsr-searchResult .meta-fraction li {
     display: inline-block; }
   #nsr-searchResult .exnfodispl:before,
@@ -810,6 +806,9 @@ input[type=text]:focus.invalid {
   #nsr-searchResult .exnfodispl:before {
     font-family: 'Material Icons';
     content: '\e88e' !important; }
+    @media (max-width: 1000px) {
+      #nsr-searchResult .exnfodispl:before b {
+        vertical-align: top; } }
   #nsr-searchResult .fraktion-icon-home:before {
     content: '\e88a' !important; }
   #nsr-searchResult .fraktion-icon {
@@ -1051,7 +1050,8 @@ tr {
     width: 100%;
     display: table-row;
     margin: 0 auto;
-    padding: 50px 0; }
+    padding: 50px 0;
+    white-space: nowrap; }
     #nsr-searchResult .ao-nav li {
       float: left;
       padding-left: 20px;
@@ -1087,9 +1087,6 @@ tr {
   .tabDesk td {
     padding: 20px;
     display: inline-block; } }
-
-.deskHide, .expand-sortCell {
-  display: none !important; }
 
 .meta-fraktion div {
   display: inline-block; }

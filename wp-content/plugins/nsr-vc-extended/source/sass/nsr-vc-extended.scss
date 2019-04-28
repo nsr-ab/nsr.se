@@ -979,7 +979,7 @@ input[type=text]:focus.invalid {
 
     .exnfodispl {
         //max-width: 300px;
-        padding-top: 30px !important;
+        //padding-top: 30px !important;
     }
 
     .exnfodispl {
@@ -1062,10 +1062,8 @@ input[type=text]:focus.invalid {
             }
         }
 
-        @media (max-width: 767px) {
-            .bold {
-                font-weight: 600;
-            }
+        .bold {
+            font-weight: 600;
         }
 
         a {
@@ -1134,8 +1132,8 @@ input[type=text]:focus.invalid {
 
     .fraktion-icon-home {
         @media (min-width: 581px) {
-            color: $defaultGreen;
-            line-height: 6px;
+            //color: $defaultGreen;
+            line-height: 18px;
         }
     }
 
@@ -1172,6 +1170,11 @@ input[type=text]:focus.invalid {
     .exnfodispl:before {
         font-family: 'Material Icons';
         content: '\e88e' !important;
+        @media (max-width: 1000px) {
+            b {
+                vertical-align: top;
+            }
+        }
     }
 
     .fraktion-icon-home:before {
@@ -1559,7 +1562,7 @@ tr {
         display: table-row;
         margin: 0 auto;
         padding: 50px 0;
-
+        white-space: nowrap;
         li {
             float: left;
             padding-left: 20px;
@@ -1614,7 +1617,7 @@ tr {
 }
 
 .deskHide, .expand-sortCell {
-    display: none !important;
+    // display: none !important;
 
 }
 
