@@ -1088,6 +1088,12 @@ tr {
     padding: 20px;
     display: inline-block; } }
 
+.deskHide, .expand-sortCell {
+  display: none !important; }
+
+.deskHideFraction {
+  margin-right: 5px; }
+
 .meta-fraktion div {
   display: inline-block; }
 

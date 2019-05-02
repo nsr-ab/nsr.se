@@ -424,6 +424,7 @@
     right: 30px;
     top: 30px;
     @media (max-width: 1005px) {
+        position: fixed;
         top: 14px;
     }
     z-index: 999;

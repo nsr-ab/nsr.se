@@ -1617,8 +1617,12 @@ tr {
 }
 
 .deskHide, .expand-sortCell {
-    // display: none !important;
+    display: none !important;
 
+}
+
+.deskHideFraction {
+    margin-right: 5px;
 }
 
 .meta-fraktion div {

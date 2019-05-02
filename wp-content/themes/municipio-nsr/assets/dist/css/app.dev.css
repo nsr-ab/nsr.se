@@ -2360,7 +2360,8 @@ table {
 thead {
   border-bottom: 1px solid #d0d0d0; }
 
-td, th {
+td,
+th {
   padding: 15px 5px;
   display: table-cell;
   text-align: left;
@@ -3725,7 +3726,7 @@ small {
 .btn-large:disabled,
 .btn-flat:disabled,
 .btn[disabled],
-[disabled].btn-large,
+.btn-large[disabled],
 .btn-floating[disabled],
 .btn-large[disabled],
 .btn-flat[disabled] {
@@ -3744,7 +3745,7 @@ small {
   .btn-large:disabled:hover,
   .btn-flat:disabled:hover,
   .btn[disabled]:hover,
-  [disabled].btn-large:hover,
+  .btn-large[disabled]:hover,
   .btn-floating[disabled]:hover,
   .btn-large[disabled]:hover,
   .btn-flat[disabled]:hover {
@@ -6790,6 +6791,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   z-index: 999; }
   @media (max-width: 1005px) {
     .all-device {
+      position: fixed;
       top: 14px; } }
   .all-device .material-icons {
     font-size: 27px; }
@@ -7051,7 +7053,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .is-child-theme .site-header {
       height: 120px;
       border-bottom: none;
-      min-height: 120px; }
+      min-height: 120px;
+      position: relative !important; }
       .is-child-theme .site-header .desk-logo {
         display: none; }
       .is-child-theme .site-header .mob {

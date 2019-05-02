@@ -745,7 +745,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         if (spost.post_meta.fraktion_avc.name != '' && spost.post_meta.fraktion_avc.name != null) {
                             sortHTML += '<ul class="sortAs meta-fraktion">';
                             sortHTML += '<li class="fraktion-icon-avc">';
-                            sortHTML += '<b class="deskHide">Återvinningscentral:</b>';
+                            sortHTML += '<b class="deskHideFraction">Återvinningscentral:</b>';
 
                             if (spost.post_meta.fraktion_avc.link != '') {
                                 var fraktion_avc = '<a href="' + spost.post_meta.fraktion_avc.link + '">' +
@@ -765,7 +765,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             sortHTML += '<ul class="sortAs meta-fraktion">';
 
                             sortHTML += '<li class="fraktion-icon-home">';
-                            sortHTML += '<b class="deskHide">Hemma:</b>';
+                            sortHTML += '<b class="deskHideFraction">Hemma:</b>';
                             if (spost.post_meta.fraktion_hemma.link != '') {
                                 var fraktion_hemma = '<a href="' + spost.post_meta.fraktion_hemma.link + '">' +
                                     spost.post_meta.fraktion_hemma.name + '</a>';
