@@ -707,7 +707,7 @@ input[type=text]:focus.invalid {
     #nsr-searchResult .fp .fpTopic {
       font-weight: 400;
       font-size: 1.4rem; }
-    #nsr-searchResult .fp .fp-adress span, #nsr-searchResult .fp .fp-adress b {
+    #nsr-searchResult .fp .fp-address span, #nsr-searchResult .fp .fp-address b {
       text-transform: capitalize; }
     #nsr-searchResult .fp .align-right {
       text-align: right; }
