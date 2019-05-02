@@ -1251,8 +1251,9 @@ tr {
   #main-content .deskHide h4 {
     margin-bottom: 15px; }
   #main-content .sortAs li::before {
-    padding-left: 10px;
-    vertical-align: top !important; }
+    padding-left: 10px; }
+    #main-content .sortAs li::before b {
+      vertical-align: top !important; }
   #main-content .sortAs li div {
     padding-left: 10px; } }
 

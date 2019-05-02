@@ -1865,7 +1865,9 @@ tr {
         .sortAs li {
             &::before {
                 padding-left: 10px;
-                vertical-align: top !important;
+                b {
+                    vertical-align: top !important;
+                }
             }
 
             div {
