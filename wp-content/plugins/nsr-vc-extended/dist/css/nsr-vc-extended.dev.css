@@ -722,6 +722,8 @@ input[type=text]:focus.invalid {
     @media (max-width: 767px) {
       #nsr-searchResult .fp .fp-address {
         max-height: 70px; }
+        #nsr-searchResult .fp .fp-address span, #nsr-searchResult .fp .fp-address b {
+          text-transform: capitalize; }
       #nsr-searchResult .fp .expand-avfall {
         display: block;
         position: absolute;
@@ -808,7 +810,7 @@ input[type=text]:focus.invalid {
     content: '\e88e' !important; }
     @media (max-width: 1000px) {
       #nsr-searchResult .exnfodispl:before b {
-        vertical-align: top; } }
+        vertical-align: top !important; } }
   #nsr-searchResult .fraktion-icon-home:before {
     content: '\e88a' !important; }
   #nsr-searchResult .fraktion-icon {
