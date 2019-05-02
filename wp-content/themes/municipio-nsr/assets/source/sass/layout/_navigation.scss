@@ -262,10 +262,10 @@
 /* Mobile navigation */
 .mob, .mobile-search, .mobile-nav {
     position: absolute;
-    top: 10px;
+    top: 0px;
     z-index: 999;
     padding: 0px !important;
-
+    background-color: $palette-primary-grey;
     .material-icons {
         font-size: 36px;
 
@@ -309,7 +309,7 @@
 
         a {
             width: 90px;
-            margin-top: -9px;
+            margin-top: 2px;
             margin-left: 20px;
             animation: popout 0.5s ease;
             -webkit-animation: popout 0.5s ease;
