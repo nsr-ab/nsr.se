@@ -707,6 +707,8 @@ input[type=text]:focus.invalid {
     #nsr-searchResult .fp .fpTopic {
       font-weight: 400;
       font-size: 1.4rem; }
+    #nsr-searchResult .fp .fp-adress span, #nsr-searchResult .fp .fp-adress b {
+      text-transform: capitalize; }
     #nsr-searchResult .fp .align-right {
       text-align: right; }
       @media (max-width: 767px) {
@@ -808,9 +810,6 @@ input[type=text]:focus.invalid {
   #nsr-searchResult .exnfodispl:before {
     font-family: 'Material Icons';
     content: '\e88e' !important; }
-    @media (max-width: 1000px) {
-      #nsr-searchResult .exnfodispl:before b {
-        vertical-align: top !important; } }
   #nsr-searchResult .fraktion-icon-home:before {
     content: '\e88a' !important; }
   #nsr-searchResult .fraktion-icon {
@@ -1252,7 +1251,8 @@ tr {
   #main-content .deskHide h4 {
     margin-bottom: 15px; }
   #main-content .sortAs li::before {
-    padding-left: 10px; }
+    padding-left: 10px;
+    vertical-align: top !important; }
   #main-content .sortAs li div {
     padding-left: 10px; } }
 

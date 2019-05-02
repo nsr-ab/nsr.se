@@ -7004,7 +7004,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     content: '\E85A';
     font-family: "Material Icons"; }
   .is-child-theme .site-header {
-    z-index: 998;
+    z-index: 1000;
     position: relative;
     background-color: #fafafa;
     border-bottom: #007586 15px solid;
