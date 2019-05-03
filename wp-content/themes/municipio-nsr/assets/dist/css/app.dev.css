@@ -7690,7 +7690,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 @media screen and (-ms-high-contrast: active) and (max-width: 800px), (-ms-high-contrast: none) and (max-width: 800px) {
   .is-child-theme .sites-nav {
-    display: none !important; }
+    position: relative;
+    top: 40px; }
   .is-child-theme .mob, .is-child-theme .mobile-nav {
     display: block !important; } }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
