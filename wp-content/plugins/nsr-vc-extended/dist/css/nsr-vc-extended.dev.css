@@ -701,6 +701,9 @@ input[type=text]:focus.invalid {
   @media (max-width: 700px) {
     #nsr-searchResult .exnfodispl {
       display: none; } }
+  @media (max-width: 1005px) {
+    #nsr-searchResult .exnfodispl b {
+      vertical-align: top; } }
   #nsr-searchResult .fp {
     max-width: 100%;
     width: 100%; }
@@ -1252,8 +1255,6 @@ tr {
     margin-bottom: 15px; }
   #main-content .sortAs li::before {
     padding-left: 10px; }
-    #main-content .sortAs li::before b {
-      vertical-align: top !important; }
   #main-content .sortAs li div {
     padding-left: 10px; } }
 

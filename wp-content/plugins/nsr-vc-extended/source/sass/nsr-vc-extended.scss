@@ -992,6 +992,14 @@ input[type=text]:focus.invalid {
         }
     }
 
+    @media (max-width: 1005px) {
+        .exnfodispl {
+            b {
+                vertical-align: top;
+            }
+        }
+    }
+
     .fp {
         max-width: 100%;
         width: 100%;
@@ -1865,9 +1873,6 @@ tr {
         .sortAs li {
             &::before {
                 padding-left: 10px;
-                b {
-                    vertical-align: top !important;
-                }
             }
 
             div {
