@@ -994,6 +994,9 @@ input[type=text]:focus.invalid {
 
     @media (max-width: 1005px) {
         .exnfodispl {
+            ::before {
+                vertical-align: top;
+            }
             b {
                 vertical-align: top;
             }
