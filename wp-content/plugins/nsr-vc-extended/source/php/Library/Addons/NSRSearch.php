@@ -65,6 +65,7 @@ class NSRSearch
                     __('Choose Type...', 'nsr-vc-extended') => '',
                     __('Searchbox in Hero', 'nsr-vc-extended') => 'hero',
                     __('Searchbox sorteringsguiden', 'nsr-vc-extended') => 'content',
+                    __('Searchbox standard in content', 'nsr-vc-extended') => 'content'
                 ),
             ),
             /** @Param Designation parameter */
