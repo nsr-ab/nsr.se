@@ -202,7 +202,7 @@ class NSRSearch
          
                           </div>
                         </form> ";
-        if ($params->vc_search_position === 'content' && $params->vc_search_sections !== 'faq') {
+        if ($params->vc_search_position === 'content' && $params->vc_search_sections !== 'faq' && $params->vc_search_sections !== 'tomningskalender') {
             $output .= " <div class=\"searchMenu sortguideMenu\"></div> ";
         }
             $output .= "</div>

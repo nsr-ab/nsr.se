@@ -627,7 +627,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('.prefix').removeClass('nsr-origamiLoader');
             $('.search-button').removeClass('nsr-origamiLoader');
         }, 2000);
-
     };
 
     /**
@@ -811,6 +810,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
 
         /* No result ..... */
+        // Needs to be double checked when commit containing new searchbox is pushed to sandbox. 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null) {
             if (res.sortguide.length === 0) {
                 var sHTML = "";
