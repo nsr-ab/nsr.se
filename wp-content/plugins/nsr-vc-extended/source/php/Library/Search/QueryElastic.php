@@ -166,6 +166,15 @@ class QueryElastic
                 return array('sortguide'=>array(), 'content'=>array());
             }
         }
+        
+        if ($post_type == "faq") {
+            return array(
+                //'rq'=>$rq,
+                //'rcontent' => array_slice($rquery->posts, 0, 10),
+                'content' => array_slice($contentPosts, 0, $limit),
+                'sortguide' => array(),
+            );
+        }
 
         return array(
             //'rq'=>$rq,
