@@ -716,7 +716,7 @@ input[type=text]:focus.invalid {
       text-transform: capitalize; }
     @media (min-width: 768px) and (max-width: 803px) {
       #nsr-searchResult .fp .fp-address {
-        width: 55%; } }
+        width: 45%; } }
     @media (min-width: 803px) and (max-width: 1216px) {
       #nsr-searchResult .fp .fp-address {
         width: 50%; } }
