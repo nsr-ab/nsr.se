@@ -702,7 +702,7 @@ input[type=text]:focus.invalid {
     #nsr-searchResult .exnfodispl {
       display: none; } }
   @media (max-width: 1005px) {
-    #nsr-searchResult .exnfodispl ::before {
+    #nsr-searchResult .exnfodispl::before {
       vertical-align: top; }
     #nsr-searchResult .exnfodispl b {
       vertical-align: top; } }
