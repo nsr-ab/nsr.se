@@ -1016,6 +1016,9 @@ input[type=text]:focus.invalid {
             span, b {
                 text-transform: capitalize;
             }
+            @media (max-width: 1216px) {
+                width: 50%;
+            }
         }
         .align-right {
             text-align: right;
@@ -1074,6 +1077,10 @@ input[type=text]:focus.invalid {
                 &.showDetails {
                     display: block;
                 }
+            }
+            @media (max-width: 1216px) {
+                width: 50%;
+                float: right;
             }
 
             span {
