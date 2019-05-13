@@ -1016,7 +1016,10 @@ input[type=text]:focus.invalid {
             span, b {
                 text-transform: capitalize;
             }
-            @media (max-width: 1216px) {
+            @media (min-width: 768px) and (max-width: 803px) {
+                width: 55%;
+            }
+            @media (min-width: 803px) and (max-width: 1216px) {
                 width: 50%;
             }
         }
@@ -1078,7 +1081,11 @@ input[type=text]:focus.invalid {
                     display: block;
                 }
             }
-            @media (max-width: 1216px) {
+            @media (min-width: 768px) and (max-width: 803px) {
+                width: 55%;
+                float: right;
+            }
+            @media (min-width: 803px) and (max-width: 1216px) {
                 width: 50%;
                 float: right;
             }

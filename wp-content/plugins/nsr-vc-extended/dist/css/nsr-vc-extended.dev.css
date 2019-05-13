@@ -714,7 +714,10 @@ input[type=text]:focus.invalid {
       font-size: 1.4rem; }
     #nsr-searchResult .fp .fp-address span, #nsr-searchResult .fp .fp-address b {
       text-transform: capitalize; }
-    @media (max-width: 1216px) {
+    @media (min-width: 768px) and (max-width: 803px) {
+      #nsr-searchResult .fp .fp-address {
+        width: 55%; } }
+    @media (min-width: 803px) and (max-width: 1216px) {
       #nsr-searchResult .fp .fp-address {
         width: 50%; } }
     #nsr-searchResult .fp .align-right {
@@ -754,7 +757,11 @@ input[type=text]:focus.invalid {
           display: none; }
         #nsr-searchResult .fp .avfall.showDetails {
           display: block; } }
-      @media (max-width: 1216px) {
+      @media (min-width: 768px) and (max-width: 803px) {
+        #nsr-searchResult .fp .avfall {
+          width: 55%;
+          float: right; } }
+      @media (min-width: 803px) and (max-width: 1216px) {
         #nsr-searchResult .fp .avfall {
           width: 50%;
           float: right; } }
