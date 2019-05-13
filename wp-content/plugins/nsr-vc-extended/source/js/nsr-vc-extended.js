@@ -620,7 +620,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('#nsr-searchResult').css('display', 'block');
 
         if (!$('.searchMenu').hasClass('sortguideMenu')) {
-            this.relevance($relevant);
+            this.relevance($relevant, $post_type);
         }
 
         setTimeout(function () {
@@ -632,8 +632,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
     /**
      * relevance
      * @param $relevant
+     * @param $post_type
      */
-    Extended.prototype.relevance = function ($relevant) {
+    Extended.prototype.relevance = function ($relevant, $post_type) {
         if ($relevant['count'] === 3) {
             var rel = Math.max($relevant['sortguide'], $relevant['page'], $relevant['fetchplanner']);
 
@@ -664,6 +665,24 @@ VcExtended.NSRExtend.Extended = (function ($) {
                     $('.nsr-fetchplanner-nav').addClass('active');
                     $('.search-fetchPlanner').removeClass('hide');
                     $('.a-o-qview').addClass('hide');
+                }
+            }
+
+            if($relevant['sortguide'] === 0 && $relevant['fetchplanner'] === 0 && $relevant['page'] === 0) {
+                if($post_type !== null) {
+                    console.log($post_type);
+                    if ($post_type === 'faq') {
+                        $('.nsr-elasticSearch-nav').removeClass('active');
+                        $('.sorteringsguiden').addClass('hide');
+                        $('.nsr-page-nav').addClass('active');
+                        $('.search-autocomplete').removeClass('hide');
+                    }
+                }
+                else {
+                    $('.nsr-elasticSearch-nav').removeClass('active');
+                    $('.sorteringsguiden').addClass('hide');
+                    $('.nsr-fetchplanner-nav').addClass('active');
+                    $('.search-fetchPlanner').removeClass('hide');
                 }
             }
         }
@@ -701,11 +720,12 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         //Hits
         $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span data-letter="a-c" class="a-o-trigger right-align right hide mobHide a-o-qview">Sorteringsguiden A till Ö</span>');
-        $('.search-hits').removeClass('hide');
 
         if ($('.nsr-elasticSearch-nav').hasClass('active'))
+        {
             $('.a-o-qview').removeClass('hide');
-
+            $('.search-hits').removeClass('hide');
+        }
     };
 
     /**
