@@ -157,7 +157,7 @@ class NSRSearch
                         <div class=\"col s12\">
                          ";
                         if ($params->vc_search_position === 'content') {
-                                $output .= "<h2>" . str_replace(array("Å", "Ä", "Ö"), array("å", "ä", "ö"), strtolower($params->vc_designation)) ."</h2>";
+                                $output .= "<h2>" . $params->vc_designation ."</h2>";
                         }
                         $output .= " 
                         <div class=\"searchDesignation-sortguide\">SÖK</div>
