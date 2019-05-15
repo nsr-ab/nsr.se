@@ -805,7 +805,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'),
                                     '<br />');
 
-                                (braAttVeta) ? sortHTML += '<li class="exnfodispl "><b>Bra att veta</b><div>' + braAttVeta + '</div></li>' : '';
+                                (braAttVeta) ? sortHTML += '<li class="exnfodispl "><b>Bra att veta: </b><div>' + braAttVeta + '</div></li>' : '';
                             }
                             braAttVeta = '';
                             sortHTML += '</ul>';
