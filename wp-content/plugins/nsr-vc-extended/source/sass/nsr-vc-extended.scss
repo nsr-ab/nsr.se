@@ -979,7 +979,7 @@ input[type=text]:focus.invalid {
 
     .exnfodispl {
         //max-width: 300px;
-        padding-top: 30px !important;
+        //padding-top: 30px !important;
     }
 
     .exnfodispl {
@@ -992,6 +992,17 @@ input[type=text]:focus.invalid {
         }
     }
 
+    @media (max-width: 1005px) {
+        .exnfodispl {
+            &::before {
+                vertical-align: top;
+            }
+            b {
+                vertical-align: top;
+            }
+        }
+    }
+
     .fp {
         max-width: 100%;
         width: 100%;
@@ -1001,6 +1012,17 @@ input[type=text]:focus.invalid {
             font-size: 1.4rem;
         }
 
+        .fp-address {
+            span, b {
+                text-transform: capitalize;
+            }
+            @media (min-width: 768px) and (max-width: 803px) {
+                width: 45%;
+            }
+            @media (min-width: 803px) and (max-width: 1216px) {
+                width: 50%;
+            }
+        }
         .align-right {
             text-align: right;
             @media (max-width: 767px) {
@@ -1024,6 +1046,9 @@ input[type=text]:focus.invalid {
         @media (max-width: 767px) {
             .fp-address {
                 max-height: 70px;
+                span, b {
+                    text-transform: capitalize;
+                }
             }
             .expand-avfall {
                 display: block;
@@ -1056,16 +1081,22 @@ input[type=text]:focus.invalid {
                     display: block;
                 }
             }
+            @media (min-width: 768px) and (max-width: 803px) {
+                width: 55%;
+                float: right;
+            }
+            @media (min-width: 803px) and (max-width: 1216px) {
+                width: 50%;
+                float: right;
+            }
 
             span {
                 padding-bottom: 10px;
             }
         }
 
-        @media (max-width: 767px) {
-            .bold {
-                font-weight: 600;
-            }
+        .bold {
+            font-weight: 600;
         }
 
         a {
@@ -1134,8 +1165,8 @@ input[type=text]:focus.invalid {
 
     .fraktion-icon-home {
         @media (min-width: 581px) {
-            color: $defaultGreen;
-            line-height: 6px;
+            //color: $defaultGreen;
+            line-height: 18px;
         }
     }
 
@@ -1340,7 +1371,7 @@ tr {
         padding: 10px 20px;
         float: left;
         color: white;
-        background: $defaultDarkGreenSearchNav;
+        background: $defaultDarkGreen;
         margin: 0 3px;
         text-align: center;
         cursor: pointer;
@@ -1364,17 +1395,17 @@ tr {
         }
 
         &:hover {
-            background: $defaultDarkGreen;
+            background: $defaultDarkGreenSearchNav;
         }
 
         &:focus, &.active {
-            background: $defaultDarkGreen;
+            background: $defaultDarkGreenSearchNav;
         }
 
         @media (max-width: 450px) {
-            background: #106f7d;
+            background: $defaultDarkGreen;
             &.active {
-                background: #11616c;
+                background: $defaultDarkGreenSearchNav;
                 border-radius: 0;
                 font-size: 16px;
             }
@@ -1396,23 +1427,20 @@ tr {
         }
 
         li {
-
                 background-color: #3f3080;
-
-
                 &:hover {
-                    background: #2f2263;
+                    background: #261b54;
                 }
 
 
             &:focus, &.active {
-                background: #2f2263;
+                background: #261b54;
             }
 
             @media (max-width: 560px) {
                 background: #3f3080;
                 &.active {
-                    background: #2f2263;
+                    background: #261b54;
                     border-radius: 0;
                     font-size: 16px;
                 }
@@ -1436,27 +1464,27 @@ tr {
 .green-light {
     .search-nav {
         @media (max-width: 559px) {
-            background-color: #12847b;
+            background-color: #14716a;
         }
 
         li {
 
-                background-color: #12847b;
+                background-color: #14716a;
 
 
                 &:hover {
-                    background: #14716a;
+                    background: #125853;
                 }
 
 
             &:focus, &.active {
-                background: #14716a;
+                background:  #125853;
             }
 
             @media (max-width: 560px) {
-                background: #12847b;
+                background: #14716a;
                 &.active {
-                    background: #14716a;
+                    background:  #125853;
                     border-radius: 0;
                     font-size: 16px;
                 }
@@ -1562,7 +1590,7 @@ tr {
         display: table-row;
         margin: 0 auto;
         padding: 50px 0;
-
+        white-space: nowrap;
         li {
             float: left;
             padding-left: 20px;
@@ -1619,6 +1647,10 @@ tr {
 .deskHide, .expand-sortCell {
     display: none !important;
 
+}
+
+.deskHideFraction {
+    margin-right: 5px;
 }
 
 .meta-fraktion div {
@@ -1682,9 +1714,14 @@ tr {
         width: 100%;
         text-align: left;
         padding-left: 15px;
+        display:none !important;
         @media (max-width: 450px) {
             left: 0px;
         }
+        @media (max-width: 767px) {
+            display:block !important;
+        }
+
     }
 }
 
@@ -1870,6 +1907,9 @@ tr {
         }
     }
 
+}
+.cursor-pointer {
+    cursor:pointer;
 }
 
 

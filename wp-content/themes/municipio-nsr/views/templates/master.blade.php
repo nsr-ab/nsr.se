@@ -105,7 +105,6 @@
             </div>
             <?php endif; ?>
             @yield('content')
-<
             @if (is_active_sidebar('content-area-bottom'))
             <div class="container gutter-xl gutter-vertical sidebar-content-area-bottom">
                 <div class="grid">

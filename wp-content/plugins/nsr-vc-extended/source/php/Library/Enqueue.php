@@ -41,6 +41,7 @@ class Enqueue
     public function enqueueStyles()
     {
         wp_register_style('vc_extend_style', plugins_url('nsr-vc-extended/dist/css/nsr-vc-extended.min.css'));
+
         wp_enqueue_style('vc_extend_style');
         wp_register_style('vc_material-css', plugins_url('nsr-vc-extended/dist/css/vc-material/vc_material.css'));
         wp_enqueue_style('vc_material-css');
@@ -73,6 +74,7 @@ class Enqueue
         wp_enqueue_script('matchHeight');
 
         wp_register_script('vcExtended', plugins_url('nsr-vc-extended/dist/js/nsr-vc-extended.min.js'), '', '', true);
+
 
         wp_localize_script(
             'vcExtended',

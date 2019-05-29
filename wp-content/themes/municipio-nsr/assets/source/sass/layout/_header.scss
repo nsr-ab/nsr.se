@@ -1,6 +1,6 @@
 
 .site-header {
-    z-index: 998;
+    z-index: 1000;
     position:relative;
     background-color: $palette-primary-grey;
     border-bottom: $palette-primary-green 15px solid;
@@ -84,6 +84,7 @@
         height: 120px;
         border-bottom: none;
         min-height: 120px;
+        position: relative !important;
         .desk-logo {
             display:none;
         }

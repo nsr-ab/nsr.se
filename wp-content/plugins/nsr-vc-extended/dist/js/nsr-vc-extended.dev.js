@@ -6,13 +6,13 @@
  */
 
 /**
- *
+ * Monster file handling Search API calls
  * @type {{}|{}}
  */
 var VcExtended = VcExtended || {};
 
 /**
- * Om my god what a mess.
+ * Extend
  * @type {*|{}}
  */
 VcExtended.NSRExtend = VcExtended.NSRExtend || {};
@@ -41,7 +41,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         Extended.prototype.init();
     }
 
-
     /**
      *  init
      *  Initializes all the necessary methods and binding stuff to events
@@ -54,6 +53,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     };
 
+    /**
+     * Search navigation
+     */
     Extended.prototype.searchNav = function () {
         $('.search-hits').addClass('hide');
         if ($('.searchMenu').hasClass('sortguideMenu')) {
@@ -115,7 +117,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     };
 
-
     /**
      *  displayMore
      *  Show more or less posts
@@ -128,7 +129,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             return a & a
         }, 0);
     }
-
 
     /**
      *  displayMore
@@ -152,7 +152,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.card-content').matchHeight();
     };
 
-
     /**
      *  enterTrigger
      *  on enter
@@ -174,7 +173,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             })
         })
     };
-
 
     /**
      *  haltTimer
@@ -200,17 +198,14 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
     };
 
-
     /**
      *  timer FetchPlanner
      *  fires a call to fetchplannerQuery
      *  @return {void}
      */
-
     Extended.prototype.fpTimer = function () {
         Extended.prototype.fetchPlannerQuery($('.searchNSR'));
     };
-
 
     /**
      *  timer FetchPlanner
@@ -220,7 +215,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.ElasticTimer = function (element) {
         Extended.prototype.autocomplete(element);
     };
-
 
     /**
      *  doneTyping
@@ -238,7 +232,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         timerFetchplanner = setTimeout(Extended.prototype.fpTimer, 1100);
     };
 
-
     /**
      * find occurance in strings
      * @param  {string} haystack
@@ -250,7 +243,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         var i = (haystack + '').indexOf(needle, (offset || 0));
         return i === -1 ? 0 : i;
     };
-
 
     /**
      * hash strings
@@ -268,7 +260,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
         return hash;
     };
-
 
     /**
      *  postIcon
@@ -321,7 +312,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return $res;
     };
 
-
     /**
      * Spinner/Loader
      * @returns {string}
@@ -336,7 +326,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             size = 'small';
         return '<div class="' + id + ' preloader-wrapper ' + size + ' active" style="display:' + display + ';"> <div class="spinner-layer spinner-white-only"> <div class="circle-clipper left"> <div class="circle"></div> </div><div class="gap-patch"> <div class="circle"></div> </div><div class="circle-clipper right"> <div class="circle"></div> </div> </div> </div> ';
     };
-
 
     /**
      * Initializes the autocomplete functionality
@@ -354,7 +343,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         this.autocompleteQuery(element);
     };
-
 
     /**
      * A search has taken place. Push the query GET parameter on to the browser stack
@@ -375,7 +363,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }
     }
-
 
     /**
      * Query for autocomplete suggestions
@@ -400,7 +387,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         Extended.prototype.getJsonData('elastic', $element, data, $post_type);
     };
-
 
     /**
      * Query for fetchplanner
@@ -432,7 +418,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.AOQuery = function (param) {
 
         var $post_type = 'sorteringsguide';
-
+        var alphabet = [];
         switch (param) {
             case 'a-c':
                 alphabet = ['a', 'b', 'c'];
@@ -485,6 +471,9 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
 
             var json = this.getJsonDataAO(data, done);
+            /*console.log('-- Start debugging');
+            console.log(json);
+            console.log('-- Stop debugging');*/
             if (json) {
                 markup += (typeof (json.responseJSON.sortguide[0].post_title) !== '' && typeof (json.responseJSON.sortguide[0].post_title) !== 'undefined') ?
                     '<h5>' + json.responseJSON.sortguide[0].post_title.charAt(0) + '</h5>' : '';
@@ -508,7 +497,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         $('.search-ao').removeClass('hide');
 
     };
-
 
     /**
      *  Get data from APi's (A-Ö)
@@ -535,7 +523,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         }.bind(this));
     };
-
 
     /**
      *  Get data from API's
@@ -568,7 +555,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             this.dataFromSource(data_type, $element, data, $post_type, result);
         }.bind(this));
     };
-
 
     /**
      * Collect data find relevance etc
@@ -632,49 +618,75 @@ VcExtended.NSRExtend.Extended = (function ($) {
             $('#searchkeyword-nsr').addClass('valid');
 
         $('#nsr-searchResult').css('display', 'block');
+
         if (!$('.searchMenu').hasClass('sortguideMenu')) {
-            if ($relevant['count'] === 3) {
-                var rel = Math.max($relevant['sortguide'], $relevant['page'], $relevant['fetchplanner']);
-
-                $('.searchView').addClass('hide');
-
-                if ($relevant['sortguide'] === rel) {
-                    $('#nsr-searchResult').removeClass('transparent-background');
-                    $('.search-nav li').removeClass('active');
-                    $('.nsr-elasticSearch-nav').addClass('active');
-                    $('.sorteringsguiden').removeClass('hide');
-                    $('.a-o-qview').removeClass('hide');
-                }
-
-                if ($relevant['page'] !== $relevant['sortguide']) {
-                    if ($relevant['page'] === rel) {
-                        $('#nsr-searchResult').addClass('transparent-background');
-                        $('.search-nav li').removeClass('active');
-                        $('.nsr-page-nav').addClass('active');
-                        $('.search-autocomplete').removeClass('hide');
-                        $('.a-o-qview').addClass('hide');
-                    }
-                }
-
-                if ($relevant['fetchplanner'] !== $relevant['sortguide']) {
-                    if ($relevant['fetchplanner'] === rel) {
-                        $('#nsr-searchResult').removeClass('transparent-background');
-                        $('.search-nav li').removeClass('active');
-                        $('.nsr-fetchplanner-nav').addClass('active');
-                        $('.search-fetchPlanner').removeClass('hide');
-                        $('.a-o-qview').addClass('hide');
-                    }
-                }
-            }
+            this.relevance($relevant, $post_type);
         }
 
         setTimeout(function () {
             $('.prefix').removeClass('nsr-origamiLoader');
             $('.search-button').removeClass('nsr-origamiLoader');
         }, 2000);
-
     };
 
+    /**
+     * relevance
+     * @param $relevant
+     * @param $post_type
+     */
+    Extended.prototype.relevance = function ($relevant, $post_type) {
+        if ($relevant['count'] === 3) {
+            var rel = Math.max($relevant['sortguide'], $relevant['page'], $relevant['fetchplanner']);
+
+            $('.searchView').addClass('hide');
+
+            if ($relevant['sortguide'] === rel) {
+                $('#nsr-searchResult').removeClass('transparent-background');
+                $('.search-nav li').removeClass('active');
+                $('.nsr-elasticSearch-nav').addClass('active');
+                $('.sorteringsguiden').removeClass('hide');
+                $('.a-o-qview').removeClass('hide');
+            }
+
+            if ($relevant['page'] !== $relevant['sortguide']) {
+                if ($relevant['page'] === rel) {
+                    $('#nsr-searchResult').addClass('transparent-background');
+                    $('.search-nav li').removeClass('active');
+                    $('.nsr-page-nav').addClass('active');
+                    $('.search-autocomplete').removeClass('hide');
+                    $('.a-o-qview').addClass('hide');
+                }
+            }
+
+            if ($relevant['fetchplanner'] !== $relevant['sortguide']) {
+                if ($relevant['fetchplanner'] === rel) {
+                    $('#nsr-searchResult').removeClass('transparent-background');
+                    $('.search-nav li').removeClass('active');
+                    $('.nsr-fetchplanner-nav').addClass('active');
+                    $('.search-fetchPlanner').removeClass('hide');
+                    $('.a-o-qview').addClass('hide');
+                }
+            }
+
+            if($relevant['sortguide'] === 0 && $relevant['fetchplanner'] === 0 && $relevant['page'] === 0) {
+                if($post_type !== null) {
+                    console.log($post_type);
+                    if ($post_type === 'faq') {
+                        $('.nsr-elasticSearch-nav').removeClass('active');
+                        $('.sorteringsguiden').addClass('hide');
+                        $('.nsr-page-nav').addClass('active');
+                        $('.search-autocomplete').removeClass('hide');
+                    }
+                }
+                else {
+                    $('.nsr-elasticSearch-nav').removeClass('active');
+                    $('.sorteringsguiden').addClass('hide');
+                    $('.nsr-fetchplanner-nav').addClass('active');
+                    $('.search-fetchPlanner').removeClass('hide');
+                }
+            }
+        }
+    };
 
     /**
      * Sorteringsguide & Pages
@@ -708,13 +720,13 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         //Hits
         $('.search-hits').html('Träffar på "' + $('#searchkeyword-nsr').val() + '" <span data-letter="a-c" class="a-o-trigger right-align right hide mobHide a-o-qview">Sorteringsguiden A till Ö</span>');
-        $('.search-hits').removeClass('hide');
 
         if ($('.nsr-elasticSearch-nav').hasClass('active'))
+        {
             $('.a-o-qview').removeClass('hide');
-
+            $('.search-hits').removeClass('hide');
+        }
     };
-
 
     /**
      * Sorteringsguide - Build result
@@ -752,7 +764,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         if (spost.post_meta.fraktion_avc.name != '' && spost.post_meta.fraktion_avc.name != null) {
                             sortHTML += '<ul class="sortAs meta-fraktion">';
                             sortHTML += '<li class="fraktion-icon-avc">';
-                            sortHTML += '<b class="deskHide">Återvinningscentral:</b>';
+                            sortHTML += '<b class="deskHideFraction">Återvinningscentral:</b>';
 
                             if (spost.post_meta.fraktion_avc.link != '') {
                                 var fraktion_avc = '<a href="' + spost.post_meta.fraktion_avc.link + '">' +
@@ -772,7 +784,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                             sortHTML += '<ul class="sortAs meta-fraktion">';
 
                             sortHTML += '<li class="fraktion-icon-home">';
-                            sortHTML += '<b class="deskHide">Hemma:</b>';
+                            sortHTML += '<b class="deskHideFraction">Hemma:</b>';
                             if (spost.post_meta.fraktion_hemma.link != '') {
                                 var fraktion_hemma = '<a href="' + spost.post_meta.fraktion_hemma.link + '">' +
                                     spost.post_meta.fraktion_hemma.name + '</a>';
@@ -793,7 +805,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                 braAttVeta = spost.post_meta.avfall_bra_att_veta[0].replace(new RegExp('\r?\n', 'g'),
                                     '<br />');
 
-                                (braAttVeta) ? sortHTML += '<li class="exnfodispl "><b>Bra att veta</b><div>' + braAttVeta + '</div></li>' : '';
+                                (braAttVeta) ? sortHTML += '<li class="exnfodispl "><b>Bra att veta: </b><div>' + braAttVeta + '</div></li>' : '';
                             }
                             braAttVeta = '';
                             sortHTML += '</ul>';
@@ -817,20 +829,19 @@ VcExtended.NSRExtend.Extended = (function ($) {
             return sortHTML;
         }
 
-
         /* No result ..... */
+        // Needs to be double checked when commit containing new searchbox is pushed to sandbox. 
         if (typeof res.sortguide != 'undefined' && res.sortguide !== null) {
             if (res.sortguide.length === 0) {
                 var sHTML = "";
                 sHTML += '<div class="no-result"><h4>Sorteringsguide</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val()
-                    + '". Tipsa oss om avfall som vi kan lägga till här  ( <a href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a> )</p></div>';
+                    + '". Tipsa oss om avfall som vi kan lägga till här  (<a href="https://nsr.se/sorteringsguiden">nsr.se/sorteringsguiden</a>)</p></div>';
 
                 $('.sorteringsguiden-data').html(sHTML);
 
             }
         }
     };
-
 
     /**
      * Build markup for inlämningsställen
@@ -940,7 +951,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return sortHTML;
     };
 
-
     /**
      *  Build result for pages
      * @param element
@@ -962,7 +972,8 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 if (!$metaDataStr['icon'])
                     $metaDataStr['icon'] = "find_in_page";
 
-                pageHTML += '<div class="search-page-result collection"><div class="site-section">' + $metaDataStr['postSection'] + '</div><a href="' + post.guid + '">' + post.post_title;
+                pageHTML += '<div class="search-page-result collection cursor-pointer" onClick="window.location.href=\'' + post.guid + '\';"><div class="cursor-pointer site-section">' +
+                    $metaDataStr['postSection'] + '</div><a href="' + post.guid + '">' + post.post_title;
                 if ($excerpt)
                     pageHTML += '<div class="moreinfo">' + $excerpt + '</div>';
                 pageHTML += '</a></div>';
@@ -984,7 +995,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
             }
         }
     };
-
 
     /**
      *  Build result for fetchplanner
@@ -1065,12 +1075,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         /* No result ..... */
         if (result.fp.length === 0) {
-            $fprow = '<div class="no-result"><h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a style="color:#ffffff!important;" href="https://minasidor.nsr.se">minasidor.nsr.se</a></p></div>';
+            $fprow = '<div class="no-result"><h4>Tömningsdagar</h4><br /><p class="noResult">Det blev ingen träff på "' + $('#searchkeyword-nsr').val() + '". Tömningsdagar finns även på <a href="https://minasidor.nsr.se">minasidor.nsr.se</a></p></div>';
         }
 
         $('.search-fetchPlanner-data').html($fprow);
     };
-
 
     /**
      * Geo error
@@ -1098,7 +1107,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         }
     };
 
-
     /**
      * Callback function for asynchronous call to HTML5 geolocation
      * @param position
@@ -1107,7 +1115,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.UserLocation = function (position) {
         Extended.prototype.NearestCity(position.coords.latitude, position.coords.longitude);
     };
-
 
     /**
      * Convert Degress to Radians
@@ -1118,7 +1125,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
     Extended.prototype.Deg2Rad = function (deg) {
         return deg * Math.PI / 180;
     };
-
 
     /**
      * Calculates with Pythagoras
@@ -1141,7 +1147,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return d;
     };
 
-
     /**
      * Calculates with  Haversine formula
      * Calculates great-circle distances between the two points – that is, the shortest distance over
@@ -1162,7 +1167,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
         return d;
     };
 
-
     /**
      * Find closets city
      * @returns {number}
@@ -1173,7 +1177,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         return Math.min.apply(Math, arguments);
     };
-
 
     /**
      * Closest location
@@ -1244,7 +1247,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
         return cities[closest];
     };
-
 
     /**
      * Get URL param

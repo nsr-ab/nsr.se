@@ -65,6 +65,7 @@ class NSRSearch
                     __('Choose Type...', 'nsr-vc-extended') => '',
                     __('Searchbox in Hero', 'nsr-vc-extended') => 'hero',
                     __('Searchbox sorteringsguiden', 'nsr-vc-extended') => 'content',
+                    __('Searchbox standard in content', 'nsr-vc-extended') => 'content'
                 ),
             ),
             /** @Param Designation parameter */
@@ -156,7 +157,7 @@ class NSRSearch
                         <div class=\"col s12\">
                          ";
                         if ($params->vc_search_position === 'content') {
-                                $output .= "<h2>Sök i Sorteringsguiden</h2>";
+                                $output .= "<h2>" . $params->vc_designation ."</h2>";
                         }
                         $output .= " 
                         <div class=\"searchDesignation-sortguide\">SÖK</div>
@@ -180,7 +181,7 @@ class NSRSearch
                 'nsr-vc-extended') . "</label> -->
                                     <input type=\"hidden\" id=\"post_type\" value=\"" . $params->vc_search_sections . "\">
                                      <!-- <b>" . $params->vc_tooltip_title . "</b><br /> -->
-                                     <div class=\"searchTooltip\">" . $params->vc_tooltip . "</div>
+                                     <div class=\"searchTooltip\">" . str_replace("``", "\"", $params->vc_tooltip) . "</div>
                                      <div class=\"searchbuttons\"> 
                                         <i class=\"infoSearch material-icons\">info</i> <i class=\"hide closeSearch material-icons\">cancel</i><span class=\"infoSearchTxt\">Tips från coachen</span>
                                      </div> 
@@ -201,7 +202,7 @@ class NSRSearch
          
                           </div>
                         </form> ";
-        if ($params->vc_search_position === 'content') {
+        if ($params->vc_search_position === 'content' && $params->vc_search_sections !== 'faq' && $params->vc_search_sections !== 'tomningskalender') {
             $output .= " <div class=\"searchMenu sortguideMenu\"></div> ";
         }
             $output .= "</div>
