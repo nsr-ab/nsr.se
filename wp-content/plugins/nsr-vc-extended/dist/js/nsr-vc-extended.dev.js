@@ -1042,7 +1042,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                     $avfall += ' <br /> ';
                                     //$weeks += post.Exec.DatumWeek[avint] + '<br />';
                                     $dub['nDate'] = post.Exec.AvfallsTyp[avint];
-                                    $nextDate += '<span>' + post.Exec.DatumFormaterat[avint] + '<span><br />';
+                                    $nextDate += '<span>' + post.Exec.DatumFormaterat[avint] + '<span>';
                                     $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
                                 }
                             }
@@ -1066,7 +1066,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $fprow += '<div class="vc_col-sm-6 align-right vc_col-xs-6 bold">' + $avfall + '</div><div class="vc_col-sm-6 vc_col-xs-6">' + $nextDate;
 			if ($hasAndrad)
 			    $fprow += ' <i class="fas fa-exclamation-circle" style="color: #fd516c;"></i>';
-			$fprow += '</div>';
+			$fprow += '<br /></div>';
                         $fprow += '</div>';
 
                         $fprow += '</div>';
