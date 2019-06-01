@@ -1036,16 +1036,15 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                         var avtyp = post.Exec.AvfallsTyp[avint].toLowerCase();
                                         $avfall += '<span>' + avtyp.charAt(0).toUpperCase() + avtyp.slice(1) + '</span>';
                                     }
-
+				    if (post.Exec.Andrad[avint]) {
+					$avfall += ' <i class="fas fa-exclamation-circle" style="color: #fd516c;"></i>';
+					$hasAndrad = true;
+				    }
                                     $avfall += ' <br /> ';
                                     //$weeks += post.Exec.DatumWeek[avint] + '<br />';
                                     $dub['nDate'] = post.Exec.AvfallsTyp[avint];
                                     $nextDate += '<span>' + post.Exec.DatumFormaterat[avint] + '<span><br />';
                                     $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
-				    if (post.Exec.Andrad[avint]) {
-					$dub[avint] += ' <i class="fas fa-exclamation-circle" style="color: #fd516c;"></i>';
-					$hasAndrad = true;
-				    }
                                 }
                             }
                         }
