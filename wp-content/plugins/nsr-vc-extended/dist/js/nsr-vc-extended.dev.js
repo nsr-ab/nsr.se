@@ -1018,6 +1018,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var $avfall = '';
                 var $weeks = '';
                 var $nextDate = '';
+		var $hasAndrad = false;
 
                 $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('valid');
 
@@ -1041,6 +1042,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                     $dub['nDate'] = post.Exec.AvfallsTyp[avint];
                                     $nextDate += '<span>' + post.Exec.DatumFormaterat[avint] + '<span><br />';
                                     $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
+				    if (post.Exec.Andrad[avint]) {
+					$dub[avint] += ' <i class="fas fa-exclamation-circle" style="color: #fd516c;"></i>';
+					$hasAndrad = true;
+				    }
                                 }
                             }
                         }
