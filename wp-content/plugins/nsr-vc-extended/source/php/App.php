@@ -234,6 +234,8 @@ class App
             return 'KÄRL 1';
         if ($defenition == 'Me+Og+Ti+Plast' && $jobtemplate == "Tömning")    //(Töms normalt var fjärde vecka)
             return 'KÄRL 2';
+        if ($defenition == 'Ti+Me+Og+Plast' && $jobtemplate == "Tömning")    //(Töms normalt var fjärde vecka)
+            return 'KÄRL 2';
 
         if ($defenition == 'Matavfall' && $jobtemplate == "Tömning")
             return 'MATAVFALL';
@@ -389,7 +391,7 @@ class App
                 $datetime = new \DateTime($date);
                 $typ = self::getFpDefenitions($item->ContentTypeCode, $cal->JobTemplate);
 
-               // echo "$date $typ " .$item->ContentTypeCode ." " . $cal->JobTemplate."\n";
+                echo $item->CustomerId . " $date $typ " .$item->ContentTypeCode ." " . $cal->JobTemplate."\n";
                 if (isset($dupIdTypDate[$fpId . $typ . $date]))
                     continue;
                 $dupIdTypDate[$fpId . $typ . $date] = 1;
@@ -514,13 +516,17 @@ class App
             $icalobj = new \VcExtended\Library\ZapCal\ZCiCal("Tömningskalender");
             $index = 1;
             foreach ($results as $result) {            
+                $text = $result['AvfallsTyp'] . " - " . $title;
+                if (in_array($result['Datum'], $andrtomn)) {
+                    $text = "ÄNDRAD TÖMNINGSDAG - " . $text;
+                }
                 $eventobj = new \VcExtended\Library\ZapCal\ZCiCalNode("VEVENT", $icalobj->curnode);
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("SUMMARY:" . $result['AvfallsTyp']));
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTART:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'] . " 00:00:00")));
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTEND:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'] . " 23:59:59")));
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("UID:" . date('Y-m-d-H-i-s') . "@nsr.se" . "#" . ($index++)));
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTAMP:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime()));
-                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("Description:" . \VcExtended\Library\ZapCal\ZCiCal::formatContent($result['AvfallsTyp'] . " - " . $title)));
+                $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("Description:" . \VcExtended\Library\ZapCal\ZCiCal::formatContent($text)));
             }
         
             header('Content-Disposition: filename="tomningskalender.ics"');
