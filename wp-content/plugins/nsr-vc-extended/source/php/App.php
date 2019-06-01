@@ -383,7 +383,8 @@ class App
                     'DatumKontroll'=>array(),
                     'DatumWeek'=>array(),
                     'AvfallsTyp'=>array(),
-                    'AvfallsTypFormaterat'=>array()
+                    'AvfallsTypFormaterat'=>array(),
+                    'Andrad'=>array()
                 );
             }    
 
