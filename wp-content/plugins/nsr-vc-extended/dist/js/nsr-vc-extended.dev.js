@@ -1037,7 +1037,6 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                         $avfall += '<span>' + avtyp.charAt(0).toUpperCase() + avtyp.slice(1) + '</span>';
                                     }
 				    if (post.Exec.Andrad[avint]) {
-					$avfall += ' <i class="fas fa-exclamation-circle" style="color: #fd516c;"></i>';
 					$hasAndrad = true;
 				    }
                                     $avfall += ' <br /> ';
@@ -1064,7 +1063,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         // This is how you call iCalendar and PDF generators
                         $fprow += ' <a class="avfall-files-mob" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till tömningsdagar i din kalender (1 år)</a>';
                         $fprow += ' <a class="avfall-files-mob" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '">Skriv ut tömningsdagar (1 år)</a>';
-                        $fprow += '<div class="vc_col-sm-6 align-right vc_col-xs-6 bold">' + $avfall + '</div><div class="vc_col-sm-6 vc_col-xs-6">' + $nextDate + '</div>';
+                        $fprow += '<div class="vc_col-sm-6 align-right vc_col-xs-6 bold">' + $avfall + '</div><div class="vc_col-sm-6 vc_col-xs-6">' + $nextDate;
+			if ($hasAndrad)
+			    $fprow += ' <i class="fas fa-exclamation-circle" style="color: #fd516c;"></i>';
+			$fprow += '</div>';
                         $fprow += '</div>';
 
                         $fprow += '</div>';
