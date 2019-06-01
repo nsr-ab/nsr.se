@@ -362,8 +362,6 @@ class App
         $idToIndex = array();
         $dupIdTypDate = array();
 
-        //print_r($data->d);exit;
-
         foreach ($data->d as $item) {
             //$fpId = md5('PICKUPID' . $item->PickupId);
             //$fpId = $item->PickupId;
@@ -391,7 +389,7 @@ class App
                 $datetime = new \DateTime($date);
                 $typ = self::getFpDefenitions($item->ContentTypeCode, $cal->JobTemplate);
 
-                echo $item->CustomerId . " $date $typ " .$item->ContentTypeCode ." " . $cal->JobTemplate."\n";
+//                echo $item->CustomerId . " $date $typ " .$item->ContentTypeCode ." " . $cal->JobTemplate."\n";
                 if (isset($dupIdTypDate[$fpId . $typ . $date]))
                     continue;
                 $dupIdTypDate[$fpId . $typ . $date] = 1;
