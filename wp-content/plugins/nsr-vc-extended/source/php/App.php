@@ -353,6 +353,9 @@ class App
             exit;
         }
         
+        // Ändrade tömningsdagar
+        $andrtomn = array_map(function ($d) { return trim($d); }, explode(",", ANDRADTOMNING));
+
         $data = self::fetchPlansByCurl('/GetContainerCalendarDataByPickupName?pickupName=' .
             trim(urlencode($q)) . '&dateStart=' . $todaysDate . '&dateEnd=' . $stopDate . '&maxCountCalendarPerContainer=' . $maxcount);
 
@@ -405,6 +408,7 @@ class App
                 array_splice($colData['fp'][$i]['Exec']['DatumWeek'], $j, 0, ($datetime->format("W") % 2 == 1) ? 'Udda veckor' : 'Jämna veckor');
                 array_splice($colData['fp'][$i]['Exec']['AvfallsTyp'], $j, 0, $typ);
                 array_splice($colData['fp'][$i]['Exec']['AvfallsTypFormaterat'], $j, 0, $item->ContentTypeCode);
+                array_splice($colData['fp'][$i]['Exec']['Andrad'], $j, 0, in_array($date, $andrtomn) ? 1 : 0);
             }
         }
 
