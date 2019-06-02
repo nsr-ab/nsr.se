@@ -459,6 +459,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var data = {
                 action: 'fetchDataFromElasticSearch',
                 query: alphabet[int] + '*',
+		limit: 1000,
                 post_type: $post_type,
                 level: 'ajax',
                 type: 'json'
@@ -484,7 +485,19 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             for (var listInt = 0; listInt < json.responseJSON.sortguide.length; listInt++) {
                 if (typeof (json.responseJSON.sortguide[listInt].post_title) !== '' && typeof (json.responseJSON.sortguide[listInt].post_title !== 'undefined')) {
-                    markup += '<li>' + json.responseJSON.sortguide[listInt].post_title + '</li>';
+                    markup += '<li>';
+		    markup += json.responseJSON.sortguide[listInt].post_title;
+		    if (typeof (json.responseJSON.sortguide[listInt].post_meta) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta) !== 'undefined' &&
+			typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_hemma) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_hemma) !== 'undefined' &&
+			typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_hemma.name) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_hemma.name) !== 'undefined') {
+			markup += ' - <b>Hemma:</b>' + json.responseJSON.sortguide[listInt].post_meta.fraktion_hemma.name;
+		    }
+		    if (typeof (json.responseJSON.sortguide[listInt].post_meta) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta) !== 'undefined' &&
+			typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_avc) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_avc) !== 'undefined' &&
+			typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_avc.name) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_avc.name) !== 'undefined') {
+			markup += ' - <b>ÅVC:</b>' + json.responseJSON.sortguide[listInt].post_meta.fraktion_avc.name;
+		    }
+		    markup += '</li>';
                 }
             }
             markup += '</ul>';
