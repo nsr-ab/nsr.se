@@ -1084,6 +1084,10 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $fprow += '</div>';
 
                         $fprow += '</div>';
+
+			if ($hasAndrad) {
+				$fprow += '<div class="vc_col-sm-12 ftinfo"><i class="fas fa-exclamation-circle" style="color: #fd516c;"></i> = förändrad tömningsdag. Tömning kan ske en dag tidigare eller senare på grund av helgdag. Ställ ut kärl en dag före ordinarie tömningsdag och låt stå tills kärl är tömt.</div>';
+			}
                     }
                 }
 
