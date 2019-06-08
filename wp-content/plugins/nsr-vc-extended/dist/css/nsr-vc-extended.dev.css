@@ -1284,4 +1284,5 @@ tr {
 .ftinfo {
   font-size: 0.8rem;
   line-height: 1.5;
-  padding-top: 10px; }
+  padding-top: 10px;
+  padding-bottom: 10px; }
