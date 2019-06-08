@@ -459,6 +459,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
             var data = {
                 action: 'fetchDataFromElasticSearch',
                 query: alphabet[int] + '*',
+		limit: 1000,
                 post_type: $post_type,
                 level: 'ajax',
                 type: 'json'
@@ -484,7 +485,21 @@ VcExtended.NSRExtend.Extended = (function ($) {
 
             for (var listInt = 0; listInt < json.responseJSON.sortguide.length; listInt++) {
                 if (typeof (json.responseJSON.sortguide[listInt].post_title) !== '' && typeof (json.responseJSON.sortguide[listInt].post_title !== 'undefined')) {
-                    markup += '<li>' + json.responseJSON.sortguide[listInt].post_title + '</li>';
+                    markup += '<li>';
+		    markup += json.responseJSON.sortguide[listInt].post_title;
+		    if (typeof (json.responseJSON.sortguide[listInt].post_meta) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta) !== 'undefined' &&
+			typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_hemma) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_hemma) !== 'undefined' &&
+			typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_hemma.name) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_hemma.name) !== 'undefined' && 
+  		        json.responseJSON.sortguide[listInt].post_meta.fraktion_hemma.name) {
+			markup += ' - <b>Hemma:</b> ' + json.responseJSON.sortguide[listInt].post_meta.fraktion_hemma.name;
+		    }
+		    if (typeof (json.responseJSON.sortguide[listInt].post_meta) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta) !== 'undefined' &&
+			typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_avc) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_avc) !== 'undefined' &&
+			typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_avc.name) !== '' && typeof (json.responseJSON.sortguide[listInt].post_meta.fraktion_avc.name) !== 'undefined' &&
+	 	        json.responseJSON.sortguide[listInt].post_meta.fraktion_avc.name) {
+			markup += ' - <b>ÅVC:</b> ' + json.responseJSON.sortguide[listInt].post_meta.fraktion_avc.name;
+		    }
+		    markup += '</li>';
                 }
             }
             markup += '</ul>';
@@ -1018,6 +1033,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                 var $avfall = '';
                 var $weeks = '';
                 var $nextDate = '';
+		var $hasAndrad = false;
 
                 $('#searchkeyword-nsr').removeClass('invalid'), $('#searchkeyword-nsr').addClass('valid');
 
@@ -1035,11 +1051,15 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                         var avtyp = post.Exec.AvfallsTyp[avint].toLowerCase();
                                         $avfall += '<span>' + avtyp.charAt(0).toUpperCase() + avtyp.slice(1) + '</span>';
                                     }
-
                                     $avfall += ' <br /> ';
                                     //$weeks += post.Exec.DatumWeek[avint] + '<br />';
                                     $dub['nDate'] = post.Exec.AvfallsTyp[avint];
-                                    $nextDate += '<span>' + post.Exec.DatumFormaterat[avint] + '<span><br />';
+                                    $nextDate += '<span>' + post.Exec.DatumFormaterat[avint] + '<span>';
+				    if (post.Exec.Andrad[avint]) {
+					$hasAndrad = true;
+					$nextDate += ' <i class="fas fa-exclamation-circle" style="color: #fd516c;"></i>';
+				    }
+				    $nextDate += '<br />';
                                     $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
                                 }
                             }
@@ -1061,6 +1081,11 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $fprow += ' <a class="avfall-files-mob" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till tömningsdagar i din kalender (1 år)</a>';
                         $fprow += ' <a class="avfall-files-mob" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '">Skriv ut tömningsdagar (1 år)</a>';
                         $fprow += '<div class="vc_col-sm-6 align-right vc_col-xs-6 bold">' + $avfall + '</div><div class="vc_col-sm-6 vc_col-xs-6">' + $nextDate + '</div>';
+
+			if ($hasAndrad) {
+				$fprow += '<div class="vc_col-sm-12 ftinfo"><i class="fas fa-exclamation-circle" style="color: #fd516c;"></i> = förändrad tömningsdag. Tömning kan ske en dag tidigare eller senare på grund av helgdag. Ställ ut kärl en dag före ordinarie tömningsdag och låt stå tills kärl är tömt.</div>';
+			}
+
                         $fprow += '</div>';
 
                         $fprow += '</div>';

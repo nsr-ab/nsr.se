@@ -274,6 +274,22 @@ class App
         if ($defenition == 'Slam akut nästa arbetsdag' || $jobtemplate == "Slam akut nästa arbetsdag")
             return 'SLAM';
 
+        // Tillagt 190608
+        if ($defenition == 'Tidningar' && $jobtemplate == "Tömning")
+            return 'TIDNINGAR';
+        if ($defenition == 'Hårdplast' && $jobtemplate == "Tömning")
+            return 'HÅRDPLAST';
+        if ($defenition == 'Mjukplast' && $jobtemplate == "Tömning")
+            return 'MJUKPLAST';
+        if ($defenition == 'Ofärgat glas' && $jobtemplate == "Tömning")
+            return 'OFÄRGAT GLAS';
+        if ($defenition == 'Färgat glas' && $jobtemplate == "Tömning")
+            return 'FÄRGAT GLAS';
+        if ($defenition == 'Pappersförpackningar' && $jobtemplate == "Tömning")
+            return 'PAPPERSFÖRPACK.';
+        if ($defenition == 'Metallförpackningar' && $jobtemplate == "Tömning")
+            return 'METALLFÖRPACK.';
+
        // return "$jobtemplate $defenition";
         return false;
 
@@ -518,11 +534,18 @@ class App
         if ($calendar_type == "ical") {
             $icalobj = new \VcExtended\Library\ZapCal\ZCiCal("Tömningskalender");
             $index = 1;
-            foreach ($results as $result) {            
-                $text = $result['AvfallsTyp'] . " - " . $title;
+
+            foreach ($results as $result) {
                 if (in_array($result['Datum'], $andrtomn)) {
-                    $text = "ÄNDRAD TÖMNINGSDAG - " . $text;
+                    $eventobj = new \VcExtended\Library\ZapCal\ZCiCalNode("VEVENT", $icalobj->curnode);
+                    $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("SUMMARY:" . $result['AvfallsTyp']));
+                    $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTART:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'] . " 00:00:00")));
+                    $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTEND:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'] . " 23:59:59")));
+                    $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("UID:" . date('Y-m-d-H-i-s') . "@nsr.se" . "#" . ($index++)));
+                    $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTAMP:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime()));
+                    $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("Description:" . \VcExtended\Library\ZapCal\ZCiCal::formatContent("Ändrad tömningsdag - ställ ut kärl en dag tidigare")));
                 }
+                $text = $result['AvfallsTyp'] . " - " . $title;
                 $eventobj = new \VcExtended\Library\ZapCal\ZCiCalNode("VEVENT", $icalobj->curnode);
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("SUMMARY:" . $result['AvfallsTyp']));
                 $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTART:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'] . " 00:00:00")));
