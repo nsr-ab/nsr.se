@@ -454,7 +454,7 @@ class App
         $q = $_GET['query'];
         $post_type = $_GET['post_type'];
 
-        $colData  = $this->fetchDataFromFetchPlannerInternal($todaysDate, $stopDate, $q, $post_type);
+        $colData  = $this->fetchDataFromFetchPlannerInternal($todaysDate, $stopDate, $q, $post_type, 100);
         return wp_send_json($colData);
     }
 
@@ -538,7 +538,7 @@ class App
             foreach ($results as $result) {
                 if (in_array($result['Datum'], $andrtomn)) {
                     $eventobj = new \VcExtended\Library\ZapCal\ZCiCalNode("VEVENT", $icalobj->curnode);
-                    $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("SUMMARY:" . $result['AvfallsTyp']));
+                    $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("SUMMARY:" . \VcExtended\Library\ZapCal\ZCiCal::formatContent("Ändrad tömningsdag - ställ ut kärl en dag tidigare")));
                     $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTART:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'] . " 00:00:00")));
                     $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTEND:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'] . " 23:59:59")));
                     $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("UID:" . date('Y-m-d-H-i-s') . "@nsr.se" . "#" . ($index++)));
