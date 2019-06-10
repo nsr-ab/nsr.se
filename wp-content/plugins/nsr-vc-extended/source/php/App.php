@@ -534,9 +534,11 @@ class App
         if ($calendar_type == "ical") {
             $icalobj = new \VcExtended\Library\ZapCal\ZCiCal("Tömningskalender");
             $index = 1;
+            $doneandr = array();
 
             foreach ($results as $result) {
-                if (in_array($result['Datum'], $andrtomn)) {
+                if (in_array($result['Datum'], $andrtomn) && !in_array($result['Datum'], $doneandr)) {
+                    $doneandr[] = $result['Datum'];
                     $eventobj = new \VcExtended\Library\ZapCal\ZCiCalNode("VEVENT", $icalobj->curnode);
                     $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("SUMMARY:" . \VcExtended\Library\ZapCal\ZCiCal::formatContent("Ändrad tömningsdag - ställ ut kärl en dag tidigare")));
                     $eventobj->addNode(new \VcExtended\Library\ZapCal\ZCiCalDataNode("DTSTART:" . \VcExtended\Library\ZapCal\ZCiCal::fromSqlDateTime($result['Datum'] . " 00:00:00")));
