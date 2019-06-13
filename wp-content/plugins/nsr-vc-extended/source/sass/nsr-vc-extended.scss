@@ -1016,12 +1016,12 @@ input[type=text]:focus.invalid {
             span, b {
                 text-transform: capitalize;
             }
-            // @media (min-width: 768px) and (max-width: 803px) {
-            //     width: 45%;
-            // }
-            // @media (min-width: 803px) and (max-width: 1216px) {
-            //     width: 50%;
-            // }
+            @media (min-width: 768px) and (max-width: 803px) {
+                width: auto;
+            }
+            @media (min-width: 803px) and (max-width: 1216px) {
+                width: auto;
+            }
         }
         .align-right {
             text-align: right;
@@ -1081,14 +1081,14 @@ input[type=text]:focus.invalid {
                     display: block;
                 }
             }
-            // @media (min-width: 768px) and (max-width: 803px) {
-            //     width: 55%;
-            //     float: right;
-            // }
-            // @media (min-width: 803px) and (max-width: 1216px) {
-            //     width: 50%;
-            //     float: right;
-            // }
+            @media (min-width: 768px) and (max-width: 803px) {
+                width: auto;
+                float: right;
+            }
+            @media (min-width: 803px) and (max-width: 1216px) {
+                width: auto;
+                float: right;
+            }
 
             span {
                 padding-bottom: 10px;
