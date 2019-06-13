@@ -1057,7 +1057,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                                     $nextDate += '<span>' + post.Exec.DatumFormaterat[avint] + '<span>';
 				    if (post.Exec.Andrad[avint]) {
 					$hasAndrad = true;
-					$nextDate += ' <i class="fas fa-exclamation-circle" style="color: #fd516c;"></i>';
+					$nextDate += ' <i class="fas fa-exclamation-circle" style="color: #fd516c; margin-top: 5px; position: aboslute;"></i>';
 				    }
 				    $nextDate += '<br />';
                                     $dub[avint] = post.Exec.AvfallsTyp[avint] + ' ' + post.Exec.Datum[avint];
