@@ -716,10 +716,10 @@ input[type=text]:focus.invalid {
       text-transform: capitalize; }
     @media (min-width: 768px) and (max-width: 803px) {
       #nsr-searchResult .fp .fp-address {
-        width: auto; } }
+        width: 40%; } }
     @media (min-width: 803px) and (max-width: 1216px) {
       #nsr-searchResult .fp .fp-address {
-        width: auto; } }
+        width: 55%; } }
     #nsr-searchResult .fp .align-right {
       text-align: right; }
       @media (max-width: 767px) {
@@ -759,11 +759,11 @@ input[type=text]:focus.invalid {
           display: block; } }
       @media (min-width: 768px) and (max-width: 803px) {
         #nsr-searchResult .fp .avfall {
-          width: auto;
+          width: 60%;
           float: right; } }
       @media (min-width: 803px) and (max-width: 1216px) {
         #nsr-searchResult .fp .avfall {
-          width: auto;
+          width: 45%;
           float: right; } }
       #nsr-searchResult .fp .avfall span {
         padding-bottom: 10px; }
