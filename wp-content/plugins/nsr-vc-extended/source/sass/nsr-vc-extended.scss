@@ -1017,10 +1017,10 @@ input[type=text]:focus.invalid {
                 text-transform: capitalize;
             }
             @media (min-width: 768px) and (max-width: 803px) {
-                width: 40%;
+                width: 45%;
             }
             @media (min-width: 803px) and (max-width: 1216px) {
-                width: 55%;
+                width: 50%;
             }
         }
         .align-right {
@@ -1082,11 +1082,11 @@ input[type=text]:focus.invalid {
                 }
             }
             @media (min-width: 768px) and (max-width: 803px) {
-                width: 60%;
+                width: 55%;
                 float: right;
             }
             @media (min-width: 803px) and (max-width: 1216px) {
-                width: 45%;
+                width: 50%;
                 float: right;
             }
 
