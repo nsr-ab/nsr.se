@@ -1076,7 +1076,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $fprow += ' <a class="avfall-files-desk" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=ical&id=' + encodeURIComponent(post.id) + '">Lägg till tömningsdagar i din kalender (1 år)</a>';
                         $fprow += ' <a class="avfall-files-desk" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '">Skriv ut tömningsdagar (1 år)</a>';
 			if ($hasAndrad) {
-				$fprow += '<div class="avfall-files-desk ftinfo"><i class="fas fa-exclamation-circle" style="color: #fd516c;"></i> = förändrad tömningsdag. Tömning kan ske en dag tidigare eller senare på grund av helgdag. Ställ ut kärl en dag före ordinarie tömningsdag och låt stå tills kärl är tömt.</div>';
+				$fprow += '<div class="avfall-files-desk ftinfo"><i class="fas fa-exclamation-circle" style="color: #fd516c; margin-top: 5px; position: aboslute;"></i> = förändrad tömningsdag. Tömning kan ske en dag tidigare eller senare på grund av helgdag. Ställ ut kärl en dag före ordinarie tömningsdag och låt stå tills kärl är tömt.</div>';
 			}
 			$fprow += '</div>';
                         $fprow += '<div  class="vc_col-sm-4 avfall hideDetails">';
@@ -1085,7 +1085,7 @@ VcExtended.NSRExtend.Extended = (function ($) {
                         $fprow += ' <a class="avfall-files-mob" target="_blank" href="/wp-admin/admin-ajax.php?action=fetchDataFromFetchPlannerCalendar&query=' + encodeURIComponent(result.q) + '&level=ajax&type=json&calendar_type=pdf&id=' + encodeURIComponent(post.id) + '">Skriv ut tömningsdagar (1 år)</a>';
                         $fprow += '<div class="vc_col-sm-6 align-right vc_col-xs-6 bold">' + $avfall + '</div><div class="vc_col-sm-6 vc_col-xs-6">' + $nextDate + '</div>';
 			if ($hasAndrad) {
-				$fprow += '<div class="avfall-files-mob ftinfo"><i class="fas fa-exclamation-circle" style="color: #fd516c;"></i> = förändrad tömningsdag. Tömning kan ske en dag tidigare eller senare på grund av helgdag. Ställ ut kärl en dag före ordinarie tömningsdag och låt stå tills kärl är tömt.</div>';
+				$fprow += '<div class="avfall-files-mob ftinfo"><i class="fas fa-exclamation-circle" style="color: #fd516c; margin-top: 5px; position: aboslute;"></i> = förändrad tömningsdag. Tömning kan ske en dag tidigare eller senare på grund av helgdag. Ställ ut kärl en dag före ordinarie tömningsdag och låt stå tills kärl är tömt.</div>';
 			}
                         $fprow += '</div>';
 
