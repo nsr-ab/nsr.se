@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^6.0.45",
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-concat": "^2.5.2",
     "gulp-copy": "0.0.2",
